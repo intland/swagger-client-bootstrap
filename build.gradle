@@ -1,0 +1,77 @@
+import groovy.json.JsonBuilder
+import groovy.json.JsonSlurper
+import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
+
+buildscript {
+    repositories {
+        mavenCentral()
+
+        maven {
+            url "http://repository.codebeamer.com:8080/repository/internal"
+        }
+    }
+    dependencies {
+        classpath group: 'org.openapitools', name: 'openapi-generator-gradle-plugin', version: '4.0.0'
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+group 'com.intland.codebeamer'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+def codeBeamerBaseUrl = "http://localhost:8080/cb"
+def codeBeamerSwaggerJsonUrl = "$codeBeamerBaseUrl/v2/swagger.json"
+// From codeBeamer 10.0
+// def codeBeamerSwaggerJsonUrl = "$codeBeamerBaseUrl/api/docs/v3/api-docs"
+
+def swaggerJsonPath = "$projectDir/swagger_api.json"
+def swaggerBuildDir = "$buildDir/swagger"
+def swaggerClientDir = "$projectDir/swagger-client-sdk"
+
+task cleanSwaggerClient{
+    doLast {
+        delete swaggerBuildDir
+        delete swaggerClientDir
+    }
+}
+
+task generateSwaggerClient(type: GenerateTask){
+    group = "Swagger"
+    description = "Generate java swagger client"
+
+    dependsOn 'cleanSwaggerClient'
+
+    generatorName = "java"
+    inputSpec = swaggerJsonPath
+    modelPackage = "com.intland.swagger.client.model"
+    apiPackage = "com.intland.swagger.client.api"
+    invokerPackage = "com.intland.swagger.client"
+    packageName = "com.intland.swagger.client"
+
+    outputDir = swaggerBuildDir
+    configOptions = [
+            dateLibrary: "joda",
+            systemProperties: "-classpath=" + sourceSets.main.compileClasspath
+    ]
+
+    doLast {
+        copy {
+            from swaggerBuildDir
+            into swaggerClientDir
+        }
+    }
+}
+
+task downloadSwaggerJson {
+    doLast {
+        def swaggerJson = new File(swaggerJsonPath)
+        new URL(codeBeamerSwaggerJsonUrl).withInputStream{ i -> swaggerJson.withOutputStream{ it << i }}
+        def parsedJson = new JsonBuilder(new JsonSlurper().parseText(swaggerJson.text))
+        swaggerJson.text = parsedJson.toPrettyString()
+    }
+}

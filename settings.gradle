@@ -1,0 +1,4 @@
+rootProject.name = 'swagger-client-bootstrap'
+include 'swagger-client-sdk'
+include 'swagger-client'
+

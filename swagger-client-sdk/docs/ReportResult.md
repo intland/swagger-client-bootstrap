@@ -6,8 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**reportId** | **Integer** | Id of the report |  [optional]
-**reportName** | **String** | Name of the report |  [optional]
+**report** | [**ReportReference**](ReportReference.md) |  |  [optional]
 **cbQL** | **String** | CbQL query behind the report |  [optional]
 **columns** | [**List&lt;ReportColumn&gt;**](ReportColumn.md) | Column information |  [optional]
 **pagingInformation** | [**ReportPagingInformation**](ReportPagingInformation.md) |  |  [optional]

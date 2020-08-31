@@ -1,16 +1,85 @@
 # ProjectApi
 
-All URIs are relative to *http://localhost:8080/cb/api/docs*
+All URIs are relative to *http://localhost:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deployConfiguration**](ProjectApi.md#deployConfiguration) | **POST** /v2/project/deploy | Deploy a project configuration to a Project
-[**export**](ProjectApi.md#export) | **POST** /v2/project/{projectId}/content | Exports the specified project to a zip file
-[**getAllTrackersInProject**](ProjectApi.md#getAllTrackersInProject) | **POST** /v2/project/{projectId}/trackers | Get the list of all trackers in a project
-[**getProjectById**](ProjectApi.md#getProjectById) | **GET** /v2/project/{projectId} | Get project
-[**getProjects**](ProjectApi.md#getProjects) | **GET** /v2/project | Get projects
-[**getTrackers**](ProjectApi.md#getTrackers) | **GET** /v2/project/{projectId}/trackers | Get trackers
+[**createTracker**](ProjectApi.md#createTracker) | **POST** /v3/projects/{projectId}/trackers | Create a tracker
+[**deployConfiguration**](ProjectApi.md#deployConfiguration) | **POST** /v3/projects/deploy | Deploy a project configuration to a Project
+[**getProjectById**](ProjectApi.md#getProjectById) | **GET** /v3/projects/{projectId} | Get project
+[**getProjects**](ProjectApi.md#getProjects) | **GET** /v3/projects | Get projects
+[**getTopLevelWikiPages**](ProjectApi.md#getTopLevelWikiPages) | **GET** /v3/projects/{projectId}/wikipages | Get wiki pages of a project
+[**getTrackers**](ProjectApi.md#getTrackers) | **GET** /v3/projects/{projectId}/trackers | Get trackers
+[**searchAllTrackersInProject**](ProjectApi.md#searchAllTrackersInProject) | **POST** /v3/projects/{projectId}/trackers/search | Get the list of all trackers in a project
+[**searchProjects**](ProjectApi.md#searchProjects) | **POST** /v3/projects/search | Search projects by given criteria
 
+
+<a name="createTracker"></a>
+# **createTracker**
+> Tracker createTracker(projectId, templateId, tracker)
+
+Create a tracker
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.ProjectApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+ProjectApi apiInstance = new ProjectApi();
+Integer projectId = 56; // Integer | 
+Integer templateId = 56; // Integer | Identifier of the template tracker.
+Tracker tracker = new Tracker(); // Tracker | 
+try {
+    Tracker result = apiInstance.createTracker(projectId, templateId, tracker);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ProjectApi#createTracker");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectId** | **Integer**|  |
+ **templateId** | **Integer**| Identifier of the template tracker. | [optional]
+ **tracker** | [**Tracker**](Tracker.md)|  | [optional]
+
+### Return type
+
+[**Tracker**](Tracker.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="deployConfiguration"></a>
 # **deployConfiguration**
@@ -23,9 +92,29 @@ The configuration file needs to be uploaded to codeBeamer Documents
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.ProjectApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 ProjectApi apiInstance = new ProjectApi();
 DeployProject deployProject = new DeployProject(); // DeployProject | 
@@ -50,97 +139,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="export"></a>
-# **export**
-> File export(projectId, exportProject)
-
-Exports the specified project to a zip file
-
-### Example
-```java
-// Import classes:
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.api.ProjectApi;
-
-
-ProjectApi apiInstance = new ProjectApi();
-Integer projectId = 56; // Integer | 
-ExportProject exportProject = new ExportProject(); // ExportProject | 
-try {
-    File result = apiInstance.export(projectId, exportProject);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectApi#export");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **Integer**|  |
- **exportProject** | [**ExportProject**](ExportProject.md)|  | [optional]
-
-### Return type
-
-[**File**](File.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/zip
-
-<a name="getAllTrackersInProject"></a>
-# **getAllTrackersInProject**
-> List&lt;Tracker&gt; getAllTrackersInProject(projectId, trackerFilteringRequest)
-
-Get the list of all trackers in a project
-
-### Example
-```java
-// Import classes:
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.api.ProjectApi;
-
-
-ProjectApi apiInstance = new ProjectApi();
-Integer projectId = 56; // Integer | 
-TrackerFilteringRequest trackerFilteringRequest = new TrackerFilteringRequest(); // TrackerFilteringRequest | 
-try {
-    List<Tracker> result = apiInstance.getAllTrackersInProject(projectId, trackerFilteringRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProjectApi#getAllTrackersInProject");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **Integer**|  |
- **trackerFilteringRequest** | [**TrackerFilteringRequest**](TrackerFilteringRequest.md)|  | [optional]
-
-### Return type
-
-[**List&lt;Tracker&gt;**](Tracker.md)
-
-### Authorization
-
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -156,9 +155,29 @@ Get project
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.ProjectApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 ProjectApi apiInstance = new ProjectApi();
 Integer projectId = 56; // Integer | 
@@ -183,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -192,20 +211,40 @@ No authorization required
 
 <a name="getProjects"></a>
 # **getProjects**
-> List&lt;Project&gt; getProjects()
+> List&lt;ProjectReference&gt; getProjects()
 
 Get projects
 
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.ProjectApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 ProjectApi apiInstance = new ProjectApi();
 try {
-    List<Project> result = apiInstance.getProjects();
+    List<ProjectReference> result = apiInstance.getProjects();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProjectApi#getProjects");
@@ -218,11 +257,74 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;Project&gt;**](Project.md)
+[**List&lt;ProjectReference&gt;**](ProjectReference.md)
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getTopLevelWikiPages"></a>
+# **getTopLevelWikiPages**
+> WikiOutlineSearchResult getTopLevelWikiPages(projectId)
+
+Get wiki pages of a project
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.ProjectApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+ProjectApi apiInstance = new ProjectApi();
+Integer projectId = 56; // Integer | ID of the project
+try {
+    WikiOutlineSearchResult result = apiInstance.getTopLevelWikiPages(projectId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ProjectApi#getTopLevelWikiPages");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectId** | **Integer**| ID of the project |
+
+### Return type
+
+[**WikiOutlineSearchResult**](WikiOutlineSearchResult.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -231,21 +333,41 @@ No authorization required
 
 <a name="getTrackers"></a>
 # **getTrackers**
-> List&lt;Tracker&gt; getTrackers(projectId)
+> List&lt;TrackerReference&gt; getTrackers(projectId)
 
 Get trackers
 
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.ProjectApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 ProjectApi apiInstance = new ProjectApi();
 Integer projectId = 56; // Integer | 
 try {
-    List<Tracker> result = apiInstance.getTrackers(projectId);
+    List<TrackerReference> result = apiInstance.getTrackers(projectId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProjectApi#getTrackers");
@@ -261,14 +383,142 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;Tracker&gt;**](Tracker.md)
+[**List&lt;TrackerReference&gt;**](TrackerReference.md)
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="searchAllTrackersInProject"></a>
+# **searchAllTrackersInProject**
+> TrackerSearchResult searchAllTrackersInProject(projectId, trackerFilteringRequest)
+
+Get the list of all trackers in a project
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.ProjectApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+ProjectApi apiInstance = new ProjectApi();
+Integer projectId = 56; // Integer | 
+TrackerFilteringRequest trackerFilteringRequest = new TrackerFilteringRequest(); // TrackerFilteringRequest | 
+try {
+    TrackerSearchResult result = apiInstance.searchAllTrackersInProject(projectId, trackerFilteringRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ProjectApi#searchAllTrackersInProject");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectId** | **Integer**|  |
+ **trackerFilteringRequest** | [**TrackerFilteringRequest**](TrackerFilteringRequest.md)|  | [optional]
+
+### Return type
+
+[**TrackerSearchResult**](TrackerSearchResult.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="searchProjects"></a>
+# **searchProjects**
+> ProjectSearchResult searchProjects(projectFilteringRequest)
+
+Search projects by given criteria
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.ProjectApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+ProjectApi apiInstance = new ProjectApi();
+ProjectFilteringRequest projectFilteringRequest = new ProjectFilteringRequest(); // ProjectFilteringRequest | 
+try {
+    ProjectSearchResult result = apiInstance.searchProjects(projectFilteringRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ProjectApi#searchProjects");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectFilteringRequest** | [**ProjectFilteringRequest**](ProjectFilteringRequest.md)|  | [optional]
+
+### Return type
+
+[**ProjectSearchResult**](ProjectSearchResult.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

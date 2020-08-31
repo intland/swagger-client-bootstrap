@@ -6,8 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fieldId** | **Integer** | Field identifier in a tracker | 
-**trackerId** | **Integer** | Tracker identifier |  [optional]
+**field** | [**FieldReference**](FieldReference.md) |  | 
 **columnIndex** | **Integer** | Index of the column in the report table. | 
 **columnWidthPercentage** | **Double** | Width of the column in percentage. |  [optional]
 

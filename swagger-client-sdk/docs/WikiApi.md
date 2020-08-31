@@ -1,0 +1,857 @@
+# WikiApi
+
+All URIs are relative to *http://localhost:8080/cb/api*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**checkWikiPageLock**](WikiApi.md#checkWikiPageLock) | **GET** /v3/wikipages/{wikiId}/lock | Check whether a wiki page is locked, and if it is, retrieve the details of the lock
+[**createWikiPage**](WikiApi.md#createWikiPage) | **POST** /v3/wikipages | Create a new wiki page
+[**deleteWikiPage**](WikiApi.md#deleteWikiPage) | **DELETE** /v3/wikipages/{wikiId} | Delete a wiki page by its ID
+[**getWikiPage**](WikiApi.md#getWikiPage) | **GET** /v3/wikipages/{wikiId} | Get wiki page
+[**getWikiPageHistory**](WikiApi.md#getWikiPageHistory) | **GET** /v3/wikipages/{wikiId}/history | Returns the change history of the specified wiki page
+[**getWikiPermissions**](WikiApi.md#getWikiPermissions) | **GET** /v3/wikipages/{wikiId}/permissions | Get permissions of a wiki page
+[**lockWikiPage**](WikiApi.md#lockWikiPage) | **PUT** /v3/wikipages/{wikiId}/lock | Lock a wiki page
+[**renderWikiMarkup**](WikiApi.md#renderWikiMarkup) | **POST** /v3/projects/{projectId}/wiki2html | Render a wiki page as HTML in a specific context
+[**renderWikiPage**](WikiApi.md#renderWikiPage) | **GET** /v3/wikipages/{wikiId}/html | Render a wiki page as HTML
+[**restoreWikiPageContent**](WikiApi.md#restoreWikiPageContent) | **PUT** /v3/wikipages/{wikiId}/restorecontent | Restores the content from a previous version of a wiki page
+[**setWikiPermissions**](WikiApi.md#setWikiPermissions) | **PUT** /v3/wikipages/{wikiId}/permissions | Set permissions of a wiki page
+[**unlockWikiPage**](WikiApi.md#unlockWikiPage) | **DELETE** /v3/wikipages/{wikiId}/lock | Unlock a wiki page
+[**updateWikiPage**](WikiApi.md#updateWikiPage) | **PUT** /v3/wikipages/{itemId} | Update and/or move a wiki page
+
+
+<a name="checkWikiPageLock"></a>
+# **checkWikiPageLock**
+> LockInfo checkWikiPageLock(wikiId)
+
+Check whether a wiki page is locked, and if it is, retrieve the details of the lock
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.WikiApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+WikiApi apiInstance = new WikiApi();
+Integer wikiId = 56; // Integer | Wiki page id
+try {
+    LockInfo result = apiInstance.checkWikiPageLock(wikiId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WikiApi#checkWikiPageLock");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wikiId** | **Integer**| Wiki page id |
+
+### Return type
+
+[**LockInfo**](LockInfo.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="createWikiPage"></a>
+# **createWikiPage**
+> WikiPage createWikiPage(wikiPage)
+
+Create a new wiki page
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.WikiApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+WikiApi apiInstance = new WikiApi();
+WikiPage wikiPage = new WikiPage(); // WikiPage | Wiki page details
+try {
+    WikiPage result = apiInstance.createWikiPage(wikiPage);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WikiApi#createWikiPage");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wikiPage** | [**WikiPage**](WikiPage.md)| Wiki page details |
+
+### Return type
+
+[**WikiPage**](WikiPage.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="deleteWikiPage"></a>
+# **deleteWikiPage**
+> deleteWikiPage(wikiId)
+
+Delete a wiki page by its ID
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.WikiApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+WikiApi apiInstance = new WikiApi();
+Integer wikiId = 56; // Integer | ID of the wiki page
+try {
+    apiInstance.deleteWikiPage(wikiId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WikiApi#deleteWikiPage");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wikiId** | **Integer**| ID of the wiki page |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+<a name="getWikiPage"></a>
+# **getWikiPage**
+> WikiPage getWikiPage(wikiId, version)
+
+Get wiki page
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.WikiApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+WikiApi apiInstance = new WikiApi();
+Integer wikiId = 56; // Integer | ID of the wiki page
+Integer version = 56; // Integer | Version of the wiki page
+try {
+    WikiPage result = apiInstance.getWikiPage(wikiId, version);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WikiApi#getWikiPage");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wikiId** | **Integer**| ID of the wiki page |
+ **version** | **Integer**| Version of the wiki page | [optional]
+
+### Return type
+
+[**WikiPage**](WikiPage.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getWikiPageHistory"></a>
+# **getWikiPageHistory**
+> ArtifactRevisionSearchResult getWikiPageHistory(wikiId, page, pageSize)
+
+Returns the change history of the specified wiki page
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.WikiApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+WikiApi apiInstance = new WikiApi();
+Integer wikiId = 56; // Integer | 
+Integer page = 1; // Integer | Index of the result page starting from 1.
+Integer pageSize = 25; // Integer | Number of items in a result page. Max value: 500
+try {
+    ArtifactRevisionSearchResult result = apiInstance.getWikiPageHistory(wikiId, page, pageSize);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WikiApi#getWikiPageHistory");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wikiId** | **Integer**|  |
+ **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25]
+
+### Return type
+
+[**ArtifactRevisionSearchResult**](ArtifactRevisionSearchResult.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getWikiPermissions"></a>
+# **getWikiPermissions**
+> List&lt;AccessPermission&gt; getWikiPermissions(wikiId)
+
+Get permissions of a wiki page
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.WikiApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+WikiApi apiInstance = new WikiApi();
+Integer wikiId = 56; // Integer | Wiki page id
+try {
+    List<AccessPermission> result = apiInstance.getWikiPermissions(wikiId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WikiApi#getWikiPermissions");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wikiId** | **Integer**| Wiki page id |
+
+### Return type
+
+[**List&lt;AccessPermission&gt;**](AccessPermission.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="lockWikiPage"></a>
+# **lockWikiPage**
+> lockWikiPage(wikiId, lockRequest)
+
+Lock a wiki page
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.WikiApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+WikiApi apiInstance = new WikiApi();
+Integer wikiId = 56; // Integer | Wiki page id
+LockRequest lockRequest = new LockRequest(); // LockRequest | Requested lock configuration
+try {
+    apiInstance.lockWikiPage(wikiId, lockRequest);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WikiApi#lockWikiPage");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wikiId** | **Integer**| Wiki page id |
+ **lockRequest** | [**LockRequest**](LockRequest.md)| Requested lock configuration | [optional]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+<a name="renderWikiMarkup"></a>
+# **renderWikiMarkup**
+> String renderWikiMarkup(projectId, wikiRenderRequest)
+
+Render a wiki page as HTML in a specific context
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.WikiApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+WikiApi apiInstance = new WikiApi();
+Integer projectId = 56; // Integer | 
+WikiRenderRequest wikiRenderRequest = new WikiRenderRequest(); // WikiRenderRequest | 
+try {
+    String result = apiInstance.renderWikiMarkup(projectId, wikiRenderRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WikiApi#renderWikiMarkup");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectId** | **Integer**|  |
+ **wikiRenderRequest** | [**WikiRenderRequest**](WikiRenderRequest.md)|  | [optional]
+
+### Return type
+
+**String**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: text/html, application/json
+
+<a name="renderWikiPage"></a>
+# **renderWikiPage**
+> String renderWikiPage(wikiId, version)
+
+Render a wiki page as HTML
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.WikiApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+WikiApi apiInstance = new WikiApi();
+Integer wikiId = 56; // Integer | ID of the wiki page
+Integer version = 56; // Integer | version of the wiki page
+try {
+    String result = apiInstance.renderWikiPage(wikiId, version);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WikiApi#renderWikiPage");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wikiId** | **Integer**| ID of the wiki page |
+ **version** | **Integer**| version of the wiki page | [optional]
+
+### Return type
+
+**String**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/html, application/json
+
+<a name="restoreWikiPageContent"></a>
+# **restoreWikiPageContent**
+> WikiPage restoreWikiPageContent(wikiId, version)
+
+Restores the content from a previous version of a wiki page
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.WikiApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+WikiApi apiInstance = new WikiApi();
+Integer wikiId = 56; // Integer | Wiki page id
+Integer version = 56; // Integer | The version to be restored
+try {
+    WikiPage result = apiInstance.restoreWikiPageContent(wikiId, version);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WikiApi#restoreWikiPageContent");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wikiId** | **Integer**| Wiki page id |
+ **version** | **Integer**| The version to be restored |
+
+### Return type
+
+[**WikiPage**](WikiPage.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="setWikiPermissions"></a>
+# **setWikiPermissions**
+> List&lt;AccessPermission&gt; setWikiPermissions(wikiId, recursive, accessPermissionsRequest)
+
+Set permissions of a wiki page
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.WikiApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+WikiApi apiInstance = new WikiApi();
+Integer wikiId = 56; // Integer | Wiki page id
+Boolean recursive = false; // Boolean | Set permissions of children recursively
+AccessPermissionsRequest accessPermissionsRequest = new AccessPermissionsRequest(); // AccessPermissionsRequest | 
+try {
+    List<AccessPermission> result = apiInstance.setWikiPermissions(wikiId, recursive, accessPermissionsRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WikiApi#setWikiPermissions");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wikiId** | **Integer**| Wiki page id |
+ **recursive** | **Boolean**| Set permissions of children recursively | [optional] [default to false]
+ **accessPermissionsRequest** | [**AccessPermissionsRequest**](AccessPermissionsRequest.md)|  | [optional]
+
+### Return type
+
+[**List&lt;AccessPermission&gt;**](AccessPermission.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="unlockWikiPage"></a>
+# **unlockWikiPage**
+> unlockWikiPage(wikiId)
+
+Unlock a wiki page
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.WikiApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+WikiApi apiInstance = new WikiApi();
+Integer wikiId = 56; // Integer | Wiki page id
+try {
+    apiInstance.unlockWikiPage(wikiId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WikiApi#unlockWikiPage");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wikiId** | **Integer**| Wiki page id |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+<a name="updateWikiPage"></a>
+# **updateWikiPage**
+> WikiPage updateWikiPage(itemId, wikiPage)
+
+Update and/or move a wiki page
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.WikiApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+WikiApi apiInstance = new WikiApi();
+Integer itemId = 56; // Integer | Id of the wiki page to update
+WikiPage wikiPage = new WikiPage(); // WikiPage | Wiki page details
+try {
+    WikiPage result = apiInstance.updateWikiPage(itemId, wikiPage);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WikiApi#updateWikiPage");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**| Id of the wiki page to update |
+ **wikiPage** | [**WikiPage**](WikiPage.md)| Wiki page details |
+
+### Return type
+
+[**WikiPage**](WikiPage.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+

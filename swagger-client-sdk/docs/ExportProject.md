@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **skipDocuments** | **Boolean** | If true, then the Documents are not exported |  [optional]
 **skipReports** | **Boolean** | If true, then the Reports are not exported |  [optional]
 **skipBranches** | **Boolean** | If true, then the Branches are not exported |  [optional]
+**selectedTrackerIds** | **List&lt;Integer&gt;** | If this list is not empty then only the Trackers listed here are exported.é |  [optional]
 
 
 

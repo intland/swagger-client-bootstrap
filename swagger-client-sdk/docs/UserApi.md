@@ -1,13 +1,14 @@
 # UserApi
 
-All URIs are relative to *http://localhost:8080/cb/api/docs*
+All URIs are relative to *http://localhost:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getUser**](UserApi.md#getUser) | **GET** /v2/user/{userId} | Get user
-[**getUserByEmail**](UserApi.md#getUserByEmail) | **GET** /v2/user/findByEmail | Get user by email address
-[**getUserByName**](UserApi.md#getUserByName) | **GET** /v2/user/findByName | Get user by name
-[**getUsers**](UserApi.md#getUsers) | **GET** /v2/user | Get users
+[**getUser**](UserApi.md#getUser) | **GET** /v3/users/{userId} | Get user
+[**getUserByEmail**](UserApi.md#getUserByEmail) | **GET** /v3/users/findByEmail | Get user by email address
+[**getUserByName**](UserApi.md#getUserByName) | **GET** /v3/users/findByName | Get user by name
+[**getUsers**](UserApi.md#getUsers) | **GET** /v3/users | Get users
+[**searchUsers**](UserApi.md#searchUsers) | **POST** /v3/users/search | Search users
 
 
 <a name="getUser"></a>
@@ -19,9 +20,29 @@ Get user
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.UserApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 UserApi apiInstance = new UserApi();
 Integer userId = 56; // Integer | 
@@ -46,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -62,9 +83,29 @@ Get user by email address
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.UserApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 UserApi apiInstance = new UserApi();
 String email = "email_example"; // String | 
@@ -89,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -105,9 +146,29 @@ Get user by name
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.UserApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 UserApi apiInstance = new UserApi();
 String name = "name_example"; // String | 
@@ -132,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -141,16 +202,36 @@ No authorization required
 
 <a name="getUsers"></a>
 # **getUsers**
-> UserSearchResult getUsers(page, pageSize, groupId, queryString)
+> UserReferenceSearchResult getUsers(page, pageSize, groupId, queryString)
 
 Get users
 
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.UserApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 UserApi apiInstance = new UserApi();
 Integer page = 1; // Integer | Index of the result page starting from 1.
@@ -158,7 +239,7 @@ Integer pageSize = 25; // Integer | Number of items in a result page. Max value:
 Integer groupId = 56; // Integer | 
 String queryString = Intland; // String | 
 try {
-    UserSearchResult result = apiInstance.getUsers(page, pageSize, groupId, queryString);
+    UserReferenceSearchResult result = apiInstance.getUsers(page, pageSize, groupId, queryString);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserApi#getUsers");
@@ -177,14 +258,81 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserSearchResult**](UserSearchResult.md)
+[**UserReferenceSearchResult**](UserReferenceSearchResult.md)
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="searchUsers"></a>
+# **searchUsers**
+> UserReferenceSearchResult searchUsers(page, pageSize, userFilteringRequest)
+
+Search users
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.UserApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+UserApi apiInstance = new UserApi();
+Integer page = 1; // Integer | Index of the result page starting from 1.
+Integer pageSize = 25; // Integer | Number of items in a result page. Max value: 500
+UserFilteringRequest userFilteringRequest = new UserFilteringRequest(); // UserFilteringRequest | 
+try {
+    UserReferenceSearchResult result = apiInstance.searchUsers(page, pageSize, userFilteringRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling UserApi#searchUsers");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25]
+ **userFilteringRequest** | [**UserFilteringRequest**](UserFilteringRequest.md)|  | [optional]
+
+### Return type
+
+[**UserReferenceSearchResult**](UserReferenceSearchResult.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

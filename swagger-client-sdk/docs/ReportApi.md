@@ -1,13 +1,13 @@
 # ReportApi
 
-All URIs are relative to *http://localhost:8080/cb/api/docs*
+All URIs are relative to *http://localhost:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createReport**](ReportApi.md#createReport) | **POST** /v2/report | Create a report
-[**getReportById**](ReportApi.md#getReportById) | **GET** /v2/report/{reportId}/results | Get a report results by id of the report
-[**getReportItemsById**](ReportApi.md#getReportItemsById) | **GET** /v2/report/{reportId}/items | Get a report items by id of the report
-[**updateReport**](ReportApi.md#updateReport) | **PUT** /v2/report/{reportId} | Update report settings
+[**createReport**](ReportApi.md#createReport) | **POST** /v3/reports | Create a report
+[**getReportById**](ReportApi.md#getReportById) | **GET** /v3/reports/{reportId}/results | Get a report results by id of the report
+[**getReportItemsById**](ReportApi.md#getReportItemsById) | **GET** /v3/reports/{reportId}/items | Get a report items by id of the report
+[**updateReport**](ReportApi.md#updateReport) | **PUT** /v3/reports/{reportId} | Update report settings
 
 
 <a name="createReport"></a>
@@ -19,9 +19,29 @@ Create a report
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.ReportApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 ReportApi apiInstance = new ReportApi();
 SimpleReportSettings simpleReportSettings = new SimpleReportSettings(); // SimpleReportSettings | 
@@ -46,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -62,9 +82,29 @@ Get a report results by id of the report
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.ReportApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 ReportApi apiInstance = new ReportApi();
 Integer reportId = 56; // Integer | Id of a report
@@ -93,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -109,9 +149,29 @@ Get a report items by id of the report
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.ReportApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 ReportApi apiInstance = new ReportApi();
 Integer reportId = 56; // Integer | Id of a report
@@ -140,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -156,9 +216,29 @@ Update report settings
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.ReportApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 ReportApi apiInstance = new ReportApi();
 Integer reportId = 56; // Integer | Id of a report
@@ -185,7 +265,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

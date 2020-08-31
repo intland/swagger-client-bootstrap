@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **showAncestors** | **Boolean** | Indicator to show the ancestors of a result item. |  [optional]
 **showDescendants** | **Boolean** | Indicator to show the descendants of a result item. |  [optional]
 **showAllChildren** | **Boolean** | Indicator to ability to collapse/expand all child items. |  [optional]
-**trackerId** | **Integer** | Parent tracker id. |  [optional]
+**tracker** | [**TrackerReference**](TrackerReference.md) |  | 
 **isPublic** | **Boolean** | Public report indicator. | 
 **renderingMethod** | [**RenderingMethodEnum**](#RenderingMethodEnum) | Rendering method for Intelligent Table View. |  [optional]
 **referenceLevelSettings** | [**List&lt;ReportReferenceLevelSettings&gt;**](ReportReferenceLevelSettings.md) | Reference level setting for Intelligent Table View. |  [optional]

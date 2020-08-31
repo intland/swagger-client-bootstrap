@@ -13,7 +13,9 @@ Name | Type | Description | Notes
 **hidden** | **Boolean** | Visibility status of a field |  [optional]
 **valueModel** | **String** | Name of the updater/getter value model |  [optional]
 **title** | **String** | Title of a field |  [optional]
+**legacyRestName** | **String** | Identifier matching the legacy REST API naming |  [optional]
 **trackerItemField** | **String** | Tracker item&#39;s field name for this field |  [optional]
+**mandatoryInStatuses** | [**List&lt;ChoiceOptionReference&gt;**](ChoiceOptionReference.md) | List of statuses where the field is mandatory. |  [optional]
 
 
 

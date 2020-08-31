@@ -1,16 +1,16 @@
 # TrackerItemsCommentApi
 
-All URIs are relative to *http://localhost:8080/cb/api/docs*
+All URIs are relative to *http://localhost:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**commentOnTrackerItem**](TrackerItemsCommentApi.md#commentOnTrackerItem) | **POST** /v2/item/{itemId}/comment | Comment on a tracker item
-[**deleteTrackerItemComment**](TrackerItemsCommentApi.md#deleteTrackerItemComment) | **DELETE** /v2/item/{itemId}/comment/{commentId} | Delete comment of tracker item by id
-[**deleteTrackerItemComments**](TrackerItemsCommentApi.md#deleteTrackerItemComments) | **DELETE** /v2/item/{itemId}/comment | Delete comments of tracker item by item id
-[**editCommentOnTrackerItem**](TrackerItemsCommentApi.md#editCommentOnTrackerItem) | **PUT** /v2/item/{itemId}/comment/{commentId} | Edit comment on a tracker item
-[**getTrackerItemComment**](TrackerItemsCommentApi.md#getTrackerItemComment) | **GET** /v2/item/{itemId}/comment/{commentId} | Get comment of tracker item by id
-[**getTrackerItemComments**](TrackerItemsCommentApi.md#getTrackerItemComments) | **GET** /v2/item/{itemId}/comment | Get comments of tracker item
-[**replyOnCommentOfTrackerItem**](TrackerItemsCommentApi.md#replyOnCommentOfTrackerItem) | **POST** /v2/item/{itemId}/comment/{commentId} | Reply on a comment of a tracker item
+[**commentOnTrackerItem**](TrackerItemsCommentApi.md#commentOnTrackerItem) | **POST** /v3/items/{itemId}/comments | Comment on a tracker item
+[**deleteTrackerItemComment**](TrackerItemsCommentApi.md#deleteTrackerItemComment) | **DELETE** /v3/items/{itemId}/comments/{commentId} | Delete comment of tracker item by id
+[**deleteTrackerItemComments**](TrackerItemsCommentApi.md#deleteTrackerItemComments) | **DELETE** /v3/items/{itemId}/comments | Delete comments of tracker item by item id
+[**editCommentOnTrackerItem**](TrackerItemsCommentApi.md#editCommentOnTrackerItem) | **PUT** /v3/items/{itemId}/comments/{commentId} | Edit comment on a tracker item
+[**getTrackerItemComment**](TrackerItemsCommentApi.md#getTrackerItemComment) | **GET** /v3/items/{itemId}/comments/{commentId} | Get comment of tracker item by id
+[**getTrackerItemComments**](TrackerItemsCommentApi.md#getTrackerItemComments) | **GET** /v3/items/{itemId}/comments | Get comments of tracker item
+[**replyOnCommentOfTrackerItem**](TrackerItemsCommentApi.md#replyOnCommentOfTrackerItem) | **POST** /v3/items/{itemId}/comments/{commentId} | Reply on a comment of a tracker item
 
 
 <a name="commentOnTrackerItem"></a>
@@ -22,9 +22,29 @@ Comment on a tracker item
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.TrackerItemsCommentApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 TrackerItemsCommentApi apiInstance = new TrackerItemsCommentApi();
 Integer itemId = 56; // Integer | 
@@ -55,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -71,9 +91,29 @@ Delete comment of tracker item by id
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.TrackerItemsCommentApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 TrackerItemsCommentApi apiInstance = new TrackerItemsCommentApi();
 Integer itemId = 56; // Integer | 
@@ -100,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -116,9 +156,29 @@ Delete comments of tracker item by item id
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.TrackerItemsCommentApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 TrackerItemsCommentApi apiInstance = new TrackerItemsCommentApi();
 Integer itemId = 56; // Integer | 
@@ -142,7 +202,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -158,9 +218,29 @@ Edit comment on a tracker item
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.TrackerItemsCommentApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 TrackerItemsCommentApi apiInstance = new TrackerItemsCommentApi();
 Integer itemId = 56; // Integer | 
@@ -193,7 +273,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -209,9 +289,29 @@ Get comment of tracker item by id
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.TrackerItemsCommentApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 TrackerItemsCommentApi apiInstance = new TrackerItemsCommentApi();
 Integer itemId = 56; // Integer | 
@@ -238,7 +338,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -254,9 +354,29 @@ Get comments of tracker item
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.TrackerItemsCommentApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 TrackerItemsCommentApi apiInstance = new TrackerItemsCommentApi();
 Integer itemId = 56; // Integer | Id of a tracker item
@@ -281,7 +401,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -297,9 +417,29 @@ Reply on a comment of a tracker item
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.TrackerItemsCommentApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 TrackerItemsCommentApi apiInstance = new TrackerItemsCommentApi();
 Integer itemId = 56; // Integer | 
@@ -332,7 +472,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

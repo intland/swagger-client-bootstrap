@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uploadAttachmentModel** | [**UploadAttachment**](UploadAttachment.md) |  |  [optional]
+**icon** | [**File**](File.md) |  |  [optional]
 
 
 

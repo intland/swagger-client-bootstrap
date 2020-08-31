@@ -19,6 +19,17 @@ To regenerate the API client SDK, open the /build.gradle file in your repository
 def codeBeamerBaseUrl = "{your codeBeamer instance base URL}"
 ```
 
+In case you are not using codeBeamer 10.1 you also need to uncomment the proper codeBeamerSwaggerJsonUrl definition:
+
+```groovy
+// Until codeBeamer 9.5
+// def codeBeamerSwaggerJsonUrl = "$codeBeamerBaseUrl/v2/swagger.json"
+// From codeBeamer 10.0
+// def codeBeamerSwaggerJsonUrl = "$codeBeamerBaseUrl/api/docs/v3/api-docs"
+// From codeBeamer 10.1
+def codeBeamerSwaggerJsonUrl = "$codeBeamerBaseUrl/api-docs/v3.json"
+``` 
+
 After this setup you can use the following gradle task to download the latest API definition:
 
 ```shell script

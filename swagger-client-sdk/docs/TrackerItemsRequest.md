@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**itemIds** | **List&lt;Integer&gt;** | Item ids. |  [optional]
+**items** | [**List&lt;TrackerItemReference&gt;**](TrackerItemReference.md) | Item references. |  [optional]
 **type** | **String** | Type of a ItemsRequest |  [optional]
 
 

@@ -6,8 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**projectId** | **Integer** | Project identifier. | 
-**roleId** | **Integer** | Role identifier. | 
+**project** | [**ProjectReference**](ProjectReference.md) |  | 
+**role** | [**RoleReference**](RoleReference.md) |  | 
 **access** | [**AccessEnum**](#AccessEnum) | Access level | 
 
 
@@ -16,8 +16,9 @@ Name | Type | Description | Notes
 
 Name | Value
 ---- | -----
-NUMBER_1 | 1
-NUMBER_2 | 2
+NONE | &quot;NONE&quot;
+READ | &quot;READ&quot;
+WRITE | &quot;WRITE&quot;
 
 
 

@@ -1,13 +1,14 @@
 # TrackerPermissionApi
 
-All URIs are relative to *http://localhost:8080/cb/api/docs*
+All URIs are relative to *http://localhost:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getTrackerPermission**](TrackerPermissionApi.md#getTrackerPermission) | **GET** /v2/trackers/permissions/{trackerPermissionId} | Get the immutable definition of a tracker permission
-[**getTrackerPermissions**](TrackerPermissionApi.md#getTrackerPermissions) | **GET** /v2/trackers/permissions | Get available tracker permissions
-[**getTrackerPermissionsWithRoles**](TrackerPermissionApi.md#getTrackerPermissionsWithRoles) | **GET** /v2/trackers/{trackerId}/permissions | List tracker permissions per role
-[**updatePermission**](TrackerPermissionApi.md#updatePermission) | **PUT** /v2/trackers/{trackerId}/roles/{roleId}/permissions | Set the tracker permissions for a specific role
+[**getTrackerPermission**](TrackerPermissionApi.md#getTrackerPermission) | **GET** /v3/trackers/permissions/{trackerPermissionId} | Get the immutable definition of a tracker permission
+[**getTrackerPermissions**](TrackerPermissionApi.md#getTrackerPermissions) | **GET** /v3/trackers/permissions | Get available tracker permissions
+[**getTrackerPermissionsWithRoles**](TrackerPermissionApi.md#getTrackerPermissionsWithRoles) | **GET** /v3/trackers/{trackerId}/permissions | List tracker permissions per role
+[**removePermissions**](TrackerPermissionApi.md#removePermissions) | **DELETE** /v3/trackers/{trackerId}/roles/{roleId}/permissions | Removes all tracker permissions from a specific role
+[**updatePermission**](TrackerPermissionApi.md#updatePermission) | **PUT** /v3/trackers/{trackerId}/roles/{roleId}/permissions | Set the tracker permissions for a specific role
 
 
 <a name="getTrackerPermission"></a>
@@ -19,9 +20,29 @@ Get the immutable definition of a tracker permission
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.TrackerPermissionApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 TrackerPermissionApi apiInstance = new TrackerPermissionApi();
 Integer trackerPermissionId = 56; // Integer | 
@@ -46,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -62,9 +83,29 @@ Get available tracker permissions
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.TrackerPermissionApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 TrackerPermissionApi apiInstance = new TrackerPermissionApi();
 try {
@@ -85,7 +126,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -103,9 +144,29 @@ API can be used to list tracker permissions per roles, filtering is possible by 
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.TrackerPermissionApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 TrackerPermissionApi apiInstance = new TrackerPermissionApi();
 Integer trackerId = 56; // Integer | 
@@ -134,12 +195,76 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+<a name="removePermissions"></a>
+# **removePermissions**
+> removePermissions(trackerId, roleId)
+
+Removes all tracker permissions from a specific role
+
+### Example
+```java
+// Import classes:
+//import com.intland.swagger.client.ApiClient;
+//import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
+//import com.intland.swagger.client.api.TrackerPermissionApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
+
+TrackerPermissionApi apiInstance = new TrackerPermissionApi();
+Integer trackerId = 56; // Integer | 
+Integer roleId = 56; // Integer | 
+try {
+    apiInstance.removePermissions(trackerId, roleId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TrackerPermissionApi#removePermissions");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **roleId** | **Integer**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 <a name="updatePermission"></a>
 # **updatePermission**
@@ -150,9 +275,29 @@ Set the tracker permissions for a specific role
 ### Example
 ```java
 // Import classes:
+//import com.intland.swagger.client.ApiClient;
 //import com.intland.swagger.client.ApiException;
+//import com.intland.swagger.client.Configuration;
+//import com.intland.swagger.client.auth.*;
 //import com.intland.swagger.client.api.TrackerPermissionApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: BasicAuth
+HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+BasicAuth.setUsername("YOUR USERNAME");
+BasicAuth.setPassword("YOUR PASSWORD");
+
+// Configure HTTP basic authorization: BearerAuth
+HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
+BearerAuth.setUsername("YOUR USERNAME");
+BearerAuth.setPassword("YOUR PASSWORD");
 
 TrackerPermissionApi apiInstance = new TrackerPermissionApi();
 Integer trackerId = 56; // Integer | 
@@ -181,7 +326,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

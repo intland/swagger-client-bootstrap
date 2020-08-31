@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**itemRevision** | [**TrackerItemRevision**](TrackerItemRevision.md) |  | 
+**itemReference** | [**TrackerItemReference**](TrackerItemReference.md) |  | 
 **index** | **Integer** | Ordinal in the tracker outline. | 
 
 

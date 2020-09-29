@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * IntegerFieldAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class IntegerFieldAllOf {
   public static final String SERIALIZED_NAME_MIN = "min";
   @SerializedName(SERIALIZED_NAME_MIN)
@@ -41,7 +41,9 @@ public class IntegerFieldAllOf {
   @SerializedName(SERIALIZED_NAME_FORMULA)
   private String formula;
 
+
   public IntegerFieldAllOf min(Integer min) {
+    
     this.min = min;
     return this;
   }
@@ -50,16 +52,21 @@ public class IntegerFieldAllOf {
    * Minimum value of a field
    * @return min
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Minimum value of a field")
+
   public Integer getMin() {
     return min;
   }
+
 
   public void setMin(Integer min) {
     this.min = min;
   }
 
+
   public IntegerFieldAllOf max(Integer max) {
+    
     this.max = max;
     return this;
   }
@@ -68,16 +75,21 @@ public class IntegerFieldAllOf {
    * Maximum value of a field
    * @return max
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Maximum value of a field")
+
   public Integer getMax() {
     return max;
   }
+
 
   public void setMax(Integer max) {
     this.max = max;
   }
 
+
   public IntegerFieldAllOf formula(String formula) {
+    
     this.formula = formula;
     return this;
   }
@@ -86,10 +98,13 @@ public class IntegerFieldAllOf {
    * Formula value of a field
    * @return formula
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Formula value of a field")
+
   public String getFormula() {
     return formula;
   }
+
 
   public void setFormula(String formula) {
     this.formula = formula;

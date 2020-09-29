@@ -27,13 +27,15 @@ import java.io.IOException;
 /**
  * BoolFieldAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class BoolFieldAllOf {
   public static final String SERIALIZED_NAME_FORMULA = "formula";
   @SerializedName(SERIALIZED_NAME_FORMULA)
   private String formula;
 
+
   public BoolFieldAllOf formula(String formula) {
+    
     this.formula = formula;
     return this;
   }
@@ -42,10 +44,13 @@ public class BoolFieldAllOf {
    * Formula value of a field
    * @return formula
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Formula value of a field")
+
   public String getFormula() {
     return formula;
   }
+
 
   public void setFormula(String formula) {
     this.formula = formula;

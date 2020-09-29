@@ -2,6 +2,7 @@
 
 # AbstractReference
 
+Reference to an item
 ## Properties
 
 Name | Type | Description | Notes

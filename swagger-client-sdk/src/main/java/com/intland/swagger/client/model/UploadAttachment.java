@@ -28,13 +28,15 @@ import java.io.IOException;
 /**
  * UploadAttachment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class UploadAttachment {
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
   private File attachments;
 
+
   public UploadAttachment attachments(File attachments) {
+    
     this.attachments = attachments;
     return this;
   }
@@ -43,10 +45,13 @@ public class UploadAttachment {
    * Attachments of a comment
    * @return attachments
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Attachments of a comment")
+
   public File getAttachments() {
     return attachments;
   }
+
 
   public void setAttachments(File attachments) {
     this.attachments = attachments;

@@ -2,6 +2,7 @@
 
 # TrackerItemRelationsResult
 
+References to a tracker item
 ## Properties
 
 Name | Type | Description | Notes

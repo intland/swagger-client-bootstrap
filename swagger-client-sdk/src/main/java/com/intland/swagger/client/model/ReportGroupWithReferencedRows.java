@@ -34,7 +34,7 @@ import java.util.List;
  * ReportGroup having rows with references.
  */
 @ApiModel(description = "ReportGroup having rows with references.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ReportGroupWithReferencedRows extends ReportGroup {
   public static final String SERIALIZED_NAME_GROUPING_LEVEL = "groupingLevel";
   @SerializedName(SERIALIZED_NAME_GROUPING_LEVEL)
@@ -46,9 +46,11 @@ public class ReportGroupWithReferencedRows extends ReportGroup {
 
   public static final String SERIALIZED_NAME_ROWS = "rows";
   @SerializedName(SERIALIZED_NAME_ROWS)
-  private List<ReportReferencedRow> rows = new ArrayList<ReportReferencedRow>();
+  private List<ReportReferencedRow> rows = null;
+
 
   public ReportGroupWithReferencedRows groupingLevel(Integer groupingLevel) {
+    
     this.groupingLevel = groupingLevel;
     return this;
   }
@@ -57,16 +59,21 @@ public class ReportGroupWithReferencedRows extends ReportGroup {
    * Get groupingLevel
    * @return groupingLevel
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Integer getGroupingLevel() {
     return groupingLevel;
   }
+
 
   public void setGroupingLevel(Integer groupingLevel) {
     this.groupingLevel = groupingLevel;
   }
 
+
   public ReportGroupWithReferencedRows starRow(Integer starRow) {
+    
     this.starRow = starRow;
     return this;
   }
@@ -75,16 +82,21 @@ public class ReportGroupWithReferencedRows extends ReportGroup {
    * Get starRow
    * @return starRow
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Integer getStarRow() {
     return starRow;
   }
+
 
   public void setStarRow(Integer starRow) {
     this.starRow = starRow;
   }
 
+
   public ReportGroupWithReferencedRows rows(List<ReportReferencedRow> rows) {
+    
     this.rows = rows;
     return this;
   }
@@ -101,10 +113,13 @@ public class ReportGroupWithReferencedRows extends ReportGroup {
    * Get rows
    * @return rows
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<ReportReferencedRow> getRows() {
     return rows;
   }
+
 
   public void setRows(List<ReportReferencedRow> rows) {
     this.rows = rows;

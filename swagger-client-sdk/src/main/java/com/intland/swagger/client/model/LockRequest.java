@@ -28,7 +28,7 @@ import java.io.IOException;
  * Configuration to request a lock. If &#39;hard&#39; is true, duration must be null, or unspecified.
  */
 @ApiModel(description = "Configuration to request a lock. If 'hard' is true, duration must be null, or unspecified.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class LockRequest {
   public static final String SERIALIZED_NAME_HARD = "hard";
   @SerializedName(SERIALIZED_NAME_HARD)
@@ -38,7 +38,9 @@ public class LockRequest {
   @SerializedName(SERIALIZED_NAME_DURATION)
   private String duration;
 
+
   public LockRequest hard(Boolean hard) {
+    
     this.hard = hard;
     return this;
   }
@@ -47,16 +49,21 @@ public class LockRequest {
    * Whether the lock should be hard
    * @return hard
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether the lock should be hard")
+
   public Boolean getHard() {
     return hard;
   }
+
 
   public void setHard(Boolean hard) {
     this.hard = hard;
   }
 
+
   public LockRequest duration(String duration) {
+    
     this.duration = duration;
     return this;
   }
@@ -65,10 +72,13 @@ public class LockRequest {
    * If not a hard lock, the duration specified in time notation
    * @return duration
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1:30h", value = "If not a hard lock, the duration specified in time notation")
+
   public String getDuration() {
     return duration;
   }
+
 
   public void setDuration(String duration) {
     this.duration = duration;

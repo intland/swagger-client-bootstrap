@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * InternalServerErrorException
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class InternalServerErrorException {
   public static final String SERIALIZED_NAME_RESOURCE_URI = "resourceUri";
   @SerializedName(SERIALIZED_NAME_RESOURCE_URI)
@@ -37,7 +37,9 @@ public class InternalServerErrorException {
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
 
+
   public InternalServerErrorException resourceUri(String resourceUri) {
+    
     this.resourceUri = resourceUri;
     return this;
   }
@@ -46,16 +48,21 @@ public class InternalServerErrorException {
    * Get resourceUri
    * @return resourceUri
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getResourceUri() {
     return resourceUri;
   }
+
 
   public void setResourceUri(String resourceUri) {
     this.resourceUri = resourceUri;
   }
 
+
   public InternalServerErrorException message(String message) {
+    
     this.message = message;
     return this;
   }
@@ -64,10 +71,13 @@ public class InternalServerErrorException {
    * Get message
    * @return message
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getMessage() {
     return message;
   }
+
 
   public void setMessage(String message) {
     this.message = message;

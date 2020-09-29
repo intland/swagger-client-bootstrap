@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * ExportProject
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ExportProject {
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
@@ -61,9 +61,11 @@ public class ExportProject {
 
   public static final String SERIALIZED_NAME_SELECTED_TRACKER_IDS = "selectedTrackerIds";
   @SerializedName(SERIALIZED_NAME_SELECTED_TRACKER_IDS)
-  private List<Integer> selectedTrackerIds = new ArrayList<Integer>();
+  private List<Integer> selectedTrackerIds = null;
+
 
   public ExportProject password(String password) {
+    
     this.password = password;
     return this;
   }
@@ -72,16 +74,21 @@ public class ExportProject {
    * A password that is used during the project encryption.
    * @return password
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "007", value = "A password that is used during the project encryption.")
+
   public String getPassword() {
     return password;
   }
+
 
   public void setPassword(String password) {
     this.password = password;
   }
 
+
   public ExportProject skipTrackerItems(Boolean skipTrackerItems) {
+    
     this.skipTrackerItems = skipTrackerItems;
     return this;
   }
@@ -90,16 +97,21 @@ public class ExportProject {
    * If true, then the Tracker Items are not exported
    * @return skipTrackerItems
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "If true, then the Tracker Items are not exported")
+
   public Boolean getSkipTrackerItems() {
     return skipTrackerItems;
   }
+
 
   public void setSkipTrackerItems(Boolean skipTrackerItems) {
     this.skipTrackerItems = skipTrackerItems;
   }
 
+
   public ExportProject skipWikiPages(Boolean skipWikiPages) {
+    
     this.skipWikiPages = skipWikiPages;
     return this;
   }
@@ -108,16 +120,21 @@ public class ExportProject {
    * If true, then the Wiki PAges are not exported
    * @return skipWikiPages
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "If true, then the Wiki PAges are not exported")
+
   public Boolean getSkipWikiPages() {
     return skipWikiPages;
   }
+
 
   public void setSkipWikiPages(Boolean skipWikiPages) {
     this.skipWikiPages = skipWikiPages;
   }
 
+
   public ExportProject skipAssociations(Boolean skipAssociations) {
+    
     this.skipAssociations = skipAssociations;
     return this;
   }
@@ -126,16 +143,21 @@ public class ExportProject {
    * If true, then the Associations are not exported
    * @return skipAssociations
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "If true, then the Associations are not exported")
+
   public Boolean getSkipAssociations() {
     return skipAssociations;
   }
+
 
   public void setSkipAssociations(Boolean skipAssociations) {
     this.skipAssociations = skipAssociations;
   }
 
+
   public ExportProject skipDocuments(Boolean skipDocuments) {
+    
     this.skipDocuments = skipDocuments;
     return this;
   }
@@ -144,16 +166,21 @@ public class ExportProject {
    * If true, then the Documents are not exported
    * @return skipDocuments
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "If true, then the Documents are not exported")
+
   public Boolean getSkipDocuments() {
     return skipDocuments;
   }
+
 
   public void setSkipDocuments(Boolean skipDocuments) {
     this.skipDocuments = skipDocuments;
   }
 
+
   public ExportProject skipReports(Boolean skipReports) {
+    
     this.skipReports = skipReports;
     return this;
   }
@@ -162,16 +189,21 @@ public class ExportProject {
    * If true, then the Reports are not exported
    * @return skipReports
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "If true, then the Reports are not exported")
+
   public Boolean getSkipReports() {
     return skipReports;
   }
+
 
   public void setSkipReports(Boolean skipReports) {
     this.skipReports = skipReports;
   }
 
+
   public ExportProject skipBranches(Boolean skipBranches) {
+    
     this.skipBranches = skipBranches;
     return this;
   }
@@ -180,16 +212,21 @@ public class ExportProject {
    * If true, then the Branches are not exported
    * @return skipBranches
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "If true, then the Branches are not exported")
+
   public Boolean getSkipBranches() {
     return skipBranches;
   }
+
 
   public void setSkipBranches(Boolean skipBranches) {
     this.skipBranches = skipBranches;
   }
 
+
   public ExportProject selectedTrackerIds(List<Integer> selectedTrackerIds) {
+    
     this.selectedTrackerIds = selectedTrackerIds;
     return this;
   }
@@ -206,10 +243,13 @@ public class ExportProject {
    * If this list is not empty then only the Trackers listed here are exported.é
    * @return selectedTrackerIds
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "If this list is not empty then only the Trackers listed here are exported.é")
+
   public List<Integer> getSelectedTrackerIds() {
     return selectedTrackerIds;
   }
+
 
   public void setSelectedTrackerIds(List<Integer> selectedTrackerIds) {
     this.selectedTrackerIds = selectedTrackerIds;

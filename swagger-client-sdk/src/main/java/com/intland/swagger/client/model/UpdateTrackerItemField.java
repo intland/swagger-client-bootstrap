@@ -31,17 +31,19 @@ import java.util.List;
 /**
  * UpdateTrackerItemField
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class UpdateTrackerItemField {
   public static final String SERIALIZED_NAME_FIELD_VALUES = "fieldValues";
   @SerializedName(SERIALIZED_NAME_FIELD_VALUES)
-  private List<AbstractFieldValue> fieldValues = new ArrayList<AbstractFieldValue>();
+  private List<AbstractFieldValue> fieldValues = null;
 
   public static final String SERIALIZED_NAME_TABLE_VALUES = "tableValues";
   @SerializedName(SERIALIZED_NAME_TABLE_VALUES)
-  private List<TableFieldValue> tableValues = new ArrayList<TableFieldValue>();
+  private List<TableFieldValue> tableValues = null;
+
 
   public UpdateTrackerItemField fieldValues(List<AbstractFieldValue> fieldValues) {
+    
     this.fieldValues = fieldValues;
     return this;
   }
@@ -58,16 +60,21 @@ public class UpdateTrackerItemField {
    * Fields of a tracker item
    * @return fieldValues
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Fields of a tracker item")
+
   public List<AbstractFieldValue> getFieldValues() {
     return fieldValues;
   }
+
 
   public void setFieldValues(List<AbstractFieldValue> fieldValues) {
     this.fieldValues = fieldValues;
   }
 
+
   public UpdateTrackerItemField tableValues(List<TableFieldValue> tableValues) {
+    
     this.tableValues = tableValues;
     return this;
   }
@@ -84,10 +91,13 @@ public class UpdateTrackerItemField {
    * Fields of a tracker item
    * @return tableValues
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Fields of a tracker item")
+
   public List<TableFieldValue> getTableValues() {
     return tableValues;
   }
+
 
   public void setTableValues(List<TableFieldValue> tableValues) {
     this.tableValues = tableValues;

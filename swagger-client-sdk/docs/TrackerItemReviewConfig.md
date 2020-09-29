@@ -2,6 +2,7 @@
 
 # TrackerItemReviewConfig
 
+The configuration from which the review was created
 ## Properties
 
 Name | Type | Description | Notes

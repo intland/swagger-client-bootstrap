@@ -29,11 +29,11 @@ import java.io.IOException;
  * Settings for a resizeable column definition.
  */
 @ApiModel(description = "Settings for a resizeable column definition.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ResizableReportColumnSettings {
   public static final String SERIALIZED_NAME_FIELD = "field";
   @SerializedName(SERIALIZED_NAME_FIELD)
-  private FieldReference field = null;
+  private FieldReference field;
 
   public static final String SERIALIZED_NAME_COLUMN_INDEX = "columnIndex";
   @SerializedName(SERIALIZED_NAME_COLUMN_INDEX)
@@ -43,7 +43,9 @@ public class ResizableReportColumnSettings {
   @SerializedName(SERIALIZED_NAME_COLUMN_WIDTH_PERCENTAGE)
   private Double columnWidthPercentage;
 
+
   public ResizableReportColumnSettings field(FieldReference field) {
+    
     this.field = field;
     return this;
   }
@@ -53,15 +55,19 @@ public class ResizableReportColumnSettings {
    * @return field
   **/
   @ApiModelProperty(required = true, value = "")
+
   public FieldReference getField() {
     return field;
   }
+
 
   public void setField(FieldReference field) {
     this.field = field;
   }
 
+
   public ResizableReportColumnSettings columnIndex(Integer columnIndex) {
+    
     this.columnIndex = columnIndex;
     return this;
   }
@@ -71,15 +77,19 @@ public class ResizableReportColumnSettings {
    * @return columnIndex
   **/
   @ApiModelProperty(example = "0", required = true, value = "Index of the column in the report table.")
+
   public Integer getColumnIndex() {
     return columnIndex;
   }
+
 
   public void setColumnIndex(Integer columnIndex) {
     this.columnIndex = columnIndex;
   }
 
+
   public ResizableReportColumnSettings columnWidthPercentage(Double columnWidthPercentage) {
+    
     this.columnWidthPercentage = columnWidthPercentage;
     return this;
   }
@@ -88,10 +98,13 @@ public class ResizableReportColumnSettings {
    * Width of the column in percentage.
    * @return columnWidthPercentage
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "43.2", value = "Width of the column in percentage.")
+
   public Double getColumnWidthPercentage() {
     return columnWidthPercentage;
   }
+
 
   public void setColumnWidthPercentage(Double columnWidthPercentage) {
     this.columnWidthPercentage = columnWidthPercentage;

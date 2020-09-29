@@ -125,4 +125,20 @@ public class LanguageFieldTest {
         // TODO: test mandatoryInStatuses
     }
 
+    /**
+     * Test the property 'formula'
+     */
+    @Test
+    public void formulaTest() {
+        // TODO: test formula
+    }
+
+    /**
+     * Test the property 'availableOptions'
+     */
+    @Test
+    public void availableOptionsTest() {
+        // TODO: test availableOptions
+    }
+
 }

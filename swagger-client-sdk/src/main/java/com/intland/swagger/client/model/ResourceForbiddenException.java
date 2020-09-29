@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ResourceForbiddenException
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ResourceForbiddenException {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
@@ -37,7 +37,9 @@ public class ResourceForbiddenException {
   @SerializedName(SERIALIZED_NAME_RESOURCE_URI)
   private String resourceUri;
 
+
   public ResourceForbiddenException message(String message) {
+    
     this.message = message;
     return this;
   }
@@ -46,16 +48,21 @@ public class ResourceForbiddenException {
    * Get message
    * @return message
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getMessage() {
     return message;
   }
+
 
   public void setMessage(String message) {
     this.message = message;
   }
 
+
   public ResourceForbiddenException resourceUri(String resourceUri) {
+    
     this.resourceUri = resourceUri;
     return this;
   }
@@ -64,10 +71,13 @@ public class ResourceForbiddenException {
    * Get resourceUri
    * @return resourceUri
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getResourceUri() {
     return resourceUri;
   }
+
 
   public void setResourceUri(String resourceUri) {
     this.resourceUri = resourceUri;

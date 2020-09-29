@@ -31,7 +31,7 @@ import java.util.List;
  * Paginated search result of outline wiki pages
  */
 @ApiModel(description = "Paginated search result of outline wiki pages")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class WikiOutlineSearchResult {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
@@ -47,9 +47,11 @@ public class WikiOutlineSearchResult {
 
   public static final String SERIALIZED_NAME_OUTLINE_WIKI_PAGES = "outlineWikiPages";
   @SerializedName(SERIALIZED_NAME_OUTLINE_WIKI_PAGES)
-  private List<OutlineWiki> outlineWikiPages = new ArrayList<OutlineWiki>();
+  private List<OutlineWiki> outlineWikiPages = null;
+
 
   public WikiOutlineSearchResult page(Integer page) {
+    
     this.page = page;
     return this;
   }
@@ -58,16 +60,21 @@ public class WikiOutlineSearchResult {
    * Index of the page
    * @return page
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Index of the page")
+
   public Integer getPage() {
     return page;
   }
+
 
   public void setPage(Integer page) {
     this.page = page;
   }
 
+
   public WikiOutlineSearchResult pageSize(Integer pageSize) {
+    
     this.pageSize = pageSize;
     return this;
   }
@@ -76,16 +83,21 @@ public class WikiOutlineSearchResult {
    * Size of the found page
    * @return pageSize
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Size of the found page")
+
   public Integer getPageSize() {
     return pageSize;
   }
+
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
   }
 
+
   public WikiOutlineSearchResult total(Integer total) {
+    
     this.total = total;
     return this;
   }
@@ -94,16 +106,21 @@ public class WikiOutlineSearchResult {
    * Number of matched tracker items by the search criteria
    * @return total
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Number of matched tracker items by the search criteria")
+
   public Integer getTotal() {
     return total;
   }
+
 
   public void setTotal(Integer total) {
     this.total = total;
   }
 
+
   public WikiOutlineSearchResult outlineWikiPages(List<OutlineWiki> outlineWikiPages) {
+    
     this.outlineWikiPages = outlineWikiPages;
     return this;
   }
@@ -120,10 +137,13 @@ public class WikiOutlineSearchResult {
    * Found outline wiki pages
    * @return outlineWikiPages
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Found outline wiki pages")
+
   public List<OutlineWiki> getOutlineWikiPages() {
     return outlineWikiPages;
   }
+
 
   public void setOutlineWikiPages(List<OutlineWiki> outlineWikiPages) {
     this.outlineWikiPages = outlineWikiPages;

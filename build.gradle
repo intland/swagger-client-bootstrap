@@ -5,13 +5,9 @@ import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
 buildscript {
     repositories {
         mavenCentral()
-
-        maven {
-            url "http://repository.codebeamer.com:8080/repository/internal"
-        }
     }
     dependencies {
-        classpath group: 'org.openapitools', name: 'openapi-generator-gradle-plugin', version: '4.0.0'
+        classpath group: 'org.openapitools', name: 'openapi-generator-gradle-plugin', version: '4.3.1'
     }
 }
 

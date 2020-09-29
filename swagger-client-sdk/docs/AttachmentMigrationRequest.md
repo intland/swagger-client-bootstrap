@@ -2,6 +2,7 @@
 
 # AttachmentMigrationRequest
 
+Request for migrating attachments
 ## Properties
 
 Name | Type | Description | Notes

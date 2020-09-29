@@ -68,4 +68,12 @@ public class CountryFieldValueTest {
         // TODO: test name
     }
 
+    /**
+     * Test the property 'values'
+     */
+    @Test
+    public void valuesTest() {
+        // TODO: test values
+    }
+
 }

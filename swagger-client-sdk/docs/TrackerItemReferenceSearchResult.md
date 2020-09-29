@@ -2,6 +2,7 @@
 
 # TrackerItemReferenceSearchResult
 
+One page of tracker item references.
 ## Properties
 
 Name | Type | Description | Notes

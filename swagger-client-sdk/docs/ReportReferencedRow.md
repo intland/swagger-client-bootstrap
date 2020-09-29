@@ -2,6 +2,7 @@
 
 # ReportReferencedRow
 
+Result row having references.
 ## Properties
 
 Name | Type | Description | Notes

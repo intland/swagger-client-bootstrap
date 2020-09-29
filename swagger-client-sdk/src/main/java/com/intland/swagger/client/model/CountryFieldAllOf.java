@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * CountryFieldAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class CountryFieldAllOf {
   public static final String SERIALIZED_NAME_FORMULA = "formula";
   @SerializedName(SERIALIZED_NAME_FORMULA)
@@ -37,9 +37,11 @@ public class CountryFieldAllOf {
 
   public static final String SERIALIZED_NAME_AVAILABLE_OPTIONS = "availableOptions";
   @SerializedName(SERIALIZED_NAME_AVAILABLE_OPTIONS)
-  private List<String> availableOptions = new ArrayList<String>();
+  private List<String> availableOptions = null;
+
 
   public CountryFieldAllOf formula(String formula) {
+    
     this.formula = formula;
     return this;
   }
@@ -48,16 +50,21 @@ public class CountryFieldAllOf {
    * Formula value of a field
    * @return formula
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Formula value of a field")
+
   public String getFormula() {
     return formula;
   }
+
 
   public void setFormula(String formula) {
     this.formula = formula;
   }
 
+
   public CountryFieldAllOf availableOptions(List<String> availableOptions) {
+    
     this.availableOptions = availableOptions;
     return this;
   }
@@ -74,10 +81,13 @@ public class CountryFieldAllOf {
    * Get availableOptions
    * @return availableOptions
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<String> getAvailableOptions() {
     return availableOptions;
   }
+
 
   public void setAvailableOptions(List<String> availableOptions) {
     this.availableOptions = availableOptions;

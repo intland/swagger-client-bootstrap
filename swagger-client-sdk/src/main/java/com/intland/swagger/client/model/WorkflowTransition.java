@@ -32,7 +32,7 @@ import java.util.List;
  * A transition in the workflow
  */
 @ApiModel(description = "A transition in the workflow")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class WorkflowTransition {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -89,7 +89,7 @@ public class WorkflowTransition {
 
       @Override
       public DescriptionFormatEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return DescriptionFormatEnum.fromValue(value);
       }
     }
@@ -101,11 +101,11 @@ public class WorkflowTransition {
 
   public static final String SERIALIZED_NAME_FROM_STATUS = "fromStatus";
   @SerializedName(SERIALIZED_NAME_FROM_STATUS)
-  private ChoiceOptionReference fromStatus = null;
+  private ChoiceOptionReference fromStatus;
 
   public static final String SERIALIZED_NAME_TO_STATUS = "toStatus";
   @SerializedName(SERIALIZED_NAME_TO_STATUS)
-  private ChoiceOptionReference toStatus = null;
+  private ChoiceOptionReference toStatus;
 
   public static final String SERIALIZED_NAME_HIDDEN = "hidden";
   @SerializedName(SERIALIZED_NAME_HIDDEN)
@@ -113,9 +113,11 @@ public class WorkflowTransition {
 
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
-  private List<AccessPermission> permissions = new ArrayList<AccessPermission>();
+  private List<AccessPermission> permissions = null;
+
 
   public WorkflowTransition id(Integer id) {
+    
     this.id = id;
     return this;
   }
@@ -125,16 +127,21 @@ public class WorkflowTransition {
    * minimum: 0
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the entity")
+
   public Integer getId() {
     return id;
   }
+
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+
   public WorkflowTransition name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -143,16 +150,21 @@ public class WorkflowTransition {
    * Name of the entity
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the entity")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public WorkflowTransition description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -161,16 +173,21 @@ public class WorkflowTransition {
    * Description of the entity
    * @return description
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description of the entity")
+
   public String getDescription() {
     return description;
   }
+
 
   public void setDescription(String description) {
     this.description = description;
   }
 
+
   public WorkflowTransition descriptionFormat(DescriptionFormatEnum descriptionFormat) {
+    
     this.descriptionFormat = descriptionFormat;
     return this;
   }
@@ -179,16 +196,21 @@ public class WorkflowTransition {
    * Description format of the entity
    * @return descriptionFormat
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description format of the entity")
+
   public DescriptionFormatEnum getDescriptionFormat() {
     return descriptionFormat;
   }
+
 
   public void setDescriptionFormat(DescriptionFormatEnum descriptionFormat) {
     this.descriptionFormat = descriptionFormat;
   }
 
+
   public WorkflowTransition fromStatus(ChoiceOptionReference fromStatus) {
+    
     this.fromStatus = fromStatus;
     return this;
   }
@@ -197,16 +219,21 @@ public class WorkflowTransition {
    * Get fromStatus
    * @return fromStatus
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public ChoiceOptionReference getFromStatus() {
     return fromStatus;
   }
+
 
   public void setFromStatus(ChoiceOptionReference fromStatus) {
     this.fromStatus = fromStatus;
   }
 
+
   public WorkflowTransition toStatus(ChoiceOptionReference toStatus) {
+    
     this.toStatus = toStatus;
     return this;
   }
@@ -216,15 +243,19 @@ public class WorkflowTransition {
    * @return toStatus
   **/
   @ApiModelProperty(required = true, value = "")
+
   public ChoiceOptionReference getToStatus() {
     return toStatus;
   }
+
 
   public void setToStatus(ChoiceOptionReference toStatus) {
     this.toStatus = toStatus;
   }
 
+
   public WorkflowTransition hidden(Boolean hidden) {
+    
     this.hidden = hidden;
     return this;
   }
@@ -233,16 +264,21 @@ public class WorkflowTransition {
    * Indicator if the transition is hidden
    * @return hidden
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicator if the transition is hidden")
+
   public Boolean getHidden() {
     return hidden;
   }
+
 
   public void setHidden(Boolean hidden) {
     this.hidden = hidden;
   }
 
+
   public WorkflowTransition permissions(List<AccessPermission> permissions) {
+    
     this.permissions = permissions;
     return this;
   }
@@ -259,10 +295,13 @@ public class WorkflowTransition {
    * Access permissions of the transition
    * @return permissions
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Access permissions of the transition")
+
   public List<AccessPermission> getPermissions() {
     return permissions;
   }
+
 
   public void setPermissions(List<AccessPermission> permissions) {
     this.permissions = permissions;

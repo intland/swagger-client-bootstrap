@@ -66,4 +66,12 @@ public class FieldReferenceTest {
         // TODO: test type
     }
 
+    /**
+     * Test the property 'trackerId'
+     */
+    @Test
+    public void trackerIdTest() {
+        // TODO: test trackerId
+    }
+
 }

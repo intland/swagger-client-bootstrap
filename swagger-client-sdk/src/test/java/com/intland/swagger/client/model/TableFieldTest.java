@@ -125,4 +125,12 @@ public class TableFieldTest {
         // TODO: test mandatoryInStatuses
     }
 
+    /**
+     * Test the property 'columns'
+     */
+    @Test
+    public void columnsTest() {
+        // TODO: test columns
+    }
+
 }

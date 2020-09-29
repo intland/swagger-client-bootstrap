@@ -2,6 +2,7 @@
 
 # ReportRow
 
+A row of the report containing cell information.
 ## Properties
 
 Name | Type | Description | Notes

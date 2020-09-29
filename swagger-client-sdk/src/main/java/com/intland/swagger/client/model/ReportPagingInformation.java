@@ -28,7 +28,7 @@ import java.io.IOException;
  * Paging information of the current result.
  */
 @ApiModel(description = "Paging information of the current result.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ReportPagingInformation {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
@@ -42,7 +42,9 @@ public class ReportPagingInformation {
   @SerializedName(SERIALIZED_NAME_PAGE_COUNT)
   private Integer pageCount;
 
+
   public ReportPagingInformation page(Integer page) {
+    
     this.page = page;
     return this;
   }
@@ -51,16 +53,21 @@ public class ReportPagingInformation {
    * Index of the page
    * @return page
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Index of the page")
+
   public Integer getPage() {
     return page;
   }
+
 
   public void setPage(Integer page) {
     this.page = page;
   }
 
+
   public ReportPagingInformation pageSize(Integer pageSize) {
+    
     this.pageSize = pageSize;
     return this;
   }
@@ -69,16 +76,21 @@ public class ReportPagingInformation {
    * Size of the found page
    * @return pageSize
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Size of the found page")
+
   public Integer getPageSize() {
     return pageSize;
   }
+
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
   }
 
+
   public ReportPagingInformation pageCount(Integer pageCount) {
+    
     this.pageCount = pageCount;
     return this;
   }
@@ -87,10 +99,13 @@ public class ReportPagingInformation {
    * Number of pages in the report
    * @return pageCount
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Number of pages in the report")
+
   public Integer getPageCount() {
     return pageCount;
   }
+
 
   public void setPageCount(Integer pageCount) {
     this.pageCount = pageCount;

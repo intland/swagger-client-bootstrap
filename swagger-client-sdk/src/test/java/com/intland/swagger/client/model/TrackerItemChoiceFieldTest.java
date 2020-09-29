@@ -24,6 +24,7 @@ import com.intland.swagger.client.model.ProjectChoiceFieldAllOf;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -122,6 +123,22 @@ public class TrackerItemChoiceFieldTest {
     @Test
     public void mandatoryInStatusesTest() {
         // TODO: test mandatoryInStatuses
+    }
+
+    /**
+     * Test the property 'multipleValues'
+     */
+    @Test
+    public void multipleValuesTest() {
+        // TODO: test multipleValues
+    }
+
+    /**
+     * Test the property 'referenceType'
+     */
+    @Test
+    public void referenceTypeTest() {
+        // TODO: test referenceType
     }
 
 }

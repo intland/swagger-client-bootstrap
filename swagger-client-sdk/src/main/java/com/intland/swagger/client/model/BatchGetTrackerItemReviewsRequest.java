@@ -30,17 +30,19 @@ import java.util.List;
  * Request model to fetch Tracker Item Reviews for multiple Tracker Items.
  */
 @ApiModel(description = "Request model to fetch Tracker Item Reviews for multiple Tracker Items.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class BatchGetTrackerItemReviewsRequest {
   public static final String SERIALIZED_NAME_ITEM_IDS = "itemIds";
   @SerializedName(SERIALIZED_NAME_ITEM_IDS)
-  private List<Integer> itemIds = new ArrayList<Integer>();
+  private List<Integer> itemIds = null;
 
   public static final String SERIALIZED_NAME_BASELINE_ID = "baselineId";
   @SerializedName(SERIALIZED_NAME_BASELINE_ID)
   private Integer baselineId;
 
+
   public BatchGetTrackerItemReviewsRequest itemIds(List<Integer> itemIds) {
+    
     this.itemIds = itemIds;
     return this;
   }
@@ -57,16 +59,21 @@ public class BatchGetTrackerItemReviewsRequest {
    * List of Tracker Item IDs
    * @return itemIds
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "List of Tracker Item IDs")
+
   public List<Integer> getItemIds() {
     return itemIds;
   }
+
 
   public void setItemIds(List<Integer> itemIds) {
     this.itemIds = itemIds;
   }
 
+
   public BatchGetTrackerItemReviewsRequest baselineId(Integer baselineId) {
+    
     this.baselineId = baselineId;
     return this;
   }
@@ -75,10 +82,13 @@ public class BatchGetTrackerItemReviewsRequest {
    * Optional Baseline ID
    * @return baselineId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Optional Baseline ID")
+
   public Integer getBaselineId() {
     return baselineId;
   }
+
 
   public void setBaselineId(Integer baselineId) {
     this.baselineId = baselineId;

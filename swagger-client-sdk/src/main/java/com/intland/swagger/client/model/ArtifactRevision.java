@@ -30,7 +30,7 @@ import org.joda.time.DateTime;
  * Model for a specific version of an artifact
  */
 @ApiModel(description = "Model for a specific version of an artifact")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ArtifactRevision {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -50,9 +50,11 @@ public class ArtifactRevision {
 
   public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
-  private UserReference modifiedBy = null;
+  private UserReference modifiedBy;
+
 
   public ArtifactRevision id(Integer id) {
+    
     this.id = id;
     return this;
   }
@@ -62,16 +64,21 @@ public class ArtifactRevision {
    * minimum: 0
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the entity")
+
   public Integer getId() {
     return id;
   }
+
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+
   public ArtifactRevision version(Integer version) {
+    
     this.version = version;
     return this;
   }
@@ -80,16 +87,21 @@ public class ArtifactRevision {
    * Version of the artifact
    * @return version
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Version of the artifact")
+
   public Integer getVersion() {
     return version;
   }
+
 
   public void setVersion(Integer version) {
     this.version = version;
   }
 
+
   public ArtifactRevision changeSummary(String changeSummary) {
+    
     this.changeSummary = changeSummary;
     return this;
   }
@@ -98,16 +110,21 @@ public class ArtifactRevision {
    * Summary of the change
    * @return changeSummary
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Summary of the change")
+
   public String getChangeSummary() {
     return changeSummary;
   }
+
 
   public void setChangeSummary(String changeSummary) {
     this.changeSummary = changeSummary;
   }
 
+
   public ArtifactRevision modifiedAt(DateTime modifiedAt) {
+    
     this.modifiedAt = modifiedAt;
     return this;
   }
@@ -116,16 +133,21 @@ public class ArtifactRevision {
    * The date when the entity was modified
    * @return modifiedAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
+
   public DateTime getModifiedAt() {
     return modifiedAt;
   }
+
 
   public void setModifiedAt(DateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 
+
   public ArtifactRevision modifiedBy(UserReference modifiedBy) {
+    
     this.modifiedBy = modifiedBy;
     return this;
   }
@@ -134,10 +156,13 @@ public class ArtifactRevision {
    * Get modifiedBy
    * @return modifiedBy
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getModifiedBy() {
     return modifiedBy;
   }
+
 
   public void setModifiedBy(UserReference modifiedBy) {
     this.modifiedBy = modifiedBy;

@@ -2,6 +2,7 @@
 
 # LockRequest
 
+Configuration to request a lock. If 'hard' is true, duration must be null, or unspecified.
 ## Properties
 
 Name | Type | Description | Notes

@@ -2,6 +2,7 @@
 
 # ProjectSearchResult
 
+One page of artifact revisions.
 ## Properties
 
 Name | Type | Description | Notes

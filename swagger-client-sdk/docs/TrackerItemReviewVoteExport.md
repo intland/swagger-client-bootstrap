@@ -2,6 +2,7 @@
 
 # TrackerItemReviewVoteExport
 
+A reviewer and its vote for a particular Tracker Item Review instance
 ## Properties
 
 Name | Type | Description | Notes

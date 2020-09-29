@@ -2,6 +2,7 @@
 
 # ReportAggregate
 
+Aggregated values for a column of a group.
 ## Properties
 
 Name | Type | Description | Notes

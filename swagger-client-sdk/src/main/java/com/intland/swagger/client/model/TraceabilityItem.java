@@ -31,49 +31,51 @@ import java.util.List;
  * Traceability Item
  */
 @ApiModel(description = "Traceability Item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TraceabilityItem {
   public static final String SERIALIZED_NAME_ITEM_REVISION = "itemRevision";
   @SerializedName(SERIALIZED_NAME_ITEM_REVISION)
-  private TrackerItemRevision itemRevision = null;
+  private TrackerItemRevision itemRevision;
 
   public static final String SERIALIZED_NAME_OUTGOING_REFERENCE = "outgoing reference";
   @SerializedName(SERIALIZED_NAME_OUTGOING_REFERENCE)
-  private List<TrackerItemRevision> outgoingReference = new ArrayList<TrackerItemRevision>();
+  private List<TrackerItemRevision> outgoingReference = null;
 
   public static final String SERIALIZED_NAME_INCOMING_REFERENCE = "incoming reference";
   @SerializedName(SERIALIZED_NAME_INCOMING_REFERENCE)
-  private List<TrackerItemRevision> incomingReference = new ArrayList<TrackerItemRevision>();
+  private List<TrackerItemRevision> incomingReference = null;
 
   public static final String SERIALIZED_NAME_OUTGOING_ASSOCIATION = "outgoing association";
   @SerializedName(SERIALIZED_NAME_OUTGOING_ASSOCIATION)
-  private List<TrackerItemRevision> outgoingAssociation = new ArrayList<TrackerItemRevision>();
+  private List<TrackerItemRevision> outgoingAssociation = null;
 
   public static final String SERIALIZED_NAME_INCOMING_ASSOCIATION = "incoming association";
   @SerializedName(SERIALIZED_NAME_INCOMING_ASSOCIATION)
-  private List<TrackerItemRevision> incomingAssociation = new ArrayList<TrackerItemRevision>();
+  private List<TrackerItemRevision> incomingAssociation = null;
 
   public static final String SERIALIZED_NAME_CHILDREN = "children";
   @SerializedName(SERIALIZED_NAME_CHILDREN)
-  private List<TraceabilityItem> children = new ArrayList<TraceabilityItem>();
+  private List<TraceabilityItem> children = null;
 
   public static final String SERIALIZED_NAME_OUTGOING_REFERENCES = "outgoingReferences";
   @SerializedName(SERIALIZED_NAME_OUTGOING_REFERENCES)
-  private List<TrackerItemRevision> outgoingReferences = new ArrayList<TrackerItemRevision>();
+  private List<TrackerItemRevision> outgoingReferences = null;
 
   public static final String SERIALIZED_NAME_OUTGOING_ASSOCIATIONS = "outgoingAssociations";
   @SerializedName(SERIALIZED_NAME_OUTGOING_ASSOCIATIONS)
-  private List<TrackerItemRevision> outgoingAssociations = new ArrayList<TrackerItemRevision>();
+  private List<TrackerItemRevision> outgoingAssociations = null;
 
   public static final String SERIALIZED_NAME_INCOMING_REFERENCES = "incomingReferences";
   @SerializedName(SERIALIZED_NAME_INCOMING_REFERENCES)
-  private List<TrackerItemRevision> incomingReferences = new ArrayList<TrackerItemRevision>();
+  private List<TrackerItemRevision> incomingReferences = null;
 
   public static final String SERIALIZED_NAME_INCOMING_ASSOCIATIONS = "incomingAssociations";
   @SerializedName(SERIALIZED_NAME_INCOMING_ASSOCIATIONS)
-  private List<TrackerItemRevision> incomingAssociations = new ArrayList<TrackerItemRevision>();
+  private List<TrackerItemRevision> incomingAssociations = null;
+
 
   public TraceabilityItem itemRevision(TrackerItemRevision itemRevision) {
+    
     this.itemRevision = itemRevision;
     return this;
   }
@@ -82,16 +84,21 @@ public class TraceabilityItem {
    * Get itemRevision
    * @return itemRevision
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public TrackerItemRevision getItemRevision() {
     return itemRevision;
   }
+
 
   public void setItemRevision(TrackerItemRevision itemRevision) {
     this.itemRevision = itemRevision;
   }
 
+
   public TraceabilityItem outgoingReference(List<TrackerItemRevision> outgoingReference) {
+    
     this.outgoingReference = outgoingReference;
     return this;
   }
@@ -108,16 +115,21 @@ public class TraceabilityItem {
    * Get outgoingReference
    * @return outgoingReference
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<TrackerItemRevision> getOutgoingReference() {
     return outgoingReference;
   }
+
 
   public void setOutgoingReference(List<TrackerItemRevision> outgoingReference) {
     this.outgoingReference = outgoingReference;
   }
 
+
   public TraceabilityItem incomingReference(List<TrackerItemRevision> incomingReference) {
+    
     this.incomingReference = incomingReference;
     return this;
   }
@@ -134,16 +146,21 @@ public class TraceabilityItem {
    * Get incomingReference
    * @return incomingReference
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<TrackerItemRevision> getIncomingReference() {
     return incomingReference;
   }
+
 
   public void setIncomingReference(List<TrackerItemRevision> incomingReference) {
     this.incomingReference = incomingReference;
   }
 
+
   public TraceabilityItem outgoingAssociation(List<TrackerItemRevision> outgoingAssociation) {
+    
     this.outgoingAssociation = outgoingAssociation;
     return this;
   }
@@ -160,16 +177,21 @@ public class TraceabilityItem {
    * Get outgoingAssociation
    * @return outgoingAssociation
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<TrackerItemRevision> getOutgoingAssociation() {
     return outgoingAssociation;
   }
+
 
   public void setOutgoingAssociation(List<TrackerItemRevision> outgoingAssociation) {
     this.outgoingAssociation = outgoingAssociation;
   }
 
+
   public TraceabilityItem incomingAssociation(List<TrackerItemRevision> incomingAssociation) {
+    
     this.incomingAssociation = incomingAssociation;
     return this;
   }
@@ -186,16 +208,21 @@ public class TraceabilityItem {
    * Get incomingAssociation
    * @return incomingAssociation
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<TrackerItemRevision> getIncomingAssociation() {
     return incomingAssociation;
   }
+
 
   public void setIncomingAssociation(List<TrackerItemRevision> incomingAssociation) {
     this.incomingAssociation = incomingAssociation;
   }
 
+
   public TraceabilityItem children(List<TraceabilityItem> children) {
+    
     this.children = children;
     return this;
   }
@@ -212,16 +239,21 @@ public class TraceabilityItem {
    * children
    * @return children
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "children")
+
   public List<TraceabilityItem> getChildren() {
     return children;
   }
+
 
   public void setChildren(List<TraceabilityItem> children) {
     this.children = children;
   }
 
+
   public TraceabilityItem outgoingReferences(List<TrackerItemRevision> outgoingReferences) {
+    
     this.outgoingReferences = outgoingReferences;
     return this;
   }
@@ -238,16 +270,21 @@ public class TraceabilityItem {
    * outgoing reference
    * @return outgoingReferences
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "outgoing reference")
+
   public List<TrackerItemRevision> getOutgoingReferences() {
     return outgoingReferences;
   }
+
 
   public void setOutgoingReferences(List<TrackerItemRevision> outgoingReferences) {
     this.outgoingReferences = outgoingReferences;
   }
 
+
   public TraceabilityItem outgoingAssociations(List<TrackerItemRevision> outgoingAssociations) {
+    
     this.outgoingAssociations = outgoingAssociations;
     return this;
   }
@@ -264,16 +301,21 @@ public class TraceabilityItem {
    * outgoing association
    * @return outgoingAssociations
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "outgoing association")
+
   public List<TrackerItemRevision> getOutgoingAssociations() {
     return outgoingAssociations;
   }
+
 
   public void setOutgoingAssociations(List<TrackerItemRevision> outgoingAssociations) {
     this.outgoingAssociations = outgoingAssociations;
   }
 
+
   public TraceabilityItem incomingReferences(List<TrackerItemRevision> incomingReferences) {
+    
     this.incomingReferences = incomingReferences;
     return this;
   }
@@ -290,16 +332,21 @@ public class TraceabilityItem {
    * incoming references
    * @return incomingReferences
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "incoming references")
+
   public List<TrackerItemRevision> getIncomingReferences() {
     return incomingReferences;
   }
+
 
   public void setIncomingReferences(List<TrackerItemRevision> incomingReferences) {
     this.incomingReferences = incomingReferences;
   }
 
+
   public TraceabilityItem incomingAssociations(List<TrackerItemRevision> incomingAssociations) {
+    
     this.incomingAssociations = incomingAssociations;
     return this;
   }
@@ -316,10 +363,13 @@ public class TraceabilityItem {
    * incoming associations
    * @return incomingAssociations
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "incoming associations")
+
   public List<TrackerItemRevision> getIncomingAssociations() {
     return incomingAssociations;
   }
+
 
   public void setIncomingAssociations(List<TrackerItemRevision> incomingAssociations) {
     this.incomingAssociations = incomingAssociations;

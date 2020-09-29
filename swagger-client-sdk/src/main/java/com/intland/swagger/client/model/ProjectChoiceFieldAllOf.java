@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ProjectChoiceFieldAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ProjectChoiceFieldAllOf {
   public static final String SERIALIZED_NAME_MULTIPLE_VALUES = "multipleValues";
   @SerializedName(SERIALIZED_NAME_MULTIPLE_VALUES)
@@ -37,7 +37,9 @@ public class ProjectChoiceFieldAllOf {
   @SerializedName(SERIALIZED_NAME_REFERENCE_TYPE)
   private String referenceType;
 
+
   public ProjectChoiceFieldAllOf multipleValues(Boolean multipleValues) {
+    
     this.multipleValues = multipleValues;
     return this;
   }
@@ -46,16 +48,21 @@ public class ProjectChoiceFieldAllOf {
    * Multiple values state of a field
    * @return multipleValues
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Multiple values state of a field")
+
   public Boolean getMultipleValues() {
     return multipleValues;
   }
+
 
   public void setMultipleValues(Boolean multipleValues) {
     this.multipleValues = multipleValues;
   }
 
+
   public ProjectChoiceFieldAllOf referenceType(String referenceType) {
+    
     this.referenceType = referenceType;
     return this;
   }
@@ -64,10 +71,13 @@ public class ProjectChoiceFieldAllOf {
    * Type of the contained references
    * @return referenceType
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Type of the contained references")
+
   public String getReferenceType() {
     return referenceType;
   }
+
 
   public void setReferenceType(String referenceType) {
     this.referenceType = referenceType;

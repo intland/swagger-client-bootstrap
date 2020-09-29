@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * TrackerItemSearchRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerItemSearchRequest {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
@@ -41,7 +41,9 @@ public class TrackerItemSearchRequest {
   @SerializedName(SERIALIZED_NAME_QUERY_STRING)
   private String queryString;
 
+
   public TrackerItemSearchRequest page(Integer page) {
+    
     this.page = page;
     return this;
   }
@@ -50,16 +52,21 @@ public class TrackerItemSearchRequest {
    * Index of the page
    * @return page
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Index of the page")
+
   public Integer getPage() {
     return page;
   }
+
 
   public void setPage(Integer page) {
     this.page = page;
   }
 
+
   public TrackerItemSearchRequest pageSize(Integer pageSize) {
+    
     this.pageSize = pageSize;
     return this;
   }
@@ -68,16 +75,21 @@ public class TrackerItemSearchRequest {
    * Size of the found page
    * @return pageSize
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "25", value = "Size of the found page")
+
   public Integer getPageSize() {
     return pageSize;
   }
+
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
   }
 
+
   public TrackerItemSearchRequest queryString(String queryString) {
+    
     this.queryString = queryString;
     return this;
   }
@@ -87,9 +99,11 @@ public class TrackerItemSearchRequest {
    * @return queryString
   **/
   @ApiModelProperty(example = "priority='Normal'", required = true, value = "CbQL query for the requested items")
+
   public String getQueryString() {
     return queryString;
   }
+
 
   public void setQueryString(String queryString) {
     this.queryString = queryString;

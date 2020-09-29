@@ -2,6 +2,7 @@
 
 # SimpleReportSettings
 
+Settings for a simple report.
 ## Properties
 
 Name | Type | Description | Notes

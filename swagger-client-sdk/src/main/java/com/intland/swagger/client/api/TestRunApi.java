@@ -68,6 +68,16 @@ public class TestRunApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The newly created test run </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker is not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call createTestRunForTestCaseCall(Integer testRunTrackerId, CreateTestRunRequest createTestRunRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = createTestRunRequest;
@@ -79,6 +89,7 @@ public class TestRunApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -95,7 +106,7 @@ public class TestRunApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -119,6 +130,16 @@ public class TestRunApi {
      * @param createTestRunRequest  (optional)
      * @return TrackerItem
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The newly created test run </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker is not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+     </table>
      */
     public TrackerItem createTestRunForTestCase(Integer testRunTrackerId, CreateTestRunRequest createTestRunRequest) throws ApiException {
         ApiResponse<TrackerItem> localVarResp = createTestRunForTestCaseWithHttpInfo(testRunTrackerId, createTestRunRequest);
@@ -132,6 +153,16 @@ public class TestRunApi {
      * @param createTestRunRequest  (optional)
      * @return ApiResponse&lt;TrackerItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The newly created test run </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker is not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<TrackerItem> createTestRunForTestCaseWithHttpInfo(Integer testRunTrackerId, CreateTestRunRequest createTestRunRequest) throws ApiException {
         okhttp3.Call localVarCall = createTestRunForTestCaseValidateBeforeCall(testRunTrackerId, createTestRunRequest, null);
@@ -147,6 +178,16 @@ public class TestRunApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The newly created test run </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker is not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call createTestRunForTestCaseAsync(Integer testRunTrackerId, CreateTestRunRequest createTestRunRequest, final ApiCallback<TrackerItem> _callback) throws ApiException {
 
@@ -162,6 +203,15 @@ public class TestRunApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Test run not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated Test Run item </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call updateTestRunResultCall(Integer testRunId, UpdateTestRunRequest updateTestRunRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = updateTestRunRequest;
@@ -173,6 +223,7 @@ public class TestRunApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -189,7 +240,7 @@ public class TestRunApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -213,6 +264,15 @@ public class TestRunApi {
      * @param updateTestRunRequest  (optional)
      * @return TrackerItem
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Test run not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated Test Run item </td><td>  -  </td></tr>
+     </table>
      */
     public TrackerItem updateTestRunResult(Integer testRunId, UpdateTestRunRequest updateTestRunRequest) throws ApiException {
         ApiResponse<TrackerItem> localVarResp = updateTestRunResultWithHttpInfo(testRunId, updateTestRunRequest);
@@ -226,6 +286,15 @@ public class TestRunApi {
      * @param updateTestRunRequest  (optional)
      * @return ApiResponse&lt;TrackerItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Test run not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated Test Run item </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<TrackerItem> updateTestRunResultWithHttpInfo(Integer testRunId, UpdateTestRunRequest updateTestRunRequest) throws ApiException {
         okhttp3.Call localVarCall = updateTestRunResultValidateBeforeCall(testRunId, updateTestRunRequest, null);
@@ -241,6 +310,15 @@ public class TestRunApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Test run not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated Test Run item </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call updateTestRunResultAsync(Integer testRunId, UpdateTestRunRequest updateTestRunRequest, final ApiCallback<TrackerItem> _callback) throws ApiException {
 

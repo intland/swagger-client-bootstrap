@@ -2,6 +2,7 @@
 
 # TableFieldValue
 
+Value container of a table field
 ## Properties
 
 Name | Type | Description | Notes

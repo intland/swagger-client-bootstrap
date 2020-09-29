@@ -34,13 +34,15 @@ import java.util.List;
  * ReportGroup having rows.
  */
 @ApiModel(description = "ReportGroup having rows.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ReportGroupWithRows extends ReportGroup {
   public static final String SERIALIZED_NAME_ROWS = "rows";
   @SerializedName(SERIALIZED_NAME_ROWS)
-  private List<ReportRow> rows = new ArrayList<ReportRow>();
+  private List<ReportRow> rows = null;
+
 
   public ReportGroupWithRows rows(List<ReportRow> rows) {
+    
     this.rows = rows;
     return this;
   }
@@ -57,10 +59,13 @@ public class ReportGroupWithRows extends ReportGroup {
    * Get rows
    * @return rows
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<ReportRow> getRows() {
     return rows;
   }
+
 
   public void setRows(List<ReportRow> rows) {
     this.rows = rows;

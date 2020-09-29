@@ -84,4 +84,12 @@ public class TrackerItemRowChangeTest {
         // TODO: test type
     }
 
+    /**
+     * Test the property 'rowNumber'
+     */
+    @Test
+    public void rowNumberTest() {
+        // TODO: test rowNumber
+    }
+
 }

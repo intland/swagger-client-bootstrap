@@ -2,6 +2,7 @@
 
 # Tracker
 
+Basic properties of a codeBeamer tracker
 ## Properties
 
 Name | Type | Description | Notes

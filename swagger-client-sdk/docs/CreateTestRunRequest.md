@@ -2,6 +2,7 @@
 
 # CreateTestRunRequest
 
+Request model to create a test run from multiple test cases or sets
 ## Properties
 
 Name | Type | Description | Notes

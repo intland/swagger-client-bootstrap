@@ -29,7 +29,7 @@ import org.joda.time.DateTime;
  * Properties of a codeBeamer user
  */
 @ApiModel(description = "Properties of a codeBeamer user")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class User {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -150,7 +150,7 @@ public class User {
 
       @Override
       public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return StatusEnum.fromValue(value);
       }
     }
@@ -160,7 +160,9 @@ public class User {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status;
 
+
   public User id(Integer id) {
+    
     this.id = id;
     return this;
   }
@@ -170,16 +172,21 @@ public class User {
    * minimum: 0
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the entity")
+
   public Integer getId() {
     return id;
   }
+
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+
   public User name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -188,16 +195,21 @@ public class User {
    * Name of the entity
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the entity")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public User firstName(String firstName) {
+    
     this.firstName = firstName;
     return this;
   }
@@ -206,16 +218,21 @@ public class User {
    * First name of a user
    * @return firstName
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "First name of a user")
+
   public String getFirstName() {
     return firstName;
   }
+
 
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
 
+
   public User lastName(String lastName) {
+    
     this.lastName = lastName;
     return this;
   }
@@ -224,16 +241,21 @@ public class User {
    * Last name of a user
    * @return lastName
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Last name of a user")
+
   public String getLastName() {
     return lastName;
   }
+
 
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
 
+
   public User email(String email) {
+    
     this.email = email;
     return this;
   }
@@ -242,16 +264,21 @@ public class User {
    * Email of a user
    * @return email
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Email of a user")
+
   public String getEmail() {
     return email;
   }
+
 
   public void setEmail(String email) {
     this.email = email;
   }
 
+
   public User title(String title) {
+    
     this.title = title;
     return this;
   }
@@ -260,16 +287,21 @@ public class User {
    * Title of a user
    * @return title
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Title of a user")
+
   public String getTitle() {
     return title;
   }
+
 
   public void setTitle(String title) {
     this.title = title;
   }
 
+
   public User company(String company) {
+    
     this.company = company;
     return this;
   }
@@ -278,16 +310,21 @@ public class User {
    * Company of a user
    * @return company
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Company of a user")
+
   public String getCompany() {
     return company;
   }
+
 
   public void setCompany(String company) {
     this.company = company;
   }
 
+
   public User address(String address) {
+    
     this.address = address;
     return this;
   }
@@ -296,16 +333,21 @@ public class User {
    * Address of a user
    * @return address
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Address of a user")
+
   public String getAddress() {
     return address;
   }
+
 
   public void setAddress(String address) {
     this.address = address;
   }
 
+
   public User zip(String zip) {
+    
     this.zip = zip;
     return this;
   }
@@ -314,16 +356,21 @@ public class User {
    * Zip of a user
    * @return zip
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Zip of a user")
+
   public String getZip() {
     return zip;
   }
+
 
   public void setZip(String zip) {
     this.zip = zip;
   }
 
+
   public User city(String city) {
+    
     this.city = city;
     return this;
   }
@@ -332,16 +379,21 @@ public class User {
    * City of a user
    * @return city
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "City of a user")
+
   public String getCity() {
     return city;
   }
+
 
   public void setCity(String city) {
     this.city = city;
   }
 
+
   public User state(String state) {
+    
     this.state = state;
     return this;
   }
@@ -350,16 +402,21 @@ public class User {
    * State / providence of a user
    * @return state
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "State / providence of a user")
+
   public String getState() {
     return state;
   }
+
 
   public void setState(String state) {
     this.state = state;
   }
 
+
   public User country(String country) {
+    
     this.country = country;
     return this;
   }
@@ -368,16 +425,21 @@ public class User {
    * Country of a user in ISO 3166-1 alpha-2 format
    * @return country
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Country of a user in ISO 3166-1 alpha-2 format")
+
   public String getCountry() {
     return country;
   }
+
 
   public void setCountry(String country) {
     this.country = country;
   }
 
+
   public User dateFormat(String dateFormat) {
+    
     this.dateFormat = dateFormat;
     return this;
   }
@@ -386,16 +448,21 @@ public class User {
    * Date format of a user
    * @return dateFormat
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Date format of a user")
+
   public String getDateFormat() {
     return dateFormat;
   }
+
 
   public void setDateFormat(String dateFormat) {
     this.dateFormat = dateFormat;
   }
 
+
   public User timeZone(String timeZone) {
+    
     this.timeZone = timeZone;
     return this;
   }
@@ -404,16 +471,21 @@ public class User {
    * Time zone of a user
    * @return timeZone
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "America/New_York", value = "Time zone of a user")
+
   public String getTimeZone() {
     return timeZone;
   }
+
 
   public void setTimeZone(String timeZone) {
     this.timeZone = timeZone;
   }
 
+
   public User language(String language) {
+    
     this.language = language;
     return this;
   }
@@ -422,16 +494,21 @@ public class User {
    * Language of a user in ISO 639-1 format
    * @return language
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Language of a user in ISO 639-1 format")
+
   public String getLanguage() {
     return language;
   }
+
 
   public void setLanguage(String language) {
     this.language = language;
   }
 
+
   public User phone(String phone) {
+    
     this.phone = phone;
     return this;
   }
@@ -440,16 +517,21 @@ public class User {
    * Phone number of a user
    * @return phone
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Phone number of a user")
+
   public String getPhone() {
     return phone;
   }
+
 
   public void setPhone(String phone) {
     this.phone = phone;
   }
 
+
   public User skills(String skills) {
+    
     this.skills = skills;
     return this;
   }
@@ -458,16 +540,21 @@ public class User {
    * Skills of a user
    * @return skills
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Skills of a user")
+
   public String getSkills() {
     return skills;
   }
+
 
   public void setSkills(String skills) {
     this.skills = skills;
   }
 
+
   public User registryDate(DateTime registryDate) {
+    
     this.registryDate = registryDate;
     return this;
   }
@@ -476,16 +563,21 @@ public class User {
    * Registration date of a user
    * @return registryDate
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Registration date of a user")
+
   public DateTime getRegistryDate() {
     return registryDate;
   }
+
 
   public void setRegistryDate(DateTime registryDate) {
     this.registryDate = registryDate;
   }
 
+
   public User lastLoginDate(DateTime lastLoginDate) {
+    
     this.lastLoginDate = lastLoginDate;
     return this;
   }
@@ -494,16 +586,21 @@ public class User {
    * Last login date of a user
    * @return lastLoginDate
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Last login date of a user")
+
   public DateTime getLastLoginDate() {
     return lastLoginDate;
   }
+
 
   public void setLastLoginDate(DateTime lastLoginDate) {
     this.lastLoginDate = lastLoginDate;
   }
 
+
   public User status(StatusEnum status) {
+    
     this.status = status;
     return this;
   }
@@ -512,10 +609,13 @@ public class User {
    * Status of a user
    * @return status
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Status of a user")
+
   public StatusEnum getStatus() {
     return status;
   }
+
 
   public void setStatus(StatusEnum status) {
     this.status = status;

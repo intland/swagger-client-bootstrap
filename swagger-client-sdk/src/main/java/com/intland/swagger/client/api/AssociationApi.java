@@ -64,6 +64,12 @@ public class AssociationApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Created association </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call createAssociationCall(Association association, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = association;
@@ -74,6 +80,7 @@ public class AssociationApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -90,7 +97,7 @@ public class AssociationApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -108,6 +115,12 @@ public class AssociationApi {
      * @param association  (optional)
      * @return Association
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Created association </td><td>  -  </td></tr>
+     </table>
      */
     public Association createAssociation(Association association) throws ApiException {
         ApiResponse<Association> localVarResp = createAssociationWithHttpInfo(association);
@@ -120,6 +133,12 @@ public class AssociationApi {
      * @param association  (optional)
      * @return ApiResponse&lt;Association&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Created association </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Association> createAssociationWithHttpInfo(Association association) throws ApiException {
         okhttp3.Call localVarCall = createAssociationValidateBeforeCall(association, null);
@@ -134,6 +153,12 @@ public class AssociationApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Created association </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call createAssociationAsync(Association association, final ApiCallback<Association> _callback) throws ApiException {
 
@@ -148,9 +173,16 @@ public class AssociationApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Delete association by id </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call deleteAssociationCall(Integer associationId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/associations/{associationId}"
@@ -159,6 +191,7 @@ public class AssociationApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "*/*"
@@ -175,7 +208,7 @@ public class AssociationApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -197,6 +230,13 @@ public class AssociationApi {
      * 
      * @param associationId  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Delete association by id </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+     </table>
      */
     public void deleteAssociation(Integer associationId) throws ApiException {
         deleteAssociationWithHttpInfo(associationId);
@@ -208,6 +248,13 @@ public class AssociationApi {
      * @param associationId  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Delete association by id </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Void> deleteAssociationWithHttpInfo(Integer associationId) throws ApiException {
         okhttp3.Call localVarCall = deleteAssociationValidateBeforeCall(associationId, null);
@@ -221,6 +268,13 @@ public class AssociationApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Delete association by id </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call deleteAssociationAsync(Integer associationId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -234,9 +288,16 @@ public class AssociationApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Found association </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getAssociationCall(Integer associationId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/associations/{associationId}"
@@ -245,6 +306,7 @@ public class AssociationApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -261,7 +323,7 @@ public class AssociationApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -284,6 +346,13 @@ public class AssociationApi {
      * @param associationId  (required)
      * @return Association
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Found association </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+     </table>
      */
     public Association getAssociation(Integer associationId) throws ApiException {
         ApiResponse<Association> localVarResp = getAssociationWithHttpInfo(associationId);
@@ -296,6 +365,13 @@ public class AssociationApi {
      * @param associationId  (required)
      * @return ApiResponse&lt;Association&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Found association </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Association> getAssociationWithHttpInfo(Integer associationId) throws ApiException {
         okhttp3.Call localVarCall = getAssociationValidateBeforeCall(associationId, null);
@@ -310,6 +386,13 @@ public class AssociationApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Found association </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getAssociationAsync(Integer associationId, final ApiCallback<Association> _callback) throws ApiException {
 
@@ -326,9 +409,16 @@ public class AssociationApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Association history </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getAssociationHistoryCall(Integer associationId, Integer page, Integer pageSize, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/associations/{associationId}/history"
@@ -345,6 +435,7 @@ public class AssociationApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -361,7 +452,7 @@ public class AssociationApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -386,6 +477,13 @@ public class AssociationApi {
      * @param pageSize Number of items in a result page. Max value: 500 (optional, default to 25)
      * @return ArtifactRevisionSearchResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Association history </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ArtifactRevisionSearchResult getAssociationHistory(Integer associationId, Integer page, Integer pageSize) throws ApiException {
         ApiResponse<ArtifactRevisionSearchResult> localVarResp = getAssociationHistoryWithHttpInfo(associationId, page, pageSize);
@@ -400,6 +498,13 @@ public class AssociationApi {
      * @param pageSize Number of items in a result page. Max value: 500 (optional, default to 25)
      * @return ApiResponse&lt;ArtifactRevisionSearchResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Association history </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ArtifactRevisionSearchResult> getAssociationHistoryWithHttpInfo(Integer associationId, Integer page, Integer pageSize) throws ApiException {
         okhttp3.Call localVarCall = getAssociationHistoryValidateBeforeCall(associationId, page, pageSize, null);
@@ -416,6 +521,13 @@ public class AssociationApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Association history </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getAssociationHistoryAsync(Integer associationId, Integer page, Integer pageSize, final ApiCallback<ArtifactRevisionSearchResult> _callback) throws ApiException {
 
@@ -430,9 +542,16 @@ public class AssociationApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Association type </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getAssociationTypeCall(Integer associationTypeId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/associations/types/{associationTypeId}"
@@ -441,6 +560,7 @@ public class AssociationApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -457,7 +577,7 @@ public class AssociationApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -480,6 +600,13 @@ public class AssociationApi {
      * @param associationTypeId  (required)
      * @return AssociationType
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Association type </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+     </table>
      */
     public AssociationType getAssociationType(Integer associationTypeId) throws ApiException {
         ApiResponse<AssociationType> localVarResp = getAssociationTypeWithHttpInfo(associationTypeId);
@@ -492,6 +619,13 @@ public class AssociationApi {
      * @param associationTypeId  (required)
      * @return ApiResponse&lt;AssociationType&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Association type </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<AssociationType> getAssociationTypeWithHttpInfo(Integer associationTypeId) throws ApiException {
         okhttp3.Call localVarCall = getAssociationTypeValidateBeforeCall(associationTypeId, null);
@@ -506,6 +640,13 @@ public class AssociationApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Association type </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getAssociationTypeAsync(Integer associationTypeId, final ApiCallback<AssociationType> _callback) throws ApiException {
 
@@ -519,9 +660,15 @@ public class AssociationApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List of association types </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getAvailableAssociationTypesCall(final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/associations/types";
@@ -529,6 +676,7 @@ public class AssociationApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -545,7 +693,7 @@ public class AssociationApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -562,6 +710,12 @@ public class AssociationApi {
      * 
      * @return List&lt;AssociationType&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List of association types </td><td>  -  </td></tr>
+     </table>
      */
     public List<AssociationType> getAvailableAssociationTypes() throws ApiException {
         ApiResponse<List<AssociationType>> localVarResp = getAvailableAssociationTypesWithHttpInfo();
@@ -573,6 +727,12 @@ public class AssociationApi {
      * 
      * @return ApiResponse&lt;List&lt;AssociationType&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List of association types </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<List<AssociationType>> getAvailableAssociationTypesWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getAvailableAssociationTypesValidateBeforeCall(null);
@@ -586,6 +746,12 @@ public class AssociationApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List of association types </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getAvailableAssociationTypesAsync(final ApiCallback<List<AssociationType>> _callback) throws ApiException {
 
@@ -601,6 +767,13 @@ public class AssociationApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Updated association </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call updateAssociationCall(Integer associationId, Association association, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = association;
@@ -612,6 +785,7 @@ public class AssociationApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -628,7 +802,7 @@ public class AssociationApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -652,6 +826,13 @@ public class AssociationApi {
      * @param association  (optional)
      * @return Association
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Updated association </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+     </table>
      */
     public Association updateAssociation(Integer associationId, Association association) throws ApiException {
         ApiResponse<Association> localVarResp = updateAssociationWithHttpInfo(associationId, association);
@@ -665,6 +846,13 @@ public class AssociationApi {
      * @param association  (optional)
      * @return ApiResponse&lt;Association&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Updated association </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Association> updateAssociationWithHttpInfo(Integer associationId, Association association) throws ApiException {
         okhttp3.Call localVarCall = updateAssociationValidateBeforeCall(associationId, association, null);
@@ -680,6 +868,13 @@ public class AssociationApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Updated association </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Association not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call updateAssociationAsync(Integer associationId, Association association, final ApiCallback<Association> _callback) throws ApiException {
 

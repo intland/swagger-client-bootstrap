@@ -2,6 +2,7 @@
 
 # WikiRenderRequest
 
+Request model to render a wiki page in a specific context
 ## Properties
 
 Name | Type | Description | Notes

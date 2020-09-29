@@ -28,7 +28,7 @@ import java.io.IOException;
  * Reference to an item
  */
 @ApiModel(description = "Reference to an item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 
 public class AbstractReference {
   public static final String SERIALIZED_NAME_ID = "id";
@@ -41,12 +41,14 @@ public class AbstractReference {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  protected String type;
 
   public AbstractReference() {
     this.type = this.getClass().getSimpleName();
   }
+
   public AbstractReference id(Integer id) {
+    
     this.id = id;
     return this;
   }
@@ -56,16 +58,21 @@ public class AbstractReference {
    * minimum: 0
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the entity")
+
   public Integer getId() {
     return id;
   }
+
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+
   public AbstractReference name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -74,16 +81,21 @@ public class AbstractReference {
    * Name of the entity
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the entity")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public AbstractReference type(String type) {
+    
     this.type = type;
     return this;
   }
@@ -92,10 +104,13 @@ public class AbstractReference {
    * Type of a referenced object
    * @return type
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Type of a referenced object")
+
   public String getType() {
     return type;
   }
+
 
   public void setType(String type) {
     this.type = type;

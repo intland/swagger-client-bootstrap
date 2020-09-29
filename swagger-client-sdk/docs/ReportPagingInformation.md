@@ -2,6 +2,7 @@
 
 # ReportPagingInformation
 
+Paging information of the current result.
 ## Properties
 
 Name | Type | Description | Notes

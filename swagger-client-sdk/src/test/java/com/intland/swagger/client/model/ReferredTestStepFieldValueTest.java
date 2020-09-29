@@ -66,4 +66,28 @@ public class ReferredTestStepFieldValueTest {
         // TODO: test name
     }
 
+    /**
+     * Test the property 'referredStepId'
+     */
+    @Test
+    public void referredStepIdTest() {
+        // TODO: test referredStepId
+    }
+
+    /**
+     * Test the property 'referredTestCaseId'
+     */
+    @Test
+    public void referredTestCaseIdTest() {
+        // TODO: test referredTestCaseId
+    }
+
+    /**
+     * Test the property 'value'
+     */
+    @Test
+    public void valueTest() {
+        // TODO: test value
+    }
+
 }

@@ -31,7 +31,7 @@ import java.util.List;
  * Traceability result
  */
 @ApiModel(description = "Traceability result")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TraceabilityResult {
   public static final String SERIALIZED_NAME_LIMIT_WARNINGS = "limitWarnings";
   @SerializedName(SERIALIZED_NAME_LIMIT_WARNINGS)
@@ -39,9 +39,11 @@ public class TraceabilityResult {
 
   public static final String SERIALIZED_NAME_TRACEABILITY_ITEMS = "traceabilityItems";
   @SerializedName(SERIALIZED_NAME_TRACEABILITY_ITEMS)
-  private List<TraceabilityItem> traceabilityItems = new ArrayList<TraceabilityItem>();
+  private List<TraceabilityItem> traceabilityItems = null;
+
 
   public TraceabilityResult limitWarnings(String limitWarnings) {
+    
     this.limitWarnings = limitWarnings;
     return this;
   }
@@ -50,16 +52,21 @@ public class TraceabilityResult {
    * limit warnings
    * @return limitWarnings
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "limit warnings")
+
   public String getLimitWarnings() {
     return limitWarnings;
   }
+
 
   public void setLimitWarnings(String limitWarnings) {
     this.limitWarnings = limitWarnings;
   }
 
+
   public TraceabilityResult traceabilityItems(List<TraceabilityItem> traceabilityItems) {
+    
     this.traceabilityItems = traceabilityItems;
     return this;
   }
@@ -76,10 +83,13 @@ public class TraceabilityResult {
    * traceability items
    * @return traceabilityItems
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "traceability items")
+
   public List<TraceabilityItem> getTraceabilityItems() {
     return traceabilityItems;
   }
+
 
   public void setTraceabilityItems(List<TraceabilityItem> traceabilityItems) {
     this.traceabilityItems = traceabilityItems;

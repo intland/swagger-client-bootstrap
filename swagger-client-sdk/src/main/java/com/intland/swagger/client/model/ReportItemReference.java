@@ -28,7 +28,7 @@ import java.io.IOException;
  * Reference data of an underlying item of a row.
  */
 @ApiModel(description = "Reference data of an underlying item of a row.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ReportItemReference {
   public static final String SERIALIZED_NAME_ITEM_ID = "itemId";
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
@@ -38,7 +38,9 @@ public class ReportItemReference {
   @SerializedName(SERIALIZED_NAME_TRACKER_ID)
   private Integer trackerId;
 
+
   public ReportItemReference itemId(Integer itemId) {
+    
     this.itemId = itemId;
     return this;
   }
@@ -47,16 +49,21 @@ public class ReportItemReference {
    * Identifier of the underlying item.
    * @return itemId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the underlying item.")
+
   public Integer getItemId() {
     return itemId;
   }
+
 
   public void setItemId(Integer itemId) {
     this.itemId = itemId;
   }
 
+
   public ReportItemReference trackerId(Integer trackerId) {
+    
     this.trackerId = trackerId;
     return this;
   }
@@ -65,10 +72,13 @@ public class ReportItemReference {
    * Identifier of the tracker of the underlying item.
    * @return trackerId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the tracker of the underlying item.")
+
   public Integer getTrackerId() {
     return trackerId;
   }
+
 
   public void setTrackerId(Integer trackerId) {
     this.trackerId = trackerId;

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Value container of a field
  */
 @ApiModel(description = "Value container of a field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 
 public class AbstractFieldValue {
   public static final String SERIALIZED_NAME_FIELD_ID = "fieldId";
@@ -37,7 +37,7 @@ public class AbstractFieldValue {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  protected String type;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -46,7 +46,9 @@ public class AbstractFieldValue {
   public AbstractFieldValue() {
     this.type = this.getClass().getSimpleName();
   }
+
   public AbstractFieldValue fieldId(Integer fieldId) {
+    
     this.fieldId = fieldId;
     return this;
   }
@@ -55,16 +57,21 @@ public class AbstractFieldValue {
    * Id of the field
    * @return fieldId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the field")
+
   public Integer getFieldId() {
     return fieldId;
   }
+
 
   public void setFieldId(Integer fieldId) {
     this.fieldId = fieldId;
   }
 
+
   public AbstractFieldValue type(String type) {
+    
     this.type = type;
     return this;
   }
@@ -74,15 +81,19 @@ public class AbstractFieldValue {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "Type of the field")
+
   public String getType() {
     return type;
   }
+
 
   public void setType(String type) {
     this.type = type;
   }
 
+
   public AbstractFieldValue name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -91,10 +102,13 @@ public class AbstractFieldValue {
    * Name of the field
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the field")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;

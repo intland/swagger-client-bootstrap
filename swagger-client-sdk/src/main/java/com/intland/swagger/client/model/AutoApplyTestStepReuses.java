@@ -31,17 +31,19 @@ import java.util.List;
  * Specifies which Test Cases are checked for duplicate Steps
  */
 @ApiModel(description = "Specifies which Test Cases are checked for duplicate Steps")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class AutoApplyTestStepReuses {
   public static final String SERIALIZED_NAME_TEST_CASES = "testCases";
   @SerializedName(SERIALIZED_NAME_TEST_CASES)
-  private List<TrackerItemReference> testCases = new ArrayList<TrackerItemReference>();
+  private List<TrackerItemReference> testCases = null;
 
   public static final String SERIALIZED_NAME_SCAN_TEST_CASE_LIBRARIES = "scanTestCaseLibraries";
   @SerializedName(SERIALIZED_NAME_SCAN_TEST_CASE_LIBRARIES)
   private Boolean scanTestCaseLibraries;
 
+
   public AutoApplyTestStepReuses testCases(List<TrackerItemReference> testCases) {
+    
     this.testCases = testCases;
     return this;
   }
@@ -58,16 +60,21 @@ public class AutoApplyTestStepReuses {
    * The Test Cases to find the duplicated steps inside: if these Test Cases has duplicated Steps these will be converted to Step-Reuses.
    * @return testCases
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The Test Cases to find the duplicated steps inside: if these Test Cases has duplicated Steps these will be converted to Step-Reuses.")
+
   public List<TrackerItemReference> getTestCases() {
     return testCases;
   }
+
 
   public void setTestCases(List<TrackerItemReference> testCases) {
     this.testCases = testCases;
   }
 
+
   public AutoApplyTestStepReuses scanTestCaseLibraries(Boolean scanTestCaseLibraries) {
+    
     this.scanTestCaseLibraries = scanTestCaseLibraries;
     return this;
   }
@@ -76,10 +83,13 @@ public class AutoApplyTestStepReuses {
    * If it scans/finds the duplicate Steps in Test Case libraries of the user? Note: that only Reusable Steps will be reused from these libraries!
    * @return scanTestCaseLibraries
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "If it scans/finds the duplicate Steps in Test Case libraries of the user? Note: that only Reusable Steps will be reused from these libraries!")
+
   public Boolean getScanTestCaseLibraries() {
     return scanTestCaseLibraries;
   }
+
 
   public void setScanTestCaseLibraries(Boolean scanTestCaseLibraries) {
     this.scanTestCaseLibraries = scanTestCaseLibraries;

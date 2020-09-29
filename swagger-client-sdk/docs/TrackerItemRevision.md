@@ -2,6 +2,7 @@
 
 # TrackerItemRevision
 
+Tracker item revision identifier
 ## Properties
 
 Name | Type | Description | Notes

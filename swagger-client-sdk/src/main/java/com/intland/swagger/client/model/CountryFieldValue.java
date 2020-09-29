@@ -32,21 +32,20 @@ import java.util.List;
  * Value container of a country field
  */
 @ApiModel(description = "Value container of a country field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class CountryFieldValue extends AbstractFieldValue {
   public static final String SERIALIZED_NAME_VALUES = "values";
   @SerializedName(SERIALIZED_NAME_VALUES)
   private List<String> values = new ArrayList<String>();
 
+
   public CountryFieldValue values(List<String> values) {
+    
     this.values = values;
     return this;
   }
 
   public CountryFieldValue addValuesItem(String valuesItem) {
-    if (this.values == null) {
-      this.values = new ArrayList<String>();
-    }
     this.values.add(valuesItem);
     return this;
   }
@@ -55,10 +54,12 @@ public class CountryFieldValue extends AbstractFieldValue {
    * Country codes
    * @return values
   **/
-  @ApiModelProperty(value = "Country codes")
+  @ApiModelProperty(required = true, value = "Country codes")
+
   public List<String> getValues() {
     return values;
   }
+
 
   public void setValues(List<String> values) {
     this.values = values;

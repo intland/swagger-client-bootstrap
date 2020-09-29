@@ -2,6 +2,7 @@
 
 # TraceabilityItem
 
+Traceability Item
 ## Properties
 
 Name | Type | Description | Notes

@@ -65,6 +65,13 @@ public class TraceabilityApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker item list </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTraceabilityInitialItemIdsCall(Integer pageSize, Integer pageNo, TraceabilityInitialLevelFilter traceabilityInitialLevelFilter, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = traceabilityInitialLevelFilter;
@@ -83,6 +90,7 @@ public class TraceabilityApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -99,7 +107,7 @@ public class TraceabilityApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -119,6 +127,13 @@ public class TraceabilityApi {
      * @param traceabilityInitialLevelFilter  (optional)
      * @return List&lt;TraceabilityItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker item list </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public List<TraceabilityItem> getTraceabilityInitialItemIds(Integer pageSize, Integer pageNo, TraceabilityInitialLevelFilter traceabilityInitialLevelFilter) throws ApiException {
         ApiResponse<List<TraceabilityItem>> localVarResp = getTraceabilityInitialItemIdsWithHttpInfo(pageSize, pageNo, traceabilityInitialLevelFilter);
@@ -133,6 +148,13 @@ public class TraceabilityApi {
      * @param traceabilityInitialLevelFilter  (optional)
      * @return ApiResponse&lt;List&lt;TraceabilityItem&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker item list </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<List<TraceabilityItem>> getTraceabilityInitialItemIdsWithHttpInfo(Integer pageSize, Integer pageNo, TraceabilityInitialLevelFilter traceabilityInitialLevelFilter) throws ApiException {
         okhttp3.Call localVarCall = getTraceabilityInitialItemIdsValidateBeforeCall(pageSize, pageNo, traceabilityInitialLevelFilter, null);
@@ -149,6 +171,13 @@ public class TraceabilityApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker item list </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTraceabilityInitialItemIdsAsync(Integer pageSize, Integer pageNo, TraceabilityInitialLevelFilter traceabilityInitialLevelFilter, final ApiCallback<List<TraceabilityItem>> _callback) throws ApiException {
 
@@ -165,6 +194,12 @@ public class TraceabilityApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Traceability items list </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTraceabilityLevelItemIdsCall(Integer itemsOnLevel, Integer itemsFromPreviousItem, TraceabilityLevelFilter traceabilityLevelFilter, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = traceabilityLevelFilter;
@@ -183,6 +218,7 @@ public class TraceabilityApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -199,7 +235,7 @@ public class TraceabilityApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -219,6 +255,12 @@ public class TraceabilityApi {
      * @param traceabilityLevelFilter  (optional)
      * @return TraceabilityResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Traceability items list </td><td>  -  </td></tr>
+     </table>
      */
     public TraceabilityResult getTraceabilityLevelItemIds(Integer itemsOnLevel, Integer itemsFromPreviousItem, TraceabilityLevelFilter traceabilityLevelFilter) throws ApiException {
         ApiResponse<TraceabilityResult> localVarResp = getTraceabilityLevelItemIdsWithHttpInfo(itemsOnLevel, itemsFromPreviousItem, traceabilityLevelFilter);
@@ -233,6 +275,12 @@ public class TraceabilityApi {
      * @param traceabilityLevelFilter  (optional)
      * @return ApiResponse&lt;TraceabilityResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Traceability items list </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<TraceabilityResult> getTraceabilityLevelItemIdsWithHttpInfo(Integer itemsOnLevel, Integer itemsFromPreviousItem, TraceabilityLevelFilter traceabilityLevelFilter) throws ApiException {
         okhttp3.Call localVarCall = getTraceabilityLevelItemIdsValidateBeforeCall(itemsOnLevel, itemsFromPreviousItem, traceabilityLevelFilter, null);
@@ -249,6 +297,12 @@ public class TraceabilityApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Traceability items list </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTraceabilityLevelItemIdsAsync(Integer itemsOnLevel, Integer itemsFromPreviousItem, TraceabilityLevelFilter traceabilityLevelFilter, final ApiCallback<TraceabilityResult> _callback) throws ApiException {
 

@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * UpdateAttachment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class UpdateAttachment {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -77,7 +77,7 @@ public class UpdateAttachment {
 
       @Override
       public DescriptionFormatEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return DescriptionFormatEnum.fromValue(value);
       }
     }
@@ -91,7 +91,9 @@ public class UpdateAttachment {
   @SerializedName(SERIALIZED_NAME_CONTENT)
   private File content;
 
+
   public UpdateAttachment description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -100,16 +102,21 @@ public class UpdateAttachment {
    * Description
    * @return description
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description")
+
   public String getDescription() {
     return description;
   }
+
 
   public void setDescription(String description) {
     this.description = description;
   }
 
+
   public UpdateAttachment descriptionFormat(DescriptionFormatEnum descriptionFormat) {
+    
     this.descriptionFormat = descriptionFormat;
     return this;
   }
@@ -118,16 +125,21 @@ public class UpdateAttachment {
    * Format of description
    * @return descriptionFormat
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Format of description")
+
   public DescriptionFormatEnum getDescriptionFormat() {
     return descriptionFormat;
   }
+
 
   public void setDescriptionFormat(DescriptionFormatEnum descriptionFormat) {
     this.descriptionFormat = descriptionFormat;
   }
 
+
   public UpdateAttachment content(File content) {
+    
     this.content = content;
     return this;
   }
@@ -136,10 +148,13 @@ public class UpdateAttachment {
    * Content of attachment
    * @return content
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Content of attachment")
+
   public File getContent() {
     return content;
   }
+
 
   public void setContent(File content) {
     this.content = content;

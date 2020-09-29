@@ -2,6 +2,7 @@
 
 # DecimalField
 
+Decimal field
 ## Properties
 
 Name | Type | Description | Notes

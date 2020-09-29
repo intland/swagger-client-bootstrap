@@ -2,6 +2,7 @@
 
 # WikiOutlineSearchResult
 
+Paginated search result of outline wiki pages
 ## Properties
 
 Name | Type | Description | Notes

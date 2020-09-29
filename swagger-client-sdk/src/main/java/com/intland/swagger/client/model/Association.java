@@ -32,7 +32,7 @@ import org.joda.time.DateTime;
  * Basic properties of a codeBeamer association
  */
 @ApiModel(description = "Basic properties of a codeBeamer association")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class Association {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -89,7 +89,7 @@ public class Association {
 
       @Override
       public DescriptionFormatEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return DescriptionFormatEnum.fromValue(value);
       }
     }
@@ -101,11 +101,11 @@ public class Association {
 
   public static final String SERIALIZED_NAME_FROM = "from";
   @SerializedName(SERIALIZED_NAME_FROM)
-  private AbstractReference from = null;
+  private AbstractReference from;
 
   public static final String SERIALIZED_NAME_TO = "to";
   @SerializedName(SERIALIZED_NAME_TO)
-  private AbstractReference to = null;
+  private AbstractReference to;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
@@ -113,7 +113,7 @@ public class Association {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private AssociationTypeReference type = null;
+  private AssociationTypeReference type;
 
   public static final String SERIALIZED_NAME_PROPAGATING_SUSPECTS = "propagatingSuspects";
   @SerializedName(SERIALIZED_NAME_PROPAGATING_SUSPECTS)
@@ -137,13 +137,15 @@ public class Association {
 
   public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
   @SerializedName(SERIALIZED_NAME_CREATED_BY)
-  private UserReference createdBy = null;
+  private UserReference createdBy;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private DateTime createdAt;
 
+
   public Association id(Integer id) {
+    
     this.id = id;
     return this;
   }
@@ -153,16 +155,21 @@ public class Association {
    * minimum: 0
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the entity")
+
   public Integer getId() {
     return id;
   }
+
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+
   public Association name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -171,16 +178,21 @@ public class Association {
    * Name of the entity
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the entity")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public Association description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -189,16 +201,21 @@ public class Association {
    * Description of the entity
    * @return description
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description of the entity")
+
   public String getDescription() {
     return description;
   }
+
 
   public void setDescription(String description) {
     this.description = description;
   }
 
+
   public Association descriptionFormat(DescriptionFormatEnum descriptionFormat) {
+    
     this.descriptionFormat = descriptionFormat;
     return this;
   }
@@ -207,16 +224,21 @@ public class Association {
    * Description format of the entity
    * @return descriptionFormat
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description format of the entity")
+
   public DescriptionFormatEnum getDescriptionFormat() {
     return descriptionFormat;
   }
+
 
   public void setDescriptionFormat(DescriptionFormatEnum descriptionFormat) {
     this.descriptionFormat = descriptionFormat;
   }
 
+
   public Association from(AbstractReference from) {
+    
     this.from = from;
     return this;
   }
@@ -226,15 +248,19 @@ public class Association {
    * @return from
   **/
   @ApiModelProperty(required = true, value = "")
+
   public AbstractReference getFrom() {
     return from;
   }
+
 
   public void setFrom(AbstractReference from) {
     this.from = from;
   }
 
+
   public Association to(AbstractReference to) {
+    
     this.to = to;
     return this;
   }
@@ -243,16 +269,21 @@ public class Association {
    * Get to
    * @return to
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public AbstractReference getTo() {
     return to;
   }
+
 
   public void setTo(AbstractReference to) {
     this.to = to;
   }
 
+
   public Association url(String url) {
+    
     this.url = url;
     return this;
   }
@@ -261,16 +292,21 @@ public class Association {
    * Association to url
    * @return url
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Association to url")
+
   public String getUrl() {
     return url;
   }
+
 
   public void setUrl(String url) {
     this.url = url;
   }
 
+
   public Association type(AssociationTypeReference type) {
+    
     this.type = type;
     return this;
   }
@@ -279,16 +315,21 @@ public class Association {
    * Get type
    * @return type
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public AssociationTypeReference getType() {
     return type;
   }
+
 
   public void setType(AssociationTypeReference type) {
     this.type = type;
   }
 
+
   public Association propagatingSuspects(Boolean propagatingSuspects) {
+    
     this.propagatingSuspects = propagatingSuspects;
     return this;
   }
@@ -297,16 +338,21 @@ public class Association {
    * Propagating suspects
    * @return propagatingSuspects
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Propagating suspects")
+
   public Boolean getPropagatingSuspects() {
     return propagatingSuspects;
   }
+
 
   public void setPropagatingSuspects(Boolean propagatingSuspects) {
     this.propagatingSuspects = propagatingSuspects;
   }
 
+
   public Association reversePropagation(Boolean reversePropagation) {
+    
     this.reversePropagation = reversePropagation;
     return this;
   }
@@ -315,16 +361,21 @@ public class Association {
    * Reverse propagation
    * @return reversePropagation
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Reverse propagation")
+
   public Boolean getReversePropagation() {
     return reversePropagation;
   }
+
 
   public void setReversePropagation(Boolean reversePropagation) {
     this.reversePropagation = reversePropagation;
   }
 
+
   public Association biDirectionalPropagation(Boolean biDirectionalPropagation) {
+    
     this.biDirectionalPropagation = biDirectionalPropagation;
     return this;
   }
@@ -333,16 +384,21 @@ public class Association {
    * Bi-directional reference
    * @return biDirectionalPropagation
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Bi-directional reference")
+
   public Boolean getBiDirectionalPropagation() {
     return biDirectionalPropagation;
   }
+
 
   public void setBiDirectionalPropagation(Boolean biDirectionalPropagation) {
     this.biDirectionalPropagation = biDirectionalPropagation;
   }
 
+
   public Association propagatingDependencies(Boolean propagatingDependencies) {
+    
     this.propagatingDependencies = propagatingDependencies;
     return this;
   }
@@ -351,16 +407,21 @@ public class Association {
    * Propagating dependencies
    * @return propagatingDependencies
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Propagating dependencies")
+
   public Boolean getPropagatingDependencies() {
     return propagatingDependencies;
   }
+
 
   public void setPropagatingDependencies(Boolean propagatingDependencies) {
     this.propagatingDependencies = propagatingDependencies;
   }
 
+
   public Association baselineId(Integer baselineId) {
+    
     this.baselineId = baselineId;
     return this;
   }
@@ -369,16 +430,21 @@ public class Association {
    * Baseline ID
    * @return baselineId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Baseline ID")
+
   public Integer getBaselineId() {
     return baselineId;
   }
+
 
   public void setBaselineId(Integer baselineId) {
     this.baselineId = baselineId;
   }
 
+
   public Association createdBy(UserReference createdBy) {
+    
     this.createdBy = createdBy;
     return this;
   }
@@ -387,16 +453,21 @@ public class Association {
    * Get createdBy
    * @return createdBy
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getCreatedBy() {
     return createdBy;
   }
+
 
   public void setCreatedBy(UserReference createdBy) {
     this.createdBy = createdBy;
   }
 
+
   public Association createdAt(DateTime createdAt) {
+    
     this.createdAt = createdAt;
     return this;
   }
@@ -405,10 +476,13 @@ public class Association {
    * The date when the entity was created
    * @return createdAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was created")
+
   public DateTime getCreatedAt() {
     return createdAt;
   }
+
 
   public void setCreatedAt(DateTime createdAt) {
     this.createdAt = createdAt;

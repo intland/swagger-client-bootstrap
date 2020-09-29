@@ -2,6 +2,7 @@
 
 # UpdateTrackerItemChildrenRequest
 
+Tracker item child update request
 ## Properties
 
 Name | Type | Description | Notes

@@ -2,6 +2,7 @@
 
 # RemoteMigrationFile
 
+A file to migrate from a remote directory.
 ## Properties
 
 Name | Type | Description | Notes

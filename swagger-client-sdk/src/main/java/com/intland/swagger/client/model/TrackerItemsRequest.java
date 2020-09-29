@@ -31,21 +31,23 @@ import java.util.List;
  * Request model for multiple items.
  */
 @ApiModel(description = "Request model for multiple items.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 
 public class TrackerItemsRequest {
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<TrackerItemReference> items = new ArrayList<TrackerItemReference>();
+  private List<TrackerItemReference> items = null;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  protected String type;
 
   public TrackerItemsRequest() {
     this.type = this.getClass().getSimpleName();
   }
+
   public TrackerItemsRequest items(List<TrackerItemReference> items) {
+    
     this.items = items;
     return this;
   }
@@ -62,16 +64,21 @@ public class TrackerItemsRequest {
    * Item references.
    * @return items
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Item references.")
+
   public List<TrackerItemReference> getItems() {
     return items;
   }
+
 
   public void setItems(List<TrackerItemReference> items) {
     this.items = items;
   }
 
+
   public TrackerItemsRequest type(String type) {
+    
     this.type = type;
     return this;
   }
@@ -80,10 +87,13 @@ public class TrackerItemsRequest {
    * Type of a ItemsRequest
    * @return type
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Type of a ItemsRequest")
+
   public String getType() {
     return type;
   }
+
 
   public void setType(String type) {
     this.type = type;

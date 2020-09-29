@@ -2,6 +2,7 @@
 
 # TrackerItemChildReference
 
+Reference to a child item in the tracker outline.
 ## Properties
 
 Name | Type | Description | Notes

@@ -2,6 +2,7 @@
 
 # AbstractFieldValue
 
+Value container of a field
 ## Properties
 
 Name | Type | Description | Notes

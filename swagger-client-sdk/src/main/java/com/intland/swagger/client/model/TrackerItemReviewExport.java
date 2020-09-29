@@ -31,17 +31,19 @@ import java.util.List;
  * A tracker item review instance including its reviewers and their decisions
  */
 @ApiModel(description = "A tracker item review instance including its reviewers and their decisions")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerItemReviewExport {
   public static final String SERIALIZED_NAME_REVIEWERS = "reviewers";
   @SerializedName(SERIALIZED_NAME_REVIEWERS)
-  private List<TrackerItemReviewVoteExport> reviewers = new ArrayList<TrackerItemReviewVoteExport>();
+  private List<TrackerItemReviewVoteExport> reviewers = null;
 
   public static final String SERIALIZED_NAME_TRACKER_ITEM_VERSION = "trackerItemVersion";
   @SerializedName(SERIALIZED_NAME_TRACKER_ITEM_VERSION)
   private Integer trackerItemVersion;
 
+
   public TrackerItemReviewExport reviewers(List<TrackerItemReviewVoteExport> reviewers) {
+    
     this.reviewers = reviewers;
     return this;
   }
@@ -58,16 +60,21 @@ public class TrackerItemReviewExport {
    * List of reviewers and their votes
    * @return reviewers
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "List of reviewers and their votes")
+
   public List<TrackerItemReviewVoteExport> getReviewers() {
     return reviewers;
   }
+
 
   public void setReviewers(List<TrackerItemReviewVoteExport> reviewers) {
     this.reviewers = reviewers;
   }
 
+
   public TrackerItemReviewExport trackerItemVersion(Integer trackerItemVersion) {
+    
     this.trackerItemVersion = trackerItemVersion;
     return this;
   }
@@ -76,10 +83,13 @@ public class TrackerItemReviewExport {
    * Version of the Tracker Item at the time of the review
    * @return trackerItemVersion
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Version of the Tracker Item at the time of the review")
+
   public Integer getTrackerItemVersion() {
     return trackerItemVersion;
   }
+
 
   public void setTrackerItemVersion(Integer trackerItemVersion) {
     this.trackerItemVersion = trackerItemVersion;

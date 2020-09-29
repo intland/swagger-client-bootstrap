@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * PostComment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class PostComment {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -77,7 +77,7 @@ public class PostComment {
 
       @Override
       public CommentFormatEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return CommentFormatEnum.fromValue(value);
       }
     }
@@ -91,7 +91,9 @@ public class PostComment {
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
   private File attachments;
 
+
   public PostComment comment(String comment) {
+    
     this.comment = comment;
     return this;
   }
@@ -101,15 +103,19 @@ public class PostComment {
    * @return comment
   **/
   @ApiModelProperty(required = true, value = "Text of a comment")
+
   public String getComment() {
     return comment;
   }
+
 
   public void setComment(String comment) {
     this.comment = comment;
   }
 
+
   public PostComment commentFormat(CommentFormatEnum commentFormat) {
+    
     this.commentFormat = commentFormat;
     return this;
   }
@@ -118,16 +124,21 @@ public class PostComment {
    * Format of a comment
    * @return commentFormat
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Format of a comment")
+
   public CommentFormatEnum getCommentFormat() {
     return commentFormat;
   }
+
 
   public void setCommentFormat(CommentFormatEnum commentFormat) {
     this.commentFormat = commentFormat;
   }
 
+
   public PostComment attachments(File attachments) {
+    
     this.attachments = attachments;
     return this;
   }
@@ -136,10 +147,13 @@ public class PostComment {
    * Attachments of a comment
    * @return attachments
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Attachments of a comment")
+
   public File getAttachments() {
     return attachments;
   }
+
 
   public void setAttachments(File attachments) {
     this.attachments = attachments;

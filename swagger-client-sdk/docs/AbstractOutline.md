@@ -2,6 +2,7 @@
 
 # AbstractOutline
 
+Abstract outline entity
 ## Properties
 
 Name | Type | Description | Notes

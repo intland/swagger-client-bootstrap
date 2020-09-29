@@ -94,4 +94,12 @@ public class ReportGroupWithRowsTest {
         // TODO: test aggregates
     }
 
+    /**
+     * Test the property 'rows'
+     */
+    @Test
+    public void rowsTest() {
+        // TODO: test rows
+    }
+
 }

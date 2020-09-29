@@ -32,17 +32,19 @@ import java.util.List;
  * Model that contains permissions connected to roles
  */
 @ApiModel(description = "Model that contains permissions connected to roles")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class RoleWithPermissions {
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
-  private RoleReference role = null;
+  private RoleReference role;
 
   public static final String SERIALIZED_NAME_TRACKER_PERMISSIONS = "trackerPermissions";
   @SerializedName(SERIALIZED_NAME_TRACKER_PERMISSIONS)
-  private List<TrackerPermissionReference> trackerPermissions = new ArrayList<TrackerPermissionReference>();
+  private List<TrackerPermissionReference> trackerPermissions = null;
+
 
   public RoleWithPermissions role(RoleReference role) {
+    
     this.role = role;
     return this;
   }
@@ -51,16 +53,21 @@ public class RoleWithPermissions {
    * Get role
    * @return role
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public RoleReference getRole() {
     return role;
   }
+
 
   public void setRole(RoleReference role) {
     this.role = role;
   }
 
+
   public RoleWithPermissions trackerPermissions(List<TrackerPermissionReference> trackerPermissions) {
+    
     this.trackerPermissions = trackerPermissions;
     return this;
   }
@@ -77,10 +84,13 @@ public class RoleWithPermissions {
    * Permission for the role
    * @return trackerPermissions
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Permission for the role")
+
   public List<TrackerPermissionReference> getTrackerPermissions() {
     return trackerPermissions;
   }
+
 
   public void setTrackerPermissions(List<TrackerPermissionReference> trackerPermissions) {
     this.trackerPermissions = trackerPermissions;

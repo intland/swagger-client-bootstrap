@@ -31,15 +31,15 @@ import java.util.Map;
 /**
  * ModelAndView
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ModelAndView {
   public static final String SERIALIZED_NAME_VIEW = "view";
   @SerializedName(SERIALIZED_NAME_VIEW)
-  private View view = null;
+  private View view;
 
   public static final String SERIALIZED_NAME_MODEL = "model";
   @SerializedName(SERIALIZED_NAME_MODEL)
-  private Map<String, Object> model = new HashMap<String, Object>();
+  private Map<String, Object> model = null;
 
   /**
    * Gets or Sets status
@@ -214,7 +214,7 @@ public class ModelAndView {
 
       @Override
       public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return StatusEnum.fromValue(value);
       }
     }
@@ -230,7 +230,7 @@ public class ModelAndView {
 
   public static final String SERIALIZED_NAME_MODEL_MAP = "modelMap";
   @SerializedName(SERIALIZED_NAME_MODEL_MAP)
-  private Map<String, Object> modelMap = new HashMap<String, Object>();
+  private Map<String, Object> modelMap = null;
 
   public static final String SERIALIZED_NAME_REFERENCE = "reference";
   @SerializedName(SERIALIZED_NAME_REFERENCE)
@@ -240,7 +240,9 @@ public class ModelAndView {
   @SerializedName(SERIALIZED_NAME_VIEW_NAME)
   private String viewName;
 
+
   public ModelAndView view(View view) {
+    
     this.view = view;
     return this;
   }
@@ -249,16 +251,21 @@ public class ModelAndView {
    * Get view
    * @return view
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public View getView() {
     return view;
   }
+
 
   public void setView(View view) {
     this.view = view;
   }
 
+
   public ModelAndView model(Map<String, Object> model) {
+    
     this.model = model;
     return this;
   }
@@ -275,16 +282,21 @@ public class ModelAndView {
    * Get model
    * @return model
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Map<String, Object> getModel() {
     return model;
   }
+
 
   public void setModel(Map<String, Object> model) {
     this.model = model;
   }
 
+
   public ModelAndView status(StatusEnum status) {
+    
     this.status = status;
     return this;
   }
@@ -293,16 +305,21 @@ public class ModelAndView {
    * Get status
    * @return status
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public StatusEnum getStatus() {
     return status;
   }
+
 
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
+
   public ModelAndView empty(Boolean empty) {
+    
     this.empty = empty;
     return this;
   }
@@ -311,16 +328,21 @@ public class ModelAndView {
    * Get empty
    * @return empty
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Boolean getEmpty() {
     return empty;
   }
+
 
   public void setEmpty(Boolean empty) {
     this.empty = empty;
   }
 
+
   public ModelAndView modelMap(Map<String, Object> modelMap) {
+    
     this.modelMap = modelMap;
     return this;
   }
@@ -337,16 +359,21 @@ public class ModelAndView {
    * Get modelMap
    * @return modelMap
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Map<String, Object> getModelMap() {
     return modelMap;
   }
+
 
   public void setModelMap(Map<String, Object> modelMap) {
     this.modelMap = modelMap;
   }
 
+
   public ModelAndView reference(Boolean reference) {
+    
     this.reference = reference;
     return this;
   }
@@ -355,16 +382,21 @@ public class ModelAndView {
    * Get reference
    * @return reference
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Boolean getReference() {
     return reference;
   }
+
 
   public void setReference(Boolean reference) {
     this.reference = reference;
   }
 
+
   public ModelAndView viewName(String viewName) {
+    
     this.viewName = viewName;
     return this;
   }
@@ -373,10 +405,13 @@ public class ModelAndView {
    * Get viewName
    * @return viewName
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getViewName() {
     return viewName;
   }
+
 
   public void setViewName(String viewName) {
     this.viewName = viewName;

@@ -31,13 +31,15 @@ import java.util.List;
  * Tracker item child update request
  */
 @ApiModel(description = "Tracker item child update request")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class UpdateTrackerItemChildrenRequest {
   public static final String SERIALIZED_NAME_CHILDREN = "children";
   @SerializedName(SERIALIZED_NAME_CHILDREN)
-  private List<TrackerItemReference> children = new ArrayList<TrackerItemReference>();
+  private List<TrackerItemReference> children = null;
+
 
   public UpdateTrackerItemChildrenRequest children(List<TrackerItemReference> children) {
+    
     this.children = children;
     return this;
   }
@@ -54,10 +56,13 @@ public class UpdateTrackerItemChildrenRequest {
    * Child items to update
    * @return children
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Child items to update")
+
   public List<TrackerItemReference> getChildren() {
     return children;
   }
+
 
   public void setChildren(List<TrackerItemReference> children) {
     this.children = children;

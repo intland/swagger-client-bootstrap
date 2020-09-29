@@ -28,7 +28,7 @@ import java.io.IOException;
  * The configuration from which the review was created
  */
 @ApiModel(description = "The configuration from which the review was created")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerItemReviewConfig {
   /**
    * Whether the user has to provide its credentials to vote
@@ -73,7 +73,7 @@ public class TrackerItemReviewConfig {
 
       @Override
       public RequiredSignatureEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return RequiredSignatureEnum.fromValue(value);
       }
     }
@@ -95,7 +95,9 @@ public class TrackerItemReviewConfig {
   @SerializedName(SERIALIZED_NAME_ROLE_REQUIRED)
   private Boolean roleRequired;
 
+
   public TrackerItemReviewConfig requiredSignature(RequiredSignatureEnum requiredSignature) {
+    
     this.requiredSignature = requiredSignature;
     return this;
   }
@@ -104,16 +106,21 @@ public class TrackerItemReviewConfig {
    * Whether the user has to provide its credentials to vote
    * @return requiredSignature
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether the user has to provide its credentials to vote")
+
   public RequiredSignatureEnum getRequiredSignature() {
     return requiredSignature;
   }
+
 
   public void setRequiredSignature(RequiredSignatureEnum requiredSignature) {
     this.requiredSignature = requiredSignature;
   }
 
+
   public TrackerItemReviewConfig requiredApprovals(Integer requiredApprovals) {
+    
     this.requiredApprovals = requiredApprovals;
     return this;
   }
@@ -122,16 +129,21 @@ public class TrackerItemReviewConfig {
    * Number of approvals after which the review is considered approved
    * @return requiredApprovals
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Number of approvals after which the review is considered approved")
+
   public Integer getRequiredApprovals() {
     return requiredApprovals;
   }
+
 
   public void setRequiredApprovals(Integer requiredApprovals) {
     this.requiredApprovals = requiredApprovals;
   }
 
+
   public TrackerItemReviewConfig requiredRejections(Integer requiredRejections) {
+    
     this.requiredRejections = requiredRejections;
     return this;
   }
@@ -140,16 +152,21 @@ public class TrackerItemReviewConfig {
    * Number of rejections after which the review is considered rejected
    * @return requiredRejections
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Number of rejections after which the review is considered rejected")
+
   public Integer getRequiredRejections() {
     return requiredRejections;
   }
+
 
   public void setRequiredRejections(Integer requiredRejections) {
     this.requiredRejections = requiredRejections;
   }
 
+
   public TrackerItemReviewConfig roleRequired(Boolean roleRequired) {
+    
     this.roleRequired = roleRequired;
     return this;
   }
@@ -158,10 +175,13 @@ public class TrackerItemReviewConfig {
    * Whether the reviewers have to chose in which of their roles do they want to vote
    * @return roleRequired
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether the reviewers have to chose in which of their roles do they want to vote")
+
   public Boolean getRoleRequired() {
     return roleRequired;
   }
+
 
   public void setRoleRequired(Boolean roleRequired) {
     this.roleRequired = roleRequired;

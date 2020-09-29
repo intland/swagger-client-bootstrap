@@ -29,13 +29,15 @@ import java.util.List;
 /**
  * CountryFieldValueAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class CountryFieldValueAllOf {
   public static final String SERIALIZED_NAME_VALUES = "values";
   @SerializedName(SERIALIZED_NAME_VALUES)
-  private List<String> values = new ArrayList<String>();
+  private List<String> values = null;
+
 
   public CountryFieldValueAllOf values(List<String> values) {
+    
     this.values = values;
     return this;
   }
@@ -52,10 +54,13 @@ public class CountryFieldValueAllOf {
    * Country codes
    * @return values
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Country codes")
+
   public List<String> getValues() {
     return values;
   }
+
 
   public void setValues(List<String> values) {
     this.values = values;

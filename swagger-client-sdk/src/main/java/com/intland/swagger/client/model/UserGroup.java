@@ -30,7 +30,7 @@ import org.joda.time.DateTime;
  * Group of a codeBeamer user
  */
 @ApiModel(description = "Group of a codeBeamer user")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class UserGroup {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -50,7 +50,7 @@ public class UserGroup {
 
   public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
   @SerializedName(SERIALIZED_NAME_CREATED_BY)
-  private UserReference createdBy = null;
+  private UserReference createdBy;
 
   public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
   @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
@@ -58,9 +58,11 @@ public class UserGroup {
 
   public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
-  private UserReference modifiedBy = null;
+  private UserReference modifiedBy;
+
 
   public UserGroup id(Integer id) {
+    
     this.id = id;
     return this;
   }
@@ -70,16 +72,21 @@ public class UserGroup {
    * minimum: 0
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the entity")
+
   public Integer getId() {
     return id;
   }
+
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+
   public UserGroup name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -88,16 +95,21 @@ public class UserGroup {
    * Name of the entity
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the entity")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public UserGroup description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -106,16 +118,21 @@ public class UserGroup {
    * Description of a user group
    * @return description
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description of a user group")
+
   public String getDescription() {
     return description;
   }
+
 
   public void setDescription(String description) {
     this.description = description;
   }
 
+
   public UserGroup createdAt(DateTime createdAt) {
+    
     this.createdAt = createdAt;
     return this;
   }
@@ -124,16 +141,21 @@ public class UserGroup {
    * The date when the entity was created
    * @return createdAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was created")
+
   public DateTime getCreatedAt() {
     return createdAt;
   }
+
 
   public void setCreatedAt(DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
+
   public UserGroup createdBy(UserReference createdBy) {
+    
     this.createdBy = createdBy;
     return this;
   }
@@ -142,16 +164,21 @@ public class UserGroup {
    * Get createdBy
    * @return createdBy
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getCreatedBy() {
     return createdBy;
   }
+
 
   public void setCreatedBy(UserReference createdBy) {
     this.createdBy = createdBy;
   }
 
+
   public UserGroup modifiedAt(DateTime modifiedAt) {
+    
     this.modifiedAt = modifiedAt;
     return this;
   }
@@ -160,16 +187,21 @@ public class UserGroup {
    * The date when the entity was modified
    * @return modifiedAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
+
   public DateTime getModifiedAt() {
     return modifiedAt;
   }
+
 
   public void setModifiedAt(DateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 
+
   public UserGroup modifiedBy(UserReference modifiedBy) {
+    
     this.modifiedBy = modifiedBy;
     return this;
   }
@@ -178,10 +210,13 @@ public class UserGroup {
    * Get modifiedBy
    * @return modifiedBy
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getModifiedBy() {
     return modifiedBy;
   }
+
 
   public void setModifiedBy(UserReference modifiedBy) {
     this.modifiedBy = modifiedBy;

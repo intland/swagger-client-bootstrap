@@ -28,7 +28,7 @@ import java.io.IOException;
  * Aggregated values for a column of a group.
  */
 @ApiModel(description = "Aggregated values for a column of a group.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ReportAggregate {
   public static final String SERIALIZED_NAME_COLUMN_REF = "columnRef";
   @SerializedName(SERIALIZED_NAME_COLUMN_REF)
@@ -50,7 +50,9 @@ public class ReportAggregate {
   @SerializedName(SERIALIZED_NAME_SUM)
   private Double sum;
 
+
   public ReportAggregate columnRef(String columnRef) {
+    
     this.columnRef = columnRef;
     return this;
   }
@@ -59,16 +61,21 @@ public class ReportAggregate {
    * Column reference
    * @return columnRef
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "11-1", value = "Column reference")
+
   public String getColumnRef() {
     return columnRef;
   }
+
 
   public void setColumnRef(String columnRef) {
     this.columnRef = columnRef;
   }
 
+
   public ReportAggregate average(Double average) {
+    
     this.average = average;
     return this;
   }
@@ -77,16 +84,21 @@ public class ReportAggregate {
    * Average of the column values
    * @return average
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "11.32", value = "Average of the column values")
+
   public Double getAverage() {
     return average;
   }
+
 
   public void setAverage(Double average) {
     this.average = average;
   }
 
+
   public ReportAggregate minimum(Double minimum) {
+    
     this.minimum = minimum;
     return this;
   }
@@ -95,16 +107,21 @@ public class ReportAggregate {
    * Minimum of the column values
    * @return minimum
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1.32", value = "Minimum of the column values")
+
   public Double getMinimum() {
     return minimum;
   }
+
 
   public void setMinimum(Double minimum) {
     this.minimum = minimum;
   }
 
+
   public ReportAggregate maximum(Double maximum) {
+    
     this.maximum = maximum;
     return this;
   }
@@ -113,16 +130,21 @@ public class ReportAggregate {
    * Average of the column values
    * @return maximum
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "21.32", value = "Average of the column values")
+
   public Double getMaximum() {
     return maximum;
   }
+
 
   public void setMaximum(Double maximum) {
     this.maximum = maximum;
   }
 
+
   public ReportAggregate sum(Double sum) {
+    
     this.sum = sum;
     return this;
   }
@@ -131,10 +153,13 @@ public class ReportAggregate {
    * Sum of the column values
    * @return sum
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "22.64", value = "Sum of the column values")
+
   public Double getSum() {
     return sum;
   }
+
 
   public void setSum(Double sum) {
     this.sum = sum;

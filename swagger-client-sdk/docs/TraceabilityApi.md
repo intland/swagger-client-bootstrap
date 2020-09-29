@@ -19,40 +19,48 @@ Get traceability initial ids!
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.TraceabilityApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TraceabilityApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-TraceabilityApi apiInstance = new TraceabilityApi();
-Integer pageSize = 56; // Integer | Number of items in a result page.
-Integer pageNo = 56; // Integer | Index of the result page.
-TraceabilityInitialLevelFilter traceabilityInitialLevelFilter = new TraceabilityInitialLevelFilter(); // TraceabilityInitialLevelFilter | 
-try {
-    List<TraceabilityItem> result = apiInstance.getTraceabilityInitialItemIds(pageSize, pageNo, traceabilityInitialLevelFilter);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TraceabilityApi#getTraceabilityInitialItemIds");
-    e.printStackTrace();
+    TraceabilityApi apiInstance = new TraceabilityApi(defaultClient);
+    Integer pageSize = 56; // Integer | Number of items in a result page.
+    Integer pageNo = 56; // Integer | Index of the result page.
+    TraceabilityInitialLevelFilter traceabilityInitialLevelFilter = new TraceabilityInitialLevelFilter(); // TraceabilityInitialLevelFilter | 
+    try {
+      List<TraceabilityItem> result = apiInstance.getTraceabilityInitialItemIds(pageSize, pageNo, traceabilityInitialLevelFilter);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TraceabilityApi#getTraceabilityInitialItemIds");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -77,6 +85,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**200** | Tracker item list |  -  |
+**404** | Tracker not found |  -  |
+
 <a name="getTraceabilityLevelItemIds"></a>
 # **getTraceabilityLevelItemIds**
 > TraceabilityResult getTraceabilityLevelItemIds(itemsOnLevel, itemsFromPreviousItem, traceabilityLevelFilter)
@@ -88,40 +103,48 @@ Get traceability item ids!
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.TraceabilityApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TraceabilityApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-TraceabilityApi apiInstance = new TraceabilityApi();
-Integer itemsOnLevel = 56; // Integer | Number of items per level.
-Integer itemsFromPreviousItem = 56; // Integer | Number of items per item.
-TraceabilityLevelFilter traceabilityLevelFilter = new TraceabilityLevelFilter(); // TraceabilityLevelFilter | 
-try {
-    TraceabilityResult result = apiInstance.getTraceabilityLevelItemIds(itemsOnLevel, itemsFromPreviousItem, traceabilityLevelFilter);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TraceabilityApi#getTraceabilityLevelItemIds");
-    e.printStackTrace();
+    TraceabilityApi apiInstance = new TraceabilityApi(defaultClient);
+    Integer itemsOnLevel = 56; // Integer | Number of items per level.
+    Integer itemsFromPreviousItem = 56; // Integer | Number of items per item.
+    TraceabilityLevelFilter traceabilityLevelFilter = new TraceabilityLevelFilter(); // TraceabilityLevelFilter | 
+    try {
+      TraceabilityResult result = apiInstance.getTraceabilityLevelItemIds(itemsOnLevel, itemsFromPreviousItem, traceabilityLevelFilter);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TraceabilityApi#getTraceabilityLevelItemIds");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -145,4 +168,10 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**200** | Traceability items list |  -  |
 

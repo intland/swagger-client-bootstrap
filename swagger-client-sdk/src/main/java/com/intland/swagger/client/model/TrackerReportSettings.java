@@ -33,7 +33,7 @@ import java.util.List;
  * Settings of a report on a tracker.
  */
 @ApiModel(description = "Settings of a report on a tracker.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerReportSettings {
   public static final String SERIALIZED_NAME_REPORT_ID = "reportId";
   @SerializedName(SERIALIZED_NAME_REPORT_ID)
@@ -69,7 +69,7 @@ public class TrackerReportSettings {
 
   public static final String SERIALIZED_NAME_TRACKER = "tracker";
   @SerializedName(SERIALIZED_NAME_TRACKER)
-  private TrackerReference tracker = null;
+  private TrackerReference tracker;
 
   public static final String SERIALIZED_NAME_IS_PUBLIC = "isPublic";
   @SerializedName(SERIALIZED_NAME_IS_PUBLIC)
@@ -118,7 +118,7 @@ public class TrackerReportSettings {
 
       @Override
       public RenderingMethodEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return RenderingMethodEnum.fromValue(value);
       }
     }
@@ -130,9 +130,11 @@ public class TrackerReportSettings {
 
   public static final String SERIALIZED_NAME_REFERENCE_LEVEL_SETTINGS = "referenceLevelSettings";
   @SerializedName(SERIALIZED_NAME_REFERENCE_LEVEL_SETTINGS)
-  private List<ReportReferenceLevelSettings> referenceLevelSettings = new ArrayList<ReportReferenceLevelSettings>();
+  private List<ReportReferenceLevelSettings> referenceLevelSettings = null;
+
 
   public TrackerReportSettings reportId(Integer reportId) {
+    
     this.reportId = reportId;
     return this;
   }
@@ -141,16 +143,21 @@ public class TrackerReportSettings {
    * Id of a report
    * @return reportId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Id of a report")
+
   public Integer getReportId() {
     return reportId;
   }
+
 
   public void setReportId(Integer reportId) {
     this.reportId = reportId;
   }
 
+
   public TrackerReportSettings cbQl(String cbQl) {
+    
     this.cbQl = cbQl;
     return this;
   }
@@ -160,15 +167,19 @@ public class TrackerReportSettings {
    * @return cbQl
   **/
   @ApiModelProperty(example = "priority='Normal'", required = true, value = "CbQL query string of the report.")
+
   public String getCbQl() {
     return cbQl;
   }
+
 
   public void setCbQl(String cbQl) {
     this.cbQl = cbQl;
   }
 
+
   public TrackerReportSettings name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -178,15 +189,19 @@ public class TrackerReportSettings {
    * @return name
   **/
   @ApiModelProperty(example = "My first query", required = true, value = "Name of the report.")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public TrackerReportSettings description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -196,15 +211,19 @@ public class TrackerReportSettings {
    * @return description
   **/
   @ApiModelProperty(example = "Normal priority items.", required = true, value = "Description of the report.")
+
   public String getDescription() {
     return description;
   }
+
 
   public void setDescription(String description) {
     this.description = description;
   }
 
+
   public TrackerReportSettings columns(List<ResizableReportColumnSettings> columns) {
+    
     this.columns = columns;
     return this;
   }
@@ -219,15 +238,19 @@ public class TrackerReportSettings {
    * @return columns
   **/
   @ApiModelProperty(required = true, value = "Column definitions.")
+
   public List<ResizableReportColumnSettings> getColumns() {
     return columns;
   }
+
 
   public void setColumns(List<ResizableReportColumnSettings> columns) {
     this.columns = columns;
   }
 
+
   public TrackerReportSettings showAncestors(Boolean showAncestors) {
+    
     this.showAncestors = showAncestors;
     return this;
   }
@@ -236,16 +259,21 @@ public class TrackerReportSettings {
    * Indicator to show the ancestors of a result item.
    * @return showAncestors
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Indicator to show the ancestors of a result item.")
+
   public Boolean getShowAncestors() {
     return showAncestors;
   }
+
 
   public void setShowAncestors(Boolean showAncestors) {
     this.showAncestors = showAncestors;
   }
 
+
   public TrackerReportSettings showDescendants(Boolean showDescendants) {
+    
     this.showDescendants = showDescendants;
     return this;
   }
@@ -254,16 +282,21 @@ public class TrackerReportSettings {
    * Indicator to show the descendants of a result item.
    * @return showDescendants
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Indicator to show the descendants of a result item.")
+
   public Boolean getShowDescendants() {
     return showDescendants;
   }
+
 
   public void setShowDescendants(Boolean showDescendants) {
     this.showDescendants = showDescendants;
   }
 
+
   public TrackerReportSettings showAllChildren(Boolean showAllChildren) {
+    
     this.showAllChildren = showAllChildren;
     return this;
   }
@@ -272,16 +305,21 @@ public class TrackerReportSettings {
    * Indicator to ability to collapse/expand all child items.
    * @return showAllChildren
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Indicator to ability to collapse/expand all child items.")
+
   public Boolean getShowAllChildren() {
     return showAllChildren;
   }
+
 
   public void setShowAllChildren(Boolean showAllChildren) {
     this.showAllChildren = showAllChildren;
   }
 
+
   public TrackerReportSettings tracker(TrackerReference tracker) {
+    
     this.tracker = tracker;
     return this;
   }
@@ -291,15 +329,19 @@ public class TrackerReportSettings {
    * @return tracker
   **/
   @ApiModelProperty(required = true, value = "")
+
   public TrackerReference getTracker() {
     return tracker;
   }
+
 
   public void setTracker(TrackerReference tracker) {
     this.tracker = tracker;
   }
 
+
   public TrackerReportSettings isPublic(Boolean isPublic) {
+    
     this.isPublic = isPublic;
     return this;
   }
@@ -309,15 +351,19 @@ public class TrackerReportSettings {
    * @return isPublic
   **/
   @ApiModelProperty(example = "true", required = true, value = "Public report indicator.")
+
   public Boolean getIsPublic() {
     return isPublic;
   }
+
 
   public void setIsPublic(Boolean isPublic) {
     this.isPublic = isPublic;
   }
 
+
   public TrackerReportSettings renderingMethod(RenderingMethodEnum renderingMethod) {
+    
     this.renderingMethod = renderingMethod;
     return this;
   }
@@ -326,16 +372,21 @@ public class TrackerReportSettings {
    * Rendering method for Intelligent Table View.
    * @return renderingMethod
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "table", value = "Rendering method for Intelligent Table View.")
+
   public RenderingMethodEnum getRenderingMethod() {
     return renderingMethod;
   }
+
 
   public void setRenderingMethod(RenderingMethodEnum renderingMethod) {
     this.renderingMethod = renderingMethod;
   }
 
+
   public TrackerReportSettings referenceLevelSettings(List<ReportReferenceLevelSettings> referenceLevelSettings) {
+    
     this.referenceLevelSettings = referenceLevelSettings;
     return this;
   }
@@ -352,10 +403,13 @@ public class TrackerReportSettings {
    * Reference level setting for Intelligent Table View.
    * @return referenceLevelSettings
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Reference level setting for Intelligent Table View.")
+
   public List<ReportReferenceLevelSettings> getReferenceLevelSettings() {
     return referenceLevelSettings;
   }
+
 
   public void setReferenceLevelSettings(List<ReportReferenceLevelSettings> referenceLevelSettings) {
     this.referenceLevelSettings = referenceLevelSettings;

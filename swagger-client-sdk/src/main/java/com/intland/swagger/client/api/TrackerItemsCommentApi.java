@@ -64,9 +64,16 @@ public class TrackerItemsCommentApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call commentOnTrackerItemCall(Integer itemId, String comment, String commentFormat, File attachments, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/items/{itemId}/comments"
@@ -75,6 +82,7 @@ public class TrackerItemsCommentApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (comment != null) {
             localVarFormParams.put("comment", comment);
@@ -103,7 +111,7 @@ public class TrackerItemsCommentApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -134,6 +142,13 @@ public class TrackerItemsCommentApi {
      * @param attachments Attachments of a comment (optional)
      * @return Comment
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public Comment commentOnTrackerItem(Integer itemId, String comment, String commentFormat, File attachments) throws ApiException {
         ApiResponse<Comment> localVarResp = commentOnTrackerItemWithHttpInfo(itemId, comment, commentFormat, attachments);
@@ -149,6 +164,13 @@ public class TrackerItemsCommentApi {
      * @param attachments Attachments of a comment (optional)
      * @return ApiResponse&lt;Comment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Comment> commentOnTrackerItemWithHttpInfo(Integer itemId, String comment, String commentFormat, File attachments) throws ApiException {
         okhttp3.Call localVarCall = commentOnTrackerItemValidateBeforeCall(itemId, comment, commentFormat, attachments, null);
@@ -166,6 +188,13 @@ public class TrackerItemsCommentApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call commentOnTrackerItemAsync(Integer itemId, String comment, String commentFormat, File attachments, final ApiCallback<Comment> _callback) throws ApiException {
 
@@ -181,9 +210,16 @@ public class TrackerItemsCommentApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call deleteTrackerItemCommentCall(Integer itemId, Integer commentId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/items/{itemId}/comments/{commentId}"
@@ -193,6 +229,7 @@ public class TrackerItemsCommentApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -209,7 +246,7 @@ public class TrackerItemsCommentApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -238,6 +275,13 @@ public class TrackerItemsCommentApi {
      * @param commentId  (required)
      * @return Comment
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public Comment deleteTrackerItemComment(Integer itemId, Integer commentId) throws ApiException {
         ApiResponse<Comment> localVarResp = deleteTrackerItemCommentWithHttpInfo(itemId, commentId);
@@ -251,6 +295,13 @@ public class TrackerItemsCommentApi {
      * @param commentId  (required)
      * @return ApiResponse&lt;Comment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Comment> deleteTrackerItemCommentWithHttpInfo(Integer itemId, Integer commentId) throws ApiException {
         okhttp3.Call localVarCall = deleteTrackerItemCommentValidateBeforeCall(itemId, commentId, null);
@@ -266,6 +317,13 @@ public class TrackerItemsCommentApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call deleteTrackerItemCommentAsync(Integer itemId, Integer commentId, final ApiCallback<Comment> _callback) throws ApiException {
 
@@ -280,9 +338,16 @@ public class TrackerItemsCommentApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comments deleted </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call deleteTrackerItemCommentsCall(Integer itemId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/items/{itemId}/comments"
@@ -291,6 +356,7 @@ public class TrackerItemsCommentApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             
@@ -307,7 +373,7 @@ public class TrackerItemsCommentApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -329,6 +395,13 @@ public class TrackerItemsCommentApi {
      * 
      * @param itemId  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comments deleted </td><td>  -  </td></tr>
+     </table>
      */
     public void deleteTrackerItemComments(Integer itemId) throws ApiException {
         deleteTrackerItemCommentsWithHttpInfo(itemId);
@@ -340,6 +413,13 @@ public class TrackerItemsCommentApi {
      * @param itemId  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comments deleted </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Void> deleteTrackerItemCommentsWithHttpInfo(Integer itemId) throws ApiException {
         okhttp3.Call localVarCall = deleteTrackerItemCommentsValidateBeforeCall(itemId, null);
@@ -353,6 +433,13 @@ public class TrackerItemsCommentApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comments deleted </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call deleteTrackerItemCommentsAsync(Integer itemId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -370,9 +457,17 @@ public class TrackerItemsCommentApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Edited comment </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call editCommentOnTrackerItemCall(Integer itemId, Integer commentId, String comment, String commentFormat, File attachments, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/items/{itemId}/comments/{commentId}"
@@ -382,6 +477,7 @@ public class TrackerItemsCommentApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (comment != null) {
             localVarFormParams.put("comment", comment);
@@ -410,7 +506,7 @@ public class TrackerItemsCommentApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -447,6 +543,14 @@ public class TrackerItemsCommentApi {
      * @param attachments Attachments of a comment (optional)
      * @return Comment
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Edited comment </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
      */
     public Comment editCommentOnTrackerItem(Integer itemId, Integer commentId, String comment, String commentFormat, File attachments) throws ApiException {
         ApiResponse<Comment> localVarResp = editCommentOnTrackerItemWithHttpInfo(itemId, commentId, comment, commentFormat, attachments);
@@ -463,6 +567,14 @@ public class TrackerItemsCommentApi {
      * @param attachments Attachments of a comment (optional)
      * @return ApiResponse&lt;Comment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Edited comment </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Comment> editCommentOnTrackerItemWithHttpInfo(Integer itemId, Integer commentId, String comment, String commentFormat, File attachments) throws ApiException {
         okhttp3.Call localVarCall = editCommentOnTrackerItemValidateBeforeCall(itemId, commentId, comment, commentFormat, attachments, null);
@@ -481,6 +593,14 @@ public class TrackerItemsCommentApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Edited comment </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call editCommentOnTrackerItemAsync(Integer itemId, Integer commentId, String comment, String commentFormat, File attachments, final ApiCallback<Comment> _callback) throws ApiException {
 
@@ -496,9 +616,16 @@ public class TrackerItemsCommentApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerItemCommentCall(Integer itemId, Integer commentId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/items/{itemId}/comments/{commentId}"
@@ -508,6 +635,7 @@ public class TrackerItemsCommentApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -524,7 +652,7 @@ public class TrackerItemsCommentApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -553,6 +681,13 @@ public class TrackerItemsCommentApi {
      * @param commentId  (required)
      * @return Comment
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public Comment getTrackerItemComment(Integer itemId, Integer commentId) throws ApiException {
         ApiResponse<Comment> localVarResp = getTrackerItemCommentWithHttpInfo(itemId, commentId);
@@ -566,6 +701,13 @@ public class TrackerItemsCommentApi {
      * @param commentId  (required)
      * @return ApiResponse&lt;Comment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Comment> getTrackerItemCommentWithHttpInfo(Integer itemId, Integer commentId) throws ApiException {
         okhttp3.Call localVarCall = getTrackerItemCommentValidateBeforeCall(itemId, commentId, null);
@@ -581,6 +723,13 @@ public class TrackerItemsCommentApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerItemCommentAsync(Integer itemId, Integer commentId, final ApiCallback<Comment> _callback) throws ApiException {
 
@@ -595,9 +744,16 @@ public class TrackerItemsCommentApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comments of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerItemCommentsCall(Integer itemId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/items/{itemId}/comments"
@@ -606,6 +762,7 @@ public class TrackerItemsCommentApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -622,7 +779,7 @@ public class TrackerItemsCommentApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -645,6 +802,13 @@ public class TrackerItemsCommentApi {
      * @param itemId Id of a tracker item (required)
      * @return List&lt;Comment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comments of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public List<Comment> getTrackerItemComments(Integer itemId) throws ApiException {
         ApiResponse<List<Comment>> localVarResp = getTrackerItemCommentsWithHttpInfo(itemId);
@@ -657,6 +821,13 @@ public class TrackerItemsCommentApi {
      * @param itemId Id of a tracker item (required)
      * @return ApiResponse&lt;List&lt;Comment&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comments of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<List<Comment>> getTrackerItemCommentsWithHttpInfo(Integer itemId) throws ApiException {
         okhttp3.Call localVarCall = getTrackerItemCommentsValidateBeforeCall(itemId, null);
@@ -671,6 +842,13 @@ public class TrackerItemsCommentApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comments of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerItemCommentsAsync(Integer itemId, final ApiCallback<List<Comment>> _callback) throws ApiException {
 
@@ -689,9 +867,16 @@ public class TrackerItemsCommentApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call replyOnCommentOfTrackerItemCall(Integer itemId, Integer commentId, String comment, String commentFormat, File attachments, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/items/{itemId}/comments/{commentId}"
@@ -701,6 +886,7 @@ public class TrackerItemsCommentApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (comment != null) {
             localVarFormParams.put("comment", comment);
@@ -729,7 +915,7 @@ public class TrackerItemsCommentApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -766,6 +952,13 @@ public class TrackerItemsCommentApi {
      * @param attachments Attachments of a comment (optional)
      * @return Comment
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public Comment replyOnCommentOfTrackerItem(Integer itemId, Integer commentId, String comment, String commentFormat, File attachments) throws ApiException {
         ApiResponse<Comment> localVarResp = replyOnCommentOfTrackerItemWithHttpInfo(itemId, commentId, comment, commentFormat, attachments);
@@ -782,6 +975,13 @@ public class TrackerItemsCommentApi {
      * @param attachments Attachments of a comment (optional)
      * @return ApiResponse&lt;Comment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Comment> replyOnCommentOfTrackerItemWithHttpInfo(Integer itemId, Integer commentId, String comment, String commentFormat, File attachments) throws ApiException {
         okhttp3.Call localVarCall = replyOnCommentOfTrackerItemValidateBeforeCall(itemId, commentId, comment, commentFormat, attachments, null);
@@ -800,6 +1000,13 @@ public class TrackerItemsCommentApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call replyOnCommentOfTrackerItemAsync(Integer itemId, Integer commentId, String comment, String commentFormat, File attachments, final ApiCallback<Comment> _callback) throws ApiException {
 

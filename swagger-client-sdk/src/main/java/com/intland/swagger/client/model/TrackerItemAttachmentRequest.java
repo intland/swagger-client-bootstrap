@@ -33,7 +33,7 @@ import java.util.List;
  * Request data to retrieve tracker item attachments.
  */
 @ApiModel(description = "Request data to retrieve tracker item attachments.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerItemAttachmentRequest extends TrackerItemsRequest {
   public static final String SERIALIZED_NAME_BASELINE_ID = "baselineId";
   @SerializedName(SERIALIZED_NAME_BASELINE_ID)
@@ -45,13 +45,15 @@ public class TrackerItemAttachmentRequest extends TrackerItemsRequest {
 
   public static final String SERIALIZED_NAME_EXTENSIONS = "extensions";
   @SerializedName(SERIALIZED_NAME_EXTENSIONS)
-  private List<String> extensions = new ArrayList<String>();
+  private List<String> extensions = null;
 
   public static final String SERIALIZED_NAME_MIME_TYPES = "mimeTypes";
   @SerializedName(SERIALIZED_NAME_MIME_TYPES)
-  private List<String> mimeTypes = new ArrayList<String>();
+  private List<String> mimeTypes = null;
+
 
   public TrackerItemAttachmentRequest baselineId(Integer baselineId) {
+    
     this.baselineId = baselineId;
     return this;
   }
@@ -60,16 +62,21 @@ public class TrackerItemAttachmentRequest extends TrackerItemsRequest {
    * Baseline id to specify the versions of the tracker items.
    * @return baselineId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1203", value = "Baseline id to specify the versions of the tracker items.")
+
   public Integer getBaselineId() {
     return baselineId;
   }
+
 
   public void setBaselineId(Integer baselineId) {
     this.baselineId = baselineId;
   }
 
+
   public TrackerItemAttachmentRequest excludeFilter(Boolean excludeFilter) {
+    
     this.excludeFilter = excludeFilter;
     return this;
   }
@@ -78,16 +85,21 @@ public class TrackerItemAttachmentRequest extends TrackerItemsRequest {
    * Indicator if the attachments matching the filters need to be excluded or not
    * @return excludeFilter
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Indicator if the attachments matching the filters need to be excluded or not")
+
   public Boolean getExcludeFilter() {
     return excludeFilter;
   }
+
 
   public void setExcludeFilter(Boolean excludeFilter) {
     this.excludeFilter = excludeFilter;
   }
 
+
   public TrackerItemAttachmentRequest extensions(List<String> extensions) {
+    
     this.extensions = extensions;
     return this;
   }
@@ -104,16 +116,21 @@ public class TrackerItemAttachmentRequest extends TrackerItemsRequest {
    * File extension filters.
    * @return extensions
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "[\"docx\",\"xlsx\"]", value = "File extension filters.")
+
   public List<String> getExtensions() {
     return extensions;
   }
+
 
   public void setExtensions(List<String> extensions) {
     this.extensions = extensions;
   }
 
+
   public TrackerItemAttachmentRequest mimeTypes(List<String> mimeTypes) {
+    
     this.mimeTypes = mimeTypes;
     return this;
   }
@@ -130,10 +147,13 @@ public class TrackerItemAttachmentRequest extends TrackerItemsRequest {
    * File mime type filters.
    * @return mimeTypes
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "[\"image/png\",\"application/zip\"]", value = "File mime type filters.")
+
   public List<String> getMimeTypes() {
     return mimeTypes;
   }
+
 
   public void setMimeTypes(List<String> mimeTypes) {
     this.mimeTypes = mimeTypes;

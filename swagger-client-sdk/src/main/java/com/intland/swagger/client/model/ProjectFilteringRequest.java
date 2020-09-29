@@ -27,13 +27,15 @@ import java.io.IOException;
 /**
  * ProjectFilteringRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ProjectFilteringRequest {
   public static final String SERIALIZED_NAME_KEY_NAME = "keyName";
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
 
+
   public ProjectFilteringRequest keyName(String keyName) {
+    
     this.keyName = keyName;
     return this;
   }
@@ -43,9 +45,11 @@ public class ProjectFilteringRequest {
    * @return keyName
   **/
   @ApiModelProperty(required = true, value = "Key name of the project")
+
   public String getKeyName() {
     return keyName;
   }
+
 
   public void setKeyName(String keyName) {
     this.keyName = keyName;

@@ -30,12 +30,12 @@ import java.io.IOException;
  * Reference to an item
  */
 @ApiModel(description = "Reference to an item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 
 public class TrackerItemChange {
   public static final String SERIALIZED_NAME_FIELD = "field";
   @SerializedName(SERIALIZED_NAME_FIELD)
-  private FieldReference field = null;
+  private FieldReference field;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -43,20 +43,22 @@ public class TrackerItemChange {
 
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  private AbstractFieldValue oldValue = null;
+  private AbstractFieldValue oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  private AbstractFieldValue newValue = null;
+  private AbstractFieldValue newValue;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  protected String type;
 
   public TrackerItemChange() {
     this.type = this.getClass().getSimpleName();
   }
+
   public TrackerItemChange field(FieldReference field) {
+    
     this.field = field;
     return this;
   }
@@ -65,16 +67,21 @@ public class TrackerItemChange {
    * Get field
    * @return field
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public FieldReference getField() {
     return field;
   }
+
 
   public void setField(FieldReference field) {
     this.field = field;
   }
 
+
   public TrackerItemChange name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -83,16 +90,21 @@ public class TrackerItemChange {
    * Name of the field
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the field")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public TrackerItemChange oldValue(AbstractFieldValue oldValue) {
+    
     this.oldValue = oldValue;
     return this;
   }
@@ -101,16 +113,21 @@ public class TrackerItemChange {
    * Get oldValue
    * @return oldValue
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public AbstractFieldValue getOldValue() {
     return oldValue;
   }
+
 
   public void setOldValue(AbstractFieldValue oldValue) {
     this.oldValue = oldValue;
   }
 
+
   public TrackerItemChange newValue(AbstractFieldValue newValue) {
+    
     this.newValue = newValue;
     return this;
   }
@@ -119,16 +136,21 @@ public class TrackerItemChange {
    * Get newValue
    * @return newValue
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public AbstractFieldValue getNewValue() {
     return newValue;
   }
+
 
   public void setNewValue(AbstractFieldValue newValue) {
     this.newValue = newValue;
   }
 
+
   public TrackerItemChange type(String type) {
+    
     this.type = type;
     return this;
   }
@@ -137,10 +159,13 @@ public class TrackerItemChange {
    * Change model type
    * @return type
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Change model type")
+
   public String getType() {
     return type;
   }
+
 
   public void setType(String type) {
     this.type = type;

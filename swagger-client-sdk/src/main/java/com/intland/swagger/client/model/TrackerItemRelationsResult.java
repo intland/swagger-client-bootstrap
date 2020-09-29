@@ -35,29 +35,31 @@ import java.util.List;
  * References to a tracker item
  */
 @ApiModel(description = "References to a tracker item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerItemRelationsResult {
   public static final String SERIALIZED_NAME_ITEM_ID = "itemId";
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
-  private TrackerItemRevision itemId = null;
+  private TrackerItemRevision itemId;
 
   public static final String SERIALIZED_NAME_DOWNSTREAM_REFERENCES = "downstreamReferences";
   @SerializedName(SERIALIZED_NAME_DOWNSTREAM_REFERENCES)
-  private List<DownstreamTrackerItemReference> downstreamReferences = new ArrayList<DownstreamTrackerItemReference>();
+  private List<DownstreamTrackerItemReference> downstreamReferences = null;
 
   public static final String SERIALIZED_NAME_UPSTREAM_REFERENCES = "upstreamReferences";
   @SerializedName(SERIALIZED_NAME_UPSTREAM_REFERENCES)
-  private List<UpstreamTrackerItemReference> upstreamReferences = new ArrayList<UpstreamTrackerItemReference>();
+  private List<UpstreamTrackerItemReference> upstreamReferences = null;
 
   public static final String SERIALIZED_NAME_INCOMING_ASSOCIATIONS = "incomingAssociations";
   @SerializedName(SERIALIZED_NAME_INCOMING_ASSOCIATIONS)
-  private List<IncomingTrackerItemAssociation> incomingAssociations = new ArrayList<IncomingTrackerItemAssociation>();
+  private List<IncomingTrackerItemAssociation> incomingAssociations = null;
 
   public static final String SERIALIZED_NAME_OUTGOING_ASSOCIATIONS = "outgoingAssociations";
   @SerializedName(SERIALIZED_NAME_OUTGOING_ASSOCIATIONS)
-  private List<OutgoingTrackerItemAssociation> outgoingAssociations = new ArrayList<OutgoingTrackerItemAssociation>();
+  private List<OutgoingTrackerItemAssociation> outgoingAssociations = null;
+
 
   public TrackerItemRelationsResult itemId(TrackerItemRevision itemId) {
+    
     this.itemId = itemId;
     return this;
   }
@@ -66,16 +68,21 @@ public class TrackerItemRelationsResult {
    * Get itemId
    * @return itemId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public TrackerItemRevision getItemId() {
     return itemId;
   }
+
 
   public void setItemId(TrackerItemRevision itemId) {
     this.itemId = itemId;
   }
 
+
   public TrackerItemRelationsResult downstreamReferences(List<DownstreamTrackerItemReference> downstreamReferences) {
+    
     this.downstreamReferences = downstreamReferences;
     return this;
   }
@@ -92,16 +99,21 @@ public class TrackerItemRelationsResult {
    * References and associations to the item
    * @return downstreamReferences
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "References and associations to the item")
+
   public List<DownstreamTrackerItemReference> getDownstreamReferences() {
     return downstreamReferences;
   }
+
 
   public void setDownstreamReferences(List<DownstreamTrackerItemReference> downstreamReferences) {
     this.downstreamReferences = downstreamReferences;
   }
 
+
   public TrackerItemRelationsResult upstreamReferences(List<UpstreamTrackerItemReference> upstreamReferences) {
+    
     this.upstreamReferences = upstreamReferences;
     return this;
   }
@@ -118,16 +130,21 @@ public class TrackerItemRelationsResult {
    * References and associations to the item
    * @return upstreamReferences
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "References and associations to the item")
+
   public List<UpstreamTrackerItemReference> getUpstreamReferences() {
     return upstreamReferences;
   }
+
 
   public void setUpstreamReferences(List<UpstreamTrackerItemReference> upstreamReferences) {
     this.upstreamReferences = upstreamReferences;
   }
 
+
   public TrackerItemRelationsResult incomingAssociations(List<IncomingTrackerItemAssociation> incomingAssociations) {
+    
     this.incomingAssociations = incomingAssociations;
     return this;
   }
@@ -144,16 +161,21 @@ public class TrackerItemRelationsResult {
    * References and associations to the item
    * @return incomingAssociations
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "References and associations to the item")
+
   public List<IncomingTrackerItemAssociation> getIncomingAssociations() {
     return incomingAssociations;
   }
+
 
   public void setIncomingAssociations(List<IncomingTrackerItemAssociation> incomingAssociations) {
     this.incomingAssociations = incomingAssociations;
   }
 
+
   public TrackerItemRelationsResult outgoingAssociations(List<OutgoingTrackerItemAssociation> outgoingAssociations) {
+    
     this.outgoingAssociations = outgoingAssociations;
     return this;
   }
@@ -170,10 +192,13 @@ public class TrackerItemRelationsResult {
    * References and associations to the item
    * @return outgoingAssociations
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "References and associations to the item")
+
   public List<OutgoingTrackerItemAssociation> getOutgoingAssociations() {
     return outgoingAssociations;
   }
+
 
   public void setOutgoingAssociations(List<OutgoingTrackerItemAssociation> outgoingAssociations) {
     this.outgoingAssociations = outgoingAssociations;

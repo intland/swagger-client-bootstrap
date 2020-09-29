@@ -29,7 +29,7 @@ import java.io.IOException;
  * Reference to an item
  */
 @ApiModel(description = "Reference to an item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 
 public class AbstractTrackerItemReference {
   public static final String SERIALIZED_NAME_ID = "id";
@@ -38,16 +38,18 @@ public class AbstractTrackerItemReference {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  protected String type;
 
   public static final String SERIALIZED_NAME_ITEM_REVISION = "itemRevision";
   @SerializedName(SERIALIZED_NAME_ITEM_REVISION)
-  private TrackerItemRevision itemRevision = null;
+  private TrackerItemRevision itemRevision;
 
   public AbstractTrackerItemReference() {
     this.type = this.getClass().getSimpleName();
   }
+
   public AbstractTrackerItemReference id(Integer id) {
+    
     this.id = id;
     return this;
   }
@@ -56,16 +58,21 @@ public class AbstractTrackerItemReference {
    * Id of the reference/association
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "12142", value = "Id of the reference/association")
+
   public Integer getId() {
     return id;
   }
+
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+
   public AbstractTrackerItemReference type(String type) {
+    
     this.type = type;
     return this;
   }
@@ -74,16 +81,21 @@ public class AbstractTrackerItemReference {
    * Type of the relation
    * @return type
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "DownstreamTrackerItemReference", value = "Type of the relation")
+
   public String getType() {
     return type;
   }
+
 
   public void setType(String type) {
     this.type = type;
   }
 
+
   public AbstractTrackerItemReference itemRevision(TrackerItemRevision itemRevision) {
+    
     this.itemRevision = itemRevision;
     return this;
   }
@@ -92,10 +104,13 @@ public class AbstractTrackerItemReference {
    * Get itemRevision
    * @return itemRevision
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public TrackerItemRevision getItemRevision() {
     return itemRevision;
   }
+
 
   public void setItemRevision(TrackerItemRevision itemRevision) {
     this.itemRevision = itemRevision;

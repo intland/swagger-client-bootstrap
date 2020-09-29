@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * TrackerPermission
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerPermission {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -45,7 +45,9 @@ public class TrackerPermission {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+
   public TrackerPermission id(Integer id) {
+    
     this.id = id;
     return this;
   }
@@ -55,16 +57,21 @@ public class TrackerPermission {
    * minimum: 0
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the entity")
+
   public Integer getId() {
     return id;
   }
+
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+
   public TrackerPermission name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -73,16 +80,21 @@ public class TrackerPermission {
    * Name of the entity
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the entity")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public TrackerPermission label(String label) {
+    
     this.label = label;
     return this;
   }
@@ -91,16 +103,21 @@ public class TrackerPermission {
    * Variable name of the permission
    * @return label
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Variable name of the permission")
+
   public String getLabel() {
     return label;
   }
+
 
   public void setLabel(String label) {
     this.label = label;
   }
 
+
   public TrackerPermission description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -109,10 +126,13 @@ public class TrackerPermission {
    * Description of the permission
    * @return description
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description of the permission")
+
   public String getDescription() {
     return description;
   }
+
 
   public void setDescription(String description) {
     this.description = description;

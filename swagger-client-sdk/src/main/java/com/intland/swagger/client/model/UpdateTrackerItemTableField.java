@@ -30,13 +30,15 @@ import java.util.List;
 /**
  * UpdateTrackerItemTableField
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class UpdateTrackerItemTableField {
   public static final String SERIALIZED_NAME_ROWS = "rows";
   @SerializedName(SERIALIZED_NAME_ROWS)
-  private List<List<AbstractFieldValue>> rows = new ArrayList<List<AbstractFieldValue>>();
+  private List<List<AbstractFieldValue>> rows = null;
+
 
   public UpdateTrackerItemTableField rows(List<List<AbstractFieldValue>> rows) {
+    
     this.rows = rows;
     return this;
   }
@@ -53,10 +55,13 @@ public class UpdateTrackerItemTableField {
    * Table rows of a tracker table item
    * @return rows
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Table rows of a tracker table item")
+
   public List<List<AbstractFieldValue>> getRows() {
     return rows;
   }
+
 
   public void setRows(List<List<AbstractFieldValue>> rows) {
     this.rows = rows;

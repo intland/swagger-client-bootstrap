@@ -31,13 +31,15 @@ import org.joda.time.DateTime;
  * Value container of a date field
  */
 @ApiModel(description = "Value container of a date field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class DateFieldValue extends AbstractFieldValue {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private DateTime value;
 
+
   public DateFieldValue value(DateTime value) {
+    
     this.value = value;
     return this;
   }
@@ -46,10 +48,12 @@ public class DateFieldValue extends AbstractFieldValue {
    * Date value
    * @return value
   **/
-  @ApiModelProperty(value = "Date value")
+  @ApiModelProperty(required = true, value = "Date value")
+
   public DateTime getValue() {
     return value;
   }
+
 
   public void setValue(DateTime value) {
     this.value = value;

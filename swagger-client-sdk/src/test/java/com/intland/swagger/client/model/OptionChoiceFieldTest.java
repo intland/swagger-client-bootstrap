@@ -125,4 +125,28 @@ public class OptionChoiceFieldTest {
         // TODO: test mandatoryInStatuses
     }
 
+    /**
+     * Test the property 'multipleValues'
+     */
+    @Test
+    public void multipleValuesTest() {
+        // TODO: test multipleValues
+    }
+
+    /**
+     * Test the property 'options'
+     */
+    @Test
+    public void optionsTest() {
+        // TODO: test options
+    }
+
+    /**
+     * Test the property 'referenceType'
+     */
+    @Test
+    public void referenceTypeTest() {
+        // TODO: test referenceType
+    }
+
 }

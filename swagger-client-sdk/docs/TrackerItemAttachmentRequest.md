@@ -2,6 +2,7 @@
 
 # TrackerItemAttachmentRequest
 
+Request data to retrieve tracker item attachments.
 ## Properties
 
 Name | Type | Description | Notes

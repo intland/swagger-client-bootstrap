@@ -36,7 +36,7 @@ import org.joda.time.DateTime;
  * Properties of a wiki page
  */
 @ApiModel(description = "Properties of a wiki page")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class WikiPage {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -93,7 +93,7 @@ public class WikiPage {
 
       @Override
       public DescriptionFormatEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return DescriptionFormatEnum.fromValue(value);
       }
     }
@@ -105,7 +105,7 @@ public class WikiPage {
 
   public static final String SERIALIZED_NAME_PROJECT = "project";
   @SerializedName(SERIALIZED_NAME_PROJECT)
-  private ProjectReference project = null;
+  private ProjectReference project;
 
   public static final String SERIALIZED_NAME_MARKUP = "markup";
   @SerializedName(SERIALIZED_NAME_MARKUP)
@@ -113,7 +113,7 @@ public class WikiPage {
 
   public static final String SERIALIZED_NAME_COMMENTS = "comments";
   @SerializedName(SERIALIZED_NAME_COMMENTS)
-  private List<AttachmentReference> comments = new ArrayList<AttachmentReference>();
+  private List<AttachmentReference> comments = null;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
@@ -125,7 +125,7 @@ public class WikiPage {
 
   public static final String SERIALIZED_NAME_CHILD_PAGES = "childPages";
   @SerializedName(SERIALIZED_NAME_CHILD_PAGES)
-  private List<WikiPageReference> childPages = new ArrayList<WikiPageReference>();
+  private List<WikiPageReference> childPages = null;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -133,7 +133,7 @@ public class WikiPage {
 
   public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
   @SerializedName(SERIALIZED_NAME_CREATED_BY)
-  private UserReference createdBy = null;
+  private UserReference createdBy;
 
   public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
   @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
@@ -141,13 +141,15 @@ public class WikiPage {
 
   public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
-  private UserReference modifiedBy = null;
+  private UserReference modifiedBy;
 
   public static final String SERIALIZED_NAME_PARENT = "parent";
   @SerializedName(SERIALIZED_NAME_PARENT)
-  private AbstractReference parent = null;
+  private AbstractReference parent;
+
 
   public WikiPage id(Integer id) {
+    
     this.id = id;
     return this;
   }
@@ -157,16 +159,21 @@ public class WikiPage {
    * minimum: 0
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the entity")
+
   public Integer getId() {
     return id;
   }
+
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+
   public WikiPage name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -175,16 +182,21 @@ public class WikiPage {
    * Name of the entity
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the entity")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public WikiPage description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -193,16 +205,21 @@ public class WikiPage {
    * Description of the entity
    * @return description
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description of the entity")
+
   public String getDescription() {
     return description;
   }
+
 
   public void setDescription(String description) {
     this.description = description;
   }
 
+
   public WikiPage descriptionFormat(DescriptionFormatEnum descriptionFormat) {
+    
     this.descriptionFormat = descriptionFormat;
     return this;
   }
@@ -211,16 +228,21 @@ public class WikiPage {
    * Description format of the entity
    * @return descriptionFormat
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description format of the entity")
+
   public DescriptionFormatEnum getDescriptionFormat() {
     return descriptionFormat;
   }
+
 
   public void setDescriptionFormat(DescriptionFormatEnum descriptionFormat) {
     this.descriptionFormat = descriptionFormat;
   }
 
+
   public WikiPage project(ProjectReference project) {
+    
     this.project = project;
     return this;
   }
@@ -229,16 +251,21 @@ public class WikiPage {
    * Get project
    * @return project
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public ProjectReference getProject() {
     return project;
   }
+
 
   public void setProject(ProjectReference project) {
     this.project = project;
   }
 
+
   public WikiPage markup(String markup) {
+    
     this.markup = markup;
     return this;
   }
@@ -247,16 +274,21 @@ public class WikiPage {
    * Content markup of the wiki page
    * @return markup
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Content markup of the wiki page")
+
   public String getMarkup() {
     return markup;
   }
+
 
   public void setMarkup(String markup) {
     this.markup = markup;
   }
 
+
   public WikiPage comments(List<AttachmentReference> comments) {
+    
     this.comments = comments;
     return this;
   }
@@ -273,16 +305,21 @@ public class WikiPage {
    * Comments/attachments associated with the wiki page
    * @return comments
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Comments/attachments associated with the wiki page")
+
   public List<AttachmentReference> getComments() {
     return comments;
   }
+
 
   public void setComments(List<AttachmentReference> comments) {
     this.comments = comments;
   }
 
+
   public WikiPage version(Integer version) {
+    
     this.version = version;
     return this;
   }
@@ -291,16 +328,21 @@ public class WikiPage {
    * Version of the wiki page
    * @return version
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Version of the wiki page")
+
   public Integer getVersion() {
     return version;
   }
+
 
   public void setVersion(Integer version) {
     this.version = version;
   }
 
+
   public WikiPage changeComment(String changeComment) {
+    
     this.changeComment = changeComment;
     return this;
   }
@@ -309,25 +351,35 @@ public class WikiPage {
    * Summary of the changes in this wiki page version
    * @return changeComment
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Summary of the changes in this wiki page version")
+
   public String getChangeComment() {
     return changeComment;
   }
+
 
   public void setChangeComment(String changeComment) {
     this.changeComment = changeComment;
   }
 
+
    /**
    * Child pages of the current Wiki page
    * @return childPages
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Child pages of the current Wiki page")
+
   public List<WikiPageReference> getChildPages() {
     return childPages;
   }
 
+
+
+
   public WikiPage createdAt(DateTime createdAt) {
+    
     this.createdAt = createdAt;
     return this;
   }
@@ -336,16 +388,21 @@ public class WikiPage {
    * The date when the entity was created
    * @return createdAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was created")
+
   public DateTime getCreatedAt() {
     return createdAt;
   }
+
 
   public void setCreatedAt(DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
+
   public WikiPage createdBy(UserReference createdBy) {
+    
     this.createdBy = createdBy;
     return this;
   }
@@ -354,16 +411,21 @@ public class WikiPage {
    * Get createdBy
    * @return createdBy
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getCreatedBy() {
     return createdBy;
   }
+
 
   public void setCreatedBy(UserReference createdBy) {
     this.createdBy = createdBy;
   }
 
+
   public WikiPage modifiedAt(DateTime modifiedAt) {
+    
     this.modifiedAt = modifiedAt;
     return this;
   }
@@ -372,16 +434,21 @@ public class WikiPage {
    * The date when the entity was modified
    * @return modifiedAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
+
   public DateTime getModifiedAt() {
     return modifiedAt;
   }
+
 
   public void setModifiedAt(DateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 
+
   public WikiPage modifiedBy(UserReference modifiedBy) {
+    
     this.modifiedBy = modifiedBy;
     return this;
   }
@@ -390,16 +457,21 @@ public class WikiPage {
    * Get modifiedBy
    * @return modifiedBy
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getModifiedBy() {
     return modifiedBy;
   }
+
 
   public void setModifiedBy(UserReference modifiedBy) {
     this.modifiedBy = modifiedBy;
   }
 
+
   public WikiPage parent(AbstractReference parent) {
+    
     this.parent = parent;
     return this;
   }
@@ -408,10 +480,13 @@ public class WikiPage {
    * Get parent
    * @return parent
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public AbstractReference getParent() {
     return parent;
   }
+
 
   public void setParent(AbstractReference parent) {
     this.parent = parent;

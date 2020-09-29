@@ -31,7 +31,7 @@ import java.util.List;
  * Paginated search result of users
  */
 @ApiModel(description = "Paginated search result of users")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class UserReferenceSearchResult {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
@@ -47,9 +47,11 @@ public class UserReferenceSearchResult {
 
   public static final String SERIALIZED_NAME_USERS = "users";
   @SerializedName(SERIALIZED_NAME_USERS)
-  private List<UserReference> users = new ArrayList<UserReference>();
+  private List<UserReference> users = null;
+
 
   public UserReferenceSearchResult page(Integer page) {
+    
     this.page = page;
     return this;
   }
@@ -58,16 +60,21 @@ public class UserReferenceSearchResult {
    * Index of the page
    * @return page
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Index of the page")
+
   public Integer getPage() {
     return page;
   }
+
 
   public void setPage(Integer page) {
     this.page = page;
   }
 
+
   public UserReferenceSearchResult pageSize(Integer pageSize) {
+    
     this.pageSize = pageSize;
     return this;
   }
@@ -76,16 +83,21 @@ public class UserReferenceSearchResult {
    * Size of the found page
    * @return pageSize
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Size of the found page")
+
   public Integer getPageSize() {
     return pageSize;
   }
+
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
   }
 
+
   public UserReferenceSearchResult total(Integer total) {
+    
     this.total = total;
     return this;
   }
@@ -94,16 +106,21 @@ public class UserReferenceSearchResult {
    * Number of matched tracker items by the search criteria
    * @return total
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Number of matched tracker items by the search criteria")
+
   public Integer getTotal() {
     return total;
   }
+
 
   public void setTotal(Integer total) {
     this.total = total;
   }
 
+
   public UserReferenceSearchResult users(List<UserReference> users) {
+    
     this.users = users;
     return this;
   }
@@ -120,10 +137,13 @@ public class UserReferenceSearchResult {
    * Found users
    * @return users
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Found users")
+
   public List<UserReference> getUsers() {
     return users;
   }
+
 
   public void setUsers(List<UserReference> users) {
     this.users = users;

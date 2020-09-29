@@ -29,37 +29,45 @@ Deletes a tracker
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.TrackerApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-TrackerApi apiInstance = new TrackerApi();
-Integer trackerId = 56; // Integer | 
-try {
-    apiInstance.deleteTracker(trackerId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TrackerApi#deleteTracker");
-    e.printStackTrace();
+    TrackerApi apiInstance = new TrackerApi(defaultClient);
+    Integer trackerId = 56; // Integer | 
+    try {
+      apiInstance.deleteTracker(trackerId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerApi#deleteTracker");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -82,6 +90,13 @@ null (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**200** | Tracker deleted. |  -  |
+**404** | Tracker is not found |  -  |
+
 <a name="getChoiceOption"></a>
 # **getChoiceOption**
 > ChoiceOptionReference getChoiceOption(trackerId, fieldId, optionId)
@@ -91,40 +106,48 @@ Get option of a choice field of tracker
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.TrackerApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-TrackerApi apiInstance = new TrackerApi();
-Integer trackerId = 56; // Integer | 
-Integer fieldId = 56; // Integer | 
-Integer optionId = 56; // Integer | 
-try {
-    ChoiceOptionReference result = apiInstance.getChoiceOption(trackerId, fieldId, optionId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TrackerApi#getChoiceOption");
-    e.printStackTrace();
+    TrackerApi apiInstance = new TrackerApi(defaultClient);
+    Integer trackerId = 56; // Integer | 
+    Integer fieldId = 56; // Integer | 
+    Integer optionId = 56; // Integer | 
+    try {
+      ChoiceOptionReference result = apiInstance.getChoiceOption(trackerId, fieldId, optionId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerApi#getChoiceOption");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -149,6 +172,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**200** | Option by id |  -  |
+**404** | Option not found |  -  |
+**401** | Authentication is required |  -  |
+
 <a name="getItemsByTracker"></a>
 # **getItemsByTracker**
 > TrackerItemReferenceSearchResult getItemsByTracker(trackerId, page, pageSize)
@@ -158,40 +189,48 @@ Get items in a specific tracker
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.TrackerApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-TrackerApi apiInstance = new TrackerApi();
-Integer trackerId = 56; // Integer | 
-Integer page = 1; // Integer | Index of the result page starting from 1.
-Integer pageSize = 25; // Integer | Number of items in a result page. Max value: 500
-try {
-    TrackerItemReferenceSearchResult result = apiInstance.getItemsByTracker(trackerId, page, pageSize);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TrackerApi#getItemsByTracker");
-    e.printStackTrace();
+    TrackerApi apiInstance = new TrackerApi(defaultClient);
+    Integer trackerId = 56; // Integer | 
+    Integer page = 1; // Integer | Index of the result page starting from 1.
+    Integer pageSize = 25; // Integer | Number of items in a result page. Max value: 500
+    try {
+      TrackerItemReferenceSearchResult result = apiInstance.getItemsByTracker(trackerId, page, pageSize);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerApi#getItemsByTracker");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -216,6 +255,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**404** | Tracker is not found |  -  |
+**400** | Request cannot be processed |  -  |
+**200** | List of tracker items |  -  |
+
 <a name="getTracker"></a>
 # **getTracker**
 > Tracker getTracker(trackerId)
@@ -225,38 +272,46 @@ Get tracker
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.TrackerApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-TrackerApi apiInstance = new TrackerApi();
-Integer trackerId = 56; // Integer | 
-try {
-    Tracker result = apiInstance.getTracker(trackerId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TrackerApi#getTracker");
-    e.printStackTrace();
+    TrackerApi apiInstance = new TrackerApi(defaultClient);
+    Integer trackerId = 56; // Integer | 
+    try {
+      Tracker result = apiInstance.getTracker(trackerId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerApi#getTracker");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -279,6 +334,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**200** | Tracker |  -  |
+**404** | Project / Tracker not found |  -  |
+
 <a name="getTrackerField"></a>
 # **getTrackerField**
 > AbstractField getTrackerField(trackerId, fieldId)
@@ -288,39 +350,47 @@ Get field of tracker
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.TrackerApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-TrackerApi apiInstance = new TrackerApi();
-Integer trackerId = 56; // Integer | 
-Integer fieldId = 56; // Integer | 
-try {
-    AbstractField result = apiInstance.getTrackerField(trackerId, fieldId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TrackerApi#getTrackerField");
-    e.printStackTrace();
+    TrackerApi apiInstance = new TrackerApi(defaultClient);
+    Integer trackerId = 56; // Integer | 
+    Integer fieldId = 56; // Integer | 
+    try {
+      AbstractField result = apiInstance.getTrackerField(trackerId, fieldId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerApi#getTrackerField");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -344,6 +414,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**200** | Field by id |  -  |
+**404** | Field not found |  -  |
+**401** | Authentication is required |  -  |
+
 <a name="getTrackerFieldPermissions"></a>
 # **getTrackerFieldPermissions**
 > List&lt;TrackerFieldStatusPermissions&gt; getTrackerFieldPermissions(trackerId, fieldId, statusId)
@@ -353,40 +431,48 @@ Get permissions of tracker field
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.TrackerApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-TrackerApi apiInstance = new TrackerApi();
-Integer trackerId = 56; // Integer | 
-Integer fieldId = 56; // Integer | 
-Integer statusId = 56; // Integer | 
-try {
-    List<TrackerFieldStatusPermissions> result = apiInstance.getTrackerFieldPermissions(trackerId, fieldId, statusId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TrackerApi#getTrackerFieldPermissions");
-    e.printStackTrace();
+    TrackerApi apiInstance = new TrackerApi(defaultClient);
+    Integer trackerId = 56; // Integer | 
+    Integer fieldId = 56; // Integer | 
+    Integer statusId = 56; // Integer | 
+    try {
+      List<TrackerFieldStatusPermissions> result = apiInstance.getTrackerFieldPermissions(trackerId, fieldId, statusId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerApi#getTrackerFieldPermissions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -411,6 +497,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**404** | Tracker or field not found |  -  |
+**200** | Permissions by status and role |  -  |
+**403** | Authorization is required |  -  |
+**400** | Status id is invalid |  -  |
+**401** | Authentication is required |  -  |
+
 <a name="getTrackerFields"></a>
 # **getTrackerFields**
 > List&lt;FieldReference&gt; getTrackerFields(trackerId)
@@ -420,38 +515,46 @@ Get fields of tracker
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.TrackerApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-TrackerApi apiInstance = new TrackerApi();
-Integer trackerId = 56; // Integer | 
-try {
-    List<FieldReference> result = apiInstance.getTrackerFields(trackerId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TrackerApi#getTrackerFields");
-    e.printStackTrace();
+    TrackerApi apiInstance = new TrackerApi(defaultClient);
+    Integer trackerId = 56; // Integer | 
+    try {
+      List<FieldReference> result = apiInstance.getTrackerFields(trackerId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerApi#getTrackerFields");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -474,6 +577,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**404** | Field not found |  -  |
+**200** | Field references |  -  |
+**401** | Authentication is required |  -  |
+
 <a name="getTrackerOutline"></a>
 # **getTrackerOutline**
 > OutlineItemSearchResult getTrackerOutline(trackerId, parentItemId)
@@ -483,39 +594,47 @@ Get outline of a specific tracker
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.TrackerApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-TrackerApi apiInstance = new TrackerApi();
-Integer trackerId = 56; // Integer | 
-Integer parentItemId = 56; // Integer | Show only the children of this item.
-try {
-    OutlineItemSearchResult result = apiInstance.getTrackerOutline(trackerId, parentItemId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TrackerApi#getTrackerOutline");
-    e.printStackTrace();
+    TrackerApi apiInstance = new TrackerApi(defaultClient);
+    Integer trackerId = 56; // Integer | 
+    Integer parentItemId = 56; // Integer | Show only the children of this item.
+    try {
+      OutlineItemSearchResult result = apiInstance.getTrackerOutline(trackerId, parentItemId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerApi#getTrackerOutline");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -539,6 +658,16 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**500** | Internal server error |  -  |
+**401** | Not authorized |  -  |
+**404** | Tracker is not found |  -  |
+**400** | Request cannot be processed |  -  |
+**200** | Outline of the tracker |  -  |
+
 <a name="getTrackerSchema"></a>
 # **getTrackerSchema**
 > List&lt;AbstractField&gt; getTrackerSchema(trackerId)
@@ -548,38 +677,46 @@ Get the schema of a tracker
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.TrackerApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-TrackerApi apiInstance = new TrackerApi();
-Integer trackerId = 56; // Integer | 
-try {
-    List<AbstractField> result = apiInstance.getTrackerSchema(trackerId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TrackerApi#getTrackerSchema");
-    e.printStackTrace();
+    TrackerApi apiInstance = new TrackerApi(defaultClient);
+    Integer trackerId = 56; // Integer | 
+    try {
+      List<AbstractField> result = apiInstance.getTrackerSchema(trackerId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerApi#getTrackerSchema");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -602,6 +739,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**200** | Field definitions |  -  |
+**404** | Field not found |  -  |
+**401** | Authentication is required |  -  |
+
 <a name="getTrackerTransitions"></a>
 # **getTrackerTransitions**
 > List&lt;WorkflowTransition&gt; getTrackerTransitions(trackerId, fromStatusId)
@@ -611,39 +756,47 @@ Get all transitions of a specific tracker
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.TrackerApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-TrackerApi apiInstance = new TrackerApi();
-Integer trackerId = 56; // Integer | 
-Integer fromStatusId = 56; // Integer | The from status id filter for transitions.
-try {
-    List<WorkflowTransition> result = apiInstance.getTrackerTransitions(trackerId, fromStatusId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TrackerApi#getTrackerTransitions");
-    e.printStackTrace();
+    TrackerApi apiInstance = new TrackerApi(defaultClient);
+    Integer trackerId = 56; // Integer | 
+    Integer fromStatusId = 56; // Integer | The from status id filter for transitions.
+    try {
+      List<WorkflowTransition> result = apiInstance.getTrackerTransitions(trackerId, fromStatusId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerApi#getTrackerTransitions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -667,6 +820,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**404** | Tracker not found |  -  |
+**500** | Internal server error |  -  |
+**200** | Tracker transition list |  -  |
+
 <a name="getTrackerType"></a>
 # **getTrackerType**
 > TrackerType getTrackerType(trackerTypeId)
@@ -676,38 +837,46 @@ Get the immutable definition of a tracker type
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.TrackerApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-TrackerApi apiInstance = new TrackerApi();
-Integer trackerTypeId = 56; // Integer | 
-try {
-    TrackerType result = apiInstance.getTrackerType(trackerTypeId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TrackerApi#getTrackerType");
-    e.printStackTrace();
+    TrackerApi apiInstance = new TrackerApi(defaultClient);
+    Integer trackerTypeId = 56; // Integer | 
+    try {
+      TrackerType result = apiInstance.getTrackerType(trackerTypeId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerApi#getTrackerType");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -730,6 +899,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**200** | Tracker type |  -  |
+**404** | Tracker type is not found |  -  |
+
 <a name="getTrackerTypes"></a>
 # **getTrackerTypes**
 > List&lt;TrackerTypeReference&gt; getTrackerTypes(outline)
@@ -739,38 +915,46 @@ Get the list of tracker types
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.TrackerApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-TrackerApi apiInstance = new TrackerApi();
-String outline = "ANY"; // String | Outline is enabled, disabled or any(no filtering will be applied).
-try {
-    List<TrackerTypeReference> result = apiInstance.getTrackerTypes(outline);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TrackerApi#getTrackerTypes");
-    e.printStackTrace();
+    TrackerApi apiInstance = new TrackerApi(defaultClient);
+    String outline = "ANY"; // String | Outline is enabled, disabled or any(no filtering will be applied).
+    try {
+      List<TrackerTypeReference> result = apiInstance.getTrackerTypes(outline);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerApi#getTrackerTypes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -793,6 +977,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**200** | Tracker types |  -  |
+
 <a name="updateTracker"></a>
 # **updateTracker**
 > Tracker updateTracker(trackerId, tracker)
@@ -802,39 +992,47 @@ Updates a specific tracker
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.TrackerApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-TrackerApi apiInstance = new TrackerApi();
-Integer trackerId = 56; // Integer | 
-Tracker tracker = new Tracker(); // Tracker | 
-try {
-    Tracker result = apiInstance.updateTracker(trackerId, tracker);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TrackerApi#updateTracker");
-    e.printStackTrace();
+    TrackerApi apiInstance = new TrackerApi(defaultClient);
+    Integer trackerId = 56; // Integer | 
+    Tracker tracker = new Tracker(); // Tracker | 
+    try {
+      Tracker result = apiInstance.updateTracker(trackerId, tracker);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerApi#updateTracker");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -858,6 +1056,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**200** | Tracker settings |  -  |
+**404** | Tracker not found |  -  |
+
 <a name="updateTrackerIcon"></a>
 # **updateTrackerIcon**
 > updateTrackerIcon(trackerId, icon)
@@ -867,38 +1072,46 @@ Upload a tracker icon
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.TrackerApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-TrackerApi apiInstance = new TrackerApi();
-Integer trackerId = 56; // Integer | Id of the tracker
-File icon = new File("/path/to/file"); // File | 
-try {
-    apiInstance.updateTrackerIcon(trackerId, icon);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TrackerApi#updateTrackerIcon");
-    e.printStackTrace();
+    TrackerApi apiInstance = new TrackerApi(defaultClient);
+    Integer trackerId = 56; // Integer | Id of the tracker
+    File icon = new File("/path/to/file"); // File | 
+    try {
+      apiInstance.updateTrackerIcon(trackerId, icon);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerApi#updateTrackerIcon");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -921,4 +1134,13 @@ null (empty response body)
 
  - **Content-Type**: multipart/form-data
  - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Could not read image from the request, or it&#39;s the wrong format |  -  |
+**404** | Tracker not found |  -  |
+**403** | The tracker could not be accessed |  -  |
+**200** | Tracker icon uploaded successfully |  -  |
+**401** | Authentication is required |  -  |
 

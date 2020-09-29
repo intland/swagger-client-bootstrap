@@ -31,13 +31,15 @@ import java.util.List;
  * Request model for multiple items.
  */
 @ApiModel(description = "Request model for multiple items.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class PermissionIdsRequest {
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
-  private List<TrackerPermissionReference> permissions = new ArrayList<TrackerPermissionReference>();
+  private List<TrackerPermissionReference> permissions = null;
+
 
   public PermissionIdsRequest permissions(List<TrackerPermissionReference> permissions) {
+    
     this.permissions = permissions;
     return this;
   }
@@ -54,10 +56,13 @@ public class PermissionIdsRequest {
    * Permission references.
    * @return permissions
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Permission references.")
+
   public List<TrackerPermissionReference> getPermissions() {
     return permissions;
   }
+
 
   public void setPermissions(List<TrackerPermissionReference> permissions) {
     this.permissions = permissions;

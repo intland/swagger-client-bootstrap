@@ -2,6 +2,7 @@
 
 # Association
 
+Basic properties of a codeBeamer association
 ## Properties
 
 Name | Type | Description | Notes

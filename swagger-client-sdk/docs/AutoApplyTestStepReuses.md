@@ -2,6 +2,7 @@
 
 # AutoApplyTestStepReuses
 
+Specifies which Test Cases are checked for duplicate Steps
 ## Properties
 
 Name | Type | Description | Notes

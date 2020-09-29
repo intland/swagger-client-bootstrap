@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Role
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class Role {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -84,7 +84,7 @@ public class Role {
 
       @Override
       public DescriptionFormatEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return DescriptionFormatEnum.fromValue(value);
       }
     }
@@ -94,7 +94,9 @@ public class Role {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION_FORMAT)
   private DescriptionFormatEnum descriptionFormat;
 
+
   public Role id(Integer id) {
+    
     this.id = id;
     return this;
   }
@@ -104,16 +106,21 @@ public class Role {
    * minimum: 0
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the entity")
+
   public Integer getId() {
     return id;
   }
+
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+
   public Role name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -122,16 +129,21 @@ public class Role {
    * Name of the entity
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the entity")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public Role description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -140,16 +152,21 @@ public class Role {
    * Description of a role
    * @return description
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description of a role")
+
   public String getDescription() {
     return description;
   }
+
 
   public void setDescription(String description) {
     this.description = description;
   }
 
+
   public Role descriptionFormat(DescriptionFormatEnum descriptionFormat) {
+    
     this.descriptionFormat = descriptionFormat;
     return this;
   }
@@ -158,10 +175,13 @@ public class Role {
    * Format of a role&#39;s description
    * @return descriptionFormat
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Format of a role's description")
+
   public DescriptionFormatEnum getDescriptionFormat() {
     return descriptionFormat;
   }
+
 
   public void setDescriptionFormat(DescriptionFormatEnum descriptionFormat) {
     this.descriptionFormat = descriptionFormat;

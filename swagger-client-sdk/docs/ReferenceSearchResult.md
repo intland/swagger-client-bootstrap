@@ -2,6 +2,7 @@
 
 # ReferenceSearchResult
 
+One page of references.
 ## Properties
 
 Name | Type | Description | Notes

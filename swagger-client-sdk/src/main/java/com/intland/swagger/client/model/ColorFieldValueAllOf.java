@@ -27,13 +27,15 @@ import java.io.IOException;
 /**
  * ColorFieldValueAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ColorFieldValueAllOf {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
+
   public ColorFieldValueAllOf value(String value) {
+    
     this.value = value;
     return this;
   }
@@ -42,10 +44,13 @@ public class ColorFieldValueAllOf {
    * Hex code of the color
    * @return value
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "#FF0055", value = "Hex code of the color")
+
   public String getValue() {
     return value;
   }
+
 
   public void setValue(String value) {
     this.value = value;

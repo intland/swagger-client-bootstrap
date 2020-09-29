@@ -32,17 +32,19 @@ import java.util.List;
  * A Tracker Item with all of its corresponding Tracker Item Reviews
  */
 @ApiModel(description = "A Tracker Item with all of its corresponding Tracker Item Reviews")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerItemWithTrackerItemReviewsExport {
   public static final String SERIALIZED_NAME_TRACKER_ITEM = "trackerItem";
   @SerializedName(SERIALIZED_NAME_TRACKER_ITEM)
-  private TrackerItem trackerItem = null;
+  private TrackerItem trackerItem;
 
   public static final String SERIALIZED_NAME_TRACKER_ITEM_REVIEWS = "trackerItemReviews";
   @SerializedName(SERIALIZED_NAME_TRACKER_ITEM_REVIEWS)
-  private List<TrackerItemReviewExport> trackerItemReviews = new ArrayList<TrackerItemReviewExport>();
+  private List<TrackerItemReviewExport> trackerItemReviews = null;
+
 
   public TrackerItemWithTrackerItemReviewsExport trackerItem(TrackerItem trackerItem) {
+    
     this.trackerItem = trackerItem;
     return this;
   }
@@ -51,16 +53,21 @@ public class TrackerItemWithTrackerItemReviewsExport {
    * Get trackerItem
    * @return trackerItem
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public TrackerItem getTrackerItem() {
     return trackerItem;
   }
+
 
   public void setTrackerItem(TrackerItem trackerItem) {
     this.trackerItem = trackerItem;
   }
 
+
   public TrackerItemWithTrackerItemReviewsExport trackerItemReviews(List<TrackerItemReviewExport> trackerItemReviews) {
+    
     this.trackerItemReviews = trackerItemReviews;
     return this;
   }
@@ -77,10 +84,13 @@ public class TrackerItemWithTrackerItemReviewsExport {
    * List of Tracker Item Reviews
    * @return trackerItemReviews
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "List of Tracker Item Reviews")
+
   public List<TrackerItemReviewExport> getTrackerItemReviews() {
     return trackerItemReviews;
   }
+
 
   public void setTrackerItemReviews(List<TrackerItemReviewExport> trackerItemReviews) {
     this.trackerItemReviews = trackerItemReviews;

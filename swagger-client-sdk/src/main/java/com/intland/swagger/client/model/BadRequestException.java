@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * BadRequestException
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class BadRequestException {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
@@ -37,7 +37,9 @@ public class BadRequestException {
   @SerializedName(SERIALIZED_NAME_RESOURCE_URI)
   private String resourceUri;
 
+
   public BadRequestException message(String message) {
+    
     this.message = message;
     return this;
   }
@@ -46,16 +48,21 @@ public class BadRequestException {
    * Get message
    * @return message
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getMessage() {
     return message;
   }
+
 
   public void setMessage(String message) {
     this.message = message;
   }
 
+
   public BadRequestException resourceUri(String resourceUri) {
+    
     this.resourceUri = resourceUri;
     return this;
   }
@@ -64,10 +71,13 @@ public class BadRequestException {
    * Get resourceUri
    * @return resourceUri
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getResourceUri() {
     return resourceUri;
   }
+
 
   public void setResourceUri(String resourceUri) {
     this.resourceUri = resourceUri;

@@ -31,11 +31,11 @@ import java.util.List;
  * Request model to update Test Run&#39;s result for a Test Case
  */
 @ApiModel(description = "Request model to update Test Run's result for a Test Case")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class UpdateTestCaseRunRequest {
   public static final String SERIALIZED_NAME_TEST_CASE_REFERENCE = "testCaseReference";
   @SerializedName(SERIALIZED_NAME_TEST_CASE_REFERENCE)
-  private TrackerItemReference testCaseReference = null;
+  private TrackerItemReference testCaseReference;
 
   /**
    * Result of the test case
@@ -80,7 +80,7 @@ public class UpdateTestCaseRunRequest {
 
       @Override
       public ResultEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return ResultEnum.fromValue(value);
       }
     }
@@ -100,9 +100,11 @@ public class UpdateTestCaseRunRequest {
 
   public static final String SERIALIZED_NAME_REPORTED_BUG_REFERENCES = "reportedBugReferences";
   @SerializedName(SERIALIZED_NAME_REPORTED_BUG_REFERENCES)
-  private List<TrackerItemReference> reportedBugReferences = new ArrayList<TrackerItemReference>();
+  private List<TrackerItemReference> reportedBugReferences = null;
+
 
   public UpdateTestCaseRunRequest testCaseReference(TrackerItemReference testCaseReference) {
+    
     this.testCaseReference = testCaseReference;
     return this;
   }
@@ -112,15 +114,19 @@ public class UpdateTestCaseRunRequest {
    * @return testCaseReference
   **/
   @ApiModelProperty(required = true, value = "")
+
   public TrackerItemReference getTestCaseReference() {
     return testCaseReference;
   }
+
 
   public void setTestCaseReference(TrackerItemReference testCaseReference) {
     this.testCaseReference = testCaseReference;
   }
 
+
   public UpdateTestCaseRunRequest result(ResultEnum result) {
+    
     this.result = result;
     return this;
   }
@@ -130,15 +136,19 @@ public class UpdateTestCaseRunRequest {
    * @return result
   **/
   @ApiModelProperty(required = true, value = "Result of the test case")
+
   public ResultEnum getResult() {
     return result;
   }
+
 
   public void setResult(ResultEnum result) {
     this.result = result;
   }
 
+
   public UpdateTestCaseRunRequest conclusion(String conclusion) {
+    
     this.conclusion = conclusion;
     return this;
   }
@@ -147,16 +157,21 @@ public class UpdateTestCaseRunRequest {
    * Optional conclusion text
    * @return conclusion
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Optional conclusion text")
+
   public String getConclusion() {
     return conclusion;
   }
+
 
   public void setConclusion(String conclusion) {
     this.conclusion = conclusion;
   }
 
+
   public UpdateTestCaseRunRequest runTime(Integer runTime) {
+    
     this.runTime = runTime;
     return this;
   }
@@ -165,16 +180,21 @@ public class UpdateTestCaseRunRequest {
    * Optional runtime in seconds
    * @return runTime
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Optional runtime in seconds")
+
   public Integer getRunTime() {
     return runTime;
   }
+
 
   public void setRunTime(Integer runTime) {
     this.runTime = runTime;
   }
 
+
   public UpdateTestCaseRunRequest reportedBugReferences(List<TrackerItemReference> reportedBugReferences) {
+    
     this.reportedBugReferences = reportedBugReferences;
     return this;
   }
@@ -191,10 +211,13 @@ public class UpdateTestCaseRunRequest {
    * Optional reference list of Bugs attached to the Test result
    * @return reportedBugReferences
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Optional reference list of Bugs attached to the Test result")
+
   public List<TrackerItemReference> getReportedBugReferences() {
     return reportedBugReferences;
   }
+
 
   public void setReportedBugReferences(List<TrackerItemReference> reportedBugReferences) {
     this.reportedBugReferences = reportedBugReferences;

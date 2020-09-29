@@ -2,6 +2,7 @@
 
 # ReportGroupWithReferencedRows
 
+ReportGroup having rows with references.
 ## Properties
 
 Name | Type | Description | Notes

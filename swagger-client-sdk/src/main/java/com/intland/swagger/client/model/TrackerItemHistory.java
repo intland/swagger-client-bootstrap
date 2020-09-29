@@ -31,13 +31,15 @@ import java.util.List;
  * Tracker item history containing all versions of an item.
  */
 @ApiModel(description = "Tracker item history containing all versions of an item.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerItemHistory {
   public static final String SERIALIZED_NAME_VERSIONS = "versions";
   @SerializedName(SERIALIZED_NAME_VERSIONS)
-  private List<TrackerItemHistoryRevision> versions = new ArrayList<TrackerItemHistoryRevision>();
+  private List<TrackerItemHistoryRevision> versions = null;
+
 
   public TrackerItemHistory versions(List<TrackerItemHistoryRevision> versions) {
+    
     this.versions = versions;
     return this;
   }
@@ -54,10 +56,13 @@ public class TrackerItemHistory {
    * List of version changes.
    * @return versions
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "List of version changes.")
+
   public List<TrackerItemHistoryRevision> getVersions() {
     return versions;
   }
+
 
   public void setVersions(List<TrackerItemHistoryRevision> versions) {
     this.versions = versions;

@@ -18,39 +18,47 @@ API can be used for finding a tracker item by a branch id
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.BranchesApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.BranchesApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-BranchesApi apiInstance = new BranchesApi();
-Integer sourceItemId = 56; // Integer | 
-Integer branchId = 56; // Integer | 
-try {
-    TrackerItem result = apiInstance.getTrackerItemOnBranch(sourceItemId, branchId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling BranchesApi#getTrackerItemOnBranch");
-    e.printStackTrace();
+    BranchesApi apiInstance = new BranchesApi(defaultClient);
+    Integer sourceItemId = 56; // Integer | 
+    Integer branchId = 56; // Integer | 
+    try {
+      TrackerItem result = apiInstance.getTrackerItemOnBranch(sourceItemId, branchId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling BranchesApi#getTrackerItemOnBranch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -73,4 +81,11 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**404** | Tracker item not found |  -  |
+**200** | Basic tracker item by id and branch id |  -  |
 

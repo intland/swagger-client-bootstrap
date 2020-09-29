@@ -29,17 +29,19 @@ import java.io.IOException;
  * Information about an artifact lock
  */
 @ApiModel(description = "Information about an artifact lock")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class LockInfo {
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
-  private UserReference user = null;
+  private UserReference user;
 
   public static final String SERIALIZED_NAME_EXPIRES = "expires";
   @SerializedName(SERIALIZED_NAME_EXPIRES)
   private Boolean expires;
 
+
   public LockInfo user(UserReference user) {
+    
     this.user = user;
     return this;
   }
@@ -48,16 +50,21 @@ public class LockInfo {
    * Get user
    * @return user
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getUser() {
     return user;
   }
+
 
   public void setUser(UserReference user) {
     this.user = user;
   }
 
+
   public LockInfo expires(Boolean expires) {
+    
     this.expires = expires;
     return this;
   }
@@ -66,10 +73,13 @@ public class LockInfo {
    * Whether the lock will expire on its own, eg. if it is a soft lock
    * @return expires
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether the lock will expire on its own, eg. if it is a soft lock")
+
   public Boolean getExpires() {
     return expires;
   }
+
 
   public void setExpires(Boolean expires) {
     this.expires = expires;

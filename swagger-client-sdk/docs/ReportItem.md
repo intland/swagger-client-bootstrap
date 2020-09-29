@@ -2,6 +2,7 @@
 
 # ReportItem
 
+An item of the report.
 ## Properties
 
 Name | Type | Description | Notes

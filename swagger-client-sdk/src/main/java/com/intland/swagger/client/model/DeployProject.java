@@ -28,11 +28,11 @@ import java.io.IOException;
 /**
  * DeployProject
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class DeployProject {
   public static final String SERIALIZED_NAME_PROJECT = "project";
   @SerializedName(SERIALIZED_NAME_PROJECT)
-  private ProjectReference project = null;
+  private ProjectReference project;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_FILE_ID = "configurationFileId";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_FILE_ID)
@@ -46,7 +46,9 @@ public class DeployProject {
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
 
+
   public DeployProject project(ProjectReference project) {
+    
     this.project = project;
     return this;
   }
@@ -55,16 +57,21 @@ public class DeployProject {
    * Get project
    * @return project
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public ProjectReference getProject() {
     return project;
   }
+
 
   public void setProject(ProjectReference project) {
     this.project = project;
   }
 
+
   public DeployProject configurationFileId(Integer configurationFileId) {
+    
     this.configurationFileId = configurationFileId;
     return this;
   }
@@ -73,16 +80,21 @@ public class DeployProject {
    * Id of a codeBeamer document
    * @return configurationFileId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of a codeBeamer document")
+
   public Integer getConfigurationFileId() {
     return configurationFileId;
   }
+
 
   public void setConfigurationFileId(Integer configurationFileId) {
     this.configurationFileId = configurationFileId;
   }
 
+
   public DeployProject projectFileId(Integer projectFileId) {
+    
     this.projectFileId = projectFileId;
     return this;
   }
@@ -91,16 +103,21 @@ public class DeployProject {
    * Id of a codeBeamer document
    * @return projectFileId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of a codeBeamer document")
+
   public Integer getProjectFileId() {
     return projectFileId;
   }
+
 
   public void setProjectFileId(Integer projectFileId) {
     this.projectFileId = projectFileId;
   }
 
+
   public DeployProject password(String password) {
+    
     this.password = password;
     return this;
   }
@@ -109,10 +126,13 @@ public class DeployProject {
    * The password to decrypt the uploaded configuration file
    * @return password
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The password to decrypt the uploaded configuration file")
+
   public String getPassword() {
     return password;
   }
+
 
   public void setPassword(String password) {
     this.password = password;

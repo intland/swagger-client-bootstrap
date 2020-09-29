@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UserFilteringRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class UserFilteringRequest {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -45,7 +45,9 @@ public class UserFilteringRequest {
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
 
+
   public UserFilteringRequest name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -54,16 +56,21 @@ public class UserFilteringRequest {
    * Name of the user
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "John Doe", value = "Name of the user")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public UserFilteringRequest lastName(String lastName) {
+    
     this.lastName = lastName;
     return this;
   }
@@ -72,16 +79,21 @@ public class UserFilteringRequest {
    * Last name of the user
    * @return lastName
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "Doe", value = "Last name of the user")
+
   public String getLastName() {
     return lastName;
   }
+
 
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
 
+
   public UserFilteringRequest firstName(String firstName) {
+    
     this.firstName = firstName;
     return this;
   }
@@ -90,16 +102,21 @@ public class UserFilteringRequest {
    * First name of the user
    * @return firstName
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "John", value = "First name of the user")
+
   public String getFirstName() {
     return firstName;
   }
+
 
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
 
+
   public UserFilteringRequest email(String email) {
+    
     this.email = email;
     return this;
   }
@@ -108,10 +125,13 @@ public class UserFilteringRequest {
    * Email of the user
    * @return email
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "john.doe@codebeamer.com", value = "Email of the user")
+
   public String getEmail() {
     return email;
   }
+
 
   public void setEmail(String email) {
     this.email = email;

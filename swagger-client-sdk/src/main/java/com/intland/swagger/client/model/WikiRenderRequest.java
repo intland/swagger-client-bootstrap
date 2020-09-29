@@ -28,7 +28,7 @@ import java.io.IOException;
  * Request model to render a wiki page in a specific context
  */
 @ApiModel(description = "Request model to render a wiki page in a specific context")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class WikiRenderRequest {
   public static final String SERIALIZED_NAME_CONTEXT_ID = "contextId";
   @SerializedName(SERIALIZED_NAME_CONTEXT_ID)
@@ -79,7 +79,7 @@ public class WikiRenderRequest {
 
       @Override
       public RenderingContextTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return RenderingContextTypeEnum.fromValue(value);
       }
     }
@@ -93,7 +93,9 @@ public class WikiRenderRequest {
   @SerializedName(SERIALIZED_NAME_MARKUP)
   private String markup;
 
+
   public WikiRenderRequest contextId(Integer contextId) {
+    
     this.contextId = contextId;
     return this;
   }
@@ -102,16 +104,21 @@ public class WikiRenderRequest {
    * Id of the entity used as rendering context
    * @return contextId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the entity used as rendering context")
+
   public Integer getContextId() {
     return contextId;
   }
+
 
   public void setContextId(Integer contextId) {
     this.contextId = contextId;
   }
 
+
   public WikiRenderRequest contextVersion(Integer contextVersion) {
+    
     this.contextVersion = contextVersion;
     return this;
   }
@@ -120,16 +127,21 @@ public class WikiRenderRequest {
    * Version of the entity used as rendering context
    * @return contextVersion
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Version of the entity used as rendering context")
+
   public Integer getContextVersion() {
     return contextVersion;
   }
+
 
   public void setContextVersion(Integer contextVersion) {
     this.contextVersion = contextVersion;
   }
 
+
   public WikiRenderRequest renderingContextType(RenderingContextTypeEnum renderingContextType) {
+    
     this.renderingContextType = renderingContextType;
     return this;
   }
@@ -138,16 +150,21 @@ public class WikiRenderRequest {
    * Type of the entity used as rendering context
    * @return renderingContextType
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Type of the entity used as rendering context")
+
   public RenderingContextTypeEnum getRenderingContextType() {
     return renderingContextType;
   }
+
 
   public void setRenderingContextType(RenderingContextTypeEnum renderingContextType) {
     this.renderingContextType = renderingContextType;
   }
 
+
   public WikiRenderRequest markup(String markup) {
+    
     this.markup = markup;
     return this;
   }
@@ -157,9 +174,11 @@ public class WikiRenderRequest {
    * @return markup
   **/
   @ApiModelProperty(example = "Hello __World__!", required = true, value = "Wiki markup to render as HTML")
+
   public String getMarkup() {
     return markup;
   }
+
 
   public void setMarkup(String markup) {
     this.markup = markup;

@@ -26,13 +26,14 @@ import com.intland.swagger.client.model.TextFieldAllOf;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Text field
  */
 @ApiModel(description = "Text field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TextField extends AbstractField {
   public static final String SERIALIZED_NAME_MIN = "min";
   @SerializedName(SERIALIZED_NAME_MIN)
@@ -46,7 +47,9 @@ public class TextField extends AbstractField {
   @SerializedName(SERIALIZED_NAME_FORMULA)
   private String formula;
 
+
   public TextField min(Integer min) {
+    
     this.min = min;
     return this;
   }
@@ -55,16 +58,21 @@ public class TextField extends AbstractField {
    * Minimum length of value of a field
    * @return min
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Minimum length of value of a field")
+
   public Integer getMin() {
     return min;
   }
+
 
   public void setMin(Integer min) {
     this.min = min;
   }
 
+
   public TextField max(Integer max) {
+    
     this.max = max;
     return this;
   }
@@ -73,16 +81,21 @@ public class TextField extends AbstractField {
    * Max length of value of a field
    * @return max
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Max length of value of a field")
+
   public Integer getMax() {
     return max;
   }
+
 
   public void setMax(Integer max) {
     this.max = max;
   }
 
+
   public TextField formula(String formula) {
+    
     this.formula = formula;
     return this;
   }
@@ -91,10 +104,13 @@ public class TextField extends AbstractField {
    * Formula value of a field
    * @return formula
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Formula value of a field")
+
   public String getFormula() {
     return formula;
   }
+
 
   public void setFormula(String formula) {
     this.formula = formula;

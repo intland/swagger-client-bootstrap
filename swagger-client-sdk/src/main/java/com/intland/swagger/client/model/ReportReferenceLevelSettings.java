@@ -33,15 +33,15 @@ import java.util.List;
  * Reference level settings for Intelligent Table View.
  */
 @ApiModel(description = "Reference level settings for Intelligent Table View.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ReportReferenceLevelSettings {
   public static final String SERIALIZED_NAME_REFERENCE_TRACKERS = "referenceTrackers";
   @SerializedName(SERIALIZED_NAME_REFERENCE_TRACKERS)
-  private List<TrackerReference> referenceTrackers = new ArrayList<TrackerReference>();
+  private List<TrackerReference> referenceTrackers = null;
 
   public static final String SERIALIZED_NAME_REFERENCE_TRACKER_TYPES = "referenceTrackerTypes";
   @SerializedName(SERIALIZED_NAME_REFERENCE_TRACKER_TYPES)
-  private List<TrackerTypeReference> referenceTrackerTypes = new ArrayList<TrackerTypeReference>();
+  private List<TrackerTypeReference> referenceTrackerTypes = null;
 
   public static final String SERIALIZED_NAME_COLUMNS = "columns";
   @SerializedName(SERIALIZED_NAME_COLUMNS)
@@ -59,7 +59,9 @@ public class ReportReferenceLevelSettings {
   @SerializedName(SERIALIZED_NAME_LEVEL)
   private Integer level;
 
+
   public ReportReferenceLevelSettings referenceTrackers(List<TrackerReference> referenceTrackers) {
+    
     this.referenceTrackers = referenceTrackers;
     return this;
   }
@@ -76,16 +78,21 @@ public class ReportReferenceLevelSettings {
    * Trackers to include on this level.
    * @return referenceTrackers
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Trackers to include on this level.")
+
   public List<TrackerReference> getReferenceTrackers() {
     return referenceTrackers;
   }
+
 
   public void setReferenceTrackers(List<TrackerReference> referenceTrackers) {
     this.referenceTrackers = referenceTrackers;
   }
 
+
   public ReportReferenceLevelSettings referenceTrackerTypes(List<TrackerTypeReference> referenceTrackerTypes) {
+    
     this.referenceTrackerTypes = referenceTrackerTypes;
     return this;
   }
@@ -102,16 +109,21 @@ public class ReportReferenceLevelSettings {
    * Tracker types to include on this level.
    * @return referenceTrackerTypes
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Tracker types to include on this level.")
+
   public List<TrackerTypeReference> getReferenceTrackerTypes() {
     return referenceTrackerTypes;
   }
+
 
   public void setReferenceTrackerTypes(List<TrackerTypeReference> referenceTrackerTypes) {
     this.referenceTrackerTypes = referenceTrackerTypes;
   }
 
+
   public ReportReferenceLevelSettings columns(List<ReportColumnSettings> columns) {
+    
     this.columns = columns;
     return this;
   }
@@ -126,15 +138,19 @@ public class ReportReferenceLevelSettings {
    * @return columns
   **/
   @ApiModelProperty(required = true, value = "Columns to show on this reference level.")
+
   public List<ReportColumnSettings> getColumns() {
     return columns;
   }
+
 
   public void setColumns(List<ReportColumnSettings> columns) {
     this.columns = columns;
   }
 
+
   public ReportReferenceLevelSettings upstreamReference(Boolean upstreamReference) {
+    
     this.upstreamReference = upstreamReference;
     return this;
   }
@@ -144,15 +160,19 @@ public class ReportReferenceLevelSettings {
    * @return upstreamReference
   **/
   @ApiModelProperty(example = "true", required = true, value = "Include upstream references indicator.")
+
   public Boolean getUpstreamReference() {
     return upstreamReference;
   }
+
 
   public void setUpstreamReference(Boolean upstreamReference) {
     this.upstreamReference = upstreamReference;
   }
 
+
   public ReportReferenceLevelSettings downstreamReference(Boolean downstreamReference) {
+    
     this.downstreamReference = downstreamReference;
     return this;
   }
@@ -162,15 +182,19 @@ public class ReportReferenceLevelSettings {
    * @return downstreamReference
   **/
   @ApiModelProperty(example = "false", required = true, value = "Include downstream references indicator.")
+
   public Boolean getDownstreamReference() {
     return downstreamReference;
   }
+
 
   public void setDownstreamReference(Boolean downstreamReference) {
     this.downstreamReference = downstreamReference;
   }
 
+
   public ReportReferenceLevelSettings level(Integer level) {
+    
     this.level = level;
     return this;
   }
@@ -181,9 +205,11 @@ public class ReportReferenceLevelSettings {
    * @return level
   **/
   @ApiModelProperty(example = "1", required = true, value = "Level of the reference layer")
+
   public Integer getLevel() {
     return level;
   }
+
 
   public void setLevel(Integer level) {
     this.level = level;

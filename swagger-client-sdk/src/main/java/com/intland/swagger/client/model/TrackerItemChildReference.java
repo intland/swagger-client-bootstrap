@@ -29,17 +29,19 @@ import java.io.IOException;
  * Reference to a child item in the tracker outline.
  */
 @ApiModel(description = "Reference to a child item in the tracker outline.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerItemChildReference {
   public static final String SERIALIZED_NAME_ITEM_REFERENCE = "itemReference";
   @SerializedName(SERIALIZED_NAME_ITEM_REFERENCE)
-  private TrackerItemReference itemReference = null;
+  private TrackerItemReference itemReference;
 
   public static final String SERIALIZED_NAME_INDEX = "index";
   @SerializedName(SERIALIZED_NAME_INDEX)
   private Integer index;
 
+
   public TrackerItemChildReference itemReference(TrackerItemReference itemReference) {
+    
     this.itemReference = itemReference;
     return this;
   }
@@ -49,15 +51,19 @@ public class TrackerItemChildReference {
    * @return itemReference
   **/
   @ApiModelProperty(required = true, value = "")
+
   public TrackerItemReference getItemReference() {
     return itemReference;
   }
+
 
   public void setItemReference(TrackerItemReference itemReference) {
     this.itemReference = itemReference;
   }
 
+
   public TrackerItemChildReference index(Integer index) {
+    
     this.index = index;
     return this;
   }
@@ -68,9 +74,11 @@ public class TrackerItemChildReference {
    * @return index
   **/
   @ApiModelProperty(example = "0", required = true, value = "Ordinal in the tracker outline.")
+
   public Integer getIndex() {
     return index;
   }
+
 
   public void setIndex(Integer index) {
     this.index = index;

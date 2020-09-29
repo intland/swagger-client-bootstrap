@@ -32,11 +32,11 @@ import org.joda.time.DateTime;
  * Traceability level filter
  */
 @ApiModel(description = "Traceability level filter")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TraceabilityLevelFilter {
   public static final String SERIALIZED_NAME_PREVIOUS_LEVEL_ITEMS = "previousLevelItems";
   @SerializedName(SERIALIZED_NAME_PREVIOUS_LEVEL_ITEMS)
-  private List<TrackerItemRevision> previousLevelItems = new ArrayList<TrackerItemRevision>();
+  private List<TrackerItemRevision> previousLevelItems = null;
 
   public static final String SERIALIZED_NAME_OUTGOING_REFERENCE = "outgoingReference";
   @SerializedName(SERIALIZED_NAME_OUTGOING_REFERENCE)
@@ -70,7 +70,9 @@ public class TraceabilityLevelFilter {
   @SerializedName(SERIALIZED_NAME_HISTORY_BASELINE_ID)
   private Integer historyBaselineId;
 
+
   public TraceabilityLevelFilter previousLevelItems(List<TrackerItemRevision> previousLevelItems) {
+    
     this.previousLevelItems = previousLevelItems;
     return this;
   }
@@ -87,16 +89,21 @@ public class TraceabilityLevelFilter {
    * Previous Level Items
    * @return previousLevelItems
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Previous Level Items")
+
   public List<TrackerItemRevision> getPreviousLevelItems() {
     return previousLevelItems;
   }
+
 
   public void setPreviousLevelItems(List<TrackerItemRevision> previousLevelItems) {
     this.previousLevelItems = previousLevelItems;
   }
 
+
   public TraceabilityLevelFilter outgoingReference(Boolean outgoingReference) {
+    
     this.outgoingReference = outgoingReference;
     return this;
   }
@@ -105,16 +112,21 @@ public class TraceabilityLevelFilter {
    * Show outgoing references
    * @return outgoingReference
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Show outgoing references")
+
   public Boolean getOutgoingReference() {
     return outgoingReference;
   }
+
 
   public void setOutgoingReference(Boolean outgoingReference) {
     this.outgoingReference = outgoingReference;
   }
 
+
   public TraceabilityLevelFilter incomingReference(Boolean incomingReference) {
+    
     this.incomingReference = incomingReference;
     return this;
   }
@@ -123,16 +135,21 @@ public class TraceabilityLevelFilter {
    * Show incoming references
    * @return incomingReference
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Show incoming references")
+
   public Boolean getIncomingReference() {
     return incomingReference;
   }
+
 
   public void setIncomingReference(Boolean incomingReference) {
     this.incomingReference = incomingReference;
   }
 
+
   public TraceabilityLevelFilter outgoingAssociation(Boolean outgoingAssociation) {
+    
     this.outgoingAssociation = outgoingAssociation;
     return this;
   }
@@ -141,16 +158,21 @@ public class TraceabilityLevelFilter {
    * Show outgoing association
    * @return outgoingAssociation
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Show outgoing association")
+
   public Boolean getOutgoingAssociation() {
     return outgoingAssociation;
   }
+
 
   public void setOutgoingAssociation(Boolean outgoingAssociation) {
     this.outgoingAssociation = outgoingAssociation;
   }
 
+
   public TraceabilityLevelFilter incomingAssociation(Boolean incomingAssociation) {
+    
     this.incomingAssociation = incomingAssociation;
     return this;
   }
@@ -159,16 +181,21 @@ public class TraceabilityLevelFilter {
    * Show incoming association
    * @return incomingAssociation
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Show incoming association")
+
   public Boolean getIncomingAssociation() {
     return incomingAssociation;
   }
+
 
   public void setIncomingAssociation(Boolean incomingAssociation) {
     this.incomingAssociation = incomingAssociation;
   }
 
+
   public TraceabilityLevelFilter foldersAndInformation(Boolean foldersAndInformation) {
+    
     this.foldersAndInformation = foldersAndInformation;
     return this;
   }
@@ -177,16 +204,21 @@ public class TraceabilityLevelFilter {
    * Show folders and information
    * @return foldersAndInformation
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Show folders and information")
+
   public Boolean getFoldersAndInformation() {
     return foldersAndInformation;
   }
+
 
   public void setFoldersAndInformation(Boolean foldersAndInformation) {
     this.foldersAndInformation = foldersAndInformation;
   }
 
+
   public TraceabilityLevelFilter cbQL(String cbQL) {
+    
     this.cbQL = cbQL;
     return this;
   }
@@ -196,15 +228,19 @@ public class TraceabilityLevelFilter {
    * @return cbQL
   **/
   @ApiModelProperty(required = true, value = "cbQL")
+
   public String getCbQL() {
     return cbQL;
   }
+
 
   public void setCbQL(String cbQL) {
     this.cbQL = cbQL;
   }
 
+
   public TraceabilityLevelFilter historyDate(DateTime historyDate) {
+    
     this.historyDate = historyDate;
     return this;
   }
@@ -213,16 +249,21 @@ public class TraceabilityLevelFilter {
    * History Date - Snapshot view of the given date
    * @return historyDate
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "History Date - Snapshot view of the given date")
+
   public DateTime getHistoryDate() {
     return historyDate;
   }
+
 
   public void setHistoryDate(DateTime historyDate) {
     this.historyDate = historyDate;
   }
 
+
   public TraceabilityLevelFilter historyBaselineId(Integer historyBaselineId) {
+    
     this.historyBaselineId = historyBaselineId;
     return this;
   }
@@ -231,10 +272,13 @@ public class TraceabilityLevelFilter {
    * History Baseline Id - Snapshot view of the given baseline
    * @return historyBaselineId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "History Baseline Id - Snapshot view of the given baseline")
+
   public Integer getHistoryBaselineId() {
     return historyBaselineId;
   }
+
 
   public void setHistoryBaselineId(Integer historyBaselineId) {
     this.historyBaselineId = historyBaselineId;

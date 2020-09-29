@@ -31,19 +31,19 @@ import java.io.IOException;
  * Access permission of specific role
  */
 @ApiModel(description = "Access permission of specific role")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class AccessPermission {
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
-  private RoleReference role = null;
+  private RoleReference role;
 
   public static final String SERIALIZED_NAME_FIELD = "field";
   @SerializedName(SERIALIZED_NAME_FIELD)
-  private FieldReference field = null;
+  private FieldReference field;
 
   public static final String SERIALIZED_NAME_PROJECT = "project";
   @SerializedName(SERIALIZED_NAME_PROJECT)
-  private ProjectReference project = null;
+  private ProjectReference project;
 
   /**
    * Access level
@@ -88,7 +88,7 @@ public class AccessPermission {
 
       @Override
       public AccessLevelEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return AccessLevelEnum.fromValue(value);
       }
     }
@@ -98,7 +98,9 @@ public class AccessPermission {
   @SerializedName(SERIALIZED_NAME_ACCESS_LEVEL)
   private AccessLevelEnum accessLevel;
 
+
   public AccessPermission role(RoleReference role) {
+    
     this.role = role;
     return this;
   }
@@ -107,16 +109,21 @@ public class AccessPermission {
    * Get role
    * @return role
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public RoleReference getRole() {
     return role;
   }
+
 
   public void setRole(RoleReference role) {
     this.role = role;
   }
 
+
   public AccessPermission field(FieldReference field) {
+    
     this.field = field;
     return this;
   }
@@ -125,16 +132,21 @@ public class AccessPermission {
    * Get field
    * @return field
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public FieldReference getField() {
     return field;
   }
+
 
   public void setField(FieldReference field) {
     this.field = field;
   }
 
+
   public AccessPermission project(ProjectReference project) {
+    
     this.project = project;
     return this;
   }
@@ -143,16 +155,21 @@ public class AccessPermission {
    * Get project
    * @return project
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public ProjectReference getProject() {
     return project;
   }
+
 
   public void setProject(ProjectReference project) {
     this.project = project;
   }
 
+
   public AccessPermission accessLevel(AccessLevelEnum accessLevel) {
+    
     this.accessLevel = accessLevel;
     return this;
   }
@@ -161,10 +178,13 @@ public class AccessPermission {
    * Access level
    * @return accessLevel
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Access level")
+
   public AccessLevelEnum getAccessLevel() {
     return accessLevel;
   }
+
 
   public void setAccessLevel(AccessLevelEnum accessLevel) {
     this.accessLevel = accessLevel;

@@ -93,4 +93,12 @@ public class ReportGroupWithGroupsTest {
         // TODO: test aggregates
     }
 
+    /**
+     * Test the property 'groups'
+     */
+    @Test
+    public void groupsTest() {
+        // TODO: test groups
+    }
+
 }

@@ -2,6 +2,7 @@
 
 # TrackerChoiceField
 
+Tracker type choice field
 ## Properties
 
 Name | Type | Description | Notes

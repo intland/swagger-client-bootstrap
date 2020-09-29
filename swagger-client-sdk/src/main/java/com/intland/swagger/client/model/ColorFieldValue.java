@@ -30,13 +30,15 @@ import java.io.IOException;
  * Value container of a color field
  */
 @ApiModel(description = "Value container of a color field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ColorFieldValue extends AbstractFieldValue {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
+
   public ColorFieldValue value(String value) {
+    
     this.value = value;
     return this;
   }
@@ -45,10 +47,12 @@ public class ColorFieldValue extends AbstractFieldValue {
    * Hex code of the color
    * @return value
   **/
-  @ApiModelProperty(example = "#FF0055", value = "Hex code of the color")
+  @ApiModelProperty(example = "#FF0055", required = true, value = "Hex code of the color")
+
   public String getValue() {
     return value;
   }
+
 
   public void setValue(String value) {
     this.value = value;

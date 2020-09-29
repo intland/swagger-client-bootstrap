@@ -29,11 +29,11 @@ import java.io.IOException;
  * An item of the report.
  */
 @ApiModel(description = "An item of the report.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ReportItem {
   public static final String SERIALIZED_NAME_ITEM = "item";
   @SerializedName(SERIALIZED_NAME_ITEM)
-  private TrackerItem item = null;
+  private TrackerItem item;
 
   public static final String SERIALIZED_NAME_OUTLINE_LEVEL = "outlineLevel";
   @SerializedName(SERIALIZED_NAME_OUTLINE_LEVEL)
@@ -43,7 +43,9 @@ public class ReportItem {
   @SerializedName(SERIALIZED_NAME_IS_REAL_RESULT)
   private Boolean isRealResult;
 
+
   public ReportItem item(TrackerItem item) {
+    
     this.item = item;
     return this;
   }
@@ -52,16 +54,21 @@ public class ReportItem {
    * Get item
    * @return item
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public TrackerItem getItem() {
     return item;
   }
+
 
   public void setItem(TrackerItem item) {
     this.item = item;
   }
 
+
   public ReportItem outlineLevel(Integer outlineLevel) {
+    
     this.outlineLevel = outlineLevel;
     return this;
   }
@@ -70,16 +77,21 @@ public class ReportItem {
    * Item&#39;s level in the tracker outline.
    * @return outlineLevel
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Item's level in the tracker outline.")
+
   public Integer getOutlineLevel() {
     return outlineLevel;
   }
+
 
   public void setOutlineLevel(Integer outlineLevel) {
     this.outlineLevel = outlineLevel;
   }
 
+
   public ReportItem isRealResult(Boolean isRealResult) {
+    
     this.isRealResult = isRealResult;
     return this;
   }
@@ -88,10 +100,13 @@ public class ReportItem {
    * Indicator if the item is a real query result (e.g. not an ancestor item).
    * @return isRealResult
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicator if the item is a real query result (e.g. not an ancestor item).")
+
   public Boolean getIsRealResult() {
     return isRealResult;
   }
+
 
   public void setIsRealResult(Boolean isRealResult) {
     this.isRealResult = isRealResult;

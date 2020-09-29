@@ -2,6 +2,7 @@
 
 # BatchGetTrackerItemReviewsRequest
 
+Request model to fetch Tracker Item Reviews for multiple Tracker Items.
 ## Properties
 
 Name | Type | Description | Notes

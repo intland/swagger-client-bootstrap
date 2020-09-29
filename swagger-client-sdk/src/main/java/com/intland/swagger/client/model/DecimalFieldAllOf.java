@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * DecimalFieldAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class DecimalFieldAllOf {
   public static final String SERIALIZED_NAME_MIN = "min";
   @SerializedName(SERIALIZED_NAME_MIN)
@@ -41,7 +41,9 @@ public class DecimalFieldAllOf {
   @SerializedName(SERIALIZED_NAME_FORMULA)
   private String formula;
 
+
   public DecimalFieldAllOf min(Double min) {
+    
     this.min = min;
     return this;
   }
@@ -50,16 +52,21 @@ public class DecimalFieldAllOf {
    * Minimum value of a field
    * @return min
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Minimum value of a field")
+
   public Double getMin() {
     return min;
   }
+
 
   public void setMin(Double min) {
     this.min = min;
   }
 
+
   public DecimalFieldAllOf max(Double max) {
+    
     this.max = max;
     return this;
   }
@@ -68,16 +75,21 @@ public class DecimalFieldAllOf {
    * Maximum value of a field
    * @return max
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Maximum value of a field")
+
   public Double getMax() {
     return max;
   }
+
 
   public void setMax(Double max) {
     this.max = max;
   }
 
+
   public DecimalFieldAllOf formula(String formula) {
+    
     this.formula = formula;
     return this;
   }
@@ -86,10 +98,13 @@ public class DecimalFieldAllOf {
    * Formula value of a field
    * @return formula
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Formula value of a field")
+
   public String getFormula() {
     return formula;
   }
+
 
   public void setFormula(String formula) {
     this.formula = formula;

@@ -32,7 +32,7 @@ import java.util.List;
  * Settings for a simple report.
  */
 @ApiModel(description = "Settings for a simple report.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class SimpleReportSettings {
   public static final String SERIALIZED_NAME_REPORT_ID = "reportId";
   @SerializedName(SERIALIZED_NAME_REPORT_ID)
@@ -56,7 +56,7 @@ public class SimpleReportSettings {
 
   public static final String SERIALIZED_NAME_ADDED_PERMISSIONS = "addedPermissions";
   @SerializedName(SERIALIZED_NAME_ADDED_PERMISSIONS)
-  private List<ReportPermission> addedPermissions = new ArrayList<ReportPermission>();
+  private List<ReportPermission> addedPermissions = null;
 
   public static final String SERIALIZED_NAME_SHOW_ANCESTORS = "showAncestors";
   @SerializedName(SERIALIZED_NAME_SHOW_ANCESTORS)
@@ -70,7 +70,9 @@ public class SimpleReportSettings {
   @SerializedName(SERIALIZED_NAME_SHOW_ALL_CHILDREN)
   private Boolean showAllChildren;
 
+
   public SimpleReportSettings reportId(Integer reportId) {
+    
     this.reportId = reportId;
     return this;
   }
@@ -79,16 +81,21 @@ public class SimpleReportSettings {
    * Id of a report
    * @return reportId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Id of a report")
+
   public Integer getReportId() {
     return reportId;
   }
+
 
   public void setReportId(Integer reportId) {
     this.reportId = reportId;
   }
 
+
   public SimpleReportSettings cbQl(String cbQl) {
+    
     this.cbQl = cbQl;
     return this;
   }
@@ -98,15 +105,19 @@ public class SimpleReportSettings {
    * @return cbQl
   **/
   @ApiModelProperty(example = "priority='Normal'", required = true, value = "CbQL query string of the report.")
+
   public String getCbQl() {
     return cbQl;
   }
+
 
   public void setCbQl(String cbQl) {
     this.cbQl = cbQl;
   }
 
+
   public SimpleReportSettings name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -116,15 +127,19 @@ public class SimpleReportSettings {
    * @return name
   **/
   @ApiModelProperty(example = "My first query", required = true, value = "Name of the report.")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public SimpleReportSettings description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -134,15 +149,19 @@ public class SimpleReportSettings {
    * @return description
   **/
   @ApiModelProperty(example = "Normal priority items.", required = true, value = "Description of the report.")
+
   public String getDescription() {
     return description;
   }
+
 
   public void setDescription(String description) {
     this.description = description;
   }
 
+
   public SimpleReportSettings columns(List<ResizableReportColumnSettings> columns) {
+    
     this.columns = columns;
     return this;
   }
@@ -157,15 +176,19 @@ public class SimpleReportSettings {
    * @return columns
   **/
   @ApiModelProperty(required = true, value = "Column definitions.")
+
   public List<ResizableReportColumnSettings> getColumns() {
     return columns;
   }
+
 
   public void setColumns(List<ResizableReportColumnSettings> columns) {
     this.columns = columns;
   }
 
+
   public SimpleReportSettings addedPermissions(List<ReportPermission> addedPermissions) {
+    
     this.addedPermissions = addedPermissions;
     return this;
   }
@@ -182,16 +205,21 @@ public class SimpleReportSettings {
    * Access permissions for the report.
    * @return addedPermissions
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Access permissions for the report.")
+
   public List<ReportPermission> getAddedPermissions() {
     return addedPermissions;
   }
+
 
   public void setAddedPermissions(List<ReportPermission> addedPermissions) {
     this.addedPermissions = addedPermissions;
   }
 
+
   public SimpleReportSettings showAncestors(Boolean showAncestors) {
+    
     this.showAncestors = showAncestors;
     return this;
   }
@@ -200,16 +228,21 @@ public class SimpleReportSettings {
    * Indicator to show the ancestors of a result item.
    * @return showAncestors
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Indicator to show the ancestors of a result item.")
+
   public Boolean getShowAncestors() {
     return showAncestors;
   }
+
 
   public void setShowAncestors(Boolean showAncestors) {
     this.showAncestors = showAncestors;
   }
 
+
   public SimpleReportSettings showDescendants(Boolean showDescendants) {
+    
     this.showDescendants = showDescendants;
     return this;
   }
@@ -218,16 +251,21 @@ public class SimpleReportSettings {
    * Indicator to show the descendants of a result item.
    * @return showDescendants
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Indicator to show the descendants of a result item.")
+
   public Boolean getShowDescendants() {
     return showDescendants;
   }
+
 
   public void setShowDescendants(Boolean showDescendants) {
     this.showDescendants = showDescendants;
   }
 
+
   public SimpleReportSettings showAllChildren(Boolean showAllChildren) {
+    
     this.showAllChildren = showAllChildren;
     return this;
   }
@@ -236,10 +274,13 @@ public class SimpleReportSettings {
    * Indicator to ability to collapse/expand all child items.
    * @return showAllChildren
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Indicator to ability to collapse/expand all child items.")
+
   public Boolean getShowAllChildren() {
     return showAllChildren;
   }
+
 
   public void setShowAllChildren(Boolean showAllChildren) {
     this.showAllChildren = showAllChildren;

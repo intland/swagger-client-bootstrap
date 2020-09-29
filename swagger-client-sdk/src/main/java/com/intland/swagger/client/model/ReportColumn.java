@@ -29,7 +29,7 @@ import java.io.IOException;
  * Column definition for a report
  */
 @ApiModel(description = "Column definition for a report")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ReportColumn {
   public static final String SERIALIZED_NAME_COLUMN_REF = "columnRef";
   @SerializedName(SERIALIZED_NAME_COLUMN_REF)
@@ -37,7 +37,7 @@ public class ReportColumn {
 
   public static final String SERIALIZED_NAME_FIELD = "field";
   @SerializedName(SERIALIZED_NAME_FIELD)
-  private FieldReference field = null;
+  private FieldReference field;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -55,7 +55,9 @@ public class ReportColumn {
   @SerializedName(SERIALIZED_NAME_COLUMN_INDEX)
   private Integer columnIndex;
 
+
   public ReportColumn columnRef(String columnRef) {
+    
     this.columnRef = columnRef;
     return this;
   }
@@ -64,16 +66,21 @@ public class ReportColumn {
    * Column reference
    * @return columnRef
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "12-1", value = "Column reference")
+
   public String getColumnRef() {
     return columnRef;
   }
+
 
   public void setColumnRef(String columnRef) {
     this.columnRef = columnRef;
   }
 
+
   public ReportColumn field(FieldReference field) {
+    
     this.field = field;
     return this;
   }
@@ -82,16 +89,21 @@ public class ReportColumn {
    * Get field
    * @return field
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public FieldReference getField() {
     return field;
   }
+
 
   public void setField(FieldReference field) {
     this.field = field;
   }
 
+
   public ReportColumn name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -100,16 +112,21 @@ public class ReportColumn {
    * Column name
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "Status", value = "Column name")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public ReportColumn type(String type) {
+    
     this.type = type;
     return this;
   }
@@ -118,16 +135,21 @@ public class ReportColumn {
    * Column type
    * @return type
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "choice", value = "Column type")
+
   public String getType() {
     return type;
   }
+
 
   public void setType(String type) {
     this.type = type;
   }
 
+
   public ReportColumn columnWidthPercentage(Double columnWidthPercentage) {
+    
     this.columnWidthPercentage = columnWidthPercentage;
     return this;
   }
@@ -136,16 +158,21 @@ public class ReportColumn {
    * Column width in percentage
    * @return columnWidthPercentage
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "16.533667", value = "Column width in percentage")
+
   public Double getColumnWidthPercentage() {
     return columnWidthPercentage;
   }
+
 
   public void setColumnWidthPercentage(Double columnWidthPercentage) {
     this.columnWidthPercentage = columnWidthPercentage;
   }
 
+
   public ReportColumn columnIndex(Integer columnIndex) {
+    
     this.columnIndex = columnIndex;
     return this;
   }
@@ -154,10 +181,13 @@ public class ReportColumn {
    * Column position index in the report.
    * @return columnIndex
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "0", value = "Column position index in the report.")
+
   public Integer getColumnIndex() {
     return columnIndex;
   }
+
 
   public void setColumnIndex(Integer columnIndex) {
     this.columnIndex = columnIndex;

@@ -74,6 +74,13 @@ public class ProjectApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Bad request: Tracker settings validation failed. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker settings </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call createTrackerCall(Integer projectId, Integer templateId, Tracker tracker, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = tracker;
@@ -89,6 +96,7 @@ public class ProjectApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -105,7 +113,7 @@ public class ProjectApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -130,6 +138,13 @@ public class ProjectApi {
      * @param tracker  (optional)
      * @return Tracker
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Bad request: Tracker settings validation failed. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker settings </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public Tracker createTracker(Integer projectId, Integer templateId, Tracker tracker) throws ApiException {
         ApiResponse<Tracker> localVarResp = createTrackerWithHttpInfo(projectId, templateId, tracker);
@@ -144,6 +159,13 @@ public class ProjectApi {
      * @param tracker  (optional)
      * @return ApiResponse&lt;Tracker&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Bad request: Tracker settings validation failed. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker settings </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Tracker> createTrackerWithHttpInfo(Integer projectId, Integer templateId, Tracker tracker) throws ApiException {
         okhttp3.Call localVarCall = createTrackerValidateBeforeCall(projectId, templateId, tracker, null);
@@ -160,6 +182,13 @@ public class ProjectApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Bad request: Tracker settings validation failed. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker settings </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call createTrackerAsync(Integer projectId, Integer templateId, Tracker tracker, final ApiCallback<Tracker> _callback) throws ApiException {
 
@@ -174,6 +203,15 @@ public class ProjectApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Error when deploying the project configuration. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project or configuration file not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project configuration deployed </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call deployConfigurationCall(DeployProject deployProject, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = deployProject;
@@ -184,6 +222,7 @@ public class ProjectApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -200,7 +239,7 @@ public class ProjectApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -218,6 +257,15 @@ public class ProjectApi {
      * @param deployProject  (optional)
      * @return Project
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Error when deploying the project configuration. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project or configuration file not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project configuration deployed </td><td>  -  </td></tr>
+     </table>
      */
     public Project deployConfiguration(DeployProject deployProject) throws ApiException {
         ApiResponse<Project> localVarResp = deployConfigurationWithHttpInfo(deployProject);
@@ -230,6 +278,15 @@ public class ProjectApi {
      * @param deployProject  (optional)
      * @return ApiResponse&lt;Project&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Error when deploying the project configuration. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project or configuration file not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project configuration deployed </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Project> deployConfigurationWithHttpInfo(DeployProject deployProject) throws ApiException {
         okhttp3.Call localVarCall = deployConfigurationValidateBeforeCall(deployProject, null);
@@ -244,6 +301,15 @@ public class ProjectApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Error when deploying the project configuration. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project or configuration file not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project configuration deployed </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call deployConfigurationAsync(DeployProject deployProject, final ApiCallback<Project> _callback) throws ApiException {
 
@@ -258,9 +324,17 @@ public class ProjectApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getProjectByIdCall(Integer projectId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/projects/{projectId}"
@@ -269,6 +343,7 @@ public class ProjectApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -285,7 +360,7 @@ public class ProjectApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -308,6 +383,14 @@ public class ProjectApi {
      * @param projectId  (required)
      * @return Project
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public Project getProjectById(Integer projectId) throws ApiException {
         ApiResponse<Project> localVarResp = getProjectByIdWithHttpInfo(projectId);
@@ -320,6 +403,14 @@ public class ProjectApi {
      * @param projectId  (required)
      * @return ApiResponse&lt;Project&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Project> getProjectByIdWithHttpInfo(Integer projectId) throws ApiException {
         okhttp3.Call localVarCall = getProjectByIdValidateBeforeCall(projectId, null);
@@ -334,6 +425,14 @@ public class ProjectApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getProjectByIdAsync(Integer projectId, final ApiCallback<Project> _callback) throws ApiException {
 
@@ -347,9 +446,17 @@ public class ProjectApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Projects </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getProjectsCall(final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/projects";
@@ -357,6 +464,7 @@ public class ProjectApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -373,7 +481,7 @@ public class ProjectApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -390,6 +498,14 @@ public class ProjectApi {
      * 
      * @return List&lt;ProjectReference&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Projects </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public List<ProjectReference> getProjects() throws ApiException {
         ApiResponse<List<ProjectReference>> localVarResp = getProjectsWithHttpInfo();
@@ -401,6 +517,14 @@ public class ProjectApi {
      * 
      * @return ApiResponse&lt;List&lt;ProjectReference&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Projects </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<List<ProjectReference>> getProjectsWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getProjectsValidateBeforeCall(null);
@@ -414,6 +538,14 @@ public class ProjectApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Projects </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getProjectsAsync(final ApiCallback<List<ProjectReference>> _callback) throws ApiException {
 
@@ -428,9 +560,17 @@ public class ProjectApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The project does not exists </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The list of wiki pages </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTopLevelWikiPagesCall(Integer projectId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/projects/{projectId}/wikipages"
@@ -439,6 +579,7 @@ public class ProjectApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -455,7 +596,7 @@ public class ProjectApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -478,6 +619,14 @@ public class ProjectApi {
      * @param projectId ID of the project (required)
      * @return WikiOutlineSearchResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The project does not exists </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The list of wiki pages </td><td>  -  </td></tr>
+     </table>
      */
     public WikiOutlineSearchResult getTopLevelWikiPages(Integer projectId) throws ApiException {
         ApiResponse<WikiOutlineSearchResult> localVarResp = getTopLevelWikiPagesWithHttpInfo(projectId);
@@ -490,6 +639,14 @@ public class ProjectApi {
      * @param projectId ID of the project (required)
      * @return ApiResponse&lt;WikiOutlineSearchResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The project does not exists </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The list of wiki pages </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<WikiOutlineSearchResult> getTopLevelWikiPagesWithHttpInfo(Integer projectId) throws ApiException {
         okhttp3.Call localVarCall = getTopLevelWikiPagesValidateBeforeCall(projectId, null);
@@ -504,6 +661,14 @@ public class ProjectApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The project does not exists </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The list of wiki pages </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTopLevelWikiPagesAsync(Integer projectId, final ApiCallback<WikiOutlineSearchResult> _callback) throws ApiException {
 
@@ -518,9 +683,16 @@ public class ProjectApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Trackers </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackersCall(Integer projectId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/projects/{projectId}/trackers"
@@ -529,6 +701,7 @@ public class ProjectApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -545,7 +718,7 @@ public class ProjectApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -568,6 +741,13 @@ public class ProjectApi {
      * @param projectId  (required)
      * @return List&lt;TrackerReference&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Trackers </td><td>  -  </td></tr>
+     </table>
      */
     public List<TrackerReference> getTrackers(Integer projectId) throws ApiException {
         ApiResponse<List<TrackerReference>> localVarResp = getTrackersWithHttpInfo(projectId);
@@ -580,6 +760,13 @@ public class ProjectApi {
      * @param projectId  (required)
      * @return ApiResponse&lt;List&lt;TrackerReference&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Trackers </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<List<TrackerReference>> getTrackersWithHttpInfo(Integer projectId) throws ApiException {
         okhttp3.Call localVarCall = getTrackersValidateBeforeCall(projectId, null);
@@ -594,6 +781,13 @@ public class ProjectApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Trackers </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackersAsync(Integer projectId, final ApiCallback<List<TrackerReference>> _callback) throws ApiException {
 
@@ -609,6 +803,13 @@ public class ProjectApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Trackers </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call searchAllTrackersInProjectCall(Integer projectId, TrackerFilteringRequest trackerFilteringRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = trackerFilteringRequest;
@@ -620,6 +821,7 @@ public class ProjectApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -636,7 +838,7 @@ public class ProjectApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -660,6 +862,13 @@ public class ProjectApi {
      * @param trackerFilteringRequest  (optional)
      * @return TrackerSearchResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Trackers </td><td>  -  </td></tr>
+     </table>
      */
     public TrackerSearchResult searchAllTrackersInProject(Integer projectId, TrackerFilteringRequest trackerFilteringRequest) throws ApiException {
         ApiResponse<TrackerSearchResult> localVarResp = searchAllTrackersInProjectWithHttpInfo(projectId, trackerFilteringRequest);
@@ -673,6 +882,13 @@ public class ProjectApi {
      * @param trackerFilteringRequest  (optional)
      * @return ApiResponse&lt;TrackerSearchResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Trackers </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<TrackerSearchResult> searchAllTrackersInProjectWithHttpInfo(Integer projectId, TrackerFilteringRequest trackerFilteringRequest) throws ApiException {
         okhttp3.Call localVarCall = searchAllTrackersInProjectValidateBeforeCall(projectId, trackerFilteringRequest, null);
@@ -688,6 +904,13 @@ public class ProjectApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Trackers </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call searchAllTrackersInProjectAsync(Integer projectId, TrackerFilteringRequest trackerFilteringRequest, final ApiCallback<TrackerSearchResult> _callback) throws ApiException {
 
@@ -702,6 +925,14 @@ public class ProjectApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> One page of projects </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call searchProjectsCall(ProjectFilteringRequest projectFilteringRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = projectFilteringRequest;
@@ -712,6 +943,7 @@ public class ProjectApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -728,7 +960,7 @@ public class ProjectApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -746,6 +978,14 @@ public class ProjectApi {
      * @param projectFilteringRequest  (optional)
      * @return ProjectSearchResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> One page of projects </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ProjectSearchResult searchProjects(ProjectFilteringRequest projectFilteringRequest) throws ApiException {
         ApiResponse<ProjectSearchResult> localVarResp = searchProjectsWithHttpInfo(projectFilteringRequest);
@@ -758,6 +998,14 @@ public class ProjectApi {
      * @param projectFilteringRequest  (optional)
      * @return ApiResponse&lt;ProjectSearchResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> One page of projects </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ProjectSearchResult> searchProjectsWithHttpInfo(ProjectFilteringRequest projectFilteringRequest) throws ApiException {
         okhttp3.Call localVarCall = searchProjectsValidateBeforeCall(projectFilteringRequest, null);
@@ -772,6 +1020,14 @@ public class ProjectApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> One page of projects </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call searchProjectsAsync(ProjectFilteringRequest projectFilteringRequest, final ApiCallback<ProjectSearchResult> _callback) throws ApiException {
 

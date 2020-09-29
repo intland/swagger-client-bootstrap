@@ -31,15 +31,15 @@ import org.joda.time.DateTime;
  * A tracker item review instance including its reviewers and their decisions
  */
 @ApiModel(description = "A tracker item review instance including its reviewers and their decisions")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerItemReviewVote {
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
-  private UserReference user = null;
+  private UserReference user;
 
   public static final String SERIALIZED_NAME_AS_ROLE = "asRole";
   @SerializedName(SERIALIZED_NAME_AS_ROLE)
-  private RoleReference asRole = null;
+  private RoleReference asRole;
 
   /**
    * The result of this particular vote
@@ -84,7 +84,7 @@ public class TrackerItemReviewVote {
 
       @Override
       public DecisionEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return DecisionEnum.fromValue(value);
       }
     }
@@ -98,7 +98,9 @@ public class TrackerItemReviewVote {
   @SerializedName(SERIALIZED_NAME_REVIEWED_AT)
   private DateTime reviewedAt;
 
+
   public TrackerItemReviewVote user(UserReference user) {
+    
     this.user = user;
     return this;
   }
@@ -107,16 +109,21 @@ public class TrackerItemReviewVote {
    * Get user
    * @return user
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getUser() {
     return user;
   }
+
 
   public void setUser(UserReference user) {
     this.user = user;
   }
 
+
   public TrackerItemReviewVote asRole(RoleReference asRole) {
+    
     this.asRole = asRole;
     return this;
   }
@@ -125,16 +132,21 @@ public class TrackerItemReviewVote {
    * Get asRole
    * @return asRole
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public RoleReference getAsRole() {
     return asRole;
   }
+
 
   public void setAsRole(RoleReference asRole) {
     this.asRole = asRole;
   }
 
+
   public TrackerItemReviewVote decision(DecisionEnum decision) {
+    
     this.decision = decision;
     return this;
   }
@@ -143,16 +155,21 @@ public class TrackerItemReviewVote {
    * The result of this particular vote
    * @return decision
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The result of this particular vote")
+
   public DecisionEnum getDecision() {
     return decision;
   }
+
 
   public void setDecision(DecisionEnum decision) {
     this.decision = decision;
   }
 
+
   public TrackerItemReviewVote reviewedAt(DateTime reviewedAt) {
+    
     this.reviewedAt = reviewedAt;
     return this;
   }
@@ -161,10 +178,13 @@ public class TrackerItemReviewVote {
    * Date and time of the vote
    * @return reviewedAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Date and time of the vote")
+
   public DateTime getReviewedAt() {
     return reviewedAt;
   }
+
 
   public void setReviewedAt(DateTime reviewedAt) {
     this.reviewedAt = reviewedAt;

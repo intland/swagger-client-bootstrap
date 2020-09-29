@@ -28,13 +28,15 @@ import java.io.IOException;
 /**
  * DeploymentModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class DeploymentModel {
   public static final String SERIALIZED_NAME_IMPORTS = "imports";
   @SerializedName(SERIALIZED_NAME_IMPORTS)
   private File imports;
 
+
   public DeploymentModel imports(File imports) {
+    
     this.imports = imports;
     return this;
   }
@@ -44,9 +46,11 @@ public class DeploymentModel {
    * @return imports
   **/
   @ApiModelProperty(required = true, value = "Deployment files")
+
   public File getImports() {
     return imports;
   }
+
 
   public void setImports(File imports) {
     this.imports = imports;

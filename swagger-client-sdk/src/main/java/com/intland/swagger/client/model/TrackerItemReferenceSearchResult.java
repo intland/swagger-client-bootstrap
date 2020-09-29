@@ -31,7 +31,7 @@ import java.util.List;
  * One page of tracker item references.
  */
 @ApiModel(description = "One page of tracker item references.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerItemReferenceSearchResult {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
@@ -47,9 +47,11 @@ public class TrackerItemReferenceSearchResult {
 
   public static final String SERIALIZED_NAME_ITEM_REFS = "itemRefs";
   @SerializedName(SERIALIZED_NAME_ITEM_REFS)
-  private List<TrackerItemReference> itemRefs = new ArrayList<TrackerItemReference>();
+  private List<TrackerItemReference> itemRefs = null;
+
 
   public TrackerItemReferenceSearchResult page(Integer page) {
+    
     this.page = page;
     return this;
   }
@@ -58,16 +60,21 @@ public class TrackerItemReferenceSearchResult {
    * Index of the page
    * @return page
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Index of the page")
+
   public Integer getPage() {
     return page;
   }
+
 
   public void setPage(Integer page) {
     this.page = page;
   }
 
+
   public TrackerItemReferenceSearchResult pageSize(Integer pageSize) {
+    
     this.pageSize = pageSize;
     return this;
   }
@@ -76,16 +83,21 @@ public class TrackerItemReferenceSearchResult {
    * Size of the found page
    * @return pageSize
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Size of the found page")
+
   public Integer getPageSize() {
     return pageSize;
   }
+
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
   }
 
+
   public TrackerItemReferenceSearchResult total(Integer total) {
+    
     this.total = total;
     return this;
   }
@@ -94,16 +106,21 @@ public class TrackerItemReferenceSearchResult {
    * Number of matched tracker items by the search criteria
    * @return total
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Number of matched tracker items by the search criteria")
+
   public Integer getTotal() {
     return total;
   }
+
 
   public void setTotal(Integer total) {
     this.total = total;
   }
 
+
   public TrackerItemReferenceSearchResult itemRefs(List<TrackerItemReference> itemRefs) {
+    
     this.itemRefs = itemRefs;
     return this;
   }
@@ -120,10 +137,13 @@ public class TrackerItemReferenceSearchResult {
    * Found tracker item references
    * @return itemRefs
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Found tracker item references")
+
   public List<TrackerItemReference> getItemRefs() {
     return itemRefs;
   }
+
 
   public void setItemRefs(List<TrackerItemReference> itemRefs) {
     this.itemRefs = itemRefs;

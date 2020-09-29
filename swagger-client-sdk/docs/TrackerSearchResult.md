@@ -2,6 +2,7 @@
 
 # TrackerSearchResult
 
+One page of trackers.
 ## Properties
 
 Name | Type | Description | Notes

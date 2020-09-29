@@ -29,7 +29,7 @@ import org.joda.time.DateTime;
  * A reviewer and its vote for a particular Tracker Item Review instance
  */
 @ApiModel(description = "A reviewer and its vote for a particular Tracker Item Review instance")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerItemReviewVoteExport {
   public static final String SERIALIZED_NAME_USER_NAME = "userName";
   @SerializedName(SERIALIZED_NAME_USER_NAME)
@@ -55,7 +55,9 @@ public class TrackerItemReviewVoteExport {
   @SerializedName(SERIALIZED_NAME_ROLE_NAME)
   private String roleName;
 
+
   public TrackerItemReviewVoteExport userName(String userName) {
+    
     this.userName = userName;
     return this;
   }
@@ -64,16 +66,21 @@ public class TrackerItemReviewVoteExport {
    * Username of the user who voted
    * @return userName
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Username of the user who voted")
+
   public String getUserName() {
     return userName;
   }
+
 
   public void setUserName(String userName) {
     this.userName = userName;
   }
 
+
   public TrackerItemReviewVoteExport reviewedAt(DateTime reviewedAt) {
+    
     this.reviewedAt = reviewedAt;
     return this;
   }
@@ -82,16 +89,21 @@ public class TrackerItemReviewVoteExport {
    * Time at when the review was performed
    * @return reviewedAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Time at when the review was performed")
+
   public DateTime getReviewedAt() {
     return reviewedAt;
   }
+
 
   public void setReviewedAt(DateTime reviewedAt) {
     this.reviewedAt = reviewedAt;
   }
 
+
   public TrackerItemReviewVoteExport decision(String decision) {
+    
     this.decision = decision;
     return this;
   }
@@ -100,16 +112,21 @@ public class TrackerItemReviewVoteExport {
    * What the reviewer voted for
    * @return decision
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "What the reviewer voted for")
+
   public String getDecision() {
     return decision;
   }
+
 
   public void setDecision(String decision) {
     this.decision = decision;
   }
 
+
   public TrackerItemReviewVoteExport firstName(String firstName) {
+    
     this.firstName = firstName;
     return this;
   }
@@ -118,16 +135,21 @@ public class TrackerItemReviewVoteExport {
    * First name of the reviewer
    * @return firstName
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "First name of the reviewer")
+
   public String getFirstName() {
     return firstName;
   }
+
 
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
 
+
   public TrackerItemReviewVoteExport lastName(String lastName) {
+    
     this.lastName = lastName;
     return this;
   }
@@ -136,16 +158,21 @@ public class TrackerItemReviewVoteExport {
    * Last name of the reviewer
    * @return lastName
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Last name of the reviewer")
+
   public String getLastName() {
     return lastName;
   }
+
 
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
 
+
   public TrackerItemReviewVoteExport roleName(String roleName) {
+    
     this.roleName = roleName;
     return this;
   }
@@ -154,10 +181,13 @@ public class TrackerItemReviewVoteExport {
    * Name of the role which the reviewer chose to use to vote
    * @return roleName
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the role which the reviewer chose to use to vote")
+
   public String getRoleName() {
     return roleName;
   }
+
 
   public void setRoleName(String roleName) {
     this.roleName = roleName;

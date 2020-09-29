@@ -33,11 +33,11 @@ import java.util.List;
  * A tracker item review instance including its reviewers and their decisions
  */
 @ApiModel(description = "A tracker item review instance including its reviewers and their decisions")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerItemReview {
   public static final String SERIALIZED_NAME_REVIEWERS = "reviewers";
   @SerializedName(SERIALIZED_NAME_REVIEWERS)
-  private List<TrackerItemReviewVote> reviewers = new ArrayList<TrackerItemReviewVote>();
+  private List<TrackerItemReviewVote> reviewers = null;
 
   /**
    * Whether the review is approved or rejected
@@ -82,7 +82,7 @@ public class TrackerItemReview {
 
       @Override
       public ResultEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return ResultEnum.fromValue(value);
       }
     }
@@ -94,13 +94,15 @@ public class TrackerItemReview {
 
   public static final String SERIALIZED_NAME_TRACKER_ITEM = "trackerItem";
   @SerializedName(SERIALIZED_NAME_TRACKER_ITEM)
-  private TrackerItemRevision trackerItem = null;
+  private TrackerItemRevision trackerItem;
 
   public static final String SERIALIZED_NAME_CONFIG = "config";
   @SerializedName(SERIALIZED_NAME_CONFIG)
-  private TrackerItemReviewConfig config = null;
+  private TrackerItemReviewConfig config;
+
 
   public TrackerItemReview reviewers(List<TrackerItemReviewVote> reviewers) {
+    
     this.reviewers = reviewers;
     return this;
   }
@@ -117,16 +119,21 @@ public class TrackerItemReview {
    * List of reviewers, and their votes
    * @return reviewers
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "List of reviewers, and their votes")
+
   public List<TrackerItemReviewVote> getReviewers() {
     return reviewers;
   }
+
 
   public void setReviewers(List<TrackerItemReviewVote> reviewers) {
     this.reviewers = reviewers;
   }
 
+
   public TrackerItemReview result(ResultEnum result) {
+    
     this.result = result;
     return this;
   }
@@ -135,16 +142,21 @@ public class TrackerItemReview {
    * Whether the review is approved or rejected
    * @return result
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether the review is approved or rejected")
+
   public ResultEnum getResult() {
     return result;
   }
+
 
   public void setResult(ResultEnum result) {
     this.result = result;
   }
 
+
   public TrackerItemReview trackerItem(TrackerItemRevision trackerItem) {
+    
     this.trackerItem = trackerItem;
     return this;
   }
@@ -153,16 +165,21 @@ public class TrackerItemReview {
    * Get trackerItem
    * @return trackerItem
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public TrackerItemRevision getTrackerItem() {
     return trackerItem;
   }
+
 
   public void setTrackerItem(TrackerItemRevision trackerItem) {
     this.trackerItem = trackerItem;
   }
 
+
   public TrackerItemReview config(TrackerItemReviewConfig config) {
+    
     this.config = config;
     return this;
   }
@@ -171,10 +188,13 @@ public class TrackerItemReview {
    * Get config
    * @return config
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public TrackerItemReviewConfig getConfig() {
     return config;
   }
+
 
   public void setConfig(TrackerItemReviewConfig config) {
     this.config = config;

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Cell value for a column.
  */
 @ApiModel(description = "Cell value for a column.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ReportCell {
   public static final String SERIALIZED_NAME_COLUMN_REF = "columnRef";
   @SerializedName(SERIALIZED_NAME_COLUMN_REF)
@@ -36,9 +36,11 @@ public class ReportCell {
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  private Object value = null;
+  private Object value;
+
 
   public ReportCell columnRef(String columnRef) {
+    
     this.columnRef = columnRef;
     return this;
   }
@@ -47,16 +49,21 @@ public class ReportCell {
    * Column reference
    * @return columnRef
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Column reference")
+
   public String getColumnRef() {
     return columnRef;
   }
+
 
   public void setColumnRef(String columnRef) {
     this.columnRef = columnRef;
   }
 
+
   public ReportCell value(Object value) {
+    
     this.value = value;
     return this;
   }
@@ -65,10 +72,13 @@ public class ReportCell {
    * Cell value
    * @return value
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "12.32", value = "Cell value")
+
   public Object getValue() {
     return value;
   }
+
 
   public void setValue(Object value) {
     this.value = value;

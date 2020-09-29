@@ -2,6 +2,7 @@
 
 # ReportResult
 
+Report data model
 ## Properties
 
 Name | Type | Description | Notes

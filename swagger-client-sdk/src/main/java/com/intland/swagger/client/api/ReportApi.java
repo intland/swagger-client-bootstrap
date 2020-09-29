@@ -62,6 +62,13 @@ public class ReportApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call createReportCall(SimpleReportSettings simpleReportSettings, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = simpleReportSettings;
@@ -72,6 +79,7 @@ public class ReportApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -88,7 +96,7 @@ public class ReportApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -106,6 +114,13 @@ public class ReportApi {
      * @param simpleReportSettings  (optional)
      * @return SimpleReportSettings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
      */
     public SimpleReportSettings createReport(SimpleReportSettings simpleReportSettings) throws ApiException {
         ApiResponse<SimpleReportSettings> localVarResp = createReportWithHttpInfo(simpleReportSettings);
@@ -118,6 +133,13 @@ public class ReportApi {
      * @param simpleReportSettings  (optional)
      * @return ApiResponse&lt;SimpleReportSettings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<SimpleReportSettings> createReportWithHttpInfo(SimpleReportSettings simpleReportSettings) throws ApiException {
         okhttp3.Call localVarCall = createReportValidateBeforeCall(simpleReportSettings, null);
@@ -132,6 +154,13 @@ public class ReportApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call createReportAsync(SimpleReportSettings simpleReportSettings, final ApiCallback<SimpleReportSettings> _callback) throws ApiException {
 
@@ -148,9 +177,16 @@ public class ReportApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Report content by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getReportByIdCall(Integer reportId, Integer page, Integer pageSize, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/reports/{reportId}/results"
@@ -167,6 +203,7 @@ public class ReportApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -183,7 +220,7 @@ public class ReportApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -208,6 +245,13 @@ public class ReportApi {
      * @param pageSize Number of items a report page. Max value: 500 (optional, default to 25)
      * @return ReportResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Report content by id </td><td>  -  </td></tr>
+     </table>
      */
     public ReportResult getReportById(Integer reportId, Integer page, Integer pageSize) throws ApiException {
         ApiResponse<ReportResult> localVarResp = getReportByIdWithHttpInfo(reportId, page, pageSize);
@@ -222,6 +266,13 @@ public class ReportApi {
      * @param pageSize Number of items a report page. Max value: 500 (optional, default to 25)
      * @return ApiResponse&lt;ReportResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Report content by id </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ReportResult> getReportByIdWithHttpInfo(Integer reportId, Integer page, Integer pageSize) throws ApiException {
         okhttp3.Call localVarCall = getReportByIdValidateBeforeCall(reportId, page, pageSize, null);
@@ -238,6 +289,13 @@ public class ReportApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Report content by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getReportByIdAsync(Integer reportId, Integer page, Integer pageSize, final ApiCallback<ReportResult> _callback) throws ApiException {
 
@@ -254,9 +312,16 @@ public class ReportApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Report items by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getReportItemsByIdCall(Integer reportId, Integer page, Integer pageSize, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/reports/{reportId}/items"
@@ -273,6 +338,7 @@ public class ReportApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -289,7 +355,7 @@ public class ReportApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -314,6 +380,13 @@ public class ReportApi {
      * @param pageSize Number of items a report page. Max value: 500 (optional, default to 25)
      * @return ReportItemResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Report items by id </td><td>  -  </td></tr>
+     </table>
      */
     public ReportItemResult getReportItemsById(Integer reportId, Integer page, Integer pageSize) throws ApiException {
         ApiResponse<ReportItemResult> localVarResp = getReportItemsByIdWithHttpInfo(reportId, page, pageSize);
@@ -328,6 +401,13 @@ public class ReportApi {
      * @param pageSize Number of items a report page. Max value: 500 (optional, default to 25)
      * @return ApiResponse&lt;ReportItemResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Report items by id </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ReportItemResult> getReportItemsByIdWithHttpInfo(Integer reportId, Integer page, Integer pageSize) throws ApiException {
         okhttp3.Call localVarCall = getReportItemsByIdValidateBeforeCall(reportId, page, pageSize, null);
@@ -344,6 +424,13 @@ public class ReportApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Report items by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getReportItemsByIdAsync(Integer reportId, Integer page, Integer pageSize, final ApiCallback<ReportItemResult> _callback) throws ApiException {
 
@@ -359,6 +446,13 @@ public class ReportApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call updateReportCall(Integer reportId, SimpleReportSettings simpleReportSettings, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = simpleReportSettings;
@@ -370,6 +464,7 @@ public class ReportApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -386,7 +481,7 @@ public class ReportApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -410,6 +505,13 @@ public class ReportApi {
      * @param simpleReportSettings  (optional)
      * @return SimpleReportSettings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
      */
     public SimpleReportSettings updateReport(Integer reportId, SimpleReportSettings simpleReportSettings) throws ApiException {
         ApiResponse<SimpleReportSettings> localVarResp = updateReportWithHttpInfo(reportId, simpleReportSettings);
@@ -423,6 +525,13 @@ public class ReportApi {
      * @param simpleReportSettings  (optional)
      * @return ApiResponse&lt;SimpleReportSettings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<SimpleReportSettings> updateReportWithHttpInfo(Integer reportId, SimpleReportSettings simpleReportSettings) throws ApiException {
         okhttp3.Call localVarCall = updateReportValidateBeforeCall(reportId, simpleReportSettings, null);
@@ -438,6 +547,13 @@ public class ReportApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call updateReportAsync(Integer reportId, SimpleReportSettings simpleReportSettings, final ApiCallback<SimpleReportSettings> _callback) throws ApiException {
 

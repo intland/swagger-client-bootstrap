@@ -18,38 +18,46 @@ Get tracker item reviews by a list of tracker item IDs
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.ExportApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.ExportApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-ExportApi apiInstance = new ExportApi();
-BatchGetTrackerItemReviewsRequest batchGetTrackerItemReviewsRequest = new BatchGetTrackerItemReviewsRequest(); // BatchGetTrackerItemReviewsRequest | 
-try {
-    List<TrackerItemWithTrackerItemReviewsExport> result = apiInstance.batchGetTrackerItemReviews(batchGetTrackerItemReviewsRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ExportApi#batchGetTrackerItemReviews");
-    e.printStackTrace();
+    ExportApi apiInstance = new ExportApi(defaultClient);
+    BatchGetTrackerItemReviewsRequest batchGetTrackerItemReviewsRequest = new BatchGetTrackerItemReviewsRequest(); // BatchGetTrackerItemReviewsRequest | 
+    try {
+      List<TrackerItemWithTrackerItemReviewsExport> result = apiInstance.batchGetTrackerItemReviews(batchGetTrackerItemReviewsRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExportApi#batchGetTrackerItemReviews");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -72,6 +80,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**404** | There is no baseline accessible with the supplied ID |  -  |
+**200** | List of tracker item reviews for each tracker item |  -  |
+**400** | Request cannot be processed |  -  |
+**403** | Tracker item reviews are disabled, or access to them is denied |  -  |
+**401** | Authentication is required |  -  |
+
 <a name="export"></a>
 # **export**
 > File export(projectId, exportProject)
@@ -81,39 +98,47 @@ Exports the specified project to a zip file
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.ExportApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.ExportApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-ExportApi apiInstance = new ExportApi();
-Integer projectId = 56; // Integer | 
-ExportProject exportProject = new ExportProject(); // ExportProject | 
-try {
-    File result = apiInstance.export(projectId, exportProject);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ExportApi#export");
-    e.printStackTrace();
+    ExportApi apiInstance = new ExportApi(defaultClient);
+    Integer projectId = 56; // Integer | 
+    ExportProject exportProject = new ExportProject(); // ExportProject | 
+    try {
+      File result = apiInstance.export(projectId, exportProject);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExportApi#export");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -137,6 +162,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/zip
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The exported project contents in a zip file. |  -  |
+**403** | Authentication is required |  -  |
+**500** | Error during the project export |  -  |
+**404** | Project not found |  -  |
+**400** | Bad request |  -  |
+
 <a name="getTrackerItems"></a>
 # **getTrackerItems**
 > List&lt;TrackerItem&gt; getTrackerItems(baselineId, trackerItemsRequest)
@@ -148,39 +182,47 @@ API can be used for fetching basic information of tracker items
 ### Example
 ```java
 // Import classes:
-//import com.intland.swagger.client.ApiClient;
-//import com.intland.swagger.client.ApiException;
-//import com.intland.swagger.client.Configuration;
-//import com.intland.swagger.client.auth.*;
-//import com.intland.swagger.client.api.ExportApi;
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.ExportApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKeyAuth
-ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-ApiKeyAuth.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: BasicAuth
-HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
-BasicAuth.setUsername("YOUR USERNAME");
-BasicAuth.setPassword("YOUR PASSWORD");
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
 
-// Configure HTTP basic authorization: BearerAuth
-HttpBasicAuth BearerAuth = (HttpBasicAuth) defaultClient.getAuthentication("BearerAuth");
-BearerAuth.setUsername("YOUR USERNAME");
-BearerAuth.setPassword("YOUR PASSWORD");
-
-ExportApi apiInstance = new ExportApi();
-Integer baselineId = 56; // Integer | 
-TrackerItemsRequest trackerItemsRequest = new TrackerItemsRequest(); // TrackerItemsRequest | 
-try {
-    List<TrackerItem> result = apiInstance.getTrackerItems(baselineId, trackerItemsRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ExportApi#getTrackerItems");
-    e.printStackTrace();
+    ExportApi apiInstance = new ExportApi(defaultClient);
+    Integer baselineId = 56; // Integer | 
+    TrackerItemsRequest trackerItemsRequest = new TrackerItemsRequest(); // TrackerItemsRequest | 
+    try {
+      List<TrackerItem> result = apiInstance.getTrackerItems(baselineId, trackerItemsRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ExportApi#getTrackerItems");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -203,4 +245,11 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**200** | Tracker item list |  -  |
+**404** | Tracker not found |  -  |
 

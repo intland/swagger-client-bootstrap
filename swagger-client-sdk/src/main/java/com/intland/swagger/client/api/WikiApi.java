@@ -66,9 +66,16 @@ public class WikiApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Details of the lock, or an empty response </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call checkWikiPageLockCall(Integer wikiId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/wikipages/{wikiId}/lock"
@@ -77,6 +84,7 @@ public class WikiApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -93,7 +101,7 @@ public class WikiApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -116,6 +124,13 @@ public class WikiApi {
      * @param wikiId Wiki page id (required)
      * @return LockInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Details of the lock, or an empty response </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public LockInfo checkWikiPageLock(Integer wikiId) throws ApiException {
         ApiResponse<LockInfo> localVarResp = checkWikiPageLockWithHttpInfo(wikiId);
@@ -128,6 +143,13 @@ public class WikiApi {
      * @param wikiId Wiki page id (required)
      * @return ApiResponse&lt;LockInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Details of the lock, or an empty response </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<LockInfo> checkWikiPageLockWithHttpInfo(Integer wikiId) throws ApiException {
         okhttp3.Call localVarCall = checkWikiPageLockValidateBeforeCall(wikiId, null);
@@ -142,6 +164,13 @@ public class WikiApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Details of the lock, or an empty response </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call checkWikiPageLockAsync(Integer wikiId, final ApiCallback<LockInfo> _callback) throws ApiException {
 
@@ -156,6 +185,14 @@ public class WikiApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Properties of the created wikipage </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call createWikiPageCall(WikiPage wikiPage, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = wikiPage;
@@ -166,6 +203,7 @@ public class WikiApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -182,7 +220,7 @@ public class WikiApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -205,6 +243,14 @@ public class WikiApi {
      * @param wikiPage Wiki page details (required)
      * @return WikiPage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Properties of the created wikipage </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public WikiPage createWikiPage(WikiPage wikiPage) throws ApiException {
         ApiResponse<WikiPage> localVarResp = createWikiPageWithHttpInfo(wikiPage);
@@ -217,6 +263,14 @@ public class WikiApi {
      * @param wikiPage Wiki page details (required)
      * @return ApiResponse&lt;WikiPage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Properties of the created wikipage </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<WikiPage> createWikiPageWithHttpInfo(WikiPage wikiPage) throws ApiException {
         okhttp3.Call localVarCall = createWikiPageValidateBeforeCall(wikiPage, null);
@@ -231,6 +285,14 @@ public class WikiApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Properties of the created wikipage </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call createWikiPageAsync(WikiPage wikiPage, final ApiCallback<WikiPage> _callback) throws ApiException {
 
@@ -245,9 +307,18 @@ public class WikiApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The wiki page has been deleted successfully </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The wiki page does not exist, or the artifact is not a wiki page </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call deleteWikiPageCall(Integer wikiId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/wikipages/{wikiId}"
@@ -256,6 +327,7 @@ public class WikiApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             
@@ -272,7 +344,7 @@ public class WikiApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -294,6 +366,15 @@ public class WikiApi {
      * 
      * @param wikiId ID of the wiki page (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The wiki page has been deleted successfully </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The wiki page does not exist, or the artifact is not a wiki page </td><td>  -  </td></tr>
+     </table>
      */
     public void deleteWikiPage(Integer wikiId) throws ApiException {
         deleteWikiPageWithHttpInfo(wikiId);
@@ -305,6 +386,15 @@ public class WikiApi {
      * @param wikiId ID of the wiki page (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The wiki page has been deleted successfully </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The wiki page does not exist, or the artifact is not a wiki page </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Void> deleteWikiPageWithHttpInfo(Integer wikiId) throws ApiException {
         okhttp3.Call localVarCall = deleteWikiPageValidateBeforeCall(wikiId, null);
@@ -318,6 +408,15 @@ public class WikiApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The wiki page has been deleted successfully </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The wiki page does not exist, or the artifact is not a wiki page </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call deleteWikiPageAsync(Integer wikiId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -332,9 +431,17 @@ public class WikiApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The wiki page </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The wiki page does not exist, or the artifact is not a wiki page </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getWikiPageCall(Integer wikiId, Integer version, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/wikipages/{wikiId}"
@@ -347,6 +454,7 @@ public class WikiApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -363,7 +471,7 @@ public class WikiApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -387,6 +495,14 @@ public class WikiApi {
      * @param version Version of the wiki page (optional)
      * @return WikiPage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The wiki page </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The wiki page does not exist, or the artifact is not a wiki page </td><td>  -  </td></tr>
+     </table>
      */
     public WikiPage getWikiPage(Integer wikiId, Integer version) throws ApiException {
         ApiResponse<WikiPage> localVarResp = getWikiPageWithHttpInfo(wikiId, version);
@@ -400,6 +516,14 @@ public class WikiApi {
      * @param version Version of the wiki page (optional)
      * @return ApiResponse&lt;WikiPage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The wiki page </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The wiki page does not exist, or the artifact is not a wiki page </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<WikiPage> getWikiPageWithHttpInfo(Integer wikiId, Integer version) throws ApiException {
         okhttp3.Call localVarCall = getWikiPageValidateBeforeCall(wikiId, version, null);
@@ -415,6 +539,14 @@ public class WikiApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The wiki page </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The wiki page does not exist, or the artifact is not a wiki page </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getWikiPageAsync(Integer wikiId, Integer version, final ApiCallback<WikiPage> _callback) throws ApiException {
 
@@ -431,9 +563,16 @@ public class WikiApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Wiki page history </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getWikiPageHistoryCall(Integer wikiId, Integer page, Integer pageSize, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/wikipages/{wikiId}/history"
@@ -450,6 +589,7 @@ public class WikiApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -466,7 +606,7 @@ public class WikiApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -491,6 +631,13 @@ public class WikiApi {
      * @param pageSize Number of items in a result page. Max value: 500 (optional, default to 25)
      * @return ArtifactRevisionSearchResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Wiki page history </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ArtifactRevisionSearchResult getWikiPageHistory(Integer wikiId, Integer page, Integer pageSize) throws ApiException {
         ApiResponse<ArtifactRevisionSearchResult> localVarResp = getWikiPageHistoryWithHttpInfo(wikiId, page, pageSize);
@@ -505,6 +652,13 @@ public class WikiApi {
      * @param pageSize Number of items in a result page. Max value: 500 (optional, default to 25)
      * @return ApiResponse&lt;ArtifactRevisionSearchResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Wiki page history </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ArtifactRevisionSearchResult> getWikiPageHistoryWithHttpInfo(Integer wikiId, Integer page, Integer pageSize) throws ApiException {
         okhttp3.Call localVarCall = getWikiPageHistoryValidateBeforeCall(wikiId, page, pageSize, null);
@@ -521,6 +675,13 @@ public class WikiApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Wiki page history </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getWikiPageHistoryAsync(Integer wikiId, Integer page, Integer pageSize, final ApiCallback<ArtifactRevisionSearchResult> _callback) throws ApiException {
 
@@ -535,9 +696,17 @@ public class WikiApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Permissions of the wiki page </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getWikiPermissionsCall(Integer wikiId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/wikipages/{wikiId}/permissions"
@@ -546,6 +715,7 @@ public class WikiApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -562,7 +732,7 @@ public class WikiApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -585,6 +755,14 @@ public class WikiApi {
      * @param wikiId Wiki page id (required)
      * @return List&lt;AccessPermission&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Permissions of the wiki page </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public List<AccessPermission> getWikiPermissions(Integer wikiId) throws ApiException {
         ApiResponse<List<AccessPermission>> localVarResp = getWikiPermissionsWithHttpInfo(wikiId);
@@ -597,6 +775,14 @@ public class WikiApi {
      * @param wikiId Wiki page id (required)
      * @return ApiResponse&lt;List&lt;AccessPermission&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Permissions of the wiki page </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<List<AccessPermission>> getWikiPermissionsWithHttpInfo(Integer wikiId) throws ApiException {
         okhttp3.Call localVarCall = getWikiPermissionsValidateBeforeCall(wikiId, null);
@@ -611,6 +797,14 @@ public class WikiApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Permissions of the wiki page </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getWikiPermissionsAsync(Integer wikiId, final ApiCallback<List<AccessPermission>> _callback) throws ApiException {
 
@@ -626,6 +820,15 @@ public class WikiApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Could not acquire lock </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Lock acquired successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request, request validation error </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call lockWikiPageCall(Integer wikiId, LockRequest lockRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = lockRequest;
@@ -637,6 +840,7 @@ public class WikiApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             
@@ -653,7 +857,7 @@ public class WikiApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -676,6 +880,15 @@ public class WikiApi {
      * @param wikiId Wiki page id (required)
      * @param lockRequest Requested lock configuration (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Could not acquire lock </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Lock acquired successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request, request validation error </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public void lockWikiPage(Integer wikiId, LockRequest lockRequest) throws ApiException {
         lockWikiPageWithHttpInfo(wikiId, lockRequest);
@@ -688,6 +901,15 @@ public class WikiApi {
      * @param lockRequest Requested lock configuration (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Could not acquire lock </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Lock acquired successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request, request validation error </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Void> lockWikiPageWithHttpInfo(Integer wikiId, LockRequest lockRequest) throws ApiException {
         okhttp3.Call localVarCall = lockWikiPageValidateBeforeCall(wikiId, lockRequest, null);
@@ -702,6 +924,15 @@ public class WikiApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Could not acquire lock </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Lock acquired successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request, request validation error </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call lockWikiPageAsync(Integer wikiId, LockRequest lockRequest, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -716,6 +947,15 @@ public class WikiApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The wiki content rendered as HTML </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The wiki page does not exist, or the artifact is not a wiki page </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call renderWikiMarkupCall(Integer projectId, WikiRenderRequest wikiRenderRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = wikiRenderRequest;
@@ -727,6 +967,7 @@ public class WikiApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "text/html", "application/json"
@@ -743,7 +984,7 @@ public class WikiApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -767,6 +1008,15 @@ public class WikiApi {
      * @param wikiRenderRequest  (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The wiki content rendered as HTML </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The wiki page does not exist, or the artifact is not a wiki page </td><td>  -  </td></tr>
+     </table>
      */
     public String renderWikiMarkup(Integer projectId, WikiRenderRequest wikiRenderRequest) throws ApiException {
         ApiResponse<String> localVarResp = renderWikiMarkupWithHttpInfo(projectId, wikiRenderRequest);
@@ -780,6 +1030,15 @@ public class WikiApi {
      * @param wikiRenderRequest  (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The wiki content rendered as HTML </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The wiki page does not exist, or the artifact is not a wiki page </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<String> renderWikiMarkupWithHttpInfo(Integer projectId, WikiRenderRequest wikiRenderRequest) throws ApiException {
         okhttp3.Call localVarCall = renderWikiMarkupValidateBeforeCall(projectId, wikiRenderRequest, null);
@@ -795,6 +1054,15 @@ public class WikiApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The wiki content rendered as HTML </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The wiki page does not exist, or the artifact is not a wiki page </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call renderWikiMarkupAsync(Integer projectId, WikiRenderRequest wikiRenderRequest, final ApiCallback<String> _callback) throws ApiException {
 
@@ -810,9 +1078,18 @@ public class WikiApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The wiki content rendered as HTML </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The wiki page does not exist, or the artifact is not a wiki page </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call renderWikiPageCall(Integer wikiId, Integer version, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/wikipages/{wikiId}/html"
@@ -825,6 +1102,7 @@ public class WikiApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "text/html", "application/json"
@@ -841,7 +1119,7 @@ public class WikiApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -865,6 +1143,15 @@ public class WikiApi {
      * @param version version of the wiki page (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The wiki content rendered as HTML </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The wiki page does not exist, or the artifact is not a wiki page </td><td>  -  </td></tr>
+     </table>
      */
     public String renderWikiPage(Integer wikiId, Integer version) throws ApiException {
         ApiResponse<String> localVarResp = renderWikiPageWithHttpInfo(wikiId, version);
@@ -878,6 +1165,15 @@ public class WikiApi {
      * @param version version of the wiki page (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The wiki content rendered as HTML </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The wiki page does not exist, or the artifact is not a wiki page </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<String> renderWikiPageWithHttpInfo(Integer wikiId, Integer version) throws ApiException {
         okhttp3.Call localVarCall = renderWikiPageValidateBeforeCall(wikiId, version, null);
@@ -893,6 +1189,15 @@ public class WikiApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The wiki content rendered as HTML </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The wiki page does not exist, or the artifact is not a wiki page </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call renderWikiPageAsync(Integer wikiId, Integer version, final ApiCallback<String> _callback) throws ApiException {
 
@@ -908,9 +1213,17 @@ public class WikiApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Wiki page or version not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Wiki page has been restored </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call restoreWikiPageContentCall(Integer wikiId, Integer version, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/wikipages/{wikiId}/restorecontent"
@@ -923,6 +1236,7 @@ public class WikiApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -939,7 +1253,7 @@ public class WikiApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -968,6 +1282,14 @@ public class WikiApi {
      * @param version The version to be restored (required)
      * @return WikiPage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Wiki page or version not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Wiki page has been restored </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public WikiPage restoreWikiPageContent(Integer wikiId, Integer version) throws ApiException {
         ApiResponse<WikiPage> localVarResp = restoreWikiPageContentWithHttpInfo(wikiId, version);
@@ -981,6 +1303,14 @@ public class WikiApi {
      * @param version The version to be restored (required)
      * @return ApiResponse&lt;WikiPage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Wiki page or version not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Wiki page has been restored </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<WikiPage> restoreWikiPageContentWithHttpInfo(Integer wikiId, Integer version) throws ApiException {
         okhttp3.Call localVarCall = restoreWikiPageContentValidateBeforeCall(wikiId, version, null);
@@ -996,6 +1326,14 @@ public class WikiApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Wiki page or version not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Wiki page has been restored </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call restoreWikiPageContentAsync(Integer wikiId, Integer version, final ApiCallback<WikiPage> _callback) throws ApiException {
 
@@ -1012,6 +1350,15 @@ public class WikiApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Permissions of the wiki page </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call setWikiPermissionsCall(Integer wikiId, Boolean recursive, AccessPermissionsRequest accessPermissionsRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = accessPermissionsRequest;
@@ -1027,6 +1374,7 @@ public class WikiApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -1043,7 +1391,7 @@ public class WikiApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1068,6 +1416,15 @@ public class WikiApi {
      * @param accessPermissionsRequest  (optional)
      * @return List&lt;AccessPermission&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Permissions of the wiki page </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public List<AccessPermission> setWikiPermissions(Integer wikiId, Boolean recursive, AccessPermissionsRequest accessPermissionsRequest) throws ApiException {
         ApiResponse<List<AccessPermission>> localVarResp = setWikiPermissionsWithHttpInfo(wikiId, recursive, accessPermissionsRequest);
@@ -1082,6 +1439,15 @@ public class WikiApi {
      * @param accessPermissionsRequest  (optional)
      * @return ApiResponse&lt;List&lt;AccessPermission&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Permissions of the wiki page </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<List<AccessPermission>> setWikiPermissionsWithHttpInfo(Integer wikiId, Boolean recursive, AccessPermissionsRequest accessPermissionsRequest) throws ApiException {
         okhttp3.Call localVarCall = setWikiPermissionsValidateBeforeCall(wikiId, recursive, accessPermissionsRequest, null);
@@ -1098,6 +1464,15 @@ public class WikiApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Permissions of the wiki page </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call setWikiPermissionsAsync(Integer wikiId, Boolean recursive, AccessPermissionsRequest accessPermissionsRequest, final ApiCallback<List<AccessPermission>> _callback) throws ApiException {
 
@@ -1112,9 +1487,17 @@ public class WikiApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Unlock successful </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Could not unlock </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call unlockWikiPageCall(Integer wikiId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/wikipages/{wikiId}/lock"
@@ -1123,6 +1506,7 @@ public class WikiApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             
@@ -1139,7 +1523,7 @@ public class WikiApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1161,6 +1545,14 @@ public class WikiApi {
      * 
      * @param wikiId Wiki page id (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Unlock successful </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Could not unlock </td><td>  -  </td></tr>
+     </table>
      */
     public void unlockWikiPage(Integer wikiId) throws ApiException {
         unlockWikiPageWithHttpInfo(wikiId);
@@ -1172,6 +1564,14 @@ public class WikiApi {
      * @param wikiId Wiki page id (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Unlock successful </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Could not unlock </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Void> unlockWikiPageWithHttpInfo(Integer wikiId) throws ApiException {
         okhttp3.Call localVarCall = unlockWikiPageValidateBeforeCall(wikiId, null);
@@ -1185,6 +1585,14 @@ public class WikiApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Unlock successful </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Could not unlock </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call unlockWikiPageAsync(Integer wikiId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -1199,6 +1607,15 @@ public class WikiApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Wikipage not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Properties of the updated wikipage </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call updateWikiPageCall(Integer itemId, WikiPage wikiPage, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = wikiPage;
@@ -1210,6 +1627,7 @@ public class WikiApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -1226,7 +1644,7 @@ public class WikiApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1255,6 +1673,15 @@ public class WikiApi {
      * @param wikiPage Wiki page details (required)
      * @return WikiPage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Wikipage not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Properties of the updated wikipage </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public WikiPage updateWikiPage(Integer itemId, WikiPage wikiPage) throws ApiException {
         ApiResponse<WikiPage> localVarResp = updateWikiPageWithHttpInfo(itemId, wikiPage);
@@ -1268,6 +1695,15 @@ public class WikiApi {
      * @param wikiPage Wiki page details (required)
      * @return ApiResponse&lt;WikiPage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Wikipage not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Properties of the updated wikipage </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<WikiPage> updateWikiPageWithHttpInfo(Integer itemId, WikiPage wikiPage) throws ApiException {
         okhttp3.Call localVarCall = updateWikiPageValidateBeforeCall(itemId, wikiPage, null);
@@ -1283,6 +1719,15 @@ public class WikiApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Wikipage not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Properties of the updated wikipage </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call updateWikiPageAsync(Integer itemId, WikiPage wikiPage, final ApiCallback<WikiPage> _callback) throws ApiException {
 

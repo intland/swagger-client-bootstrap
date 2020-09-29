@@ -2,6 +2,7 @@
 
 # ReportReferenceLevelSettings
 
+Reference level settings for Intelligent Table View.
 ## Properties
 
 Name | Type | Description | Notes

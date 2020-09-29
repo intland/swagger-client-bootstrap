@@ -2,6 +2,7 @@
 
 # WorkflowTransition
 
+A transition in the workflow
 ## Properties
 
 Name | Type | Description | Notes

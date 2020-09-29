@@ -28,7 +28,7 @@ import java.io.IOException;
  * Tracker item revision identifier
  */
 @ApiModel(description = "Tracker item revision identifier")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerItemRevision {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -38,7 +38,9 @@ public class TrackerItemRevision {
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Integer version;
 
+
   public TrackerItemRevision id(Integer id) {
+    
     this.id = id;
     return this;
   }
@@ -47,16 +49,21 @@ public class TrackerItemRevision {
    * Tracker item id
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Tracker item id")
+
   public Integer getId() {
     return id;
   }
+
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+
   public TrackerItemRevision version(Integer version) {
+    
     this.version = version;
     return this;
   }
@@ -65,10 +72,13 @@ public class TrackerItemRevision {
    * Tracker item version
    * @return version
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Tracker item version")
+
   public Integer getVersion() {
     return version;
   }
+
 
   public void setVersion(Integer version) {
     this.version = version;

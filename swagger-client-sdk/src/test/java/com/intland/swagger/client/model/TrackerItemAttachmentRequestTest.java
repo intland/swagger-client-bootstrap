@@ -61,4 +61,36 @@ public class TrackerItemAttachmentRequestTest {
         // TODO: test type
     }
 
+    /**
+     * Test the property 'baselineId'
+     */
+    @Test
+    public void baselineIdTest() {
+        // TODO: test baselineId
+    }
+
+    /**
+     * Test the property 'excludeFilter'
+     */
+    @Test
+    public void excludeFilterTest() {
+        // TODO: test excludeFilter
+    }
+
+    /**
+     * Test the property 'extensions'
+     */
+    @Test
+    public void extensionsTest() {
+        // TODO: test extensions
+    }
+
+    /**
+     * Test the property 'mimeTypes'
+     */
+    @Test
+    public void mimeTypesTest() {
+        // TODO: test mimeTypes
+    }
+
 }

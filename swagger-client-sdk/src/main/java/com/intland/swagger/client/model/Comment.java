@@ -34,7 +34,7 @@ import org.joda.time.DateTime;
  * Comment of a tracker item
  */
 @ApiModel(description = "Comment of a tracker item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class Comment {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -50,7 +50,7 @@ public class Comment {
 
   public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
   @SerializedName(SERIALIZED_NAME_CREATED_BY)
-  private UserReference createdBy = null;
+  private UserReference createdBy;
 
   public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
   @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
@@ -58,7 +58,7 @@ public class Comment {
 
   public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
-  private UserReference modifiedBy = null;
+  private UserReference modifiedBy;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
@@ -66,7 +66,7 @@ public class Comment {
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<Attachment> attachments = new ArrayList<Attachment>();
+  private List<Attachment> attachments = null;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -115,7 +115,7 @@ public class Comment {
 
       @Override
       public CommentFormatEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return CommentFormatEnum.fromValue(value);
       }
     }
@@ -127,9 +127,11 @@ public class Comment {
 
   public static final String SERIALIZED_NAME_PARENT = "parent";
   @SerializedName(SERIALIZED_NAME_PARENT)
-  private CommentReference parent = null;
+  private CommentReference parent;
+
 
   public Comment id(Integer id) {
+    
     this.id = id;
     return this;
   }
@@ -139,16 +141,21 @@ public class Comment {
    * minimum: 0
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the entity")
+
   public Integer getId() {
     return id;
   }
+
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+
   public Comment name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -157,16 +164,21 @@ public class Comment {
    * Name of the entity
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the entity")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public Comment createdAt(DateTime createdAt) {
+    
     this.createdAt = createdAt;
     return this;
   }
@@ -175,16 +187,21 @@ public class Comment {
    * The date when the entity was created
    * @return createdAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was created")
+
   public DateTime getCreatedAt() {
     return createdAt;
   }
+
 
   public void setCreatedAt(DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
+
   public Comment createdBy(UserReference createdBy) {
+    
     this.createdBy = createdBy;
     return this;
   }
@@ -193,16 +210,21 @@ public class Comment {
    * Get createdBy
    * @return createdBy
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getCreatedBy() {
     return createdBy;
   }
+
 
   public void setCreatedBy(UserReference createdBy) {
     this.createdBy = createdBy;
   }
 
+
   public Comment modifiedAt(DateTime modifiedAt) {
+    
     this.modifiedAt = modifiedAt;
     return this;
   }
@@ -211,16 +233,21 @@ public class Comment {
    * The date when the entity was modified
    * @return modifiedAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
+
   public DateTime getModifiedAt() {
     return modifiedAt;
   }
+
 
   public void setModifiedAt(DateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 
+
   public Comment modifiedBy(UserReference modifiedBy) {
+    
     this.modifiedBy = modifiedBy;
     return this;
   }
@@ -229,16 +256,21 @@ public class Comment {
    * Get modifiedBy
    * @return modifiedBy
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getModifiedBy() {
     return modifiedBy;
   }
+
 
   public void setModifiedBy(UserReference modifiedBy) {
     this.modifiedBy = modifiedBy;
   }
 
+
   public Comment version(Integer version) {
+    
     this.version = version;
     return this;
   }
@@ -247,16 +279,21 @@ public class Comment {
    * Version of a comment
    * @return version
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Version of a comment")
+
   public Integer getVersion() {
     return version;
   }
+
 
   public void setVersion(Integer version) {
     this.version = version;
   }
 
+
   public Comment attachments(List<Attachment> attachments) {
+    
     this.attachments = attachments;
     return this;
   }
@@ -273,16 +310,21 @@ public class Comment {
    * Attachments of a comment
    * @return attachments
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Attachments of a comment")
+
   public List<Attachment> getAttachments() {
     return attachments;
   }
+
 
   public void setAttachments(List<Attachment> attachments) {
     this.attachments = attachments;
   }
 
+
   public Comment comment(String comment) {
+    
     this.comment = comment;
     return this;
   }
@@ -291,16 +333,21 @@ public class Comment {
    * Text of a comment
    * @return comment
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Text of a comment")
+
   public String getComment() {
     return comment;
   }
+
 
   public void setComment(String comment) {
     this.comment = comment;
   }
 
+
   public Comment commentFormat(CommentFormatEnum commentFormat) {
+    
     this.commentFormat = commentFormat;
     return this;
   }
@@ -309,16 +356,21 @@ public class Comment {
    * Format of a comment
    * @return commentFormat
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Format of a comment")
+
   public CommentFormatEnum getCommentFormat() {
     return commentFormat;
   }
+
 
   public void setCommentFormat(CommentFormatEnum commentFormat) {
     this.commentFormat = commentFormat;
   }
 
+
   public Comment parent(CommentReference parent) {
+    
     this.parent = parent;
     return this;
   }
@@ -327,10 +379,13 @@ public class Comment {
    * Get parent
    * @return parent
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public CommentReference getParent() {
     return parent;
   }
+
 
   public void setParent(CommentReference parent) {
     this.parent = parent;

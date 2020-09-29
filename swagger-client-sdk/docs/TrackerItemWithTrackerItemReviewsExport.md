@@ -2,6 +2,7 @@
 
 # TrackerItemWithTrackerItemReviewsExport
 
+A Tracker Item with all of its corresponding Tracker Item Reviews
 ## Properties
 
 Name | Type | Description | Notes

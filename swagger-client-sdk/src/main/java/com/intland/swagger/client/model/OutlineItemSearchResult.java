@@ -31,7 +31,7 @@ import java.util.List;
  * Paginated search result of outline items
  */
 @ApiModel(description = "Paginated search result of outline items")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class OutlineItemSearchResult {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
@@ -47,9 +47,11 @@ public class OutlineItemSearchResult {
 
   public static final String SERIALIZED_NAME_OUTLINE_ITEMS = "outlineItems";
   @SerializedName(SERIALIZED_NAME_OUTLINE_ITEMS)
-  private List<OutlineItem> outlineItems = new ArrayList<OutlineItem>();
+  private List<OutlineItem> outlineItems = null;
+
 
   public OutlineItemSearchResult page(Integer page) {
+    
     this.page = page;
     return this;
   }
@@ -58,16 +60,21 @@ public class OutlineItemSearchResult {
    * Index of the page
    * @return page
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Index of the page")
+
   public Integer getPage() {
     return page;
   }
+
 
   public void setPage(Integer page) {
     this.page = page;
   }
 
+
   public OutlineItemSearchResult pageSize(Integer pageSize) {
+    
     this.pageSize = pageSize;
     return this;
   }
@@ -76,16 +83,21 @@ public class OutlineItemSearchResult {
    * Size of the found page
    * @return pageSize
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Size of the found page")
+
   public Integer getPageSize() {
     return pageSize;
   }
+
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
   }
 
+
   public OutlineItemSearchResult total(Integer total) {
+    
     this.total = total;
     return this;
   }
@@ -94,16 +106,21 @@ public class OutlineItemSearchResult {
    * Number of matched tracker items by the search criteria
    * @return total
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Number of matched tracker items by the search criteria")
+
   public Integer getTotal() {
     return total;
   }
+
 
   public void setTotal(Integer total) {
     this.total = total;
   }
 
+
   public OutlineItemSearchResult outlineItems(List<OutlineItem> outlineItems) {
+    
     this.outlineItems = outlineItems;
     return this;
   }
@@ -120,10 +137,13 @@ public class OutlineItemSearchResult {
    * Found outline items
    * @return outlineItems
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Found outline items")
+
   public List<OutlineItem> getOutlineItems() {
     return outlineItems;
   }
+
 
   public void setOutlineItems(List<OutlineItem> outlineItems) {
     this.outlineItems = outlineItems;

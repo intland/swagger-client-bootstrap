@@ -34,11 +34,11 @@ import java.util.List;
  * Report data model
  */
 @ApiModel(description = "Report data model")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ReportResult {
   public static final String SERIALIZED_NAME_REPORT = "report";
   @SerializedName(SERIALIZED_NAME_REPORT)
-  private ReportReference report = null;
+  private ReportReference report;
 
   public static final String SERIALIZED_NAME_CB_Q_L = "cbQL";
   @SerializedName(SERIALIZED_NAME_CB_Q_L)
@@ -46,21 +46,23 @@ public class ReportResult {
 
   public static final String SERIALIZED_NAME_COLUMNS = "columns";
   @SerializedName(SERIALIZED_NAME_COLUMNS)
-  private List<ReportColumn> columns = new ArrayList<ReportColumn>();
+  private List<ReportColumn> columns = null;
 
   public static final String SERIALIZED_NAME_PAGING_INFORMATION = "pagingInformation";
   @SerializedName(SERIALIZED_NAME_PAGING_INFORMATION)
-  private ReportPagingInformation pagingInformation = null;
+  private ReportPagingInformation pagingInformation;
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private ReportGroup data = null;
+  private ReportGroup data;
 
   public static final String SERIALIZED_NAME_SHOW_ALL_CHILDREN = "showAllChildren";
   @SerializedName(SERIALIZED_NAME_SHOW_ALL_CHILDREN)
   private Boolean showAllChildren;
 
+
   public ReportResult report(ReportReference report) {
+    
     this.report = report;
     return this;
   }
@@ -69,16 +71,21 @@ public class ReportResult {
    * Get report
    * @return report
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public ReportReference getReport() {
     return report;
   }
+
 
   public void setReport(ReportReference report) {
     this.report = report;
   }
 
+
   public ReportResult cbQL(String cbQL) {
+    
     this.cbQL = cbQL;
     return this;
   }
@@ -87,16 +94,21 @@ public class ReportResult {
    * CbQL query behind the report
    * @return cbQL
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "project.id IN (2) AND tracker.id IN (21323) ORDER BY priority ASC", value = "CbQL query behind the report")
+
   public String getCbQL() {
     return cbQL;
   }
+
 
   public void setCbQL(String cbQL) {
     this.cbQL = cbQL;
   }
 
+
   public ReportResult columns(List<ReportColumn> columns) {
+    
     this.columns = columns;
     return this;
   }
@@ -113,16 +125,21 @@ public class ReportResult {
    * Column information
    * @return columns
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Column information")
+
   public List<ReportColumn> getColumns() {
     return columns;
   }
+
 
   public void setColumns(List<ReportColumn> columns) {
     this.columns = columns;
   }
 
+
   public ReportResult pagingInformation(ReportPagingInformation pagingInformation) {
+    
     this.pagingInformation = pagingInformation;
     return this;
   }
@@ -131,16 +148,21 @@ public class ReportResult {
    * Get pagingInformation
    * @return pagingInformation
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public ReportPagingInformation getPagingInformation() {
     return pagingInformation;
   }
+
 
   public void setPagingInformation(ReportPagingInformation pagingInformation) {
     this.pagingInformation = pagingInformation;
   }
 
+
   public ReportResult data(ReportGroup data) {
+    
     this.data = data;
     return this;
   }
@@ -149,16 +171,21 @@ public class ReportResult {
    * Get data
    * @return data
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public ReportGroup getData() {
     return data;
   }
+
 
   public void setData(ReportGroup data) {
     this.data = data;
   }
 
+
   public ReportResult showAllChildren(Boolean showAllChildren) {
+    
     this.showAllChildren = showAllChildren;
     return this;
   }
@@ -167,10 +194,13 @@ public class ReportResult {
    * Indicator to ability to collapse/expand all child items.
    * @return showAllChildren
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicator to ability to collapse/expand all child items.")
+
   public Boolean getShowAllChildren() {
     return showAllChildren;
   }
+
 
   public void setShowAllChildren(Boolean showAllChildren) {
     this.showAllChildren = showAllChildren;

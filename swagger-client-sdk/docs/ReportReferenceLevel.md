@@ -2,6 +2,7 @@
 
 # ReportReferenceLevel
 
+Reference results for an item.
 ## Properties
 
 Name | Type | Description | Notes

@@ -26,13 +26,14 @@ import com.intland.swagger.client.model.ProjectChoiceFieldAllOf;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Tracker item type choice field
  */
 @ApiModel(description = "Tracker item type choice field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerItemChoiceField extends AbstractField {
   public static final String SERIALIZED_NAME_MULTIPLE_VALUES = "multipleValues";
   @SerializedName(SERIALIZED_NAME_MULTIPLE_VALUES)
@@ -42,7 +43,9 @@ public class TrackerItemChoiceField extends AbstractField {
   @SerializedName(SERIALIZED_NAME_REFERENCE_TYPE)
   private String referenceType;
 
+
   public TrackerItemChoiceField multipleValues(Boolean multipleValues) {
+    
     this.multipleValues = multipleValues;
     return this;
   }
@@ -51,16 +54,21 @@ public class TrackerItemChoiceField extends AbstractField {
    * Multiple values state of a field
    * @return multipleValues
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Multiple values state of a field")
+
   public Boolean getMultipleValues() {
     return multipleValues;
   }
+
 
   public void setMultipleValues(Boolean multipleValues) {
     this.multipleValues = multipleValues;
   }
 
+
   public TrackerItemChoiceField referenceType(String referenceType) {
+    
     this.referenceType = referenceType;
     return this;
   }
@@ -69,10 +77,13 @@ public class TrackerItemChoiceField extends AbstractField {
    * Type of the contained references
    * @return referenceType
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Type of the contained references")
+
   public String getReferenceType() {
     return referenceType;
   }
+
 
   public void setReferenceType(String referenceType) {
     this.referenceType = referenceType;

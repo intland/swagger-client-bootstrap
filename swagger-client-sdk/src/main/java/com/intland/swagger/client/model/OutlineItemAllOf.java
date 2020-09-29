@@ -28,13 +28,15 @@ import java.io.IOException;
 /**
  * OutlineItemAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class OutlineItemAllOf {
   public static final String SERIALIZED_NAME_ITEM_REFERENCE = "itemReference";
   @SerializedName(SERIALIZED_NAME_ITEM_REFERENCE)
-  private TrackerItemReference itemReference = null;
+  private TrackerItemReference itemReference;
+
 
   public OutlineItemAllOf itemReference(TrackerItemReference itemReference) {
+    
     this.itemReference = itemReference;
     return this;
   }
@@ -43,10 +45,13 @@ public class OutlineItemAllOf {
    * Get itemReference
    * @return itemReference
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public TrackerItemReference getItemReference() {
     return itemReference;
   }
+
 
   public void setItemReference(TrackerItemReference itemReference) {
     this.itemReference = itemReference;

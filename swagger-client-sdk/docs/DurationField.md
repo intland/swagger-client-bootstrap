@@ -2,6 +2,7 @@
 
 # DurationField
 
+Duration field
 ## Properties
 
 Name | Type | Description | Notes

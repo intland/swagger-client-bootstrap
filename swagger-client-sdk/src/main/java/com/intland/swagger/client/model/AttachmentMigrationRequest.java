@@ -34,11 +34,11 @@ import org.joda.time.DateTime;
  * Request for migrating attachments
  */
 @ApiModel(description = "Request for migrating attachments")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class AttachmentMigrationRequest {
   public static final String SERIALIZED_NAME_TARGET_ITEM = "targetItem";
   @SerializedName(SERIALIZED_NAME_TARGET_ITEM)
-  private TrackerItemReference targetItem = null;
+  private TrackerItemReference targetItem;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -46,7 +46,7 @@ public class AttachmentMigrationRequest {
 
   public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
   @SerializedName(SERIALIZED_NAME_CREATED_BY)
-  private UserReference createdBy = null;
+  private UserReference createdBy;
 
   public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
   @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
@@ -54,7 +54,7 @@ public class AttachmentMigrationRequest {
 
   public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
-  private UserReference modifiedBy = null;
+  private UserReference modifiedBy;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -103,7 +103,7 @@ public class AttachmentMigrationRequest {
 
       @Override
       public DescriptionFormatEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return DescriptionFormatEnum.fromValue(value);
       }
     }
@@ -154,7 +154,7 @@ public class AttachmentMigrationRequest {
 
       @Override
       public MigrationActionEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return MigrationActionEnum.fromValue(value);
       }
     }
@@ -166,9 +166,11 @@ public class AttachmentMigrationRequest {
 
   public static final String SERIALIZED_NAME_FILES = "files";
   @SerializedName(SERIALIZED_NAME_FILES)
-  private List<RemoteMigrationFile> files = new ArrayList<RemoteMigrationFile>();
+  private List<RemoteMigrationFile> files = null;
+
 
   public AttachmentMigrationRequest targetItem(TrackerItemReference targetItem) {
+    
     this.targetItem = targetItem;
     return this;
   }
@@ -177,16 +179,21 @@ public class AttachmentMigrationRequest {
    * Get targetItem
    * @return targetItem
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public TrackerItemReference getTargetItem() {
     return targetItem;
   }
+
 
   public void setTargetItem(TrackerItemReference targetItem) {
     this.targetItem = targetItem;
   }
 
+
   public AttachmentMigrationRequest createdAt(DateTime createdAt) {
+    
     this.createdAt = createdAt;
     return this;
   }
@@ -195,16 +202,21 @@ public class AttachmentMigrationRequest {
    * The date when the entity was created
    * @return createdAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was created")
+
   public DateTime getCreatedAt() {
     return createdAt;
   }
+
 
   public void setCreatedAt(DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
+
   public AttachmentMigrationRequest createdBy(UserReference createdBy) {
+    
     this.createdBy = createdBy;
     return this;
   }
@@ -213,16 +225,21 @@ public class AttachmentMigrationRequest {
    * Get createdBy
    * @return createdBy
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getCreatedBy() {
     return createdBy;
   }
+
 
   public void setCreatedBy(UserReference createdBy) {
     this.createdBy = createdBy;
   }
 
+
   public AttachmentMigrationRequest modifiedAt(DateTime modifiedAt) {
+    
     this.modifiedAt = modifiedAt;
     return this;
   }
@@ -231,16 +248,21 @@ public class AttachmentMigrationRequest {
    * The date when the entity was modified
    * @return modifiedAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
+
   public DateTime getModifiedAt() {
     return modifiedAt;
   }
+
 
   public void setModifiedAt(DateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 
+
   public AttachmentMigrationRequest modifiedBy(UserReference modifiedBy) {
+    
     this.modifiedBy = modifiedBy;
     return this;
   }
@@ -249,16 +271,21 @@ public class AttachmentMigrationRequest {
    * Get modifiedBy
    * @return modifiedBy
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getModifiedBy() {
     return modifiedBy;
   }
+
 
   public void setModifiedBy(UserReference modifiedBy) {
     this.modifiedBy = modifiedBy;
   }
 
+
   public AttachmentMigrationRequest description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -267,16 +294,21 @@ public class AttachmentMigrationRequest {
    * Description of the entity
    * @return description
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description of the entity")
+
   public String getDescription() {
     return description;
   }
+
 
   public void setDescription(String description) {
     this.description = description;
   }
 
+
   public AttachmentMigrationRequest descriptionFormat(DescriptionFormatEnum descriptionFormat) {
+    
     this.descriptionFormat = descriptionFormat;
     return this;
   }
@@ -285,16 +317,21 @@ public class AttachmentMigrationRequest {
    * Description format of the entity
    * @return descriptionFormat
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description format of the entity")
+
   public DescriptionFormatEnum getDescriptionFormat() {
     return descriptionFormat;
   }
+
 
   public void setDescriptionFormat(DescriptionFormatEnum descriptionFormat) {
     this.descriptionFormat = descriptionFormat;
   }
 
+
   public AttachmentMigrationRequest migrationAction(MigrationActionEnum migrationAction) {
+    
     this.migrationAction = migrationAction;
     return this;
   }
@@ -303,16 +340,21 @@ public class AttachmentMigrationRequest {
    * Type of action made on the source files.
    * @return migrationAction
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Type of action made on the source files.")
+
   public MigrationActionEnum getMigrationAction() {
     return migrationAction;
   }
+
 
   public void setMigrationAction(MigrationActionEnum migrationAction) {
     this.migrationAction = migrationAction;
   }
 
+
   public AttachmentMigrationRequest files(List<RemoteMigrationFile> files) {
+    
     this.files = files;
     return this;
   }
@@ -329,10 +371,13 @@ public class AttachmentMigrationRequest {
    * List of files to migrate
    * @return files
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "List of files to migrate")
+
   public List<RemoteMigrationFile> getFiles() {
     return files;
   }
+
 
   public void setFiles(List<RemoteMigrationFile> files) {
     this.files = files;

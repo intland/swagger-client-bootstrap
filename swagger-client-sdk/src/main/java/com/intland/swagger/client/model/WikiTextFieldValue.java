@@ -30,13 +30,15 @@ import java.io.IOException;
  * Value container of a wiki text field
  */
 @ApiModel(description = "Value container of a wiki text field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class WikiTextFieldValue extends AbstractFieldValue {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
+
   public WikiTextFieldValue value(String value) {
+    
     this.value = value;
     return this;
   }
@@ -45,10 +47,12 @@ public class WikiTextFieldValue extends AbstractFieldValue {
    * Wiki text value
    * @return value
   **/
-  @ApiModelProperty(value = "Wiki text value")
+  @ApiModelProperty(required = true, value = "Wiki text value")
+
   public String getValue() {
     return value;
   }
+
 
   public void setValue(String value) {
     this.value = value;

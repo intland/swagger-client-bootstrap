@@ -2,6 +2,7 @@
 
 # ChoiceFieldValue
 
+Reference container of a choice option field
 ## Properties
 
 Name | Type | Description | Notes

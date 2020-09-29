@@ -2,6 +2,7 @@
 
 # ResizableReportColumnSettings
 
+Settings for a resizeable column definition.
 ## Properties
 
 Name | Type | Description | Notes

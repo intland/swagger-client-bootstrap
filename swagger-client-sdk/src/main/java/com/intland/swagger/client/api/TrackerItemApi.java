@@ -77,6 +77,13 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Child item reference with index </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call addChildToTrackerItemCall(Integer itemId, TrackerItemRevision trackerItemRevision, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = trackerItemRevision;
@@ -88,6 +95,7 @@ public class TrackerItemApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -104,7 +112,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -128,6 +136,13 @@ public class TrackerItemApi {
      * @param trackerItemRevision  (optional)
      * @return TrackerItemChildReference
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Child item reference with index </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      */
     public TrackerItemChildReference addChildToTrackerItem(Integer itemId, TrackerItemRevision trackerItemRevision) throws ApiException {
         ApiResponse<TrackerItemChildReference> localVarResp = addChildToTrackerItemWithHttpInfo(itemId, trackerItemRevision);
@@ -141,6 +156,13 @@ public class TrackerItemApi {
      * @param trackerItemRevision  (optional)
      * @return ApiResponse&lt;TrackerItemChildReference&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Child item reference with index </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<TrackerItemChildReference> addChildToTrackerItemWithHttpInfo(Integer itemId, TrackerItemRevision trackerItemRevision) throws ApiException {
         okhttp3.Call localVarCall = addChildToTrackerItemValidateBeforeCall(itemId, trackerItemRevision, null);
@@ -156,6 +178,13 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Child item reference with index </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call addChildToTrackerItemAsync(Integer itemId, TrackerItemRevision trackerItemRevision, final ApiCallback<TrackerItemChildReference> _callback) throws ApiException {
 
@@ -170,9 +199,16 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Details of the lock, or an empty response </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call checkTrackerItemLockCall(Integer itemId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/items/{itemId}/lock"
@@ -181,6 +217,7 @@ public class TrackerItemApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -197,7 +234,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -220,6 +257,13 @@ public class TrackerItemApi {
      * @param itemId Tracker item id (required)
      * @return LockInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Details of the lock, or an empty response </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public LockInfo checkTrackerItemLock(Integer itemId) throws ApiException {
         ApiResponse<LockInfo> localVarResp = checkTrackerItemLockWithHttpInfo(itemId);
@@ -232,6 +276,13 @@ public class TrackerItemApi {
      * @param itemId Tracker item id (required)
      * @return ApiResponse&lt;LockInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Details of the lock, or an empty response </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<LockInfo> checkTrackerItemLockWithHttpInfo(Integer itemId) throws ApiException {
         okhttp3.Call localVarCall = checkTrackerItemLockValidateBeforeCall(itemId, null);
@@ -246,6 +297,13 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Details of the lock, or an empty response </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call checkTrackerItemLockAsync(Integer itemId, final ApiCallback<LockInfo> _callback) throws ApiException {
 
@@ -264,6 +322,15 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Field not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Tracker item operations
      * @see <a href="https://codebeamer.com/cb/wiki/11375769">Create a tracker item Documentation</a>
      */
@@ -289,6 +356,7 @@ public class TrackerItemApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -305,7 +373,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -332,6 +400,15 @@ public class TrackerItemApi {
      * @param trackerItem  (optional)
      * @return TrackerItem
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Field not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Tracker item operations
      * @see <a href="https://codebeamer.com/cb/wiki/11375769">Create a tracker item Documentation</a>
      */
@@ -350,6 +427,15 @@ public class TrackerItemApi {
      * @param trackerItem  (optional)
      * @return ApiResponse&lt;TrackerItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Field not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Tracker item operations
      * @see <a href="https://codebeamer.com/cb/wiki/11375769">Create a tracker item Documentation</a>
      */
@@ -370,6 +456,15 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Field not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Tracker item operations
      * @see <a href="https://codebeamer.com/cb/wiki/11375769">Create a tracker item Documentation</a>
      */
@@ -386,9 +481,17 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call deleteTrackerItemCall(Integer itemId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/items/{itemId}"
@@ -397,6 +500,7 @@ public class TrackerItemApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -413,7 +517,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -436,6 +540,14 @@ public class TrackerItemApi {
      * @param itemId  (required)
      * @return TrackerItem
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public TrackerItem deleteTrackerItem(Integer itemId) throws ApiException {
         ApiResponse<TrackerItem> localVarResp = deleteTrackerItemWithHttpInfo(itemId);
@@ -448,6 +560,14 @@ public class TrackerItemApi {
      * @param itemId  (required)
      * @return ApiResponse&lt;TrackerItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<TrackerItem> deleteTrackerItemWithHttpInfo(Integer itemId) throws ApiException {
         okhttp3.Call localVarCall = deleteTrackerItemValidateBeforeCall(itemId, null);
@@ -462,6 +582,14 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call deleteTrackerItemAsync(Integer itemId, final ApiCallback<TrackerItem> _callback) throws ApiException {
 
@@ -478,9 +606,16 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List child items of a tracker item ordered by ordinal </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call findTrackerItemChildrenCall(Integer itemId, Integer page, Integer pageSize, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/items/{itemId}/children"
@@ -497,6 +632,7 @@ public class TrackerItemApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -513,7 +649,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -538,6 +674,13 @@ public class TrackerItemApi {
      * @param pageSize Number of items in a result page. Max value: 500 (optional, default to 25)
      * @return TrackerItemReferenceSearchResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List child items of a tracker item ordered by ordinal </td><td>  -  </td></tr>
+     </table>
      */
     public TrackerItemReferenceSearchResult findTrackerItemChildren(Integer itemId, Integer page, Integer pageSize) throws ApiException {
         ApiResponse<TrackerItemReferenceSearchResult> localVarResp = findTrackerItemChildrenWithHttpInfo(itemId, page, pageSize);
@@ -552,6 +695,13 @@ public class TrackerItemApi {
      * @param pageSize Number of items in a result page. Max value: 500 (optional, default to 25)
      * @return ApiResponse&lt;TrackerItemReferenceSearchResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List child items of a tracker item ordered by ordinal </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<TrackerItemReferenceSearchResult> findTrackerItemChildrenWithHttpInfo(Integer itemId, Integer page, Integer pageSize) throws ApiException {
         okhttp3.Call localVarCall = findTrackerItemChildrenValidateBeforeCall(itemId, page, pageSize, null);
@@ -568,6 +718,13 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List child items of a tracker item ordered by ordinal </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call findTrackerItemChildrenAsync(Integer itemId, Integer page, Integer pageSize, final ApiCallback<TrackerItemReferenceSearchResult> _callback) throws ApiException {
 
@@ -584,11 +741,18 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List tracker items by cbQL </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Documentation of cbQL
      * @see <a href="https://codebeamer.com/cb/wiki/871101">Get tracker items by cbQL query string Documentation</a>
      */
     public okhttp3.Call findTrackerItemsCall(String queryString, Integer page, Integer pageSize, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/items/query";
@@ -608,6 +772,7 @@ public class TrackerItemApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -624,7 +789,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -649,6 +814,13 @@ public class TrackerItemApi {
      * @param pageSize Number of items in a result page. Max value: 500 (optional, default to 25)
      * @return TrackerItemSearchResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List tracker items by cbQL </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Documentation of cbQL
      * @see <a href="https://codebeamer.com/cb/wiki/871101">Get tracker items by cbQL query string Documentation</a>
      */
@@ -665,6 +837,13 @@ public class TrackerItemApi {
      * @param pageSize Number of items in a result page. Max value: 500 (optional, default to 25)
      * @return ApiResponse&lt;TrackerItemSearchResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List tracker items by cbQL </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Documentation of cbQL
      * @see <a href="https://codebeamer.com/cb/wiki/871101">Get tracker items by cbQL query string Documentation</a>
      */
@@ -683,6 +862,13 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List tracker items by cbQL </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Documentation of cbQL
      * @see <a href="https://codebeamer.com/cb/wiki/871101">Get tracker items by cbQL query string Documentation</a>
      */
@@ -699,6 +885,13 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List tracker items by cbQL </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Documentation of cbQL
      * @see <a href="https://codebeamer.com/cb/wiki/871101">Get tracker items by cbQL query string Documentation</a>
      */
@@ -711,6 +904,7 @@ public class TrackerItemApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -727,7 +921,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -745,6 +939,13 @@ public class TrackerItemApi {
      * @param trackerItemSearchRequest  (optional)
      * @return TrackerItemSearchResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List tracker items by cbQL </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Documentation of cbQL
      * @see <a href="https://codebeamer.com/cb/wiki/871101">Get tracker items by cbQL query string Documentation</a>
      */
@@ -759,6 +960,13 @@ public class TrackerItemApi {
      * @param trackerItemSearchRequest  (optional)
      * @return ApiResponse&lt;TrackerItemSearchResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List tracker items by cbQL </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Documentation of cbQL
      * @see <a href="https://codebeamer.com/cb/wiki/871101">Get tracker items by cbQL query string Documentation</a>
      */
@@ -775,6 +983,13 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List tracker items by cbQL </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Documentation of cbQL
      * @see <a href="https://codebeamer.com/cb/wiki/871101">Get tracker items by cbQL query string Documentation</a>
      */
@@ -792,9 +1007,16 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker item list </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getBaselineTrackerItemRelationsCall(Integer itemId, Integer baselineId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/items/{itemId}/relations"
@@ -807,6 +1029,7 @@ public class TrackerItemApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -823,7 +1046,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -847,6 +1070,13 @@ public class TrackerItemApi {
      * @param baselineId  (optional)
      * @return TrackerItemRelationsResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker item list </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public TrackerItemRelationsResult getBaselineTrackerItemRelations(Integer itemId, Integer baselineId) throws ApiException {
         ApiResponse<TrackerItemRelationsResult> localVarResp = getBaselineTrackerItemRelationsWithHttpInfo(itemId, baselineId);
@@ -860,6 +1090,13 @@ public class TrackerItemApi {
      * @param baselineId  (optional)
      * @return ApiResponse&lt;TrackerItemRelationsResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker item list </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<TrackerItemRelationsResult> getBaselineTrackerItemRelationsWithHttpInfo(Integer itemId, Integer baselineId) throws ApiException {
         okhttp3.Call localVarCall = getBaselineTrackerItemRelationsValidateBeforeCall(itemId, baselineId, null);
@@ -875,6 +1112,13 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker item list </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getBaselineTrackerItemRelationsAsync(Integer itemId, Integer baselineId, final ApiCallback<TrackerItemRelationsResult> _callback) throws ApiException {
 
@@ -890,6 +1134,13 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker item list </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getBaselineTrackerItemsRelationsCall(Integer baselineId, TrackerItemsRequest trackerItemsRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = trackerItemsRequest;
@@ -904,6 +1155,7 @@ public class TrackerItemApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -920,7 +1172,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -939,6 +1191,13 @@ public class TrackerItemApi {
      * @param trackerItemsRequest  (optional)
      * @return List&lt;TrackerItemRelationsResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker item list </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public List<TrackerItemRelationsResult> getBaselineTrackerItemsRelations(Integer baselineId, TrackerItemsRequest trackerItemsRequest) throws ApiException {
         ApiResponse<List<TrackerItemRelationsResult>> localVarResp = getBaselineTrackerItemsRelationsWithHttpInfo(baselineId, trackerItemsRequest);
@@ -952,6 +1211,13 @@ public class TrackerItemApi {
      * @param trackerItemsRequest  (optional)
      * @return ApiResponse&lt;List&lt;TrackerItemRelationsResult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker item list </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<List<TrackerItemRelationsResult>> getBaselineTrackerItemsRelationsWithHttpInfo(Integer baselineId, TrackerItemsRequest trackerItemsRequest) throws ApiException {
         okhttp3.Call localVarCall = getBaselineTrackerItemsRelationsValidateBeforeCall(baselineId, trackerItemsRequest, null);
@@ -967,6 +1233,13 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker item list </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getBaselineTrackerItemsRelationsAsync(Integer baselineId, TrackerItemsRequest trackerItemsRequest, final ApiCallback<List<TrackerItemRelationsResult>> _callback) throws ApiException {
 
@@ -984,9 +1257,17 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Options </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No option found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getChoiceOptionsCall(Integer itemId, Integer fieldId, Integer page, Integer pageSize, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/items/{itemId}/fields/{fieldId}/options"
@@ -1004,6 +1285,7 @@ public class TrackerItemApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -1020,7 +1302,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1051,6 +1333,14 @@ public class TrackerItemApi {
      * @param pageSize Number of items in a result page. Max value: 500 (optional, default to 25)
      * @return ReferenceSearchResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Options </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No option found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ReferenceSearchResult getChoiceOptions(Integer itemId, Integer fieldId, Integer page, Integer pageSize) throws ApiException {
         ApiResponse<ReferenceSearchResult> localVarResp = getChoiceOptionsWithHttpInfo(itemId, fieldId, page, pageSize);
@@ -1066,6 +1356,14 @@ public class TrackerItemApi {
      * @param pageSize Number of items in a result page. Max value: 500 (optional, default to 25)
      * @return ApiResponse&lt;ReferenceSearchResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Options </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No option found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ReferenceSearchResult> getChoiceOptionsWithHttpInfo(Integer itemId, Integer fieldId, Integer page, Integer pageSize) throws ApiException {
         okhttp3.Call localVarCall = getChoiceOptionsValidateBeforeCall(itemId, fieldId, page, pageSize, null);
@@ -1083,6 +1381,14 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Options </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> No option found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getChoiceOptionsAsync(Integer itemId, Integer fieldId, Integer page, Integer pageSize, final ApiCallback<ReferenceSearchResult> _callback) throws ApiException {
 
@@ -1099,9 +1405,16 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerItemCall(Integer itemId, Integer version, Integer baselineId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/items/{itemId}"
@@ -1118,6 +1431,7 @@ public class TrackerItemApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -1134,7 +1448,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1159,6 +1473,13 @@ public class TrackerItemApi {
      * @param baselineId  (optional)
      * @return TrackerItem
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public TrackerItem getTrackerItem(Integer itemId, Integer version, Integer baselineId) throws ApiException {
         ApiResponse<TrackerItem> localVarResp = getTrackerItemWithHttpInfo(itemId, version, baselineId);
@@ -1173,6 +1494,13 @@ public class TrackerItemApi {
      * @param baselineId  (optional)
      * @return ApiResponse&lt;TrackerItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<TrackerItem> getTrackerItemWithHttpInfo(Integer itemId, Integer version, Integer baselineId) throws ApiException {
         okhttp3.Call localVarCall = getTrackerItemValidateBeforeCall(itemId, version, baselineId, null);
@@ -1189,6 +1517,13 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerItemAsync(Integer itemId, Integer version, Integer baselineId, final ApiCallback<TrackerItem> _callback) throws ApiException {
 
@@ -1203,9 +1538,16 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerItemHistoryCall(Integer itemId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/items/{itemId}/history"
@@ -1214,6 +1556,7 @@ public class TrackerItemApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -1230,7 +1573,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1253,6 +1596,13 @@ public class TrackerItemApi {
      * @param itemId  (required)
      * @return TrackerItemHistory
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public TrackerItemHistory getTrackerItemHistory(Integer itemId) throws ApiException {
         ApiResponse<TrackerItemHistory> localVarResp = getTrackerItemHistoryWithHttpInfo(itemId);
@@ -1265,6 +1615,13 @@ public class TrackerItemApi {
      * @param itemId  (required)
      * @return ApiResponse&lt;TrackerItemHistory&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<TrackerItemHistory> getTrackerItemHistoryWithHttpInfo(Integer itemId) throws ApiException {
         okhttp3.Call localVarCall = getTrackerItemHistoryValidateBeforeCall(itemId, null);
@@ -1279,6 +1636,13 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerItemHistoryAsync(Integer itemId, final ApiCallback<TrackerItemHistory> _callback) throws ApiException {
 
@@ -1293,9 +1657,18 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Tracker item reviews are disabled, or access to them is denied </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List of tracker item reviews for the particular item </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerItemReviewsCall(Integer itemId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/items/{itemId}/reviews"
@@ -1304,6 +1677,7 @@ public class TrackerItemApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -1320,7 +1694,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1343,6 +1717,15 @@ public class TrackerItemApi {
      * @param itemId  (required)
      * @return List&lt;TrackerItemReview&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Tracker item reviews are disabled, or access to them is denied </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List of tracker item reviews for the particular item </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public List<TrackerItemReview> getTrackerItemReviews(Integer itemId) throws ApiException {
         ApiResponse<List<TrackerItemReview>> localVarResp = getTrackerItemReviewsWithHttpInfo(itemId);
@@ -1355,6 +1738,15 @@ public class TrackerItemApi {
      * @param itemId  (required)
      * @return ApiResponse&lt;List&lt;TrackerItemReview&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Tracker item reviews are disabled, or access to them is denied </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List of tracker item reviews for the particular item </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<List<TrackerItemReview>> getTrackerItemReviewsWithHttpInfo(Integer itemId) throws ApiException {
         okhttp3.Call localVarCall = getTrackerItemReviewsValidateBeforeCall(itemId, null);
@@ -1369,6 +1761,15 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Tracker item reviews are disabled, or access to them is denied </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List of tracker item reviews for the particular item </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerItemReviewsAsync(Integer itemId, final ApiCallback<List<TrackerItemReview>> _callback) throws ApiException {
 
@@ -1383,9 +1784,18 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Available transitions </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Missing user permissions </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerItemTransitionsCall(Integer itemId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/items/{itemId}/transitions"
@@ -1394,6 +1804,7 @@ public class TrackerItemApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -1410,7 +1821,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1433,6 +1844,15 @@ public class TrackerItemApi {
      * @param itemId  (required)
      * @return List&lt;WorkflowTransition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Available transitions </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Missing user permissions </td><td>  -  </td></tr>
+     </table>
      */
     public List<WorkflowTransition> getTrackerItemTransitions(Integer itemId) throws ApiException {
         ApiResponse<List<WorkflowTransition>> localVarResp = getTrackerItemTransitionsWithHttpInfo(itemId);
@@ -1445,6 +1865,15 @@ public class TrackerItemApi {
      * @param itemId  (required)
      * @return ApiResponse&lt;List&lt;WorkflowTransition&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Available transitions </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Missing user permissions </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<List<WorkflowTransition>> getTrackerItemTransitionsWithHttpInfo(Integer itemId) throws ApiException {
         okhttp3.Call localVarCall = getTrackerItemTransitionsValidateBeforeCall(itemId, null);
@@ -1459,6 +1888,15 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Available transitions </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Missing user permissions </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerItemTransitionsAsync(Integer itemId, final ApiCallback<List<WorkflowTransition>> _callback) throws ApiException {
 
@@ -1474,6 +1912,15 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Could not acquire lock </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Lock acquired successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request, request validation error </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call lockTrackerItemCall(Integer itemId, LockRequest lockRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = lockRequest;
@@ -1485,6 +1932,7 @@ public class TrackerItemApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             
@@ -1501,7 +1949,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1524,6 +1972,15 @@ public class TrackerItemApi {
      * @param itemId Tracker item id (required)
      * @param lockRequest Requested lock configuration (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Could not acquire lock </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Lock acquired successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request, request validation error </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public void lockTrackerItem(Integer itemId, LockRequest lockRequest) throws ApiException {
         lockTrackerItemWithHttpInfo(itemId, lockRequest);
@@ -1536,6 +1993,15 @@ public class TrackerItemApi {
      * @param lockRequest Requested lock configuration (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Could not acquire lock </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Lock acquired successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request, request validation error </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Void> lockTrackerItemWithHttpInfo(Integer itemId, LockRequest lockRequest) throws ApiException {
         okhttp3.Call localVarCall = lockTrackerItemValidateBeforeCall(itemId, lockRequest, null);
@@ -1550,6 +2016,15 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Could not acquire lock </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Lock acquired successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request, request validation error </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call lockTrackerItemAsync(Integer itemId, LockRequest lockRequest, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -1565,6 +2040,13 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> New child item reference on the requested index </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call patchChildrenOfTrackerItemCall(Integer itemId, String mode, TrackerItemChildReference trackerItemChildReference, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = trackerItemChildReference;
@@ -1580,6 +2062,7 @@ public class TrackerItemApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -1596,7 +2079,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1626,6 +2109,13 @@ public class TrackerItemApi {
      * @param trackerItemChildReference  (optional)
      * @return TrackerItemChildReference
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> New child item reference on the requested index </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      */
     public TrackerItemChildReference patchChildrenOfTrackerItem(Integer itemId, String mode, TrackerItemChildReference trackerItemChildReference) throws ApiException {
         ApiResponse<TrackerItemChildReference> localVarResp = patchChildrenOfTrackerItemWithHttpInfo(itemId, mode, trackerItemChildReference);
@@ -1640,6 +2130,13 @@ public class TrackerItemApi {
      * @param trackerItemChildReference  (optional)
      * @return ApiResponse&lt;TrackerItemChildReference&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> New child item reference on the requested index </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<TrackerItemChildReference> patchChildrenOfTrackerItemWithHttpInfo(Integer itemId, String mode, TrackerItemChildReference trackerItemChildReference) throws ApiException {
         okhttp3.Call localVarCall = patchChildrenOfTrackerItemValidateBeforeCall(itemId, mode, trackerItemChildReference, null);
@@ -1656,6 +2153,13 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> New child item reference on the requested index </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call patchChildrenOfTrackerItemAsync(Integer itemId, String mode, TrackerItemChildReference trackerItemChildReference, final ApiCallback<TrackerItemChildReference> _callback) throws ApiException {
 
@@ -1672,6 +2176,13 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> First page of the new child list </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call replaceChildrenOfTrackerItemCall(Integer itemId, Integer resultPageSize, UpdateTrackerItemChildrenRequest updateTrackerItemChildrenRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = updateTrackerItemChildrenRequest;
@@ -1687,6 +2198,7 @@ public class TrackerItemApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -1703,7 +2215,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1728,6 +2240,13 @@ public class TrackerItemApi {
      * @param updateTrackerItemChildrenRequest  (optional)
      * @return TrackerItemReferenceSearchResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> First page of the new child list </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      */
     public TrackerItemReferenceSearchResult replaceChildrenOfTrackerItem(Integer itemId, Integer resultPageSize, UpdateTrackerItemChildrenRequest updateTrackerItemChildrenRequest) throws ApiException {
         ApiResponse<TrackerItemReferenceSearchResult> localVarResp = replaceChildrenOfTrackerItemWithHttpInfo(itemId, resultPageSize, updateTrackerItemChildrenRequest);
@@ -1742,6 +2261,13 @@ public class TrackerItemApi {
      * @param updateTrackerItemChildrenRequest  (optional)
      * @return ApiResponse&lt;TrackerItemReferenceSearchResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> First page of the new child list </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<TrackerItemReferenceSearchResult> replaceChildrenOfTrackerItemWithHttpInfo(Integer itemId, Integer resultPageSize, UpdateTrackerItemChildrenRequest updateTrackerItemChildrenRequest) throws ApiException {
         okhttp3.Call localVarCall = replaceChildrenOfTrackerItemValidateBeforeCall(itemId, resultPageSize, updateTrackerItemChildrenRequest, null);
@@ -1758,6 +2284,13 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> First page of the new child list </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call replaceChildrenOfTrackerItemAsync(Integer itemId, Integer resultPageSize, UpdateTrackerItemChildrenRequest updateTrackerItemChildrenRequest, final ApiCallback<TrackerItemReferenceSearchResult> _callback) throws ApiException {
 
@@ -1772,9 +2305,17 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Unlock successful </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Could not unlock </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call unlockTrackerItemCall(Integer itemId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/items/{itemId}/lock"
@@ -1783,6 +2324,7 @@ public class TrackerItemApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             
@@ -1799,7 +2341,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1821,6 +2363,14 @@ public class TrackerItemApi {
      * 
      * @param itemId Tracker item id (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Unlock successful </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Could not unlock </td><td>  -  </td></tr>
+     </table>
      */
     public void unlockTrackerItem(Integer itemId) throws ApiException {
         unlockTrackerItemWithHttpInfo(itemId);
@@ -1832,6 +2382,14 @@ public class TrackerItemApi {
      * @param itemId Tracker item id (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Unlock successful </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Could not unlock </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Void> unlockTrackerItemWithHttpInfo(Integer itemId) throws ApiException {
         okhttp3.Call localVarCall = unlockTrackerItemValidateBeforeCall(itemId, null);
@@ -1845,6 +2403,14 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Unlock successful </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Could not unlock </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call unlockTrackerItemAsync(Integer itemId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -1860,6 +2426,15 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Field not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Tracker item operations
      * @see <a href="https://codebeamer.com/cb/wiki/11375769">Update field of tracker item Documentation</a>
      */
@@ -1877,6 +2452,7 @@ public class TrackerItemApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -1893,7 +2469,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1918,6 +2494,15 @@ public class TrackerItemApi {
      * @param updateTrackerItemField  (optional)
      * @return TrackerItem
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Field not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Tracker item operations
      * @see <a href="https://codebeamer.com/cb/wiki/11375769">Update field of tracker item Documentation</a>
      */
@@ -1934,6 +2519,15 @@ public class TrackerItemApi {
      * @param updateTrackerItemField  (optional)
      * @return ApiResponse&lt;TrackerItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Field not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Tracker item operations
      * @see <a href="https://codebeamer.com/cb/wiki/11375769">Update field of tracker item Documentation</a>
      */
@@ -1952,6 +2546,15 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Field not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Tracker item operations
      * @see <a href="https://codebeamer.com/cb/wiki/11375769">Update field of tracker item Documentation</a>
      */
@@ -1970,6 +2573,15 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Field not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call updateTableFieldTrackerItemCall(Integer itemId, Integer tableFieldId, UpdateTrackerItemTableField updateTrackerItemTableField, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = updateTrackerItemTableField;
@@ -1982,6 +2594,7 @@ public class TrackerItemApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -1998,7 +2611,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -2028,6 +2641,15 @@ public class TrackerItemApi {
      * @param updateTrackerItemTableField  (optional)
      * @return TrackerItem
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Field not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      */
     public TrackerItem updateTableFieldTrackerItem(Integer itemId, Integer tableFieldId, UpdateTrackerItemTableField updateTrackerItemTableField) throws ApiException {
         ApiResponse<TrackerItem> localVarResp = updateTableFieldTrackerItemWithHttpInfo(itemId, tableFieldId, updateTrackerItemTableField);
@@ -2042,6 +2664,15 @@ public class TrackerItemApi {
      * @param updateTrackerItemTableField  (optional)
      * @return ApiResponse&lt;TrackerItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Field not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<TrackerItem> updateTableFieldTrackerItemWithHttpInfo(Integer itemId, Integer tableFieldId, UpdateTrackerItemTableField updateTrackerItemTableField) throws ApiException {
         okhttp3.Call localVarCall = updateTableFieldTrackerItemValidateBeforeCall(itemId, tableFieldId, updateTrackerItemTableField, null);
@@ -2058,6 +2689,15 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Field not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call updateTableFieldTrackerItemAsync(Integer itemId, Integer tableFieldId, UpdateTrackerItemTableField updateTrackerItemTableField, final ApiCallback<TrackerItem> _callback) throws ApiException {
 
@@ -2075,6 +2715,15 @@ public class TrackerItemApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Field not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Tracker item operations
      * @see <a href="https://codebeamer.com/cb/wiki/11375769">Update tracker item Documentation</a>
      */
@@ -2096,6 +2745,7 @@ public class TrackerItemApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -2112,7 +2762,7 @@ public class TrackerItemApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -2138,6 +2788,15 @@ public class TrackerItemApi {
      * @param trackerItem  (optional)
      * @return TrackerItem
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Field not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Tracker item operations
      * @see <a href="https://codebeamer.com/cb/wiki/11375769">Update tracker item Documentation</a>
      */
@@ -2155,6 +2814,15 @@ public class TrackerItemApi {
      * @param trackerItem  (optional)
      * @return ApiResponse&lt;TrackerItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Field not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Tracker item operations
      * @see <a href="https://codebeamer.com/cb/wiki/11375769">Update tracker item Documentation</a>
      */
@@ -2174,6 +2842,15 @@ public class TrackerItemApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Field not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Basic tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
+     </table>
      * Tracker item operations
      * @see <a href="https://codebeamer.com/cb/wiki/11375769">Update tracker item Documentation</a>
      */

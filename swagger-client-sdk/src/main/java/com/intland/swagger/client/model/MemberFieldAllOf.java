@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * MemberFieldAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class MemberFieldAllOf {
   public static final String SERIALIZED_NAME_MULTIPLE_VALUES = "multipleValues";
   @SerializedName(SERIALIZED_NAME_MULTIPLE_VALUES)
@@ -78,7 +78,7 @@ public class MemberFieldAllOf {
 
       @Override
       public MemberTypesEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return MemberTypesEnum.fromValue(value);
       }
     }
@@ -86,9 +86,11 @@ public class MemberFieldAllOf {
 
   public static final String SERIALIZED_NAME_MEMBER_TYPES = "memberTypes";
   @SerializedName(SERIALIZED_NAME_MEMBER_TYPES)
-  private List<MemberTypesEnum> memberTypes = new ArrayList<MemberTypesEnum>();
+  private List<MemberTypesEnum> memberTypes = null;
+
 
   public MemberFieldAllOf multipleValues(Boolean multipleValues) {
+    
     this.multipleValues = multipleValues;
     return this;
   }
@@ -97,16 +99,21 @@ public class MemberFieldAllOf {
    * Multiple values state of a field
    * @return multipleValues
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Multiple values state of a field")
+
   public Boolean getMultipleValues() {
     return multipleValues;
   }
+
 
   public void setMultipleValues(Boolean multipleValues) {
     this.multipleValues = multipleValues;
   }
 
+
   public MemberFieldAllOf memberTypes(List<MemberTypesEnum> memberTypes) {
+    
     this.memberTypes = memberTypes;
     return this;
   }
@@ -123,10 +130,13 @@ public class MemberFieldAllOf {
    * Supported member type of a member field
    * @return memberTypes
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Supported member type of a member field")
+
   public List<MemberTypesEnum> getMemberTypes() {
     return memberTypes;
   }
+
 
   public void setMemberTypes(List<MemberTypesEnum> memberTypes) {
     this.memberTypes = memberTypes;

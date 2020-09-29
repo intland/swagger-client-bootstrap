@@ -30,11 +30,11 @@ import java.util.List;
 /**
  * TrackerFilteringRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerFilteringRequest {
   public static final String SERIALIZED_NAME_TYPES = "types";
   @SerializedName(SERIALIZED_NAME_TYPES)
-  private List<TrackerTypeReference> types = new ArrayList<TrackerTypeReference>();
+  private List<TrackerTypeReference> types = null;
 
   public static final String SERIALIZED_NAME_HIDDEN = "hidden";
   @SerializedName(SERIALIZED_NAME_HIDDEN)
@@ -48,7 +48,9 @@ public class TrackerFilteringRequest {
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
 
+
   public TrackerFilteringRequest types(List<TrackerTypeReference> types) {
+    
     this.types = types;
     return this;
   }
@@ -65,16 +67,21 @@ public class TrackerFilteringRequest {
    * List of tracker type references, to only show trackers of these types.
    * @return types
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "List of tracker type references, to only show trackers of these types.")
+
   public List<TrackerTypeReference> getTypes() {
     return types;
   }
+
 
   public void setTypes(List<TrackerTypeReference> types) {
     this.types = types;
   }
 
+
   public TrackerFilteringRequest hidden(Boolean hidden) {
+    
     this.hidden = hidden;
     return this;
   }
@@ -83,16 +90,21 @@ public class TrackerFilteringRequest {
    * True to also show hidden trackers.
    * @return hidden
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "false", value = "True to also show hidden trackers.")
+
   public Boolean getHidden() {
     return hidden;
   }
+
 
   public void setHidden(Boolean hidden) {
     this.hidden = hidden;
   }
 
+
   public TrackerFilteringRequest deleted(Boolean deleted) {
+    
     this.deleted = deleted;
     return this;
   }
@@ -101,16 +113,21 @@ public class TrackerFilteringRequest {
    * True to also show removed trackers.
    * @return deleted
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "false", value = "True to also show removed trackers.")
+
   public Boolean getDeleted() {
     return deleted;
   }
+
 
   public void setDeleted(Boolean deleted) {
     this.deleted = deleted;
   }
 
+
   public TrackerFilteringRequest keyName(String keyName) {
+    
     this.keyName = keyName;
     return this;
   }
@@ -119,10 +136,13 @@ public class TrackerFilteringRequest {
    * Filter by project key name
    * @return keyName
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Filter by project key name")
+
   public String getKeyName() {
     return keyName;
   }
+
 
   public void setKeyName(String keyName) {
     this.keyName = keyName;

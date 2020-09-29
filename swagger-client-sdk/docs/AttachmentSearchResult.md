@@ -2,6 +2,7 @@
 
 # AttachmentSearchResult
 
+One page of attachments.
 ## Properties
 
 Name | Type | Description | Notes

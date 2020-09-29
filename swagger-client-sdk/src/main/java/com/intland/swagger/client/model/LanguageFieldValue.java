@@ -32,21 +32,20 @@ import java.util.List;
  * Value container of a language field
  */
 @ApiModel(description = "Value container of a language field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class LanguageFieldValue extends AbstractFieldValue {
   public static final String SERIALIZED_NAME_VALUES = "values";
   @SerializedName(SERIALIZED_NAME_VALUES)
   private List<String> values = new ArrayList<String>();
 
+
   public LanguageFieldValue values(List<String> values) {
+    
     this.values = values;
     return this;
   }
 
   public LanguageFieldValue addValuesItem(String valuesItem) {
-    if (this.values == null) {
-      this.values = new ArrayList<String>();
-    }
     this.values.add(valuesItem);
     return this;
   }
@@ -55,10 +54,12 @@ public class LanguageFieldValue extends AbstractFieldValue {
    * Language codes
    * @return values
   **/
-  @ApiModelProperty(value = "Language codes")
+  @ApiModelProperty(required = true, value = "Language codes")
+
   public List<String> getValues() {
     return values;
   }
+
 
   public void setValues(List<String> values) {
     this.values = values;

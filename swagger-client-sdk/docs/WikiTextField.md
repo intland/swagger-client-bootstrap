@@ -2,6 +2,7 @@
 
 # WikiTextField
 
+Wiki text field
 ## Properties
 
 Name | Type | Description | Notes

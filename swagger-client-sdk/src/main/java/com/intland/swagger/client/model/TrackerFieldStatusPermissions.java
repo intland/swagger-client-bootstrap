@@ -32,17 +32,19 @@ import java.util.List;
  * Field permissions by role for specific status
  */
 @ApiModel(description = "Field permissions by role for specific status")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerFieldStatusPermissions {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  private ChoiceOptionReference status = null;
+  private ChoiceOptionReference status;
 
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
-  private List<AccessPermission> permissions = new ArrayList<AccessPermission>();
+  private List<AccessPermission> permissions = null;
+
 
   public TrackerFieldStatusPermissions status(ChoiceOptionReference status) {
+    
     this.status = status;
     return this;
   }
@@ -51,16 +53,21 @@ public class TrackerFieldStatusPermissions {
    * Get status
    * @return status
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public ChoiceOptionReference getStatus() {
     return status;
   }
+
 
   public void setStatus(ChoiceOptionReference status) {
     this.status = status;
   }
 
+
   public TrackerFieldStatusPermissions permissions(List<AccessPermission> permissions) {
+    
     this.permissions = permissions;
     return this;
   }
@@ -77,10 +84,13 @@ public class TrackerFieldStatusPermissions {
    * Access permissions by role
    * @return permissions
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Access permissions by role")
+
   public List<AccessPermission> getPermissions() {
     return permissions;
   }
+
 
   public void setPermissions(List<AccessPermission> permissions) {
     this.permissions = permissions;

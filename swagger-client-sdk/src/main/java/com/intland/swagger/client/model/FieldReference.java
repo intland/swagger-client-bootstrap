@@ -30,13 +30,15 @@ import java.io.IOException;
  * Reference to a field of a specific tracker
  */
 @ApiModel(description = "Reference to a field of a specific tracker")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class FieldReference extends AbstractReference {
   public static final String SERIALIZED_NAME_TRACKER_ID = "trackerId";
   @SerializedName(SERIALIZED_NAME_TRACKER_ID)
   private Integer trackerId;
 
+
   public FieldReference trackerId(Integer trackerId) {
+    
     this.trackerId = trackerId;
     return this;
   }
@@ -45,10 +47,13 @@ public class FieldReference extends AbstractReference {
    * Id of the tracker
    * @return trackerId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1000", value = "Id of the tracker")
+
   public Integer getTrackerId() {
     return trackerId;
   }
+
 
   public void setTrackerId(Integer trackerId) {
     this.trackerId = trackerId;

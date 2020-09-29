@@ -27,19 +27,22 @@ import com.intland.swagger.client.model.WikiPageReference;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * A model created for wiki page outline models
  */
 @ApiModel(description = "A model created for wiki page outline models")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class OutlineWiki extends AbstractOutline {
   public static final String SERIALIZED_NAME_WIKI_PAGE_REFERENCE_MODEL = "wikiPageReferenceModel";
   @SerializedName(SERIALIZED_NAME_WIKI_PAGE_REFERENCE_MODEL)
-  private WikiPageReference wikiPageReferenceModel = null;
+  private WikiPageReference wikiPageReferenceModel;
+
 
   public OutlineWiki wikiPageReferenceModel(WikiPageReference wikiPageReferenceModel) {
+    
     this.wikiPageReferenceModel = wikiPageReferenceModel;
     return this;
   }
@@ -48,10 +51,13 @@ public class OutlineWiki extends AbstractOutline {
    * Get wikiPageReferenceModel
    * @return wikiPageReferenceModel
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public WikiPageReference getWikiPageReferenceModel() {
     return wikiPageReferenceModel;
   }
+
 
   public void setWikiPageReferenceModel(WikiPageReference wikiPageReferenceModel) {
     this.wikiPageReferenceModel = wikiPageReferenceModel;

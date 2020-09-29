@@ -2,6 +2,7 @@
 
 # TraceabilityLevelFilter
 
+Traceability level filter
 ## Properties
 
 Name | Type | Description | Notes

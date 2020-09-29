@@ -30,15 +30,15 @@ import java.io.IOException;
  * Access permissions for the report.
  */
 @ApiModel(description = "Access permissions for the report.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ReportPermission {
   public static final String SERIALIZED_NAME_PROJECT = "project";
   @SerializedName(SERIALIZED_NAME_PROJECT)
-  private ProjectReference project = null;
+  private ProjectReference project;
 
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
-  private RoleReference role = null;
+  private RoleReference role;
 
   /**
    * Access level
@@ -83,7 +83,7 @@ public class ReportPermission {
 
       @Override
       public AccessEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return AccessEnum.fromValue(value);
       }
     }
@@ -93,7 +93,9 @@ public class ReportPermission {
   @SerializedName(SERIALIZED_NAME_ACCESS)
   private AccessEnum access;
 
+
   public ReportPermission project(ProjectReference project) {
+    
     this.project = project;
     return this;
   }
@@ -103,15 +105,19 @@ public class ReportPermission {
    * @return project
   **/
   @ApiModelProperty(required = true, value = "")
+
   public ProjectReference getProject() {
     return project;
   }
+
 
   public void setProject(ProjectReference project) {
     this.project = project;
   }
 
+
   public ReportPermission role(RoleReference role) {
+    
     this.role = role;
     return this;
   }
@@ -121,15 +127,19 @@ public class ReportPermission {
    * @return role
   **/
   @ApiModelProperty(required = true, value = "")
+
   public RoleReference getRole() {
     return role;
   }
+
 
   public void setRole(RoleReference role) {
     this.role = role;
   }
 
+
   public ReportPermission access(AccessEnum access) {
+    
     this.access = access;
     return this;
   }
@@ -139,9 +149,11 @@ public class ReportPermission {
    * @return access
   **/
   @ApiModelProperty(example = "READ", required = true, value = "Access level")
+
   public AccessEnum getAccess() {
     return access;
   }
+
 
   public void setAccess(AccessEnum access) {
     this.access = access;

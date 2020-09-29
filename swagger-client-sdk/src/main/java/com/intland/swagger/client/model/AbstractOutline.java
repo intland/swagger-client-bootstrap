@@ -31,21 +31,23 @@ import java.util.List;
  * Abstract outline entity
  */
 @ApiModel(description = "Abstract outline entity")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 
 public class AbstractOutline {
   public static final String SERIALIZED_NAME_OUTLINE_INDEXES = "outlineIndexes";
   @SerializedName(SERIALIZED_NAME_OUTLINE_INDEXES)
-  private List<OutlineIndex> outlineIndexes = new ArrayList<OutlineIndex>();
+  private List<OutlineIndex> outlineIndexes = null;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  protected String type;
 
   public AbstractOutline() {
     this.type = this.getClass().getSimpleName();
   }
+
   public AbstractOutline outlineIndexes(List<OutlineIndex> outlineIndexes) {
+    
     this.outlineIndexes = outlineIndexes;
     return this;
   }
@@ -62,16 +64,21 @@ public class AbstractOutline {
    * Indexes of the entity in the outline.
    * @return outlineIndexes
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Indexes of the entity in the outline.")
+
   public List<OutlineIndex> getOutlineIndexes() {
     return outlineIndexes;
   }
+
 
   public void setOutlineIndexes(List<OutlineIndex> outlineIndexes) {
     this.outlineIndexes = outlineIndexes;
   }
 
+
   public AbstractOutline type(String type) {
+    
     this.type = type;
     return this;
   }
@@ -80,10 +87,13 @@ public class AbstractOutline {
    * Type of the outline model
    * @return type
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Type of the outline model")
+
   public String getType() {
     return type;
   }
+
 
   public void setType(String type) {
     this.type = type;

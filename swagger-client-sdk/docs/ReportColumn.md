@@ -2,6 +2,7 @@
 
 # ReportColumn
 
+Column definition for a report
 ## Properties
 
 Name | Type | Description | Notes

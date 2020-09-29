@@ -33,7 +33,7 @@ import java.util.List;
  * Member field
  */
 @ApiModel(description = "Member field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class MemberField extends AbstractField {
   public static final String SERIALIZED_NAME_MULTIPLE_VALUES = "multipleValues";
   @SerializedName(SERIALIZED_NAME_MULTIPLE_VALUES)
@@ -82,7 +82,7 @@ public class MemberField extends AbstractField {
 
       @Override
       public MemberTypesEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return MemberTypesEnum.fromValue(value);
       }
     }
@@ -90,9 +90,11 @@ public class MemberField extends AbstractField {
 
   public static final String SERIALIZED_NAME_MEMBER_TYPES = "memberTypes";
   @SerializedName(SERIALIZED_NAME_MEMBER_TYPES)
-  private List<MemberTypesEnum> memberTypes = new ArrayList<MemberTypesEnum>();
+  private List<MemberTypesEnum> memberTypes = null;
+
 
   public MemberField multipleValues(Boolean multipleValues) {
+    
     this.multipleValues = multipleValues;
     return this;
   }
@@ -101,16 +103,21 @@ public class MemberField extends AbstractField {
    * Multiple values state of a field
    * @return multipleValues
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Multiple values state of a field")
+
   public Boolean getMultipleValues() {
     return multipleValues;
   }
+
 
   public void setMultipleValues(Boolean multipleValues) {
     this.multipleValues = multipleValues;
   }
 
+
   public MemberField memberTypes(List<MemberTypesEnum> memberTypes) {
+    
     this.memberTypes = memberTypes;
     return this;
   }
@@ -127,10 +134,13 @@ public class MemberField extends AbstractField {
    * Supported member type of a member field
    * @return memberTypes
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Supported member type of a member field")
+
   public List<MemberTypesEnum> getMemberTypes() {
     return memberTypes;
   }
+
 
   public void setMemberTypes(List<MemberTypesEnum> memberTypes) {
     this.memberTypes = memberTypes;

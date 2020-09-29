@@ -37,7 +37,7 @@ import org.joda.time.DateTime;
  * Basic properties of a codeBeamer tracker item
  */
 @ApiModel(description = "Basic properties of a codeBeamer tracker item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerItem {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -94,7 +94,7 @@ public class TrackerItem {
 
       @Override
       public DescriptionFormatEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return DescriptionFormatEnum.fromValue(value);
       }
     }
@@ -110,7 +110,7 @@ public class TrackerItem {
 
   public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
   @SerializedName(SERIALIZED_NAME_CREATED_BY)
-  private UserReference createdBy = null;
+  private UserReference createdBy;
 
   public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
   @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
@@ -118,15 +118,15 @@ public class TrackerItem {
 
   public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
-  private UserReference modifiedBy = null;
+  private UserReference modifiedBy;
 
   public static final String SERIALIZED_NAME_PARENT = "parent";
   @SerializedName(SERIALIZED_NAME_PARENT)
-  private TrackerItemReference parent = null;
+  private TrackerItemReference parent;
 
   public static final String SERIALIZED_NAME_OWNERS = "owners";
   @SerializedName(SERIALIZED_NAME_OWNERS)
-  private List<AbstractReference> owners = new ArrayList<AbstractReference>();
+  private List<AbstractReference> owners = null;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
@@ -138,7 +138,7 @@ public class TrackerItem {
 
   public static final String SERIALIZED_NAME_ASSIGNED_TO = "assignedTo";
   @SerializedName(SERIALIZED_NAME_ASSIGNED_TO)
-  private List<AbstractReference> assignedTo = new ArrayList<AbstractReference>();
+  private List<AbstractReference> assignedTo = null;
 
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
@@ -158,19 +158,19 @@ public class TrackerItem {
 
   public static final String SERIALIZED_NAME_TRACKER = "tracker";
   @SerializedName(SERIALIZED_NAME_TRACKER)
-  private TrackerReference tracker = null;
+  private TrackerReference tracker;
 
   public static final String SERIALIZED_NAME_CHILDREN = "children";
   @SerializedName(SERIALIZED_NAME_CHILDREN)
-  private List<TrackerItemReference> children = new ArrayList<TrackerItemReference>();
+  private List<TrackerItemReference> children = null;
 
   public static final String SERIALIZED_NAME_CUSTOM_FIELDS = "customFields";
   @SerializedName(SERIALIZED_NAME_CUSTOM_FIELDS)
-  private List<AbstractFieldValue> customFields = new ArrayList<AbstractFieldValue>();
+  private List<AbstractFieldValue> customFields = null;
 
   public static final String SERIALIZED_NAME_PRIORITY = "priority";
   @SerializedName(SERIALIZED_NAME_PRIORITY)
-  private AbstractReference priority = null;
+  private AbstractReference priority;
 
   public static final String SERIALIZED_NAME_ACCRUED_MILLIS = "accruedMillis";
   @SerializedName(SERIALIZED_NAME_ACCRUED_MILLIS)
@@ -186,47 +186,47 @@ public class TrackerItem {
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  private AbstractReference status = null;
+  private AbstractReference status;
 
   public static final String SERIALIZED_NAME_PLATFORMS = "platforms";
   @SerializedName(SERIALIZED_NAME_PLATFORMS)
-  private List<AbstractReference> platforms = new ArrayList<AbstractReference>();
+  private List<AbstractReference> platforms = null;
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
-  private List<AbstractReference> categories = new ArrayList<AbstractReference>();
+  private List<AbstractReference> categories = null;
 
   public static final String SERIALIZED_NAME_SUBJECTS = "subjects";
   @SerializedName(SERIALIZED_NAME_SUBJECTS)
-  private List<AbstractReference> subjects = new ArrayList<AbstractReference>();
+  private List<AbstractReference> subjects = null;
 
   public static final String SERIALIZED_NAME_RESOLUTIONS = "resolutions";
   @SerializedName(SERIALIZED_NAME_RESOLUTIONS)
-  private List<AbstractReference> resolutions = new ArrayList<AbstractReference>();
+  private List<AbstractReference> resolutions = null;
 
   public static final String SERIALIZED_NAME_SEVERITIES = "severities";
   @SerializedName(SERIALIZED_NAME_SEVERITIES)
-  private List<AbstractReference> severities = new ArrayList<AbstractReference>();
+  private List<AbstractReference> severities = null;
 
   public static final String SERIALIZED_NAME_RELEASE_METHOD = "releaseMethod";
   @SerializedName(SERIALIZED_NAME_RELEASE_METHOD)
-  private AbstractReference releaseMethod = null;
+  private AbstractReference releaseMethod;
 
   public static final String SERIALIZED_NAME_FORMALITY = "formality";
   @SerializedName(SERIALIZED_NAME_FORMALITY)
-  private AbstractReference formality = null;
+  private AbstractReference formality;
 
   public static final String SERIALIZED_NAME_TEAMS = "teams";
   @SerializedName(SERIALIZED_NAME_TEAMS)
-  private List<AbstractReference> teams = new ArrayList<AbstractReference>();
+  private List<AbstractReference> teams = null;
 
   public static final String SERIALIZED_NAME_AREAS = "areas";
   @SerializedName(SERIALIZED_NAME_AREAS)
-  private List<AbstractReference> areas = new ArrayList<AbstractReference>();
+  private List<AbstractReference> areas = null;
 
   public static final String SERIALIZED_NAME_VERSIONS = "versions";
   @SerializedName(SERIALIZED_NAME_VERSIONS)
-  private List<AbstractReference> versions = new ArrayList<AbstractReference>();
+  private List<AbstractReference> versions = null;
 
   public static final String SERIALIZED_NAME_ORDINAL = "ordinal";
   @SerializedName(SERIALIZED_NAME_ORDINAL)
@@ -238,9 +238,11 @@ public class TrackerItem {
 
   public static final String SERIALIZED_NAME_COMMENTS = "comments";
   @SerializedName(SERIALIZED_NAME_COMMENTS)
-  private List<CommentReference> comments = new ArrayList<CommentReference>();
+  private List<CommentReference> comments = null;
+
 
   public TrackerItem id(Integer id) {
+    
     this.id = id;
     return this;
   }
@@ -250,16 +252,21 @@ public class TrackerItem {
    * minimum: 0
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the entity")
+
   public Integer getId() {
     return id;
   }
+
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+
   public TrackerItem name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -268,16 +275,21 @@ public class TrackerItem {
    * Name of the entity
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the entity")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public TrackerItem description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -286,16 +298,21 @@ public class TrackerItem {
    * Description of the entity
    * @return description
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description of the entity")
+
   public String getDescription() {
     return description;
   }
+
 
   public void setDescription(String description) {
     this.description = description;
   }
 
+
   public TrackerItem descriptionFormat(DescriptionFormatEnum descriptionFormat) {
+    
     this.descriptionFormat = descriptionFormat;
     return this;
   }
@@ -304,16 +321,21 @@ public class TrackerItem {
    * Description format of the entity
    * @return descriptionFormat
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description format of the entity")
+
   public DescriptionFormatEnum getDescriptionFormat() {
     return descriptionFormat;
   }
+
 
   public void setDescriptionFormat(DescriptionFormatEnum descriptionFormat) {
     this.descriptionFormat = descriptionFormat;
   }
 
+
   public TrackerItem createdAt(DateTime createdAt) {
+    
     this.createdAt = createdAt;
     return this;
   }
@@ -322,16 +344,21 @@ public class TrackerItem {
    * The date when the entity was created
    * @return createdAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was created")
+
   public DateTime getCreatedAt() {
     return createdAt;
   }
+
 
   public void setCreatedAt(DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
+
   public TrackerItem createdBy(UserReference createdBy) {
+    
     this.createdBy = createdBy;
     return this;
   }
@@ -340,16 +367,21 @@ public class TrackerItem {
    * Get createdBy
    * @return createdBy
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getCreatedBy() {
     return createdBy;
   }
+
 
   public void setCreatedBy(UserReference createdBy) {
     this.createdBy = createdBy;
   }
 
+
   public TrackerItem modifiedAt(DateTime modifiedAt) {
+    
     this.modifiedAt = modifiedAt;
     return this;
   }
@@ -358,16 +390,21 @@ public class TrackerItem {
    * The date when the entity was modified
    * @return modifiedAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
+
   public DateTime getModifiedAt() {
     return modifiedAt;
   }
+
 
   public void setModifiedAt(DateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 
+
   public TrackerItem modifiedBy(UserReference modifiedBy) {
+    
     this.modifiedBy = modifiedBy;
     return this;
   }
@@ -376,16 +413,21 @@ public class TrackerItem {
    * Get modifiedBy
    * @return modifiedBy
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getModifiedBy() {
     return modifiedBy;
   }
+
 
   public void setModifiedBy(UserReference modifiedBy) {
     this.modifiedBy = modifiedBy;
   }
 
+
   public TrackerItem parent(TrackerItemReference parent) {
+    
     this.parent = parent;
     return this;
   }
@@ -394,16 +436,21 @@ public class TrackerItem {
    * Get parent
    * @return parent
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public TrackerItemReference getParent() {
     return parent;
   }
+
 
   public void setParent(TrackerItemReference parent) {
     this.parent = parent;
   }
 
+
   public TrackerItem owners(List<AbstractReference> owners) {
+    
     this.owners = owners;
     return this;
   }
@@ -420,34 +467,49 @@ public class TrackerItem {
    * Owners of a tracker item
    * @return owners
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Owners of a tracker item")
+
   public List<AbstractReference> getOwners() {
     return owners;
   }
+
 
   public void setOwners(List<AbstractReference> owners) {
     this.owners = owners;
   }
 
+
    /**
    * Version of a tracker item
    * @return version
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Version of a tracker item")
+
   public Integer getVersion() {
     return version;
   }
+
+
+
 
    /**
    * Assigne date of a tracker item
    * @return assignedAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Assigne date of a tracker item")
+
   public DateTime getAssignedAt() {
     return assignedAt;
   }
 
+
+
+
   public TrackerItem assignedTo(List<AbstractReference> assignedTo) {
+    
     this.assignedTo = assignedTo;
     return this;
   }
@@ -464,16 +526,21 @@ public class TrackerItem {
    * Assignees of a tracker item
    * @return assignedTo
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Assignees of a tracker item")
+
   public List<AbstractReference> getAssignedTo() {
     return assignedTo;
   }
+
 
   public void setAssignedTo(List<AbstractReference> assignedTo) {
     this.assignedTo = assignedTo;
   }
 
+
   public TrackerItem startDate(DateTime startDate) {
+    
     this.startDate = startDate;
     return this;
   }
@@ -482,16 +549,21 @@ public class TrackerItem {
    * Start date of a tracker item
    * @return startDate
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Start date of a tracker item")
+
   public DateTime getStartDate() {
     return startDate;
   }
+
 
   public void setStartDate(DateTime startDate) {
     this.startDate = startDate;
   }
 
+
   public TrackerItem endDate(DateTime endDate) {
+    
     this.endDate = endDate;
     return this;
   }
@@ -500,16 +572,21 @@ public class TrackerItem {
    * End date of a tracker item
    * @return endDate
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "End date of a tracker item")
+
   public DateTime getEndDate() {
     return endDate;
   }
+
 
   public void setEndDate(DateTime endDate) {
     this.endDate = endDate;
   }
 
+
   public TrackerItem closedAt(DateTime closedAt) {
+    
     this.closedAt = closedAt;
     return this;
   }
@@ -518,16 +595,21 @@ public class TrackerItem {
    * Close date of a tracker item
    * @return closedAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Close date of a tracker item")
+
   public DateTime getClosedAt() {
     return closedAt;
   }
+
 
   public void setClosedAt(DateTime closedAt) {
     this.closedAt = closedAt;
   }
 
+
   public TrackerItem storyPoints(Integer storyPoints) {
+    
     this.storyPoints = storyPoints;
     return this;
   }
@@ -536,16 +618,21 @@ public class TrackerItem {
    * Story points of a tracker item
    * @return storyPoints
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Story points of a tracker item")
+
   public Integer getStoryPoints() {
     return storyPoints;
   }
+
 
   public void setStoryPoints(Integer storyPoints) {
     this.storyPoints = storyPoints;
   }
 
+
   public TrackerItem tracker(TrackerReference tracker) {
+    
     this.tracker = tracker;
     return this;
   }
@@ -554,25 +641,35 @@ public class TrackerItem {
    * Get tracker
    * @return tracker
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public TrackerReference getTracker() {
     return tracker;
   }
+
 
   public void setTracker(TrackerReference tracker) {
     this.tracker = tracker;
   }
 
+
    /**
    * Children of a tracker item
    * @return children
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Children of a tracker item")
+
   public List<TrackerItemReference> getChildren() {
     return children;
   }
 
+
+
+
   public TrackerItem customFields(List<AbstractFieldValue> customFields) {
+    
     this.customFields = customFields;
     return this;
   }
@@ -589,16 +686,21 @@ public class TrackerItem {
    * Custom field of a tracker item
    * @return customFields
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Custom field of a tracker item")
+
   public List<AbstractFieldValue> getCustomFields() {
     return customFields;
   }
+
 
   public void setCustomFields(List<AbstractFieldValue> customFields) {
     this.customFields = customFields;
   }
 
+
   public TrackerItem priority(AbstractReference priority) {
+    
     this.priority = priority;
     return this;
   }
@@ -607,25 +709,35 @@ public class TrackerItem {
    * Get priority
    * @return priority
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public AbstractReference getPriority() {
     return priority;
   }
+
 
   public void setPriority(AbstractReference priority) {
     this.priority = priority;
   }
 
+
    /**
    * Accrued work time of a tracker item in milliseconds
    * @return accruedMillis
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Accrued work time of a tracker item in milliseconds")
+
   public Long getAccruedMillis() {
     return accruedMillis;
   }
 
+
+
+
   public TrackerItem estimatedMillis(Long estimatedMillis) {
+    
     this.estimatedMillis = estimatedMillis;
     return this;
   }
@@ -634,25 +746,35 @@ public class TrackerItem {
    * Estimated work time of a tracker item in milliseconds
    * @return estimatedMillis
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Estimated work time of a tracker item in milliseconds")
+
   public Long getEstimatedMillis() {
     return estimatedMillis;
   }
+
 
   public void setEstimatedMillis(Long estimatedMillis) {
     this.estimatedMillis = estimatedMillis;
   }
 
+
    /**
    * Spent work time of a tracker item in milliseconds
    * @return spentMillis
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Spent work time of a tracker item in milliseconds")
+
   public Long getSpentMillis() {
     return spentMillis;
   }
 
+
+
+
   public TrackerItem status(AbstractReference status) {
+    
     this.status = status;
     return this;
   }
@@ -661,16 +783,21 @@ public class TrackerItem {
    * Get status
    * @return status
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public AbstractReference getStatus() {
     return status;
   }
+
 
   public void setStatus(AbstractReference status) {
     this.status = status;
   }
 
+
   public TrackerItem platforms(List<AbstractReference> platforms) {
+    
     this.platforms = platforms;
     return this;
   }
@@ -687,16 +814,21 @@ public class TrackerItem {
    * Platforms of a tracker item
    * @return platforms
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Platforms of a tracker item")
+
   public List<AbstractReference> getPlatforms() {
     return platforms;
   }
+
 
   public void setPlatforms(List<AbstractReference> platforms) {
     this.platforms = platforms;
   }
 
+
   public TrackerItem categories(List<AbstractReference> categories) {
+    
     this.categories = categories;
     return this;
   }
@@ -713,16 +845,21 @@ public class TrackerItem {
    * Categories of a tracker item
    * @return categories
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Categories of a tracker item")
+
   public List<AbstractReference> getCategories() {
     return categories;
   }
+
 
   public void setCategories(List<AbstractReference> categories) {
     this.categories = categories;
   }
 
+
   public TrackerItem subjects(List<AbstractReference> subjects) {
+    
     this.subjects = subjects;
     return this;
   }
@@ -739,16 +876,21 @@ public class TrackerItem {
    * Subjects of a tracker item
    * @return subjects
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Subjects of a tracker item")
+
   public List<AbstractReference> getSubjects() {
     return subjects;
   }
+
 
   public void setSubjects(List<AbstractReference> subjects) {
     this.subjects = subjects;
   }
 
+
   public TrackerItem resolutions(List<AbstractReference> resolutions) {
+    
     this.resolutions = resolutions;
     return this;
   }
@@ -765,16 +907,21 @@ public class TrackerItem {
    * Resolutions of a tracker item
    * @return resolutions
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Resolutions of a tracker item")
+
   public List<AbstractReference> getResolutions() {
     return resolutions;
   }
+
 
   public void setResolutions(List<AbstractReference> resolutions) {
     this.resolutions = resolutions;
   }
 
+
   public TrackerItem severities(List<AbstractReference> severities) {
+    
     this.severities = severities;
     return this;
   }
@@ -791,16 +938,21 @@ public class TrackerItem {
    * Severities of a tracker item
    * @return severities
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Severities of a tracker item")
+
   public List<AbstractReference> getSeverities() {
     return severities;
   }
+
 
   public void setSeverities(List<AbstractReference> severities) {
     this.severities = severities;
   }
 
+
   public TrackerItem releaseMethod(AbstractReference releaseMethod) {
+    
     this.releaseMethod = releaseMethod;
     return this;
   }
@@ -809,16 +961,21 @@ public class TrackerItem {
    * Get releaseMethod
    * @return releaseMethod
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public AbstractReference getReleaseMethod() {
     return releaseMethod;
   }
+
 
   public void setReleaseMethod(AbstractReference releaseMethod) {
     this.releaseMethod = releaseMethod;
   }
 
+
   public TrackerItem formality(AbstractReference formality) {
+    
     this.formality = formality;
     return this;
   }
@@ -827,16 +984,21 @@ public class TrackerItem {
    * Get formality
    * @return formality
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public AbstractReference getFormality() {
     return formality;
   }
+
 
   public void setFormality(AbstractReference formality) {
     this.formality = formality;
   }
 
+
   public TrackerItem teams(List<AbstractReference> teams) {
+    
     this.teams = teams;
     return this;
   }
@@ -853,16 +1015,21 @@ public class TrackerItem {
    * Teams of a tracker item
    * @return teams
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Teams of a tracker item")
+
   public List<AbstractReference> getTeams() {
     return teams;
   }
+
 
   public void setTeams(List<AbstractReference> teams) {
     this.teams = teams;
   }
 
+
   public TrackerItem areas(List<AbstractReference> areas) {
+    
     this.areas = areas;
     return this;
   }
@@ -879,16 +1046,21 @@ public class TrackerItem {
    * Areas of a tracker item
    * @return areas
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Areas of a tracker item")
+
   public List<AbstractReference> getAreas() {
     return areas;
   }
+
 
   public void setAreas(List<AbstractReference> areas) {
     this.areas = areas;
   }
 
+
   public TrackerItem versions(List<AbstractReference> versions) {
+    
     this.versions = versions;
     return this;
   }
@@ -905,16 +1077,21 @@ public class TrackerItem {
    * Versions of a tracker item
    * @return versions
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Versions of a tracker item")
+
   public List<AbstractReference> getVersions() {
     return versions;
   }
+
 
   public void setVersions(List<AbstractReference> versions) {
     this.versions = versions;
   }
 
+
   public TrackerItem ordinal(Integer ordinal) {
+    
     this.ordinal = ordinal;
     return this;
   }
@@ -923,16 +1100,21 @@ public class TrackerItem {
    * Ordinal of a tracker item
    * @return ordinal
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Ordinal of a tracker item")
+
   public Integer getOrdinal() {
     return ordinal;
   }
+
 
   public void setOrdinal(Integer ordinal) {
     this.ordinal = ordinal;
   }
 
+
   public TrackerItem typeName(String typeName) {
+    
     this.typeName = typeName;
     return this;
   }
@@ -941,23 +1123,31 @@ public class TrackerItem {
    * Type name of a tracker item
    * @return typeName
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Type name of a tracker item")
+
   public String getTypeName() {
     return typeName;
   }
+
 
   public void setTypeName(String typeName) {
     this.typeName = typeName;
   }
 
+
    /**
    * Comment in the tracker item
    * @return comments
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Comment in the tracker item")
+
   public List<CommentReference> getComments() {
     return comments;
   }
+
+
 
 
   @Override

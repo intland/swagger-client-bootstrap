@@ -66,4 +66,12 @@ public class IntegerFieldValueTest {
         // TODO: test name
     }
 
+    /**
+     * Test the property 'value'
+     */
+    @Test
+    public void valueTest() {
+        // TODO: test value
+    }
+
 }

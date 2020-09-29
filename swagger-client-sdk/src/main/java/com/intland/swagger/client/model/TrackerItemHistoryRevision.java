@@ -34,25 +34,27 @@ import org.joda.time.DateTime;
  * Revision history entry.
  */
 @ApiModel(description = "Revision history entry.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerItemHistoryRevision {
   public static final String SERIALIZED_NAME_ITEM_REVISION = "itemRevision";
   @SerializedName(SERIALIZED_NAME_ITEM_REVISION)
-  private TrackerItemRevision itemRevision = null;
+  private TrackerItemRevision itemRevision;
 
   public static final String SERIALIZED_NAME_CHANGES = "changes";
   @SerializedName(SERIALIZED_NAME_CHANGES)
-  private List<TrackerItemChange> changes = new ArrayList<TrackerItemChange>();
+  private List<TrackerItemChange> changes = null;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
-  private UserReference modifiedBy = null;
+  private UserReference modifiedBy;
 
   public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
   @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
   private DateTime modifiedAt;
 
+
   public TrackerItemHistoryRevision itemRevision(TrackerItemRevision itemRevision) {
+    
     this.itemRevision = itemRevision;
     return this;
   }
@@ -61,16 +63,21 @@ public class TrackerItemHistoryRevision {
    * Get itemRevision
    * @return itemRevision
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public TrackerItemRevision getItemRevision() {
     return itemRevision;
   }
+
 
   public void setItemRevision(TrackerItemRevision itemRevision) {
     this.itemRevision = itemRevision;
   }
 
+
   public TrackerItemHistoryRevision changes(List<TrackerItemChange> changes) {
+    
     this.changes = changes;
     return this;
   }
@@ -87,16 +94,21 @@ public class TrackerItemHistoryRevision {
    * Changes happened between the previous and current revision.
    * @return changes
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Changes happened between the previous and current revision.")
+
   public List<TrackerItemChange> getChanges() {
     return changes;
   }
+
 
   public void setChanges(List<TrackerItemChange> changes) {
     this.changes = changes;
   }
 
+
   public TrackerItemHistoryRevision modifiedBy(UserReference modifiedBy) {
+    
     this.modifiedBy = modifiedBy;
     return this;
   }
@@ -105,16 +117,21 @@ public class TrackerItemHistoryRevision {
    * Get modifiedBy
    * @return modifiedBy
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getModifiedBy() {
     return modifiedBy;
   }
+
 
   public void setModifiedBy(UserReference modifiedBy) {
     this.modifiedBy = modifiedBy;
   }
 
+
   public TrackerItemHistoryRevision modifiedAt(DateTime modifiedAt) {
+    
     this.modifiedAt = modifiedAt;
     return this;
   }
@@ -123,10 +140,13 @@ public class TrackerItemHistoryRevision {
    * The date when the entity was modified
    * @return modifiedAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
+
   public DateTime getModifiedAt() {
     return modifiedAt;
   }
+
 
   public void setModifiedAt(DateTime modifiedAt) {
     this.modifiedAt = modifiedAt;

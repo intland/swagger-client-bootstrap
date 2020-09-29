@@ -2,6 +2,7 @@
 
 # IntegerField
 
+Integer field
 ## Properties
 
 Name | Type | Description | Notes

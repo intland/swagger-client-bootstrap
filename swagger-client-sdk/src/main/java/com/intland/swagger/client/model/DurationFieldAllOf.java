@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * DurationFieldAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class DurationFieldAllOf {
   public static final String SERIALIZED_NAME_MIN = "min";
   @SerializedName(SERIALIZED_NAME_MIN)
@@ -41,7 +41,9 @@ public class DurationFieldAllOf {
   @SerializedName(SERIALIZED_NAME_FORMULA)
   private String formula;
 
+
   public DurationFieldAllOf min(String min) {
+    
     this.min = min;
     return this;
   }
@@ -50,16 +52,21 @@ public class DurationFieldAllOf {
    * Minimum value of a field
    * @return min
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Minimum value of a field")
+
   public String getMin() {
     return min;
   }
+
 
   public void setMin(String min) {
     this.min = min;
   }
 
+
   public DurationFieldAllOf max(String max) {
+    
     this.max = max;
     return this;
   }
@@ -68,16 +75,21 @@ public class DurationFieldAllOf {
    * Maximum value of a field
    * @return max
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Maximum value of a field")
+
   public String getMax() {
     return max;
   }
+
 
   public void setMax(String max) {
     this.max = max;
   }
 
+
   public DurationFieldAllOf formula(String formula) {
+    
     this.formula = formula;
     return this;
   }
@@ -86,10 +98,13 @@ public class DurationFieldAllOf {
    * Formula value of a field
    * @return formula
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Formula value of a field")
+
   public String getFormula() {
     return formula;
   }
+
 
   public void setFormula(String formula) {
     this.formula = formula;

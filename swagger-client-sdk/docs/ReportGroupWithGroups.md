@@ -2,6 +2,7 @@
 
 # ReportGroupWithGroups
 
+ReportGroup having subgroups.
 ## Properties
 
 Name | Type | Description | Notes

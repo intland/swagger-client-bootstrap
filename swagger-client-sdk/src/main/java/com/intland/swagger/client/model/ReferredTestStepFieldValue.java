@@ -30,7 +30,7 @@ import java.io.IOException;
  * Value container of a referred test step
  */
 @ApiModel(description = "Value container of a referred test step")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ReferredTestStepFieldValue extends AbstractFieldValue {
   public static final String SERIALIZED_NAME_REFERRED_STEP_ID = "referredStepId";
   @SerializedName(SERIALIZED_NAME_REFERRED_STEP_ID)
@@ -44,7 +44,9 @@ public class ReferredTestStepFieldValue extends AbstractFieldValue {
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
+
   public ReferredTestStepFieldValue referredStepId(String referredStepId) {
+    
     this.referredStepId = referredStepId;
     return this;
   }
@@ -53,16 +55,20 @@ public class ReferredTestStepFieldValue extends AbstractFieldValue {
    * Id of the referred test step
    * @return referredStepId
   **/
-  @ApiModelProperty(value = "Id of the referred test step")
+  @ApiModelProperty(required = true, value = "Id of the referred test step")
+
   public String getReferredStepId() {
     return referredStepId;
   }
+
 
   public void setReferredStepId(String referredStepId) {
     this.referredStepId = referredStepId;
   }
 
+
   public ReferredTestStepFieldValue referredTestCaseId(Integer referredTestCaseId) {
+    
     this.referredTestCaseId = referredTestCaseId;
     return this;
   }
@@ -71,16 +77,20 @@ public class ReferredTestStepFieldValue extends AbstractFieldValue {
    * Id of the test case where the referred test step comes
    * @return referredTestCaseId
   **/
-  @ApiModelProperty(value = "Id of the test case where the referred test step comes")
+  @ApiModelProperty(required = true, value = "Id of the test case where the referred test step comes")
+
   public Integer getReferredTestCaseId() {
     return referredTestCaseId;
   }
+
 
   public void setReferredTestCaseId(Integer referredTestCaseId) {
     this.referredTestCaseId = referredTestCaseId;
   }
 
+
   public ReferredTestStepFieldValue value(String value) {
+    
     this.value = value;
     return this;
   }
@@ -89,10 +99,13 @@ public class ReferredTestStepFieldValue extends AbstractFieldValue {
    * Id of the Test Step
    * @return value
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the Test Step")
+
   public String getValue() {
     return value;
   }
+
 
   public void setValue(String value) {
     this.value = value;

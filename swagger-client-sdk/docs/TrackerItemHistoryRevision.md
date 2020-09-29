@@ -2,6 +2,7 @@
 
 # TrackerItemHistoryRevision
 
+Revision history entry.
 ## Properties
 
 Name | Type | Description | Notes

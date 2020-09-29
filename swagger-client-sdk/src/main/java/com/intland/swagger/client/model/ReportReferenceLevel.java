@@ -32,25 +32,27 @@ import java.util.List;
  * Reference results for an item.
  */
 @ApiModel(description = "Reference results for an item.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ReportReferenceLevel {
   public static final String SERIALIZED_NAME_COLUMNS = "columns";
   @SerializedName(SERIALIZED_NAME_COLUMNS)
-  private List<ReportColumn> columns = new ArrayList<ReportColumn>();
+  private List<ReportColumn> columns = null;
 
   public static final String SERIALIZED_NAME_UPSTREAM_REFERENCE_ROWS = "upstreamReferenceRows";
   @SerializedName(SERIALIZED_NAME_UPSTREAM_REFERENCE_ROWS)
-  private List<ReportReferencedRow> upstreamReferenceRows = new ArrayList<ReportReferencedRow>();
+  private List<ReportReferencedRow> upstreamReferenceRows = null;
 
   public static final String SERIALIZED_NAME_DOWNSTREAM_REFERENCE_ROWS = "downstreamReferenceRows";
   @SerializedName(SERIALIZED_NAME_DOWNSTREAM_REFERENCE_ROWS)
-  private List<ReportReferencedRow> downstreamReferenceRows = new ArrayList<ReportReferencedRow>();
+  private List<ReportReferencedRow> downstreamReferenceRows = null;
 
   public static final String SERIALIZED_NAME_REFERENCE_LEVEL = "referenceLevel";
   @SerializedName(SERIALIZED_NAME_REFERENCE_LEVEL)
   private Integer referenceLevel;
 
+
   public ReportReferenceLevel columns(List<ReportColumn> columns) {
+    
     this.columns = columns;
     return this;
   }
@@ -67,16 +69,21 @@ public class ReportReferenceLevel {
    * Columns to show on this reference level.
    * @return columns
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Columns to show on this reference level.")
+
   public List<ReportColumn> getColumns() {
     return columns;
   }
+
 
   public void setColumns(List<ReportColumn> columns) {
     this.columns = columns;
   }
 
+
   public ReportReferenceLevel upstreamReferenceRows(List<ReportReferencedRow> upstreamReferenceRows) {
+    
     this.upstreamReferenceRows = upstreamReferenceRows;
     return this;
   }
@@ -93,16 +100,21 @@ public class ReportReferenceLevel {
    * Upstream reference results.
    * @return upstreamReferenceRows
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Upstream reference results.")
+
   public List<ReportReferencedRow> getUpstreamReferenceRows() {
     return upstreamReferenceRows;
   }
+
 
   public void setUpstreamReferenceRows(List<ReportReferencedRow> upstreamReferenceRows) {
     this.upstreamReferenceRows = upstreamReferenceRows;
   }
 
+
   public ReportReferenceLevel downstreamReferenceRows(List<ReportReferencedRow> downstreamReferenceRows) {
+    
     this.downstreamReferenceRows = downstreamReferenceRows;
     return this;
   }
@@ -119,16 +131,21 @@ public class ReportReferenceLevel {
    * Downstream reference results.
    * @return downstreamReferenceRows
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Downstream reference results.")
+
   public List<ReportReferencedRow> getDownstreamReferenceRows() {
     return downstreamReferenceRows;
   }
+
 
   public void setDownstreamReferenceRows(List<ReportReferencedRow> downstreamReferenceRows) {
     this.downstreamReferenceRows = downstreamReferenceRows;
   }
 
+
   public ReportReferenceLevel referenceLevel(Integer referenceLevel) {
+    
     this.referenceLevel = referenceLevel;
     return this;
   }
@@ -137,10 +154,13 @@ public class ReportReferenceLevel {
    * Reference level.
    * @return referenceLevel
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Reference level.")
+
   public Integer getReferenceLevel() {
     return referenceLevel;
   }
+
 
   public void setReferenceLevel(Integer referenceLevel) {
     this.referenceLevel = referenceLevel;

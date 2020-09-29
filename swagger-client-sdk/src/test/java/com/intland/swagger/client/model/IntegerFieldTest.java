@@ -24,6 +24,7 @@ import com.intland.swagger.client.model.IntegerFieldAllOf;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -122,6 +123,30 @@ public class IntegerFieldTest {
     @Test
     public void mandatoryInStatusesTest() {
         // TODO: test mandatoryInStatuses
+    }
+
+    /**
+     * Test the property 'min'
+     */
+    @Test
+    public void minTest() {
+        // TODO: test min
+    }
+
+    /**
+     * Test the property 'max'
+     */
+    @Test
+    public void maxTest() {
+        // TODO: test max
+    }
+
+    /**
+     * Test the property 'formula'
+     */
+    @Test
+    public void formulaTest() {
+        // TODO: test formula
     }
 
 }

@@ -2,6 +2,7 @@
 
 # UpdateTestRunRequest
 
+Model to contain Test Case run update request models
 ## Properties
 
 Name | Type | Description | Notes

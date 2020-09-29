@@ -33,7 +33,7 @@ import java.util.List;
  * Option type choice field
  */
 @ApiModel(description = "Option type choice field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class OptionChoiceField extends AbstractField {
   public static final String SERIALIZED_NAME_MULTIPLE_VALUES = "multipleValues";
   @SerializedName(SERIALIZED_NAME_MULTIPLE_VALUES)
@@ -41,13 +41,15 @@ public class OptionChoiceField extends AbstractField {
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private List<ChoiceOptionReference> options = new ArrayList<ChoiceOptionReference>();
+  private List<ChoiceOptionReference> options = null;
 
   public static final String SERIALIZED_NAME_REFERENCE_TYPE = "referenceType";
   @SerializedName(SERIALIZED_NAME_REFERENCE_TYPE)
   private String referenceType;
 
+
   public OptionChoiceField multipleValues(Boolean multipleValues) {
+    
     this.multipleValues = multipleValues;
     return this;
   }
@@ -56,16 +58,21 @@ public class OptionChoiceField extends AbstractField {
    * Multiple values state of a field
    * @return multipleValues
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Multiple values state of a field")
+
   public Boolean getMultipleValues() {
     return multipleValues;
   }
+
 
   public void setMultipleValues(Boolean multipleValues) {
     this.multipleValues = multipleValues;
   }
 
+
   public OptionChoiceField options(List<ChoiceOptionReference> options) {
+    
     this.options = options;
     return this;
   }
@@ -82,16 +89,21 @@ public class OptionChoiceField extends AbstractField {
    * Available options of a choice field
    * @return options
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Available options of a choice field")
+
   public List<ChoiceOptionReference> getOptions() {
     return options;
   }
+
 
   public void setOptions(List<ChoiceOptionReference> options) {
     this.options = options;
   }
 
+
   public OptionChoiceField referenceType(String referenceType) {
+    
     this.referenceType = referenceType;
     return this;
   }
@@ -100,10 +112,13 @@ public class OptionChoiceField extends AbstractField {
    * Type of the contained references
    * @return referenceType
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Type of the contained references")
+
   public String getReferenceType() {
     return referenceType;
   }
+
 
   public void setReferenceType(String referenceType) {
     this.referenceType = referenceType;

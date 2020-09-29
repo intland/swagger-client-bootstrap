@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ReferredTestStepFieldValueAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ReferredTestStepFieldValueAllOf {
   public static final String SERIALIZED_NAME_REFERRED_STEP_ID = "referredStepId";
   @SerializedName(SERIALIZED_NAME_REFERRED_STEP_ID)
@@ -41,7 +41,9 @@ public class ReferredTestStepFieldValueAllOf {
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
+
   public ReferredTestStepFieldValueAllOf referredStepId(String referredStepId) {
+    
     this.referredStepId = referredStepId;
     return this;
   }
@@ -50,16 +52,21 @@ public class ReferredTestStepFieldValueAllOf {
    * Id of the referred test step
    * @return referredStepId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the referred test step")
+
   public String getReferredStepId() {
     return referredStepId;
   }
+
 
   public void setReferredStepId(String referredStepId) {
     this.referredStepId = referredStepId;
   }
 
+
   public ReferredTestStepFieldValueAllOf referredTestCaseId(Integer referredTestCaseId) {
+    
     this.referredTestCaseId = referredTestCaseId;
     return this;
   }
@@ -68,16 +75,21 @@ public class ReferredTestStepFieldValueAllOf {
    * Id of the test case where the referred test step comes
    * @return referredTestCaseId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the test case where the referred test step comes")
+
   public Integer getReferredTestCaseId() {
     return referredTestCaseId;
   }
+
 
   public void setReferredTestCaseId(Integer referredTestCaseId) {
     this.referredTestCaseId = referredTestCaseId;
   }
 
+
   public ReferredTestStepFieldValueAllOf value(String value) {
+    
     this.value = value;
     return this;
   }
@@ -86,10 +98,13 @@ public class ReferredTestStepFieldValueAllOf {
    * Id of the Test Step
    * @return value
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the Test Step")
+
   public String getValue() {
     return value;
   }
+
 
   public void setValue(String value) {
     this.value = value;

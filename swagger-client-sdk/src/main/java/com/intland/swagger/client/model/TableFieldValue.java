@@ -32,13 +32,15 @@ import java.util.List;
  * Value container of a table field
  */
 @ApiModel(description = "Value container of a table field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TableFieldValue extends AbstractFieldValue {
   public static final String SERIALIZED_NAME_VALUES = "values";
   @SerializedName(SERIALIZED_NAME_VALUES)
-  private List<List<AbstractFieldValue>> values = new ArrayList<List<AbstractFieldValue>>();
+  private List<List<AbstractFieldValue>> values = null;
+
 
   public TableFieldValue values(List<List<AbstractFieldValue>> values) {
+    
     this.values = values;
     return this;
   }
@@ -55,10 +57,13 @@ public class TableFieldValue extends AbstractFieldValue {
    * Table values
    * @return values
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Table values")
+
   public List<List<AbstractFieldValue>> getValues() {
     return values;
   }
+
 
   public void setValues(List<List<AbstractFieldValue>> values) {
     this.values = values;

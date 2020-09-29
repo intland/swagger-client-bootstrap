@@ -27,13 +27,15 @@ import java.io.IOException;
 /**
  * View
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class View {
   public static final String SERIALIZED_NAME_CONTENT_TYPE = "contentType";
   @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
   private String contentType;
 
+
   public View contentType(String contentType) {
+    
     this.contentType = contentType;
     return this;
   }
@@ -42,10 +44,13 @@ public class View {
    * Get contentType
    * @return contentType
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getContentType() {
     return contentType;
   }
+
 
   public void setContentType(String contentType) {
     this.contentType = contentType;

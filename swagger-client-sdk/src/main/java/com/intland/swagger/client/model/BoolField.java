@@ -26,19 +26,22 @@ import com.intland.swagger.client.model.ChoiceOptionReference;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Bool field
  */
 @ApiModel(description = "Bool field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class BoolField extends AbstractField {
   public static final String SERIALIZED_NAME_FORMULA = "formula";
   @SerializedName(SERIALIZED_NAME_FORMULA)
   private String formula;
 
+
   public BoolField formula(String formula) {
+    
     this.formula = formula;
     return this;
   }
@@ -47,10 +50,13 @@ public class BoolField extends AbstractField {
    * Formula value of a field
    * @return formula
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Formula value of a field")
+
   public String getFormula() {
     return formula;
   }
+
 
   public void setFormula(String formula) {
     this.formula = formula;

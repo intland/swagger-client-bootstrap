@@ -2,6 +2,7 @@
 
 # AccessPermission
 
+Access permission of specific role
 ## Properties
 
 Name | Type | Description | Notes

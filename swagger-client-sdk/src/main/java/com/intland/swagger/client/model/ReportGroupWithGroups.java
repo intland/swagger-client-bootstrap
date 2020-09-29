@@ -33,13 +33,15 @@ import java.util.List;
  * ReportGroup having subgroups.
  */
 @ApiModel(description = "ReportGroup having subgroups.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ReportGroupWithGroups extends ReportGroup {
   public static final String SERIALIZED_NAME_GROUPS = "groups";
   @SerializedName(SERIALIZED_NAME_GROUPS)
-  private List<ReportGroup> groups = new ArrayList<ReportGroup>();
+  private List<ReportGroup> groups = null;
+
 
   public ReportGroupWithGroups groups(List<ReportGroup> groups) {
+    
     this.groups = groups;
     return this;
   }
@@ -56,10 +58,13 @@ public class ReportGroupWithGroups extends ReportGroup {
    * Subgroups in the group.
    * @return groups
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Subgroups in the group.")
+
   public List<ReportGroup> getGroups() {
     return groups;
   }
+
 
   public void setGroups(List<ReportGroup> groups) {
     this.groups = groups;

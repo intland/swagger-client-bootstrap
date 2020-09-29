@@ -125,4 +125,20 @@ public class MemberFieldTest {
         // TODO: test mandatoryInStatuses
     }
 
+    /**
+     * Test the property 'multipleValues'
+     */
+    @Test
+    public void multipleValuesTest() {
+        // TODO: test multipleValues
+    }
+
+    /**
+     * Test the property 'memberTypes'
+     */
+    @Test
+    public void memberTypesTest() {
+        // TODO: test memberTypes
+    }
+
 }

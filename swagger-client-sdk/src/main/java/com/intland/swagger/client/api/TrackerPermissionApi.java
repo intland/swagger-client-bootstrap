@@ -63,9 +63,15 @@ public class TrackerPermissionApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permission. </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerPermissionCall(Integer trackerPermissionId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/trackers/permissions/{trackerPermissionId}"
@@ -74,6 +80,7 @@ public class TrackerPermissionApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -90,7 +97,7 @@ public class TrackerPermissionApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -113,6 +120,12 @@ public class TrackerPermissionApi {
      * @param trackerPermissionId  (required)
      * @return TrackerPermission
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permission. </td><td>  -  </td></tr>
+     </table>
      */
     public TrackerPermission getTrackerPermission(Integer trackerPermissionId) throws ApiException {
         ApiResponse<TrackerPermission> localVarResp = getTrackerPermissionWithHttpInfo(trackerPermissionId);
@@ -125,6 +138,12 @@ public class TrackerPermissionApi {
      * @param trackerPermissionId  (required)
      * @return ApiResponse&lt;TrackerPermission&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permission. </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<TrackerPermission> getTrackerPermissionWithHttpInfo(Integer trackerPermissionId) throws ApiException {
         okhttp3.Call localVarCall = getTrackerPermissionValidateBeforeCall(trackerPermissionId, null);
@@ -139,6 +158,12 @@ public class TrackerPermissionApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permission. </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerPermissionAsync(Integer trackerPermissionId, final ApiCallback<TrackerPermission> _callback) throws ApiException {
 
@@ -152,9 +177,16 @@ public class TrackerPermissionApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker permission is not found. </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerPermissionsCall(final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/trackers/permissions";
@@ -162,6 +194,7 @@ public class TrackerPermissionApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -178,7 +211,7 @@ public class TrackerPermissionApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -195,6 +228,13 @@ public class TrackerPermissionApi {
      * 
      * @return List&lt;TrackerPermissionReference&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker permission is not found. </td><td>  -  </td></tr>
+     </table>
      */
     public List<TrackerPermissionReference> getTrackerPermissions() throws ApiException {
         ApiResponse<List<TrackerPermissionReference>> localVarResp = getTrackerPermissionsWithHttpInfo();
@@ -206,6 +246,13 @@ public class TrackerPermissionApi {
      * 
      * @return ApiResponse&lt;List&lt;TrackerPermissionReference&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker permission is not found. </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<List<TrackerPermissionReference>> getTrackerPermissionsWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getTrackerPermissionsValidateBeforeCall(null);
@@ -219,6 +266,13 @@ public class TrackerPermissionApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker permission is not found. </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerPermissionsAsync(final ApiCallback<List<TrackerPermissionReference>> _callback) throws ApiException {
 
@@ -235,9 +289,17 @@ public class TrackerPermissionApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker is not found. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions by role. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> No access permission for this resource </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerPermissionsWithRolesCall(Integer trackerId, Integer userId, Integer roleId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/trackers/{trackerId}/permissions"
@@ -254,6 +316,7 @@ public class TrackerPermissionApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -270,7 +333,7 @@ public class TrackerPermissionApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -295,6 +358,14 @@ public class TrackerPermissionApi {
      * @param roleId  (optional)
      * @return List&lt;RoleWithPermissions&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker is not found. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions by role. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> No access permission for this resource </td><td>  -  </td></tr>
+     </table>
      */
     public List<RoleWithPermissions> getTrackerPermissionsWithRoles(Integer trackerId, Integer userId, Integer roleId) throws ApiException {
         ApiResponse<List<RoleWithPermissions>> localVarResp = getTrackerPermissionsWithRolesWithHttpInfo(trackerId, userId, roleId);
@@ -309,6 +380,14 @@ public class TrackerPermissionApi {
      * @param roleId  (optional)
      * @return ApiResponse&lt;List&lt;RoleWithPermissions&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker is not found. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions by role. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> No access permission for this resource </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<List<RoleWithPermissions>> getTrackerPermissionsWithRolesWithHttpInfo(Integer trackerId, Integer userId, Integer roleId) throws ApiException {
         okhttp3.Call localVarCall = getTrackerPermissionsWithRolesValidateBeforeCall(trackerId, userId, roleId, null);
@@ -325,6 +404,14 @@ public class TrackerPermissionApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker is not found. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions by role. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> No access permission for this resource </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerPermissionsWithRolesAsync(Integer trackerId, Integer userId, Integer roleId, final ApiCallback<List<RoleWithPermissions>> _callback) throws ApiException {
 
@@ -340,9 +427,16 @@ public class TrackerPermissionApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker/role is not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions were removed. </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call removePermissionsCall(Integer trackerId, Integer roleId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/trackers/{trackerId}/roles/{roleId}/permissions"
@@ -352,6 +446,7 @@ public class TrackerPermissionApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             
@@ -368,7 +463,7 @@ public class TrackerPermissionApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -396,6 +491,13 @@ public class TrackerPermissionApi {
      * @param trackerId  (required)
      * @param roleId  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker/role is not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions were removed. </td><td>  -  </td></tr>
+     </table>
      */
     public void removePermissions(Integer trackerId, Integer roleId) throws ApiException {
         removePermissionsWithHttpInfo(trackerId, roleId);
@@ -408,6 +510,13 @@ public class TrackerPermissionApi {
      * @param roleId  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker/role is not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions were removed. </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Void> removePermissionsWithHttpInfo(Integer trackerId, Integer roleId) throws ApiException {
         okhttp3.Call localVarCall = removePermissionsValidateBeforeCall(trackerId, roleId, null);
@@ -422,6 +531,13 @@ public class TrackerPermissionApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker/role is not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions were removed. </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call removePermissionsAsync(Integer trackerId, Integer roleId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -437,6 +553,13 @@ public class TrackerPermissionApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions are set </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / permission / roles not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call updatePermissionCall(Integer trackerId, Integer roleId, PermissionIdsRequest permissionIdsRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = permissionIdsRequest;
@@ -449,6 +572,7 @@ public class TrackerPermissionApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -465,7 +589,7 @@ public class TrackerPermissionApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -495,6 +619,13 @@ public class TrackerPermissionApi {
      * @param permissionIdsRequest  (optional)
      * @return List&lt;RoleWithPermissions&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions are set </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / permission / roles not found </td><td>  -  </td></tr>
+     </table>
      */
     public List<RoleWithPermissions> updatePermission(Integer trackerId, Integer roleId, PermissionIdsRequest permissionIdsRequest) throws ApiException {
         ApiResponse<List<RoleWithPermissions>> localVarResp = updatePermissionWithHttpInfo(trackerId, roleId, permissionIdsRequest);
@@ -509,6 +640,13 @@ public class TrackerPermissionApi {
      * @param permissionIdsRequest  (optional)
      * @return ApiResponse&lt;List&lt;RoleWithPermissions&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions are set </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / permission / roles not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<List<RoleWithPermissions>> updatePermissionWithHttpInfo(Integer trackerId, Integer roleId, PermissionIdsRequest permissionIdsRequest) throws ApiException {
         okhttp3.Call localVarCall = updatePermissionValidateBeforeCall(trackerId, roleId, permissionIdsRequest, null);
@@ -525,6 +663,13 @@ public class TrackerPermissionApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions are set </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / permission / roles not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call updatePermissionAsync(Integer trackerId, Integer roleId, PermissionIdsRequest permissionIdsRequest, final ApiCallback<List<RoleWithPermissions>> _callback) throws ApiException {
 

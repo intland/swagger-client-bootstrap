@@ -30,13 +30,15 @@ import java.io.IOException;
  * Value container of a double field
  */
 @ApiModel(description = "Value container of a double field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class DecimalFieldValue extends AbstractFieldValue {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private Double value;
 
+
   public DecimalFieldValue value(Double value) {
+    
     this.value = value;
     return this;
   }
@@ -45,10 +47,12 @@ public class DecimalFieldValue extends AbstractFieldValue {
    * Double value
    * @return value
   **/
-  @ApiModelProperty(value = "Double value")
+  @ApiModelProperty(required = true, value = "Double value")
+
   public Double getValue() {
     return value;
   }
+
 
   public void setValue(Double value) {
     this.value = value;

@@ -28,7 +28,7 @@ import java.io.IOException;
  * A file to migrate from a remote directory.
  */
 @ApiModel(description = "A file to migrate from a remote directory.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class RemoteMigrationFile {
   public static final String SERIALIZED_NAME_SHA512SUM = "sha512sum";
   @SerializedName(SERIALIZED_NAME_SHA512SUM)
@@ -46,7 +46,9 @@ public class RemoteMigrationFile {
   @SerializedName(SERIALIZED_NAME_FILE_NAME)
   private String fileName;
 
+
   public RemoteMigrationFile sha512sum(String sha512sum) {
+    
     this.sha512sum = sha512sum;
     return this;
   }
@@ -55,16 +57,21 @@ public class RemoteMigrationFile {
    * Precomputed SHA512 checksum of the file.
    * @return sha512sum
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "2e74ed4b0741e1fbe22d61e165c7c0dc4383a1aa5aa708291e32fff4cb189b9a5dfea7ffca2a22dcca258751cf4ad947c1c34abdf3fa2994219be394fbe40370", value = "Precomputed SHA512 checksum of the file.")
+
   public String getSha512sum() {
     return sha512sum;
   }
+
 
   public void setSha512sum(String sha512sum) {
     this.sha512sum = sha512sum;
   }
 
+
   public RemoteMigrationFile md5sum(String md5sum) {
+    
     this.md5sum = md5sum;
     return this;
   }
@@ -73,16 +80,21 @@ public class RemoteMigrationFile {
    * Precomputed MD5 checksum of the file.
    * @return md5sum
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "f6967f92c24a8f3c4849d30c9f17e321", value = "Precomputed MD5 checksum of the file.")
+
   public String getMd5sum() {
     return md5sum;
   }
+
 
   public void setMd5sum(String md5sum) {
     this.md5sum = md5sum;
   }
 
+
   public RemoteMigrationFile filePath(String filePath) {
+    
     this.filePath = filePath;
     return this;
   }
@@ -91,16 +103,21 @@ public class RemoteMigrationFile {
    * The path of the file relative to the configured migration home directory.
    * @return filePath
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "folder/file.txt", value = "The path of the file relative to the configured migration home directory.")
+
   public String getFilePath() {
     return filePath;
   }
+
 
   public void setFilePath(String filePath) {
     this.filePath = filePath;
   }
 
+
   public RemoteMigrationFile fileName(String fileName) {
+    
     this.fileName = fileName;
     return this;
   }
@@ -109,10 +126,13 @@ public class RemoteMigrationFile {
    * File name of the newly created attachment.
    * @return fileName
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "newFile.txt", value = "File name of the newly created attachment.")
+
   public String getFileName() {
     return fileName;
   }
+
 
   public void setFileName(String fileName) {
     this.fileName = fileName;

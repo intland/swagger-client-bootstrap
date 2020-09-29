@@ -31,7 +31,7 @@ import java.util.List;
  * Abstract field
  */
 @ApiModel(description = "Abstract field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 
 public class AbstractField {
   public static final String SERIALIZED_NAME_ID = "id";
@@ -48,7 +48,7 @@ public class AbstractField {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  protected String type;
 
   public static final String SERIALIZED_NAME_HIDDEN = "hidden";
   @SerializedName(SERIALIZED_NAME_HIDDEN)
@@ -72,12 +72,14 @@ public class AbstractField {
 
   public static final String SERIALIZED_NAME_MANDATORY_IN_STATUSES = "mandatoryInStatuses";
   @SerializedName(SERIALIZED_NAME_MANDATORY_IN_STATUSES)
-  private List<ChoiceOptionReference> mandatoryInStatuses = new ArrayList<ChoiceOptionReference>();
+  private List<ChoiceOptionReference> mandatoryInStatuses = null;
 
   public AbstractField() {
     this.type = this.getClass().getSimpleName();
   }
+
   public AbstractField id(Integer id) {
+    
     this.id = id;
     return this;
   }
@@ -86,16 +88,21 @@ public class AbstractField {
    * Id of a field
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of a field")
+
   public Integer getId() {
     return id;
   }
+
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+
   public AbstractField name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -104,16 +111,21 @@ public class AbstractField {
    * Name of a field
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of a field")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public AbstractField description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -122,16 +134,21 @@ public class AbstractField {
    * Description of a field
    * @return description
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description of a field")
+
   public String getDescription() {
     return description;
   }
+
 
   public void setDescription(String description) {
     this.description = description;
   }
 
+
   public AbstractField type(String type) {
+    
     this.type = type;
     return this;
   }
@@ -140,16 +157,21 @@ public class AbstractField {
    * Type of a field
    * @return type
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Type of a field")
+
   public String getType() {
     return type;
   }
+
 
   public void setType(String type) {
     this.type = type;
   }
 
+
   public AbstractField hidden(Boolean hidden) {
+    
     this.hidden = hidden;
     return this;
   }
@@ -158,16 +180,21 @@ public class AbstractField {
    * Visibility status of a field
    * @return hidden
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Visibility status of a field")
+
   public Boolean getHidden() {
     return hidden;
   }
+
 
   public void setHidden(Boolean hidden) {
     this.hidden = hidden;
   }
 
+
   public AbstractField valueModel(String valueModel) {
+    
     this.valueModel = valueModel;
     return this;
   }
@@ -176,16 +203,21 @@ public class AbstractField {
    * Name of the updater/getter value model
    * @return valueModel
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the updater/getter value model")
+
   public String getValueModel() {
     return valueModel;
   }
+
 
   public void setValueModel(String valueModel) {
     this.valueModel = valueModel;
   }
 
+
   public AbstractField title(String title) {
+    
     this.title = title;
     return this;
   }
@@ -194,16 +226,21 @@ public class AbstractField {
    * Title of a field
    * @return title
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Title of a field")
+
   public String getTitle() {
     return title;
   }
+
 
   public void setTitle(String title) {
     this.title = title;
   }
 
+
   public AbstractField legacyRestName(String legacyRestName) {
+    
     this.legacyRestName = legacyRestName;
     return this;
   }
@@ -212,16 +249,21 @@ public class AbstractField {
    * Identifier matching the legacy REST API naming
    * @return legacyRestName
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Identifier matching the legacy REST API naming")
+
   public String getLegacyRestName() {
     return legacyRestName;
   }
+
 
   public void setLegacyRestName(String legacyRestName) {
     this.legacyRestName = legacyRestName;
   }
 
+
   public AbstractField trackerItemField(String trackerItemField) {
+    
     this.trackerItemField = trackerItemField;
     return this;
   }
@@ -230,16 +272,21 @@ public class AbstractField {
    * Tracker item&#39;s field name for this field
    * @return trackerItemField
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Tracker item's field name for this field")
+
   public String getTrackerItemField() {
     return trackerItemField;
   }
+
 
   public void setTrackerItemField(String trackerItemField) {
     this.trackerItemField = trackerItemField;
   }
 
+
   public AbstractField mandatoryInStatuses(List<ChoiceOptionReference> mandatoryInStatuses) {
+    
     this.mandatoryInStatuses = mandatoryInStatuses;
     return this;
   }
@@ -256,10 +303,13 @@ public class AbstractField {
    * List of statuses where the field is mandatory.
    * @return mandatoryInStatuses
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "List of statuses where the field is mandatory.")
+
   public List<ChoiceOptionReference> getMandatoryInStatuses() {
     return mandatoryInStatuses;
   }
+
 
   public void setMandatoryInStatuses(List<ChoiceOptionReference> mandatoryInStatuses) {
     this.mandatoryInStatuses = mandatoryInStatuses;

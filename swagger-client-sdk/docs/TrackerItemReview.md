@@ -2,6 +2,7 @@
 
 # TrackerItemReview
 
+A tracker item review instance including its reviewers and their decisions
 ## Properties
 
 Name | Type | Description | Notes

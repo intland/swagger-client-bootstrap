@@ -2,6 +2,7 @@
 
 # ReportGroup
 
+A report group which can contain rows or other groups based on the type.
 ## Properties
 
 Name | Type | Description | Notes

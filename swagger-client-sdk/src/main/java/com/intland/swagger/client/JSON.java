@@ -57,30 +57,30 @@ public class JSON {
                 .registerTypeSelector(AbstractField.class, new TypeSelector() {
                     @Override
                     public Class getClassForElement(JsonElement readElement) {
-                        Map classByDiscriminatorValue = new HashMap();
-                        classByDiscriminatorValue.put("ArtifactReferenceField".toUpperCase(Locale.ROOT), ArtifactReferenceField.class);
-                        classByDiscriminatorValue.put("BoolField".toUpperCase(Locale.ROOT), BoolField.class);
-                        classByDiscriminatorValue.put("ColorField".toUpperCase(Locale.ROOT), ColorField.class);
-                        classByDiscriminatorValue.put("CountryField".toUpperCase(Locale.ROOT), CountryField.class);
-                        classByDiscriminatorValue.put("DateField".toUpperCase(Locale.ROOT), DateField.class);
-                        classByDiscriminatorValue.put("DecimalField".toUpperCase(Locale.ROOT), DecimalField.class);
-                        classByDiscriminatorValue.put("DurationField".toUpperCase(Locale.ROOT), DurationField.class);
-                        classByDiscriminatorValue.put("IntegerField".toUpperCase(Locale.ROOT), IntegerField.class);
-                        classByDiscriminatorValue.put("LanguageField".toUpperCase(Locale.ROOT), LanguageField.class);
-                        classByDiscriminatorValue.put("MemberField".toUpperCase(Locale.ROOT), MemberField.class);
-                        classByDiscriminatorValue.put("OptionChoiceField".toUpperCase(Locale.ROOT), OptionChoiceField.class);
-                        classByDiscriminatorValue.put("ProjectChoiceField".toUpperCase(Locale.ROOT), ProjectChoiceField.class);
-                        classByDiscriminatorValue.put("ReferenceField".toUpperCase(Locale.ROOT), ReferenceField.class);
-                        classByDiscriminatorValue.put("RepositoryChoiceField".toUpperCase(Locale.ROOT), RepositoryChoiceField.class);
-                        classByDiscriminatorValue.put("ReviewMemberReferenceField".toUpperCase(Locale.ROOT), ReviewMemberReferenceField.class);
-                        classByDiscriminatorValue.put("TableField".toUpperCase(Locale.ROOT), TableField.class);
-                        classByDiscriminatorValue.put("TextField".toUpperCase(Locale.ROOT), TextField.class);
-                        classByDiscriminatorValue.put("TrackerChoiceField".toUpperCase(Locale.ROOT), TrackerChoiceField.class);
-                        classByDiscriminatorValue.put("TrackerItemChoiceField".toUpperCase(Locale.ROOT), TrackerItemChoiceField.class);
-                        classByDiscriminatorValue.put("UrlField".toUpperCase(Locale.ROOT), UrlField.class);
-                        classByDiscriminatorValue.put("UserChoiceField".toUpperCase(Locale.ROOT), UserChoiceField.class);
-                        classByDiscriminatorValue.put("WikiTextField".toUpperCase(Locale.ROOT), WikiTextField.class);
-                        classByDiscriminatorValue.put("AbstractField".toUpperCase(Locale.ROOT), AbstractField.class);
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ArtifactReferenceField", ArtifactReferenceField.class);
+                        classByDiscriminatorValue.put("BoolField", BoolField.class);
+                        classByDiscriminatorValue.put("ColorField", ColorField.class);
+                        classByDiscriminatorValue.put("CountryField", CountryField.class);
+                        classByDiscriminatorValue.put("DateField", DateField.class);
+                        classByDiscriminatorValue.put("DecimalField", DecimalField.class);
+                        classByDiscriminatorValue.put("DurationField", DurationField.class);
+                        classByDiscriminatorValue.put("IntegerField", IntegerField.class);
+                        classByDiscriminatorValue.put("LanguageField", LanguageField.class);
+                        classByDiscriminatorValue.put("MemberField", MemberField.class);
+                        classByDiscriminatorValue.put("OptionChoiceField", OptionChoiceField.class);
+                        classByDiscriminatorValue.put("ProjectChoiceField", ProjectChoiceField.class);
+                        classByDiscriminatorValue.put("ReferenceField", ReferenceField.class);
+                        classByDiscriminatorValue.put("RepositoryChoiceField", RepositoryChoiceField.class);
+                        classByDiscriminatorValue.put("ReviewMemberReferenceField", ReviewMemberReferenceField.class);
+                        classByDiscriminatorValue.put("TableField", TableField.class);
+                        classByDiscriminatorValue.put("TextField", TextField.class);
+                        classByDiscriminatorValue.put("TrackerChoiceField", TrackerChoiceField.class);
+                        classByDiscriminatorValue.put("TrackerItemChoiceField", TrackerItemChoiceField.class);
+                        classByDiscriminatorValue.put("UrlField", UrlField.class);
+                        classByDiscriminatorValue.put("UserChoiceField", UserChoiceField.class);
+                        classByDiscriminatorValue.put("WikiTextField", WikiTextField.class);
+                        classByDiscriminatorValue.put("AbstractField", AbstractField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
@@ -88,23 +88,23 @@ public class JSON {
                 .registerTypeSelector(AbstractFieldValue.class, new TypeSelector() {
                     @Override
                     public Class getClassForElement(JsonElement readElement) {
-                        Map classByDiscriminatorValue = new HashMap();
-                        classByDiscriminatorValue.put("BoolFieldValue".toUpperCase(Locale.ROOT), BoolFieldValue.class);
-                        classByDiscriminatorValue.put("ChoiceFieldValue".toUpperCase(Locale.ROOT), ChoiceFieldValue.class);
-                        classByDiscriminatorValue.put("ColorFieldValue".toUpperCase(Locale.ROOT), ColorFieldValue.class);
-                        classByDiscriminatorValue.put("CountryFieldValue".toUpperCase(Locale.ROOT), CountryFieldValue.class);
-                        classByDiscriminatorValue.put("DateFieldValue".toUpperCase(Locale.ROOT), DateFieldValue.class);
-                        classByDiscriminatorValue.put("DecimalFieldValue".toUpperCase(Locale.ROOT), DecimalFieldValue.class);
-                        classByDiscriminatorValue.put("DurationFieldValue".toUpperCase(Locale.ROOT), DurationFieldValue.class);
-                        classByDiscriminatorValue.put("IntegerFieldValue".toUpperCase(Locale.ROOT), IntegerFieldValue.class);
-                        classByDiscriminatorValue.put("LanguageFieldValue".toUpperCase(Locale.ROOT), LanguageFieldValue.class);
-                        classByDiscriminatorValue.put("NotSupportedFieldValue".toUpperCase(Locale.ROOT), NotSupportedFieldValue.class);
-                        classByDiscriminatorValue.put("ReferredTestStepFieldValue".toUpperCase(Locale.ROOT), ReferredTestStepFieldValue.class);
-                        classByDiscriminatorValue.put("TableFieldValue".toUpperCase(Locale.ROOT), TableFieldValue.class);
-                        classByDiscriminatorValue.put("TextFieldValue".toUpperCase(Locale.ROOT), TextFieldValue.class);
-                        classByDiscriminatorValue.put("UrlFieldValue".toUpperCase(Locale.ROOT), UrlFieldValue.class);
-                        classByDiscriminatorValue.put("WikiTextFieldValue".toUpperCase(Locale.ROOT), WikiTextFieldValue.class);
-                        classByDiscriminatorValue.put("AbstractFieldValue".toUpperCase(Locale.ROOT), AbstractFieldValue.class);
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("BoolFieldValue", BoolFieldValue.class);
+                        classByDiscriminatorValue.put("ChoiceFieldValue", ChoiceFieldValue.class);
+                        classByDiscriminatorValue.put("ColorFieldValue", ColorFieldValue.class);
+                        classByDiscriminatorValue.put("CountryFieldValue", CountryFieldValue.class);
+                        classByDiscriminatorValue.put("DateFieldValue", DateFieldValue.class);
+                        classByDiscriminatorValue.put("DecimalFieldValue", DecimalFieldValue.class);
+                        classByDiscriminatorValue.put("DurationFieldValue", DurationFieldValue.class);
+                        classByDiscriminatorValue.put("IntegerFieldValue", IntegerFieldValue.class);
+                        classByDiscriminatorValue.put("LanguageFieldValue", LanguageFieldValue.class);
+                        classByDiscriminatorValue.put("NotSupportedFieldValue", NotSupportedFieldValue.class);
+                        classByDiscriminatorValue.put("ReferredTestStepFieldValue", ReferredTestStepFieldValue.class);
+                        classByDiscriminatorValue.put("TableFieldValue", TableFieldValue.class);
+                        classByDiscriminatorValue.put("TextFieldValue", TextFieldValue.class);
+                        classByDiscriminatorValue.put("UrlFieldValue", UrlFieldValue.class);
+                        classByDiscriminatorValue.put("WikiTextFieldValue", WikiTextFieldValue.class);
+                        classByDiscriminatorValue.put("AbstractFieldValue", AbstractFieldValue.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
@@ -112,10 +112,10 @@ public class JSON {
                 .registerTypeSelector(AbstractOutline.class, new TypeSelector() {
                     @Override
                     public Class getClassForElement(JsonElement readElement) {
-                        Map classByDiscriminatorValue = new HashMap();
-                        classByDiscriminatorValue.put("OutlineItem".toUpperCase(Locale.ROOT), OutlineItem.class);
-                        classByDiscriminatorValue.put("OutlineWiki".toUpperCase(Locale.ROOT), OutlineWiki.class);
-                        classByDiscriminatorValue.put("AbstractOutline".toUpperCase(Locale.ROOT), AbstractOutline.class);
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("OutlineItem", OutlineItem.class);
+                        classByDiscriminatorValue.put("OutlineWiki", OutlineWiki.class);
+                        classByDiscriminatorValue.put("AbstractOutline", AbstractOutline.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
@@ -123,24 +123,24 @@ public class JSON {
                 .registerTypeSelector(AbstractReference.class, new TypeSelector() {
                     @Override
                     public Class getClassForElement(JsonElement readElement) {
-                        Map classByDiscriminatorValue = new HashMap();
-                        classByDiscriminatorValue.put("AssociationTypeReference".toUpperCase(Locale.ROOT), AssociationTypeReference.class);
-                        classByDiscriminatorValue.put("AttachmentReference".toUpperCase(Locale.ROOT), AttachmentReference.class);
-                        classByDiscriminatorValue.put("ChoiceOptionReference".toUpperCase(Locale.ROOT), ChoiceOptionReference.class);
-                        classByDiscriminatorValue.put("CommentReference".toUpperCase(Locale.ROOT), CommentReference.class);
-                        classByDiscriminatorValue.put("FieldReference".toUpperCase(Locale.ROOT), FieldReference.class);
-                        classByDiscriminatorValue.put("ProjectReference".toUpperCase(Locale.ROOT), ProjectReference.class);
-                        classByDiscriminatorValue.put("ReportReference".toUpperCase(Locale.ROOT), ReportReference.class);
-                        classByDiscriminatorValue.put("RepositoryReference".toUpperCase(Locale.ROOT), RepositoryReference.class);
-                        classByDiscriminatorValue.put("RoleReference".toUpperCase(Locale.ROOT), RoleReference.class);
-                        classByDiscriminatorValue.put("TrackerItemReference".toUpperCase(Locale.ROOT), TrackerItemReference.class);
-                        classByDiscriminatorValue.put("TrackerPermissionReference".toUpperCase(Locale.ROOT), TrackerPermissionReference.class);
-                        classByDiscriminatorValue.put("TrackerReference".toUpperCase(Locale.ROOT), TrackerReference.class);
-                        classByDiscriminatorValue.put("TrackerTypeReference".toUpperCase(Locale.ROOT), TrackerTypeReference.class);
-                        classByDiscriminatorValue.put("UserGroupReference".toUpperCase(Locale.ROOT), UserGroupReference.class);
-                        classByDiscriminatorValue.put("UserReference".toUpperCase(Locale.ROOT), UserReference.class);
-                        classByDiscriminatorValue.put("WikiPageReference".toUpperCase(Locale.ROOT), WikiPageReference.class);
-                        classByDiscriminatorValue.put("AbstractReference".toUpperCase(Locale.ROOT), AbstractReference.class);
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("AssociationTypeReference", AssociationTypeReference.class);
+                        classByDiscriminatorValue.put("AttachmentReference", AttachmentReference.class);
+                        classByDiscriminatorValue.put("ChoiceOptionReference", ChoiceOptionReference.class);
+                        classByDiscriminatorValue.put("CommentReference", CommentReference.class);
+                        classByDiscriminatorValue.put("FieldReference", FieldReference.class);
+                        classByDiscriminatorValue.put("ProjectReference", ProjectReference.class);
+                        classByDiscriminatorValue.put("ReportReference", ReportReference.class);
+                        classByDiscriminatorValue.put("RepositoryReference", RepositoryReference.class);
+                        classByDiscriminatorValue.put("RoleReference", RoleReference.class);
+                        classByDiscriminatorValue.put("TrackerItemReference", TrackerItemReference.class);
+                        classByDiscriminatorValue.put("TrackerPermissionReference", TrackerPermissionReference.class);
+                        classByDiscriminatorValue.put("TrackerReference", TrackerReference.class);
+                        classByDiscriminatorValue.put("TrackerTypeReference", TrackerTypeReference.class);
+                        classByDiscriminatorValue.put("UserGroupReference", UserGroupReference.class);
+                        classByDiscriminatorValue.put("UserReference", UserReference.class);
+                        classByDiscriminatorValue.put("WikiPageReference", WikiPageReference.class);
+                        classByDiscriminatorValue.put("AbstractReference", AbstractReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
@@ -148,12 +148,12 @@ public class JSON {
                 .registerTypeSelector(AbstractTrackerItemReference.class, new TypeSelector() {
                     @Override
                     public Class getClassForElement(JsonElement readElement) {
-                        Map classByDiscriminatorValue = new HashMap();
-                        classByDiscriminatorValue.put("DownstreamTrackerItemReference".toUpperCase(Locale.ROOT), DownstreamTrackerItemReference.class);
-                        classByDiscriminatorValue.put("IncomingTrackerItemAssociation".toUpperCase(Locale.ROOT), IncomingTrackerItemAssociation.class);
-                        classByDiscriminatorValue.put("OutgoingTrackerItemAssociation".toUpperCase(Locale.ROOT), OutgoingTrackerItemAssociation.class);
-                        classByDiscriminatorValue.put("UpstreamTrackerItemReference".toUpperCase(Locale.ROOT), UpstreamTrackerItemReference.class);
-                        classByDiscriminatorValue.put("AbstractTrackerItemReference".toUpperCase(Locale.ROOT), AbstractTrackerItemReference.class);
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("DownstreamTrackerItemReference", DownstreamTrackerItemReference.class);
+                        classByDiscriminatorValue.put("IncomingTrackerItemAssociation", IncomingTrackerItemAssociation.class);
+                        classByDiscriminatorValue.put("OutgoingTrackerItemAssociation", OutgoingTrackerItemAssociation.class);
+                        classByDiscriminatorValue.put("UpstreamTrackerItemReference", UpstreamTrackerItemReference.class);
+                        classByDiscriminatorValue.put("AbstractTrackerItemReference", AbstractTrackerItemReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
@@ -161,11 +161,11 @@ public class JSON {
                 .registerTypeSelector(ReportGroup.class, new TypeSelector() {
                     @Override
                     public Class getClassForElement(JsonElement readElement) {
-                        Map classByDiscriminatorValue = new HashMap();
-                        classByDiscriminatorValue.put("ReportGroupWithGroups".toUpperCase(Locale.ROOT), ReportGroupWithGroups.class);
-                        classByDiscriminatorValue.put("ReportGroupWithReferencedRows".toUpperCase(Locale.ROOT), ReportGroupWithReferencedRows.class);
-                        classByDiscriminatorValue.put("ReportGroupWithRows".toUpperCase(Locale.ROOT), ReportGroupWithRows.class);
-                        classByDiscriminatorValue.put("ReportGroup".toUpperCase(Locale.ROOT), ReportGroup.class);
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ReportGroupWithGroups", ReportGroupWithGroups.class);
+                        classByDiscriminatorValue.put("ReportGroupWithReferencedRows", ReportGroupWithReferencedRows.class);
+                        classByDiscriminatorValue.put("ReportGroupWithRows", ReportGroupWithRows.class);
+                        classByDiscriminatorValue.put("ReportGroup", ReportGroup.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
@@ -173,9 +173,9 @@ public class JSON {
                 .registerTypeSelector(TrackerItemChange.class, new TypeSelector() {
                     @Override
                     public Class getClassForElement(JsonElement readElement) {
-                        Map classByDiscriminatorValue = new HashMap();
-                        classByDiscriminatorValue.put("TrackerItemRowChange".toUpperCase(Locale.ROOT), TrackerItemRowChange.class);
-                        classByDiscriminatorValue.put("TrackerItemChange".toUpperCase(Locale.ROOT), TrackerItemChange.class);
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("TrackerItemRowChange", TrackerItemRowChange.class);
+                        classByDiscriminatorValue.put("TrackerItemChange", TrackerItemChange.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
@@ -183,9 +183,9 @@ public class JSON {
                 .registerTypeSelector(TrackerItemsRequest.class, new TypeSelector() {
                     @Override
                     public Class getClassForElement(JsonElement readElement) {
-                        Map classByDiscriminatorValue = new HashMap();
-                        classByDiscriminatorValue.put("TrackerItemAttachmentRequest".toUpperCase(Locale.ROOT), TrackerItemAttachmentRequest.class);
-                        classByDiscriminatorValue.put("TrackerItemsRequest".toUpperCase(Locale.ROOT), TrackerItemsRequest.class);
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("TrackerItemAttachmentRequest", TrackerItemAttachmentRequest.class);
+                        classByDiscriminatorValue.put("TrackerItemsRequest", TrackerItemsRequest.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
@@ -203,8 +203,15 @@ public class JSON {
         return element.getAsString();
     }
 
+    /**
+     * Returns the Java class that implements the OpenAPI schema for the specified discriminator value.
+     *
+     * @param classByDiscriminatorValue The map of discriminator values to Java classes.
+     * @param discriminatorValue The value of the OpenAPI discriminator in the input data.
+     * @return The Java class that implements the OpenAPI schema
+     */
     private static Class getClassByDiscriminator(Map classByDiscriminatorValue, String discriminatorValue) {
-        Class clazz = (Class) classByDiscriminatorValue.get(discriminatorValue.toUpperCase(Locale.ROOT));
+        Class clazz = (Class) classByDiscriminatorValue.get(discriminatorValue);
         if (null == clazz) {
             throw new IllegalArgumentException("cannot determine model class of name: <" + discriminatorValue + ">");
         }

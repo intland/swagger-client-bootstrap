@@ -94,4 +94,28 @@ public class ReportGroupWithReferencedRowsTest {
         // TODO: test aggregates
     }
 
+    /**
+     * Test the property 'groupingLevel'
+     */
+    @Test
+    public void groupingLevelTest() {
+        // TODO: test groupingLevel
+    }
+
+    /**
+     * Test the property 'starRow'
+     */
+    @Test
+    public void starRowTest() {
+        // TODO: test starRow
+    }
+
+    /**
+     * Test the property 'rows'
+     */
+    @Test
+    public void rowsTest() {
+        // TODO: test rows
+    }
+
 }

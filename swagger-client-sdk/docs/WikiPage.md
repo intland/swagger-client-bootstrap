@@ -2,6 +2,7 @@
 
 # WikiPage
 
+Properties of a wiki page
 ## Properties
 
 Name | Type | Description | Notes
@@ -15,7 +16,7 @@ Name | Type | Description | Notes
 **comments** | [**List&lt;AttachmentReference&gt;**](AttachmentReference.md) | Comments/attachments associated with the wiki page |  [optional]
 **version** | **Integer** | Version of the wiki page |  [optional]
 **changeComment** | **String** | Summary of the changes in this wiki page version |  [optional]
-**childPages** | [**List&lt;WikiPageReference&gt;**](WikiPageReference.md) | Child pages of the current Wiki page |  [optional]
+**childPages** | [**List&lt;WikiPageReference&gt;**](WikiPageReference.md) | Child pages of the current Wiki page |  [optional] [readonly]
 **createdAt** | [**DateTime**](DateTime.md) | The date when the entity was created |  [optional]
 **createdBy** | [**UserReference**](UserReference.md) |  |  [optional]
 **modifiedAt** | [**DateTime**](DateTime.md) | The date when the entity was modified |  [optional]

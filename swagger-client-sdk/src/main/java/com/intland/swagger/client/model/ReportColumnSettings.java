@@ -29,17 +29,19 @@ import java.io.IOException;
  * Settings for a column definition.
  */
 @ApiModel(description = "Settings for a column definition.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ReportColumnSettings {
   public static final String SERIALIZED_NAME_FIELD = "field";
   @SerializedName(SERIALIZED_NAME_FIELD)
-  private FieldReference field = null;
+  private FieldReference field;
 
   public static final String SERIALIZED_NAME_COLUMN_INDEX = "columnIndex";
   @SerializedName(SERIALIZED_NAME_COLUMN_INDEX)
   private Integer columnIndex;
 
+
   public ReportColumnSettings field(FieldReference field) {
+    
     this.field = field;
     return this;
   }
@@ -49,15 +51,19 @@ public class ReportColumnSettings {
    * @return field
   **/
   @ApiModelProperty(required = true, value = "")
+
   public FieldReference getField() {
     return field;
   }
+
 
   public void setField(FieldReference field) {
     this.field = field;
   }
 
+
   public ReportColumnSettings columnIndex(Integer columnIndex) {
+    
     this.columnIndex = columnIndex;
     return this;
   }
@@ -67,9 +73,11 @@ public class ReportColumnSettings {
    * @return columnIndex
   **/
   @ApiModelProperty(example = "0", required = true, value = "Index of the column in the report table.")
+
   public Integer getColumnIndex() {
     return columnIndex;
   }
+
 
   public void setColumnIndex(Integer columnIndex) {
     this.columnIndex = columnIndex;

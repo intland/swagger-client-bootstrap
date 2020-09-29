@@ -2,6 +2,7 @@
 
 # ReportPermission
 
+Access permissions for the report.
 ## Properties
 
 Name | Type | Description | Notes

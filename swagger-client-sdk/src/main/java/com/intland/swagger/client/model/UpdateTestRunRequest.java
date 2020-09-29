@@ -31,7 +31,7 @@ import java.util.List;
  * Model to contain Test Case run update request models
  */
 @ApiModel(description = "Model to contain Test Case run update request models")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class UpdateTestRunRequest {
   public static final String SERIALIZED_NAME_UPDATE_REQUEST_MODELS = "updateRequestModels";
   @SerializedName(SERIALIZED_NAME_UPDATE_REQUEST_MODELS)
@@ -41,7 +41,9 @@ public class UpdateTestRunRequest {
   @SerializedName(SERIALIZED_NAME_PARENT_RESULT_PROPAGATION)
   private Boolean parentResultPropagation = true;
 
+
   public UpdateTestRunRequest updateRequestModels(List<UpdateTestCaseRunRequest> updateRequestModels) {
+    
     this.updateRequestModels = updateRequestModels;
     return this;
   }
@@ -56,15 +58,19 @@ public class UpdateTestRunRequest {
    * @return updateRequestModels
   **/
   @ApiModelProperty(required = true, value = "List of update Test Case run request models")
+
   public List<UpdateTestCaseRunRequest> getUpdateRequestModels() {
     return updateRequestModels;
   }
+
 
   public void setUpdateRequestModels(List<UpdateTestCaseRunRequest> updateRequestModels) {
     this.updateRequestModels = updateRequestModels;
   }
 
+
   public UpdateTestRunRequest parentResultPropagation(Boolean parentResultPropagation) {
+    
     this.parentResultPropagation = parentResultPropagation;
     return this;
   }
@@ -73,10 +79,13 @@ public class UpdateTestRunRequest {
    * The propagation of the result is enabled for parent Test Run or not
    * @return parentResultPropagation
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The propagation of the result is enabled for parent Test Run or not")
+
   public Boolean getParentResultPropagation() {
     return parentResultPropagation;
   }
+
 
   public void setParentResultPropagation(Boolean parentResultPropagation) {
     this.parentResultPropagation = parentResultPropagation;

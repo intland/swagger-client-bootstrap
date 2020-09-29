@@ -2,6 +2,7 @@
 
 # ReportColumnSettings
 
+Settings for a column definition.
 ## Properties
 
 Name | Type | Description | Notes

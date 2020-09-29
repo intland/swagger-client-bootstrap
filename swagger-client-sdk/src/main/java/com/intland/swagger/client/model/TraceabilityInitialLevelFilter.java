@@ -29,7 +29,7 @@ import org.joda.time.DateTime;
  * Settings to filter items
  */
 @ApiModel(description = "Settings to filter items")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TraceabilityInitialLevelFilter {
   public static final String SERIALIZED_NAME_SHOW_ANCESTOR_ITEMS = "showAncestorItems";
   @SerializedName(SERIALIZED_NAME_SHOW_ANCESTOR_ITEMS)
@@ -51,7 +51,9 @@ public class TraceabilityInitialLevelFilter {
   @SerializedName(SERIALIZED_NAME_CB_Q_L)
   private String cbQL;
 
+
   public TraceabilityInitialLevelFilter showAncestorItems(Boolean showAncestorItems) {
+    
     this.showAncestorItems = showAncestorItems;
     return this;
   }
@@ -60,16 +62,21 @@ public class TraceabilityInitialLevelFilter {
    * Show ancestor items
    * @return showAncestorItems
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Show ancestor items")
+
   public Boolean getShowAncestorItems() {
     return showAncestorItems;
   }
+
 
   public void setShowAncestorItems(Boolean showAncestorItems) {
     this.showAncestorItems = showAncestorItems;
   }
 
+
   public TraceabilityInitialLevelFilter showDescendantItems(Boolean showDescendantItems) {
+    
     this.showDescendantItems = showDescendantItems;
     return this;
   }
@@ -78,16 +85,21 @@ public class TraceabilityInitialLevelFilter {
    * Show descendant items
    * @return showDescendantItems
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Show descendant items")
+
   public Boolean getShowDescendantItems() {
     return showDescendantItems;
   }
+
 
   public void setShowDescendantItems(Boolean showDescendantItems) {
     this.showDescendantItems = showDescendantItems;
   }
 
+
   public TraceabilityInitialLevelFilter historyDate(DateTime historyDate) {
+    
     this.historyDate = historyDate;
     return this;
   }
@@ -96,16 +108,21 @@ public class TraceabilityInitialLevelFilter {
    * Snapshot view of given date
    * @return historyDate
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Snapshot view of given date")
+
   public DateTime getHistoryDate() {
     return historyDate;
   }
+
 
   public void setHistoryDate(DateTime historyDate) {
     this.historyDate = historyDate;
   }
 
+
   public TraceabilityInitialLevelFilter historyBaselineId(Integer historyBaselineId) {
+    
     this.historyBaselineId = historyBaselineId;
     return this;
   }
@@ -114,16 +131,21 @@ public class TraceabilityInitialLevelFilter {
    * Snapshot view of given baseline
    * @return historyBaselineId
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Snapshot view of given baseline")
+
   public Integer getHistoryBaselineId() {
     return historyBaselineId;
   }
+
 
   public void setHistoryBaselineId(Integer historyBaselineId) {
     this.historyBaselineId = historyBaselineId;
   }
 
+
   public TraceabilityInitialLevelFilter cbQL(String cbQL) {
+    
     this.cbQL = cbQL;
     return this;
   }
@@ -133,9 +155,11 @@ public class TraceabilityInitialLevelFilter {
    * @return cbQL
   **/
   @ApiModelProperty(required = true, value = "cbQL")
+
   public String getCbQL() {
     return cbQL;
   }
+
 
   public void setCbQL(String cbQL) {
     this.cbQL = cbQL;

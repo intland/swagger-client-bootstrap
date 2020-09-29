@@ -31,13 +31,15 @@ import java.util.List;
  * Request model to provide permissions.
  */
 @ApiModel(description = "Request model to provide permissions.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class AccessPermissionsRequest {
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
-  private List<AccessPermission> permissions = new ArrayList<AccessPermission>();
+  private List<AccessPermission> permissions = null;
+
 
   public AccessPermissionsRequest permissions(List<AccessPermission> permissions) {
+    
     this.permissions = permissions;
     return this;
   }
@@ -54,10 +56,13 @@ public class AccessPermissionsRequest {
    * List of access permissions.
    * @return permissions
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "List of access permissions.")
+
   public List<AccessPermission> getPermissions() {
     return permissions;
   }
+
 
   public void setPermissions(List<AccessPermission> permissions) {
     this.permissions = permissions;

@@ -2,6 +2,7 @@
 
 # LockInfo
 
+Information about an artifact lock
 ## Properties
 
 Name | Type | Description | Notes

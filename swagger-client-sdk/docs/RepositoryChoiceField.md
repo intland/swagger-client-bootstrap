@@ -2,6 +2,7 @@
 
 # RepositoryChoiceField
 
+Repository type choice field
 ## Properties
 
 Name | Type | Description | Notes

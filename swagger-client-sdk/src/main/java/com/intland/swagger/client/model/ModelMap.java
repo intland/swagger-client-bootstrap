@@ -29,13 +29,15 @@ import java.util.Map;
 /**
  * ModelMap
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ModelMap extends HashMap<String, Object> {
   public static final String SERIALIZED_NAME_EMPTY = "empty";
   @SerializedName(SERIALIZED_NAME_EMPTY)
   private Boolean empty;
 
+
   public ModelMap empty(Boolean empty) {
+    
     this.empty = empty;
     return this;
   }
@@ -44,10 +46,13 @@ public class ModelMap extends HashMap<String, Object> {
    * Get empty
    * @return empty
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Boolean getEmpty() {
     return empty;
   }
+
 
   public void setEmpty(Boolean empty) {
     this.empty = empty;

@@ -61,9 +61,16 @@ public class GroupApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> User Group not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> User Group </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getGroupCall(Integer groupId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/users/groups/{groupId}"
@@ -72,6 +79,7 @@ public class GroupApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -88,7 +96,7 @@ public class GroupApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -111,6 +119,13 @@ public class GroupApi {
      * @param groupId  (required)
      * @return UserGroup
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> User Group not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> User Group </td><td>  -  </td></tr>
+     </table>
      */
     public UserGroup getGroup(Integer groupId) throws ApiException {
         ApiResponse<UserGroup> localVarResp = getGroupWithHttpInfo(groupId);
@@ -123,6 +138,13 @@ public class GroupApi {
      * @param groupId  (required)
      * @return ApiResponse&lt;UserGroup&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> User Group not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> User Group </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<UserGroup> getGroupWithHttpInfo(Integer groupId) throws ApiException {
         okhttp3.Call localVarCall = getGroupValidateBeforeCall(groupId, null);
@@ -137,6 +159,13 @@ public class GroupApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> User Group not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> User Group </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getGroupAsync(Integer groupId, final ApiCallback<UserGroup> _callback) throws ApiException {
 
@@ -150,9 +179,15 @@ public class GroupApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> User Group references </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getGroupsCall(final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/users/groups";
@@ -160,6 +195,7 @@ public class GroupApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -176,7 +212,7 @@ public class GroupApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -193,6 +229,12 @@ public class GroupApi {
      * 
      * @return List&lt;UserGroupReference&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> User Group references </td><td>  -  </td></tr>
+     </table>
      */
     public List<UserGroupReference> getGroups() throws ApiException {
         ApiResponse<List<UserGroupReference>> localVarResp = getGroupsWithHttpInfo();
@@ -204,6 +246,12 @@ public class GroupApi {
      * 
      * @return ApiResponse&lt;List&lt;UserGroupReference&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> User Group references </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<List<UserGroupReference>> getGroupsWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getGroupsValidateBeforeCall(null);
@@ -217,6 +265,12 @@ public class GroupApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> User Group references </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getGroupsAsync(final ApiCallback<List<UserGroupReference>> _callback) throws ApiException {
 

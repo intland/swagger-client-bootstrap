@@ -32,13 +32,15 @@ import java.io.IOException;
  * Change item for a tracker item field row.
  */
 @ApiModel(description = "Change item for a tracker item field row.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerItemRowChange extends TrackerItemChange {
   public static final String SERIALIZED_NAME_ROW_NUMBER = "rowNumber";
   @SerializedName(SERIALIZED_NAME_ROW_NUMBER)
   private Integer rowNumber;
 
+
   public TrackerItemRowChange rowNumber(Integer rowNumber) {
+    
     this.rowNumber = rowNumber;
     return this;
   }
@@ -47,10 +49,13 @@ public class TrackerItemRowChange extends TrackerItemChange {
    * Index of the changed row
    * @return rowNumber
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "0", value = "Index of the changed row")
+
   public Integer getRowNumber() {
     return rowNumber;
   }
+
 
   public void setRowNumber(Integer rowNumber) {
     this.rowNumber = rowNumber;

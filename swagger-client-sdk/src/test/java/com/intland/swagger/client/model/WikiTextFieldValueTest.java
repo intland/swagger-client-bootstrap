@@ -66,4 +66,12 @@ public class WikiTextFieldValueTest {
         // TODO: test name
     }
 
+    /**
+     * Test the property 'value'
+     */
+    @Test
+    public void valueTest() {
+        // TODO: test value
+    }
+
 }

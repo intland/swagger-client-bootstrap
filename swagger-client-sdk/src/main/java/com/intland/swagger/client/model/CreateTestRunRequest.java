@@ -32,29 +32,31 @@ import java.util.List;
  * Request model to create a test run from multiple test cases or sets
  */
 @ApiModel(description = "Request model to create a test run from multiple test cases or sets")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class CreateTestRunRequest {
   public static final String SERIALIZED_NAME_TEST_CASE_IDS = "testCaseIds";
   @SerializedName(SERIALIZED_NAME_TEST_CASE_IDS)
-  private List<TrackerItemReference> testCaseIds = new ArrayList<TrackerItemReference>();
+  private List<TrackerItemReference> testCaseIds = null;
 
   public static final String SERIALIZED_NAME_TEST_SET_IDS = "testSetIds";
   @SerializedName(SERIALIZED_NAME_TEST_SET_IDS)
-  private List<TrackerItemReference> testSetIds = new ArrayList<TrackerItemReference>();
+  private List<TrackerItemReference> testSetIds = null;
 
   public static final String SERIALIZED_NAME_TEST_RUN_MODEL = "testRunModel";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_MODEL)
-  private TrackerItem testRunModel = null;
+  private TrackerItem testRunModel;
 
   public static final String SERIALIZED_NAME_TEST_CASE_REFS = "testCaseRefs";
   @SerializedName(SERIALIZED_NAME_TEST_CASE_REFS)
-  private List<TrackerItemReference> testCaseRefs = new ArrayList<TrackerItemReference>();
+  private List<TrackerItemReference> testCaseRefs = null;
 
   public static final String SERIALIZED_NAME_TEST_SET_REFS = "testSetRefs";
   @SerializedName(SERIALIZED_NAME_TEST_SET_REFS)
-  private List<TrackerItemReference> testSetRefs = new ArrayList<TrackerItemReference>();
+  private List<TrackerItemReference> testSetRefs = null;
+
 
   public CreateTestRunRequest testCaseIds(List<TrackerItemReference> testCaseIds) {
+    
     this.testCaseIds = testCaseIds;
     return this;
   }
@@ -71,16 +73,21 @@ public class CreateTestRunRequest {
    * Get testCaseIds
    * @return testCaseIds
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<TrackerItemReference> getTestCaseIds() {
     return testCaseIds;
   }
+
 
   public void setTestCaseIds(List<TrackerItemReference> testCaseIds) {
     this.testCaseIds = testCaseIds;
   }
 
+
   public CreateTestRunRequest testSetIds(List<TrackerItemReference> testSetIds) {
+    
     this.testSetIds = testSetIds;
     return this;
   }
@@ -97,16 +104,21 @@ public class CreateTestRunRequest {
    * Get testSetIds
    * @return testSetIds
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<TrackerItemReference> getTestSetIds() {
     return testSetIds;
   }
+
 
   public void setTestSetIds(List<TrackerItemReference> testSetIds) {
     this.testSetIds = testSetIds;
   }
 
+
   public CreateTestRunRequest testRunModel(TrackerItem testRunModel) {
+    
     this.testRunModel = testRunModel;
     return this;
   }
@@ -115,16 +127,21 @@ public class CreateTestRunRequest {
    * Get testRunModel
    * @return testRunModel
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public TrackerItem getTestRunModel() {
     return testRunModel;
   }
+
 
   public void setTestRunModel(TrackerItem testRunModel) {
     this.testRunModel = testRunModel;
   }
 
+
   public CreateTestRunRequest testCaseRefs(List<TrackerItemReference> testCaseRefs) {
+    
     this.testCaseRefs = testCaseRefs;
     return this;
   }
@@ -141,16 +158,21 @@ public class CreateTestRunRequest {
    * Test case ids to include into the test run
    * @return testCaseRefs
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Test case ids to include into the test run")
+
   public List<TrackerItemReference> getTestCaseRefs() {
     return testCaseRefs;
   }
+
 
   public void setTestCaseRefs(List<TrackerItemReference> testCaseRefs) {
     this.testCaseRefs = testCaseRefs;
   }
 
+
   public CreateTestRunRequest testSetRefs(List<TrackerItemReference> testSetRefs) {
+    
     this.testSetRefs = testSetRefs;
     return this;
   }
@@ -167,10 +189,13 @@ public class CreateTestRunRequest {
    * Test set ids to include into the test run
    * @return testSetRefs
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Test set ids to include into the test run")
+
   public List<TrackerItemReference> getTestSetRefs() {
     return testSetRefs;
   }
+
 
   public void setTestSetRefs(List<TrackerItemReference> testSetRefs) {
     this.testSetRefs = testSetRefs;

@@ -2,6 +2,7 @@
 
 # TraceabilityInitialLevelFilter
 
+Settings to filter items
 ## Properties
 
 Name | Type | Description | Notes

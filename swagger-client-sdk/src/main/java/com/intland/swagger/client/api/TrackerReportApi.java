@@ -64,6 +64,13 @@ public class TrackerReportApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report settings </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call createTrackerReportCall(Integer trackerId, TrackerReportSettings trackerReportSettings, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = trackerReportSettings;
@@ -75,6 +82,7 @@ public class TrackerReportApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -91,7 +99,7 @@ public class TrackerReportApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -115,6 +123,13 @@ public class TrackerReportApi {
      * @param trackerReportSettings  (optional)
      * @return TrackerReportSettings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report settings </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public TrackerReportSettings createTrackerReport(Integer trackerId, TrackerReportSettings trackerReportSettings) throws ApiException {
         ApiResponse<TrackerReportSettings> localVarResp = createTrackerReportWithHttpInfo(trackerId, trackerReportSettings);
@@ -128,6 +143,13 @@ public class TrackerReportApi {
      * @param trackerReportSettings  (optional)
      * @return ApiResponse&lt;TrackerReportSettings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report settings </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<TrackerReportSettings> createTrackerReportWithHttpInfo(Integer trackerId, TrackerReportSettings trackerReportSettings) throws ApiException {
         okhttp3.Call localVarCall = createTrackerReportValidateBeforeCall(trackerId, trackerReportSettings, null);
@@ -143,6 +165,13 @@ public class TrackerReportApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report settings </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call createTrackerReportAsync(Integer trackerId, TrackerReportSettings trackerReportSettings, final ApiCallback<TrackerReportSettings> _callback) throws ApiException {
 
@@ -158,9 +187,16 @@ public class TrackerReportApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report deleted. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call deleteTrackerReportCall(Integer trackerId, Integer reportId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/trackers/{trackerId}/reports/{reportId}"
@@ -170,6 +206,7 @@ public class TrackerReportApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             
@@ -186,7 +223,7 @@ public class TrackerReportApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -214,6 +251,13 @@ public class TrackerReportApi {
      * @param trackerId  (required)
      * @param reportId  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report deleted. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
+     </table>
      */
     public void deleteTrackerReport(Integer trackerId, Integer reportId) throws ApiException {
         deleteTrackerReportWithHttpInfo(trackerId, reportId);
@@ -226,6 +270,13 @@ public class TrackerReportApi {
      * @param reportId  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report deleted. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Void> deleteTrackerReportWithHttpInfo(Integer trackerId, Integer reportId) throws ApiException {
         okhttp3.Call localVarCall = deleteTrackerReportValidateBeforeCall(trackerId, reportId, null);
@@ -240,6 +291,13 @@ public class TrackerReportApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report deleted. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call deleteTrackerReportAsync(Integer trackerId, Integer reportId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -256,9 +314,16 @@ public class TrackerReportApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerReportCall(Integer trackerId, Integer reportId, Integer page, Integer pageSize, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/trackers/{trackerId}/reports/{reportId}/results"
@@ -276,6 +341,7 @@ public class TrackerReportApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -292,7 +358,7 @@ public class TrackerReportApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -323,6 +389,13 @@ public class TrackerReportApi {
      * @param pageSize Number of items a report page. Max value: 500 (optional, default to 25)
      * @return ReportResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
+     </table>
      */
     public ReportResult getTrackerReport(Integer trackerId, Integer reportId, Integer page, Integer pageSize) throws ApiException {
         ApiResponse<ReportResult> localVarResp = getTrackerReportWithHttpInfo(trackerId, reportId, page, pageSize);
@@ -338,6 +411,13 @@ public class TrackerReportApi {
      * @param pageSize Number of items a report page. Max value: 500 (optional, default to 25)
      * @return ApiResponse&lt;ReportResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ReportResult> getTrackerReportWithHttpInfo(Integer trackerId, Integer reportId, Integer page, Integer pageSize) throws ApiException {
         okhttp3.Call localVarCall = getTrackerReportValidateBeforeCall(trackerId, reportId, page, pageSize, null);
@@ -355,6 +435,13 @@ public class TrackerReportApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerReportAsync(Integer trackerId, Integer reportId, Integer page, Integer pageSize, final ApiCallback<ReportResult> _callback) throws ApiException {
 
@@ -372,9 +459,16 @@ public class TrackerReportApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report items </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerReportItemsCall(Integer trackerId, Integer reportId, Integer page, Integer pageSize, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/trackers/{trackerId}/reports/{reportId}/items"
@@ -392,6 +486,7 @@ public class TrackerReportApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -408,7 +503,7 @@ public class TrackerReportApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -439,6 +534,13 @@ public class TrackerReportApi {
      * @param pageSize Number of items a report page. Max value: 500 (optional, default to 20)
      * @return ReportItemResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report items </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
+     </table>
      */
     public ReportItemResult getTrackerReportItems(Integer trackerId, Integer reportId, Integer page, Integer pageSize) throws ApiException {
         ApiResponse<ReportItemResult> localVarResp = getTrackerReportItemsWithHttpInfo(trackerId, reportId, page, pageSize);
@@ -454,6 +556,13 @@ public class TrackerReportApi {
      * @param pageSize Number of items a report page. Max value: 500 (optional, default to 20)
      * @return ApiResponse&lt;ReportItemResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report items </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ReportItemResult> getTrackerReportItemsWithHttpInfo(Integer trackerId, Integer reportId, Integer page, Integer pageSize) throws ApiException {
         okhttp3.Call localVarCall = getTrackerReportItemsValidateBeforeCall(trackerId, reportId, page, pageSize, null);
@@ -471,6 +580,13 @@ public class TrackerReportApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report items </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerReportItemsAsync(Integer trackerId, Integer reportId, Integer page, Integer pageSize, final ApiCallback<ReportItemResult> _callback) throws ApiException {
 
@@ -485,9 +601,17 @@ public class TrackerReportApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report reference list </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerReportsCall(Integer trackerId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/trackers/{trackerId}/reports"
@@ -496,6 +620,7 @@ public class TrackerReportApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -512,7 +637,7 @@ public class TrackerReportApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -535,6 +660,14 @@ public class TrackerReportApi {
      * @param trackerId  (required)
      * @return List&lt;ReportReference&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report reference list </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+     </table>
      */
     public List<ReportReference> getTrackerReports(Integer trackerId) throws ApiException {
         ApiResponse<List<ReportReference>> localVarResp = getTrackerReportsWithHttpInfo(trackerId);
@@ -547,6 +680,14 @@ public class TrackerReportApi {
      * @param trackerId  (required)
      * @return ApiResponse&lt;List&lt;ReportReference&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report reference list </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<List<ReportReference>> getTrackerReportsWithHttpInfo(Integer trackerId) throws ApiException {
         okhttp3.Call localVarCall = getTrackerReportsValidateBeforeCall(trackerId, null);
@@ -561,6 +702,14 @@ public class TrackerReportApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report reference list </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getTrackerReportsAsync(Integer trackerId, final ApiCallback<List<ReportReference>> _callback) throws ApiException {
 
@@ -577,6 +726,13 @@ public class TrackerReportApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report settings </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call updateTrackerReportCall(Integer trackerId, Integer reportId, TrackerReportSettings trackerReportSettings, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = trackerReportSettings;
@@ -589,6 +745,7 @@ public class TrackerReportApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -605,7 +762,7 @@ public class TrackerReportApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -635,6 +792,13 @@ public class TrackerReportApi {
      * @param trackerReportSettings  (optional)
      * @return TrackerReportSettings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report settings </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
+     </table>
      */
     public TrackerReportSettings updateTrackerReport(Integer trackerId, Integer reportId, TrackerReportSettings trackerReportSettings) throws ApiException {
         ApiResponse<TrackerReportSettings> localVarResp = updateTrackerReportWithHttpInfo(trackerId, reportId, trackerReportSettings);
@@ -649,6 +813,13 @@ public class TrackerReportApi {
      * @param trackerReportSettings  (optional)
      * @return ApiResponse&lt;TrackerReportSettings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report settings </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<TrackerReportSettings> updateTrackerReportWithHttpInfo(Integer trackerId, Integer reportId, TrackerReportSettings trackerReportSettings) throws ApiException {
         okhttp3.Call localVarCall = updateTrackerReportValidateBeforeCall(trackerId, reportId, trackerReportSettings, null);
@@ -665,6 +836,13 @@ public class TrackerReportApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Tracker report settings </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call updateTrackerReportAsync(Integer trackerId, Integer reportId, TrackerReportSettings trackerReportSettings, final ApiCallback<TrackerReportSettings> _callback) throws ApiException {
 

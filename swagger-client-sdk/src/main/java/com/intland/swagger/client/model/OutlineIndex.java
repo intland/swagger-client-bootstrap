@@ -28,7 +28,7 @@ import java.io.IOException;
  * Represents the index of an item on a specific outline level.
  */
 @ApiModel(description = "Represents the index of an item on a specific outline level.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class OutlineIndex {
   public static final String SERIALIZED_NAME_LEVEL = "level";
   @SerializedName(SERIALIZED_NAME_LEVEL)
@@ -38,7 +38,9 @@ public class OutlineIndex {
   @SerializedName(SERIALIZED_NAME_INDEX)
   private Integer index;
 
+
   public OutlineIndex level(Integer level) {
+    
     this.level = level;
     return this;
   }
@@ -47,16 +49,21 @@ public class OutlineIndex {
    * Outline level
    * @return level
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "0", value = "Outline level")
+
   public Integer getLevel() {
     return level;
   }
+
 
   public void setLevel(Integer level) {
     this.level = level;
   }
 
+
   public OutlineIndex index(Integer index) {
+    
     this.index = index;
     return this;
   }
@@ -65,10 +72,13 @@ public class OutlineIndex {
    * Outline index
    * @return index
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Outline index")
+
   public Integer getIndex() {
     return index;
   }
+
 
   public void setIndex(Integer index) {
     this.index = index;

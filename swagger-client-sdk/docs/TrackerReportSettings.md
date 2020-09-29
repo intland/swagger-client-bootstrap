@@ -2,6 +2,7 @@
 
 # TrackerReportSettings
 
+Settings of a report on a tracker.
 ## Properties
 
 Name | Type | Description | Notes

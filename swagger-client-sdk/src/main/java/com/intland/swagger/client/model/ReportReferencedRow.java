@@ -35,15 +35,15 @@ import java.util.List;
  * Result row having references.
  */
 @ApiModel(description = "Result row having references.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ReportReferencedRow {
   public static final String SERIALIZED_NAME_ITEM_REF = "itemRef";
   @SerializedName(SERIALIZED_NAME_ITEM_REF)
-  private ReportItemReference itemRef = null;
+  private ReportItemReference itemRef;
 
   public static final String SERIALIZED_NAME_CELLS = "cells";
   @SerializedName(SERIALIZED_NAME_CELLS)
-  private List<ReportCell> cells = new ArrayList<ReportCell>();
+  private List<ReportCell> cells = null;
 
   public static final String SERIALIZED_NAME_OUTLINE_LEVEL = "outlineLevel";
   @SerializedName(SERIALIZED_NAME_OUTLINE_LEVEL)
@@ -55,9 +55,11 @@ public class ReportReferencedRow {
 
   public static final String SERIALIZED_NAME_REFERENCES = "references";
   @SerializedName(SERIALIZED_NAME_REFERENCES)
-  private ReportReferenceLevel references = null;
+  private ReportReferenceLevel references;
+
 
   public ReportReferencedRow itemRef(ReportItemReference itemRef) {
+    
     this.itemRef = itemRef;
     return this;
   }
@@ -66,16 +68,21 @@ public class ReportReferencedRow {
    * Get itemRef
    * @return itemRef
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public ReportItemReference getItemRef() {
     return itemRef;
   }
+
 
   public void setItemRef(ReportItemReference itemRef) {
     this.itemRef = itemRef;
   }
 
+
   public ReportReferencedRow cells(List<ReportCell> cells) {
+    
     this.cells = cells;
     return this;
   }
@@ -92,16 +99,21 @@ public class ReportReferencedRow {
    * Cells in a row.
    * @return cells
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Cells in a row.")
+
   public List<ReportCell> getCells() {
     return cells;
   }
+
 
   public void setCells(List<ReportCell> cells) {
     this.cells = cells;
   }
 
+
   public ReportReferencedRow outlineLevel(Integer outlineLevel) {
+    
     this.outlineLevel = outlineLevel;
     return this;
   }
@@ -110,16 +122,21 @@ public class ReportReferencedRow {
    * Item&#39;s level in the tracker outline.
    * @return outlineLevel
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Item's level in the tracker outline.")
+
   public Integer getOutlineLevel() {
     return outlineLevel;
   }
+
 
   public void setOutlineLevel(Integer outlineLevel) {
     this.outlineLevel = outlineLevel;
   }
 
+
   public ReportReferencedRow isRealResult(Boolean isRealResult) {
+    
     this.isRealResult = isRealResult;
     return this;
   }
@@ -128,16 +145,21 @@ public class ReportReferencedRow {
    * Indicator if the item is a real query result (e.g. not an ancestor item).
    * @return isRealResult
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicator if the item is a real query result (e.g. not an ancestor item).")
+
   public Boolean getIsRealResult() {
     return isRealResult;
   }
+
 
   public void setIsRealResult(Boolean isRealResult) {
     this.isRealResult = isRealResult;
   }
 
+
   public ReportReferencedRow references(ReportReferenceLevel references) {
+    
     this.references = references;
     return this;
   }
@@ -146,10 +168,13 @@ public class ReportReferencedRow {
    * Get references
    * @return references
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public ReportReferenceLevel getReferences() {
     return references;
   }
+
 
   public void setReferences(ReportReferenceLevel references) {
     this.references = references;

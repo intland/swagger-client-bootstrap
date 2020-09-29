@@ -67,9 +67,17 @@ public class AttachmentApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Attachment deleted </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call deleteAttachmentCall(Integer attachmentId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/attachments/{attachmentId}"
@@ -78,6 +86,7 @@ public class AttachmentApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "*/*"
@@ -94,7 +103,7 @@ public class AttachmentApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -116,6 +125,14 @@ public class AttachmentApi {
      * 
      * @param attachmentId  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Attachment deleted </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public void deleteAttachment(Integer attachmentId) throws ApiException {
         deleteAttachmentWithHttpInfo(attachmentId);
@@ -127,6 +144,14 @@ public class AttachmentApi {
      * @param attachmentId  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Attachment deleted </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Void> deleteAttachmentWithHttpInfo(Integer attachmentId) throws ApiException {
         okhttp3.Call localVarCall = deleteAttachmentValidateBeforeCall(attachmentId, null);
@@ -140,6 +165,14 @@ public class AttachmentApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Attachment deleted </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call deleteAttachmentAsync(Integer attachmentId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -154,9 +187,17 @@ public class AttachmentApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Attachment by id </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getAttachmentCall(Integer attachmentId, Integer version, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/attachments/{attachmentId}"
@@ -169,6 +210,7 @@ public class AttachmentApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -185,7 +227,7 @@ public class AttachmentApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -209,6 +251,14 @@ public class AttachmentApi {
      * @param version  (optional)
      * @return Attachment
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Attachment by id </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public Attachment getAttachment(Integer attachmentId, Integer version) throws ApiException {
         ApiResponse<Attachment> localVarResp = getAttachmentWithHttpInfo(attachmentId, version);
@@ -222,6 +272,14 @@ public class AttachmentApi {
      * @param version  (optional)
      * @return ApiResponse&lt;Attachment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Attachment by id </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Attachment> getAttachmentWithHttpInfo(Integer attachmentId, Integer version) throws ApiException {
         okhttp3.Call localVarCall = getAttachmentValidateBeforeCall(attachmentId, version, null);
@@ -237,6 +295,14 @@ public class AttachmentApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Attachment by id </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getAttachmentAsync(Integer attachmentId, Integer version, final ApiCallback<Attachment> _callback) throws ApiException {
 
@@ -252,9 +318,17 @@ public class AttachmentApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Attachment by id </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getAttachmentContentCall(Integer attachmentId, Integer version, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/attachments/{attachmentId}/content"
@@ -267,6 +341,7 @@ public class AttachmentApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/octet-stream", "application/json"
@@ -283,7 +358,7 @@ public class AttachmentApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -307,6 +382,14 @@ public class AttachmentApi {
      * @param version  (optional)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Attachment by id </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public File getAttachmentContent(Integer attachmentId, Integer version) throws ApiException {
         ApiResponse<File> localVarResp = getAttachmentContentWithHttpInfo(attachmentId, version);
@@ -320,6 +403,14 @@ public class AttachmentApi {
      * @param version  (optional)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Attachment by id </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<File> getAttachmentContentWithHttpInfo(Integer attachmentId, Integer version) throws ApiException {
         okhttp3.Call localVarCall = getAttachmentContentValidateBeforeCall(attachmentId, version, null);
@@ -335,6 +426,14 @@ public class AttachmentApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Attachment by id </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker / Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getAttachmentContentAsync(Integer attachmentId, Integer version, final ApiCallback<File> _callback) throws ApiException {
 
@@ -351,9 +450,18 @@ public class AttachmentApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Attachment history </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getAttachmentHistoryCall(Integer attachmentId, Integer page, Integer pageSize, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/attachments/{attachmentId}/history"
@@ -370,6 +478,7 @@ public class AttachmentApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -386,7 +495,7 @@ public class AttachmentApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -411,6 +520,15 @@ public class AttachmentApi {
      * @param pageSize Number of items in a result page. Max value: 500 (optional, default to 25)
      * @return ArtifactRevisionSearchResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Attachment history </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
      */
     public ArtifactRevisionSearchResult getAttachmentHistory(Integer attachmentId, Integer page, Integer pageSize) throws ApiException {
         ApiResponse<ArtifactRevisionSearchResult> localVarResp = getAttachmentHistoryWithHttpInfo(attachmentId, page, pageSize);
@@ -425,6 +543,15 @@ public class AttachmentApi {
      * @param pageSize Number of items in a result page. Max value: 500 (optional, default to 25)
      * @return ApiResponse&lt;ArtifactRevisionSearchResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Attachment history </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<ArtifactRevisionSearchResult> getAttachmentHistoryWithHttpInfo(Integer attachmentId, Integer page, Integer pageSize) throws ApiException {
         okhttp3.Call localVarCall = getAttachmentHistoryValidateBeforeCall(attachmentId, page, pageSize, null);
@@ -441,6 +568,15 @@ public class AttachmentApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Attachment history </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call getAttachmentHistoryAsync(Integer attachmentId, Integer page, Integer pageSize, final ApiCallback<ArtifactRevisionSearchResult> _callback) throws ApiException {
 
@@ -456,9 +592,18 @@ public class AttachmentApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Restored attachment </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call restoreAttachmentCall(Integer attachmentId, Integer version, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/attachments/{attachmentId}/restore"
@@ -471,6 +616,7 @@ public class AttachmentApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -487,7 +633,7 @@ public class AttachmentApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -516,6 +662,15 @@ public class AttachmentApi {
      * @param version  (required)
      * @return Attachment
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Restored attachment </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public Attachment restoreAttachment(Integer attachmentId, Integer version) throws ApiException {
         ApiResponse<Attachment> localVarResp = restoreAttachmentWithHttpInfo(attachmentId, version);
@@ -529,6 +684,15 @@ public class AttachmentApi {
      * @param version  (required)
      * @return ApiResponse&lt;Attachment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Restored attachment </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Attachment> restoreAttachmentWithHttpInfo(Integer attachmentId, Integer version) throws ApiException {
         okhttp3.Call localVarCall = restoreAttachmentValidateBeforeCall(attachmentId, version, null);
@@ -544,6 +708,15 @@ public class AttachmentApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Restored attachment </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call restoreAttachmentAsync(Integer attachmentId, Integer version, final ApiCallback<Attachment> _callback) throws ApiException {
 
@@ -561,9 +734,18 @@ public class AttachmentApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated attachment </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call updateAttachmentCall(Integer attachmentId, String description, String descriptionFormat, File content, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v3/attachments/{attachmentId}/content"
@@ -572,6 +754,7 @@ public class AttachmentApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (description != null) {
             localVarFormParams.put("description", description);
@@ -600,7 +783,7 @@ public class AttachmentApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth", "BasicAuth", "BearerAuth" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -626,6 +809,15 @@ public class AttachmentApi {
      * @param content Content of attachment (optional)
      * @return Attachment
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated attachment </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public Attachment updateAttachment(Integer attachmentId, String description, String descriptionFormat, File content) throws ApiException {
         ApiResponse<Attachment> localVarResp = updateAttachmentWithHttpInfo(attachmentId, description, descriptionFormat, content);
@@ -641,6 +833,15 @@ public class AttachmentApi {
      * @param content Content of attachment (optional)
      * @return ApiResponse&lt;Attachment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated attachment </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public ApiResponse<Attachment> updateAttachmentWithHttpInfo(Integer attachmentId, String description, String descriptionFormat, File content) throws ApiException {
         okhttp3.Call localVarCall = updateAttachmentValidateBeforeCall(attachmentId, description, descriptionFormat, content, null);
@@ -658,6 +859,15 @@ public class AttachmentApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated attachment </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Attachment not found </td><td>  -  </td></tr>
+     </table>
      */
     public okhttp3.Call updateAttachmentAsync(Integer attachmentId, String description, String descriptionFormat, File content, final ApiCallback<Attachment> _callback) throws ApiException {
 

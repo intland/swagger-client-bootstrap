@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * TrackerType
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerType {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -73,7 +73,9 @@ public class TrackerType {
   @SerializedName(SERIALIZED_NAME_URL_LINK_FORMAT)
   private String urlLinkFormat;
 
+
   public TrackerType id(Integer id) {
+    
     this.id = id;
     return this;
   }
@@ -83,16 +85,21 @@ public class TrackerType {
    * minimum: 0
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the entity")
+
   public Integer getId() {
     return id;
   }
+
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+
   public TrackerType name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -101,16 +108,21 @@ public class TrackerType {
    * Name of the entity
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the entity")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public TrackerType varName(String varName) {
+    
     this.varName = varName;
     return this;
   }
@@ -119,16 +131,21 @@ public class TrackerType {
    * Internal/variable name of a tracker type
    * @return varName
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Internal/variable name of a tracker type")
+
   public String getVarName() {
     return varName;
   }
+
 
   public void setVarName(String varName) {
     this.varName = varName;
   }
 
+
   public TrackerType trackerIconUrl(String trackerIconUrl) {
+    
     this.trackerIconUrl = trackerIconUrl;
     return this;
   }
@@ -137,16 +154,21 @@ public class TrackerType {
    * Tracker icon URL of a tracker type
    * @return trackerIconUrl
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Tracker icon URL of a tracker type")
+
   public String getTrackerIconUrl() {
     return trackerIconUrl;
   }
+
 
   public void setTrackerIconUrl(String trackerIconUrl) {
     this.trackerIconUrl = trackerIconUrl;
   }
 
+
   public TrackerType itemIconUrl(String itemIconUrl) {
+    
     this.itemIconUrl = itemIconUrl;
     return this;
   }
@@ -155,16 +177,21 @@ public class TrackerType {
    * Item icon URL of a tracker type
    * @return itemIconUrl
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Item icon URL of a tracker type")
+
   public String getItemIconUrl() {
     return itemIconUrl;
   }
+
 
   public void setItemIconUrl(String itemIconUrl) {
     this.itemIconUrl = itemIconUrl;
   }
 
+
   public TrackerType color(String color) {
+    
     this.color = color;
     return this;
   }
@@ -173,16 +200,21 @@ public class TrackerType {
    * Color of a tracker type
    * @return color
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Color of a tracker type")
+
   public String getColor() {
     return color;
   }
+
 
   public void setColor(String color) {
     this.color = color;
   }
 
+
   public TrackerType outline(Boolean outline) {
+    
     this.outline = outline;
     return this;
   }
@@ -191,16 +223,21 @@ public class TrackerType {
    * True if outline is enabled
    * @return outline
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "True if outline is enabled")
+
   public Boolean getOutline() {
     return outline;
   }
+
 
   public void setOutline(Boolean outline) {
     this.outline = outline;
   }
 
+
   public TrackerType branchable(Boolean branchable) {
+    
     this.branchable = branchable;
     return this;
   }
@@ -209,16 +246,21 @@ public class TrackerType {
    * True if tracker type is branchable
    * @return branchable
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "True if tracker type is branchable")
+
   public Boolean getBranchable() {
     return branchable;
   }
+
 
   public void setBranchable(Boolean branchable) {
     this.branchable = branchable;
   }
 
+
   public TrackerType docEditView(Boolean docEditView) {
+    
     this.docEditView = docEditView;
     return this;
   }
@@ -227,16 +269,21 @@ public class TrackerType {
    * True if tracker type has document view
    * @return docEditView
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "True if tracker type has document view")
+
   public Boolean getDocEditView() {
     return docEditView;
   }
+
 
   public void setDocEditView(Boolean docEditView) {
     this.docEditView = docEditView;
   }
 
+
   public TrackerType editorUrl(String editorUrl) {
+    
     this.editorUrl = editorUrl;
     return this;
   }
@@ -245,16 +292,21 @@ public class TrackerType {
    * Editor URL of a tracker type
    * @return editorUrl
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Editor URL of a tracker type")
+
   public String getEditorUrl() {
     return editorUrl;
   }
+
 
   public void setEditorUrl(String editorUrl) {
     this.editorUrl = editorUrl;
   }
 
+
   public TrackerType urlLinkFormat(String urlLinkFormat) {
+    
     this.urlLinkFormat = urlLinkFormat;
     return this;
   }
@@ -263,10 +315,13 @@ public class TrackerType {
    * URL link format of a tracker type
    * @return urlLinkFormat
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "URL link format of a tracker type")
+
   public String getUrlLinkFormat() {
     return urlLinkFormat;
   }
+
 
   public void setUrlLinkFormat(String urlLinkFormat) {
     this.urlLinkFormat = urlLinkFormat;

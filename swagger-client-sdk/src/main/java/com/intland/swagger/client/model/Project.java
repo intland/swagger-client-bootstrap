@@ -30,7 +30,7 @@ import org.joda.time.DateTime;
  * Basic properties of a codeBeamer project
  */
 @ApiModel(description = "Basic properties of a codeBeamer project")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class Project {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -87,7 +87,7 @@ public class Project {
 
       @Override
       public DescriptionFormatEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return DescriptionFormatEnum.fromValue(value);
       }
     }
@@ -127,7 +127,7 @@ public class Project {
 
   public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
   @SerializedName(SERIALIZED_NAME_CREATED_BY)
-  private UserReference createdBy = null;
+  private UserReference createdBy;
 
   public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
   @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
@@ -135,9 +135,11 @@ public class Project {
 
   public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
-  private UserReference modifiedBy = null;
+  private UserReference modifiedBy;
+
 
   public Project id(Integer id) {
+    
     this.id = id;
     return this;
   }
@@ -147,16 +149,21 @@ public class Project {
    * minimum: 0
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the entity")
+
   public Integer getId() {
     return id;
   }
+
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+
   public Project name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -165,16 +172,21 @@ public class Project {
    * Name of the entity
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the entity")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public Project description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -183,16 +195,21 @@ public class Project {
    * Description of the entity
    * @return description
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description of the entity")
+
   public String getDescription() {
     return description;
   }
+
 
   public void setDescription(String description) {
     this.description = description;
   }
 
+
   public Project descriptionFormat(DescriptionFormatEnum descriptionFormat) {
+    
     this.descriptionFormat = descriptionFormat;
     return this;
   }
@@ -201,16 +218,21 @@ public class Project {
    * Description format of the entity
    * @return descriptionFormat
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description format of the entity")
+
   public DescriptionFormatEnum getDescriptionFormat() {
     return descriptionFormat;
   }
+
 
   public void setDescriptionFormat(DescriptionFormatEnum descriptionFormat) {
     this.descriptionFormat = descriptionFormat;
   }
 
+
   public Project version(Integer version) {
+    
     this.version = version;
     return this;
   }
@@ -219,16 +241,21 @@ public class Project {
    * Version of a project
    * @return version
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Version of a project")
+
   public Integer getVersion() {
     return version;
   }
+
 
   public void setVersion(Integer version) {
     this.version = version;
   }
 
+
   public Project keyName(String keyName) {
+    
     this.keyName = keyName;
     return this;
   }
@@ -237,16 +264,21 @@ public class Project {
    * Key name of a project
    * @return keyName
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Key name of a project")
+
   public String getKeyName() {
     return keyName;
   }
+
 
   public void setKeyName(String keyName) {
     this.keyName = keyName;
   }
 
+
   public Project category(String category) {
+    
     this.category = category;
     return this;
   }
@@ -255,16 +287,21 @@ public class Project {
    * Category of a project
    * @return category
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Category of a project")
+
   public String getCategory() {
     return category;
   }
+
 
   public void setCategory(String category) {
     this.category = category;
   }
 
+
   public Project closed(Boolean closed) {
+    
     this.closed = closed;
     return this;
   }
@@ -273,16 +310,21 @@ public class Project {
    * Closed status of a project
    * @return closed
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Closed status of a project")
+
   public Boolean getClosed() {
     return closed;
   }
+
 
   public void setClosed(Boolean closed) {
     this.closed = closed;
   }
 
+
   public Project deleted(Boolean deleted) {
+    
     this.deleted = deleted;
     return this;
   }
@@ -291,16 +333,21 @@ public class Project {
    * Delete status of a project
    * @return deleted
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Delete status of a project")
+
   public Boolean getDeleted() {
     return deleted;
   }
+
 
   public void setDeleted(Boolean deleted) {
     this.deleted = deleted;
   }
 
+
   public Project template(Boolean template) {
+    
     this.template = template;
     return this;
   }
@@ -309,16 +356,21 @@ public class Project {
    * Template status of a project
    * @return template
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Template status of a project")
+
   public Boolean getTemplate() {
     return template;
   }
+
 
   public void setTemplate(Boolean template) {
     this.template = template;
   }
 
+
   public Project createdAt(DateTime createdAt) {
+    
     this.createdAt = createdAt;
     return this;
   }
@@ -327,16 +379,21 @@ public class Project {
    * The date when the entity was created
    * @return createdAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was created")
+
   public DateTime getCreatedAt() {
     return createdAt;
   }
+
 
   public void setCreatedAt(DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
+
   public Project createdBy(UserReference createdBy) {
+    
     this.createdBy = createdBy;
     return this;
   }
@@ -345,16 +402,21 @@ public class Project {
    * Get createdBy
    * @return createdBy
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getCreatedBy() {
     return createdBy;
   }
+
 
   public void setCreatedBy(UserReference createdBy) {
     this.createdBy = createdBy;
   }
 
+
   public Project modifiedAt(DateTime modifiedAt) {
+    
     this.modifiedAt = modifiedAt;
     return this;
   }
@@ -363,16 +425,21 @@ public class Project {
    * The date when the entity was modified
    * @return modifiedAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
+
   public DateTime getModifiedAt() {
     return modifiedAt;
   }
+
 
   public void setModifiedAt(DateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 
+
   public Project modifiedBy(UserReference modifiedBy) {
+    
     this.modifiedBy = modifiedBy;
     return this;
   }
@@ -381,10 +448,13 @@ public class Project {
    * Get modifiedBy
    * @return modifiedBy
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getModifiedBy() {
     return modifiedBy;
   }
+
 
   public void setModifiedBy(UserReference modifiedBy) {
     this.modifiedBy = modifiedBy;

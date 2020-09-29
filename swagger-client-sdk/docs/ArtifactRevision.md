@@ -2,6 +2,7 @@
 
 # ArtifactRevision
 
+Model for a specific version of an artifact
 ## Properties
 
 Name | Type | Description | Notes

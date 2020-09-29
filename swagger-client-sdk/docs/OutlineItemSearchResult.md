@@ -2,6 +2,7 @@
 
 # OutlineItemSearchResult
 
+Paginated search result of outline items
 ## Properties
 
 Name | Type | Description | Notes

@@ -30,13 +30,15 @@ import java.io.IOException;
  * Value container of a duration field
  */
 @ApiModel(description = "Value container of a duration field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class DurationFieldValue extends AbstractFieldValue {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private Long value;
 
+
   public DurationFieldValue value(Long value) {
+    
     this.value = value;
     return this;
   }
@@ -45,10 +47,12 @@ public class DurationFieldValue extends AbstractFieldValue {
    * Duration value in milliseconds
    * @return value
   **/
-  @ApiModelProperty(value = "Duration value in milliseconds")
+  @ApiModelProperty(required = true, value = "Duration value in milliseconds")
+
   public Long getValue() {
     return value;
   }
+
 
   public void setValue(Long value) {
     this.value = value;

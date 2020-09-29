@@ -31,7 +31,7 @@ import java.util.List;
  * One page of trackers.
  */
 @ApiModel(description = "One page of trackers.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TrackerSearchResult {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
@@ -47,9 +47,11 @@ public class TrackerSearchResult {
 
   public static final String SERIALIZED_NAME_TRACKERS = "trackers";
   @SerializedName(SERIALIZED_NAME_TRACKERS)
-  private List<Tracker> trackers = new ArrayList<Tracker>();
+  private List<Tracker> trackers = null;
+
 
   public TrackerSearchResult page(Integer page) {
+    
     this.page = page;
     return this;
   }
@@ -58,16 +60,21 @@ public class TrackerSearchResult {
    * Index of the page
    * @return page
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Index of the page")
+
   public Integer getPage() {
     return page;
   }
+
 
   public void setPage(Integer page) {
     this.page = page;
   }
 
+
   public TrackerSearchResult pageSize(Integer pageSize) {
+    
     this.pageSize = pageSize;
     return this;
   }
@@ -76,16 +83,21 @@ public class TrackerSearchResult {
    * Size of the found page
    * @return pageSize
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Size of the found page")
+
   public Integer getPageSize() {
     return pageSize;
   }
+
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
   }
 
+
   public TrackerSearchResult total(Integer total) {
+    
     this.total = total;
     return this;
   }
@@ -94,16 +106,21 @@ public class TrackerSearchResult {
    * Number of matched tracker items by the search criteria
    * @return total
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Number of matched tracker items by the search criteria")
+
   public Integer getTotal() {
     return total;
   }
+
 
   public void setTotal(Integer total) {
     this.total = total;
   }
 
+
   public TrackerSearchResult trackers(List<Tracker> trackers) {
+    
     this.trackers = trackers;
     return this;
   }
@@ -120,10 +137,13 @@ public class TrackerSearchResult {
    * Found tracker items
    * @return trackers
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Found tracker items")
+
   public List<Tracker> getTrackers() {
     return trackers;
   }
+
 
   public void setTrackers(List<Tracker> trackers) {
     this.trackers = trackers;

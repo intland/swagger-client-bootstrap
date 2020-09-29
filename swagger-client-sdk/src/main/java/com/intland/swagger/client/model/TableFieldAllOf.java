@@ -30,13 +30,15 @@ import java.util.List;
 /**
  * TableFieldAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class TableFieldAllOf {
   public static final String SERIALIZED_NAME_COLUMNS = "columns";
   @SerializedName(SERIALIZED_NAME_COLUMNS)
-  private List<AbstractField> columns = new ArrayList<AbstractField>();
+  private List<AbstractField> columns = null;
+
 
   public TableFieldAllOf columns(List<AbstractField> columns) {
+    
     this.columns = columns;
     return this;
   }
@@ -53,10 +55,13 @@ public class TableFieldAllOf {
    * Columns of a table
    * @return columns
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Columns of a table")
+
   public List<AbstractField> getColumns() {
     return columns;
   }
+
 
   public void setColumns(List<AbstractField> columns) {
     this.columns = columns;

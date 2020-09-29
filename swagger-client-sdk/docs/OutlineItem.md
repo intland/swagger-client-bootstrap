@@ -2,6 +2,7 @@
 
 # OutlineItem
 
+Represents an outline item.
 ## Properties
 
 Name | Type | Description | Notes

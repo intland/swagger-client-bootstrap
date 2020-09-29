@@ -32,15 +32,15 @@ import java.util.List;
  * A row of the report containing cell information.
  */
 @ApiModel(description = "A row of the report containing cell information.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class ReportRow {
   public static final String SERIALIZED_NAME_ITEM_REF = "itemRef";
   @SerializedName(SERIALIZED_NAME_ITEM_REF)
-  private ReportItemReference itemRef = null;
+  private ReportItemReference itemRef;
 
   public static final String SERIALIZED_NAME_CELLS = "cells";
   @SerializedName(SERIALIZED_NAME_CELLS)
-  private List<ReportCell> cells = new ArrayList<ReportCell>();
+  private List<ReportCell> cells = null;
 
   public static final String SERIALIZED_NAME_OUTLINE_LEVEL = "outlineLevel";
   @SerializedName(SERIALIZED_NAME_OUTLINE_LEVEL)
@@ -50,7 +50,9 @@ public class ReportRow {
   @SerializedName(SERIALIZED_NAME_IS_REAL_RESULT)
   private Boolean isRealResult;
 
+
   public ReportRow itemRef(ReportItemReference itemRef) {
+    
     this.itemRef = itemRef;
     return this;
   }
@@ -59,16 +61,21 @@ public class ReportRow {
    * Get itemRef
    * @return itemRef
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public ReportItemReference getItemRef() {
     return itemRef;
   }
+
 
   public void setItemRef(ReportItemReference itemRef) {
     this.itemRef = itemRef;
   }
 
+
   public ReportRow cells(List<ReportCell> cells) {
+    
     this.cells = cells;
     return this;
   }
@@ -85,16 +92,21 @@ public class ReportRow {
    * Cells in a row.
    * @return cells
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Cells in a row.")
+
   public List<ReportCell> getCells() {
     return cells;
   }
+
 
   public void setCells(List<ReportCell> cells) {
     this.cells = cells;
   }
 
+
   public ReportRow outlineLevel(Integer outlineLevel) {
+    
     this.outlineLevel = outlineLevel;
     return this;
   }
@@ -103,16 +115,21 @@ public class ReportRow {
    * Item&#39;s level in the tracker outline.
    * @return outlineLevel
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Item's level in the tracker outline.")
+
   public Integer getOutlineLevel() {
     return outlineLevel;
   }
+
 
   public void setOutlineLevel(Integer outlineLevel) {
     this.outlineLevel = outlineLevel;
   }
 
+
   public ReportRow isRealResult(Boolean isRealResult) {
+    
     this.isRealResult = isRealResult;
     return this;
   }
@@ -121,10 +138,13 @@ public class ReportRow {
    * Indicator if the item is a real query result (e.g. not an ancestor item).
    * @return isRealResult
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicator if the item is a real query result (e.g. not an ancestor item).")
+
   public Boolean getIsRealResult() {
     return isRealResult;
   }
+
 
   public void setIsRealResult(Boolean isRealResult) {
     this.isRealResult = isRealResult;

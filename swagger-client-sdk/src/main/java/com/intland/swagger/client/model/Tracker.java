@@ -33,7 +33,7 @@ import org.joda.time.DateTime;
  * Basic properties of a codeBeamer tracker
  */
 @ApiModel(description = "Basic properties of a codeBeamer tracker")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T15:42:25.542+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T09:51:27.838+02:00[Europe/Budapest]")
 public class Tracker {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -90,7 +90,7 @@ public class Tracker {
 
       @Override
       public DescriptionFormatEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return DescriptionFormatEnum.fromValue(value);
       }
     }
@@ -114,7 +114,7 @@ public class Tracker {
 
   public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
   @SerializedName(SERIALIZED_NAME_CREATED_BY)
-  private UserReference createdBy = null;
+  private UserReference createdBy;
 
   public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
   @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
@@ -122,11 +122,11 @@ public class Tracker {
 
   public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
-  private UserReference modifiedBy = null;
+  private UserReference modifiedBy;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private TrackerTypeReference type = null;
+  private TrackerTypeReference type;
 
   public static final String SERIALIZED_NAME_DELETED = "deleted";
   @SerializedName(SERIALIZED_NAME_DELETED)
@@ -162,17 +162,19 @@ public class Tracker {
 
   public static final String SERIALIZED_NAME_PROJECT = "project";
   @SerializedName(SERIALIZED_NAME_PROJECT)
-  private ProjectReference project = null;
+  private ProjectReference project;
 
   public static final String SERIALIZED_NAME_TEMPLATE_TRACKER = "templateTracker";
   @SerializedName(SERIALIZED_NAME_TEMPLATE_TRACKER)
-  private TrackerReference templateTracker = null;
+  private TrackerReference templateTracker;
 
   public static final String SERIALIZED_NAME_AVAILABLE_AS_TEMPLATE = "availableAsTemplate";
   @SerializedName(SERIALIZED_NAME_AVAILABLE_AS_TEMPLATE)
   private Boolean availableAsTemplate;
 
+
   public Tracker id(Integer id) {
+    
     this.id = id;
     return this;
   }
@@ -182,16 +184,21 @@ public class Tracker {
    * minimum: 0
    * @return id
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Id of the entity")
+
   public Integer getId() {
     return id;
   }
+
 
   public void setId(Integer id) {
     this.id = id;
   }
 
+
   public Tracker name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -200,16 +207,21 @@ public class Tracker {
    * Name of the entity
    * @return name
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the entity")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public Tracker description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -218,16 +230,21 @@ public class Tracker {
    * Description of the entity
    * @return description
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description of the entity")
+
   public String getDescription() {
     return description;
   }
+
 
   public void setDescription(String description) {
     this.description = description;
   }
 
+
   public Tracker descriptionFormat(DescriptionFormatEnum descriptionFormat) {
+    
     this.descriptionFormat = descriptionFormat;
     return this;
   }
@@ -236,16 +253,21 @@ public class Tracker {
    * Description format of the entity
    * @return descriptionFormat
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Description format of the entity")
+
   public DescriptionFormatEnum getDescriptionFormat() {
     return descriptionFormat;
   }
+
 
   public void setDescriptionFormat(DescriptionFormatEnum descriptionFormat) {
     this.descriptionFormat = descriptionFormat;
   }
 
+
   public Tracker keyName(String keyName) {
+    
     this.keyName = keyName;
     return this;
   }
@@ -254,16 +276,21 @@ public class Tracker {
    * Keyname of a tracker
    * @return keyName
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Keyname of a tracker")
+
   public String getKeyName() {
     return keyName;
   }
+
 
   public void setKeyName(String keyName) {
     this.keyName = keyName;
   }
 
+
   public Tracker version(Integer version) {
+    
     this.version = version;
     return this;
   }
@@ -272,16 +299,21 @@ public class Tracker {
    * Version of a tracker
    * @return version
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Version of a tracker")
+
   public Integer getVersion() {
     return version;
   }
+
 
   public void setVersion(Integer version) {
     this.version = version;
   }
 
+
   public Tracker createdAt(DateTime createdAt) {
+    
     this.createdAt = createdAt;
     return this;
   }
@@ -290,16 +322,21 @@ public class Tracker {
    * The date when the entity was created
    * @return createdAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was created")
+
   public DateTime getCreatedAt() {
     return createdAt;
   }
+
 
   public void setCreatedAt(DateTime createdAt) {
     this.createdAt = createdAt;
   }
 
+
   public Tracker createdBy(UserReference createdBy) {
+    
     this.createdBy = createdBy;
     return this;
   }
@@ -308,16 +345,21 @@ public class Tracker {
    * Get createdBy
    * @return createdBy
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getCreatedBy() {
     return createdBy;
   }
+
 
   public void setCreatedBy(UserReference createdBy) {
     this.createdBy = createdBy;
   }
 
+
   public Tracker modifiedAt(DateTime modifiedAt) {
+    
     this.modifiedAt = modifiedAt;
     return this;
   }
@@ -326,16 +368,21 @@ public class Tracker {
    * The date when the entity was modified
    * @return modifiedAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
+
   public DateTime getModifiedAt() {
     return modifiedAt;
   }
+
 
   public void setModifiedAt(DateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 
+
   public Tracker modifiedBy(UserReference modifiedBy) {
+    
     this.modifiedBy = modifiedBy;
     return this;
   }
@@ -344,16 +391,21 @@ public class Tracker {
    * Get modifiedBy
    * @return modifiedBy
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public UserReference getModifiedBy() {
     return modifiedBy;
   }
+
 
   public void setModifiedBy(UserReference modifiedBy) {
     this.modifiedBy = modifiedBy;
   }
 
+
   public Tracker type(TrackerTypeReference type) {
+    
     this.type = type;
     return this;
   }
@@ -362,16 +414,21 @@ public class Tracker {
    * Get type
    * @return type
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public TrackerTypeReference getType() {
     return type;
   }
+
 
   public void setType(TrackerTypeReference type) {
     this.type = type;
   }
 
+
   public Tracker deleted(Boolean deleted) {
+    
     this.deleted = deleted;
     return this;
   }
@@ -381,15 +438,19 @@ public class Tracker {
    * @return deleted
   **/
   @ApiModelProperty(required = true, value = "Indicator if the tracker is deleted")
+
   public Boolean getDeleted() {
     return deleted;
   }
+
 
   public void setDeleted(Boolean deleted) {
     this.deleted = deleted;
   }
 
+
   public Tracker hidden(Boolean hidden) {
+    
     this.hidden = hidden;
     return this;
   }
@@ -399,15 +460,19 @@ public class Tracker {
    * @return hidden
   **/
   @ApiModelProperty(required = true, value = "Indicator if the tracker is hidden")
+
   public Boolean getHidden() {
     return hidden;
   }
+
 
   public void setHidden(Boolean hidden) {
     this.hidden = hidden;
   }
 
+
   public Tracker color(String color) {
+    
     this.color = color;
     return this;
   }
@@ -416,16 +481,21 @@ public class Tracker {
    * Color of the tracker
    * @return color
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Color of the tracker")
+
   public String getColor() {
     return color;
   }
+
 
   public void setColor(String color) {
     this.color = color;
   }
 
+
   public Tracker usingWorkflow(Boolean usingWorkflow) {
+    
     this.usingWorkflow = usingWorkflow;
     return this;
   }
@@ -435,15 +505,19 @@ public class Tracker {
    * @return usingWorkflow
   **/
   @ApiModelProperty(required = true, value = "Should transitions and workflow actions be available in the tracker or not")
+
   public Boolean getUsingWorkflow() {
     return usingWorkflow;
   }
+
 
   public void setUsingWorkflow(Boolean usingWorkflow) {
     this.usingWorkflow = usingWorkflow;
   }
 
+
   public Tracker onlyWorkflowCanCreateNewReferringItem(Boolean onlyWorkflowCanCreateNewReferringItem) {
+    
     this.onlyWorkflowCanCreateNewReferringItem = onlyWorkflowCanCreateNewReferringItem;
     return this;
   }
@@ -453,15 +527,19 @@ public class Tracker {
    * @return onlyWorkflowCanCreateNewReferringItem
   **/
   @ApiModelProperty(required = true, value = "If true, then the only way to create new referring items is through workflow actions")
+
   public Boolean getOnlyWorkflowCanCreateNewReferringItem() {
     return onlyWorkflowCanCreateNewReferringItem;
   }
+
 
   public void setOnlyWorkflowCanCreateNewReferringItem(Boolean onlyWorkflowCanCreateNewReferringItem) {
     this.onlyWorkflowCanCreateNewReferringItem = onlyWorkflowCanCreateNewReferringItem;
   }
 
+
   public Tracker usingQuickTransitions(Boolean usingQuickTransitions) {
+    
     this.usingQuickTransitions = usingQuickTransitions;
     return this;
   }
@@ -471,15 +549,19 @@ public class Tracker {
    * @return usingQuickTransitions
   **/
   @ApiModelProperty(required = true, value = "If true, then every transition will be executed immediately (if possible) without opening an editor for the item")
+
   public Boolean getUsingQuickTransitions() {
     return usingQuickTransitions;
   }
+
 
   public void setUsingQuickTransitions(Boolean usingQuickTransitions) {
     this.usingQuickTransitions = usingQuickTransitions;
   }
 
+
   public Tracker defaultShowAncestorItems(Boolean defaultShowAncestorItems) {
+    
     this.defaultShowAncestorItems = defaultShowAncestorItems;
     return this;
   }
@@ -489,15 +571,19 @@ public class Tracker {
    * @return defaultShowAncestorItems
   **/
   @ApiModelProperty(required = true, value = "Default Outline should show Ancestor Items or not")
+
   public Boolean getDefaultShowAncestorItems() {
     return defaultShowAncestorItems;
   }
+
 
   public void setDefaultShowAncestorItems(Boolean defaultShowAncestorItems) {
     this.defaultShowAncestorItems = defaultShowAncestorItems;
   }
 
+
   public Tracker defaultShowDescendantItems(Boolean defaultShowDescendantItems) {
+    
     this.defaultShowDescendantItems = defaultShowDescendantItems;
     return this;
   }
@@ -507,15 +593,19 @@ public class Tracker {
    * @return defaultShowDescendantItems
   **/
   @ApiModelProperty(required = true, value = "Default Outline should show Descendant Items or not")
+
   public Boolean getDefaultShowDescendantItems() {
     return defaultShowDescendantItems;
   }
+
 
   public void setDefaultShowDescendantItems(Boolean defaultShowDescendantItems) {
     this.defaultShowDescendantItems = defaultShowDescendantItems;
   }
 
+
   public Tracker project(ProjectReference project) {
+    
     this.project = project;
     return this;
   }
@@ -524,16 +614,21 @@ public class Tracker {
    * Get project
    * @return project
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public ProjectReference getProject() {
     return project;
   }
+
 
   public void setProject(ProjectReference project) {
     this.project = project;
   }
 
+
   public Tracker templateTracker(TrackerReference templateTracker) {
+    
     this.templateTracker = templateTracker;
     return this;
   }
@@ -542,16 +637,21 @@ public class Tracker {
    * Get templateTracker
    * @return templateTracker
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public TrackerReference getTemplateTracker() {
     return templateTracker;
   }
+
 
   public void setTemplateTracker(TrackerReference templateTracker) {
     this.templateTracker = templateTracker;
   }
 
+
   public Tracker availableAsTemplate(Boolean availableAsTemplate) {
+    
     this.availableAsTemplate = availableAsTemplate;
     return this;
   }
@@ -560,10 +660,13 @@ public class Tracker {
    * Indicator if the tracker can be used as a template
    * @return availableAsTemplate
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicator if the tracker can be used as a template")
+
   public Boolean getAvailableAsTemplate() {
     return availableAsTemplate;
   }
+
 
   public void setAvailableAsTemplate(Boolean availableAsTemplate) {
     this.availableAsTemplate = availableAsTemplate;

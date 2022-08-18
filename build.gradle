@@ -7,7 +7,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'org.openapitools', name: 'openapi-generator-gradle-plugin', version: '4.3.1'
+        classpath group: 'org.openapitools', name: 'openapi-generator-gradle-plugin', version: '6.0.1'
     }
 }
 
@@ -54,7 +54,6 @@ task generateSwaggerClient(type: GenerateTask){
 
     outputDir = swaggerBuildDir
     configOptions = [
-            dateLibrary: "joda",
             systemProperties: "-classpath=" + sourceSets.main.compileClasspath
     ]
 

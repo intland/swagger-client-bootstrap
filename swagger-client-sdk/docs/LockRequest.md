@@ -2,13 +2,14 @@
 
 # LockRequest
 
-Configuration to request a lock. If 'hard' is true, duration must be null, or unspecified.
+Requested lock configuration
+
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**hard** | **Boolean** | Whether the lock should be hard |  [optional]
-**duration** | **String** | If not a hard lock, the duration specified in time notation |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**duration** | **String** | If not a hard lock, the duration specified in time notation |  [optional] |
+|**hard** | **Boolean** | Whether the lock should be hard |  [optional] |
 
 
 

@@ -2,12 +2,12 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createReport**](ReportApi.md#createReport) | **POST** /v3/reports | Create a report
-[**getReportById**](ReportApi.md#getReportById) | **GET** /v3/reports/{reportId}/results | Get a report results by id of the report
-[**getReportItemsById**](ReportApi.md#getReportItemsById) | **GET** /v3/reports/{reportId}/items | Get a report items by id of the report
-[**updateReport**](ReportApi.md#updateReport) | **PUT** /v3/reports/{reportId} | Update report settings
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**createReport**](ReportApi.md#createReport) | **POST** /v3/reports | Create a report |
+| [**getReportById**](ReportApi.md#getReportById) | **GET** /v3/reports/{reportId}/results | Get a report results by id of the report |
+| [**getReportItemsById**](ReportApi.md#getReportItemsById) | **GET** /v3/reports/{reportId}/items | Get a report items by id of the report |
+| [**updateReport**](ReportApi.md#updateReport) | **PUT** /v3/reports/{reportId} | Update report settings |
 
 
 <a name="createReport"></a>
@@ -64,9 +64,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **simpleReportSettings** | [**SimpleReportSettings**](SimpleReportSettings.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **simpleReportSettings** | [**SimpleReportSettings**](SimpleReportSettings.md)|  | |
 
 ### Return type
 
@@ -79,14 +79,15 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**200** | Report settings |  -  |
-**400** | Bad request |  -  |
+| **200** | Report settings |  -  |
+| **400** | Bad request |  -  |
+| **403** | Authentication is required |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="getReportById"></a>
 # **getReportById**
@@ -144,11 +145,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **reportId** | **Integer**| Id of a report |
- **page** | **Integer**| Index of a report page starting from 1. | [optional] [default to 1]
- **pageSize** | **Integer**| Number of items a report page. Max value: 500 | [optional] [default to 25]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **reportId** | **Integer**| Id of a report | |
+| **page** | **Integer**| Index of a report page starting from 1. | [optional] [default to 1] |
+| **pageSize** | **Integer**| Number of items a report page. Max value: 500 | [optional] [default to 25] |
 
 ### Return type
 
@@ -161,14 +162,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**404** | Report not found |  -  |
-**200** | Report content by id |  -  |
+| **200** | Report content by id |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | Report not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="getReportItemsById"></a>
 # **getReportItemsById**
@@ -226,11 +229,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **reportId** | **Integer**| Id of a report |
- **page** | **Integer**| Index of a report page starting from 1. | [optional] [default to 1]
- **pageSize** | **Integer**| Number of items a report page. Max value: 500 | [optional] [default to 25]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **reportId** | **Integer**| Id of a report | |
+| **page** | **Integer**| Index of a report page starting from 1. | [optional] [default to 1] |
+| **pageSize** | **Integer**| Number of items a report page. Max value: 500 | [optional] [default to 25] |
 
 ### Return type
 
@@ -243,14 +246,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**404** | Report not found |  -  |
-**200** | Report items by id |  -  |
+| **200** | Report items by id |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | Report not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="updateReport"></a>
 # **updateReport**
@@ -307,10 +312,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **reportId** | **Integer**| Id of a report |
- **simpleReportSettings** | [**SimpleReportSettings**](SimpleReportSettings.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **reportId** | **Integer**| Id of a report | |
+| **simpleReportSettings** | [**SimpleReportSettings**](SimpleReportSettings.md)|  | |
 
 ### Return type
 
@@ -323,12 +328,13 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**200** | Updated report settings |  -  |
-**400** | Bad request |  -  |
+| **200** | Updated report settings |  -  |
+| **400** | Bad request |  -  |
+| **403** | Authentication is required |  -  |
+| **429** | Too many requests |  -  |
 

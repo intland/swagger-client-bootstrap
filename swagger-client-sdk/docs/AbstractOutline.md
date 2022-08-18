@@ -3,12 +3,13 @@
 # AbstractOutline
 
 Abstract outline entity
+
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**outlineIndexes** | [**List&lt;OutlineIndex&gt;**](OutlineIndex.md) | Indexes of the entity in the outline. |  [optional]
-**type** | **String** | Type of the outline model |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**outlineIndexes** | [**List&lt;OutlineIndex&gt;**](OutlineIndex.md) | Indexes of the entity in the outline. |  [optional] |
+|**type** | **String** | Type of the outline model |  [optional] |
 
 
 

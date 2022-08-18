@@ -2,11 +2,12 @@
 
 # BoolFieldValueAllOf
 
+
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**value** | **Boolean** | Value of the field |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**value** | **Boolean** | Value of the field |  [optional] |
 
 
 

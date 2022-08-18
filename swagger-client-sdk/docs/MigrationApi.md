@@ -2,9 +2,9 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**migrateAttachments**](MigrationApi.md#migrateAttachments) | **POST** /v3/migration/attachment | Migrate attachments
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**migrateAttachments**](MigrationApi.md#migrateAttachments) | **POST** /v3/migration/attachment | Migrate attachments |
 
 
 <a name="migrateAttachments"></a>
@@ -62,9 +62,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **attachmentMigrationRequest** | [**AttachmentMigrationRequest**](AttachmentMigrationRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **attachmentMigrationRequest** | [**AttachmentMigrationRequest**](AttachmentMigrationRequest.md)|  | |
 
 ### Return type
 
@@ -77,13 +77,14 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: */*, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Attachments are migrated |  -  |
-**403** | Access denied |  -  |
-**400** | Bad request |  -  |
-**401** | Authentication is required |  -  |
+| **200** | Attachments are migrated |  -  |
+| **400** | Bad request |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Access denied |  -  |
+| **429** | Too many requests |  -  |
 

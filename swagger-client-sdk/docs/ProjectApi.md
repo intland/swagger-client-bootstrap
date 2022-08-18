@@ -2,21 +2,23 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createTracker**](ProjectApi.md#createTracker) | **POST** /v3/projects/{projectId}/trackers | Create a tracker
-[**deployConfiguration**](ProjectApi.md#deployConfiguration) | **POST** /v3/projects/deploy | Deploy a project configuration to a Project
-[**getProjectById**](ProjectApi.md#getProjectById) | **GET** /v3/projects/{projectId} | Get project
-[**getProjects**](ProjectApi.md#getProjects) | **GET** /v3/projects | Get projects
-[**getTopLevelWikiPages**](ProjectApi.md#getTopLevelWikiPages) | **GET** /v3/projects/{projectId}/wikipages | Get wiki pages of a project
-[**getTrackers**](ProjectApi.md#getTrackers) | **GET** /v3/projects/{projectId}/trackers | Get trackers
-[**searchAllTrackersInProject**](ProjectApi.md#searchAllTrackersInProject) | **POST** /v3/projects/{projectId}/trackers/search | Get the list of all trackers in a project
-[**searchProjects**](ProjectApi.md#searchProjects) | **POST** /v3/projects/search | Search projects by given criteria
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**createTracker**](ProjectApi.md#createTracker) | **POST** /v3/projects/{projectId}/trackers | Create a tracker |
+| [**deployConfiguration**](ProjectApi.md#deployConfiguration) | **POST** /v3/projects/deploy | Deploy a project configuration to a Project |
+| [**getMembersOfProject**](ProjectApi.md#getMembersOfProject) | **GET** /v3/projects/{projectId}/members | Get all members of a project |
+| [**getProjectById**](ProjectApi.md#getProjectById) | **GET** /v3/projects/{projectId} | Get project |
+| [**getProjectRolesOfMember**](ProjectApi.md#getProjectRolesOfMember) | **GET** /v3/projects/{projectId}/members/{userId}/permissions | Get all roles the user has on a project |
+| [**getProjects**](ProjectApi.md#getProjects) | **GET** /v3/projects | Get projects |
+| [**getTopLevelWikiPages**](ProjectApi.md#getTopLevelWikiPages) | **GET** /v3/projects/{projectId}/wikipages | Get wiki pages of a project |
+| [**getTrackers**](ProjectApi.md#getTrackers) | **GET** /v3/projects/{projectId}/trackers | Get trackers |
+| [**searchAllTrackersInProject**](ProjectApi.md#searchAllTrackersInProject) | **POST** /v3/projects/{projectId}/trackers/search | Get the list of all trackers in a project |
+| [**searchProjects**](ProjectApi.md#searchProjects) | **POST** /v3/projects/search | Search projects by given criteria |
 
 
 <a name="createTracker"></a>
 # **createTracker**
-> Tracker createTracker(projectId, templateId, tracker)
+> Tracker createTracker(projectId, tracker, templateId)
 
 Create a tracker
 
@@ -52,10 +54,10 @@ public class Example {
 
     ProjectApi apiInstance = new ProjectApi(defaultClient);
     Integer projectId = 56; // Integer | 
-    Integer templateId = 56; // Integer | Identifier of the template tracker.
     Tracker tracker = new Tracker(); // Tracker | 
+    Integer templateId = 56; // Integer | Identifier of the template tracker.
     try {
-      Tracker result = apiInstance.createTracker(projectId, templateId, tracker);
+      Tracker result = apiInstance.createTracker(projectId, tracker, templateId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectApi#createTracker");
@@ -70,11 +72,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **Integer**|  |
- **templateId** | **Integer**| Identifier of the template tracker. | [optional]
- **tracker** | [**Tracker**](Tracker.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectId** | **Integer**|  | |
+| **tracker** | [**Tracker**](Tracker.md)|  | |
+| **templateId** | **Integer**| Identifier of the template tracker. | [optional] |
 
 ### Return type
 
@@ -87,14 +89,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Bad request: Tracker settings validation failed. |  -  |
-**200** | Tracker settings |  -  |
-**404** | Tracker not found |  -  |
+| **200** | Tracker settings |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Bad request: Tracker settings validation failed. |  -  |
+| **404** | Tracker not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="deployConfiguration"></a>
 # **deployConfiguration**
@@ -102,7 +106,7 @@ Name | Type | Description  | Notes
 
 Deploy a project configuration to a Project
 
-The configuration file needs to be uploaded to codeBeamer Documents
+The configuration file needs to be uploaded to codebeamer Documents
 
 ### Example
 ```java
@@ -152,9 +156,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **deployProject** | [**DeployProject**](DeployProject.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **deployProject** | [**DeployProject**](DeployProject.md)|  | |
 
 ### Return type
 
@@ -167,16 +171,102 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**500** | Error when deploying the project configuration. |  -  |
-**404** | Project or configuration file not found |  -  |
-**400** | Request cannot be processed |  -  |
-**200** | Project configuration deployed |  -  |
+| **200** | Project configuration deployed |  -  |
+| **400** | Request cannot be processed |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | Project or configuration file not found |  -  |
+| **429** | Too many requests |  -  |
+| **500** | Error when deploying the project configuration. |  -  |
+
+<a name="getMembersOfProject"></a>
+# **getMembersOfProject**
+> MemberReferenceSearchResult getMembersOfProject(projectId, page, pageSize)
+
+Get all members of a project
+
+### Example
+```java
+// Import classes:
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.ProjectApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
+
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
+
+    ProjectApi apiInstance = new ProjectApi(defaultClient);
+    Integer projectId = 56; // Integer | 
+    Integer page = 1; // Integer | Index of the result page starting from 1.
+    Integer pageSize = 25; // Integer | Number of items in a result page. Max value: 500
+    try {
+      MemberReferenceSearchResult result = apiInstance.getMembersOfProject(projectId, page, pageSize);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectApi#getMembersOfProject");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectId** | **Integer**|  | |
+| **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1] |
+| **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25] |
+
+### Return type
+
+[**MemberReferenceSearchResult**](MemberReferenceSearchResult.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, */*
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Member by id |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | Project is not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="getProjectById"></a>
 # **getProjectById**
@@ -232,9 +322,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **Integer**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectId** | **Integer**|  | |
 
 ### Return type
 
@@ -247,15 +337,99 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**200** | Project |  -  |
-**404** | Project not found |  -  |
-**401** | Authentication is required |  -  |
+| **200** | Project |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | Project not found |  -  |
+| **429** | Too many requests |  -  |
+
+<a name="getProjectRolesOfMember"></a>
+# **getProjectRolesOfMember**
+> ProjectMemberPermissions getProjectRolesOfMember(projectId, userId)
+
+Get all roles the user has on a project
+
+### Example
+```java
+// Import classes:
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.ProjectApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
+
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
+
+    ProjectApi apiInstance = new ProjectApi(defaultClient);
+    Integer projectId = 56; // Integer | 
+    Integer userId = 56; // Integer | 
+    try {
+      ProjectMemberPermissions result = apiInstance.getProjectRolesOfMember(projectId, userId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectApi#getProjectRolesOfMember");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectId** | **Integer**|  | |
+| **userId** | **Integer**|  | |
+
+### Return type
+
+[**ProjectMemberPermissions**](ProjectMemberPermissions.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, */*
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Roles |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Authentication is required |  -  |
+| **404** | User is not a member of the project |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="getProjects"></a>
 # **getProjects**
@@ -322,15 +496,17 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**404** | Project not found |  -  |
-**200** | Projects |  -  |
-**401** | Authentication is required |  -  |
+| **200** | Projects |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | Project not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="getTopLevelWikiPages"></a>
 # **getTopLevelWikiPages**
@@ -386,9 +562,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **Integer**| ID of the project |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectId** | **Integer**| ID of the project | |
 
 ### Return type
 
@@ -401,15 +577,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Authentication is required |  -  |
-**403** | Access denied |  -  |
-**404** | The project does not exists |  -  |
-**200** | The list of wiki pages |  -  |
+| **200** | The list of wiki pages |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Access denied |  -  |
+| **404** | The project does not exists |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="getTrackers"></a>
 # **getTrackers**
@@ -465,9 +643,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **Integer**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectId** | **Integer**|  | |
 
 ### Return type
 
@@ -480,14 +658,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**404** | Project / Tracker not found |  -  |
-**200** | Trackers |  -  |
+| **200** | Trackers |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | Project / Tracker not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="searchAllTrackersInProject"></a>
 # **searchAllTrackersInProject**
@@ -544,10 +724,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **Integer**|  |
- **trackerFilteringRequest** | [**TrackerFilteringRequest**](TrackerFilteringRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectId** | **Integer**|  | |
+| **trackerFilteringRequest** | [**TrackerFilteringRequest**](TrackerFilteringRequest.md)|  | |
 
 ### Return type
 
@@ -560,14 +740,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**404** | Project / Tracker not found |  -  |
-**200** | Trackers |  -  |
+| **200** | Trackers |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | Project / Tracker not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="searchProjects"></a>
 # **searchProjects**
@@ -623,9 +805,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectFilteringRequest** | [**ProjectFilteringRequest**](ProjectFilteringRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectFilteringRequest** | [**ProjectFilteringRequest**](ProjectFilteringRequest.md)|  | |
 
 ### Return type
 
@@ -638,13 +820,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | One page of projects |  -  |
-**403** | Access denied |  -  |
-**400** | Bad request |  -  |
-**401** | Authentication is required |  -  |
+| **200** | One page of projects |  -  |
+| **400** | Bad request |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Access denied |  -  |
+| **429** | Too many requests |  -  |
 

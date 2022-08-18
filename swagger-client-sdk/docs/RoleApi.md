@@ -1,11 +1,11 @@
 # RoleApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *https://manual-test-server.intland.de:8111/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getRole**](RoleApi.md#getRole) | **GET** /v3/roles/{roleId} | Get role
-[**getRoles**](RoleApi.md#getRoles) | **GET** /v3/roles | Get roles
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**getRole**](RoleApi.md#getRole) | **GET** /v3/roles/{roleId} | Get role |
+| [**getRoles**](RoleApi.md#getRoles) | **GET** /v3/roles | Get roles |
 
 
 <a name="getRole"></a>
@@ -27,7 +27,7 @@ import com.intland.swagger.client.api.RoleApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -62,9 +62,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **roleId** | **Integer**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **roleId** | **Integer**|  | |
 
 ### Return type
 
@@ -77,14 +77,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**404** | Role not found |  -  |
-**200** | Roles |  -  |
+| **200** | Roles |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | Role not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="getRoles"></a>
 # **getRoles**
@@ -105,7 +107,7 @@ import com.intland.swagger.client.api.RoleApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -151,12 +153,14 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**404** | Role not found |  -  |
-**200** | Roles |  -  |
+| **200** | Roles |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | Role not found |  -  |
+| **429** | Too many requests |  -  |
 

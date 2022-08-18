@@ -1,22 +1,22 @@
 # WikiApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *https://manual-test-server.intland.de:8111/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**checkWikiPageLock**](WikiApi.md#checkWikiPageLock) | **GET** /v3/wikipages/{wikiId}/lock | Check whether a wiki page is locked, and if it is, retrieve the details of the lock
-[**createWikiPage**](WikiApi.md#createWikiPage) | **POST** /v3/wikipages | Create a new wiki page
-[**deleteWikiPage**](WikiApi.md#deleteWikiPage) | **DELETE** /v3/wikipages/{wikiId} | Delete a wiki page by its ID
-[**getWikiPage**](WikiApi.md#getWikiPage) | **GET** /v3/wikipages/{wikiId} | Get wiki page
-[**getWikiPageHistory**](WikiApi.md#getWikiPageHistory) | **GET** /v3/wikipages/{wikiId}/history | Returns the change history of the specified wiki page
-[**getWikiPermissions**](WikiApi.md#getWikiPermissions) | **GET** /v3/wikipages/{wikiId}/permissions | Get permissions of a wiki page
-[**lockWikiPage**](WikiApi.md#lockWikiPage) | **PUT** /v3/wikipages/{wikiId}/lock | Lock a wiki page
-[**renderWikiMarkup**](WikiApi.md#renderWikiMarkup) | **POST** /v3/projects/{projectId}/wiki2html | Render a wiki page as HTML in a specific context
-[**renderWikiPage**](WikiApi.md#renderWikiPage) | **GET** /v3/wikipages/{wikiId}/html | Render a wiki page as HTML
-[**restoreWikiPageContent**](WikiApi.md#restoreWikiPageContent) | **PUT** /v3/wikipages/{wikiId}/restorecontent | Restores the content from a previous version of a wiki page
-[**setWikiPermissions**](WikiApi.md#setWikiPermissions) | **PUT** /v3/wikipages/{wikiId}/permissions | Set permissions of a wiki page
-[**unlockWikiPage**](WikiApi.md#unlockWikiPage) | **DELETE** /v3/wikipages/{wikiId}/lock | Unlock a wiki page
-[**updateWikiPage**](WikiApi.md#updateWikiPage) | **PUT** /v3/wikipages/{itemId} | Update and/or move a wiki page
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**checkWikiPageLock**](WikiApi.md#checkWikiPageLock) | **GET** /v3/wikipages/{wikiId}/lock | Check whether a wiki page is locked, and if it is, retrieve the details of the lock |
+| [**createWikiPage**](WikiApi.md#createWikiPage) | **POST** /v3/wikipages | Create a new wiki page |
+| [**deleteWikiPage**](WikiApi.md#deleteWikiPage) | **DELETE** /v3/wikipages/{wikiId} | Delete a wiki page by its ID |
+| [**getWikiPage**](WikiApi.md#getWikiPage) | **GET** /v3/wikipages/{wikiId} | Get wiki page |
+| [**getWikiPageHistory**](WikiApi.md#getWikiPageHistory) | **GET** /v3/wikipages/{wikiId}/history | Returns the change history of the specified wiki page |
+| [**getWikiPermissions**](WikiApi.md#getWikiPermissions) | **GET** /v3/wikipages/{wikiId}/permissions | Get permissions of a wiki page |
+| [**lockWikiPage**](WikiApi.md#lockWikiPage) | **PUT** /v3/wikipages/{wikiId}/lock | Lock a wiki page |
+| [**renderWikiMarkup**](WikiApi.md#renderWikiMarkup) | **POST** /v3/projects/{projectId}/wiki2html | Render a wiki page as HTML in a specific context |
+| [**renderWikiPage**](WikiApi.md#renderWikiPage) | **GET** /v3/wikipages/{wikiId}/html | Render a wiki page as HTML |
+| [**restoreWikiPageContent**](WikiApi.md#restoreWikiPageContent) | **PUT** /v3/wikipages/{wikiId}/restorecontent | Restores the content from a previous version of a wiki page |
+| [**setWikiPermissions**](WikiApi.md#setWikiPermissions) | **PUT** /v3/wikipages/{wikiId}/permissions | Set permissions of a wiki page |
+| [**unlockWikiPage**](WikiApi.md#unlockWikiPage) | **DELETE** /v3/wikipages/{wikiId}/lock | Unlock a wiki page |
+| [**updateWikiPage**](WikiApi.md#updateWikiPage) | **PUT** /v3/wikipages/{itemId} | Update and/or move a wiki page |
 
 
 <a name="checkWikiPageLock"></a>
@@ -38,7 +38,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -73,9 +73,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **wikiId** | **Integer**| Wiki page id |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wikiId** | **Integer**| Wiki page id | |
 
 ### Return type
 
@@ -88,14 +88,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Details of the lock, or an empty response |  -  |
-**404** | Wiki page not found |  -  |
-**401** | Authentication is required |  -  |
+| **200** | Details of the lock, or an empty response |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Authentication is required |  -  |
+| **404** | Wiki page not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="createWikiPage"></a>
 # **createWikiPage**
@@ -116,7 +118,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -134,7 +136,7 @@ public class Example {
     BearerAuth.setBearerToken("BEARER TOKEN");
 
     WikiApi apiInstance = new WikiApi(defaultClient);
-    WikiPage wikiPage = new WikiPage(); // WikiPage | Wiki page details
+    WikiPage wikiPage = new WikiPage(); // WikiPage | 
     try {
       WikiPage result = apiInstance.createWikiPage(wikiPage);
       System.out.println(result);
@@ -151,9 +153,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **wikiPage** | [**WikiPage**](WikiPage.md)| Wiki page details |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wikiPage** | [**WikiPage**](WikiPage.md)|  | |
 
 ### Return type
 
@@ -166,15 +168,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Properties of the created wikipage |  -  |
-**403** | Access denied |  -  |
-**400** | Request cannot be processed |  -  |
-**401** | Authentication is required |  -  |
+| **200** | Properties of the created wikipage |  -  |
+| **400** | Request cannot be processed |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Access denied |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="deleteWikiPage"></a>
 # **deleteWikiPage**
@@ -195,7 +198,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -229,9 +232,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **wikiId** | **Integer**| ID of the wiki page |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wikiId** | **Integer**| ID of the wiki page | |
 
 ### Return type
 
@@ -244,16 +247,17 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Access denied |  -  |
-**400** | Request cannot be processed |  -  |
-**200** | The wiki page has been deleted successfully |  -  |
-**401** | Authentication is required |  -  |
-**404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
+| **200** | The wiki page has been deleted successfully |  -  |
+| **400** | Request cannot be processed |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Access denied |  -  |
+| **404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="getWikiPage"></a>
 # **getWikiPage**
@@ -274,7 +278,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -310,10 +314,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **wikiId** | **Integer**| ID of the wiki page |
- **version** | **Integer**| Version of the wiki page | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wikiId** | **Integer**| ID of the wiki page | |
+| **version** | **Integer**| Version of the wiki page | [optional] |
 
 ### Return type
 
@@ -326,15 +330,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Access denied |  -  |
-**200** | The wiki page |  -  |
-**401** | Authentication is required |  -  |
-**404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
+| **200** | The wiki page |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Access denied |  -  |
+| **404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="getWikiPageHistory"></a>
 # **getWikiPageHistory**
@@ -355,7 +361,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -392,11 +398,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **wikiId** | **Integer**|  |
- **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1]
- **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wikiId** | **Integer**|  | |
+| **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1] |
+| **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25] |
 
 ### Return type
 
@@ -409,14 +415,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Wiki page history |  -  |
-**404** | Wiki page not found |  -  |
-**401** | Authentication is required |  -  |
+| **200** | Wiki page history |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Authentication is required |  -  |
+| **404** | Wiki page not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="getWikiPermissions"></a>
 # **getWikiPermissions**
@@ -437,7 +445,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -472,9 +480,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **wikiId** | **Integer**| Wiki page id |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wikiId** | **Integer**| Wiki page id | |
 
 ### Return type
 
@@ -487,15 +495,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Permissions of the wiki page |  -  |
-**403** | Authorization is required |  -  |
-**404** | Wiki page not found |  -  |
-**401** | Authentication is required |  -  |
+| **200** | Permissions of the wiki page |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Authorization is required |  -  |
+| **404** | Wiki page not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="lockWikiPage"></a>
 # **lockWikiPage**
@@ -516,7 +526,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -535,7 +545,7 @@ public class Example {
 
     WikiApi apiInstance = new WikiApi(defaultClient);
     Integer wikiId = 56; // Integer | Wiki page id
-    LockRequest lockRequest = new LockRequest(); // LockRequest | Requested lock configuration
+    LockRequest lockRequest = new LockRequest(); // LockRequest | 
     try {
       apiInstance.lockWikiPage(wikiId, lockRequest);
     } catch (ApiException e) {
@@ -551,10 +561,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **wikiId** | **Integer**| Wiki page id |
- **lockRequest** | [**LockRequest**](LockRequest.md)| Requested lock configuration | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wikiId** | **Integer**| Wiki page id | |
+| **lockRequest** | [**LockRequest**](LockRequest.md)|  | |
 
 ### Return type
 
@@ -567,16 +577,17 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: */*, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Wiki page not found |  -  |
-**403** | Could not acquire lock |  -  |
-**200** | Lock acquired successfully |  -  |
-**400** | Bad request, request validation error |  -  |
-**401** | Authentication is required |  -  |
+| **200** | Lock acquired successfully |  -  |
+| **400** | Bad request, request validation error |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Could not acquire lock |  -  |
+| **404** | Wiki page not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="renderWikiMarkup"></a>
 # **renderWikiMarkup**
@@ -597,7 +608,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -633,10 +644,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **Integer**|  |
- **wikiRenderRequest** | [**WikiRenderRequest**](WikiRenderRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectId** | **Integer**|  | |
+| **wikiRenderRequest** | [**WikiRenderRequest**](WikiRenderRequest.md)|  | |
 
 ### Return type
 
@@ -649,16 +660,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: text/html, application/json
+ - **Accept**: application/json, text/html, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Access denied |  -  |
-**400** | Request cannot be processed |  -  |
-**200** | The wiki content rendered as HTML |  -  |
-**401** | Authentication is required |  -  |
-**404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
+| **200** | The wiki content rendered as HTML |  -  |
+| **400** | Request cannot be processed |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Access denied |  -  |
+| **404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="renderWikiPage"></a>
 # **renderWikiPage**
@@ -679,7 +691,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -715,10 +727,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **wikiId** | **Integer**| ID of the wiki page |
- **version** | **Integer**| version of the wiki page | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wikiId** | **Integer**| ID of the wiki page | |
+| **version** | **Integer**| version of the wiki page | [optional] |
 
 ### Return type
 
@@ -731,16 +743,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/html, application/json
+ - **Accept**: application/json, text/html, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Access denied |  -  |
-**400** | Request cannot be processed |  -  |
-**200** | The wiki content rendered as HTML |  -  |
-**401** | Authentication is required |  -  |
-**404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
+| **200** | The wiki content rendered as HTML |  -  |
+| **400** | Request cannot be processed |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Access denied |  -  |
+| **404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="restoreWikiPageContent"></a>
 # **restoreWikiPageContent**
@@ -761,7 +774,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -797,10 +810,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **wikiId** | **Integer**| Wiki page id |
- **version** | **Integer**| The version to be restored |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wikiId** | **Integer**| Wiki page id | |
+| **version** | **Integer**| The version to be restored | |
 
 ### Return type
 
@@ -813,19 +826,21 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Wiki page or version not found |  -  |
-**403** | Access denied |  -  |
-**200** | Wiki page has been restored |  -  |
-**401** | Authentication is required |  -  |
+| **200** | Wiki page has been restored |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Access denied |  -  |
+| **404** | Wiki page or version not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="setWikiPermissions"></a>
 # **setWikiPermissions**
-> List&lt;AccessPermission&gt; setWikiPermissions(wikiId, recursive, accessPermissionsRequest)
+> List&lt;AccessPermission&gt; setWikiPermissions(wikiId, accessPermissionsRequest, recursive)
 
 Set permissions of a wiki page
 
@@ -842,7 +857,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -861,10 +876,10 @@ public class Example {
 
     WikiApi apiInstance = new WikiApi(defaultClient);
     Integer wikiId = 56; // Integer | Wiki page id
-    Boolean recursive = false; // Boolean | Set permissions of children recursively
     AccessPermissionsRequest accessPermissionsRequest = new AccessPermissionsRequest(); // AccessPermissionsRequest | 
+    Boolean recursive = false; // Boolean | Set permissions of children recursively
     try {
-      List<AccessPermission> result = apiInstance.setWikiPermissions(wikiId, recursive, accessPermissionsRequest);
+      List<AccessPermission> result = apiInstance.setWikiPermissions(wikiId, accessPermissionsRequest, recursive);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WikiApi#setWikiPermissions");
@@ -879,11 +894,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **wikiId** | **Integer**| Wiki page id |
- **recursive** | **Boolean**| Set permissions of children recursively | [optional] [default to false]
- **accessPermissionsRequest** | [**AccessPermissionsRequest**](AccessPermissionsRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wikiId** | **Integer**| Wiki page id | |
+| **accessPermissionsRequest** | [**AccessPermissionsRequest**](AccessPermissionsRequest.md)|  | |
+| **recursive** | **Boolean**| Set permissions of children recursively | [optional] [default to false] |
 
 ### Return type
 
@@ -896,16 +911,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Permissions of the wiki page |  -  |
-**403** | Authorization is required |  -  |
-**404** | Wiki page not found |  -  |
-**400** | Request cannot be processed |  -  |
-**401** | Authentication is required |  -  |
+| **200** | Permissions of the wiki page |  -  |
+| **400** | Request cannot be processed |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Authorization is required |  -  |
+| **404** | Wiki page not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="unlockWikiPage"></a>
 # **unlockWikiPage**
@@ -926,7 +942,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -960,9 +976,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **wikiId** | **Integer**| Wiki page id |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **wikiId** | **Integer**| Wiki page id | |
 
 ### Return type
 
@@ -975,15 +991,17 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: */*, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Unlock successful |  -  |
-**404** | Wiki page not found |  -  |
-**401** | Authentication is required |  -  |
-**403** | Could not unlock |  -  |
+| **200** | Unlock successful |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Could not unlock |  -  |
+| **404** | Wiki page not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="updateWikiPage"></a>
 # **updateWikiPage**
@@ -1004,7 +1022,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -1023,7 +1041,7 @@ public class Example {
 
     WikiApi apiInstance = new WikiApi(defaultClient);
     Integer itemId = 56; // Integer | Id of the wiki page to update
-    WikiPage wikiPage = new WikiPage(); // WikiPage | Wiki page details
+    WikiPage wikiPage = new WikiPage(); // WikiPage | 
     try {
       WikiPage result = apiInstance.updateWikiPage(itemId, wikiPage);
       System.out.println(result);
@@ -1040,10 +1058,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **itemId** | **Integer**| Id of the wiki page to update |
- **wikiPage** | [**WikiPage**](WikiPage.md)| Wiki page details |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **itemId** | **Integer**| Id of the wiki page to update | |
+| **wikiPage** | [**WikiPage**](WikiPage.md)|  | |
 
 ### Return type
 
@@ -1056,14 +1074,15 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Wikipage not found |  -  |
-**403** | Access denied |  -  |
-**400** | Request cannot be processed |  -  |
-**200** | Properties of the updated wikipage |  -  |
-**401** | Authentication is required |  -  |
+| **200** | Properties of the updated wikipage |  -  |
+| **400** | Request cannot be processed |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Access denied |  -  |
+| **404** | Wikipage not found |  -  |
+| **429** | Too many requests |  -  |
 

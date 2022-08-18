@@ -1,12 +1,12 @@
 # ExportApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *https://manual-test-server.intland.de:8111/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**batchGetTrackerItemReviews**](ExportApi.md#batchGetTrackerItemReviews) | **POST** /v3/export/tracker-item-reviews | Get tracker item reviews by a list of tracker item IDs
-[**export**](ExportApi.md#export) | **POST** /v3/projects/{projectId}/content | Exports the specified project to a zip file
-[**getTrackerItems**](ExportApi.md#getTrackerItems) | **POST** /v3/export/items | Get tracker items
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**batchGetTrackerItemReviews**](ExportApi.md#batchGetTrackerItemReviews) | **POST** /v3/export/tracker-item-reviews | Get tracker item reviews by a list of tracker item IDs |
+| [**export**](ExportApi.md#export) | **POST** /v3/projects/{projectId}/content | Exports the specified project to a zip file |
+| [**getTrackerItems**](ExportApi.md#getTrackerItems) | **POST** /v3/export/items | Get tracker items |
 
 
 <a name="batchGetTrackerItemReviews"></a>
@@ -28,7 +28,7 @@ import com.intland.swagger.client.api.ExportApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -63,9 +63,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **batchGetTrackerItemReviewsRequest** | [**BatchGetTrackerItemReviewsRequest**](BatchGetTrackerItemReviewsRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **batchGetTrackerItemReviewsRequest** | [**BatchGetTrackerItemReviewsRequest**](BatchGetTrackerItemReviewsRequest.md)|  | |
 
 ### Return type
 
@@ -78,16 +78,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | There is no baseline accessible with the supplied ID |  -  |
-**200** | List of tracker item reviews for each tracker item |  -  |
-**400** | Request cannot be processed |  -  |
-**403** | Tracker item reviews are disabled, or access to them is denied |  -  |
-**401** | Authentication is required |  -  |
+| **200** | List of tracker item reviews for each tracker item |  -  |
+| **400** | Request cannot be processed |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Tracker item reviews are disabled, or access to them is denied |  -  |
+| **404** | There is no baseline accessible with the supplied ID |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="export"></a>
 # **export**
@@ -108,7 +109,7 @@ import com.intland.swagger.client.api.ExportApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -144,10 +145,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectId** | **Integer**|  |
- **exportProject** | [**ExportProject**](ExportProject.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectId** | **Integer**|  | |
+| **exportProject** | [**ExportProject**](ExportProject.md)|  | |
 
 ### Return type
 
@@ -160,20 +161,21 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/zip
+ - **Accept**: application/zip, */*, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The exported project contents in a zip file. |  -  |
-**403** | Authentication is required |  -  |
-**500** | Error during the project export |  -  |
-**404** | Project not found |  -  |
-**400** | Bad request |  -  |
+| **200** | The exported project contents in a zip file. |  -  |
+| **400** | Bad request |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | Project not found |  -  |
+| **429** | Too many requests |  -  |
+| **500** | Error during the project export |  -  |
 
 <a name="getTrackerItems"></a>
 # **getTrackerItems**
-> List&lt;TrackerItem&gt; getTrackerItems(baselineId, trackerItemsRequest)
+> List&lt;TrackerItem&gt; getTrackerItems(trackerItemsRequest, baselineId)
 
 Get tracker items
 
@@ -192,7 +194,7 @@ import com.intland.swagger.client.api.ExportApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -210,10 +212,10 @@ public class Example {
     BearerAuth.setBearerToken("BEARER TOKEN");
 
     ExportApi apiInstance = new ExportApi(defaultClient);
-    Integer baselineId = 56; // Integer | 
     TrackerItemsRequest trackerItemsRequest = new TrackerItemsRequest(); // TrackerItemsRequest | 
+    Integer baselineId = 56; // Integer | 
     try {
-      List<TrackerItem> result = apiInstance.getTrackerItems(baselineId, trackerItemsRequest);
+      List<TrackerItem> result = apiInstance.getTrackerItems(trackerItemsRequest, baselineId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExportApi#getTrackerItems");
@@ -228,10 +230,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **baselineId** | **Integer**|  | [optional]
- **trackerItemsRequest** | [**TrackerItemsRequest**](TrackerItemsRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **trackerItemsRequest** | [**TrackerItemsRequest**](TrackerItemsRequest.md)|  | |
+| **baselineId** | **Integer**|  | [optional] |
 
 ### Return type
 
@@ -244,12 +246,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**200** | Tracker item list |  -  |
-**404** | Tracker not found |  -  |
+| **200** | Tracker item list |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | Tracker not found |  -  |
+| **429** | Too many requests |  -  |
 

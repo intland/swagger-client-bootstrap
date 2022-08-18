@@ -1,14 +1,14 @@
 # TrackerPermissionApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *https://manual-test-server.intland.de:8111/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getTrackerPermission**](TrackerPermissionApi.md#getTrackerPermission) | **GET** /v3/trackers/permissions/{trackerPermissionId} | Get the immutable definition of a tracker permission
-[**getTrackerPermissions**](TrackerPermissionApi.md#getTrackerPermissions) | **GET** /v3/trackers/permissions | Get available tracker permissions
-[**getTrackerPermissionsWithRoles**](TrackerPermissionApi.md#getTrackerPermissionsWithRoles) | **GET** /v3/trackers/{trackerId}/permissions | List tracker permissions per role
-[**removePermissions**](TrackerPermissionApi.md#removePermissions) | **DELETE** /v3/trackers/{trackerId}/roles/{roleId}/permissions | Removes all tracker permissions from a specific role
-[**updatePermission**](TrackerPermissionApi.md#updatePermission) | **PUT** /v3/trackers/{trackerId}/roles/{roleId}/permissions | Set the tracker permissions for a specific role
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**getTrackerPermission**](TrackerPermissionApi.md#getTrackerPermission) | **GET** /v3/trackers/permissions/{trackerPermissionId} | Get the immutable definition of a tracker permission |
+| [**getTrackerPermissions**](TrackerPermissionApi.md#getTrackerPermissions) | **GET** /v3/trackers/permissions | Get available tracker permissions |
+| [**getTrackerPermissionsWithRoles**](TrackerPermissionApi.md#getTrackerPermissionsWithRoles) | **GET** /v3/trackers/{trackerId}/permissions | List tracker permissions per role |
+| [**removePermissions**](TrackerPermissionApi.md#removePermissions) | **DELETE** /v3/trackers/{trackerId}/roles/{roleId}/permissions | Removes all tracker permissions from a specific role |
+| [**updatePermission**](TrackerPermissionApi.md#updatePermission) | **PUT** /v3/trackers/{trackerId}/roles/{roleId}/permissions | Set the tracker permissions for a specific role |
 
 
 <a name="getTrackerPermission"></a>
@@ -30,7 +30,7 @@ import com.intland.swagger.client.api.TrackerPermissionApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -65,9 +65,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **trackerPermissionId** | **Integer**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **trackerPermissionId** | **Integer**|  | |
 
 ### Return type
 
@@ -80,13 +80,15 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required. |  -  |
-**200** | Tracker permission. |  -  |
+| **200** | Tracker permission. |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication is required. |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="getTrackerPermissions"></a>
 # **getTrackerPermissions**
@@ -107,7 +109,7 @@ import com.intland.swagger.client.api.TrackerPermissionApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -153,14 +155,16 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required. |  -  |
-**200** | Tracker permissions. |  -  |
-**404** | Tracker permission is not found. |  -  |
+| **200** | Tracker permissions. |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication is required. |  -  |
+| **404** | Tracker permission is not found. |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="getTrackerPermissionsWithRoles"></a>
 # **getTrackerPermissionsWithRoles**
@@ -183,7 +187,7 @@ import com.intland.swagger.client.api.TrackerPermissionApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -220,11 +224,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **trackerId** | **Integer**|  |
- **userId** | **Integer**|  | [optional]
- **roleId** | **Integer**|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **trackerId** | **Integer**|  | |
+| **userId** | **Integer**|  | [optional] |
+| **roleId** | **Integer**|  | [optional] |
 
 ### Return type
 
@@ -237,15 +241,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required. |  -  |
-**404** | Tracker is not found. |  -  |
-**200** | Tracker permissions by role. |  -  |
-**400** | No access permission for this resource |  -  |
+| **200** | Tracker permissions by role. |  -  |
+| **400** | No access permission for this resource |  -  |
+| **403** | Authentication is required. |  -  |
+| **404** | Tracker is not found. |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="removePermissions"></a>
 # **removePermissions**
@@ -266,7 +271,7 @@ import com.intland.swagger.client.api.TrackerPermissionApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -301,10 +306,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **trackerId** | **Integer**|  |
- **roleId** | **Integer**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **trackerId** | **Integer**|  | |
+| **roleId** | **Integer**|  | |
 
 ### Return type
 
@@ -317,14 +322,16 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**404** | Tracker/role is not found |  -  |
-**200** | Tracker permissions were removed. |  -  |
+| **200** | Tracker permissions were removed. |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | Tracker/role is not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="updatePermission"></a>
 # **updatePermission**
@@ -345,7 +352,7 @@ import com.intland.swagger.client.api.TrackerPermissionApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -382,11 +389,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **trackerId** | **Integer**|  |
- **roleId** | **Integer**|  |
- **permissionIdsRequest** | [**PermissionIdsRequest**](PermissionIdsRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **trackerId** | **Integer**|  | |
+| **roleId** | **Integer**|  | |
+| **permissionIdsRequest** | [**PermissionIdsRequest**](PermissionIdsRequest.md)|  | |
 
 ### Return type
 
@@ -399,12 +406,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**200** | Tracker permissions are set |  -  |
-**404** | Tracker / permission / roles not found |  -  |
+| **200** | Tracker permissions are set |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | Tracker / permission / roles not found |  -  |
+| **429** | Too many requests |  -  |
 

@@ -2,12 +2,13 @@
 
 # InternalServerErrorException
 
+
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**resourceUri** | **String** |  |  [optional]
-**message** | **String** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**message** | **String** |  |  [optional] |
+|**resourceUri** | **String** |  |  [optional] |
 
 
 

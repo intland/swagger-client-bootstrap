@@ -2,14 +2,14 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**deleteAttachment**](AttachmentApi.md#deleteAttachment) | **DELETE** /v3/attachments/{attachmentId} | Deletes an attachment
-[**getAttachment**](AttachmentApi.md#getAttachment) | **GET** /v3/attachments/{attachmentId} | Get attachment by id
-[**getAttachmentContent**](AttachmentApi.md#getAttachmentContent) | **GET** /v3/attachments/{attachmentId}/content | Get content of an attachment by id
-[**getAttachmentHistory**](AttachmentApi.md#getAttachmentHistory) | **GET** /v3/attachments/{attachmentId}/history | Returns the change history of the specified attachment
-[**restoreAttachment**](AttachmentApi.md#restoreAttachment) | **PUT** /v3/attachments/{attachmentId}/restore | Restore attachment to previous version
-[**updateAttachment**](AttachmentApi.md#updateAttachment) | **PUT** /v3/attachments/{attachmentId}/content | Update attachment
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**deleteAttachment**](AttachmentApi.md#deleteAttachment) | **DELETE** /v3/attachments/{attachmentId} | Deletes an attachment |
+| [**getAttachment**](AttachmentApi.md#getAttachment) | **GET** /v3/attachments/{attachmentId} | Get attachment by id |
+| [**getAttachmentContent**](AttachmentApi.md#getAttachmentContent) | **GET** /v3/attachments/{attachmentId}/content | Get content of an attachment by id |
+| [**getAttachmentHistory**](AttachmentApi.md#getAttachmentHistory) | **GET** /v3/attachments/{attachmentId}/history | Returns the change history of the specified attachment |
+| [**restoreAttachment**](AttachmentApi.md#restoreAttachment) | **PUT** /v3/attachments/{attachmentId}/restore | Restore attachment to previous version |
+| [**updateAttachment**](AttachmentApi.md#updateAttachment) | **PUT** /v3/attachments/{attachmentId}/content | Update attachment |
 
 
 <a name="deleteAttachment"></a>
@@ -65,9 +65,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **attachmentId** | **Integer**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **attachmentId** | **Integer**|  | |
 
 ### Return type
 
@@ -85,10 +85,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Attachment deleted |  -  |
-**401** | Authentication is required |  -  |
-**403** | Access denied |  -  |
-**404** | Attachment not found |  -  |
+| **200** | Attachment deleted |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Access denied |  -  |
+| **404** | Attachment not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="getAttachment"></a>
 # **getAttachment**
@@ -145,10 +147,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **attachmentId** | **Integer**|  |
- **version** | **Integer**|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **attachmentId** | **Integer**|  | |
+| **version** | **Integer**|  | [optional] |
 
 ### Return type
 
@@ -161,15 +163,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Attachment by id |  -  |
-**403** | Authorization is required |  -  |
-**401** | Authentication is required |  -  |
-**404** | Tracker / Attachment not found |  -  |
+| **200** | Attachment by id |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Authorization is required |  -  |
+| **404** | Tracker / Attachment not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="getAttachmentContent"></a>
 # **getAttachmentContent**
@@ -226,10 +230,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **attachmentId** | **Integer**|  |
- **version** | **Integer**|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **attachmentId** | **Integer**|  | |
+| **version** | **Integer**|  | [optional] |
 
 ### Return type
 
@@ -242,15 +246,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream, application/json
+ - **Accept**: application/json, application/octet-stream, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Attachment by id |  -  |
-**403** | Authorization is required |  -  |
-**401** | Authentication is required |  -  |
-**404** | Tracker / Attachment not found |  -  |
+| **200** | Attachment by id |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Authorization is required |  -  |
+| **404** | Tracker / Attachment not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="getAttachmentHistory"></a>
 # **getAttachmentHistory**
@@ -308,11 +314,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **attachmentId** | **Integer**|  |
- **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1]
- **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **attachmentId** | **Integer**|  | |
+| **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1] |
+| **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25] |
 
 ### Return type
 
@@ -330,11 +336,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Authentication is required |  -  |
-**200** | Attachment history |  -  |
-**403** | Access denied |  -  |
-**404** | Attachment not found |  -  |
-**400** | Bad request |  -  |
+| **200** | Attachment history |  -  |
+| **400** | Bad request |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Access denied |  -  |
+| **404** | Attachment not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="restoreAttachment"></a>
 # **restoreAttachment**
@@ -391,10 +398,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **attachmentId** | **Integer**|  |
- **version** | **Integer**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **attachmentId** | **Integer**|  | |
+| **version** | **Integer**|  | |
 
 ### Return type
 
@@ -407,20 +414,22 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**500** | Unexpected error |  -  |
-**403** | Authorization is required |  -  |
-**200** | Restored attachment |  -  |
-**401** | Authentication is required |  -  |
-**404** | Attachment not found |  -  |
+| **200** | Restored attachment |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Authorization is required |  -  |
+| **404** | Attachment not found |  -  |
+| **429** | Too many requests |  -  |
+| **500** | Unexpected error |  -  |
 
 <a name="updateAttachment"></a>
 # **updateAttachment**
-> Attachment updateAttachment(attachmentId, description, descriptionFormat, content)
+> Attachment updateAttachment(attachmentId, content, description, descriptionFormat)
 
 Update attachment
 
@@ -456,11 +465,11 @@ public class Example {
 
     AttachmentApi apiInstance = new AttachmentApi(defaultClient);
     Integer attachmentId = 56; // Integer | 
+    File content = new File("/path/to/file"); // File | 
     String description = "description_example"; // String | Description
     String descriptionFormat = "PlainText"; // String | Format of description
-    File content = new File("/path/to/file"); // File | Content of attachment
     try {
-      Attachment result = apiInstance.updateAttachment(attachmentId, description, descriptionFormat, content);
+      Attachment result = apiInstance.updateAttachment(attachmentId, content, description, descriptionFormat);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AttachmentApi#updateAttachment");
@@ -475,12 +484,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **attachmentId** | **Integer**|  |
- **description** | **String**| Description | [optional]
- **descriptionFormat** | **String**| Format of description | [optional] [default to PlainText] [enum: PlainText, Html, Wiki]
- **content** | **File**| Content of attachment | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **attachmentId** | **Integer**|  | |
+| **content** | **File**|  | [optional] |
+| **description** | **String**| Description | [optional] |
+| **descriptionFormat** | **String**| Format of description | [optional] [default to PlainText] [enum: PlainText, Html, Wiki] |
 
 ### Return type
 
@@ -493,14 +502,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**500** | Unexpected error |  -  |
-**200** | Updated attachment |  -  |
-**403** | Authorization is required |  -  |
-**401** | Authentication is required |  -  |
-**404** | Attachment not found |  -  |
+| **200** | Updated attachment |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Authorization is required |  -  |
+| **404** | Attachment not found |  -  |
+| **429** | Too many requests |  -  |
+| **500** | Unexpected error |  -  |
 

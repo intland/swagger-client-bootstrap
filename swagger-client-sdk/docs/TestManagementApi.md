@@ -2,9 +2,9 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**autoApplyStepReuses**](TestManagementApi.md#autoApplyStepReuses) | **POST** /v3/testcases/autoApplyStepReuses | Find duplicate TestSteps in a set of TestCases and converting duplicates to Reuses
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**autoApplyStepReuses**](TestManagementApi.md#autoApplyStepReuses) | **POST** /v3/testcases/autoApplyStepReuses | Find duplicate TestSteps in a set of TestCases and converting duplicates to Reuses |
 
 
 <a name="autoApplyStepReuses"></a>
@@ -61,9 +61,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **autoApplyTestStepReuses** | [**AutoApplyTestStepReuses**](AutoApplyTestStepReuses.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **autoApplyTestStepReuses** | [**AutoApplyTestStepReuses**](AutoApplyTestStepReuses.md)|  | |
 
 ### Return type
 
@@ -76,12 +76,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Authentication is required |  -  |
-**200** | The item-references of the modified tracker-items where duplicate Test Steps was found and converted to Reuses |  -  |
-**403** | Authentication is required |  -  |
+| **200** | The item-references of the modified tracker-items where duplicate Test Steps was found and converted to Reuses |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Authentication is required |  -  |
+| **403** | Authentication is required |  -  |
+| **429** | Too many requests |  -  |
 

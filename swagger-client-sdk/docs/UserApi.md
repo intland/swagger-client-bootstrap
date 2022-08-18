@@ -2,13 +2,13 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getUser**](UserApi.md#getUser) | **GET** /v3/users/{userId} | Get user
-[**getUserByEmail**](UserApi.md#getUserByEmail) | **GET** /v3/users/findByEmail | Get user by email address
-[**getUserByName**](UserApi.md#getUserByName) | **GET** /v3/users/findByName | Get user by name
-[**getUsers**](UserApi.md#getUsers) | **GET** /v3/users | Get users
-[**searchUsers**](UserApi.md#searchUsers) | **POST** /v3/users/search | Search users
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**getUser**](UserApi.md#getUser) | **GET** /v3/users/{userId} | Get user |
+| [**getUserByEmail**](UserApi.md#getUserByEmail) | **GET** /v3/users/findByEmail | Get user by email address |
+| [**getUserByName**](UserApi.md#getUserByName) | **GET** /v3/users/findByName | Get user by name |
+| [**getUsers**](UserApi.md#getUsers) | **GET** /v3/users | Get users |
+| [**searchUsers**](UserApi.md#searchUsers) | **POST** /v3/users/search | Search users |
 
 
 <a name="getUser"></a>
@@ -65,9 +65,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **Integer**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | **Integer**|  | |
 
 ### Return type
 
@@ -80,14 +80,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**200** | User |  -  |
-**404** | User not found |  -  |
+| **200** | User |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | User not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="getUserByEmail"></a>
 # **getUserByEmail**
@@ -143,9 +145,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **email** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **email** | **String**|  | |
 
 ### Return type
 
@@ -158,14 +160,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**200** | User |  -  |
-**404** | User not found |  -  |
+| **200** | User |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | User not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="getUserByName"></a>
 # **getUserByName**
@@ -221,9 +225,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
 
 ### Return type
 
@@ -236,14 +240,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**200** | User |  -  |
-**404** | User not found |  -  |
+| **200** | User |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | User not found |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="getUsers"></a>
 # **getUsers**
@@ -285,7 +291,7 @@ public class Example {
     Integer page = 1; // Integer | Index of the result page starting from 1.
     Integer pageSize = 25; // Integer | Number of items in a result page. Max value: 500
     Integer groupId = 56; // Integer | 
-    String queryString = Intland; // String | 
+    String queryString = "Intland"; // String | 
     try {
       UserReferenceSearchResult result = apiInstance.getUsers(page, pageSize, groupId, queryString);
       System.out.println(result);
@@ -302,12 +308,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1]
- **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25]
- **groupId** | **Integer**|  | [optional]
- **queryString** | **String**|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1] |
+| **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25] |
+| **groupId** | **Integer**|  | [optional] |
+| **queryString** | **String**|  | [optional] |
 
 ### Return type
 
@@ -320,17 +326,19 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**200** | Users |  -  |
+| **200** | Users |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication is required |  -  |
+| **429** | Too many requests |  -  |
 
 <a name="searchUsers"></a>
 # **searchUsers**
-> UserReferenceSearchResult searchUsers(page, pageSize, userFilteringRequest)
+> UserSearchResult searchUsers(userFilteringRequest, page, pageSize)
 
 Search users
 
@@ -365,11 +373,11 @@ public class Example {
     BearerAuth.setBearerToken("BEARER TOKEN");
 
     UserApi apiInstance = new UserApi(defaultClient);
+    UserFilteringRequest userFilteringRequest = new UserFilteringRequest(); // UserFilteringRequest | 
     Integer page = 1; // Integer | Index of the result page starting from 1.
     Integer pageSize = 25; // Integer | Number of items in a result page. Max value: 500
-    UserFilteringRequest userFilteringRequest = new UserFilteringRequest(); // UserFilteringRequest | 
     try {
-      UserReferenceSearchResult result = apiInstance.searchUsers(page, pageSize, userFilteringRequest);
+      UserSearchResult result = apiInstance.searchUsers(userFilteringRequest, page, pageSize);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserApi#searchUsers");
@@ -384,15 +392,15 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1]
- **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25]
- **userFilteringRequest** | [**UserFilteringRequest**](UserFilteringRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userFilteringRequest** | [**UserFilteringRequest**](UserFilteringRequest.md)|  | |
+| **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1] |
+| **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25] |
 
 ### Return type
 
-[**UserReferenceSearchResult**](UserReferenceSearchResult.md)
+[**UserSearchResult**](UserSearchResult.md)
 
 ### Authorization
 
@@ -401,12 +409,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**200** | Users |  -  |
-**400** | Bad request |  -  |
+| **200** | Users |  -  |
+| **400** | Bad request |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | Project is not found |  -  |
+| **429** | Too many requests |  -  |
 

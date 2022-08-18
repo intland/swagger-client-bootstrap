@@ -15,7 +15,7 @@
     },
     "servers": [
         {
-            "url": "https://manual-test-server.intland.de:8111/api"
+            "url": "http://localhost:8080/cb/api"
         }
     ],
     "security": [

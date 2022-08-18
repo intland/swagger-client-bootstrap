@@ -1,10 +1,10 @@
 # BranchesApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *https://manual-test-server.intland.de:8111/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getTrackerItemOnBranch**](BranchesApi.md#getTrackerItemOnBranch) | **GET** /v3/branches/{branchId}/item | Get tracker item on branch
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**getTrackerItemOnBranch**](BranchesApi.md#getTrackerItemOnBranch) | **GET** /v3/branches/{branchId}/item | Get tracker item on branch |
 
 
 <a name="getTrackerItemOnBranch"></a>
@@ -28,7 +28,7 @@ import com.intland.swagger.client.api.BranchesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("https://manual-test-server.intland.de:8111/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -64,10 +64,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sourceItemId** | **Integer**|  |
- **branchId** | **Integer**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sourceItemId** | **Integer**|  | |
+| **branchId** | **Integer**|  | |
 
 ### Return type
 
@@ -80,12 +80,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**404** | Tracker item not found |  -  |
-**200** | Basic tracker item by id and branch id |  -  |
+| **200** | Basic tracker item by id and branch id |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication is required |  -  |
+| **404** | Tracker item not found |  -  |
+| **429** | Too many requests |  -  |
 

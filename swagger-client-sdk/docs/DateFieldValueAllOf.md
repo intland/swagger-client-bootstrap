@@ -2,11 +2,12 @@
 
 # DateFieldValueAllOf
 
+
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**value** | [**DateTime**](DateTime.md) | Date value |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**value** | **OffsetDateTime** | Date value |  [optional] |
 
 
 

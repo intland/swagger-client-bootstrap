@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-implementation "org.openapitools:openapi-java-client:3.0"
+compile "org.openapitools:openapi-java-client:3.0"
 ```
 
 ### Others

@@ -69,7 +69,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **association** | [**Association**](Association.md)|  | [optional]
+ **association** | [**Association**](Association.md)|  |
 
 ### Return type
 
@@ -82,13 +82,15 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Created association |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 
 <a name="deleteAssociation"></a>
 # **deleteAssociation**
@@ -163,9 +165,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Delete association by id |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Association not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getAssociation"></a>
 # **getAssociation**
@@ -236,14 +240,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Found association |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Association not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getAssociationHistory"></a>
 # **getAssociationHistory**
@@ -318,14 +324,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Association not found |  -  |
 **200** | Association history |  -  |
+**400** | Bad Request |  -  |
 **401** | Authentication is required |  -  |
+**404** | Association not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getAssociationType"></a>
 # **getAssociationType**
@@ -396,14 +404,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Association type |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
 **404** | Association not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getAvailableAssociationTypes"></a>
 # **getAvailableAssociationTypes**
@@ -470,13 +480,15 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | List of association types |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 
 <a name="updateAssociation"></a>
 # **updateAssociation**
@@ -536,7 +548,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **associationId** | **Integer**|  |
- **association** | [**Association**](Association.md)|  | [optional]
+ **association** | [**Association**](Association.md)|  |
 
 ### Return type
 
@@ -549,12 +561,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Updated association |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
 **404** | Association not found |  -  |
+**429** | Too many requests |  -  |
 

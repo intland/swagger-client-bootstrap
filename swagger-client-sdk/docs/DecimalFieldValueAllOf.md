@@ -2,6 +2,7 @@
 
 # DecimalFieldValueAllOf
 
+
 ## Properties
 
 Name | Type | Description | Notes

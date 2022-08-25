@@ -3,6 +3,7 @@
 # ColorFieldValue
 
 Value container of a color field
+
 ## Properties
 
 Name | Type | Description | Notes

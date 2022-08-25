@@ -3,6 +3,7 @@
 # TrackerItemHistory
 
 Tracker item history containing all versions of an item.
+
 ## Properties
 
 Name | Type | Description | Notes

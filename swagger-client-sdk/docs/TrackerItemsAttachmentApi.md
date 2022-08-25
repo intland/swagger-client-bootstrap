@@ -12,12 +12,12 @@ Method | HTTP request | Description
 [**getTrackerItemAttachments**](TrackerItemsAttachmentApi.md#getTrackerItemAttachments) | **GET** /v3/items/{itemId}/attachments | Get attachments of tracker item
 [**getTrackerItemsAttachmentContents**](TrackerItemsAttachmentApi.md#getTrackerItemsAttachmentContents) | **POST** /v3/items/attachments/content | Get attachments of tracker items matching the extension or mime type filters
 [**updateAttachmentOfTrackerItem**](TrackerItemsAttachmentApi.md#updateAttachmentOfTrackerItem) | **PUT** /v3/items/{itemId}/attachments/{attachmentId}/content | Update content of attachment of tracker item
-[**updloadTrackerItemAttachment**](TrackerItemsAttachmentApi.md#updloadTrackerItemAttachment) | **POST** /v3/items/{itemId}/attachments | Upload an attachment to a tracker item
+[**uploadTrackerItemAttachment**](TrackerItemsAttachmentApi.md#uploadTrackerItemAttachment) | **POST** /v3/items/{itemId}/attachments | Upload an attachment to a tracker item
 
 
 <a name="deleteTrackerItemAttachment"></a>
 # **deleteTrackerItemAttachment**
-> Attachment deleteTrackerItemAttachment(itemId, attachmentId)
+> Attachment deleteTrackerItemAttachment(itemId, attachmentId, deleteAttachmentGroup)
 
 Delete attachment of tracker item by id
 
@@ -54,8 +54,9 @@ public class Example {
     TrackerItemsAttachmentApi apiInstance = new TrackerItemsAttachmentApi(defaultClient);
     Integer itemId = 56; // Integer | 
     Integer attachmentId = 56; // Integer | 
+    Boolean deleteAttachmentGroup = false; // Boolean | Delete attachment group or delete just the attachment and let the comment there
     try {
-      Attachment result = apiInstance.deleteTrackerItemAttachment(itemId, attachmentId);
+      Attachment result = apiInstance.deleteTrackerItemAttachment(itemId, attachmentId, deleteAttachmentGroup);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TrackerItemsAttachmentApi#deleteTrackerItemAttachment");
@@ -74,6 +75,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **Integer**|  |
  **attachmentId** | **Integer**|  |
+ **deleteAttachmentGroup** | **Boolean**| Delete attachment group or delete just the attachment and let the comment there | [optional] [default to false]
 
 ### Return type
 
@@ -86,18 +88,21 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Attachment of tracker item by id |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
-**200** | Attachment of tracker item by id |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
 
 <a name="deleteTrackerItemAttachments"></a>
 # **deleteTrackerItemAttachments**
-> deleteTrackerItemAttachments(itemId)
+> deleteTrackerItemAttachments(itemId, deleteAttachmentGroup)
 
 Delete attachments of tracker item
 
@@ -133,8 +138,9 @@ public class Example {
 
     TrackerItemsAttachmentApi apiInstance = new TrackerItemsAttachmentApi(defaultClient);
     Integer itemId = 56; // Integer | 
+    Boolean deleteAttachmentGroup = false; // Boolean | Delete attachment group or delete just the attachment and let the comment there
     try {
-      apiInstance.deleteTrackerItemAttachments(itemId);
+      apiInstance.deleteTrackerItemAttachments(itemId, deleteAttachmentGroup);
     } catch (ApiException e) {
       System.err.println("Exception when calling TrackerItemsAttachmentApi#deleteTrackerItemAttachments");
       System.err.println("Status code: " + e.getCode());
@@ -151,6 +157,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **Integer**|  |
+ **deleteAttachmentGroup** | **Boolean**| Delete attachment group or delete just the attachment and let the comment there | [optional] [default to false]
 
 ### Return type
 
@@ -163,14 +170,17 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Attachments of tracker item removed |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemAttachment"></a>
 # **getTrackerItemAttachment**
@@ -243,14 +253,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Attachment of tracker item by id |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker / Attachment not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemAttachmentContent"></a>
 # **getTrackerItemAttachmentContent**
@@ -323,14 +335,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: application/octet-stream, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Attachment of tracker item by id |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker / Attachment not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemAttachmentContents"></a>
 # **getTrackerItemAttachmentContents**
@@ -401,15 +415,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/zip
+ - **Accept**: application/zip, */*, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**404** | Tracker item not found |  -  |
 **200** | Attachments of a tracker item: contains the attachment files prefixed with the attachment id like [attachment-id]_[filename]. |  -  |
 **400** | Bad request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemAttachments"></a>
 # **getTrackerItemAttachments**
@@ -482,15 +497,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Attachments of tracker item |  -  |
+**400** | Bad Request |  -  |
+**401** | Access denied |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
-**200** | Attachments of tracker item |  -  |
-**401** | Access denied |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemsAttachmentContents"></a>
 # **getTrackerItemsAttachmentContents**
@@ -548,7 +565,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trackerItemAttachmentRequest** | [**TrackerItemAttachmentRequest**](TrackerItemAttachmentRequest.md)|  | [optional]
+ **trackerItemAttachmentRequest** | [**TrackerItemAttachmentRequest**](TrackerItemAttachmentRequest.md)|  |
 
 ### Return type
 
@@ -561,19 +578,20 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/zip
+ - **Accept**: application/zip, */*, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Attachments of tracker items: each tracker item goes to a subdirectory named as item-id and this directory contains the attachment files prefixed with the attachment id like [attachment-id]_[filename]. |  -  |
 **400** | Bad request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker items not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="updateAttachmentOfTrackerItem"></a>
 # **updateAttachmentOfTrackerItem**
-> Attachment updateAttachmentOfTrackerItem(itemId, attachmentId, description, descriptionFormat, content)
+> Attachment updateAttachmentOfTrackerItem(itemId, attachmentId, content, description, descriptionFormat)
 
 Update content of attachment of tracker item
 
@@ -610,11 +628,11 @@ public class Example {
     TrackerItemsAttachmentApi apiInstance = new TrackerItemsAttachmentApi(defaultClient);
     Integer itemId = 56; // Integer | 
     Integer attachmentId = 56; // Integer | 
+    File content = new File("/path/to/file"); // File | 
     String description = "description_example"; // String | Description
-    String descriptionFormat = "PlainText"; // String | Format of description
-    File content = new File("/path/to/file"); // File | Content of attachment
+    String descriptionFormat = "DescriptionFormatEnum.PLAINTEXT"; // String | Format of description
     try {
-      Attachment result = apiInstance.updateAttachmentOfTrackerItem(itemId, attachmentId, description, descriptionFormat, content);
+      Attachment result = apiInstance.updateAttachmentOfTrackerItem(itemId, attachmentId, content, description, descriptionFormat);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TrackerItemsAttachmentApi#updateAttachmentOfTrackerItem");
@@ -633,9 +651,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **Integer**|  |
  **attachmentId** | **Integer**|  |
+ **content** | **File**|  | [optional]
  **description** | **String**| Description | [optional]
- **descriptionFormat** | **String**| Format of description | [optional] [default to PlainText] [enum: PlainText, Html, Wiki]
- **content** | **File**| Content of attachment | [optional]
+ **descriptionFormat** | **String**| Format of description | [optional] [default to DescriptionFormatEnum.PLAINTEXT] [enum: PlainText, Html, Wiki]
 
 ### Return type
 
@@ -648,20 +666,23 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Tracker item or attachment not found |  -  |
-**500** | Unexpected error |  -  |
 **200** | Updated attachment |  -  |
-**403** | Authorization is required |  -  |
+**400** | Bad Request |  -  |
 **401** | Authentication is required |  -  |
+**403** | Authorization is required |  -  |
+**404** | Tracker item or attachment not found |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
+**500** | Unexpected error |  -  |
 
-<a name="updloadTrackerItemAttachment"></a>
-# **updloadTrackerItemAttachment**
-> List&lt;Attachment&gt; updloadTrackerItemAttachment(itemId, attachments)
+<a name="uploadTrackerItemAttachment"></a>
+# **uploadTrackerItemAttachment**
+> List&lt;Attachment&gt; uploadTrackerItemAttachment(itemId, attachments)
 
 Upload an attachment to a tracker item
 
@@ -699,10 +720,10 @@ public class Example {
     Integer itemId = 56; // Integer | 
     File attachments = new File("/path/to/file"); // File | Attachments of a comment
     try {
-      List<Attachment> result = apiInstance.updloadTrackerItemAttachment(itemId, attachments);
+      List<Attachment> result = apiInstance.uploadTrackerItemAttachment(itemId, attachments);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TrackerItemsAttachmentApi#updloadTrackerItemAttachment");
+      System.err.println("Exception when calling TrackerItemsAttachmentApi#uploadTrackerItemAttachment");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -730,12 +751,15 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Attachment of tracker item by id |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
-**200** | Attachment of tracker item by id |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
 

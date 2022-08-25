@@ -64,7 +64,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attachmentMigrationRequest** | [**AttachmentMigrationRequest**](AttachmentMigrationRequest.md)|  | [optional]
+ **attachmentMigrationRequest** | [**AttachmentMigrationRequest**](AttachmentMigrationRequest.md)|  |
 
 ### Return type
 
@@ -77,13 +77,14 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: */*, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Attachments are migrated |  -  |
-**403** | Access denied |  -  |
 **400** | Bad request |  -  |
 **401** | Authentication is required |  -  |
+**403** | Access denied |  -  |
+**429** | Too many requests |  -  |
 

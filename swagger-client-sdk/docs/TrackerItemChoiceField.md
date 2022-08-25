@@ -3,6 +3,7 @@
 # TrackerItemChoiceField
 
 Tracker item type choice field
+
 ## Properties
 
 Name | Type | Description | Notes

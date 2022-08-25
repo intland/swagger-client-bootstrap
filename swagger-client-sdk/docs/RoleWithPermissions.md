@@ -3,6 +3,7 @@
 # RoleWithPermissions
 
 Model that contains permissions connected to roles
+
 ## Properties
 
 Name | Type | Description | Notes

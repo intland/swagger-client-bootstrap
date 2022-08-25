@@ -80,12 +80,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Basic tracker item by id and branch id |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
-**200** | Basic tracker item by id and branch id |  -  |
+**429** | Too many requests |  -  |
 

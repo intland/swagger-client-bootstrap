@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getTraceabilityInitialItemIds"></a>
 # **getTraceabilityInitialItemIds**
-> List&lt;TraceabilityItem&gt; getTraceabilityInitialItemIds(pageSize, pageNo, traceabilityInitialLevelFilter)
+> List&lt;TraceabilityItem&gt; getTraceabilityInitialItemIds(traceabilityInitialLevelFilter, pageSize, pageNo)
 
 Get initial ids
 
@@ -47,11 +47,11 @@ public class Example {
     BearerAuth.setBearerToken("BEARER TOKEN");
 
     TraceabilityApi apiInstance = new TraceabilityApi(defaultClient);
+    TraceabilityInitialLevelFilter traceabilityInitialLevelFilter = new TraceabilityInitialLevelFilter(); // TraceabilityInitialLevelFilter | 
     Integer pageSize = 56; // Integer | Number of items in a result page.
     Integer pageNo = 56; // Integer | Index of the result page.
-    TraceabilityInitialLevelFilter traceabilityInitialLevelFilter = new TraceabilityInitialLevelFilter(); // TraceabilityInitialLevelFilter | 
     try {
-      List<TraceabilityItem> result = apiInstance.getTraceabilityInitialItemIds(pageSize, pageNo, traceabilityInitialLevelFilter);
+      List<TraceabilityItem> result = apiInstance.getTraceabilityInitialItemIds(traceabilityInitialLevelFilter, pageSize, pageNo);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TraceabilityApi#getTraceabilityInitialItemIds");
@@ -68,9 +68,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **traceabilityInitialLevelFilter** | [**TraceabilityInitialLevelFilter**](TraceabilityInitialLevelFilter.md)|  |
  **pageSize** | **Integer**| Number of items in a result page. | [optional]
  **pageNo** | **Integer**| Index of the result page. | [optional]
- **traceabilityInitialLevelFilter** | [**TraceabilityInitialLevelFilter**](TraceabilityInitialLevelFilter.md)|  | [optional]
 
 ### Return type
 
@@ -83,18 +83,20 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker item list |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTraceabilityLevelItemIds"></a>
 # **getTraceabilityLevelItemIds**
-> TraceabilityResult getTraceabilityLevelItemIds(itemsOnLevel, itemsFromPreviousItem, traceabilityLevelFilter)
+> TraceabilityResult getTraceabilityLevelItemIds(traceabilityLevelFilter, itemsOnLevel, itemsFromPreviousItem)
 
 Get traceability level item ids
 
@@ -131,11 +133,11 @@ public class Example {
     BearerAuth.setBearerToken("BEARER TOKEN");
 
     TraceabilityApi apiInstance = new TraceabilityApi(defaultClient);
+    TraceabilityLevelFilter traceabilityLevelFilter = new TraceabilityLevelFilter(); // TraceabilityLevelFilter | 
     Integer itemsOnLevel = 56; // Integer | Number of items per level.
     Integer itemsFromPreviousItem = 56; // Integer | Number of items per item.
-    TraceabilityLevelFilter traceabilityLevelFilter = new TraceabilityLevelFilter(); // TraceabilityLevelFilter | 
     try {
-      TraceabilityResult result = apiInstance.getTraceabilityLevelItemIds(itemsOnLevel, itemsFromPreviousItem, traceabilityLevelFilter);
+      TraceabilityResult result = apiInstance.getTraceabilityLevelItemIds(traceabilityLevelFilter, itemsOnLevel, itemsFromPreviousItem);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TraceabilityApi#getTraceabilityLevelItemIds");
@@ -152,9 +154,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **traceabilityLevelFilter** | [**TraceabilityLevelFilter**](TraceabilityLevelFilter.md)|  |
  **itemsOnLevel** | **Integer**| Number of items per level. | [optional]
  **itemsFromPreviousItem** | **Integer**| Number of items per item. | [optional]
- **traceabilityLevelFilter** | [**TraceabilityLevelFilter**](TraceabilityLevelFilter.md)|  | [optional]
 
 ### Return type
 
@@ -167,11 +169,13 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Traceability items list |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 

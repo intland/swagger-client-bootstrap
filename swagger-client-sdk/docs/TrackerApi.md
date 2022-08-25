@@ -8,9 +8,11 @@ Method | HTTP request | Description
 [**getChoiceOption**](TrackerApi.md#getChoiceOption) | **GET** /v3/trackers/{trackerId}/fields/{fieldId}/options/{optionId} | Get option of a choice field of tracker
 [**getItemsByTracker**](TrackerApi.md#getItemsByTracker) | **GET** /v3/trackers/{trackerId}/items | Get items in a specific tracker
 [**getTracker**](TrackerApi.md#getTracker) | **GET** /v3/trackers/{trackerId} | Get tracker
+[**getTrackerBaselines**](TrackerApi.md#getTrackerBaselines) | **GET** /v3/trackers/{trackerId}/baselines | Get baselines of a specific tracker
 [**getTrackerField**](TrackerApi.md#getTrackerField) | **GET** /v3/trackers/{trackerId}/fields/{fieldId} | Get field of tracker
 [**getTrackerFieldPermissions**](TrackerApi.md#getTrackerFieldPermissions) | **GET** /v3/trackers/{trackerId}/fields/{fieldId}/permissions | Get permissions of tracker field
 [**getTrackerFields**](TrackerApi.md#getTrackerFields) | **GET** /v3/trackers/{trackerId}/fields | Get fields of tracker
+[**getTrackerFieldsPermissions**](TrackerApi.md#getTrackerFieldsPermissions) | **GET** /v3/trackers/{trackerId}/fields/permissions | Get permissions of all fields of a tracker
 [**getTrackerOutline**](TrackerApi.md#getTrackerOutline) | **GET** /v3/trackers/{trackerId}/outline | Get outline of a specific tracker
 [**getTrackerSchema**](TrackerApi.md#getTrackerSchema) | **GET** /v3/trackers/{trackerId}/schema | Get the schema of a tracker
 [**getTrackerTransitions**](TrackerApi.md#getTrackerTransitions) | **GET** /v3/trackers/{trackerId}/transitions | Get all transitions of a specific tracker
@@ -88,14 +90,16 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker deleted. |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker is not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getChoiceOption"></a>
 # **getChoiceOption**
@@ -170,15 +174,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Option by id |  -  |
-**404** | Option not found |  -  |
+**400** | Bad Request |  -  |
 **401** | Authentication is required |  -  |
+**403** | Authentication is required |  -  |
+**404** | Option not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getItemsByTracker"></a>
 # **getItemsByTracker**
@@ -253,15 +259,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | List of tracker items |  -  |
+**400** | Request cannot be processed |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker is not found |  -  |
-**400** | Request cannot be processed |  -  |
-**200** | List of tracker items |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTracker"></a>
 # **getTracker**
@@ -332,14 +339,98 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Project / Tracker not found |  -  |
+**429** | Too many requests |  -  |
+
+<a name="getTrackerBaselines"></a>
+# **getTrackerBaselines**
+> ReferenceSearchResult getTrackerBaselines(trackerId)
+
+Get baselines of a specific tracker
+
+### Example
+```java
+// Import classes:
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
+
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
+
+    TrackerApi apiInstance = new TrackerApi(defaultClient);
+    Integer trackerId = 56; // Integer | 
+    try {
+      ReferenceSearchResult result = apiInstance.getTrackerBaselines(trackerId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerApi#getTrackerBaselines");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+
+### Return type
+
+[**ReferenceSearchResult**](ReferenceSearchResult.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, */*
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Baselines of the tracker |  -  |
+**400** | Bad Request |  -  |
+**401** | Not authorized |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker is not found |  -  |
+**429** | Too many requests |  -  |
+**500** | Internal server error |  -  |
 
 <a name="getTrackerField"></a>
 # **getTrackerField**
@@ -412,15 +503,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Field by id |  -  |
-**404** | Field not found |  -  |
+**400** | Bad Request |  -  |
 **401** | Authentication is required |  -  |
+**403** | Authentication is required |  -  |
+**404** | Field not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerFieldPermissions"></a>
 # **getTrackerFieldPermissions**
@@ -495,16 +588,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Tracker or field not found |  -  |
 **200** | Permissions by status and role |  -  |
-**403** | Authorization is required |  -  |
 **400** | Status id is invalid |  -  |
 **401** | Authentication is required |  -  |
+**403** | Authorization is required |  -  |
+**404** | Tracker or field not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerFields"></a>
 # **getTrackerFields**
@@ -575,19 +669,104 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Field references |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
 **403** | Authentication is required |  -  |
 **404** | Field not found |  -  |
-**200** | Field references |  -  |
+**429** | Too many requests |  -  |
+
+<a name="getTrackerFieldsPermissions"></a>
+# **getTrackerFieldsPermissions**
+> TrackerFieldsStatusPermissions getTrackerFieldsPermissions(trackerId, statusId)
+
+Get permissions of all fields of a tracker
+
+### Example
+```java
+// Import classes:
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
+
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
+
+    TrackerApi apiInstance = new TrackerApi(defaultClient);
+    Integer trackerId = 56; // Integer | 
+    Integer statusId = 56; // Integer | 
+    try {
+      TrackerFieldsStatusPermissions result = apiInstance.getTrackerFieldsPermissions(trackerId, statusId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerApi#getTrackerFieldsPermissions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **statusId** | **Integer**|  | [optional]
+
+### Return type
+
+[**TrackerFieldsStatusPermissions**](TrackerFieldsStatusPermissions.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, */*
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Permissions by status and role |  -  |
+**400** | Status id is invalid |  -  |
 **401** | Authentication is required |  -  |
+**403** | Authorization is required |  -  |
+**404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerOutline"></a>
 # **getTrackerOutline**
-> OutlineItemSearchResult getTrackerOutline(trackerId, parentItemId)
+> OutlineItemSearchResult getTrackerOutline(trackerId, parentItemId, resultDepthFilter)
 
 Get outline of a specific tracker
 
@@ -624,8 +803,9 @@ public class Example {
     TrackerApi apiInstance = new TrackerApi(defaultClient);
     Integer trackerId = 56; // Integer | 
     Integer parentItemId = 56; // Integer | Show only the children of this item.
+    Integer resultDepthFilter = 56; // Integer | The depth level of the result outline.
     try {
-      OutlineItemSearchResult result = apiInstance.getTrackerOutline(trackerId, parentItemId);
+      OutlineItemSearchResult result = apiInstance.getTrackerOutline(trackerId, parentItemId, resultDepthFilter);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TrackerApi#getTrackerOutline");
@@ -644,6 +824,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **trackerId** | **Integer**|  |
  **parentItemId** | **Integer**| Show only the children of this item. | [optional]
+ **resultDepthFilter** | **Integer**| The depth level of the result outline. | [optional]
 
 ### Return type
 
@@ -656,17 +837,18 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**500** | Internal server error |  -  |
-**401** | Not authorized |  -  |
-**404** | Tracker is not found |  -  |
-**400** | Request cannot be processed |  -  |
 **200** | Outline of the tracker |  -  |
+**400** | Request cannot be processed |  -  |
+**401** | Not authorized |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker is not found |  -  |
+**429** | Too many requests |  -  |
+**500** | Internal server error |  -  |
 
 <a name="getTrackerSchema"></a>
 # **getTrackerSchema**
@@ -737,15 +919,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Field definitions |  -  |
-**404** | Field not found |  -  |
+**400** | Bad Request |  -  |
 **401** | Authentication is required |  -  |
+**403** | Authentication is required |  -  |
+**404** | Field not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerTransitions"></a>
 # **getTrackerTransitions**
@@ -818,15 +1002,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Tracker transition list |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 **500** | Internal server error |  -  |
-**200** | Tracker transition list |  -  |
 
 <a name="getTrackerType"></a>
 # **getTrackerType**
@@ -897,14 +1083,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker type |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker type is not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerTypes"></a>
 # **getTrackerTypes**
@@ -975,13 +1163,15 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker types |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 
 <a name="updateTracker"></a>
 # **updateTracker**
@@ -1041,7 +1231,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **trackerId** | **Integer**|  |
- **tracker** | [**Tracker**](Tracker.md)|  | [optional]
+ **tracker** | [**Tracker**](Tracker.md)|  |
 
 ### Return type
 
@@ -1054,14 +1244,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker settings |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="updateTrackerIcon"></a>
 # **updateTrackerIcon**
@@ -1101,7 +1293,7 @@ public class Example {
 
     TrackerApi apiInstance = new TrackerApi(defaultClient);
     Integer trackerId = 56; // Integer | Id of the tracker
-    File icon = new File("/path/to/file"); // File | 
+    File icon = new File("/path/to/file"); // File | Icon image file
     try {
       apiInstance.updateTrackerIcon(trackerId, icon);
     } catch (ApiException e) {
@@ -1120,7 +1312,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **trackerId** | **Integer**| Id of the tracker |
- **icon** | **File**|  | [optional]
+ **icon** | **File**| Icon image file |
 
 ### Return type
 
@@ -1133,14 +1325,15 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: Not defined
+ - **Accept**: */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Could not read image from the request, or it&#39;s the wrong format |  -  |
-**404** | Tracker not found |  -  |
-**403** | The tracker could not be accessed |  -  |
 **200** | Tracker icon uploaded successfully |  -  |
+**400** | Could not read image from the request, or it&#39;s the wrong format |  -  |
 **401** | Authentication is required |  -  |
+**403** | The tracker could not be accessed |  -  |
+**404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 

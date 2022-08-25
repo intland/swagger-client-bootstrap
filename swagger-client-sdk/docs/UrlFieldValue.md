@@ -3,6 +3,7 @@
 # UrlFieldValue
 
 Value container of an url field
+
 ## Properties
 
 Name | Type | Description | Notes

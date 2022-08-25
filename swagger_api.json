@@ -12710,6 +12710,7 @@
                     "sharedFields": {
                         "type": "array",
                         "description": "List of shared fields assigned to this field",
+                        "readOnly": true,
                         "items": {
                             "$ref": "#/components/schemas/SharedFieldReference"
                         }

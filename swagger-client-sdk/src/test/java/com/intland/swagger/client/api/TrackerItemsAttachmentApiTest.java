@@ -16,8 +16,8 @@ package com.intland.swagger.client.api;
 import java.io.File;
 import java.util.List;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.Attachment;
@@ -27,15 +27,19 @@ import com.intland.swagger.client.model.TrackerItemAttachmentRequest;
 /**
  * API tests for TrackerItemsAttachmentApi
  */
-@Disabled
+@Ignore
 public class TrackerItemsAttachmentApiTest {
 
     private final TrackerItemsAttachmentApi api = new TrackerItemsAttachmentApi();
 
+    
     /**
      * Delete attachment of tracker item by id
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void deleteTrackerItemAttachmentTest() throws ApiException {
@@ -43,89 +47,117 @@ public class TrackerItemsAttachmentApiTest {
         Integer attachmentId = null;
         Boolean deleteAttachmentGroup = null;
         Attachment response = api.deleteTrackerItemAttachment(itemId, attachmentId, deleteAttachmentGroup);
+
         // TODO: test validations
     }
-
+    
     /**
      * Delete attachments of tracker item
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void deleteTrackerItemAttachmentsTest() throws ApiException {
         Integer itemId = null;
         Boolean deleteAttachmentGroup = null;
         api.deleteTrackerItemAttachments(itemId, deleteAttachmentGroup);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get attachment of tracker item by id
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerItemAttachmentTest() throws ApiException {
         Integer itemId = null;
         Integer attachmentId = null;
         Attachment response = api.getTrackerItemAttachment(itemId, attachmentId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get content of an attachment of tracker item by id
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerItemAttachmentContentTest() throws ApiException {
         Integer itemId = null;
         Integer attachmentId = null;
         File response = api.getTrackerItemAttachmentContent(itemId, attachmentId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get attachments of a tracker item
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerItemAttachmentContentsTest() throws ApiException {
         Integer itemId = null;
         File response = api.getTrackerItemAttachmentContents(itemId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get attachments of tracker item
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerItemAttachmentsTest() throws ApiException {
         Integer itemId = null;
         String fileName = null;
         AttachmentSearchResult response = api.getTrackerItemAttachments(itemId, fileName);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get attachments of tracker items matching the extension or mime type filters
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerItemsAttachmentContentsTest() throws ApiException {
         TrackerItemAttachmentRequest trackerItemAttachmentRequest = null;
         File response = api.getTrackerItemsAttachmentContents(trackerItemAttachmentRequest);
+
         // TODO: test validations
     }
-
+    
     /**
      * Update content of attachment of tracker item
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void updateAttachmentOfTrackerItemTest() throws ApiException {
@@ -135,20 +167,25 @@ public class TrackerItemsAttachmentApiTest {
         String description = null;
         String descriptionFormat = null;
         Attachment response = api.updateAttachmentOfTrackerItem(itemId, attachmentId, content, description, descriptionFormat);
+
         // TODO: test validations
     }
-
+    
     /**
      * Upload an attachment to a tracker item
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void uploadTrackerItemAttachmentTest() throws ApiException {
         Integer itemId = null;
         File attachments = null;
         List<Attachment> response = api.uploadTrackerItemAttachment(itemId, attachments);
+
         // TODO: test validations
     }
-
+    
 }

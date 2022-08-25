@@ -13,25 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -40,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Request model to create a test run from multiple test cases or 1 test set
  */
 @ApiModel(description = "Request model to create a test run from multiple test cases or 1 test set")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class CreateTestRunRequest {
   public static final String SERIALIZED_NAME_TEST_CASE_IDS = "testCaseIds";
   @SerializedName(SERIALIZED_NAME_TEST_CASE_IDS)
@@ -62,8 +48,6 @@ public class CreateTestRunRequest {
   @SerializedName(SERIALIZED_NAME_TEST_SET_REFS)
   private List<TrackerItemReference> testSetRefs = null;
 
-  public CreateTestRunRequest() { 
-  }
 
   public CreateTestRunRequest testCaseIds(List<TrackerItemReference> testCaseIds) {
     
@@ -73,7 +57,7 @@ public class CreateTestRunRequest {
 
   public CreateTestRunRequest addTestCaseIdsItem(TrackerItemReference testCaseIdsItem) {
     if (this.testCaseIds == null) {
-      this.testCaseIds = new ArrayList<>();
+      this.testCaseIds = new ArrayList<TrackerItemReference>();
     }
     this.testCaseIds.add(testCaseIdsItem);
     return this;
@@ -104,7 +88,7 @@ public class CreateTestRunRequest {
 
   public CreateTestRunRequest addTestCaseRefsItem(TrackerItemReference testCaseRefsItem) {
     if (this.testCaseRefs == null) {
-      this.testCaseRefs = new ArrayList<>();
+      this.testCaseRefs = new ArrayList<TrackerItemReference>();
     }
     this.testCaseRefs.add(testCaseRefsItem);
     return this;
@@ -158,7 +142,7 @@ public class CreateTestRunRequest {
 
   public CreateTestRunRequest addTestSetIdsItem(TrackerItemReference testSetIdsItem) {
     if (this.testSetIds == null) {
-      this.testSetIds = new ArrayList<>();
+      this.testSetIds = new ArrayList<TrackerItemReference>();
     }
     this.testSetIds.add(testSetIdsItem);
     return this;
@@ -189,7 +173,7 @@ public class CreateTestRunRequest {
 
   public CreateTestRunRequest addTestSetRefsItem(TrackerItemReference testSetRefsItem) {
     if (this.testSetRefs == null) {
-      this.testSetRefs = new ArrayList<>();
+      this.testSetRefs = new ArrayList<TrackerItemReference>();
     }
     this.testSetRefs.add(testSetRefsItem);
     return this;
@@ -210,7 +194,6 @@ public class CreateTestRunRequest {
   public void setTestSetRefs(List<TrackerItemReference> testSetRefs) {
     this.testSetRefs = testSetRefs;
   }
-
 
 
   @Override
@@ -258,146 +241,5 @@ public class CreateTestRunRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("testCaseIds");
-    openapiFields.add("testCaseRefs");
-    openapiFields.add("testRunModel");
-    openapiFields.add("testSetIds");
-    openapiFields.add("testSetRefs");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CreateTestRunRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CreateTestRunRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateTestRunRequest is not found in the empty JSON string", CreateTestRunRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CreateTestRunRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateTestRunRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      JsonArray jsonArraytestCaseIds = jsonObj.getAsJsonArray("testCaseIds");
-      if (jsonArraytestCaseIds != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("testCaseIds").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `testCaseIds` to be an array in the JSON string but got `%s`", jsonObj.get("testCaseIds").toString()));
-        }
-
-        // validate the optional field `testCaseIds` (array)
-        for (int i = 0; i < jsonArraytestCaseIds.size(); i++) {
-          TrackerItemReference.validateJsonObject(jsonArraytestCaseIds.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArraytestCaseRefs = jsonObj.getAsJsonArray("testCaseRefs");
-      if (jsonArraytestCaseRefs != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("testCaseRefs").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `testCaseRefs` to be an array in the JSON string but got `%s`", jsonObj.get("testCaseRefs").toString()));
-        }
-
-        // validate the optional field `testCaseRefs` (array)
-        for (int i = 0; i < jsonArraytestCaseRefs.size(); i++) {
-          TrackerItemReference.validateJsonObject(jsonArraytestCaseRefs.get(i).getAsJsonObject());
-        };
-      }
-      // validate the optional field `testRunModel`
-      if (jsonObj.getAsJsonObject("testRunModel") != null) {
-        TrackerItem.validateJsonObject(jsonObj.getAsJsonObject("testRunModel"));
-      }
-      JsonArray jsonArraytestSetIds = jsonObj.getAsJsonArray("testSetIds");
-      if (jsonArraytestSetIds != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("testSetIds").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `testSetIds` to be an array in the JSON string but got `%s`", jsonObj.get("testSetIds").toString()));
-        }
-
-        // validate the optional field `testSetIds` (array)
-        for (int i = 0; i < jsonArraytestSetIds.size(); i++) {
-          TrackerItemReference.validateJsonObject(jsonArraytestSetIds.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArraytestSetRefs = jsonObj.getAsJsonArray("testSetRefs");
-      if (jsonArraytestSetRefs != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("testSetRefs").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `testSetRefs` to be an array in the JSON string but got `%s`", jsonObj.get("testSetRefs").toString()));
-        }
-
-        // validate the optional field `testSetRefs` (array)
-        for (int i = 0; i < jsonArraytestSetRefs.size(); i++) {
-          TrackerItemReference.validateJsonObject(jsonArraytestSetRefs.get(i).getAsJsonObject());
-        };
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreateTestRunRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateTestRunRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreateTestRunRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreateTestRunRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CreateTestRunRequest>() {
-           @Override
-           public void write(JsonWriter out, CreateTestRunRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CreateTestRunRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CreateTestRunRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CreateTestRunRequest
-  * @throws IOException if the JSON string is invalid with respect to CreateTestRunRequest
-  */
-  public static CreateTestRunRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateTestRunRequest.class);
-  }
-
- /**
-  * Convert an instance of CreateTestRunRequest to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

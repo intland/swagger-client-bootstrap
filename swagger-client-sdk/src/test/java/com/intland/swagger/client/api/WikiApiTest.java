@@ -15,8 +15,8 @@ package com.intland.swagger.client.api;
 
 import java.util.List;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.AccessPermission;
@@ -30,64 +30,84 @@ import com.intland.swagger.client.model.WikiRenderRequest;
 /**
  * API tests for WikiApi
  */
-@Disabled
+@Ignore
 public class WikiApiTest {
 
     private final WikiApi api = new WikiApi();
 
+    
     /**
      * Check whether a wiki page is locked, and if it is, retrieve the details of the lock
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void checkWikiPageLockTest() throws ApiException {
         Integer wikiId = null;
         LockInfo response = api.checkWikiPageLock(wikiId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Create a new wiki page
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void createWikiPageTest() throws ApiException {
         WikiPage wikiPage = null;
         WikiPage response = api.createWikiPage(wikiPage);
+
         // TODO: test validations
     }
-
+    
     /**
      * Delete a wiki page by its ID
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void deleteWikiPageTest() throws ApiException {
         Integer wikiId = null;
         api.deleteWikiPage(wikiId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get wiki page
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getWikiPageTest() throws ApiException {
         Integer wikiId = null;
         Integer version = null;
         WikiPage response = api.getWikiPage(wikiId, version);
+
         // TODO: test validations
     }
-
+    
     /**
      * Returns the change history of the specified wiki page
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getWikiPageHistoryTest() throws ApiException {
@@ -95,77 +115,101 @@ public class WikiApiTest {
         Integer page = null;
         Integer pageSize = null;
         ArtifactRevisionSearchResult response = api.getWikiPageHistory(wikiId, page, pageSize);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get permissions of a wiki page
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getWikiPermissionsTest() throws ApiException {
         Integer wikiId = null;
         List<AccessPermission> response = api.getWikiPermissions(wikiId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Lock a wiki page
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void lockWikiPageTest() throws ApiException {
         Integer wikiId = null;
         LockRequest lockRequest = null;
         api.lockWikiPage(wikiId, lockRequest);
+
         // TODO: test validations
     }
-
+    
     /**
      * Render a wiki page as HTML in a specific context
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void renderWikiMarkupTest() throws ApiException {
         Integer projectId = null;
         WikiRenderRequest wikiRenderRequest = null;
         String response = api.renderWikiMarkup(projectId, wikiRenderRequest);
+
         // TODO: test validations
     }
-
+    
     /**
      * Render a wiki page as HTML
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void renderWikiPageTest() throws ApiException {
         Integer wikiId = null;
         Integer version = null;
         String response = api.renderWikiPage(wikiId, version);
+
         // TODO: test validations
     }
-
+    
     /**
      * Restores the content from a previous version of a wiki page
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void restoreWikiPageContentTest() throws ApiException {
         Integer wikiId = null;
         Integer version = null;
         WikiPage response = api.restoreWikiPageContent(wikiId, version);
+
         // TODO: test validations
     }
-
+    
     /**
      * Set permissions of a wiki page
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void setWikiPermissionsTest() throws ApiException {
@@ -173,32 +217,41 @@ public class WikiApiTest {
         AccessPermissionsRequest accessPermissionsRequest = null;
         Boolean recursive = null;
         List<AccessPermission> response = api.setWikiPermissions(wikiId, accessPermissionsRequest, recursive);
+
         // TODO: test validations
     }
-
+    
     /**
      * Unlock a wiki page
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void unlockWikiPageTest() throws ApiException {
         Integer wikiId = null;
         api.unlockWikiPage(wikiId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Update and/or move a wiki page
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void updateWikiPageTest() throws ApiException {
         Integer itemId = null;
         WikiPage wikiPage = null;
         WikiPage response = api.updateWikiPage(itemId, wikiPage);
+
         // TODO: test validations
     }
-
+    
 }

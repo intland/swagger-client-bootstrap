@@ -2,14 +2,14 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**createTrackerReport**](TrackerReportApi.md#createTrackerReport) | **POST** /v3/trackers/{trackerId}/reports | Creates a report of a specific tracker |
-| [**deleteTrackerReport**](TrackerReportApi.md#deleteTrackerReport) | **DELETE** /v3/trackers/{trackerId}/reports/{reportId} | Deletes a report of a specific tracker |
-| [**getTrackerReport**](TrackerReportApi.md#getTrackerReport) | **GET** /v3/trackers/{trackerId}/reports/{reportId}/results | Get a report of a specific tracker |
-| [**getTrackerReportItems**](TrackerReportApi.md#getTrackerReportItems) | **GET** /v3/trackers/{trackerId}/reports/{reportId}/items | Get report items of a specific tracker view |
-| [**getTrackerReports**](TrackerReportApi.md#getTrackerReports) | **GET** /v3/trackers/{trackerId}/reports | Get all reports of a specific tracker |
-| [**updateTrackerReport**](TrackerReportApi.md#updateTrackerReport) | **PUT** /v3/trackers/{trackerId}/reports/{reportId} | Updates a report of a specific tracker |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**createTrackerReport**](TrackerReportApi.md#createTrackerReport) | **POST** /v3/trackers/{trackerId}/reports | Creates a report of a specific tracker
+[**deleteTrackerReport**](TrackerReportApi.md#deleteTrackerReport) | **DELETE** /v3/trackers/{trackerId}/reports/{reportId} | Deletes a report of a specific tracker
+[**getTrackerReport**](TrackerReportApi.md#getTrackerReport) | **GET** /v3/trackers/{trackerId}/reports/{reportId}/results | Get a report of a specific tracker
+[**getTrackerReportItems**](TrackerReportApi.md#getTrackerReportItems) | **GET** /v3/trackers/{trackerId}/reports/{reportId}/items | Get report items of a specific tracker view
+[**getTrackerReports**](TrackerReportApi.md#getTrackerReports) | **GET** /v3/trackers/{trackerId}/reports | Get all reports of a specific tracker
+[**updateTrackerReport**](TrackerReportApi.md#updateTrackerReport) | **PUT** /v3/trackers/{trackerId}/reports/{reportId} | Updates a report of a specific tracker
 
 
 <a name="createTrackerReport"></a>
@@ -67,10 +67,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerId** | **Integer**|  | |
-| **trackerReportSettings** | [**TrackerReportSettings**](TrackerReportSettings.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **trackerReportSettings** | [**TrackerReportSettings**](TrackerReportSettings.md)|  |
 
 ### Return type
 
@@ -88,11 +88,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tracker report settings |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Tracker report settings |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="deleteTrackerReport"></a>
 # **deleteTrackerReport**
@@ -148,10 +148,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerId** | **Integer**|  | |
-| **reportId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **reportId** | **Integer**|  |
 
 ### Return type
 
@@ -169,11 +169,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tracker report deleted. |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker / Report not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Tracker report deleted. |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker / Report not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerReport"></a>
 # **getTrackerReport**
@@ -232,12 +232,12 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerId** | **Integer**|  | |
-| **reportId** | **Integer**|  | |
-| **page** | **Integer**| Index of a report page starting from 1. | [optional] [default to 1] |
-| **pageSize** | **Integer**| Number of items a report page. Max value: 500 | [optional] [default to 25] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **reportId** | **Integer**|  |
+ **page** | **Integer**| Index of a report page starting from 1. | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of items a report page. Max value: 500 | [optional] [default to 25]
 
 ### Return type
 
@@ -255,11 +255,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tracker report |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker / Report not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Tracker report |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker / Report not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerReportItems"></a>
 # **getTrackerReportItems**
@@ -318,12 +318,12 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerId** | **Integer**|  | |
-| **reportId** | **Integer**|  | |
-| **page** | **Integer**| Index of a report page starting from 1. | [optional] [default to 1] |
-| **pageSize** | **Integer**| Number of items a report page. Max value: 500 | [optional] [default to 20] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **reportId** | **Integer**|  |
+ **page** | **Integer**| Index of a report page starting from 1. | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of items a report page. Max value: 500 | [optional] [default to 20]
 
 ### Return type
 
@@ -341,11 +341,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tracker report items |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker / Report not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Tracker report items |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker / Report not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerReports"></a>
 # **getTrackerReports**
@@ -401,9 +401,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
 
 ### Return type
 
@@ -421,12 +421,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tracker report reference list |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker not found |  -  |
-| **429** | Too many requests |  -  |
-| **500** | Internal server error |  -  |
+**200** | Tracker report reference list |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
+**500** | Internal server error |  -  |
 
 <a name="updateTrackerReport"></a>
 # **updateTrackerReport**
@@ -484,11 +484,11 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerId** | **Integer**|  | |
-| **reportId** | **Integer**|  | |
-| **trackerReportSettings** | [**TrackerReportSettings**](TrackerReportSettings.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **reportId** | **Integer**|  |
+ **trackerReportSettings** | [**TrackerReportSettings**](TrackerReportSettings.md)|  |
 
 ### Return type
 
@@ -506,9 +506,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tracker report settings |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker / Report not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Tracker report settings |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker / Report not found |  -  |
+**429** | Too many requests |  -  |
 

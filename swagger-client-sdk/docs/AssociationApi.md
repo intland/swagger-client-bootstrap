@@ -2,15 +2,15 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**createAssociation**](AssociationApi.md#createAssociation) | **POST** /v3/associations | Create a new association |
-| [**deleteAssociation**](AssociationApi.md#deleteAssociation) | **DELETE** /v3/associations/{associationId} | Delete association |
-| [**getAssociation**](AssociationApi.md#getAssociation) | **GET** /v3/associations/{associationId} | Get an association by id |
-| [**getAssociationHistory**](AssociationApi.md#getAssociationHistory) | **GET** /v3/associations/{associationId}/history | Returns the change history of the specified association |
-| [**getAssociationType**](AssociationApi.md#getAssociationType) | **GET** /v3/associations/types/{associationTypeId} | Get association type by id |
-| [**getAvailableAssociationTypes**](AssociationApi.md#getAvailableAssociationTypes) | **GET** /v3/associations/types | Get available association types |
-| [**updateAssociation**](AssociationApi.md#updateAssociation) | **PUT** /v3/associations/{associationId} | Update association settings |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**createAssociation**](AssociationApi.md#createAssociation) | **POST** /v3/associations | Create a new association
+[**deleteAssociation**](AssociationApi.md#deleteAssociation) | **DELETE** /v3/associations/{associationId} | Delete association
+[**getAssociation**](AssociationApi.md#getAssociation) | **GET** /v3/associations/{associationId} | Get an association by id
+[**getAssociationHistory**](AssociationApi.md#getAssociationHistory) | **GET** /v3/associations/{associationId}/history | Returns the change history of the specified association
+[**getAssociationType**](AssociationApi.md#getAssociationType) | **GET** /v3/associations/types/{associationTypeId} | Get association type by id
+[**getAvailableAssociationTypes**](AssociationApi.md#getAvailableAssociationTypes) | **GET** /v3/associations/types | Get available association types
+[**updateAssociation**](AssociationApi.md#updateAssociation) | **PUT** /v3/associations/{associationId} | Update association settings
 
 
 <a name="createAssociation"></a>
@@ -67,9 +67,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **association** | [**Association**](Association.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **association** | [**Association**](Association.md)|  |
 
 ### Return type
 
@@ -87,10 +87,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Created association |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **429** | Too many requests |  -  |
+**200** | Created association |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 
 <a name="deleteAssociation"></a>
 # **deleteAssociation**
@@ -145,9 +145,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **associationId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **associationId** | **Integer**|  |
 
 ### Return type
 
@@ -165,11 +165,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Delete association by id |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Association not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Delete association by id |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Association not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getAssociation"></a>
 # **getAssociation**
@@ -225,9 +225,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **associationId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **associationId** | **Integer**|  |
 
 ### Return type
 
@@ -245,11 +245,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Found association |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Association not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Found association |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Association not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getAssociationHistory"></a>
 # **getAssociationHistory**
@@ -307,11 +307,11 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **associationId** | **Integer**|  | |
-| **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1] |
-| **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **associationId** | **Integer**|  |
+ **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25]
 
 ### Return type
 
@@ -329,11 +329,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Association history |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Authentication is required |  -  |
-| **404** | Association not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Association history |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
+**404** | Association not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getAssociationType"></a>
 # **getAssociationType**
@@ -389,9 +389,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **associationTypeId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **associationTypeId** | **Integer**|  |
 
 ### Return type
 
@@ -409,11 +409,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Association type |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Association not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Association type |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Association not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getAvailableAssociationTypes"></a>
 # **getAvailableAssociationTypes**
@@ -485,10 +485,10 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of association types |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **429** | Too many requests |  -  |
+**200** | List of association types |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 
 <a name="updateAssociation"></a>
 # **updateAssociation**
@@ -545,10 +545,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **associationId** | **Integer**|  | |
-| **association** | [**Association**](Association.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **associationId** | **Integer**|  |
+ **association** | [**Association**](Association.md)|  |
 
 ### Return type
 
@@ -566,9 +566,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Updated association |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Association not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Updated association |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Association not found |  -  |
+**429** | Too many requests |  -  |
 

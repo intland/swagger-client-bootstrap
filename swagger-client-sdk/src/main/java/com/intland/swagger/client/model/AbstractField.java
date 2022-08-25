@@ -13,15 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 
-import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Abstract field
  */
 @ApiModel(description = "Abstract field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class AbstractField {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -88,7 +84,7 @@ public class AbstractField {
   @SerializedName(SERIALIZED_NAME_VALUE_MODEL)
   private String valueModel;
 
-  public AbstractField() { 
+  public AbstractField() {
     this.type = this.getClass().getSimpleName();
   }
 
@@ -261,7 +257,7 @@ public class AbstractField {
 
   public AbstractField addMandatoryInStatusesItem(ChoiceOptionReference mandatoryInStatusesItem) {
     if (this.mandatoryInStatuses == null) {
-      this.mandatoryInStatuses = new ArrayList<>();
+      this.mandatoryInStatuses = new ArrayList<ChoiceOptionReference>();
     }
     this.mandatoryInStatuses.add(mandatoryInStatusesItem);
     return this;
@@ -307,20 +303,6 @@ public class AbstractField {
   }
 
 
-  public AbstractField sharedFields(List<SharedFieldReference> sharedFields) {
-    
-    this.sharedFields = sharedFields;
-    return this;
-  }
-
-  public AbstractField addSharedFieldsItem(SharedFieldReference sharedFieldsItem) {
-    if (this.sharedFields == null) {
-      this.sharedFields = new ArrayList<>();
-    }
-    this.sharedFields.add(sharedFieldsItem);
-    return this;
-  }
-
    /**
    * List of shared fields assigned to this field
    * @return sharedFields
@@ -333,9 +315,6 @@ public class AbstractField {
   }
 
 
-  public void setSharedFields(List<SharedFieldReference> sharedFields) {
-    this.sharedFields = sharedFields;
-  }
 
 
   public AbstractField title(String title) {
@@ -430,7 +409,6 @@ public class AbstractField {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -494,139 +472,5 @@ public class AbstractField {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("description");
-    openapiFields.add("formula");
-    openapiFields.add("hidden");
-    openapiFields.add("hideIfDependencyFormula");
-    openapiFields.add("id");
-    openapiFields.add("legacyRestName");
-    openapiFields.add("mandatoryIfDependencyFormula");
-    openapiFields.add("mandatoryInStatuses");
-    openapiFields.add("name");
-    openapiFields.add("sharedFields");
-    openapiFields.add("title");
-    openapiFields.add("trackerItemField");
-    openapiFields.add("type");
-    openapiFields.add("valueModel");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AbstractField
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (AbstractField.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AbstractField is not found in the empty JSON string", AbstractField.openapiRequiredFields.toString()));
-        }
-      }
-
-      String discriminatorValue = jsonObj.get("type").getAsString();
-      switch (discriminatorValue) {
-        case "ArtifactReferenceField":
-          ArtifactReferenceField.validateJsonObject(jsonObj);
-          break;
-        case "BoolField":
-          BoolField.validateJsonObject(jsonObj);
-          break;
-        case "ColorField":
-          ColorField.validateJsonObject(jsonObj);
-          break;
-        case "CountryField":
-          CountryField.validateJsonObject(jsonObj);
-          break;
-        case "DateField":
-          DateField.validateJsonObject(jsonObj);
-          break;
-        case "DecimalField":
-          DecimalField.validateJsonObject(jsonObj);
-          break;
-        case "DurationField":
-          DurationField.validateJsonObject(jsonObj);
-          break;
-        case "IntegerField":
-          IntegerField.validateJsonObject(jsonObj);
-          break;
-        case "LanguageField":
-          LanguageField.validateJsonObject(jsonObj);
-          break;
-        case "MemberField":
-          MemberField.validateJsonObject(jsonObj);
-          break;
-        case "OptionChoiceField":
-          OptionChoiceField.validateJsonObject(jsonObj);
-          break;
-        case "ProjectChoiceField":
-          ProjectChoiceField.validateJsonObject(jsonObj);
-          break;
-        case "ReferenceField":
-          ReferenceField.validateJsonObject(jsonObj);
-          break;
-        case "RepositoryChoiceField":
-          RepositoryChoiceField.validateJsonObject(jsonObj);
-          break;
-        case "ReviewMemberReferenceField":
-          ReviewMemberReferenceField.validateJsonObject(jsonObj);
-          break;
-        case "TableField":
-          TableField.validateJsonObject(jsonObj);
-          break;
-        case "TextField":
-          TextField.validateJsonObject(jsonObj);
-          break;
-        case "TrackerChoiceField":
-          TrackerChoiceField.validateJsonObject(jsonObj);
-          break;
-        case "TrackerItemChoiceField":
-          TrackerItemChoiceField.validateJsonObject(jsonObj);
-          break;
-        case "UrlField":
-          UrlField.validateJsonObject(jsonObj);
-          break;
-        case "UserChoiceField":
-          UserChoiceField.validateJsonObject(jsonObj);
-          break;
-        case "WikiTextField":
-          WikiTextField.validateJsonObject(jsonObj);
-          break;
-        default: 
-          throw new IllegalArgumentException(String.format("The value of the `type` field `%s` does not match any key defined in the discriminator's mapping.", discriminatorValue));
-      }
-  }
-
-
- /**
-  * Create an instance of AbstractField given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AbstractField
-  * @throws IOException if the JSON string is invalid with respect to AbstractField
-  */
-  public static AbstractField fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AbstractField.class);
-  }
-
- /**
-  * Convert an instance of AbstractField to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

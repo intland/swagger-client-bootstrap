@@ -13,23 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
-import java.time.OffsetDateTime;
-import java.util.HashSet;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import org.threeten.bp.OffsetDateTime;
+
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -38,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Group of a codebeamer user
  */
 @ApiModel(description = "Group of a codebeamer user")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class UserGroup {
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -68,8 +56,6 @@ public class UserGroup {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public UserGroup() { 
-  }
 
   public UserGroup createdAt(OffsetDateTime createdAt) {
     
@@ -233,7 +219,6 @@ public class UserGroup {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -283,110 +268,5 @@ public class UserGroup {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("createdAt");
-    openapiFields.add("createdBy");
-    openapiFields.add("description");
-    openapiFields.add("id");
-    openapiFields.add("modifiedAt");
-    openapiFields.add("modifiedBy");
-    openapiFields.add("name");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to UserGroup
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (UserGroup.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UserGroup is not found in the empty JSON string", UserGroup.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!UserGroup.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UserGroup` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      // validate the optional field `createdBy`
-      if (jsonObj.getAsJsonObject("createdBy") != null) {
-        UserReference.validateJsonObject(jsonObj.getAsJsonObject("createdBy"));
-      }
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // validate the optional field `modifiedBy`
-      if (jsonObj.getAsJsonObject("modifiedBy") != null) {
-        UserReference.validateJsonObject(jsonObj.getAsJsonObject("modifiedBy"));
-      }
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UserGroup.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UserGroup' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UserGroup> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UserGroup.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<UserGroup>() {
-           @Override
-           public void write(JsonWriter out, UserGroup value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public UserGroup read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of UserGroup given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of UserGroup
-  * @throws IOException if the JSON string is invalid with respect to UserGroup
-  */
-  public static UserGroup fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UserGroup.class);
-  }
-
- /**
-  * Convert an instance of UserGroup to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

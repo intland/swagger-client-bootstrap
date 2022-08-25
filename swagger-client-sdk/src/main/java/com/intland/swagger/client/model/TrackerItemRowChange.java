@@ -13,22 +13,9 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -37,13 +24,13 @@ import io.swagger.annotations.ApiModelProperty;
  * Change item for a tracker item field row.
  */
 @ApiModel(description = "Change item for a tracker item field row.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class TrackerItemRowChange extends TrackerItemChange {
   public static final String SERIALIZED_NAME_ROW_NUMBER = "rowNumber";
   @SerializedName(SERIALIZED_NAME_ROW_NUMBER)
   private Integer rowNumber;
 
-  public TrackerItemRowChange() { 
+  public TrackerItemRowChange() {
     this.type = this.getClass().getSimpleName();
   }
 
@@ -68,7 +55,6 @@ public class TrackerItemRowChange extends TrackerItemChange {
   public void setRowNumber(Integer rowNumber) {
     this.rowNumber = rowNumber;
   }
-
 
 
   @Override
@@ -110,95 +96,5 @@ public class TrackerItemRowChange extends TrackerItemChange {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("field");
-    openapiFields.add("name");
-    openapiFields.add("newValue");
-    openapiFields.add("oldValue");
-    openapiFields.add("type");
-    openapiFields.add("rowNumber");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TrackerItemRowChange
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TrackerItemRowChange.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TrackerItemRowChange is not found in the empty JSON string", TrackerItemRowChange.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TrackerItemRowChange.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TrackerItemRowChange` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TrackerItemRowChange.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TrackerItemRowChange' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TrackerItemRowChange> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TrackerItemRowChange.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TrackerItemRowChange>() {
-           @Override
-           public void write(JsonWriter out, TrackerItemRowChange value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TrackerItemRowChange read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TrackerItemRowChange given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TrackerItemRowChange
-  * @throws IOException if the JSON string is invalid with respect to TrackerItemRowChange
-  */
-  public static TrackerItemRowChange fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TrackerItemRowChange.class);
-  }
-
- /**
-  * Convert an instance of TrackerItemRowChange to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -6,8 +6,8 @@ Reference to a tracker permission
 
 ## Properties
 
-| Name | Type | Description | Notes |
-|------------ | ------------- | ------------- | -------------|
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
 
 
 

@@ -13,25 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -40,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Request model to create a test run from test case runs
  */
 @ApiModel(description = "Request model to create a test run from test case runs")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class AutomatedTestRunRequest {
   public static final String SERIALIZED_NAME_CREATE_NON_EXISTENT_TEST_CASES = "createNonExistentTestCases";
   @SerializedName(SERIALIZED_NAME_CREATE_NON_EXISTENT_TEST_CASES)
@@ -52,14 +38,12 @@ public class AutomatedTestRunRequest {
 
   public static final String SERIALIZED_NAME_TEST_RESULTS = "testResults";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS)
-  private List<AutomatedTestCaseRunResult> testResults = new ArrayList<>();
+  private List<AutomatedTestCaseRunResult> testResults = new ArrayList<AutomatedTestCaseRunResult>();
 
   public static final String SERIALIZED_NAME_TEST_RUN_MODEL = "testRunModel";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_MODEL)
   private TrackerItem testRunModel;
 
-  public AutomatedTestRunRequest() { 
-  }
 
   public AutomatedTestRunRequest createNonExistentTestCases(Boolean createNonExistentTestCases) {
     
@@ -158,7 +142,6 @@ public class AutomatedTestRunRequest {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -202,118 +185,5 @@ public class AutomatedTestRunRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("createNonExistentTestCases");
-    openapiFields.add("testCaseTrackerId");
-    openapiFields.add("testResults");
-    openapiFields.add("testRunModel");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("testCaseTrackerId");
-    openapiRequiredFields.add("testResults");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AutomatedTestRunRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (AutomatedTestRunRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AutomatedTestRunRequest is not found in the empty JSON string", AutomatedTestRunRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!AutomatedTestRunRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutomatedTestRunRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : AutomatedTestRunRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      JsonArray jsonArraytestResults = jsonObj.getAsJsonArray("testResults");
-      if (jsonArraytestResults != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("testResults").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `testResults` to be an array in the JSON string but got `%s`", jsonObj.get("testResults").toString()));
-        }
-
-        // validate the optional field `testResults` (array)
-        for (int i = 0; i < jsonArraytestResults.size(); i++) {
-          AutomatedTestCaseRunResult.validateJsonObject(jsonArraytestResults.get(i).getAsJsonObject());
-        };
-      }
-      // validate the optional field `testRunModel`
-      if (jsonObj.getAsJsonObject("testRunModel") != null) {
-        TrackerItem.validateJsonObject(jsonObj.getAsJsonObject("testRunModel"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AutomatedTestRunRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AutomatedTestRunRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AutomatedTestRunRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AutomatedTestRunRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<AutomatedTestRunRequest>() {
-           @Override
-           public void write(JsonWriter out, AutomatedTestRunRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public AutomatedTestRunRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of AutomatedTestRunRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AutomatedTestRunRequest
-  * @throws IOException if the JSON string is invalid with respect to AutomatedTestRunRequest
-  */
-  public static AutomatedTestRunRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AutomatedTestRunRequest.class);
-  }
-
- /**
-  * Convert an instance of AutomatedTestRunRequest to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

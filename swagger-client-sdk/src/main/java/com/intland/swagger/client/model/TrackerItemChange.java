@@ -13,13 +13,9 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
-import java.util.HashSet;
 import java.util.Objects;
 
-import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -28,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Reference to an item
  */
 @ApiModel(description = "Reference to an item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class TrackerItemChange {
   public static final String SERIALIZED_NAME_FIELD = "field";
   @SerializedName(SERIALIZED_NAME_FIELD)
@@ -50,7 +46,7 @@ public class TrackerItemChange {
   @SerializedName(SERIALIZED_NAME_TYPE)
   protected String type;
 
-  public TrackerItemChange() { 
+  public TrackerItemChange() {
     this.type = this.getClass().getSimpleName();
   }
 
@@ -169,7 +165,6 @@ public class TrackerItemChange {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -215,67 +210,5 @@ public class TrackerItemChange {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("field");
-    openapiFields.add("name");
-    openapiFields.add("newValue");
-    openapiFields.add("oldValue");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TrackerItemChange
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TrackerItemChange.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TrackerItemChange is not found in the empty JSON string", TrackerItemChange.openapiRequiredFields.toString()));
-        }
-      }
-
-      String discriminatorValue = jsonObj.get("type").getAsString();
-      switch (discriminatorValue) {
-        case "TrackerItemRowChange":
-          TrackerItemRowChange.validateJsonObject(jsonObj);
-          break;
-        default: 
-          throw new IllegalArgumentException(String.format("The value of the `type` field `%s` does not match any key defined in the discriminator's mapping.", discriminatorValue));
-      }
-  }
-
-
- /**
-  * Create an instance of TrackerItemChange given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TrackerItemChange
-  * @throws IOException if the JSON string is invalid with respect to TrackerItemChange
-  */
-  public static TrackerItemChange fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TrackerItemChange.class);
-  }
-
- /**
-  * Convert an instance of TrackerItemChange to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

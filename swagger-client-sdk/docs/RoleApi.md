@@ -2,10 +2,10 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**getRole**](RoleApi.md#getRole) | **GET** /v3/roles/{roleId} | Get role |
-| [**getRoles**](RoleApi.md#getRoles) | **GET** /v3/roles | Get roles |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**getRole**](RoleApi.md#getRole) | **GET** /v3/roles/{roleId} | Get role
+[**getRoles**](RoleApi.md#getRoles) | **GET** /v3/roles | Get roles
 
 
 <a name="getRole"></a>
@@ -62,9 +62,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **roleId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **roleId** | **Integer**|  |
 
 ### Return type
 
@@ -82,11 +82,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Roles |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Role not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Roles |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Role not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getRoles"></a>
 # **getRoles**
@@ -158,9 +158,9 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Roles |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Role not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Roles |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Role not found |  -  |
+**429** | Too many requests |  -  |
 

@@ -15,24 +15,14 @@ package com.intland.swagger.client.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -41,7 +31,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Settings of a report on a tracker.
  */
 @ApiModel(description = "Settings of a report on a tracker.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class TrackerReportSettings {
   public static final String SERIALIZED_NAME_CB_QL = "cbQl";
   @SerializedName(SERIALIZED_NAME_CB_QL)
@@ -49,7 +39,7 @@ public class TrackerReportSettings {
 
   public static final String SERIALIZED_NAME_COLUMNS = "columns";
   @SerializedName(SERIALIZED_NAME_COLUMNS)
-  private List<ResizableReportColumnSettings> columns = new ArrayList<>();
+  private List<ResizableReportColumnSettings> columns = new ArrayList<ResizableReportColumnSettings>();
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -140,8 +130,6 @@ public class TrackerReportSettings {
   @SerializedName(SERIALIZED_NAME_TRACKER)
   private TrackerReference tracker;
 
-  public TrackerReportSettings() { 
-  }
 
   public TrackerReportSettings cbQl(String cbQl) {
     
@@ -271,7 +259,7 @@ public class TrackerReportSettings {
 
   public TrackerReportSettings addReferenceLevelSettingsItem(ReportReferenceLevelSettings referenceLevelSettingsItem) {
     if (this.referenceLevelSettings == null) {
-      this.referenceLevelSettings = new ArrayList<>();
+      this.referenceLevelSettings = new ArrayList<ReportReferenceLevelSettings>();
     }
     this.referenceLevelSettings.add(referenceLevelSettingsItem);
     return this;
@@ -432,7 +420,6 @@ public class TrackerReportSettings {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -492,154 +479,5 @@ public class TrackerReportSettings {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("cbQl");
-    openapiFields.add("columns");
-    openapiFields.add("description");
-    openapiFields.add("isPublic");
-    openapiFields.add("name");
-    openapiFields.add("referenceLevelSettings");
-    openapiFields.add("renderingMethod");
-    openapiFields.add("reportId");
-    openapiFields.add("showAllChildren");
-    openapiFields.add("showAncestors");
-    openapiFields.add("showDescendants");
-    openapiFields.add("tracker");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("cbQl");
-    openapiRequiredFields.add("columns");
-    openapiRequiredFields.add("description");
-    openapiRequiredFields.add("isPublic");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("tracker");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TrackerReportSettings
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TrackerReportSettings.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TrackerReportSettings is not found in the empty JSON string", TrackerReportSettings.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TrackerReportSettings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TrackerReportSettings` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TrackerReportSettings.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (jsonObj.get("cbQl") != null && !jsonObj.get("cbQl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cbQl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cbQl").toString()));
-      }
-      JsonArray jsonArraycolumns = jsonObj.getAsJsonArray("columns");
-      if (jsonArraycolumns != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("columns").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `columns` to be an array in the JSON string but got `%s`", jsonObj.get("columns").toString()));
-        }
-
-        // validate the optional field `columns` (array)
-        for (int i = 0; i < jsonArraycolumns.size(); i++) {
-          ResizableReportColumnSettings.validateJsonObject(jsonArraycolumns.get(i).getAsJsonObject());
-        };
-      }
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      JsonArray jsonArrayreferenceLevelSettings = jsonObj.getAsJsonArray("referenceLevelSettings");
-      if (jsonArrayreferenceLevelSettings != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("referenceLevelSettings").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `referenceLevelSettings` to be an array in the JSON string but got `%s`", jsonObj.get("referenceLevelSettings").toString()));
-        }
-
-        // validate the optional field `referenceLevelSettings` (array)
-        for (int i = 0; i < jsonArrayreferenceLevelSettings.size(); i++) {
-          ReportReferenceLevelSettings.validateJsonObject(jsonArrayreferenceLevelSettings.get(i).getAsJsonObject());
-        };
-      }
-      if (jsonObj.get("renderingMethod") != null && !jsonObj.get("renderingMethod").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `renderingMethod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("renderingMethod").toString()));
-      }
-      // validate the optional field `tracker`
-      if (jsonObj.getAsJsonObject("tracker") != null) {
-        TrackerReference.validateJsonObject(jsonObj.getAsJsonObject("tracker"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TrackerReportSettings.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TrackerReportSettings' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TrackerReportSettings> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TrackerReportSettings.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TrackerReportSettings>() {
-           @Override
-           public void write(JsonWriter out, TrackerReportSettings value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TrackerReportSettings read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TrackerReportSettings given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TrackerReportSettings
-  * @throws IOException if the JSON string is invalid with respect to TrackerReportSettings
-  */
-  public static TrackerReportSettings fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TrackerReportSettings.class);
-  }
-
- /**
-  * Convert an instance of TrackerReportSettings to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

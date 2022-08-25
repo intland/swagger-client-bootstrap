@@ -13,25 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -40,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Traceability result
  */
 @ApiModel(description = "Traceability result")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class TraceabilityResult {
   public static final String SERIALIZED_NAME_LIMIT_WARNINGS = "limitWarnings";
   @SerializedName(SERIALIZED_NAME_LIMIT_WARNINGS)
@@ -50,8 +36,6 @@ public class TraceabilityResult {
   @SerializedName(SERIALIZED_NAME_TRACEABILITY_ITEMS)
   private List<TraceabilityItem> traceabilityItems = null;
 
-  public TraceabilityResult() { 
-  }
 
   public TraceabilityResult limitWarnings(String limitWarnings) {
     
@@ -84,7 +68,7 @@ public class TraceabilityResult {
 
   public TraceabilityResult addTraceabilityItemsItem(TraceabilityItem traceabilityItemsItem) {
     if (this.traceabilityItems == null) {
-      this.traceabilityItems = new ArrayList<>();
+      this.traceabilityItems = new ArrayList<TraceabilityItem>();
     }
     this.traceabilityItems.add(traceabilityItemsItem);
     return this;
@@ -105,7 +89,6 @@ public class TraceabilityResult {
   public void setTraceabilityItems(List<TraceabilityItem> traceabilityItems) {
     this.traceabilityItems = traceabilityItems;
   }
-
 
 
   @Override
@@ -147,106 +130,5 @@ public class TraceabilityResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("limitWarnings");
-    openapiFields.add("traceabilityItems");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TraceabilityResult
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TraceabilityResult.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TraceabilityResult is not found in the empty JSON string", TraceabilityResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TraceabilityResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TraceabilityResult` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      if (jsonObj.get("limitWarnings") != null && !jsonObj.get("limitWarnings").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `limitWarnings` to be a primitive type in the JSON string but got `%s`", jsonObj.get("limitWarnings").toString()));
-      }
-      JsonArray jsonArraytraceabilityItems = jsonObj.getAsJsonArray("traceabilityItems");
-      if (jsonArraytraceabilityItems != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("traceabilityItems").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `traceabilityItems` to be an array in the JSON string but got `%s`", jsonObj.get("traceabilityItems").toString()));
-        }
-
-        // validate the optional field `traceabilityItems` (array)
-        for (int i = 0; i < jsonArraytraceabilityItems.size(); i++) {
-          TraceabilityItem.validateJsonObject(jsonArraytraceabilityItems.get(i).getAsJsonObject());
-        };
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TraceabilityResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TraceabilityResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TraceabilityResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TraceabilityResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TraceabilityResult>() {
-           @Override
-           public void write(JsonWriter out, TraceabilityResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TraceabilityResult read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TraceabilityResult given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TraceabilityResult
-  * @throws IOException if the JSON string is invalid with respect to TraceabilityResult
-  */
-  public static TraceabilityResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TraceabilityResult.class);
-  }
-
- /**
-  * Convert an instance of TraceabilityResult to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -1,4 +1,3 @@
-.github/workflows/maven.yml
 .gitignore
 .openapi-generator-ignore
 .travis.yml
@@ -88,6 +87,10 @@ docs/FieldReference.md
 docs/FieldReferenceAllOf.md
 docs/GroupApi.md
 docs/IncomingTrackerItemAssociation.md
+docs/InlineResponse500.md
+docs/InlineResponse500Cause.md
+docs/InlineResponse500CauseStackTrace.md
+docs/InlineResponse500CauseSuppressed.md
 docs/IntegerField.md
 docs/IntegerFieldAllOf.md
 docs/IntegerFieldValue.md
@@ -243,10 +246,6 @@ docs/UpdateTrackerItemChildrenRequest.md
 docs/UpdateTrackerItemField.md
 docs/UpdateTrackerItemFieldWithItemId.md
 docs/UpdateTrackerItemTableField.md
-docs/UpdateWorkingSet500Response.md
-docs/UpdateWorkingSet500ResponseCause.md
-docs/UpdateWorkingSet500ResponseCauseStackTraceInner.md
-docs/UpdateWorkingSet500ResponseCauseSuppressedInner.md
 docs/UpstreamTrackerItemReference.md
 docs/UrlField.md
 docs/UrlFieldValue.md
@@ -328,7 +327,6 @@ src/main/java/com/intland/swagger/client/auth/HttpBearerAuth.java
 src/main/java/com/intland/swagger/client/model/AbstractBackgroundJobStatusInfo.java
 src/main/java/com/intland/swagger/client/model/AbstractField.java
 src/main/java/com/intland/swagger/client/model/AbstractFieldValue.java
-src/main/java/com/intland/swagger/client/model/AbstractOpenApiSchema.java
 src/main/java/com/intland/swagger/client/model/AbstractOutline.java
 src/main/java/com/intland/swagger/client/model/AbstractReference.java
 src/main/java/com/intland/swagger/client/model/AbstractTrackerItemReference.java
@@ -400,6 +398,10 @@ src/main/java/com/intland/swagger/client/model/FailedOperation.java
 src/main/java/com/intland/swagger/client/model/FieldReference.java
 src/main/java/com/intland/swagger/client/model/FieldReferenceAllOf.java
 src/main/java/com/intland/swagger/client/model/IncomingTrackerItemAssociation.java
+src/main/java/com/intland/swagger/client/model/InlineResponse500.java
+src/main/java/com/intland/swagger/client/model/InlineResponse500Cause.java
+src/main/java/com/intland/swagger/client/model/InlineResponse500CauseStackTrace.java
+src/main/java/com/intland/swagger/client/model/InlineResponse500CauseSuppressed.java
 src/main/java/com/intland/swagger/client/model/IntegerField.java
 src/main/java/com/intland/swagger/client/model/IntegerFieldAllOf.java
 src/main/java/com/intland/swagger/client/model/IntegerFieldValue.java
@@ -541,10 +543,6 @@ src/main/java/com/intland/swagger/client/model/UpdateTrackerItemChildrenRequest.
 src/main/java/com/intland/swagger/client/model/UpdateTrackerItemField.java
 src/main/java/com/intland/swagger/client/model/UpdateTrackerItemFieldWithItemId.java
 src/main/java/com/intland/swagger/client/model/UpdateTrackerItemTableField.java
-src/main/java/com/intland/swagger/client/model/UpdateWorkingSet500Response.java
-src/main/java/com/intland/swagger/client/model/UpdateWorkingSet500ResponseCause.java
-src/main/java/com/intland/swagger/client/model/UpdateWorkingSet500ResponseCauseStackTraceInner.java
-src/main/java/com/intland/swagger/client/model/UpdateWorkingSet500ResponseCauseSuppressedInner.java
 src/main/java/com/intland/swagger/client/model/UpstreamTrackerItemReference.java
 src/main/java/com/intland/swagger/client/model/UrlField.java
 src/main/java/com/intland/swagger/client/model/UrlFieldValue.java
@@ -668,6 +666,10 @@ src/test/java/com/intland/swagger/client/model/FailedOperationTest.java
 src/test/java/com/intland/swagger/client/model/FieldReferenceAllOfTest.java
 src/test/java/com/intland/swagger/client/model/FieldReferenceTest.java
 src/test/java/com/intland/swagger/client/model/IncomingTrackerItemAssociationTest.java
+src/test/java/com/intland/swagger/client/model/InlineResponse500CauseStackTraceTest.java
+src/test/java/com/intland/swagger/client/model/InlineResponse500CauseSuppressedTest.java
+src/test/java/com/intland/swagger/client/model/InlineResponse500CauseTest.java
+src/test/java/com/intland/swagger/client/model/InlineResponse500Test.java
 src/test/java/com/intland/swagger/client/model/IntegerFieldAllOfTest.java
 src/test/java/com/intland/swagger/client/model/IntegerFieldTest.java
 src/test/java/com/intland/swagger/client/model/IntegerFieldValueAllOfTest.java
@@ -809,10 +811,6 @@ src/test/java/com/intland/swagger/client/model/UpdateTrackerItemChildrenRequestT
 src/test/java/com/intland/swagger/client/model/UpdateTrackerItemFieldTest.java
 src/test/java/com/intland/swagger/client/model/UpdateTrackerItemFieldWithItemIdTest.java
 src/test/java/com/intland/swagger/client/model/UpdateTrackerItemTableFieldTest.java
-src/test/java/com/intland/swagger/client/model/UpdateWorkingSet500ResponseCauseStackTraceInnerTest.java
-src/test/java/com/intland/swagger/client/model/UpdateWorkingSet500ResponseCauseSuppressedInnerTest.java
-src/test/java/com/intland/swagger/client/model/UpdateWorkingSet500ResponseCauseTest.java
-src/test/java/com/intland/swagger/client/model/UpdateWorkingSet500ResponseTest.java
 src/test/java/com/intland/swagger/client/model/UpstreamTrackerItemReferenceTest.java
 src/test/java/com/intland/swagger/client/model/UrlFieldTest.java
 src/test/java/com/intland/swagger/client/model/UrlFieldValueAllOfTest.java

@@ -14,22 +14,13 @@
 package com.intland.swagger.client.model;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -38,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Access permission of specific role
  */
 @ApiModel(description = "Access permission of specific role")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class AccessPermission {
   /**
    * Access level
@@ -105,8 +96,6 @@ public class AccessPermission {
   @SerializedName(SERIALIZED_NAME_ROLE)
   private RoleReference role;
 
-  public AccessPermission() { 
-  }
 
   public AccessPermission accessLevel(AccessLevelEnum accessLevel) {
     
@@ -200,7 +189,6 @@ public class AccessPermission {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -244,108 +232,5 @@ public class AccessPermission {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("accessLevel");
-    openapiFields.add("field");
-    openapiFields.add("project");
-    openapiFields.add("role");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AccessPermission
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (AccessPermission.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AccessPermission is not found in the empty JSON string", AccessPermission.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!AccessPermission.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccessPermission` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      if (jsonObj.get("accessLevel") != null && !jsonObj.get("accessLevel").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accessLevel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accessLevel").toString()));
-      }
-      // validate the optional field `field`
-      if (jsonObj.getAsJsonObject("field") != null) {
-        FieldReference.validateJsonObject(jsonObj.getAsJsonObject("field"));
-      }
-      // validate the optional field `project`
-      if (jsonObj.getAsJsonObject("project") != null) {
-        ProjectReference.validateJsonObject(jsonObj.getAsJsonObject("project"));
-      }
-      // validate the optional field `role`
-      if (jsonObj.getAsJsonObject("role") != null) {
-        RoleReference.validateJsonObject(jsonObj.getAsJsonObject("role"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AccessPermission.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AccessPermission' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AccessPermission> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AccessPermission.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<AccessPermission>() {
-           @Override
-           public void write(JsonWriter out, AccessPermission value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public AccessPermission read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of AccessPermission given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AccessPermission
-  * @throws IOException if the JSON string is invalid with respect to AccessPermission
-  */
-  public static AccessPermission fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AccessPermission.class);
-  }
-
- /**
-  * Convert an instance of AccessPermission to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -13,25 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -40,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Project export settings for deployment
  */
 @ApiModel(description = "Project export settings for deployment")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class DeploymentProjectExportSettings {
   public static final String SERIALIZED_NAME_INCLUDE_QUERIES = "includeQueries";
   @SerializedName(SERIALIZED_NAME_INCLUDE_QUERIES)
@@ -62,8 +48,6 @@ public class DeploymentProjectExportSettings {
   @SerializedName(SERIALIZED_NAME_TRACKERS)
   private List<DeploymentTrackerExportSettings> trackers = null;
 
-  public DeploymentProjectExportSettings() { 
-  }
 
   public DeploymentProjectExportSettings includeQueries(Boolean includeQueries) {
     
@@ -165,7 +149,7 @@ public class DeploymentProjectExportSettings {
 
   public DeploymentProjectExportSettings addTrackersItem(DeploymentTrackerExportSettings trackersItem) {
     if (this.trackers == null) {
-      this.trackers = new ArrayList<>();
+      this.trackers = new ArrayList<DeploymentTrackerExportSettings>();
     }
     this.trackers.add(trackersItem);
     return this;
@@ -186,7 +170,6 @@ public class DeploymentProjectExportSettings {
   public void setTrackers(List<DeploymentTrackerExportSettings> trackers) {
     this.trackers = trackers;
   }
-
 
 
   @Override
@@ -234,114 +217,5 @@ public class DeploymentProjectExportSettings {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("includeQueries");
-    openapiFields.add("includeTrackerItems");
-    openapiFields.add("includeTrackers");
-    openapiFields.add("projectId");
-    openapiFields.add("trackers");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("projectId");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to DeploymentProjectExportSettings
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (DeploymentProjectExportSettings.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DeploymentProjectExportSettings is not found in the empty JSON string", DeploymentProjectExportSettings.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!DeploymentProjectExportSettings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DeploymentProjectExportSettings` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : DeploymentProjectExportSettings.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      JsonArray jsonArraytrackers = jsonObj.getAsJsonArray("trackers");
-      if (jsonArraytrackers != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("trackers").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `trackers` to be an array in the JSON string but got `%s`", jsonObj.get("trackers").toString()));
-        }
-
-        // validate the optional field `trackers` (array)
-        for (int i = 0; i < jsonArraytrackers.size(); i++) {
-          DeploymentTrackerExportSettings.validateJsonObject(jsonArraytrackers.get(i).getAsJsonObject());
-        };
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!DeploymentProjectExportSettings.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'DeploymentProjectExportSettings' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<DeploymentProjectExportSettings> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(DeploymentProjectExportSettings.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<DeploymentProjectExportSettings>() {
-           @Override
-           public void write(JsonWriter out, DeploymentProjectExportSettings value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public DeploymentProjectExportSettings read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of DeploymentProjectExportSettings given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of DeploymentProjectExportSettings
-  * @throws IOException if the JSON string is invalid with respect to DeploymentProjectExportSettings
-  */
-  public static DeploymentProjectExportSettings fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, DeploymentProjectExportSettings.class);
-  }
-
- /**
-  * Convert an instance of DeploymentProjectExportSettings to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

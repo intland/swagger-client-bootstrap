@@ -13,14 +13,12 @@
 
 package com.intland.swagger.client.auth;
 
-import java.net.URI;
 import java.util.List;
 import java.util.Map;
 
-import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.Pair;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;
@@ -58,8 +56,7 @@ public class ApiKeyAuth implements Authentication {
   }
 
   @Override
-  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams,
-                           String payload, String method, URI uri) throws ApiException {
+  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams) {
     if (apiKey == null) {
       return;
     }

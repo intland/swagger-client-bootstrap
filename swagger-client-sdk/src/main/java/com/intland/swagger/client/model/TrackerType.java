@@ -13,29 +13,16 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * TrackerType
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class TrackerType {
   public static final String SERIALIZED_NAME_BRANCHABLE = "branchable";
   @SerializedName(SERIALIZED_NAME_BRANCHABLE)
@@ -81,8 +68,6 @@ public class TrackerType {
   @SerializedName(SERIALIZED_NAME_VAR_NAME)
   private String varName;
 
-  public TrackerType() { 
-  }
 
   public TrackerType branchable(Boolean branchable) {
     
@@ -338,7 +323,6 @@ public class TrackerType {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -396,121 +380,5 @@ public class TrackerType {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("branchable");
-    openapiFields.add("color");
-    openapiFields.add("docEditView");
-    openapiFields.add("editorUrl");
-    openapiFields.add("id");
-    openapiFields.add("itemIconUrl");
-    openapiFields.add("name");
-    openapiFields.add("outline");
-    openapiFields.add("trackerIconUrl");
-    openapiFields.add("urlLinkFormat");
-    openapiFields.add("varName");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TrackerType
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TrackerType.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TrackerType is not found in the empty JSON string", TrackerType.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TrackerType.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TrackerType` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      if (jsonObj.get("color") != null && !jsonObj.get("color").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `color` to be a primitive type in the JSON string but got `%s`", jsonObj.get("color").toString()));
-      }
-      if (jsonObj.get("editorUrl") != null && !jsonObj.get("editorUrl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `editorUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("editorUrl").toString()));
-      }
-      if (jsonObj.get("itemIconUrl") != null && !jsonObj.get("itemIconUrl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `itemIconUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("itemIconUrl").toString()));
-      }
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if (jsonObj.get("trackerIconUrl") != null && !jsonObj.get("trackerIconUrl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `trackerIconUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trackerIconUrl").toString()));
-      }
-      if (jsonObj.get("urlLinkFormat") != null && !jsonObj.get("urlLinkFormat").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `urlLinkFormat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlLinkFormat").toString()));
-      }
-      if (jsonObj.get("varName") != null && !jsonObj.get("varName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `varName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("varName").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TrackerType.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TrackerType' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TrackerType> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TrackerType.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TrackerType>() {
-           @Override
-           public void write(JsonWriter out, TrackerType value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TrackerType read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TrackerType given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TrackerType
-  * @throws IOException if the JSON string is invalid with respect to TrackerType
-  */
-  public static TrackerType fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TrackerType.class);
-  }
-
- /**
-  * Convert an instance of TrackerType to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

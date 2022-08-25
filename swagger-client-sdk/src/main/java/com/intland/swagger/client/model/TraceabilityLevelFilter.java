@@ -13,26 +13,13 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import org.threeten.bp.OffsetDateTime;
+
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -41,7 +28,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Traceability level filter
  */
 @ApiModel(description = "Traceability level filter")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class TraceabilityLevelFilter {
   public static final String SERIALIZED_NAME_CB_Q_L = "cbQL";
   @SerializedName(SERIALIZED_NAME_CB_Q_L)
@@ -79,8 +66,6 @@ public class TraceabilityLevelFilter {
   @SerializedName(SERIALIZED_NAME_PREVIOUS_LEVEL_ITEMS)
   private List<TrackerItemRevision> previousLevelItems = null;
 
-  public TraceabilityLevelFilter() { 
-  }
 
   public TraceabilityLevelFilter cbQL(String cbQL) {
     
@@ -274,7 +259,7 @@ public class TraceabilityLevelFilter {
 
   public TraceabilityLevelFilter addPreviousLevelItemsItem(TrackerItemRevision previousLevelItemsItem) {
     if (this.previousLevelItems == null) {
-      this.previousLevelItems = new ArrayList<>();
+      this.previousLevelItems = new ArrayList<TrackerItemRevision>();
     }
     this.previousLevelItems.add(previousLevelItemsItem);
     return this;
@@ -295,7 +280,6 @@ public class TraceabilityLevelFilter {
   public void setPreviousLevelItems(List<TrackerItemRevision> previousLevelItems) {
     this.previousLevelItems = previousLevelItems;
   }
-
 
 
   @Override
@@ -351,121 +335,5 @@ public class TraceabilityLevelFilter {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("cbQL");
-    openapiFields.add("foldersAndInformation");
-    openapiFields.add("historyBaselineId");
-    openapiFields.add("historyDate");
-    openapiFields.add("incomingAssociation");
-    openapiFields.add("incomingReference");
-    openapiFields.add("outgoingAssociation");
-    openapiFields.add("outgoingReference");
-    openapiFields.add("previousLevelItems");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("cbQL");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TraceabilityLevelFilter
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TraceabilityLevelFilter.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TraceabilityLevelFilter is not found in the empty JSON string", TraceabilityLevelFilter.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TraceabilityLevelFilter.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TraceabilityLevelFilter` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TraceabilityLevelFilter.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (jsonObj.get("cbQL") != null && !jsonObj.get("cbQL").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cbQL` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cbQL").toString()));
-      }
-      JsonArray jsonArraypreviousLevelItems = jsonObj.getAsJsonArray("previousLevelItems");
-      if (jsonArraypreviousLevelItems != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("previousLevelItems").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `previousLevelItems` to be an array in the JSON string but got `%s`", jsonObj.get("previousLevelItems").toString()));
-        }
-
-        // validate the optional field `previousLevelItems` (array)
-        for (int i = 0; i < jsonArraypreviousLevelItems.size(); i++) {
-          TrackerItemRevision.validateJsonObject(jsonArraypreviousLevelItems.get(i).getAsJsonObject());
-        };
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TraceabilityLevelFilter.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TraceabilityLevelFilter' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TraceabilityLevelFilter> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TraceabilityLevelFilter.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TraceabilityLevelFilter>() {
-           @Override
-           public void write(JsonWriter out, TraceabilityLevelFilter value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TraceabilityLevelFilter read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TraceabilityLevelFilter given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TraceabilityLevelFilter
-  * @throws IOException if the JSON string is invalid with respect to TraceabilityLevelFilter
-  */
-  public static TraceabilityLevelFilter fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TraceabilityLevelFilter.class);
-  }
-
- /**
-  * Convert an instance of TraceabilityLevelFilter to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

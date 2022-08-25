@@ -13,39 +13,23 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * ReportGroupWithRowsAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class ReportGroupWithRowsAllOf {
   public static final String SERIALIZED_NAME_ROWS = "rows";
   @SerializedName(SERIALIZED_NAME_ROWS)
   private List<ReportRow> rows = null;
 
-  public ReportGroupWithRowsAllOf() { 
-  }
 
   public ReportGroupWithRowsAllOf rows(List<ReportRow> rows) {
     
@@ -55,7 +39,7 @@ public class ReportGroupWithRowsAllOf {
 
   public ReportGroupWithRowsAllOf addRowsItem(ReportRow rowsItem) {
     if (this.rows == null) {
-      this.rows = new ArrayList<>();
+      this.rows = new ArrayList<ReportRow>();
     }
     this.rows.add(rowsItem);
     return this;
@@ -76,7 +60,6 @@ public class ReportGroupWithRowsAllOf {
   public void setRows(List<ReportRow> rows) {
     this.rows = rows;
   }
-
 
 
   @Override
@@ -116,102 +99,5 @@ public class ReportGroupWithRowsAllOf {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("rows");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ReportGroupWithRowsAllOf
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ReportGroupWithRowsAllOf.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ReportGroupWithRowsAllOf is not found in the empty JSON string", ReportGroupWithRowsAllOf.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ReportGroupWithRowsAllOf.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ReportGroupWithRowsAllOf` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      JsonArray jsonArrayrows = jsonObj.getAsJsonArray("rows");
-      if (jsonArrayrows != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("rows").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `rows` to be an array in the JSON string but got `%s`", jsonObj.get("rows").toString()));
-        }
-
-        // validate the optional field `rows` (array)
-        for (int i = 0; i < jsonArrayrows.size(); i++) {
-          ReportRow.validateJsonObject(jsonArrayrows.get(i).getAsJsonObject());
-        };
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ReportGroupWithRowsAllOf.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ReportGroupWithRowsAllOf' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ReportGroupWithRowsAllOf> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ReportGroupWithRowsAllOf.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ReportGroupWithRowsAllOf>() {
-           @Override
-           public void write(JsonWriter out, ReportGroupWithRowsAllOf value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ReportGroupWithRowsAllOf read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ReportGroupWithRowsAllOf given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ReportGroupWithRowsAllOf
-  * @throws IOException if the JSON string is invalid with respect to ReportGroupWithRowsAllOf
-  */
-  public static ReportGroupWithRowsAllOf fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ReportGroupWithRowsAllOf.class);
-  }
-
- /**
-  * Convert an instance of ReportGroupWithRowsAllOf to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

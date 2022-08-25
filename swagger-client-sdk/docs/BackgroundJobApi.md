@@ -2,10 +2,10 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**getBackgroundJob**](BackgroundJobApi.md#getBackgroundJob) | **GET** /v3/job/{jobId} | Retrieve background job information |
-| [**updateWorkingSet**](BackgroundJobApi.md#updateWorkingSet) | **POST** /v3/jobs/working-set-update | Create background job to update working-set |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**getBackgroundJob**](BackgroundJobApi.md#getBackgroundJob) | **GET** /v3/job/{jobId} | Retrieve background job information
+[**updateWorkingSet**](BackgroundJobApi.md#updateWorkingSet) | **POST** /v3/jobs/working-set-update | Create background job to update working-set
 
 
 <a name="getBackgroundJob"></a>
@@ -62,9 +62,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **jobId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **jobId** | **Integer**|  |
 
 ### Return type
 
@@ -82,11 +82,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Background Job Info |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Job not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Background Job Info |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Job not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="updateWorkingSet"></a>
 # **updateWorkingSet**
@@ -144,9 +144,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **workingSetUpdateRequest** | [**WorkingSetUpdateRequest**](WorkingSetUpdateRequest.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workingSetUpdateRequest** | [**WorkingSetUpdateRequest**](WorkingSetUpdateRequest.md)|  |
 
 ### Return type
 
@@ -164,11 +164,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Job has been scheduled successfully |  -  |
-| **400** | Bad request |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Authorization is required |  -  |
-| **404** | Resource not found |  -  |
-| **429** | Too many requests |  -  |
-| **500** | Unexpected error |  -  |
+**200** | Job has been scheduled successfully |  -  |
+**400** | Bad request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authorization is required |  -  |
+**404** | Resource not found |  -  |
+**429** | Too many requests |  -  |
+**500** | Unexpected error |  -  |
 

@@ -13,8 +13,8 @@
 
 package com.intland.swagger.client.api;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.AttachmentMigrationRequest;
@@ -22,23 +22,26 @@ import com.intland.swagger.client.model.AttachmentMigrationRequest;
 /**
  * API tests for MigrationApi
  */
-@Disabled
+@Ignore
 public class MigrationApiTest {
 
     private final MigrationApi api = new MigrationApi();
 
+    
     /**
      * Migrate attachments
      *
      * An endpoint for migrating attachments from a preconfigured source directory.
      *
-     * @throws ApiException if the Api call fails
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void migrateAttachmentsTest() throws ApiException {
         AttachmentMigrationRequest attachmentMigrationRequest = null;
         api.migrateAttachments(attachmentMigrationRequest);
+
         // TODO: test validations
     }
-
+    
 }

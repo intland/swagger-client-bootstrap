@@ -13,31 +13,18 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
-import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * WorkingSetUpdateRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class WorkingSetUpdateRequest {
   public static final String SERIALIZED_NAME_PROJECT_BASELINE_ID = "projectBaselineId";
   @SerializedName(SERIALIZED_NAME_PROJECT_BASELINE_ID)
@@ -55,8 +42,6 @@ public class WorkingSetUpdateRequest {
   @SerializedName(SERIALIZED_NAME_TRACKERS)
   private Set<WorkingSetTrackerUpdateRequest> trackers = null;
 
-  public WorkingSetUpdateRequest() { 
-  }
 
   public WorkingSetUpdateRequest projectBaselineId(Integer projectBaselineId) {
     
@@ -135,7 +120,7 @@ public class WorkingSetUpdateRequest {
 
   public WorkingSetUpdateRequest addTrackersItem(WorkingSetTrackerUpdateRequest trackersItem) {
     if (this.trackers == null) {
-      this.trackers = new LinkedHashSet<>();
+      this.trackers = new LinkedHashSet<WorkingSetTrackerUpdateRequest>();
     }
     this.trackers.add(trackersItem);
     return this;
@@ -156,7 +141,6 @@ public class WorkingSetUpdateRequest {
   public void setTrackers(Set<WorkingSetTrackerUpdateRequest> trackers) {
     this.trackers = trackers;
   }
-
 
 
   @Override
@@ -202,122 +186,5 @@ public class WorkingSetUpdateRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("projectBaselineId");
-    openapiFields.add("source");
-    openapiFields.add("target");
-    openapiFields.add("trackers");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("source");
-    openapiRequiredFields.add("target");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WorkingSetUpdateRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (WorkingSetUpdateRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WorkingSetUpdateRequest is not found in the empty JSON string", WorkingSetUpdateRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!WorkingSetUpdateRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkingSetUpdateRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WorkingSetUpdateRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field `source`
-      if (jsonObj.getAsJsonObject("source") != null) {
-        WorkingSetReference.validateJsonObject(jsonObj.getAsJsonObject("source"));
-      }
-      // validate the optional field `target`
-      if (jsonObj.getAsJsonObject("target") != null) {
-        WorkingSetReference.validateJsonObject(jsonObj.getAsJsonObject("target"));
-      }
-      JsonArray jsonArraytrackers = jsonObj.getAsJsonArray("trackers");
-      if (jsonArraytrackers != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("trackers").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `trackers` to be an array in the JSON string but got `%s`", jsonObj.get("trackers").toString()));
-        }
-
-        // validate the optional field `trackers` (array)
-        for (int i = 0; i < jsonArraytrackers.size(); i++) {
-          WorkingSetTrackerUpdateRequest.validateJsonObject(jsonArraytrackers.get(i).getAsJsonObject());
-        };
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WorkingSetUpdateRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WorkingSetUpdateRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WorkingSetUpdateRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WorkingSetUpdateRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WorkingSetUpdateRequest>() {
-           @Override
-           public void write(JsonWriter out, WorkingSetUpdateRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public WorkingSetUpdateRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of WorkingSetUpdateRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of WorkingSetUpdateRequest
-  * @throws IOException if the JSON string is invalid with respect to WorkingSetUpdateRequest
-  */
-  public static WorkingSetUpdateRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WorkingSetUpdateRequest.class);
-  }
-
- /**
-  * Convert an instance of WorkingSetUpdateRequest to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

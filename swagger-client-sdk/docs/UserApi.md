@@ -2,13 +2,13 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**getUser**](UserApi.md#getUser) | **GET** /v3/users/{userId} | Get user |
-| [**getUserByEmail**](UserApi.md#getUserByEmail) | **GET** /v3/users/findByEmail | Get user by email address |
-| [**getUserByName**](UserApi.md#getUserByName) | **GET** /v3/users/findByName | Get user by name |
-| [**getUsers**](UserApi.md#getUsers) | **GET** /v3/users | Get users |
-| [**searchUsers**](UserApi.md#searchUsers) | **POST** /v3/users/search | Search users |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**getUser**](UserApi.md#getUser) | **GET** /v3/users/{userId} | Get user
+[**getUserByEmail**](UserApi.md#getUserByEmail) | **GET** /v3/users/findByEmail | Get user by email address
+[**getUserByName**](UserApi.md#getUserByName) | **GET** /v3/users/findByName | Get user by name
+[**getUsers**](UserApi.md#getUsers) | **GET** /v3/users | Get users
+[**searchUsers**](UserApi.md#searchUsers) | **POST** /v3/users/search | Search users
 
 
 <a name="getUser"></a>
@@ -65,9 +65,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **userId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **Integer**|  |
 
 ### Return type
 
@@ -85,11 +85,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | User |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | User not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | User |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | User not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getUserByEmail"></a>
 # **getUserByEmail**
@@ -145,9 +145,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **email** | **String**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email** | **String**|  |
 
 ### Return type
 
@@ -165,11 +165,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | User |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | User not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | User |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | User not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getUserByName"></a>
 # **getUserByName**
@@ -225,9 +225,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **name** | **String**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**|  |
 
 ### Return type
 
@@ -245,11 +245,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | User |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | User not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | User |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | User not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getUsers"></a>
 # **getUsers**
@@ -308,12 +308,12 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1] |
-| **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25] |
-| **groupId** | **Integer**|  | [optional] |
-| **queryString** | **String**|  | [optional] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25]
+ **groupId** | **Integer**|  | [optional]
+ **queryString** | **String**|  | [optional]
 
 ### Return type
 
@@ -331,10 +331,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Users |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **429** | Too many requests |  -  |
+**200** | Users |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 
 <a name="searchUsers"></a>
 # **searchUsers**
@@ -392,11 +392,11 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **userFilteringRequest** | [**UserFilteringRequest**](UserFilteringRequest.md)|  | |
-| **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1] |
-| **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userFilteringRequest** | [**UserFilteringRequest**](UserFilteringRequest.md)|  |
+ **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25]
 
 ### Return type
 
@@ -414,9 +414,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Users |  -  |
-| **400** | Bad request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Project is not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Users |  -  |
+**400** | Bad request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Project is not found |  -  |
+**429** | Too many requests |  -  |
 

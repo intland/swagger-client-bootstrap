@@ -15,8 +15,8 @@ package com.intland.swagger.client.api;
 
 import java.util.List;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.TraceabilityInitialLevelFilter;
@@ -27,17 +27,19 @@ import com.intland.swagger.client.model.TraceabilityResult;
 /**
  * API tests for TraceabilityApi
  */
-@Disabled
+@Ignore
 public class TraceabilityApiTest {
 
     private final TraceabilityApi api = new TraceabilityApi();
 
+    
     /**
      * Get initial ids
      *
      * Get traceability initial ids!
      *
-     * @throws ApiException if the Api call fails
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTraceabilityInitialItemIdsTest() throws ApiException {
@@ -45,15 +47,17 @@ public class TraceabilityApiTest {
         Integer pageSize = null;
         Integer pageNo = null;
         List<TraceabilityItem> response = api.getTraceabilityInitialItemIds(traceabilityInitialLevelFilter, pageSize, pageNo);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get traceability level item ids
      *
      * Get traceability item ids!
      *
-     * @throws ApiException if the Api call fails
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTraceabilityLevelItemIdsTest() throws ApiException {
@@ -61,7 +65,8 @@ public class TraceabilityApiTest {
         Integer itemsOnLevel = null;
         Integer itemsFromPreviousItem = null;
         TraceabilityResult response = api.getTraceabilityLevelItemIds(traceabilityLevelFilter, itemsOnLevel, itemsFromPreviousItem);
+
         // TODO: test validations
     }
-
+    
 }

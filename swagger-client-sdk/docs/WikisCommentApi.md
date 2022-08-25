@@ -2,10 +2,10 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**commentOnWiki**](WikisCommentApi.md#commentOnWiki) | **POST** /v3/wikipages/{wikiId}/comments | Comment on a wiki page |
-| [**getAttachmentByName**](WikisCommentApi.md#getAttachmentByName) | **GET** /v3/wikipages/{wikiId}/attachments | Get attachment of wiki page by file name |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**commentOnWiki**](WikisCommentApi.md#commentOnWiki) | **POST** /v3/wikipages/{wikiId}/comments | Comment on a wiki page
+[**getAttachmentByName**](WikisCommentApi.md#getAttachmentByName) | **GET** /v3/wikipages/{wikiId}/attachments | Get attachment of wiki page by file name
 
 
 <a name="commentOnWiki"></a>
@@ -48,7 +48,7 @@ public class Example {
     Integer wikiId = 56; // Integer | 
     String comment = "comment_example"; // String | Text of a comment
     File attachments = new File("/path/to/file"); // File | Attachments of a comment
-    String commentFormat = "PlainText"; // String | Format of a comment
+    String commentFormat = "CommentFormatEnum.PLAINTEXT"; // String | Format of a comment
     try {
       List<AttachmentReference> result = apiInstance.commentOnWiki(wikiId, comment, attachments, commentFormat);
       System.out.println(result);
@@ -65,12 +65,12 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **wikiId** | **Integer**|  | |
-| **comment** | **String**| Text of a comment | |
-| **attachments** | **File**| Attachments of a comment | [optional] |
-| **commentFormat** | **String**| Format of a comment | [optional] [default to PlainText] [enum: PlainText, Html, Wiki] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wikiId** | **Integer**|  |
+ **comment** | **String**| Text of a comment |
+ **attachments** | **File**| Attachments of a comment | [optional]
+ **commentFormat** | **String**| Format of a comment | [optional] [default to CommentFormatEnum.PLAINTEXT] [enum: PlainText, Html, Wiki]
 
 ### Return type
 
@@ -88,13 +88,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Comment created successfully |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Authorization is required |  -  |
-| **404** | Wiki page not found |  -  |
-| **429** | Too many requests |  -  |
-| **500** | Unexpected error |  -  |
+**200** | Comment created successfully |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authorization is required |  -  |
+**404** | Wiki page not found |  -  |
+**429** | Too many requests |  -  |
+**500** | Unexpected error |  -  |
 
 <a name="getAttachmentByName"></a>
 # **getAttachmentByName**
@@ -151,10 +151,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **wikiId** | **Integer**|  | |
-| **fileName** | **String**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **wikiId** | **Integer**|  |
+ **fileName** | **String**|  |
 
 ### Return type
 
@@ -172,10 +172,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Attachment of wiki page |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Authorization is required |  -  |
-| **404** | Wiki page / Attachment not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Attachment of wiki page |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authorization is required |  -  |
+**404** | Wiki page / Attachment not found |  -  |
+**429** | Too many requests |  -  |
 

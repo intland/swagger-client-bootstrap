@@ -15,24 +15,14 @@ package com.intland.swagger.client.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -41,7 +31,7 @@ import io.swagger.annotations.ApiModelProperty;
  * A tracker item review instance including its reviewers and their decisions
  */
 @ApiModel(description = "A tracker item review instance including its reviewers and their decisions")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class TrackerItemReview {
   public static final String SERIALIZED_NAME_CONFIG = "config";
   @SerializedName(SERIALIZED_NAME_CONFIG)
@@ -108,8 +98,6 @@ public class TrackerItemReview {
   @SerializedName(SERIALIZED_NAME_TRACKER_ITEM)
   private TrackerItemRevision trackerItem;
 
-  public TrackerItemReview() { 
-  }
 
   public TrackerItemReview config(TrackerItemReviewConfig config) {
     
@@ -165,7 +153,7 @@ public class TrackerItemReview {
 
   public TrackerItemReview addReviewersItem(TrackerItemReviewVote reviewersItem) {
     if (this.reviewers == null) {
-      this.reviewers = new ArrayList<>();
+      this.reviewers = new ArrayList<TrackerItemReviewVote>();
     }
     this.reviewers.add(reviewersItem);
     return this;
@@ -211,7 +199,6 @@ public class TrackerItemReview {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -255,116 +242,5 @@ public class TrackerItemReview {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("config");
-    openapiFields.add("result");
-    openapiFields.add("reviewers");
-    openapiFields.add("trackerItem");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TrackerItemReview
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TrackerItemReview.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TrackerItemReview is not found in the empty JSON string", TrackerItemReview.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TrackerItemReview.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TrackerItemReview` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      // validate the optional field `config`
-      if (jsonObj.getAsJsonObject("config") != null) {
-        TrackerItemReviewConfig.validateJsonObject(jsonObj.getAsJsonObject("config"));
-      }
-      if (jsonObj.get("result") != null && !jsonObj.get("result").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `result` to be a primitive type in the JSON string but got `%s`", jsonObj.get("result").toString()));
-      }
-      JsonArray jsonArrayreviewers = jsonObj.getAsJsonArray("reviewers");
-      if (jsonArrayreviewers != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("reviewers").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `reviewers` to be an array in the JSON string but got `%s`", jsonObj.get("reviewers").toString()));
-        }
-
-        // validate the optional field `reviewers` (array)
-        for (int i = 0; i < jsonArrayreviewers.size(); i++) {
-          TrackerItemReviewVote.validateJsonObject(jsonArrayreviewers.get(i).getAsJsonObject());
-        };
-      }
-      // validate the optional field `trackerItem`
-      if (jsonObj.getAsJsonObject("trackerItem") != null) {
-        TrackerItemRevision.validateJsonObject(jsonObj.getAsJsonObject("trackerItem"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TrackerItemReview.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TrackerItemReview' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TrackerItemReview> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TrackerItemReview.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TrackerItemReview>() {
-           @Override
-           public void write(JsonWriter out, TrackerItemReview value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TrackerItemReview read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TrackerItemReview given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TrackerItemReview
-  * @throws IOException if the JSON string is invalid with respect to TrackerItemReview
-  */
-  public static TrackerItemReview fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TrackerItemReview.class);
-  }
-
- /**
-  * Convert an instance of TrackerItemReview to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -13,8 +13,8 @@
 
 package com.intland.swagger.client.api;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.BackgroundJob;
@@ -24,35 +24,42 @@ import com.intland.swagger.client.model.WorkingSetUpdateRequest;
 /**
  * API tests for BackgroundJobApi
  */
-@Disabled
+@Ignore
 public class BackgroundJobApiTest {
 
     private final BackgroundJobApi api = new BackgroundJobApi();
 
+    
     /**
      * Retrieve background job information
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getBackgroundJobTest() throws ApiException {
         Integer jobId = null;
         BackgroundJob response = api.getBackgroundJob(jobId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Create background job to update working-set
      *
      * This API can be used start a Job that merges changes from the source into the target Working-Set replacing the content of the specified target trackers completely.
      *
-     * @throws ApiException if the Api call fails
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void updateWorkingSetTest() throws ApiException {
         WorkingSetUpdateRequest workingSetUpdateRequest = null;
         JobReference response = api.updateWorkingSet(workingSetUpdateRequest);
+
         // TODO: test validations
     }
-
+    
 }

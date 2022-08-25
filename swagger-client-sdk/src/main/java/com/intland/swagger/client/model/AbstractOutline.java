@@ -13,15 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 
-import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Abstract outline entity
  */
 @ApiModel(description = "Abstract outline entity")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class AbstractOutline {
   public static final String SERIALIZED_NAME_OUTLINE_INDEXES = "outlineIndexes";
   @SerializedName(SERIALIZED_NAME_OUTLINE_INDEXES)
@@ -40,7 +36,7 @@ public class AbstractOutline {
   @SerializedName(SERIALIZED_NAME_TYPE)
   protected String type;
 
-  public AbstractOutline() { 
+  public AbstractOutline() {
     this.type = this.getClass().getSimpleName();
   }
 
@@ -52,7 +48,7 @@ public class AbstractOutline {
 
   public AbstractOutline addOutlineIndexesItem(OutlineIndex outlineIndexesItem) {
     if (this.outlineIndexes == null) {
-      this.outlineIndexes = new ArrayList<>();
+      this.outlineIndexes = new ArrayList<OutlineIndex>();
     }
     this.outlineIndexes.add(outlineIndexesItem);
     return this;
@@ -98,7 +94,6 @@ public class AbstractOutline {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -138,67 +133,5 @@ public class AbstractOutline {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("outlineIndexes");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AbstractOutline
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (AbstractOutline.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AbstractOutline is not found in the empty JSON string", AbstractOutline.openapiRequiredFields.toString()));
-        }
-      }
-
-      String discriminatorValue = jsonObj.get("type").getAsString();
-      switch (discriminatorValue) {
-        case "OutlineItem":
-          OutlineItem.validateJsonObject(jsonObj);
-          break;
-        case "OutlineWiki":
-          OutlineWiki.validateJsonObject(jsonObj);
-          break;
-        default: 
-          throw new IllegalArgumentException(String.format("The value of the `type` field `%s` does not match any key defined in the discriminator's mapping.", discriminatorValue));
-      }
-  }
-
-
- /**
-  * Create an instance of AbstractOutline given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AbstractOutline
-  * @throws IOException if the JSON string is invalid with respect to AbstractOutline
-  */
-  public static AbstractOutline fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AbstractOutline.class);
-  }
-
- /**
-  * Convert an instance of AbstractOutline to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

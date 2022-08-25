@@ -2,10 +2,10 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**exportForDeployment**](DeploymentApi.md#exportForDeployment) | **POST** /v3/deployment/export | Export projects for deployment |
-| [**uploadDeployment**](DeploymentApi.md#uploadDeployment) | **POST** /v3/deployment | Start a deployment process |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**exportForDeployment**](DeploymentApi.md#exportForDeployment) | **POST** /v3/deployment/export | Export projects for deployment
+[**uploadDeployment**](DeploymentApi.md#uploadDeployment) | **POST** /v3/deployment | Start a deployment process
 
 
 <a name="exportForDeployment"></a>
@@ -62,9 +62,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **exportForDeploymentRequest** | [**ExportForDeploymentRequest**](ExportForDeploymentRequest.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **exportForDeploymentRequest** | [**ExportForDeploymentRequest**](ExportForDeploymentRequest.md)|  |
 
 ### Return type
 
@@ -82,11 +82,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Export job has been scheduled successfully |  -  |
-| **400** | Bad request |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Authorization is required |  -  |
-| **429** | Too many requests |  -  |
+**200** | Export job has been scheduled successfully |  -  |
+**400** | Bad request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authorization is required |  -  |
+**429** | Too many requests |  -  |
 
 <a name="uploadDeployment"></a>
 # **uploadDeployment**
@@ -141,9 +141,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **imports** | **File**| Deployment files | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **imports** | **File**| Deployment files |
 
 ### Return type
 
@@ -161,9 +161,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Deployment is executed |  -  |
-| **400** | Bad request |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Authentication is required |  -  |
-| **429** | Too many requests |  -  |
+**200** | Deployment is executed |  -  |
+**400** | Bad request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 

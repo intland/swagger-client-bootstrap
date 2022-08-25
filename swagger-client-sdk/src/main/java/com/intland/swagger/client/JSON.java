@@ -19,12 +19,13 @@ import java.lang.reflect.Type;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.OffsetDateTime;
+import org.threeten.bp.format.DateTimeFormatter;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -34,826 +35,901 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.intland.swagger.client.model.AbstractBackgroundJobStatusInfo;
+import com.intland.swagger.client.model.AbstractField;
+import com.intland.swagger.client.model.AbstractFieldValue;
+import com.intland.swagger.client.model.AbstractOutline;
+import com.intland.swagger.client.model.AbstractReference;
+import com.intland.swagger.client.model.AbstractTrackerItemReference;
+import com.intland.swagger.client.model.ArtifactReference;
+import com.intland.swagger.client.model.ArtifactReferenceField;
+import com.intland.swagger.client.model.AssociationTypeReference;
+import com.intland.swagger.client.model.AttachmentReference;
+import com.intland.swagger.client.model.BoolField;
+import com.intland.swagger.client.model.BoolFieldValue;
+import com.intland.swagger.client.model.ChoiceFieldValue;
+import com.intland.swagger.client.model.ChoiceOptionReference;
+import com.intland.swagger.client.model.ColorField;
+import com.intland.swagger.client.model.ColorFieldValue;
+import com.intland.swagger.client.model.CommentReference;
+import com.intland.swagger.client.model.CountryField;
+import com.intland.swagger.client.model.CountryFieldValue;
+import com.intland.swagger.client.model.DateField;
+import com.intland.swagger.client.model.DateFieldValue;
+import com.intland.swagger.client.model.DecimalField;
+import com.intland.swagger.client.model.DecimalFieldValue;
+import com.intland.swagger.client.model.DefaultBackgroundJobStatusInfo;
+import com.intland.swagger.client.model.DependencyEntityReference;
+import com.intland.swagger.client.model.DependencyFinderJobStatusInfo;
+import com.intland.swagger.client.model.DownstreamTrackerItemReference;
+import com.intland.swagger.client.model.DurationField;
+import com.intland.swagger.client.model.DurationFieldValue;
+import com.intland.swagger.client.model.FieldReference;
+import com.intland.swagger.client.model.IncomingTrackerItemAssociation;
+import com.intland.swagger.client.model.IntegerField;
+import com.intland.swagger.client.model.IntegerFieldValue;
+import com.intland.swagger.client.model.LanguageField;
+import com.intland.swagger.client.model.LanguageFieldValue;
+import com.intland.swagger.client.model.MemberField;
+import com.intland.swagger.client.model.NotSupportedFieldValue;
+import com.intland.swagger.client.model.OptionChoiceField;
+import com.intland.swagger.client.model.OutgoingTrackerItemAssociation;
+import com.intland.swagger.client.model.OutlineItem;
+import com.intland.swagger.client.model.OutlineWiki;
+import com.intland.swagger.client.model.ProjectBaselineReference;
+import com.intland.swagger.client.model.ProjectChoiceField;
+import com.intland.swagger.client.model.ProjectReference;
+import com.intland.swagger.client.model.ReferenceField;
+import com.intland.swagger.client.model.ReferredTestStepFieldValue;
+import com.intland.swagger.client.model.ReportGroup;
+import com.intland.swagger.client.model.ReportGroupWithGroups;
+import com.intland.swagger.client.model.ReportGroupWithReferencedRows;
+import com.intland.swagger.client.model.ReportGroupWithRows;
+import com.intland.swagger.client.model.ReportReference;
+import com.intland.swagger.client.model.RepositoryChoiceField;
+import com.intland.swagger.client.model.RepositoryReference;
+import com.intland.swagger.client.model.ReviewMemberReferenceField;
+import com.intland.swagger.client.model.RoleReference;
+import com.intland.swagger.client.model.SharedFieldReference;
+import com.intland.swagger.client.model.TableField;
+import com.intland.swagger.client.model.TableFieldValue;
+import com.intland.swagger.client.model.TextField;
+import com.intland.swagger.client.model.TextFieldValue;
+import com.intland.swagger.client.model.TrackerBaselineReference;
+import com.intland.swagger.client.model.TrackerChoiceField;
+import com.intland.swagger.client.model.TrackerItemAttachmentRequest;
+import com.intland.swagger.client.model.TrackerItemChange;
+import com.intland.swagger.client.model.TrackerItemChoiceField;
+import com.intland.swagger.client.model.TrackerItemReference;
+import com.intland.swagger.client.model.TrackerItemRowChange;
+import com.intland.swagger.client.model.TrackerItemsRequest;
+import com.intland.swagger.client.model.TrackerPermissionReference;
+import com.intland.swagger.client.model.TrackerReference;
+import com.intland.swagger.client.model.TrackerTypeReference;
+import com.intland.swagger.client.model.UpstreamTrackerItemReference;
+import com.intland.swagger.client.model.UrlField;
+import com.intland.swagger.client.model.UrlFieldValue;
+import com.intland.swagger.client.model.UserChoiceField;
+import com.intland.swagger.client.model.UserGroupReference;
+import com.intland.swagger.client.model.UserReference;
+import com.intland.swagger.client.model.WikiPageReference;
+import com.intland.swagger.client.model.WikiTextField;
+import com.intland.swagger.client.model.WikiTextFieldValue;
+import com.intland.swagger.client.model.WorkingSetReference;
 
 import io.gsonfire.GsonFireBuilder;
 import io.gsonfire.TypeSelector;
 import okio.ByteString;
 
-/*
- * A JSON utility class
- *
- * NOTE: in the future, this class may be converted to static, which may break
- *       backward-compatibility
- */
 public class JSON {
-    private static Gson gson;
-    private static boolean isLenientOnJson = false;
-    private static DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();
-    private static SqlDateTypeAdapter sqlDateTypeAdapter = new SqlDateTypeAdapter();
-    private static OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter = new OffsetDateTimeTypeAdapter();
-    private static LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
-    private static ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();
+    private Gson gson;
+    private boolean isLenientOnJson = false;
+    private DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();
+    private SqlDateTypeAdapter sqlDateTypeAdapter = new SqlDateTypeAdapter();
+    private OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter = new OffsetDateTimeTypeAdapter();
+    private LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
+    private ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();
 
     @SuppressWarnings("unchecked")
     public static GsonBuilder createGson() {
         GsonFireBuilder fireBuilder = new GsonFireBuilder()
-                .registerTypeSelector(com.intland.swagger.client.model.AbstractBackgroundJobStatusInfo.class, new TypeSelector<com.intland.swagger.client.model.AbstractBackgroundJobStatusInfo>() {
+                .registerTypeSelector(AbstractBackgroundJobStatusInfo.class, new TypeSelector<AbstractBackgroundJobStatusInfo>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.AbstractBackgroundJobStatusInfo> getClassForElement(JsonElement readElement) {
+                    public Class<? extends AbstractBackgroundJobStatusInfo> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("DefaultBackgroundJobStatusInfo", com.intland.swagger.client.model.DefaultBackgroundJobStatusInfo.class);
-                        classByDiscriminatorValue.put("DependencyFinderJobStatusInfo", com.intland.swagger.client.model.DependencyFinderJobStatusInfo.class);
-                        classByDiscriminatorValue.put("AbstractBackgroundJobStatusInfo", com.intland.swagger.client.model.AbstractBackgroundJobStatusInfo.class);
+                        classByDiscriminatorValue.put("DefaultBackgroundJobStatusInfo", DefaultBackgroundJobStatusInfo.class);
+                        classByDiscriminatorValue.put("DependencyFinderJobStatusInfo", DependencyFinderJobStatusInfo.class);
+                        classByDiscriminatorValue.put("AbstractBackgroundJobStatusInfo", AbstractBackgroundJobStatusInfo.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.AbstractField.class, new TypeSelector<com.intland.swagger.client.model.AbstractField>() {
+                .registerTypeSelector(AbstractField.class, new TypeSelector<AbstractField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.AbstractField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends AbstractField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ArtifactReferenceField", com.intland.swagger.client.model.ArtifactReferenceField.class);
-                        classByDiscriminatorValue.put("BoolField", com.intland.swagger.client.model.BoolField.class);
-                        classByDiscriminatorValue.put("ColorField", com.intland.swagger.client.model.ColorField.class);
-                        classByDiscriminatorValue.put("CountryField", com.intland.swagger.client.model.CountryField.class);
-                        classByDiscriminatorValue.put("DateField", com.intland.swagger.client.model.DateField.class);
-                        classByDiscriminatorValue.put("DecimalField", com.intland.swagger.client.model.DecimalField.class);
-                        classByDiscriminatorValue.put("DurationField", com.intland.swagger.client.model.DurationField.class);
-                        classByDiscriminatorValue.put("IntegerField", com.intland.swagger.client.model.IntegerField.class);
-                        classByDiscriminatorValue.put("LanguageField", com.intland.swagger.client.model.LanguageField.class);
-                        classByDiscriminatorValue.put("MemberField", com.intland.swagger.client.model.MemberField.class);
-                        classByDiscriminatorValue.put("OptionChoiceField", com.intland.swagger.client.model.OptionChoiceField.class);
-                        classByDiscriminatorValue.put("ProjectChoiceField", com.intland.swagger.client.model.ProjectChoiceField.class);
-                        classByDiscriminatorValue.put("ReferenceField", com.intland.swagger.client.model.ReferenceField.class);
-                        classByDiscriminatorValue.put("RepositoryChoiceField", com.intland.swagger.client.model.RepositoryChoiceField.class);
-                        classByDiscriminatorValue.put("ReviewMemberReferenceField", com.intland.swagger.client.model.ReviewMemberReferenceField.class);
-                        classByDiscriminatorValue.put("TableField", com.intland.swagger.client.model.TableField.class);
-                        classByDiscriminatorValue.put("TextField", com.intland.swagger.client.model.TextField.class);
-                        classByDiscriminatorValue.put("TrackerChoiceField", com.intland.swagger.client.model.TrackerChoiceField.class);
-                        classByDiscriminatorValue.put("TrackerItemChoiceField", com.intland.swagger.client.model.TrackerItemChoiceField.class);
-                        classByDiscriminatorValue.put("UrlField", com.intland.swagger.client.model.UrlField.class);
-                        classByDiscriminatorValue.put("UserChoiceField", com.intland.swagger.client.model.UserChoiceField.class);
-                        classByDiscriminatorValue.put("WikiTextField", com.intland.swagger.client.model.WikiTextField.class);
-                        classByDiscriminatorValue.put("AbstractField", com.intland.swagger.client.model.AbstractField.class);
+                        classByDiscriminatorValue.put("ArtifactReferenceField", ArtifactReferenceField.class);
+                        classByDiscriminatorValue.put("BoolField", BoolField.class);
+                        classByDiscriminatorValue.put("ColorField", ColorField.class);
+                        classByDiscriminatorValue.put("CountryField", CountryField.class);
+                        classByDiscriminatorValue.put("DateField", DateField.class);
+                        classByDiscriminatorValue.put("DecimalField", DecimalField.class);
+                        classByDiscriminatorValue.put("DurationField", DurationField.class);
+                        classByDiscriminatorValue.put("IntegerField", IntegerField.class);
+                        classByDiscriminatorValue.put("LanguageField", LanguageField.class);
+                        classByDiscriminatorValue.put("MemberField", MemberField.class);
+                        classByDiscriminatorValue.put("OptionChoiceField", OptionChoiceField.class);
+                        classByDiscriminatorValue.put("ProjectChoiceField", ProjectChoiceField.class);
+                        classByDiscriminatorValue.put("ReferenceField", ReferenceField.class);
+                        classByDiscriminatorValue.put("RepositoryChoiceField", RepositoryChoiceField.class);
+                        classByDiscriminatorValue.put("ReviewMemberReferenceField", ReviewMemberReferenceField.class);
+                        classByDiscriminatorValue.put("TableField", TableField.class);
+                        classByDiscriminatorValue.put("TextField", TextField.class);
+                        classByDiscriminatorValue.put("TrackerChoiceField", TrackerChoiceField.class);
+                        classByDiscriminatorValue.put("TrackerItemChoiceField", TrackerItemChoiceField.class);
+                        classByDiscriminatorValue.put("UrlField", UrlField.class);
+                        classByDiscriminatorValue.put("UserChoiceField", UserChoiceField.class);
+                        classByDiscriminatorValue.put("WikiTextField", WikiTextField.class);
+                        classByDiscriminatorValue.put("AbstractField", AbstractField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.AbstractFieldValue.class, new TypeSelector<com.intland.swagger.client.model.AbstractFieldValue>() {
+                .registerTypeSelector(AbstractFieldValue.class, new TypeSelector<AbstractFieldValue>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.AbstractFieldValue> getClassForElement(JsonElement readElement) {
+                    public Class<? extends AbstractFieldValue> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("BoolFieldValue", com.intland.swagger.client.model.BoolFieldValue.class);
-                        classByDiscriminatorValue.put("ChoiceFieldValue", com.intland.swagger.client.model.ChoiceFieldValue.class);
-                        classByDiscriminatorValue.put("ColorFieldValue", com.intland.swagger.client.model.ColorFieldValue.class);
-                        classByDiscriminatorValue.put("CountryFieldValue", com.intland.swagger.client.model.CountryFieldValue.class);
-                        classByDiscriminatorValue.put("DateFieldValue", com.intland.swagger.client.model.DateFieldValue.class);
-                        classByDiscriminatorValue.put("DecimalFieldValue", com.intland.swagger.client.model.DecimalFieldValue.class);
-                        classByDiscriminatorValue.put("DurationFieldValue", com.intland.swagger.client.model.DurationFieldValue.class);
-                        classByDiscriminatorValue.put("IntegerFieldValue", com.intland.swagger.client.model.IntegerFieldValue.class);
-                        classByDiscriminatorValue.put("LanguageFieldValue", com.intland.swagger.client.model.LanguageFieldValue.class);
-                        classByDiscriminatorValue.put("NotSupportedFieldValue", com.intland.swagger.client.model.NotSupportedFieldValue.class);
-                        classByDiscriminatorValue.put("ReferredTestStepFieldValue", com.intland.swagger.client.model.ReferredTestStepFieldValue.class);
-                        classByDiscriminatorValue.put("TableFieldValue", com.intland.swagger.client.model.TableFieldValue.class);
-                        classByDiscriminatorValue.put("TextFieldValue", com.intland.swagger.client.model.TextFieldValue.class);
-                        classByDiscriminatorValue.put("UrlFieldValue", com.intland.swagger.client.model.UrlFieldValue.class);
-                        classByDiscriminatorValue.put("WikiTextFieldValue", com.intland.swagger.client.model.WikiTextFieldValue.class);
-                        classByDiscriminatorValue.put("AbstractFieldValue", com.intland.swagger.client.model.AbstractFieldValue.class);
+                        classByDiscriminatorValue.put("BoolFieldValue", BoolFieldValue.class);
+                        classByDiscriminatorValue.put("ChoiceFieldValue", ChoiceFieldValue.class);
+                        classByDiscriminatorValue.put("ColorFieldValue", ColorFieldValue.class);
+                        classByDiscriminatorValue.put("CountryFieldValue", CountryFieldValue.class);
+                        classByDiscriminatorValue.put("DateFieldValue", DateFieldValue.class);
+                        classByDiscriminatorValue.put("DecimalFieldValue", DecimalFieldValue.class);
+                        classByDiscriminatorValue.put("DurationFieldValue", DurationFieldValue.class);
+                        classByDiscriminatorValue.put("IntegerFieldValue", IntegerFieldValue.class);
+                        classByDiscriminatorValue.put("LanguageFieldValue", LanguageFieldValue.class);
+                        classByDiscriminatorValue.put("NotSupportedFieldValue", NotSupportedFieldValue.class);
+                        classByDiscriminatorValue.put("ReferredTestStepFieldValue", ReferredTestStepFieldValue.class);
+                        classByDiscriminatorValue.put("TableFieldValue", TableFieldValue.class);
+                        classByDiscriminatorValue.put("TextFieldValue", TextFieldValue.class);
+                        classByDiscriminatorValue.put("UrlFieldValue", UrlFieldValue.class);
+                        classByDiscriminatorValue.put("WikiTextFieldValue", WikiTextFieldValue.class);
+                        classByDiscriminatorValue.put("AbstractFieldValue", AbstractFieldValue.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.AbstractOutline.class, new TypeSelector<com.intland.swagger.client.model.AbstractOutline>() {
+                .registerTypeSelector(AbstractOutline.class, new TypeSelector<AbstractOutline>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.AbstractOutline> getClassForElement(JsonElement readElement) {
+                    public Class<? extends AbstractOutline> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("OutlineItem", com.intland.swagger.client.model.OutlineItem.class);
-                        classByDiscriminatorValue.put("OutlineWiki", com.intland.swagger.client.model.OutlineWiki.class);
-                        classByDiscriminatorValue.put("AbstractOutline", com.intland.swagger.client.model.AbstractOutline.class);
+                        classByDiscriminatorValue.put("OutlineItem", OutlineItem.class);
+                        classByDiscriminatorValue.put("OutlineWiki", OutlineWiki.class);
+                        classByDiscriminatorValue.put("AbstractOutline", AbstractOutline.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.AbstractReference.class, new TypeSelector<com.intland.swagger.client.model.AbstractReference>() {
+                .registerTypeSelector(AbstractReference.class, new TypeSelector<AbstractReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.AbstractReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends AbstractReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ArtifactReference", com.intland.swagger.client.model.ArtifactReference.class);
-                        classByDiscriminatorValue.put("AssociationTypeReference", com.intland.swagger.client.model.AssociationTypeReference.class);
-                        classByDiscriminatorValue.put("AttachmentReference", com.intland.swagger.client.model.AttachmentReference.class);
-                        classByDiscriminatorValue.put("ChoiceOptionReference", com.intland.swagger.client.model.ChoiceOptionReference.class);
-                        classByDiscriminatorValue.put("CommentReference", com.intland.swagger.client.model.CommentReference.class);
-                        classByDiscriminatorValue.put("DependencyEntityReference", com.intland.swagger.client.model.DependencyEntityReference.class);
-                        classByDiscriminatorValue.put("FieldReference", com.intland.swagger.client.model.FieldReference.class);
-                        classByDiscriminatorValue.put("ProjectBaselineReference", com.intland.swagger.client.model.ProjectBaselineReference.class);
-                        classByDiscriminatorValue.put("ProjectReference", com.intland.swagger.client.model.ProjectReference.class);
-                        classByDiscriminatorValue.put("ReportReference", com.intland.swagger.client.model.ReportReference.class);
-                        classByDiscriminatorValue.put("RepositoryReference", com.intland.swagger.client.model.RepositoryReference.class);
-                        classByDiscriminatorValue.put("RoleReference", com.intland.swagger.client.model.RoleReference.class);
-                        classByDiscriminatorValue.put("SharedFieldReference", com.intland.swagger.client.model.SharedFieldReference.class);
-                        classByDiscriminatorValue.put("TrackerBaselineReference", com.intland.swagger.client.model.TrackerBaselineReference.class);
-                        classByDiscriminatorValue.put("TrackerItemReference", com.intland.swagger.client.model.TrackerItemReference.class);
-                        classByDiscriminatorValue.put("TrackerPermissionReference", com.intland.swagger.client.model.TrackerPermissionReference.class);
-                        classByDiscriminatorValue.put("TrackerReference", com.intland.swagger.client.model.TrackerReference.class);
-                        classByDiscriminatorValue.put("TrackerTypeReference", com.intland.swagger.client.model.TrackerTypeReference.class);
-                        classByDiscriminatorValue.put("UserGroupReference", com.intland.swagger.client.model.UserGroupReference.class);
-                        classByDiscriminatorValue.put("UserReference", com.intland.swagger.client.model.UserReference.class);
-                        classByDiscriminatorValue.put("WikiPageReference", com.intland.swagger.client.model.WikiPageReference.class);
-                        classByDiscriminatorValue.put("WorkingSetReference", com.intland.swagger.client.model.WorkingSetReference.class);
-                        classByDiscriminatorValue.put("AbstractReference", com.intland.swagger.client.model.AbstractReference.class);
+                        classByDiscriminatorValue.put("ArtifactReference", ArtifactReference.class);
+                        classByDiscriminatorValue.put("AssociationTypeReference", AssociationTypeReference.class);
+                        classByDiscriminatorValue.put("AttachmentReference", AttachmentReference.class);
+                        classByDiscriminatorValue.put("ChoiceOptionReference", ChoiceOptionReference.class);
+                        classByDiscriminatorValue.put("CommentReference", CommentReference.class);
+                        classByDiscriminatorValue.put("DependencyEntityReference", DependencyEntityReference.class);
+                        classByDiscriminatorValue.put("FieldReference", FieldReference.class);
+                        classByDiscriminatorValue.put("ProjectBaselineReference", ProjectBaselineReference.class);
+                        classByDiscriminatorValue.put("ProjectReference", ProjectReference.class);
+                        classByDiscriminatorValue.put("ReportReference", ReportReference.class);
+                        classByDiscriminatorValue.put("RepositoryReference", RepositoryReference.class);
+                        classByDiscriminatorValue.put("RoleReference", RoleReference.class);
+                        classByDiscriminatorValue.put("SharedFieldReference", SharedFieldReference.class);
+                        classByDiscriminatorValue.put("TrackerBaselineReference", TrackerBaselineReference.class);
+                        classByDiscriminatorValue.put("TrackerItemReference", TrackerItemReference.class);
+                        classByDiscriminatorValue.put("TrackerPermissionReference", TrackerPermissionReference.class);
+                        classByDiscriminatorValue.put("TrackerReference", TrackerReference.class);
+                        classByDiscriminatorValue.put("TrackerTypeReference", TrackerTypeReference.class);
+                        classByDiscriminatorValue.put("UserGroupReference", UserGroupReference.class);
+                        classByDiscriminatorValue.put("UserReference", UserReference.class);
+                        classByDiscriminatorValue.put("WikiPageReference", WikiPageReference.class);
+                        classByDiscriminatorValue.put("WorkingSetReference", WorkingSetReference.class);
+                        classByDiscriminatorValue.put("AbstractReference", AbstractReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.AbstractTrackerItemReference.class, new TypeSelector<com.intland.swagger.client.model.AbstractTrackerItemReference>() {
+                .registerTypeSelector(AbstractTrackerItemReference.class, new TypeSelector<AbstractTrackerItemReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.AbstractTrackerItemReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends AbstractTrackerItemReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("DownstreamTrackerItemReference", com.intland.swagger.client.model.DownstreamTrackerItemReference.class);
-                        classByDiscriminatorValue.put("IncomingTrackerItemAssociation", com.intland.swagger.client.model.IncomingTrackerItemAssociation.class);
-                        classByDiscriminatorValue.put("OutgoingTrackerItemAssociation", com.intland.swagger.client.model.OutgoingTrackerItemAssociation.class);
-                        classByDiscriminatorValue.put("UpstreamTrackerItemReference", com.intland.swagger.client.model.UpstreamTrackerItemReference.class);
-                        classByDiscriminatorValue.put("AbstractTrackerItemReference", com.intland.swagger.client.model.AbstractTrackerItemReference.class);
+                        classByDiscriminatorValue.put("DownstreamTrackerItemReference", DownstreamTrackerItemReference.class);
+                        classByDiscriminatorValue.put("IncomingTrackerItemAssociation", IncomingTrackerItemAssociation.class);
+                        classByDiscriminatorValue.put("OutgoingTrackerItemAssociation", OutgoingTrackerItemAssociation.class);
+                        classByDiscriminatorValue.put("UpstreamTrackerItemReference", UpstreamTrackerItemReference.class);
+                        classByDiscriminatorValue.put("AbstractTrackerItemReference", AbstractTrackerItemReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.ArtifactReference.class, new TypeSelector<com.intland.swagger.client.model.ArtifactReference>() {
+                .registerTypeSelector(ArtifactReference.class, new TypeSelector<ArtifactReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.ArtifactReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends ArtifactReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ArtifactReference", com.intland.swagger.client.model.ArtifactReference.class);
+                        classByDiscriminatorValue.put("ArtifactReference", ArtifactReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.ArtifactReferenceField.class, new TypeSelector<com.intland.swagger.client.model.ArtifactReferenceField>() {
+                .registerTypeSelector(ArtifactReferenceField.class, new TypeSelector<ArtifactReferenceField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.ArtifactReferenceField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends ArtifactReferenceField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ArtifactReferenceField", com.intland.swagger.client.model.ArtifactReferenceField.class);
+                        classByDiscriminatorValue.put("ArtifactReferenceField", ArtifactReferenceField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.AssociationTypeReference.class, new TypeSelector<com.intland.swagger.client.model.AssociationTypeReference>() {
+                .registerTypeSelector(AssociationTypeReference.class, new TypeSelector<AssociationTypeReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.AssociationTypeReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends AssociationTypeReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("AssociationTypeReference", com.intland.swagger.client.model.AssociationTypeReference.class);
+                        classByDiscriminatorValue.put("AssociationTypeReference", AssociationTypeReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.AttachmentReference.class, new TypeSelector<com.intland.swagger.client.model.AttachmentReference>() {
+                .registerTypeSelector(AttachmentReference.class, new TypeSelector<AttachmentReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.AttachmentReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends AttachmentReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("AttachmentReference", com.intland.swagger.client.model.AttachmentReference.class);
+                        classByDiscriminatorValue.put("AttachmentReference", AttachmentReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.BoolField.class, new TypeSelector<com.intland.swagger.client.model.BoolField>() {
+                .registerTypeSelector(BoolField.class, new TypeSelector<BoolField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.BoolField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends BoolField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("BoolField", com.intland.swagger.client.model.BoolField.class);
+                        classByDiscriminatorValue.put("BoolField", BoolField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.BoolFieldValue.class, new TypeSelector<com.intland.swagger.client.model.BoolFieldValue>() {
+                .registerTypeSelector(BoolFieldValue.class, new TypeSelector<BoolFieldValue>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.BoolFieldValue> getClassForElement(JsonElement readElement) {
+                    public Class<? extends BoolFieldValue> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("BoolFieldValue", com.intland.swagger.client.model.BoolFieldValue.class);
+                        classByDiscriminatorValue.put("BoolFieldValue", BoolFieldValue.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.ChoiceFieldValue.class, new TypeSelector<com.intland.swagger.client.model.ChoiceFieldValue>() {
+                .registerTypeSelector(ChoiceFieldValue.class, new TypeSelector<ChoiceFieldValue>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.ChoiceFieldValue> getClassForElement(JsonElement readElement) {
+                    public Class<? extends ChoiceFieldValue> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ChoiceFieldValue", com.intland.swagger.client.model.ChoiceFieldValue.class);
+                        classByDiscriminatorValue.put("ChoiceFieldValue", ChoiceFieldValue.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.ChoiceOptionReference.class, new TypeSelector<com.intland.swagger.client.model.ChoiceOptionReference>() {
+                .registerTypeSelector(ChoiceOptionReference.class, new TypeSelector<ChoiceOptionReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.ChoiceOptionReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends ChoiceOptionReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ChoiceOptionReference", com.intland.swagger.client.model.ChoiceOptionReference.class);
+                        classByDiscriminatorValue.put("ChoiceOptionReference", ChoiceOptionReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.ColorField.class, new TypeSelector<com.intland.swagger.client.model.ColorField>() {
+                .registerTypeSelector(ColorField.class, new TypeSelector<ColorField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.ColorField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends ColorField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ColorField", com.intland.swagger.client.model.ColorField.class);
+                        classByDiscriminatorValue.put("ColorField", ColorField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.ColorFieldValue.class, new TypeSelector<com.intland.swagger.client.model.ColorFieldValue>() {
+                .registerTypeSelector(ColorFieldValue.class, new TypeSelector<ColorFieldValue>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.ColorFieldValue> getClassForElement(JsonElement readElement) {
+                    public Class<? extends ColorFieldValue> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ColorFieldValue", com.intland.swagger.client.model.ColorFieldValue.class);
+                        classByDiscriminatorValue.put("ColorFieldValue", ColorFieldValue.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.CommentReference.class, new TypeSelector<com.intland.swagger.client.model.CommentReference>() {
+                .registerTypeSelector(CommentReference.class, new TypeSelector<CommentReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.CommentReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends CommentReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("CommentReference", com.intland.swagger.client.model.CommentReference.class);
+                        classByDiscriminatorValue.put("CommentReference", CommentReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.CountryField.class, new TypeSelector<com.intland.swagger.client.model.CountryField>() {
+                .registerTypeSelector(CountryField.class, new TypeSelector<CountryField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.CountryField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends CountryField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("CountryField", com.intland.swagger.client.model.CountryField.class);
+                        classByDiscriminatorValue.put("CountryField", CountryField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.CountryFieldValue.class, new TypeSelector<com.intland.swagger.client.model.CountryFieldValue>() {
+                .registerTypeSelector(CountryFieldValue.class, new TypeSelector<CountryFieldValue>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.CountryFieldValue> getClassForElement(JsonElement readElement) {
+                    public Class<? extends CountryFieldValue> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("CountryFieldValue", com.intland.swagger.client.model.CountryFieldValue.class);
+                        classByDiscriminatorValue.put("CountryFieldValue", CountryFieldValue.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.DateField.class, new TypeSelector<com.intland.swagger.client.model.DateField>() {
+                .registerTypeSelector(DateField.class, new TypeSelector<DateField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.DateField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends DateField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("DateField", com.intland.swagger.client.model.DateField.class);
+                        classByDiscriminatorValue.put("DateField", DateField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.DateFieldValue.class, new TypeSelector<com.intland.swagger.client.model.DateFieldValue>() {
+                .registerTypeSelector(DateFieldValue.class, new TypeSelector<DateFieldValue>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.DateFieldValue> getClassForElement(JsonElement readElement) {
+                    public Class<? extends DateFieldValue> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("DateFieldValue", com.intland.swagger.client.model.DateFieldValue.class);
+                        classByDiscriminatorValue.put("DateFieldValue", DateFieldValue.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.DecimalField.class, new TypeSelector<com.intland.swagger.client.model.DecimalField>() {
+                .registerTypeSelector(DecimalField.class, new TypeSelector<DecimalField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.DecimalField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends DecimalField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("DecimalField", com.intland.swagger.client.model.DecimalField.class);
+                        classByDiscriminatorValue.put("DecimalField", DecimalField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.DecimalFieldValue.class, new TypeSelector<com.intland.swagger.client.model.DecimalFieldValue>() {
+                .registerTypeSelector(DecimalFieldValue.class, new TypeSelector<DecimalFieldValue>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.DecimalFieldValue> getClassForElement(JsonElement readElement) {
+                    public Class<? extends DecimalFieldValue> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("DecimalFieldValue", com.intland.swagger.client.model.DecimalFieldValue.class);
+                        classByDiscriminatorValue.put("DecimalFieldValue", DecimalFieldValue.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.DefaultBackgroundJobStatusInfo.class, new TypeSelector<com.intland.swagger.client.model.DefaultBackgroundJobStatusInfo>() {
+                .registerTypeSelector(DefaultBackgroundJobStatusInfo.class, new TypeSelector<DefaultBackgroundJobStatusInfo>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.DefaultBackgroundJobStatusInfo> getClassForElement(JsonElement readElement) {
+                    public Class<? extends DefaultBackgroundJobStatusInfo> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("DefaultBackgroundJobStatusInfo", com.intland.swagger.client.model.DefaultBackgroundJobStatusInfo.class);
+                        classByDiscriminatorValue.put("DefaultBackgroundJobStatusInfo", DefaultBackgroundJobStatusInfo.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.DependencyEntityReference.class, new TypeSelector<com.intland.swagger.client.model.DependencyEntityReference>() {
+                .registerTypeSelector(DependencyEntityReference.class, new TypeSelector<DependencyEntityReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.DependencyEntityReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends DependencyEntityReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("DependencyEntityReference", com.intland.swagger.client.model.DependencyEntityReference.class);
+                        classByDiscriminatorValue.put("DependencyEntityReference", DependencyEntityReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.DependencyFinderJobStatusInfo.class, new TypeSelector<com.intland.swagger.client.model.DependencyFinderJobStatusInfo>() {
+                .registerTypeSelector(DependencyFinderJobStatusInfo.class, new TypeSelector<DependencyFinderJobStatusInfo>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.DependencyFinderJobStatusInfo> getClassForElement(JsonElement readElement) {
+                    public Class<? extends DependencyFinderJobStatusInfo> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("DependencyFinderJobStatusInfo", com.intland.swagger.client.model.DependencyFinderJobStatusInfo.class);
+                        classByDiscriminatorValue.put("DependencyFinderJobStatusInfo", DependencyFinderJobStatusInfo.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.DownstreamTrackerItemReference.class, new TypeSelector<com.intland.swagger.client.model.DownstreamTrackerItemReference>() {
+                .registerTypeSelector(DownstreamTrackerItemReference.class, new TypeSelector<DownstreamTrackerItemReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.DownstreamTrackerItemReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends DownstreamTrackerItemReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("DownstreamTrackerItemReference", com.intland.swagger.client.model.DownstreamTrackerItemReference.class);
+                        classByDiscriminatorValue.put("DownstreamTrackerItemReference", DownstreamTrackerItemReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.DurationField.class, new TypeSelector<com.intland.swagger.client.model.DurationField>() {
+                .registerTypeSelector(DurationField.class, new TypeSelector<DurationField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.DurationField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends DurationField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("DurationField", com.intland.swagger.client.model.DurationField.class);
+                        classByDiscriminatorValue.put("DurationField", DurationField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.DurationFieldValue.class, new TypeSelector<com.intland.swagger.client.model.DurationFieldValue>() {
+                .registerTypeSelector(DurationFieldValue.class, new TypeSelector<DurationFieldValue>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.DurationFieldValue> getClassForElement(JsonElement readElement) {
+                    public Class<? extends DurationFieldValue> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("DurationFieldValue", com.intland.swagger.client.model.DurationFieldValue.class);
+                        classByDiscriminatorValue.put("DurationFieldValue", DurationFieldValue.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.FieldReference.class, new TypeSelector<com.intland.swagger.client.model.FieldReference>() {
+                .registerTypeSelector(FieldReference.class, new TypeSelector<FieldReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.FieldReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends FieldReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("FieldReference", com.intland.swagger.client.model.FieldReference.class);
+                        classByDiscriminatorValue.put("FieldReference", FieldReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.IncomingTrackerItemAssociation.class, new TypeSelector<com.intland.swagger.client.model.IncomingTrackerItemAssociation>() {
+                .registerTypeSelector(IncomingTrackerItemAssociation.class, new TypeSelector<IncomingTrackerItemAssociation>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.IncomingTrackerItemAssociation> getClassForElement(JsonElement readElement) {
+                    public Class<? extends IncomingTrackerItemAssociation> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("IncomingTrackerItemAssociation", com.intland.swagger.client.model.IncomingTrackerItemAssociation.class);
+                        classByDiscriminatorValue.put("IncomingTrackerItemAssociation", IncomingTrackerItemAssociation.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.IntegerField.class, new TypeSelector<com.intland.swagger.client.model.IntegerField>() {
+                .registerTypeSelector(IntegerField.class, new TypeSelector<IntegerField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.IntegerField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends IntegerField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("IntegerField", com.intland.swagger.client.model.IntegerField.class);
+                        classByDiscriminatorValue.put("IntegerField", IntegerField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.IntegerFieldValue.class, new TypeSelector<com.intland.swagger.client.model.IntegerFieldValue>() {
+                .registerTypeSelector(IntegerFieldValue.class, new TypeSelector<IntegerFieldValue>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.IntegerFieldValue> getClassForElement(JsonElement readElement) {
+                    public Class<? extends IntegerFieldValue> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("IntegerFieldValue", com.intland.swagger.client.model.IntegerFieldValue.class);
+                        classByDiscriminatorValue.put("IntegerFieldValue", IntegerFieldValue.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.LanguageField.class, new TypeSelector<com.intland.swagger.client.model.LanguageField>() {
+                .registerTypeSelector(LanguageField.class, new TypeSelector<LanguageField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.LanguageField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends LanguageField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("LanguageField", com.intland.swagger.client.model.LanguageField.class);
+                        classByDiscriminatorValue.put("LanguageField", LanguageField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.LanguageFieldValue.class, new TypeSelector<com.intland.swagger.client.model.LanguageFieldValue>() {
+                .registerTypeSelector(LanguageFieldValue.class, new TypeSelector<LanguageFieldValue>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.LanguageFieldValue> getClassForElement(JsonElement readElement) {
+                    public Class<? extends LanguageFieldValue> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("LanguageFieldValue", com.intland.swagger.client.model.LanguageFieldValue.class);
+                        classByDiscriminatorValue.put("LanguageFieldValue", LanguageFieldValue.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.MemberField.class, new TypeSelector<com.intland.swagger.client.model.MemberField>() {
+                .registerTypeSelector(MemberField.class, new TypeSelector<MemberField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.MemberField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends MemberField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("MemberField", com.intland.swagger.client.model.MemberField.class);
+                        classByDiscriminatorValue.put("MemberField", MemberField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.NotSupportedFieldValue.class, new TypeSelector<com.intland.swagger.client.model.NotSupportedFieldValue>() {
+                .registerTypeSelector(NotSupportedFieldValue.class, new TypeSelector<NotSupportedFieldValue>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.NotSupportedFieldValue> getClassForElement(JsonElement readElement) {
+                    public Class<? extends NotSupportedFieldValue> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("NotSupportedFieldValue", com.intland.swagger.client.model.NotSupportedFieldValue.class);
+                        classByDiscriminatorValue.put("NotSupportedFieldValue", NotSupportedFieldValue.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.OptionChoiceField.class, new TypeSelector<com.intland.swagger.client.model.OptionChoiceField>() {
+                .registerTypeSelector(OptionChoiceField.class, new TypeSelector<OptionChoiceField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.OptionChoiceField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends OptionChoiceField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("OptionChoiceField", com.intland.swagger.client.model.OptionChoiceField.class);
+                        classByDiscriminatorValue.put("OptionChoiceField", OptionChoiceField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.OutgoingTrackerItemAssociation.class, new TypeSelector<com.intland.swagger.client.model.OutgoingTrackerItemAssociation>() {
+                .registerTypeSelector(OutgoingTrackerItemAssociation.class, new TypeSelector<OutgoingTrackerItemAssociation>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.OutgoingTrackerItemAssociation> getClassForElement(JsonElement readElement) {
+                    public Class<? extends OutgoingTrackerItemAssociation> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("OutgoingTrackerItemAssociation", com.intland.swagger.client.model.OutgoingTrackerItemAssociation.class);
+                        classByDiscriminatorValue.put("OutgoingTrackerItemAssociation", OutgoingTrackerItemAssociation.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.OutlineItem.class, new TypeSelector<com.intland.swagger.client.model.OutlineItem>() {
+                .registerTypeSelector(OutlineItem.class, new TypeSelector<OutlineItem>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.OutlineItem> getClassForElement(JsonElement readElement) {
+                    public Class<? extends OutlineItem> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("OutlineItem", com.intland.swagger.client.model.OutlineItem.class);
+                        classByDiscriminatorValue.put("OutlineItem", OutlineItem.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.OutlineWiki.class, new TypeSelector<com.intland.swagger.client.model.OutlineWiki>() {
+                .registerTypeSelector(OutlineWiki.class, new TypeSelector<OutlineWiki>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.OutlineWiki> getClassForElement(JsonElement readElement) {
+                    public Class<? extends OutlineWiki> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("OutlineWiki", com.intland.swagger.client.model.OutlineWiki.class);
+                        classByDiscriminatorValue.put("OutlineWiki", OutlineWiki.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.ProjectBaselineReference.class, new TypeSelector<com.intland.swagger.client.model.ProjectBaselineReference>() {
+                .registerTypeSelector(ProjectBaselineReference.class, new TypeSelector<ProjectBaselineReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.ProjectBaselineReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends ProjectBaselineReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ProjectBaselineReference", com.intland.swagger.client.model.ProjectBaselineReference.class);
+                        classByDiscriminatorValue.put("ProjectBaselineReference", ProjectBaselineReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.ProjectChoiceField.class, new TypeSelector<com.intland.swagger.client.model.ProjectChoiceField>() {
+                .registerTypeSelector(ProjectChoiceField.class, new TypeSelector<ProjectChoiceField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.ProjectChoiceField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends ProjectChoiceField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ProjectChoiceField", com.intland.swagger.client.model.ProjectChoiceField.class);
+                        classByDiscriminatorValue.put("ProjectChoiceField", ProjectChoiceField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.ProjectReference.class, new TypeSelector<com.intland.swagger.client.model.ProjectReference>() {
+                .registerTypeSelector(ProjectReference.class, new TypeSelector<ProjectReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.ProjectReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends ProjectReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ProjectReference", com.intland.swagger.client.model.ProjectReference.class);
+                        classByDiscriminatorValue.put("ProjectReference", ProjectReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.ReferenceField.class, new TypeSelector<com.intland.swagger.client.model.ReferenceField>() {
+                .registerTypeSelector(ReferenceField.class, new TypeSelector<ReferenceField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.ReferenceField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends ReferenceField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ReferenceField", com.intland.swagger.client.model.ReferenceField.class);
+                        classByDiscriminatorValue.put("ReferenceField", ReferenceField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.ReferredTestStepFieldValue.class, new TypeSelector<com.intland.swagger.client.model.ReferredTestStepFieldValue>() {
+                .registerTypeSelector(ReferredTestStepFieldValue.class, new TypeSelector<ReferredTestStepFieldValue>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.ReferredTestStepFieldValue> getClassForElement(JsonElement readElement) {
+                    public Class<? extends ReferredTestStepFieldValue> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ReferredTestStepFieldValue", com.intland.swagger.client.model.ReferredTestStepFieldValue.class);
+                        classByDiscriminatorValue.put("ReferredTestStepFieldValue", ReferredTestStepFieldValue.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.ReportGroup.class, new TypeSelector<com.intland.swagger.client.model.ReportGroup>() {
+                .registerTypeSelector(ReportGroup.class, new TypeSelector<ReportGroup>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.ReportGroup> getClassForElement(JsonElement readElement) {
+                    public Class<? extends ReportGroup> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ReportGroupWithGroups", com.intland.swagger.client.model.ReportGroupWithGroups.class);
-                        classByDiscriminatorValue.put("ReportGroupWithReferencedRows", com.intland.swagger.client.model.ReportGroupWithReferencedRows.class);
-                        classByDiscriminatorValue.put("ReportGroupWithRows", com.intland.swagger.client.model.ReportGroupWithRows.class);
-                        classByDiscriminatorValue.put("ReportGroup", com.intland.swagger.client.model.ReportGroup.class);
+                        classByDiscriminatorValue.put("ReportGroupWithGroups", ReportGroupWithGroups.class);
+                        classByDiscriminatorValue.put("ReportGroupWithReferencedRows", ReportGroupWithReferencedRows.class);
+                        classByDiscriminatorValue.put("ReportGroupWithRows", ReportGroupWithRows.class);
+                        classByDiscriminatorValue.put("ReportGroup", ReportGroup.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.ReportGroupWithGroups.class, new TypeSelector<com.intland.swagger.client.model.ReportGroupWithGroups>() {
+                .registerTypeSelector(ReportGroupWithGroups.class, new TypeSelector<ReportGroupWithGroups>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.ReportGroupWithGroups> getClassForElement(JsonElement readElement) {
+                    public Class<? extends ReportGroupWithGroups> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ReportGroupWithGroups", com.intland.swagger.client.model.ReportGroupWithGroups.class);
+                        classByDiscriminatorValue.put("ReportGroupWithGroups", ReportGroupWithGroups.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.ReportGroupWithReferencedRows.class, new TypeSelector<com.intland.swagger.client.model.ReportGroupWithReferencedRows>() {
+                .registerTypeSelector(ReportGroupWithReferencedRows.class, new TypeSelector<ReportGroupWithReferencedRows>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.ReportGroupWithReferencedRows> getClassForElement(JsonElement readElement) {
+                    public Class<? extends ReportGroupWithReferencedRows> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ReportGroupWithReferencedRows", com.intland.swagger.client.model.ReportGroupWithReferencedRows.class);
+                        classByDiscriminatorValue.put("ReportGroupWithReferencedRows", ReportGroupWithReferencedRows.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.ReportGroupWithRows.class, new TypeSelector<com.intland.swagger.client.model.ReportGroupWithRows>() {
+                .registerTypeSelector(ReportGroupWithRows.class, new TypeSelector<ReportGroupWithRows>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.ReportGroupWithRows> getClassForElement(JsonElement readElement) {
+                    public Class<? extends ReportGroupWithRows> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ReportGroupWithRows", com.intland.swagger.client.model.ReportGroupWithRows.class);
+                        classByDiscriminatorValue.put("ReportGroupWithRows", ReportGroupWithRows.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.ReportReference.class, new TypeSelector<com.intland.swagger.client.model.ReportReference>() {
+                .registerTypeSelector(ReportReference.class, new TypeSelector<ReportReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.ReportReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends ReportReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ReportReference", com.intland.swagger.client.model.ReportReference.class);
+                        classByDiscriminatorValue.put("ReportReference", ReportReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.RepositoryChoiceField.class, new TypeSelector<com.intland.swagger.client.model.RepositoryChoiceField>() {
+                .registerTypeSelector(RepositoryChoiceField.class, new TypeSelector<RepositoryChoiceField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.RepositoryChoiceField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends RepositoryChoiceField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("RepositoryChoiceField", com.intland.swagger.client.model.RepositoryChoiceField.class);
+                        classByDiscriminatorValue.put("RepositoryChoiceField", RepositoryChoiceField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.RepositoryReference.class, new TypeSelector<com.intland.swagger.client.model.RepositoryReference>() {
+                .registerTypeSelector(RepositoryReference.class, new TypeSelector<RepositoryReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.RepositoryReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends RepositoryReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("RepositoryReference", com.intland.swagger.client.model.RepositoryReference.class);
+                        classByDiscriminatorValue.put("RepositoryReference", RepositoryReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.ReviewMemberReferenceField.class, new TypeSelector<com.intland.swagger.client.model.ReviewMemberReferenceField>() {
+                .registerTypeSelector(ReviewMemberReferenceField.class, new TypeSelector<ReviewMemberReferenceField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.ReviewMemberReferenceField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends ReviewMemberReferenceField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("ReviewMemberReferenceField", com.intland.swagger.client.model.ReviewMemberReferenceField.class);
+                        classByDiscriminatorValue.put("ReviewMemberReferenceField", ReviewMemberReferenceField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.RoleReference.class, new TypeSelector<com.intland.swagger.client.model.RoleReference>() {
+                .registerTypeSelector(RoleReference.class, new TypeSelector<RoleReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.RoleReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends RoleReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("RoleReference", com.intland.swagger.client.model.RoleReference.class);
+                        classByDiscriminatorValue.put("RoleReference", RoleReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.SharedFieldReference.class, new TypeSelector<com.intland.swagger.client.model.SharedFieldReference>() {
+                .registerTypeSelector(SharedFieldReference.class, new TypeSelector<SharedFieldReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.SharedFieldReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends SharedFieldReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("SharedFieldReference", com.intland.swagger.client.model.SharedFieldReference.class);
+                        classByDiscriminatorValue.put("SharedFieldReference", SharedFieldReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.TableField.class, new TypeSelector<com.intland.swagger.client.model.TableField>() {
+                .registerTypeSelector(TableField.class, new TypeSelector<TableField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.TableField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends TableField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("TableField", com.intland.swagger.client.model.TableField.class);
+                        classByDiscriminatorValue.put("TableField", TableField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.TableFieldValue.class, new TypeSelector<com.intland.swagger.client.model.TableFieldValue>() {
+                .registerTypeSelector(TableFieldValue.class, new TypeSelector<TableFieldValue>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.TableFieldValue> getClassForElement(JsonElement readElement) {
+                    public Class<? extends TableFieldValue> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("TableFieldValue", com.intland.swagger.client.model.TableFieldValue.class);
+                        classByDiscriminatorValue.put("TableFieldValue", TableFieldValue.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.TextField.class, new TypeSelector<com.intland.swagger.client.model.TextField>() {
+                .registerTypeSelector(TextField.class, new TypeSelector<TextField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.TextField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends TextField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("TextField", com.intland.swagger.client.model.TextField.class);
+                        classByDiscriminatorValue.put("TextField", TextField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.TextFieldValue.class, new TypeSelector<com.intland.swagger.client.model.TextFieldValue>() {
+                .registerTypeSelector(TextFieldValue.class, new TypeSelector<TextFieldValue>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.TextFieldValue> getClassForElement(JsonElement readElement) {
+                    public Class<? extends TextFieldValue> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("TextFieldValue", com.intland.swagger.client.model.TextFieldValue.class);
+                        classByDiscriminatorValue.put("TextFieldValue", TextFieldValue.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.TrackerBaselineReference.class, new TypeSelector<com.intland.swagger.client.model.TrackerBaselineReference>() {
+                .registerTypeSelector(TrackerBaselineReference.class, new TypeSelector<TrackerBaselineReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.TrackerBaselineReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends TrackerBaselineReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("TrackerBaselineReference", com.intland.swagger.client.model.TrackerBaselineReference.class);
+                        classByDiscriminatorValue.put("TrackerBaselineReference", TrackerBaselineReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.TrackerChoiceField.class, new TypeSelector<com.intland.swagger.client.model.TrackerChoiceField>() {
+                .registerTypeSelector(TrackerChoiceField.class, new TypeSelector<TrackerChoiceField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.TrackerChoiceField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends TrackerChoiceField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("TrackerChoiceField", com.intland.swagger.client.model.TrackerChoiceField.class);
+                        classByDiscriminatorValue.put("TrackerChoiceField", TrackerChoiceField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.TrackerItemAttachmentRequest.class, new TypeSelector<com.intland.swagger.client.model.TrackerItemAttachmentRequest>() {
+                .registerTypeSelector(TrackerItemAttachmentRequest.class, new TypeSelector<TrackerItemAttachmentRequest>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.TrackerItemAttachmentRequest> getClassForElement(JsonElement readElement) {
+                    public Class<? extends TrackerItemAttachmentRequest> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("TrackerItemAttachmentRequest", com.intland.swagger.client.model.TrackerItemAttachmentRequest.class);
+                        classByDiscriminatorValue.put("TrackerItemAttachmentRequest", TrackerItemAttachmentRequest.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.TrackerItemChange.class, new TypeSelector<com.intland.swagger.client.model.TrackerItemChange>() {
+                .registerTypeSelector(TrackerItemChange.class, new TypeSelector<TrackerItemChange>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.TrackerItemChange> getClassForElement(JsonElement readElement) {
+                    public Class<? extends TrackerItemChange> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("TrackerItemRowChange", com.intland.swagger.client.model.TrackerItemRowChange.class);
-                        classByDiscriminatorValue.put("TrackerItemChange", com.intland.swagger.client.model.TrackerItemChange.class);
+                        classByDiscriminatorValue.put("TrackerItemRowChange", TrackerItemRowChange.class);
+                        classByDiscriminatorValue.put("TrackerItemChange", TrackerItemChange.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.TrackerItemChoiceField.class, new TypeSelector<com.intland.swagger.client.model.TrackerItemChoiceField>() {
+                .registerTypeSelector(TrackerItemChoiceField.class, new TypeSelector<TrackerItemChoiceField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.TrackerItemChoiceField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends TrackerItemChoiceField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("TrackerItemChoiceField", com.intland.swagger.client.model.TrackerItemChoiceField.class);
+                        classByDiscriminatorValue.put("TrackerItemChoiceField", TrackerItemChoiceField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.TrackerItemReference.class, new TypeSelector<com.intland.swagger.client.model.TrackerItemReference>() {
+                .registerTypeSelector(TrackerItemReference.class, new TypeSelector<TrackerItemReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.TrackerItemReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends TrackerItemReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("TrackerItemReference", com.intland.swagger.client.model.TrackerItemReference.class);
+                        classByDiscriminatorValue.put("TrackerItemReference", TrackerItemReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.TrackerItemRowChange.class, new TypeSelector<com.intland.swagger.client.model.TrackerItemRowChange>() {
+                .registerTypeSelector(TrackerItemRowChange.class, new TypeSelector<TrackerItemRowChange>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.TrackerItemRowChange> getClassForElement(JsonElement readElement) {
+                    public Class<? extends TrackerItemRowChange> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("TrackerItemRowChange", com.intland.swagger.client.model.TrackerItemRowChange.class);
+                        classByDiscriminatorValue.put("TrackerItemRowChange", TrackerItemRowChange.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.TrackerItemsRequest.class, new TypeSelector<com.intland.swagger.client.model.TrackerItemsRequest>() {
+                .registerTypeSelector(TrackerItemsRequest.class, new TypeSelector<TrackerItemsRequest>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.TrackerItemsRequest> getClassForElement(JsonElement readElement) {
+                    public Class<? extends TrackerItemsRequest> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("TrackerItemAttachmentRequest", com.intland.swagger.client.model.TrackerItemAttachmentRequest.class);
-                        classByDiscriminatorValue.put("TrackerItemsRequest", com.intland.swagger.client.model.TrackerItemsRequest.class);
+                        classByDiscriminatorValue.put("TrackerItemAttachmentRequest", TrackerItemAttachmentRequest.class);
+                        classByDiscriminatorValue.put("TrackerItemsRequest", TrackerItemsRequest.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.TrackerPermissionReference.class, new TypeSelector<com.intland.swagger.client.model.TrackerPermissionReference>() {
+                .registerTypeSelector(TrackerPermissionReference.class, new TypeSelector<TrackerPermissionReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.TrackerPermissionReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends TrackerPermissionReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("TrackerPermissionReference", com.intland.swagger.client.model.TrackerPermissionReference.class);
+                        classByDiscriminatorValue.put("TrackerPermissionReference", TrackerPermissionReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.TrackerReference.class, new TypeSelector<com.intland.swagger.client.model.TrackerReference>() {
+                .registerTypeSelector(TrackerReference.class, new TypeSelector<TrackerReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.TrackerReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends TrackerReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("TrackerReference", com.intland.swagger.client.model.TrackerReference.class);
+                        classByDiscriminatorValue.put("TrackerReference", TrackerReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.TrackerTypeReference.class, new TypeSelector<com.intland.swagger.client.model.TrackerTypeReference>() {
+                .registerTypeSelector(TrackerTypeReference.class, new TypeSelector<TrackerTypeReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.TrackerTypeReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends TrackerTypeReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("TrackerTypeReference", com.intland.swagger.client.model.TrackerTypeReference.class);
+                        classByDiscriminatorValue.put("TrackerTypeReference", TrackerTypeReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.UpstreamTrackerItemReference.class, new TypeSelector<com.intland.swagger.client.model.UpstreamTrackerItemReference>() {
+                .registerTypeSelector(UpstreamTrackerItemReference.class, new TypeSelector<UpstreamTrackerItemReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.UpstreamTrackerItemReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends UpstreamTrackerItemReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("UpstreamTrackerItemReference", com.intland.swagger.client.model.UpstreamTrackerItemReference.class);
+                        classByDiscriminatorValue.put("UpstreamTrackerItemReference", UpstreamTrackerItemReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.UrlField.class, new TypeSelector<com.intland.swagger.client.model.UrlField>() {
+                .registerTypeSelector(UrlField.class, new TypeSelector<UrlField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.UrlField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends UrlField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("UrlField", com.intland.swagger.client.model.UrlField.class);
+                        classByDiscriminatorValue.put("UrlField", UrlField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.UrlFieldValue.class, new TypeSelector<com.intland.swagger.client.model.UrlFieldValue>() {
+                .registerTypeSelector(UrlFieldValue.class, new TypeSelector<UrlFieldValue>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.UrlFieldValue> getClassForElement(JsonElement readElement) {
+                    public Class<? extends UrlFieldValue> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("UrlFieldValue", com.intland.swagger.client.model.UrlFieldValue.class);
+                        classByDiscriminatorValue.put("UrlFieldValue", UrlFieldValue.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.UserChoiceField.class, new TypeSelector<com.intland.swagger.client.model.UserChoiceField>() {
+                .registerTypeSelector(UserChoiceField.class, new TypeSelector<UserChoiceField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.UserChoiceField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends UserChoiceField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("UserChoiceField", com.intland.swagger.client.model.UserChoiceField.class);
+                        classByDiscriminatorValue.put("UserChoiceField", UserChoiceField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.UserGroupReference.class, new TypeSelector<com.intland.swagger.client.model.UserGroupReference>() {
+                .registerTypeSelector(UserGroupReference.class, new TypeSelector<UserGroupReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.UserGroupReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends UserGroupReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("UserGroupReference", com.intland.swagger.client.model.UserGroupReference.class);
+                        classByDiscriminatorValue.put("UserGroupReference", UserGroupReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.UserReference.class, new TypeSelector<com.intland.swagger.client.model.UserReference>() {
+                .registerTypeSelector(UserReference.class, new TypeSelector<UserReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.UserReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends UserReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("UserReference", com.intland.swagger.client.model.UserReference.class);
+                        classByDiscriminatorValue.put("UserReference", UserReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.WikiPageReference.class, new TypeSelector<com.intland.swagger.client.model.WikiPageReference>() {
+                .registerTypeSelector(WikiPageReference.class, new TypeSelector<WikiPageReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.WikiPageReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends WikiPageReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("WikiPageReference", com.intland.swagger.client.model.WikiPageReference.class);
+                        classByDiscriminatorValue.put("WikiPageReference", WikiPageReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.WikiTextField.class, new TypeSelector<com.intland.swagger.client.model.WikiTextField>() {
+                .registerTypeSelector(WikiTextField.class, new TypeSelector<WikiTextField>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.WikiTextField> getClassForElement(JsonElement readElement) {
+                    public Class<? extends WikiTextField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("WikiTextField", com.intland.swagger.client.model.WikiTextField.class);
+                        classByDiscriminatorValue.put("WikiTextField", WikiTextField.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.WikiTextFieldValue.class, new TypeSelector<com.intland.swagger.client.model.WikiTextFieldValue>() {
+                .registerTypeSelector(WikiTextFieldValue.class, new TypeSelector<WikiTextFieldValue>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.WikiTextFieldValue> getClassForElement(JsonElement readElement) {
+                    public Class<? extends WikiTextFieldValue> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("WikiTextFieldValue", com.intland.swagger.client.model.WikiTextFieldValue.class);
+                        classByDiscriminatorValue.put("WikiTextFieldValue", WikiTextFieldValue.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(com.intland.swagger.client.model.WorkingSetReference.class, new TypeSelector<com.intland.swagger.client.model.WorkingSetReference>() {
+                .registerTypeSelector(WorkingSetReference.class, new TypeSelector<WorkingSetReference>() {
                     @Override
-                    public Class<? extends com.intland.swagger.client.model.WorkingSetReference> getClassForElement(JsonElement readElement) {
+                    public Class<? extends WorkingSetReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("WorkingSetReference", com.intland.swagger.client.model.WorkingSetReference.class);
+                        classByDiscriminatorValue.put("WorkingSetReference", WorkingSetReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
@@ -886,248 +962,14 @@ public class JSON {
         return clazz;
     }
 
-    {
-        GsonBuilder gsonBuilder = createGson();
-        gsonBuilder.registerTypeAdapter(Date.class, dateTypeAdapter);
-        gsonBuilder.registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter);
-        gsonBuilder.registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter);
-        gsonBuilder.registerTypeAdapter(LocalDate.class, localDateTypeAdapter);
-        gsonBuilder.registerTypeAdapter(byte[].class, byteArrayAdapter);
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.AccessPermission.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.AccessPermissionsRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ArtifactReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ArtifactReferenceField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ArtifactRevision.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ArtifactRevisionSearchResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.Association.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.AssociationType.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.AssociationTypeReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.Attachment.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.AttachmentMigrationRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.AttachmentReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.AttachmentSearchResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.AutoApplyTestStepReuses.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.AutomatedTestCaseRunResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.AutomatedTestRunRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.BackgroundJob.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.BackgroundJobReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.BackgroundJobStep.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.BadRequestException.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.Baseline.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.BatchGetTrackerItemReviewsRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.BoolField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.BoolFieldValue.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.BoolFieldValueAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.BulkOperationResponse.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ChoiceFieldValue.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ChoiceFieldValueAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ChoiceOptionReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ColorField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ColorFieldValue.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ColorFieldValueAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.Comment.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.CommentReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.CountryField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.CountryFieldAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.CountryFieldValue.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.CountryFieldValueAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.CreateBaselineRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.CreateTestRunFromTestSetsRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.CreateTestRunRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.CrossProjectDependency.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DateField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DateFieldValue.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DateFieldValueAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DecimalField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DecimalFieldAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DecimalFieldValue.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DecimalFieldValueAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DefaultBackgroundJobStatusInfo.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DependencyEntityReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DependencyEntityReferenceAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DependencyFinderJobStatusInfo.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DependencyFinderJobStatusInfoAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DeployProject.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DeploymentProjectExportSettings.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DeploymentTrackerExportSettings.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DownstreamTrackerItemReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DurationField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DurationFieldAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DurationFieldValue.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.DurationFieldValueAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ExportForDeploymentRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ExportProject.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.FailedOperation.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.FieldReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.FieldReferenceAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.IncomingTrackerItemAssociation.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.IntegerField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.IntegerFieldAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.IntegerFieldValue.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.IntegerFieldValueAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.InternalServerErrorException.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.JobReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.Label.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.LanguageField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.LanguageFieldValue.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.LanguageFieldValueAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.LockInfo.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.LockRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.MaintenanceMode.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.MaintenanceModeProperties.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.MemberField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.MemberFieldAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.MemberReferenceSearchResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.NotSupportedFieldValue.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.OptionChoiceField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.OptionChoiceFieldAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.OutgoingTrackerItemAssociation.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.OutlineIndex.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.OutlineItem.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.OutlineItemAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.OutlineItemSearchResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.OutlineWiki.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.OutlineWikiAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.PermissionIdsRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.Project.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ProjectBaselineReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ProjectChoiceField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ProjectChoiceFieldAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ProjectFilteringRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ProjectMemberPermissions.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ProjectReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ProjectSearchResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReferenceField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReferenceSearchResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReferredTestStepFieldValue.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReferredTestStepFieldValueAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.RemoteMigrationFile.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportAggregate.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportCell.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportColumn.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportColumnSettings.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportGroupWithGroups.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportGroupWithGroupsAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportGroupWithReferencedRows.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportGroupWithReferencedRowsAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportGroupWithRows.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportGroupWithRowsAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportItem.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportItemReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportItemResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportPagingInformation.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportPermission.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportReferenceLevel.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportReferenceLevelSettings.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportReferencedRow.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportReferencedRowAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReportRow.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.RepositoryChoiceField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.RepositoryReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ResizableReportColumnSettings.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ResourceForbiddenException.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ResourceLockedException.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ResourceNotFoundException.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ResourceUnauthorizedException.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.RestException.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.ReviewMemberReferenceField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.Role.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.RoleReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.RoleWithPermissions.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.SharedFieldReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.SimpleReportSettings.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.SystemStatus.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TableField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TableFieldAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TableFieldValue.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TableFieldValueAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TestRunResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TextField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TextFieldAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TextFieldValue.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TextFieldValueAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TooManyRequestsException.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TraceabilityInitialLevelFilter.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TraceabilityItem.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TraceabilityLevelFilter.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TraceabilityResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.Tracker.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerBaselineReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerChoiceField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerFieldPermissions.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerFieldStatusPermissions.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerFieldsStatusPermissions.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerFilteringRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItem.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemAttachmentRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemAttachmentRequestAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemChildReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemChoiceField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemFieldAccessibility.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemFieldAccessibilityList.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemHistory.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemHistoryRevision.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemReferenceAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemReferenceData.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemReferenceSearchResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemRelationsResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemReview.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemReviewConfig.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemReviewExport.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemReviewVote.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemReviewVoteExport.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemRevision.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemRowChange.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemRowChangeAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemSearchRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemSearchResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerItemWithTrackerItemReviewsExport.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerPermission.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerPermissionReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerReportSettings.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerSearchResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerType.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.TrackerTypeReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UpdateTestCaseRunRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UpdateTestRunRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UpdateTrackerItemChildrenRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UpdateTrackerItemField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UpdateTrackerItemFieldWithItemId.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UpdateTrackerItemTableField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UpdateWorkingSet500Response.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UpdateWorkingSet500ResponseCause.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UpdateWorkingSet500ResponseCauseStackTraceInner.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UpdateWorkingSet500ResponseCauseSuppressedInner.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UpstreamTrackerItemReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UrlField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UrlFieldValue.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UrlFieldValueAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.User.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UserChoiceField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UserFilteringRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UserGroup.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UserGroupReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UserReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UserReferenceAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UserReferenceSearchResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.UserSearchResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.WikiOutlineSearchResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.WikiPage.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.WikiPageReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.WikiRenderRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.WikiTextField.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.WikiTextFieldValue.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.WikiTextFieldValueAllOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.WorkflowTransition.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.WorkingSetReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.WorkingSetTrackerUpdateRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.intland.swagger.client.model.WorkingSetUpdateRequest.CustomTypeAdapterFactory());
-        gson = gsonBuilder.create();
+    public JSON() {
+        gson = createGson()
+            .registerTypeAdapter(Date.class, dateTypeAdapter)
+            .registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter)
+            .registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter)
+            .registerTypeAdapter(LocalDate.class, localDateTypeAdapter)
+            .registerTypeAdapter(byte[].class, byteArrayAdapter)
+            .create();
     }
 
     /**
@@ -1135,7 +977,7 @@ public class JSON {
      *
      * @return Gson
      */
-    public static Gson getGson() {
+    public Gson getGson() {
         return gson;
     }
 
@@ -1143,13 +985,16 @@ public class JSON {
      * Set Gson.
      *
      * @param gson Gson
+     * @return JSON
      */
-    public static void setGson(Gson gson) {
-        JSON.gson = gson;
+    public JSON setGson(Gson gson) {
+        this.gson = gson;
+        return this;
     }
 
-    public static void setLenientOnJson(boolean lenientOnJson) {
+    public JSON setLenientOnJson(boolean lenientOnJson) {
         isLenientOnJson = lenientOnJson;
+        return this;
     }
 
     /**
@@ -1158,7 +1003,7 @@ public class JSON {
      * @param obj Object
      * @return String representation of the JSON
      */
-    public static String serialize(Object obj) {
+    public String serialize(Object obj) {
         return gson.toJson(obj);
     }
 
@@ -1171,7 +1016,7 @@ public class JSON {
      * @return The deserialized Java object
      */
     @SuppressWarnings("unchecked")
-    public static <T> T deserialize(String body, Type returnType) {
+    public <T> T deserialize(String body, Type returnType) {
         try {
             if (isLenientOnJson) {
                 JsonReader jsonReader = new JsonReader(new StringReader(body));
@@ -1195,7 +1040,7 @@ public class JSON {
     /**
      * Gson TypeAdapter for Byte Array type
      */
-    public static class ByteArrayAdapter extends TypeAdapter<byte[]> {
+    public class ByteArrayAdapter extends TypeAdapter<byte[]> {
 
         @Override
         public void write(JsonWriter out, byte[] value) throws IOException {
@@ -1267,7 +1112,7 @@ public class JSON {
     /**
      * Gson TypeAdapter for JSR310 LocalDate type
      */
-    public static class LocalDateTypeAdapter extends TypeAdapter<LocalDate> {
+    public class LocalDateTypeAdapter extends TypeAdapter<LocalDate> {
 
         private DateTimeFormatter formatter;
 
@@ -1305,12 +1150,14 @@ public class JSON {
         }
     }
 
-    public static void setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
+    public JSON setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
         offsetDateTimeTypeAdapter.setFormat(dateFormat);
+        return this;
     }
 
-    public static void setLocalDateFormat(DateTimeFormatter dateFormat) {
+    public JSON setLocalDateFormat(DateTimeFormatter dateFormat) {
         localDateTypeAdapter.setFormat(dateFormat);
+        return this;
     }
 
     /**
@@ -1424,11 +1271,14 @@ public class JSON {
         }
     }
 
-    public static void setDateFormat(DateFormat dateFormat) {
+    public JSON setDateFormat(DateFormat dateFormat) {
         dateTypeAdapter.setFormat(dateFormat);
+        return this;
     }
 
-    public static void setSqlDateFormat(DateFormat dateFormat) {
+    public JSON setSqlDateFormat(DateFormat dateFormat) {
         sqlDateTypeAdapter.setFormat(dateFormat);
+        return this;
     }
+
 }

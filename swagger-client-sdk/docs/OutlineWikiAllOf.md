@@ -5,9 +5,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-|------------ | ------------- | ------------- | -------------|
-|**wikiPageReferenceModel** | [**WikiPageReference**](WikiPageReference.md) |  |  [optional] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**wikiPageReferenceModel** | [**WikiPageReference**](WikiPageReference.md) |  |  [optional]
 
 
 

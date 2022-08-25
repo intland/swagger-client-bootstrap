@@ -13,25 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -40,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Paginated search result of outline wiki pages
  */
 @ApiModel(description = "Paginated search result of outline wiki pages")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class WikiOutlineSearchResult {
   public static final String SERIALIZED_NAME_OUTLINE_WIKI_PAGES = "outlineWikiPages";
   @SerializedName(SERIALIZED_NAME_OUTLINE_WIKI_PAGES)
@@ -58,8 +44,6 @@ public class WikiOutlineSearchResult {
   @SerializedName(SERIALIZED_NAME_TOTAL)
   private Integer total;
 
-  public WikiOutlineSearchResult() { 
-  }
 
   public WikiOutlineSearchResult outlineWikiPages(List<OutlineWiki> outlineWikiPages) {
     
@@ -69,7 +53,7 @@ public class WikiOutlineSearchResult {
 
   public WikiOutlineSearchResult addOutlineWikiPagesItem(OutlineWiki outlineWikiPagesItem) {
     if (this.outlineWikiPages == null) {
-      this.outlineWikiPages = new ArrayList<>();
+      this.outlineWikiPages = new ArrayList<OutlineWiki>();
     }
     this.outlineWikiPages.add(outlineWikiPagesItem);
     return this;
@@ -161,7 +145,6 @@ public class WikiOutlineSearchResult {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -205,105 +188,5 @@ public class WikiOutlineSearchResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("outlineWikiPages");
-    openapiFields.add("page");
-    openapiFields.add("pageSize");
-    openapiFields.add("total");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WikiOutlineSearchResult
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (WikiOutlineSearchResult.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WikiOutlineSearchResult is not found in the empty JSON string", WikiOutlineSearchResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!WikiOutlineSearchResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WikiOutlineSearchResult` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      JsonArray jsonArrayoutlineWikiPages = jsonObj.getAsJsonArray("outlineWikiPages");
-      if (jsonArrayoutlineWikiPages != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("outlineWikiPages").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `outlineWikiPages` to be an array in the JSON string but got `%s`", jsonObj.get("outlineWikiPages").toString()));
-        }
-
-        // validate the optional field `outlineWikiPages` (array)
-        for (int i = 0; i < jsonArrayoutlineWikiPages.size(); i++) {
-          OutlineWiki.validateJsonObject(jsonArrayoutlineWikiPages.get(i).getAsJsonObject());
-        };
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WikiOutlineSearchResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WikiOutlineSearchResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WikiOutlineSearchResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WikiOutlineSearchResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WikiOutlineSearchResult>() {
-           @Override
-           public void write(JsonWriter out, WikiOutlineSearchResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public WikiOutlineSearchResult read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of WikiOutlineSearchResult given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of WikiOutlineSearchResult
-  * @throws IOException if the JSON string is invalid with respect to WikiOutlineSearchResult
-  */
-  public static WikiOutlineSearchResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WikiOutlineSearchResult.class);
-  }
-
- /**
-  * Convert an instance of WikiOutlineSearchResult to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

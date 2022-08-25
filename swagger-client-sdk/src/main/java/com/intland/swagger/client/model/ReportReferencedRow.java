@@ -13,25 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -40,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Result row having references.
  */
 @ApiModel(description = "Result row having references.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class ReportReferencedRow {
   public static final String SERIALIZED_NAME_CELLS = "cells";
   @SerializedName(SERIALIZED_NAME_CELLS)
@@ -62,8 +48,6 @@ public class ReportReferencedRow {
   @SerializedName(SERIALIZED_NAME_REFERENCES)
   private ReportReferenceLevel references;
 
-  public ReportReferencedRow() { 
-  }
 
   public ReportReferencedRow cells(List<ReportCell> cells) {
     
@@ -73,7 +57,7 @@ public class ReportReferencedRow {
 
   public ReportReferencedRow addCellsItem(ReportCell cellsItem) {
     if (this.cells == null) {
-      this.cells = new ArrayList<>();
+      this.cells = new ArrayList<ReportCell>();
     }
     this.cells.add(cellsItem);
     return this;
@@ -188,7 +172,6 @@ public class ReportReferencedRow {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -234,114 +217,5 @@ public class ReportReferencedRow {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("cells");
-    openapiFields.add("isRealResult");
-    openapiFields.add("itemRef");
-    openapiFields.add("outlineLevel");
-    openapiFields.add("references");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ReportReferencedRow
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ReportReferencedRow.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ReportReferencedRow is not found in the empty JSON string", ReportReferencedRow.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ReportReferencedRow.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ReportReferencedRow` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      JsonArray jsonArraycells = jsonObj.getAsJsonArray("cells");
-      if (jsonArraycells != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("cells").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `cells` to be an array in the JSON string but got `%s`", jsonObj.get("cells").toString()));
-        }
-
-        // validate the optional field `cells` (array)
-        for (int i = 0; i < jsonArraycells.size(); i++) {
-          ReportCell.validateJsonObject(jsonArraycells.get(i).getAsJsonObject());
-        };
-      }
-      // validate the optional field `itemRef`
-      if (jsonObj.getAsJsonObject("itemRef") != null) {
-        ReportItemReference.validateJsonObject(jsonObj.getAsJsonObject("itemRef"));
-      }
-      // validate the optional field `references`
-      if (jsonObj.getAsJsonObject("references") != null) {
-        ReportReferenceLevel.validateJsonObject(jsonObj.getAsJsonObject("references"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ReportReferencedRow.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ReportReferencedRow' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ReportReferencedRow> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ReportReferencedRow.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ReportReferencedRow>() {
-           @Override
-           public void write(JsonWriter out, ReportReferencedRow value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ReportReferencedRow read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ReportReferencedRow given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ReportReferencedRow
-  * @throws IOException if the JSON string is invalid with respect to ReportReferencedRow
-  */
-  public static ReportReferencedRow fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ReportReferencedRow.class);
-  }
-
- /**
-  * Convert an instance of ReportReferencedRow to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

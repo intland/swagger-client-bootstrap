@@ -13,21 +13,21 @@
 
 package com.intland.swagger.client.model;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 
 /**
- * Model tests for UpdateWorkingSet500ResponseCauseSuppressedInner
+ * Model tests for InlineResponse500Cause
  */
-public class UpdateWorkingSet500ResponseCauseSuppressedInnerTest {
-    private final UpdateWorkingSet500ResponseCauseSuppressedInner model = new UpdateWorkingSet500ResponseCauseSuppressedInner();
+public class InlineResponse500CauseTest {
+    private final InlineResponse500Cause model = new InlineResponse500Cause();
 
     /**
-     * Model tests for UpdateWorkingSet500ResponseCauseSuppressedInner
+     * Model tests for InlineResponse500Cause
      */
     @Test
-    public void testUpdateWorkingSet500ResponseCauseSuppressedInner() {
-        // TODO: test UpdateWorkingSet500ResponseCauseSuppressedInner
+    public void testInlineResponse500Cause() {
+        // TODO: test InlineResponse500Cause
     }
 
     /**
@@ -52,6 +52,14 @@ public class UpdateWorkingSet500ResponseCauseSuppressedInnerTest {
     @Test
     public void stackTraceTest() {
         // TODO: test stackTrace
+    }
+
+    /**
+     * Test the property 'suppressed'
+     */
+    @Test
+    public void suppressedTest() {
+        // TODO: test suppressed
     }
 
 }

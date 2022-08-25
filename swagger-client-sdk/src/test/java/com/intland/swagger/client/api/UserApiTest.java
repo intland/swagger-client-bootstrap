@@ -13,8 +13,8 @@
 
 package com.intland.swagger.client.api;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.User;
@@ -25,51 +25,67 @@ import com.intland.swagger.client.model.UserSearchResult;
 /**
  * API tests for UserApi
  */
-@Disabled
+@Ignore
 public class UserApiTest {
 
     private final UserApi api = new UserApi();
 
+    
     /**
      * Get user
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getUserTest() throws ApiException {
         Integer userId = null;
         User response = api.getUser(userId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get user by email address
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getUserByEmailTest() throws ApiException {
         String email = null;
         User response = api.getUserByEmail(email);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get user by name
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getUserByNameTest() throws ApiException {
         String name = null;
         User response = api.getUserByName(name);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get users
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getUsersTest() throws ApiException {
@@ -78,13 +94,17 @@ public class UserApiTest {
         Integer groupId = null;
         String queryString = null;
         UserReferenceSearchResult response = api.getUsers(page, pageSize, groupId, queryString);
+
         // TODO: test validations
     }
-
+    
     /**
      * Search users
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void searchUsersTest() throws ApiException {
@@ -92,7 +112,8 @@ public class UserApiTest {
         Integer page = null;
         Integer pageSize = null;
         UserSearchResult response = api.searchUsers(userFilteringRequest, page, pageSize);
+
         // TODO: test validations
     }
-
+    
 }

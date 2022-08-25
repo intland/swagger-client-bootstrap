@@ -15,8 +15,8 @@ package com.intland.swagger.client.api;
 
 import java.util.List;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.UserGroup;
@@ -26,27 +26,35 @@ import com.intland.swagger.client.model.UserReferenceSearchResult;
 /**
  * API tests for GroupApi
  */
-@Disabled
+@Ignore
 public class GroupApiTest {
 
     private final GroupApi api = new GroupApi();
 
+    
     /**
      * Get user group
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getGroupTest() throws ApiException {
         Integer groupId = null;
         UserGroup response = api.getGroup(groupId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get all members of a user group
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getGroupMembersTest() throws ApiException {
@@ -54,18 +62,23 @@ public class GroupApiTest {
         Integer page = null;
         Integer pageSize = null;
         UserReferenceSearchResult response = api.getGroupMembers(groupId, page, pageSize);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get user groups
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getGroupsTest() throws ApiException {
         List<UserGroupReference> response = api.getGroups();
+
         // TODO: test validations
     }
-
+    
 }

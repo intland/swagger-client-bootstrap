@@ -13,21 +13,21 @@
 
 package com.intland.swagger.client.model;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 
 /**
- * Model tests for UpdateWorkingSet500Response
+ * Model tests for InlineResponse500
  */
-public class UpdateWorkingSet500ResponseTest {
-    private final UpdateWorkingSet500Response model = new UpdateWorkingSet500Response();
+public class InlineResponse500Test {
+    private final InlineResponse500 model = new InlineResponse500();
 
     /**
-     * Model tests for UpdateWorkingSet500Response
+     * Model tests for InlineResponse500
      */
     @Test
-    public void testUpdateWorkingSet500Response() {
-        // TODO: test UpdateWorkingSet500Response
+    public void testInlineResponse500() {
+        // TODO: test InlineResponse500
     }
 
     /**

@@ -14,26 +14,17 @@
 package com.intland.swagger.client.model;
 
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import org.threeten.bp.OffsetDateTime;
+
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -42,7 +33,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Basic properties of a codebeamer tracker item
  */
 @ApiModel(description = "Basic properties of a codebeamer tracker item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class TrackerItem {
   public static final String SERIALIZED_NAME_ACCRUED_MILLIS = "accruedMillis";
   @SerializedName(SERIALIZED_NAME_ACCRUED_MILLIS)
@@ -249,26 +240,6 @@ public class TrackerItem {
   @SerializedName(SERIALIZED_NAME_VERSIONS)
   private List<AbstractReference> versions = null;
 
-  public TrackerItem() { 
-  }
-
-  
-  public TrackerItem(
-     Long accruedMillis, 
-     OffsetDateTime assignedAt, 
-     List<TrackerItemReference> children, 
-     List<CommentReference> comments, 
-     List<Label> tags, 
-     Integer version
-  ) {
-    this();
-    this.accruedMillis = accruedMillis;
-    this.assignedAt = assignedAt;
-    this.children = children;
-    this.comments = comments;
-    this.tags = tags;
-    this.version = version;
-  }
 
    /**
    * Accrued work time of a tracker item in milliseconds
@@ -292,7 +263,7 @@ public class TrackerItem {
 
   public TrackerItem addAreasItem(AbstractReference areasItem) {
     if (this.areas == null) {
-      this.areas = new ArrayList<>();
+      this.areas = new ArrayList<AbstractReference>();
     }
     this.areas.add(areasItem);
     return this;
@@ -337,7 +308,7 @@ public class TrackerItem {
 
   public TrackerItem addAssignedToItem(AbstractReference assignedToItem) {
     if (this.assignedTo == null) {
-      this.assignedTo = new ArrayList<>();
+      this.assignedTo = new ArrayList<AbstractReference>();
     }
     this.assignedTo.add(assignedToItem);
     return this;
@@ -368,7 +339,7 @@ public class TrackerItem {
 
   public TrackerItem addCategoriesItem(AbstractReference categoriesItem) {
     if (this.categories == null) {
-      this.categories = new ArrayList<>();
+      this.categories = new ArrayList<AbstractReference>();
     }
     this.categories.add(categoriesItem);
     return this;
@@ -496,7 +467,7 @@ public class TrackerItem {
 
   public TrackerItem addCustomFieldsItem(AbstractFieldValue customFieldsItem) {
     if (this.customFields == null) {
-      this.customFields = new ArrayList<>();
+      this.customFields = new ArrayList<AbstractFieldValue>();
     }
     this.customFields.add(customFieldsItem);
     return this;
@@ -758,7 +729,7 @@ public class TrackerItem {
 
   public TrackerItem addOwnersItem(AbstractReference ownersItem) {
     if (this.owners == null) {
-      this.owners = new ArrayList<>();
+      this.owners = new ArrayList<AbstractReference>();
     }
     this.owners.add(ownersItem);
     return this;
@@ -812,7 +783,7 @@ public class TrackerItem {
 
   public TrackerItem addPlatformsItem(AbstractReference platformsItem) {
     if (this.platforms == null) {
-      this.platforms = new ArrayList<>();
+      this.platforms = new ArrayList<AbstractReference>();
     }
     this.platforms.add(platformsItem);
     return this;
@@ -889,7 +860,7 @@ public class TrackerItem {
 
   public TrackerItem addResolutionsItem(AbstractReference resolutionsItem) {
     if (this.resolutions == null) {
-      this.resolutions = new ArrayList<>();
+      this.resolutions = new ArrayList<AbstractReference>();
     }
     this.resolutions.add(resolutionsItem);
     return this;
@@ -920,7 +891,7 @@ public class TrackerItem {
 
   public TrackerItem addSeveritiesItem(AbstractReference severitiesItem) {
     if (this.severities == null) {
-      this.severities = new ArrayList<>();
+      this.severities = new ArrayList<AbstractReference>();
     }
     this.severities.add(severitiesItem);
     return this;
@@ -1043,7 +1014,7 @@ public class TrackerItem {
 
   public TrackerItem addSubjectsItem(AbstractReference subjectsItem) {
     if (this.subjects == null) {
-      this.subjects = new ArrayList<>();
+      this.subjects = new ArrayList<AbstractReference>();
     }
     this.subjects.add(subjectsItem);
     return this;
@@ -1088,7 +1059,7 @@ public class TrackerItem {
 
   public TrackerItem addTeamsItem(AbstractReference teamsItem) {
     if (this.teams == null) {
-      this.teams = new ArrayList<>();
+      this.teams = new ArrayList<AbstractReference>();
     }
     this.teams.add(teamsItem);
     return this;
@@ -1179,7 +1150,7 @@ public class TrackerItem {
 
   public TrackerItem addVersionsItem(AbstractReference versionsItem) {
     if (this.versions == null) {
-      this.versions = new ArrayList<>();
+      this.versions = new ArrayList<AbstractReference>();
     }
     this.versions.add(versionsItem);
     return this;
@@ -1200,7 +1171,6 @@ public class TrackerItem {
   public void setVersions(List<AbstractReference> versions) {
     this.versions = versions;
   }
-
 
 
   @Override
@@ -1316,340 +1286,5 @@ public class TrackerItem {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("accruedMillis");
-    openapiFields.add("areas");
-    openapiFields.add("assignedAt");
-    openapiFields.add("assignedTo");
-    openapiFields.add("categories");
-    openapiFields.add("children");
-    openapiFields.add("closedAt");
-    openapiFields.add("comments");
-    openapiFields.add("createdAt");
-    openapiFields.add("createdBy");
-    openapiFields.add("customFields");
-    openapiFields.add("description");
-    openapiFields.add("descriptionFormat");
-    openapiFields.add("endDate");
-    openapiFields.add("estimatedMillis");
-    openapiFields.add("formality");
-    openapiFields.add("id");
-    openapiFields.add("modifiedAt");
-    openapiFields.add("modifiedBy");
-    openapiFields.add("name");
-    openapiFields.add("ordinal");
-    openapiFields.add("owners");
-    openapiFields.add("parent");
-    openapiFields.add("platforms");
-    openapiFields.add("priority");
-    openapiFields.add("releaseMethod");
-    openapiFields.add("resolutions");
-    openapiFields.add("severities");
-    openapiFields.add("spentMillis");
-    openapiFields.add("startDate");
-    openapiFields.add("status");
-    openapiFields.add("storyPoints");
-    openapiFields.add("subjects");
-    openapiFields.add("tags");
-    openapiFields.add("teams");
-    openapiFields.add("tracker");
-    openapiFields.add("typeName");
-    openapiFields.add("version");
-    openapiFields.add("versions");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TrackerItem
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TrackerItem.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TrackerItem is not found in the empty JSON string", TrackerItem.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TrackerItem.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TrackerItem` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      JsonArray jsonArrayareas = jsonObj.getAsJsonArray("areas");
-      if (jsonArrayareas != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("areas").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `areas` to be an array in the JSON string but got `%s`", jsonObj.get("areas").toString()));
-        }
-
-        // validate the optional field `areas` (array)
-        for (int i = 0; i < jsonArrayareas.size(); i++) {
-          AbstractReference.validateJsonObject(jsonArrayareas.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArrayassignedTo = jsonObj.getAsJsonArray("assignedTo");
-      if (jsonArrayassignedTo != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("assignedTo").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `assignedTo` to be an array in the JSON string but got `%s`", jsonObj.get("assignedTo").toString()));
-        }
-
-        // validate the optional field `assignedTo` (array)
-        for (int i = 0; i < jsonArrayassignedTo.size(); i++) {
-          AbstractReference.validateJsonObject(jsonArrayassignedTo.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArraycategories = jsonObj.getAsJsonArray("categories");
-      if (jsonArraycategories != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("categories").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `categories` to be an array in the JSON string but got `%s`", jsonObj.get("categories").toString()));
-        }
-
-        // validate the optional field `categories` (array)
-        for (int i = 0; i < jsonArraycategories.size(); i++) {
-          AbstractReference.validateJsonObject(jsonArraycategories.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArraychildren = jsonObj.getAsJsonArray("children");
-      if (jsonArraychildren != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("children").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `children` to be an array in the JSON string but got `%s`", jsonObj.get("children").toString()));
-        }
-
-        // validate the optional field `children` (array)
-        for (int i = 0; i < jsonArraychildren.size(); i++) {
-          TrackerItemReference.validateJsonObject(jsonArraychildren.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArraycomments = jsonObj.getAsJsonArray("comments");
-      if (jsonArraycomments != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("comments").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `comments` to be an array in the JSON string but got `%s`", jsonObj.get("comments").toString()));
-        }
-
-        // validate the optional field `comments` (array)
-        for (int i = 0; i < jsonArraycomments.size(); i++) {
-          CommentReference.validateJsonObject(jsonArraycomments.get(i).getAsJsonObject());
-        };
-      }
-      // validate the optional field `createdBy`
-      if (jsonObj.getAsJsonObject("createdBy") != null) {
-        UserReference.validateJsonObject(jsonObj.getAsJsonObject("createdBy"));
-      }
-      JsonArray jsonArraycustomFields = jsonObj.getAsJsonArray("customFields");
-      if (jsonArraycustomFields != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("customFields").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `customFields` to be an array in the JSON string but got `%s`", jsonObj.get("customFields").toString()));
-        }
-
-        // validate the optional field `customFields` (array)
-        for (int i = 0; i < jsonArraycustomFields.size(); i++) {
-          AbstractFieldValue.validateJsonObject(jsonArraycustomFields.get(i).getAsJsonObject());
-        };
-      }
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if (jsonObj.get("descriptionFormat") != null && !jsonObj.get("descriptionFormat").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `descriptionFormat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("descriptionFormat").toString()));
-      }
-      // validate the optional field `formality`
-      if (jsonObj.getAsJsonObject("formality") != null) {
-        AbstractReference.validateJsonObject(jsonObj.getAsJsonObject("formality"));
-      }
-      // validate the optional field `modifiedBy`
-      if (jsonObj.getAsJsonObject("modifiedBy") != null) {
-        UserReference.validateJsonObject(jsonObj.getAsJsonObject("modifiedBy"));
-      }
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      JsonArray jsonArrayowners = jsonObj.getAsJsonArray("owners");
-      if (jsonArrayowners != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("owners").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `owners` to be an array in the JSON string but got `%s`", jsonObj.get("owners").toString()));
-        }
-
-        // validate the optional field `owners` (array)
-        for (int i = 0; i < jsonArrayowners.size(); i++) {
-          AbstractReference.validateJsonObject(jsonArrayowners.get(i).getAsJsonObject());
-        };
-      }
-      // validate the optional field `parent`
-      if (jsonObj.getAsJsonObject("parent") != null) {
-        TrackerItemReference.validateJsonObject(jsonObj.getAsJsonObject("parent"));
-      }
-      JsonArray jsonArrayplatforms = jsonObj.getAsJsonArray("platforms");
-      if (jsonArrayplatforms != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("platforms").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `platforms` to be an array in the JSON string but got `%s`", jsonObj.get("platforms").toString()));
-        }
-
-        // validate the optional field `platforms` (array)
-        for (int i = 0; i < jsonArrayplatforms.size(); i++) {
-          AbstractReference.validateJsonObject(jsonArrayplatforms.get(i).getAsJsonObject());
-        };
-      }
-      // validate the optional field `priority`
-      if (jsonObj.getAsJsonObject("priority") != null) {
-        AbstractReference.validateJsonObject(jsonObj.getAsJsonObject("priority"));
-      }
-      // validate the optional field `releaseMethod`
-      if (jsonObj.getAsJsonObject("releaseMethod") != null) {
-        AbstractReference.validateJsonObject(jsonObj.getAsJsonObject("releaseMethod"));
-      }
-      JsonArray jsonArrayresolutions = jsonObj.getAsJsonArray("resolutions");
-      if (jsonArrayresolutions != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("resolutions").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `resolutions` to be an array in the JSON string but got `%s`", jsonObj.get("resolutions").toString()));
-        }
-
-        // validate the optional field `resolutions` (array)
-        for (int i = 0; i < jsonArrayresolutions.size(); i++) {
-          AbstractReference.validateJsonObject(jsonArrayresolutions.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArrayseverities = jsonObj.getAsJsonArray("severities");
-      if (jsonArrayseverities != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("severities").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `severities` to be an array in the JSON string but got `%s`", jsonObj.get("severities").toString()));
-        }
-
-        // validate the optional field `severities` (array)
-        for (int i = 0; i < jsonArrayseverities.size(); i++) {
-          AbstractReference.validateJsonObject(jsonArrayseverities.get(i).getAsJsonObject());
-        };
-      }
-      // validate the optional field `status`
-      if (jsonObj.getAsJsonObject("status") != null) {
-        AbstractReference.validateJsonObject(jsonObj.getAsJsonObject("status"));
-      }
-      JsonArray jsonArraysubjects = jsonObj.getAsJsonArray("subjects");
-      if (jsonArraysubjects != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("subjects").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `subjects` to be an array in the JSON string but got `%s`", jsonObj.get("subjects").toString()));
-        }
-
-        // validate the optional field `subjects` (array)
-        for (int i = 0; i < jsonArraysubjects.size(); i++) {
-          AbstractReference.validateJsonObject(jsonArraysubjects.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
-      if (jsonArraytags != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("tags").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
-        }
-
-        // validate the optional field `tags` (array)
-        for (int i = 0; i < jsonArraytags.size(); i++) {
-          Label.validateJsonObject(jsonArraytags.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArrayteams = jsonObj.getAsJsonArray("teams");
-      if (jsonArrayteams != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("teams").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `teams` to be an array in the JSON string but got `%s`", jsonObj.get("teams").toString()));
-        }
-
-        // validate the optional field `teams` (array)
-        for (int i = 0; i < jsonArrayteams.size(); i++) {
-          AbstractReference.validateJsonObject(jsonArrayteams.get(i).getAsJsonObject());
-        };
-      }
-      // validate the optional field `tracker`
-      if (jsonObj.getAsJsonObject("tracker") != null) {
-        TrackerReference.validateJsonObject(jsonObj.getAsJsonObject("tracker"));
-      }
-      if (jsonObj.get("typeName") != null && !jsonObj.get("typeName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `typeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("typeName").toString()));
-      }
-      JsonArray jsonArrayversions = jsonObj.getAsJsonArray("versions");
-      if (jsonArrayversions != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("versions").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `versions` to be an array in the JSON string but got `%s`", jsonObj.get("versions").toString()));
-        }
-
-        // validate the optional field `versions` (array)
-        for (int i = 0; i < jsonArrayversions.size(); i++) {
-          AbstractReference.validateJsonObject(jsonArrayversions.get(i).getAsJsonObject());
-        };
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TrackerItem.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TrackerItem' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TrackerItem> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TrackerItem.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TrackerItem>() {
-           @Override
-           public void write(JsonWriter out, TrackerItem value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TrackerItem read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TrackerItem given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TrackerItem
-  * @throws IOException if the JSON string is invalid with respect to TrackerItem
-  */
-  public static TrackerItem fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TrackerItem.class);
-  }
-
- /**
-  * Convert an instance of TrackerItem to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

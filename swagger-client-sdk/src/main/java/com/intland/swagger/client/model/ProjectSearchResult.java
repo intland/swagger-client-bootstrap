@@ -13,25 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -40,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * One page of artifact revisions.
  */
 @ApiModel(description = "One page of artifact revisions.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class ProjectSearchResult {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
@@ -58,8 +44,6 @@ public class ProjectSearchResult {
   @SerializedName(SERIALIZED_NAME_TOTAL)
   private Integer total;
 
-  public ProjectSearchResult() { 
-  }
 
   public ProjectSearchResult page(Integer page) {
     
@@ -115,7 +99,7 @@ public class ProjectSearchResult {
 
   public ProjectSearchResult addProjectsItem(Project projectsItem) {
     if (this.projects == null) {
-      this.projects = new ArrayList<>();
+      this.projects = new ArrayList<Project>();
     }
     this.projects.add(projectsItem);
     return this;
@@ -161,7 +145,6 @@ public class ProjectSearchResult {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -205,105 +188,5 @@ public class ProjectSearchResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("page");
-    openapiFields.add("pageSize");
-    openapiFields.add("projects");
-    openapiFields.add("total");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ProjectSearchResult
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ProjectSearchResult.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectSearchResult is not found in the empty JSON string", ProjectSearchResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ProjectSearchResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectSearchResult` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      JsonArray jsonArrayprojects = jsonObj.getAsJsonArray("projects");
-      if (jsonArrayprojects != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("projects").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `projects` to be an array in the JSON string but got `%s`", jsonObj.get("projects").toString()));
-        }
-
-        // validate the optional field `projects` (array)
-        for (int i = 0; i < jsonArrayprojects.size(); i++) {
-          Project.validateJsonObject(jsonArrayprojects.get(i).getAsJsonObject());
-        };
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ProjectSearchResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ProjectSearchResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ProjectSearchResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ProjectSearchResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ProjectSearchResult>() {
-           @Override
-           public void write(JsonWriter out, ProjectSearchResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ProjectSearchResult read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ProjectSearchResult given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ProjectSearchResult
-  * @throws IOException if the JSON string is invalid with respect to ProjectSearchResult
-  */
-  public static ProjectSearchResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ProjectSearchResult.class);
-  }
-
- /**
-  * Convert an instance of ProjectSearchResult to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

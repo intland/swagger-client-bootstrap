@@ -15,24 +15,14 @@ package com.intland.swagger.client.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -41,7 +31,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Request model to update Test Run&#39;s result for a Test Case
  */
 @ApiModel(description = "Request model to update Test Run's result for a Test Case")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class UpdateTestCaseRunRequest {
   public static final String SERIALIZED_NAME_CONCLUSION = "conclusion";
   @SerializedName(SERIALIZED_NAME_CONCLUSION)
@@ -118,8 +108,6 @@ public class UpdateTestCaseRunRequest {
   @SerializedName(SERIALIZED_NAME_TEST_CASE_REFERENCE)
   private TrackerItemReference testCaseReference;
 
-  public UpdateTestCaseRunRequest() { 
-  }
 
   public UpdateTestCaseRunRequest conclusion(String conclusion) {
     
@@ -152,7 +140,7 @@ public class UpdateTestCaseRunRequest {
 
   public UpdateTestCaseRunRequest addCustomFieldsItem(AbstractFieldValue customFieldsItem) {
     if (this.customFields == null) {
-      this.customFields = new ArrayList<>();
+      this.customFields = new ArrayList<AbstractFieldValue>();
     }
     this.customFields.add(customFieldsItem);
     return this;
@@ -183,7 +171,7 @@ public class UpdateTestCaseRunRequest {
 
   public UpdateTestCaseRunRequest addReportedBugReferencesItem(TrackerItemReference reportedBugReferencesItem) {
     if (this.reportedBugReferences == null) {
-      this.reportedBugReferences = new ArrayList<>();
+      this.reportedBugReferences = new ArrayList<TrackerItemReference>();
     }
     this.reportedBugReferences.add(reportedBugReferencesItem);
     return this;
@@ -275,7 +263,6 @@ public class UpdateTestCaseRunRequest {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -323,138 +310,5 @@ public class UpdateTestCaseRunRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("conclusion");
-    openapiFields.add("customFields");
-    openapiFields.add("reportedBugReferences");
-    openapiFields.add("result");
-    openapiFields.add("runTime");
-    openapiFields.add("testCaseReference");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("result");
-    openapiRequiredFields.add("testCaseReference");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to UpdateTestCaseRunRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (UpdateTestCaseRunRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateTestCaseRunRequest is not found in the empty JSON string", UpdateTestCaseRunRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!UpdateTestCaseRunRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateTestCaseRunRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UpdateTestCaseRunRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (jsonObj.get("conclusion") != null && !jsonObj.get("conclusion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `conclusion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conclusion").toString()));
-      }
-      JsonArray jsonArraycustomFields = jsonObj.getAsJsonArray("customFields");
-      if (jsonArraycustomFields != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("customFields").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `customFields` to be an array in the JSON string but got `%s`", jsonObj.get("customFields").toString()));
-        }
-
-        // validate the optional field `customFields` (array)
-        for (int i = 0; i < jsonArraycustomFields.size(); i++) {
-          AbstractFieldValue.validateJsonObject(jsonArraycustomFields.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArrayreportedBugReferences = jsonObj.getAsJsonArray("reportedBugReferences");
-      if (jsonArrayreportedBugReferences != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("reportedBugReferences").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `reportedBugReferences` to be an array in the JSON string but got `%s`", jsonObj.get("reportedBugReferences").toString()));
-        }
-
-        // validate the optional field `reportedBugReferences` (array)
-        for (int i = 0; i < jsonArrayreportedBugReferences.size(); i++) {
-          TrackerItemReference.validateJsonObject(jsonArrayreportedBugReferences.get(i).getAsJsonObject());
-        };
-      }
-      if (jsonObj.get("result") != null && !jsonObj.get("result").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `result` to be a primitive type in the JSON string but got `%s`", jsonObj.get("result").toString()));
-      }
-      // validate the optional field `testCaseReference`
-      if (jsonObj.getAsJsonObject("testCaseReference") != null) {
-        TrackerItemReference.validateJsonObject(jsonObj.getAsJsonObject("testCaseReference"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UpdateTestCaseRunRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UpdateTestCaseRunRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UpdateTestCaseRunRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateTestCaseRunRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<UpdateTestCaseRunRequest>() {
-           @Override
-           public void write(JsonWriter out, UpdateTestCaseRunRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public UpdateTestCaseRunRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of UpdateTestCaseRunRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of UpdateTestCaseRunRequest
-  * @throws IOException if the JSON string is invalid with respect to UpdateTestCaseRunRequest
-  */
-  public static UpdateTestCaseRunRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UpdateTestCaseRunRequest.class);
-  }
-
- /**
-  * Convert an instance of UpdateTestCaseRunRequest to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

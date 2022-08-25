@@ -13,22 +13,9 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -37,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Settings for a resizeable column definition.
  */
 @ApiModel(description = "Settings for a resizeable column definition.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class ResizableReportColumnSettings {
   public static final String SERIALIZED_NAME_COLUMN_INDEX = "columnIndex";
   @SerializedName(SERIALIZED_NAME_COLUMN_INDEX)
@@ -51,8 +38,6 @@ public class ResizableReportColumnSettings {
   @SerializedName(SERIALIZED_NAME_FIELD)
   private FieldReference field;
 
-  public ResizableReportColumnSettings() { 
-  }
 
   public ResizableReportColumnSettings columnIndex(Integer columnIndex) {
     
@@ -123,7 +108,6 @@ public class ResizableReportColumnSettings {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -165,105 +149,5 @@ public class ResizableReportColumnSettings {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("columnIndex");
-    openapiFields.add("columnWidthPercentage");
-    openapiFields.add("field");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("columnIndex");
-    openapiRequiredFields.add("field");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ResizableReportColumnSettings
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ResizableReportColumnSettings.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ResizableReportColumnSettings is not found in the empty JSON string", ResizableReportColumnSettings.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ResizableReportColumnSettings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResizableReportColumnSettings` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ResizableReportColumnSettings.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the optional field `field`
-      if (jsonObj.getAsJsonObject("field") != null) {
-        FieldReference.validateJsonObject(jsonObj.getAsJsonObject("field"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ResizableReportColumnSettings.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ResizableReportColumnSettings' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ResizableReportColumnSettings> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ResizableReportColumnSettings.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ResizableReportColumnSettings>() {
-           @Override
-           public void write(JsonWriter out, ResizableReportColumnSettings value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ResizableReportColumnSettings read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ResizableReportColumnSettings given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ResizableReportColumnSettings
-  * @throws IOException if the JSON string is invalid with respect to ResizableReportColumnSettings
-  */
-  public static ResizableReportColumnSettings fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ResizableReportColumnSettings.class);
-  }
-
- /**
-  * Convert an instance of ResizableReportColumnSettings to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

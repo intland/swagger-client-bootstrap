@@ -13,8 +13,8 @@
 
 package com.intland.swagger.client.api;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.ReportItemResult;
@@ -24,27 +24,35 @@ import com.intland.swagger.client.model.SimpleReportSettings;
 /**
  * API tests for ReportApi
  */
-@Disabled
+@Ignore
 public class ReportApiTest {
 
     private final ReportApi api = new ReportApi();
 
+    
     /**
      * Create a report
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void createReportTest() throws ApiException {
         SimpleReportSettings simpleReportSettings = null;
         SimpleReportSettings response = api.createReport(simpleReportSettings);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get a report results by id of the report
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getReportByIdTest() throws ApiException {
@@ -52,13 +60,17 @@ public class ReportApiTest {
         Integer page = null;
         Integer pageSize = null;
         ReportResult response = api.getReportById(reportId, page, pageSize);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get a report items by id of the report
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getReportItemsByIdTest() throws ApiException {
@@ -66,20 +78,25 @@ public class ReportApiTest {
         Integer page = null;
         Integer pageSize = null;
         ReportItemResult response = api.getReportItemsById(reportId, page, pageSize);
+
         // TODO: test validations
     }
-
+    
     /**
      * Update report settings
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void updateReportTest() throws ApiException {
         Integer reportId = null;
         SimpleReportSettings simpleReportSettings = null;
         SimpleReportSettings response = api.updateReport(reportId, simpleReportSettings);
+
         // TODO: test validations
     }
-
+    
 }

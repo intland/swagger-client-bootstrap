@@ -15,8 +15,8 @@ package com.intland.swagger.client.api;
 
 import java.util.List;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.Role;
@@ -25,32 +25,41 @@ import com.intland.swagger.client.model.RoleReference;
 /**
  * API tests for RoleApi
  */
-@Disabled
+@Ignore
 public class RoleApiTest {
 
     private final RoleApi api = new RoleApi();
 
+    
     /**
      * Get role
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getRoleTest() throws ApiException {
         Integer roleId = null;
         Role response = api.getRole(roleId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get roles
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getRolesTest() throws ApiException {
         List<RoleReference> response = api.getRoles();
+
         // TODO: test validations
     }
-
+    
 }

@@ -2,13 +2,13 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**getTrackerPermission**](TrackerPermissionApi.md#getTrackerPermission) | **GET** /v3/trackers/permissions/{trackerPermissionId} | Get the immutable definition of a tracker permission |
-| [**getTrackerPermissions**](TrackerPermissionApi.md#getTrackerPermissions) | **GET** /v3/trackers/permissions | Get available tracker permissions |
-| [**getTrackerPermissionsWithRoles**](TrackerPermissionApi.md#getTrackerPermissionsWithRoles) | **GET** /v3/trackers/{trackerId}/permissions | List tracker permissions per role |
-| [**removePermissions**](TrackerPermissionApi.md#removePermissions) | **DELETE** /v3/trackers/{trackerId}/roles/{roleId}/permissions | Removes all tracker permissions from a specific role |
-| [**updatePermission**](TrackerPermissionApi.md#updatePermission) | **PUT** /v3/trackers/{trackerId}/roles/{roleId}/permissions | Set the tracker permissions for a specific role |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**getTrackerPermission**](TrackerPermissionApi.md#getTrackerPermission) | **GET** /v3/trackers/permissions/{trackerPermissionId} | Get the immutable definition of a tracker permission
+[**getTrackerPermissions**](TrackerPermissionApi.md#getTrackerPermissions) | **GET** /v3/trackers/permissions | Get available tracker permissions
+[**getTrackerPermissionsWithRoles**](TrackerPermissionApi.md#getTrackerPermissionsWithRoles) | **GET** /v3/trackers/{trackerId}/permissions | List tracker permissions per role
+[**removePermissions**](TrackerPermissionApi.md#removePermissions) | **DELETE** /v3/trackers/{trackerId}/roles/{roleId}/permissions | Removes all tracker permissions from a specific role
+[**updatePermission**](TrackerPermissionApi.md#updatePermission) | **PUT** /v3/trackers/{trackerId}/roles/{roleId}/permissions | Set the tracker permissions for a specific role
 
 
 <a name="getTrackerPermission"></a>
@@ -65,9 +65,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerPermissionId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerPermissionId** | **Integer**|  |
 
 ### Return type
 
@@ -85,10 +85,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tracker permission. |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required. |  -  |
-| **429** | Too many requests |  -  |
+**200** | Tracker permission. |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required. |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerPermissions"></a>
 # **getTrackerPermissions**
@@ -160,11 +160,11 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tracker permissions. |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required. |  -  |
-| **404** | Tracker permission is not found. |  -  |
-| **429** | Too many requests |  -  |
+**200** | Tracker permissions. |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required. |  -  |
+**404** | Tracker permission is not found. |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerPermissionsWithRoles"></a>
 # **getTrackerPermissionsWithRoles**
@@ -224,11 +224,11 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerId** | **Integer**|  | |
-| **userId** | **Integer**|  | [optional] |
-| **roleId** | **Integer**|  | [optional] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **userId** | **Integer**|  | [optional]
+ **roleId** | **Integer**|  | [optional]
 
 ### Return type
 
@@ -246,11 +246,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tracker permissions by role. |  -  |
-| **400** | No access permission for this resource |  -  |
-| **403** | Authentication is required. |  -  |
-| **404** | Tracker is not found. |  -  |
-| **429** | Too many requests |  -  |
+**200** | Tracker permissions by role. |  -  |
+**400** | No access permission for this resource |  -  |
+**403** | Authentication is required. |  -  |
+**404** | Tracker is not found. |  -  |
+**429** | Too many requests |  -  |
 
 <a name="removePermissions"></a>
 # **removePermissions**
@@ -306,10 +306,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerId** | **Integer**|  | |
-| **roleId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **roleId** | **Integer**|  |
 
 ### Return type
 
@@ -327,11 +327,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tracker permissions were removed. |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker/role is not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Tracker permissions were removed. |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker/role is not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="updatePermission"></a>
 # **updatePermission**
@@ -389,11 +389,11 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerId** | **Integer**|  | |
-| **roleId** | **Integer**|  | |
-| **permissionIdsRequest** | [**PermissionIdsRequest**](PermissionIdsRequest.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **roleId** | **Integer**|  |
+ **permissionIdsRequest** | [**PermissionIdsRequest**](PermissionIdsRequest.md)|  |
 
 ### Return type
 
@@ -411,9 +411,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tracker permissions are set |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker / permission / roles not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Tracker permissions are set |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker / permission / roles not found |  -  |
+**429** | Too many requests |  -  |
 

@@ -2,11 +2,11 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**getGroup**](GroupApi.md#getGroup) | **GET** /v3/users/groups/{groupId} | Get user group |
-| [**getGroupMembers**](GroupApi.md#getGroupMembers) | **GET** /v3/users/groups/{groupId}/members | Get all members of a user group |
-| [**getGroups**](GroupApi.md#getGroups) | **GET** /v3/users/groups | Get user groups |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**getGroup**](GroupApi.md#getGroup) | **GET** /v3/users/groups/{groupId} | Get user group
+[**getGroupMembers**](GroupApi.md#getGroupMembers) | **GET** /v3/users/groups/{groupId}/members | Get all members of a user group
+[**getGroups**](GroupApi.md#getGroups) | **GET** /v3/users/groups | Get user groups
 
 
 <a name="getGroup"></a>
@@ -63,9 +63,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **groupId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupId** | **Integer**|  |
 
 ### Return type
 
@@ -83,11 +83,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | User Group |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | User Group not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | User Group |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | User Group not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getGroupMembers"></a>
 # **getGroupMembers**
@@ -145,11 +145,11 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **groupId** | **Integer**|  | |
-| **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1] |
-| **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupId** | **Integer**|  |
+ **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25]
 
 ### Return type
 
@@ -167,12 +167,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Member by id |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | User group is not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Member by id |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authentication is required |  -  |
+**404** | User group is not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getGroups"></a>
 # **getGroups**
@@ -244,8 +244,8 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | User Group references |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **429** | Too many requests |  -  |
+**200** | User Group references |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 

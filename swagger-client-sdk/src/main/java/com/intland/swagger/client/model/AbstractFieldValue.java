@@ -13,13 +13,9 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
-import java.util.HashSet;
 import java.util.Objects;
 
-import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -28,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Value container of a field
  */
 @ApiModel(description = "Value container of a field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class AbstractFieldValue {
   public static final String SERIALIZED_NAME_FIELD_ID = "fieldId";
   @SerializedName(SERIALIZED_NAME_FIELD_ID)
@@ -46,7 +42,7 @@ public class AbstractFieldValue {
   @SerializedName(SERIALIZED_NAME_TYPE)
   protected String type;
 
-  public AbstractFieldValue() { 
+  public AbstractFieldValue() {
     this.type = this.getClass().getSimpleName();
   }
 
@@ -142,7 +138,6 @@ public class AbstractFieldValue {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -186,109 +181,5 @@ public class AbstractFieldValue {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("fieldId");
-    openapiFields.add("name");
-    openapiFields.add("sharedFieldName");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("type");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AbstractFieldValue
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (AbstractFieldValue.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AbstractFieldValue is not found in the empty JSON string", AbstractFieldValue.openapiRequiredFields.toString()));
-        }
-      }
-
-      String discriminatorValue = jsonObj.get("type").getAsString();
-      switch (discriminatorValue) {
-        case "BoolFieldValue":
-          BoolFieldValue.validateJsonObject(jsonObj);
-          break;
-        case "ChoiceFieldValue":
-          ChoiceFieldValue.validateJsonObject(jsonObj);
-          break;
-        case "ColorFieldValue":
-          ColorFieldValue.validateJsonObject(jsonObj);
-          break;
-        case "CountryFieldValue":
-          CountryFieldValue.validateJsonObject(jsonObj);
-          break;
-        case "DateFieldValue":
-          DateFieldValue.validateJsonObject(jsonObj);
-          break;
-        case "DecimalFieldValue":
-          DecimalFieldValue.validateJsonObject(jsonObj);
-          break;
-        case "DurationFieldValue":
-          DurationFieldValue.validateJsonObject(jsonObj);
-          break;
-        case "IntegerFieldValue":
-          IntegerFieldValue.validateJsonObject(jsonObj);
-          break;
-        case "LanguageFieldValue":
-          LanguageFieldValue.validateJsonObject(jsonObj);
-          break;
-        case "NotSupportedFieldValue":
-          NotSupportedFieldValue.validateJsonObject(jsonObj);
-          break;
-        case "ReferredTestStepFieldValue":
-          ReferredTestStepFieldValue.validateJsonObject(jsonObj);
-          break;
-        case "TableFieldValue":
-          TableFieldValue.validateJsonObject(jsonObj);
-          break;
-        case "TextFieldValue":
-          TextFieldValue.validateJsonObject(jsonObj);
-          break;
-        case "UrlFieldValue":
-          UrlFieldValue.validateJsonObject(jsonObj);
-          break;
-        case "WikiTextFieldValue":
-          WikiTextFieldValue.validateJsonObject(jsonObj);
-          break;
-        default: 
-          throw new IllegalArgumentException(String.format("The value of the `type` field `%s` does not match any key defined in the discriminator's mapping.", discriminatorValue));
-      }
-  }
-
-
- /**
-  * Create an instance of AbstractFieldValue given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AbstractFieldValue
-  * @throws IOException if the JSON string is invalid with respect to AbstractFieldValue
-  */
-  public static AbstractFieldValue fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AbstractFieldValue.class);
-  }
-
- /**
-  * Convert an instance of AbstractFieldValue to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

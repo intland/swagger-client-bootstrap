@@ -2,36 +2,36 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**addChildToTracker**](TrackerItemApi.md#addChildToTracker) | **POST** /v3/trackers/{trackerId}/children | Add a child item to a tracker item |
-| [**addChildToTrackerItem**](TrackerItemApi.md#addChildToTrackerItem) | **POST** /v3/items/{itemId}/children | Add a child item to a tracker item |
-| [**bulkUpdateTrackerItemFields**](TrackerItemApi.md#bulkUpdateTrackerItemFields) | **PUT** /v3/items/fields | Bulk update fields of a tracker item |
-| [**checkTrackerItemLock**](TrackerItemApi.md#checkTrackerItemLock) | **GET** /v3/items/{itemId}/lock | Check whether a tracker item is locked, and if it is, retrieve the details of the lock |
-| [**createTrackerItem**](TrackerItemApi.md#createTrackerItem) | **POST** /v3/trackers/{trackerId}/items | Create a tracker item |
-| [**deleteTrackerItem**](TrackerItemApi.md#deleteTrackerItem) | **DELETE** /v3/items/{itemId} | Move tracker item to trash |
-| [**findTrackerChildren**](TrackerItemApi.md#findTrackerChildren) | **GET** /v3/trackers/{trackerId}/children | Get child items of a tracker item |
-| [**findTrackerItemChildren**](TrackerItemApi.md#findTrackerItemChildren) | **GET** /v3/items/{itemId}/children | Get child items of a tracker item |
-| [**findTrackerItems**](TrackerItemApi.md#findTrackerItems) | **GET** /v3/items/query | Get tracker items by cbQL query string |
-| [**findTrackerItemsByCbQL**](TrackerItemApi.md#findTrackerItemsByCbQL) | **POST** /v3/items/query | Get tracker items by cbQL query string |
-| [**getBaselineTrackerItemRelations**](TrackerItemApi.md#getBaselineTrackerItemRelations) | **GET** /v3/items/{itemId}/relations | Get tracker items for a baseline version |
-| [**getBaselineTrackerItemsRelations**](TrackerItemApi.md#getBaselineTrackerItemsRelations) | **POST** /v3/items/relations | Get tracker items for a baseline version |
-| [**getChoiceOptions**](TrackerItemApi.md#getChoiceOptions) | **GET** /v3/items/{itemId}/fields/{fieldId}/options | Get the options of a choice field of tracker |
-| [**getItemAccessibility**](TrackerItemApi.md#getItemAccessibility) | **GET** /v3/items/{itemId}/fields/accessibility | Get a tracker item fields accessibility |
-| [**getTrackerItem**](TrackerItemApi.md#getTrackerItem) | **GET** /v3/items/{itemId} | Get basic tracker item |
-| [**getTrackerItemFields**](TrackerItemApi.md#getTrackerItemFields) | **GET** /v3/items/{itemId}/fields | Get fields of a tracker item |
-| [**getTrackerItemHistory**](TrackerItemApi.md#getTrackerItemHistory) | **GET** /v3/items/{itemId}/history | Get tracker item history |
-| [**getTrackerItemReviews**](TrackerItemApi.md#getTrackerItemReviews) | **GET** /v3/items/{itemId}/reviews | Get all Tracker Item Reviews for a particular Tracker Item |
-| [**getTrackerItemTransitions**](TrackerItemApi.md#getTrackerItemTransitions) | **GET** /v3/items/{itemId}/transitions | Get available transitions for a tracker item |
-| [**lockTrackerItem**](TrackerItemApi.md#lockTrackerItem) | **PUT** /v3/items/{itemId}/lock | Put a soft lock on a tracker item |
-| [**patchChildrenOfTracker**](TrackerItemApi.md#patchChildrenOfTracker) | **PATCH** /v3/trackers/{trackerId}/children | Patch the child item list of a tracker item |
-| [**patchChildrenOfTrackerItem**](TrackerItemApi.md#patchChildrenOfTrackerItem) | **PATCH** /v3/items/{itemId}/children | Patch the child item list of a tracker item |
-| [**replaceChildrenOfTracker**](TrackerItemApi.md#replaceChildrenOfTracker) | **PUT** /v3/trackers/{trackerId}/children | Reorder the child item list of a tracker |
-| [**replaceChildrenOfTrackerItem**](TrackerItemApi.md#replaceChildrenOfTrackerItem) | **PUT** /v3/items/{itemId}/children | Replace the child item list of a tracker item |
-| [**unlockTrackerItem**](TrackerItemApi.md#unlockTrackerItem) | **DELETE** /v3/items/{itemId}/lock | Unlock a tracker item |
-| [**updateCustomFieldTrackerItem**](TrackerItemApi.md#updateCustomFieldTrackerItem) | **PUT** /v3/items/{itemId}/fields | Update fields of a tracker item |
-| [**updateTableFieldTrackerItem**](TrackerItemApi.md#updateTableFieldTrackerItem) | **PUT** /v3/items/{itemId}/fields/tables/{tableFieldId} | Update table field of tracker item |
-| [**updateTrackerItem**](TrackerItemApi.md#updateTrackerItem) | **PUT** /v3/items/{itemId} | Update tracker item |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**addChildToTracker**](TrackerItemApi.md#addChildToTracker) | **POST** /v3/trackers/{trackerId}/children | Add a child item to a tracker item
+[**addChildToTrackerItem**](TrackerItemApi.md#addChildToTrackerItem) | **POST** /v3/items/{itemId}/children | Add a child item to a tracker item
+[**bulkUpdateTrackerItemFields**](TrackerItemApi.md#bulkUpdateTrackerItemFields) | **PUT** /v3/items/fields | Bulk update fields of a tracker item
+[**checkTrackerItemLock**](TrackerItemApi.md#checkTrackerItemLock) | **GET** /v3/items/{itemId}/lock | Check whether a tracker item is locked, and if it is, retrieve the details of the lock
+[**createTrackerItem**](TrackerItemApi.md#createTrackerItem) | **POST** /v3/trackers/{trackerId}/items | Create a tracker item
+[**deleteTrackerItem**](TrackerItemApi.md#deleteTrackerItem) | **DELETE** /v3/items/{itemId} | Move tracker item to trash
+[**findTrackerChildren**](TrackerItemApi.md#findTrackerChildren) | **GET** /v3/trackers/{trackerId}/children | Get child items of a tracker item
+[**findTrackerItemChildren**](TrackerItemApi.md#findTrackerItemChildren) | **GET** /v3/items/{itemId}/children | Get child items of a tracker item
+[**findTrackerItems**](TrackerItemApi.md#findTrackerItems) | **GET** /v3/items/query | Get tracker items by cbQL query string
+[**findTrackerItemsByCbQL**](TrackerItemApi.md#findTrackerItemsByCbQL) | **POST** /v3/items/query | Get tracker items by cbQL query string
+[**getBaselineTrackerItemRelations**](TrackerItemApi.md#getBaselineTrackerItemRelations) | **GET** /v3/items/{itemId}/relations | Get tracker items for a baseline version
+[**getBaselineTrackerItemsRelations**](TrackerItemApi.md#getBaselineTrackerItemsRelations) | **POST** /v3/items/relations | Get tracker items for a baseline version
+[**getChoiceOptions**](TrackerItemApi.md#getChoiceOptions) | **GET** /v3/items/{itemId}/fields/{fieldId}/options | Get the options of a choice field of tracker
+[**getItemAccessibility**](TrackerItemApi.md#getItemAccessibility) | **GET** /v3/items/{itemId}/fields/accessibility | Get a tracker item fields accessibility
+[**getTrackerItem**](TrackerItemApi.md#getTrackerItem) | **GET** /v3/items/{itemId} | Get basic tracker item
+[**getTrackerItemFields**](TrackerItemApi.md#getTrackerItemFields) | **GET** /v3/items/{itemId}/fields | Get fields of a tracker item
+[**getTrackerItemHistory**](TrackerItemApi.md#getTrackerItemHistory) | **GET** /v3/items/{itemId}/history | Get tracker item history
+[**getTrackerItemReviews**](TrackerItemApi.md#getTrackerItemReviews) | **GET** /v3/items/{itemId}/reviews | Get all Tracker Item Reviews for a particular Tracker Item
+[**getTrackerItemTransitions**](TrackerItemApi.md#getTrackerItemTransitions) | **GET** /v3/items/{itemId}/transitions | Get available transitions for a tracker item
+[**lockTrackerItem**](TrackerItemApi.md#lockTrackerItem) | **PUT** /v3/items/{itemId}/lock | Put a soft lock on a tracker item
+[**patchChildrenOfTracker**](TrackerItemApi.md#patchChildrenOfTracker) | **PATCH** /v3/trackers/{trackerId}/children | Patch the child item list of a tracker item
+[**patchChildrenOfTrackerItem**](TrackerItemApi.md#patchChildrenOfTrackerItem) | **PATCH** /v3/items/{itemId}/children | Patch the child item list of a tracker item
+[**replaceChildrenOfTracker**](TrackerItemApi.md#replaceChildrenOfTracker) | **PUT** /v3/trackers/{trackerId}/children | Reorder the child item list of a tracker
+[**replaceChildrenOfTrackerItem**](TrackerItemApi.md#replaceChildrenOfTrackerItem) | **PUT** /v3/items/{itemId}/children | Replace the child item list of a tracker item
+[**unlockTrackerItem**](TrackerItemApi.md#unlockTrackerItem) | **DELETE** /v3/items/{itemId}/lock | Unlock a tracker item
+[**updateCustomFieldTrackerItem**](TrackerItemApi.md#updateCustomFieldTrackerItem) | **PUT** /v3/items/{itemId}/fields | Update fields of a tracker item
+[**updateTableFieldTrackerItem**](TrackerItemApi.md#updateTableFieldTrackerItem) | **PUT** /v3/items/{itemId}/fields/tables/{tableFieldId} | Update table field of tracker item
+[**updateTrackerItem**](TrackerItemApi.md#updateTrackerItem) | **PUT** /v3/items/{itemId} | Update tracker item
 
 
 <a name="addChildToTracker"></a>
@@ -89,10 +89,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerId** | **Integer**|  | |
-| **trackerItemRevision** | [**TrackerItemRevision**](TrackerItemRevision.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **trackerItemRevision** | [**TrackerItemRevision**](TrackerItemRevision.md)|  |
 
 ### Return type
 
@@ -110,13 +110,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Child item reference with index |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Permission is required |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker is not found |  -  |
-| **423** | Tracker item is locked |  -  |
-| **429** | Too many requests |  -  |
+**200** | Child item reference with index |  -  |
+**400** | Invalid request |  -  |
+**401** | Permission is required |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker is not found |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
 
 <a name="addChildToTrackerItem"></a>
 # **addChildToTrackerItem**
@@ -173,10 +173,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
-| **trackerItemRevision** | [**TrackerItemRevision**](TrackerItemRevision.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
+ **trackerItemRevision** | [**TrackerItemRevision**](TrackerItemRevision.md)|  |
 
 ### Return type
 
@@ -194,13 +194,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Child item reference with index |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Permission is required |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker item is not found |  -  |
-| **423** | Tracker item is locked |  -  |
-| **429** | Too many requests |  -  |
+**200** | Child item reference with index |  -  |
+**400** | Invalid request |  -  |
+**401** | Permission is required |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker item is not found |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
 
 <a name="bulkUpdateTrackerItemFields"></a>
 # **bulkUpdateTrackerItemFields**
@@ -257,10 +257,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **updateTrackerItemFieldWithItemId** | [**List&lt;UpdateTrackerItemFieldWithItemId&gt;**](UpdateTrackerItemFieldWithItemId.md)|  | |
-| **atomic** | **Boolean**| If it&#39;s turned on the whole update will run in a single transaction. | [optional] [default to false] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **updateTrackerItemFieldWithItemId** | [**List&lt;UpdateTrackerItemFieldWithItemId&gt;**](UpdateTrackerItemFieldWithItemId.md)|  |
+ **atomic** | **Boolean**| If it&#39;s turned on the whole update will run in a single transaction. | [optional] [default to false]
 
 ### Return type
 
@@ -278,13 +278,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Bulk update response |  -  |
-| **400** | Request cannot be processed |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker / Field not found |  -  |
-| **429** | Too many requests |  -  |
-| **500** | Unexpected error |  -  |
+**200** | Bulk update response |  -  |
+**400** | Request cannot be processed |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker / Field not found |  -  |
+**429** | Too many requests |  -  |
+**500** | Unexpected error |  -  |
 
 <a name="checkTrackerItemLock"></a>
 # **checkTrackerItemLock**
@@ -340,9 +340,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**| Tracker item id | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**| Tracker item id |
 
 ### Return type
 
@@ -360,11 +360,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Details of the lock, or an empty response |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Authentication is required |  -  |
-| **404** | Wiki page not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Details of the lock, or an empty response |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
+**404** | Wiki page not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="createTrackerItem"></a>
 # **createTrackerItem**
@@ -407,7 +407,7 @@ public class Example {
     TrackerItem trackerItem = new TrackerItem(); // TrackerItem | 
     Integer parentItemId = 56; // Integer | 
     Integer referenceItemId = 56; // Integer | 
-    String position = "BEFORE"; // String | 
+    String position = "position_example"; // String | 
     try {
       TrackerItem result = apiInstance.createTrackerItem(trackerId, trackerItem, parentItemId, referenceItemId, position);
       System.out.println(result);
@@ -424,13 +424,13 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerId** | **Integer**|  | |
-| **trackerItem** | [**TrackerItem**](TrackerItem.md)|  | |
-| **parentItemId** | **Integer**|  | [optional] |
-| **referenceItemId** | **Integer**|  | [optional] |
-| **position** | **String**|  | [optional] [enum: BEFORE, AFTER, BELOW] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **trackerItem** | [**TrackerItem**](TrackerItem.md)|  |
+ **parentItemId** | **Integer**|  | [optional]
+ **referenceItemId** | **Integer**|  | [optional]
+ **position** | **String**|  | [optional] [enum: BEFORE, AFTER, BELOW]
 
 ### Return type
 
@@ -448,12 +448,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Basic tracker item by id |  -  |
-| **400** | Request cannot be processed |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker / Field not found |  -  |
-| **429** | Too many requests |  -  |
-| **500** | Unexpected error |  -  |
+**200** | Basic tracker item by id |  -  |
+**400** | Request cannot be processed |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker / Field not found |  -  |
+**429** | Too many requests |  -  |
+**500** | Unexpected error |  -  |
 
 <a name="deleteTrackerItem"></a>
 # **deleteTrackerItem**
@@ -509,9 +509,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
 
 ### Return type
 
@@ -529,13 +529,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Basic tracker item by id |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker not found |  -  |
-| **423** | Tracker item is locked |  -  |
-| **429** | Too many requests |  -  |
-| **500** | Unexpected error |  -  |
+**200** | Basic tracker item by id |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker not found |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
+**500** | Unexpected error |  -  |
 
 <a name="findTrackerChildren"></a>
 # **findTrackerChildren**
@@ -593,11 +593,11 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerId** | **Integer**|  | |
-| **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1] |
-| **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25]
 
 ### Return type
 
@@ -615,12 +615,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List child items of a tracker item ordered by ordinal |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Permission is required |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker is not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | List child items of a tracker item ordered by ordinal |  -  |
+**400** | Invalid request |  -  |
+**401** | Permission is required |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker is not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="findTrackerItemChildren"></a>
 # **findTrackerItemChildren**
@@ -678,11 +678,11 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
-| **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1] |
-| **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
+ **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25]
 
 ### Return type
 
@@ -700,12 +700,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List child items of a tracker item ordered by ordinal |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Permission is required |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker item is not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | List child items of a tracker item ordered by ordinal |  -  |
+**400** | Invalid request |  -  |
+**401** | Permission is required |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker item is not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="findTrackerItems"></a>
 # **findTrackerItems**
@@ -764,12 +764,12 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **queryString** | **String**|  | |
-| **baselineId** | **Integer**| Baseline on which the queery is applied. | [optional] |
-| **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1] |
-| **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **queryString** | **String**|  |
+ **baselineId** | **Integer**| Baseline on which the queery is applied. | [optional]
+ **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25]
 
 ### Return type
 
@@ -787,10 +787,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List tracker items by cbQL |  -  |
-| **400** | Request cannot be processed |  -  |
-| **403** | Authentication is required |  -  |
-| **429** | Too many requests |  -  |
+**200** | List tracker items by cbQL |  -  |
+**400** | Request cannot be processed |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 
 <a name="findTrackerItemsByCbQL"></a>
 # **findTrackerItemsByCbQL**
@@ -848,9 +848,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerItemSearchRequest** | [**TrackerItemSearchRequest**](TrackerItemSearchRequest.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerItemSearchRequest** | [**TrackerItemSearchRequest**](TrackerItemSearchRequest.md)|  |
 
 ### Return type
 
@@ -868,10 +868,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List tracker items by cbQL |  -  |
-| **400** | Request cannot be processed |  -  |
-| **403** | Authentication is required |  -  |
-| **429** | Too many requests |  -  |
+**200** | List tracker items by cbQL |  -  |
+**400** | Request cannot be processed |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getBaselineTrackerItemRelations"></a>
 # **getBaselineTrackerItemRelations**
@@ -930,10 +930,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
-| **baselineId** | **Integer**|  | [optional] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
+ **baselineId** | **Integer**|  | [optional]
 
 ### Return type
 
@@ -951,11 +951,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tracker item list |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Tracker item list |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getBaselineTrackerItemsRelations"></a>
 # **getBaselineTrackerItemsRelations**
@@ -1014,10 +1014,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerItemsRequest** | [**TrackerItemsRequest**](TrackerItemsRequest.md)|  | |
-| **baselineId** | **Integer**|  | [optional] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerItemsRequest** | [**TrackerItemsRequest**](TrackerItemsRequest.md)|  |
+ **baselineId** | **Integer**|  | [optional]
 
 ### Return type
 
@@ -1035,11 +1035,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tracker item list |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Tracker item list |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getChoiceOptions"></a>
 # **getChoiceOptions**
@@ -1098,12 +1098,12 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
-| **fieldId** | **Integer**|  | |
-| **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1] |
-| **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
+ **fieldId** | **Integer**|  |
+ **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25]
 
 ### Return type
 
@@ -1121,12 +1121,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Options |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | No option found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Options |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authentication is required |  -  |
+**404** | No option found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getItemAccessibility"></a>
 # **getItemAccessibility**
@@ -1183,10 +1183,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**| Tracker item id | |
-| **targetStatusId** | **Integer**|  | [optional] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**| Tracker item id |
+ **targetStatusId** | **Integer**|  | [optional]
 
 ### Return type
 
@@ -1204,11 +1204,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Accessibility returned |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Authentication is required |  -  |
-| **404** | Tracker item not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Accessibility returned |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
+**404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItem"></a>
 # **getTrackerItem**
@@ -1268,11 +1268,11 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
-| **version** | **Integer**|  | [optional] |
-| **baselineId** | **Integer**|  | [optional] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
+ **version** | **Integer**|  | [optional]
+ **baselineId** | **Integer**|  | [optional]
 
 ### Return type
 
@@ -1290,11 +1290,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Basic tracker item by id |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker item not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Basic tracker item by id |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemFields"></a>
 # **getTrackerItemFields**
@@ -1350,9 +1350,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
 
 ### Return type
 
@@ -1370,12 +1370,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Fields of tracker item by id |  -  |
-| **400** | Request cannot be processed |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker / Item not found |  -  |
-| **429** | Too many requests |  -  |
-| **500** | Unexpected error |  -  |
+**200** | Fields of tracker item by id |  -  |
+**400** | Request cannot be processed |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker / Item not found |  -  |
+**429** | Too many requests |  -  |
+**500** | Unexpected error |  -  |
 
 <a name="getTrackerItemHistory"></a>
 # **getTrackerItemHistory**
@@ -1433,9 +1433,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
 
 ### Return type
 
@@ -1453,11 +1453,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Basic tracker item by id |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Basic tracker item by id |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemReviews"></a>
 # **getTrackerItemReviews**
@@ -1513,9 +1513,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
 
 ### Return type
 
@@ -1533,12 +1533,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of tracker item reviews for the particular item |  -  |
-| **400** | Request cannot be processed |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Tracker item reviews are disabled, or access to them is denied |  -  |
-| **404** | Tracker item not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | List of tracker item reviews for the particular item |  -  |
+**400** | Request cannot be processed |  -  |
+**401** | Authentication is required |  -  |
+**403** | Tracker item reviews are disabled, or access to them is denied |  -  |
+**404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemTransitions"></a>
 # **getTrackerItemTransitions**
@@ -1596,9 +1596,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
 
 ### Return type
 
@@ -1616,13 +1616,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Available transitions |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Missing user permissions |  -  |
-| **404** | Tracker item not found |  -  |
-| **429** | Too many requests |  -  |
-| **500** | Internal server error |  -  |
+**200** | Available transitions |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Missing user permissions |  -  |
+**404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
+**500** | Internal server error |  -  |
 
 <a name="lockTrackerItem"></a>
 # **lockTrackerItem**
@@ -1678,10 +1678,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**| Tracker item id | |
-| **lockRequest** | [**LockRequest**](LockRequest.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**| Tracker item id |
+ **lockRequest** | [**LockRequest**](LockRequest.md)|  |
 
 ### Return type
 
@@ -1699,12 +1699,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Lock acquired successfully |  -  |
-| **400** | Bad request, request validation error |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Could not acquire lock |  -  |
-| **404** | Wiki page not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Lock acquired successfully |  -  |
+**400** | Bad request, request validation error |  -  |
+**401** | Authentication is required |  -  |
+**403** | Could not acquire lock |  -  |
+**404** | Wiki page not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="patchChildrenOfTracker"></a>
 # **patchChildrenOfTracker**
@@ -1762,11 +1762,11 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerId** | **Integer**|  | |
-| **trackerItemChildReference** | [**TrackerItemChildReference**](TrackerItemChildReference.md)|  | |
-| **mode** | **String**|  | [optional] [default to INSERT] [enum: INSERT] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **trackerItemChildReference** | [**TrackerItemChildReference**](TrackerItemChildReference.md)|  |
+ **mode** | **String**|  | [optional] [default to INSERT] [enum: INSERT]
 
 ### Return type
 
@@ -1784,13 +1784,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | New child item reference on the requested index |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Permission is required |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker is not found |  -  |
-| **423** | Tracker item is locked |  -  |
-| **429** | Too many requests |  -  |
+**200** | New child item reference on the requested index |  -  |
+**400** | Invalid request |  -  |
+**401** | Permission is required |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker is not found |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
 
 <a name="patchChildrenOfTrackerItem"></a>
 # **patchChildrenOfTrackerItem**
@@ -1830,7 +1830,7 @@ public class Example {
 
     TrackerItemApi apiInstance = new TrackerItemApi(defaultClient);
     Integer itemId = 56; // Integer | 
-    String mode = "INSERT"; // String | 
+    String mode = "mode_example"; // String | 
     TrackerItemChildReference trackerItemChildReference = new TrackerItemChildReference(); // TrackerItemChildReference | 
     try {
       TrackerItemChildReference result = apiInstance.patchChildrenOfTrackerItem(itemId, mode, trackerItemChildReference);
@@ -1848,11 +1848,11 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
-| **mode** | **String**|  | [enum: INSERT, REPLACE, REMOVE] |
-| **trackerItemChildReference** | [**TrackerItemChildReference**](TrackerItemChildReference.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
+ **mode** | **String**|  | [enum: INSERT, REPLACE, REMOVE]
+ **trackerItemChildReference** | [**TrackerItemChildReference**](TrackerItemChildReference.md)|  |
 
 ### Return type
 
@@ -1870,13 +1870,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | New child item reference on the requested index |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Permission is required |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker item is not found |  -  |
-| **423** | Tracker item is locked |  -  |
-| **429** | Too many requests |  -  |
+**200** | New child item reference on the requested index |  -  |
+**400** | Invalid request |  -  |
+**401** | Permission is required |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker item is not found |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
 
 <a name="replaceChildrenOfTracker"></a>
 # **replaceChildrenOfTracker**
@@ -1934,11 +1934,11 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerId** | **Integer**|  | |
-| **updateTrackerItemChildrenRequest** | [**UpdateTrackerItemChildrenRequest**](UpdateTrackerItemChildrenRequest.md)|  | |
-| **resultPageSize** | **Integer**| Number of items in the result page. Max value: 500 | [optional] [default to 25] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **updateTrackerItemChildrenRequest** | [**UpdateTrackerItemChildrenRequest**](UpdateTrackerItemChildrenRequest.md)|  |
+ **resultPageSize** | **Integer**| Number of items in the result page. Max value: 500 | [optional] [default to 25]
 
 ### Return type
 
@@ -1956,13 +1956,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | First page of the new child list |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Permission is required |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker is not found |  -  |
-| **423** | Tracker item is locked |  -  |
-| **429** | Too many requests |  -  |
+**200** | First page of the new child list |  -  |
+**400** | Invalid request |  -  |
+**401** | Permission is required |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker is not found |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
 
 <a name="replaceChildrenOfTrackerItem"></a>
 # **replaceChildrenOfTrackerItem**
@@ -2020,11 +2020,11 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
-| **updateTrackerItemChildrenRequest** | [**UpdateTrackerItemChildrenRequest**](UpdateTrackerItemChildrenRequest.md)|  | |
-| **resultPageSize** | **Integer**| Number of items in the result page. Max value: 500 | [optional] [default to 25] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
+ **updateTrackerItemChildrenRequest** | [**UpdateTrackerItemChildrenRequest**](UpdateTrackerItemChildrenRequest.md)|  |
+ **resultPageSize** | **Integer**| Number of items in the result page. Max value: 500 | [optional] [default to 25]
 
 ### Return type
 
@@ -2042,13 +2042,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | First page of the new child list |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Permission is required |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker item is not found |  -  |
-| **423** | Tracker item is locked |  -  |
-| **429** | Too many requests |  -  |
+**200** | First page of the new child list |  -  |
+**400** | Invalid request |  -  |
+**401** | Permission is required |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker item is not found |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
 
 <a name="unlockTrackerItem"></a>
 # **unlockTrackerItem**
@@ -2103,9 +2103,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**| Tracker item id | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**| Tracker item id |
 
 ### Return type
 
@@ -2123,12 +2123,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Unlock successful |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Could not unlock |  -  |
-| **404** | Wiki page not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Unlock successful |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Could not unlock |  -  |
+**404** | Wiki page not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="updateCustomFieldTrackerItem"></a>
 # **updateCustomFieldTrackerItem**
@@ -2186,11 +2186,11 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
-| **updateTrackerItemField** | [**UpdateTrackerItemField**](UpdateTrackerItemField.md)|  | |
-| **quietMode** | **Boolean**| If it&#39;s turned on HTTP 200 with empty response indicates that the update was successful. | [optional] [default to false] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
+ **updateTrackerItemField** | [**UpdateTrackerItemField**](UpdateTrackerItemField.md)|  |
+ **quietMode** | **Boolean**| If it&#39;s turned on HTTP 200 with empty response indicates that the update was successful. | [optional] [default to false]
 
 ### Return type
 
@@ -2208,14 +2208,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Basic tracker item by id |  -  |
-| **400** | Request cannot be processed |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker / Field not found |  -  |
-| **423** | Tracker item is locked |  -  |
-| **429** | Too many requests |  -  |
-| **500** | Unexpected error |  -  |
+**200** | Basic tracker item by id |  -  |
+**400** | Request cannot be processed |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker / Field not found |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
+**500** | Unexpected error |  -  |
 
 <a name="updateTableFieldTrackerItem"></a>
 # **updateTableFieldTrackerItem**
@@ -2273,11 +2273,11 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
-| **tableFieldId** | **Integer**|  | |
-| **updateTrackerItemTableField** | [**UpdateTrackerItemTableField**](UpdateTrackerItemTableField.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
+ **tableFieldId** | **Integer**|  |
+ **updateTrackerItemTableField** | [**UpdateTrackerItemTableField**](UpdateTrackerItemTableField.md)|  |
 
 ### Return type
 
@@ -2295,13 +2295,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Basic tracker item by id |  -  |
-| **400** | Request cannot be processed |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker / Field not found |  -  |
-| **423** | Tracker item is locked |  -  |
-| **429** | Too many requests |  -  |
-| **500** | Unexpected error |  -  |
+**200** | Basic tracker item by id |  -  |
+**400** | Request cannot be processed |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker / Field not found |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
+**500** | Unexpected error |  -  |
 
 <a name="updateTrackerItem"></a>
 # **updateTrackerItem**
@@ -2343,7 +2343,7 @@ public class Example {
     Integer itemId = 56; // Integer | 
     TrackerItem trackerItem = new TrackerItem(); // TrackerItem | 
     Integer referenceItemId = 56; // Integer | 
-    String position = "BEFORE"; // String | 
+    String position = "position_example"; // String | 
     try {
       TrackerItem result = apiInstance.updateTrackerItem(itemId, trackerItem, referenceItemId, position);
       System.out.println(result);
@@ -2360,12 +2360,12 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
-| **trackerItem** | [**TrackerItem**](TrackerItem.md)|  | |
-| **referenceItemId** | **Integer**|  | [optional] |
-| **position** | **String**|  | [optional] [enum: BEFORE, AFTER, BELOW] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
+ **trackerItem** | [**TrackerItem**](TrackerItem.md)|  |
+ **referenceItemId** | **Integer**|  | [optional]
+ **position** | **String**|  | [optional] [enum: BEFORE, AFTER, BELOW]
 
 ### Return type
 
@@ -2383,11 +2383,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Basic tracker item by id |  -  |
-| **400** | Request cannot be processed |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker / Field not found |  -  |
-| **423** | Tracker item is locked |  -  |
-| **429** | Too many requests |  -  |
-| **500** | Unexpected error |  -  |
+**200** | Basic tracker item by id |  -  |
+**400** | Request cannot be processed |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker / Field not found |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
+**500** | Unexpected error |  -  |
 

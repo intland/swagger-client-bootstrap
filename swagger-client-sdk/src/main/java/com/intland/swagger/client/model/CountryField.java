@@ -13,24 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -39,13 +26,13 @@ import io.swagger.annotations.ApiModelProperty;
  * Country field
  */
 @ApiModel(description = "Country field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class CountryField extends AbstractField {
   public static final String SERIALIZED_NAME_AVAILABLE_OPTIONS = "availableOptions";
   @SerializedName(SERIALIZED_NAME_AVAILABLE_OPTIONS)
   private List<String> availableOptions = null;
 
-  public CountryField() { 
+  public CountryField() {
     this.type = this.getClass().getSimpleName();
   }
 
@@ -57,7 +44,7 @@ public class CountryField extends AbstractField {
 
   public CountryField addAvailableOptionsItem(String availableOptionsItem) {
     if (this.availableOptions == null) {
-      this.availableOptions = new ArrayList<>();
+      this.availableOptions = new ArrayList<String>();
     }
     this.availableOptions.add(availableOptionsItem);
     return this;
@@ -78,7 +65,6 @@ public class CountryField extends AbstractField {
   public void setAvailableOptions(List<String> availableOptions) {
     this.availableOptions = availableOptions;
   }
-
 
 
   @Override
@@ -120,104 +106,5 @@ public class CountryField extends AbstractField {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("description");
-    openapiFields.add("formula");
-    openapiFields.add("hidden");
-    openapiFields.add("hideIfDependencyFormula");
-    openapiFields.add("id");
-    openapiFields.add("legacyRestName");
-    openapiFields.add("mandatoryIfDependencyFormula");
-    openapiFields.add("mandatoryInStatuses");
-    openapiFields.add("name");
-    openapiFields.add("sharedFields");
-    openapiFields.add("title");
-    openapiFields.add("trackerItemField");
-    openapiFields.add("type");
-    openapiFields.add("valueModel");
-    openapiFields.add("availableOptions");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CountryField
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CountryField.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CountryField is not found in the empty JSON string", CountryField.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CountryField.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CountryField` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CountryField.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CountryField' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CountryField> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CountryField.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CountryField>() {
-           @Override
-           public void write(JsonWriter out, CountryField value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CountryField read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of CountryField given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CountryField
-  * @throws IOException if the JSON string is invalid with respect to CountryField
-  */
-  public static CountryField fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CountryField.class);
-  }
-
- /**
-  * Convert an instance of CountryField to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

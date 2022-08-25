@@ -13,25 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -40,11 +26,11 @@ import io.swagger.annotations.ApiModelProperty;
  * Reference level settings for Intelligent Table View.
  */
 @ApiModel(description = "Reference level settings for Intelligent Table View.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class ReportReferenceLevelSettings {
   public static final String SERIALIZED_NAME_COLUMNS = "columns";
   @SerializedName(SERIALIZED_NAME_COLUMNS)
-  private List<ReportColumnSettings> columns = new ArrayList<>();
+  private List<ReportColumnSettings> columns = new ArrayList<ReportColumnSettings>();
 
   public static final String SERIALIZED_NAME_DOWNSTREAM_REFERENCE = "downstreamReference";
   @SerializedName(SERIALIZED_NAME_DOWNSTREAM_REFERENCE)
@@ -66,8 +52,6 @@ public class ReportReferenceLevelSettings {
   @SerializedName(SERIALIZED_NAME_UPSTREAM_REFERENCE)
   private Boolean upstreamReference;
 
-  public ReportReferenceLevelSettings() { 
-  }
 
   public ReportReferenceLevelSettings columns(List<ReportColumnSettings> columns) {
     
@@ -152,7 +136,7 @@ public class ReportReferenceLevelSettings {
 
   public ReportReferenceLevelSettings addReferenceTrackerTypesItem(TrackerTypeReference referenceTrackerTypesItem) {
     if (this.referenceTrackerTypes == null) {
-      this.referenceTrackerTypes = new ArrayList<>();
+      this.referenceTrackerTypes = new ArrayList<TrackerTypeReference>();
     }
     this.referenceTrackerTypes.add(referenceTrackerTypesItem);
     return this;
@@ -183,7 +167,7 @@ public class ReportReferenceLevelSettings {
 
   public ReportReferenceLevelSettings addReferenceTrackersItem(TrackerReference referenceTrackersItem) {
     if (this.referenceTrackers == null) {
-      this.referenceTrackers = new ArrayList<>();
+      this.referenceTrackers = new ArrayList<TrackerReference>();
     }
     this.referenceTrackers.add(referenceTrackersItem);
     return this;
@@ -227,7 +211,6 @@ public class ReportReferenceLevelSettings {
   public void setUpstreamReference(Boolean upstreamReference) {
     this.upstreamReference = upstreamReference;
   }
-
 
 
   @Override
@@ -277,142 +260,5 @@ public class ReportReferenceLevelSettings {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("columns");
-    openapiFields.add("downstreamReference");
-    openapiFields.add("level");
-    openapiFields.add("referenceTrackerTypes");
-    openapiFields.add("referenceTrackers");
-    openapiFields.add("upstreamReference");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("columns");
-    openapiRequiredFields.add("downstreamReference");
-    openapiRequiredFields.add("level");
-    openapiRequiredFields.add("upstreamReference");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ReportReferenceLevelSettings
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ReportReferenceLevelSettings.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ReportReferenceLevelSettings is not found in the empty JSON string", ReportReferenceLevelSettings.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ReportReferenceLevelSettings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ReportReferenceLevelSettings` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ReportReferenceLevelSettings.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      JsonArray jsonArraycolumns = jsonObj.getAsJsonArray("columns");
-      if (jsonArraycolumns != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("columns").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `columns` to be an array in the JSON string but got `%s`", jsonObj.get("columns").toString()));
-        }
-
-        // validate the optional field `columns` (array)
-        for (int i = 0; i < jsonArraycolumns.size(); i++) {
-          ReportColumnSettings.validateJsonObject(jsonArraycolumns.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArrayreferenceTrackerTypes = jsonObj.getAsJsonArray("referenceTrackerTypes");
-      if (jsonArrayreferenceTrackerTypes != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("referenceTrackerTypes").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `referenceTrackerTypes` to be an array in the JSON string but got `%s`", jsonObj.get("referenceTrackerTypes").toString()));
-        }
-
-        // validate the optional field `referenceTrackerTypes` (array)
-        for (int i = 0; i < jsonArrayreferenceTrackerTypes.size(); i++) {
-          TrackerTypeReference.validateJsonObject(jsonArrayreferenceTrackerTypes.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArrayreferenceTrackers = jsonObj.getAsJsonArray("referenceTrackers");
-      if (jsonArrayreferenceTrackers != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("referenceTrackers").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `referenceTrackers` to be an array in the JSON string but got `%s`", jsonObj.get("referenceTrackers").toString()));
-        }
-
-        // validate the optional field `referenceTrackers` (array)
-        for (int i = 0; i < jsonArrayreferenceTrackers.size(); i++) {
-          TrackerReference.validateJsonObject(jsonArrayreferenceTrackers.get(i).getAsJsonObject());
-        };
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ReportReferenceLevelSettings.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ReportReferenceLevelSettings' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ReportReferenceLevelSettings> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ReportReferenceLevelSettings.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ReportReferenceLevelSettings>() {
-           @Override
-           public void write(JsonWriter out, ReportReferenceLevelSettings value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ReportReferenceLevelSettings read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ReportReferenceLevelSettings given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ReportReferenceLevelSettings
-  * @throws IOException if the JSON string is invalid with respect to ReportReferenceLevelSettings
-  */
-  public static ReportReferenceLevelSettings fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ReportReferenceLevelSettings.class);
-  }
-
- /**
-  * Convert an instance of ReportReferenceLevelSettings to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

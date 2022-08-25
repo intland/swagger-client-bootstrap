@@ -15,8 +15,8 @@ package com.intland.swagger.client.api;
 
 import java.util.List;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.DeployProject;
@@ -35,15 +35,19 @@ import com.intland.swagger.client.model.WikiOutlineSearchResult;
 /**
  * API tests for ProjectApi
  */
-@Disabled
+@Ignore
 public class ProjectApiTest {
 
     private final ProjectApi api = new ProjectApi();
 
+    
     /**
      * Create a tracker
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void createTrackerTest() throws ApiException {
@@ -51,27 +55,33 @@ public class ProjectApiTest {
         Tracker tracker = null;
         Integer templateId = null;
         Tracker response = api.createTracker(projectId, tracker, templateId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Deploy a project configuration to a Project
      *
      * The configuration file needs to be uploaded to codebeamer Documents
      *
-     * @throws ApiException if the Api call fails
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void deployConfigurationTest() throws ApiException {
         DeployProject deployProject = null;
         Project response = api.deployConfiguration(deployProject);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get all members of a project
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getMembersOfProjectTest() throws ApiException {
@@ -79,92 +89,121 @@ public class ProjectApiTest {
         Integer page = null;
         Integer pageSize = null;
         MemberReferenceSearchResult response = api.getMembersOfProject(projectId, page, pageSize);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get project
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getProjectByIdTest() throws ApiException {
         Integer projectId = null;
         Project response = api.getProjectById(projectId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get all roles the user has on a project
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getProjectRolesOfMemberTest() throws ApiException {
         Integer projectId = null;
         Integer userId = null;
         ProjectMemberPermissions response = api.getProjectRolesOfMember(projectId, userId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get projects
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getProjectsTest() throws ApiException {
         List<ProjectReference> response = api.getProjects();
+
         // TODO: test validations
     }
-
+    
     /**
      * Get wiki pages of a project
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTopLevelWikiPagesTest() throws ApiException {
         Integer projectId = null;
         WikiOutlineSearchResult response = api.getTopLevelWikiPages(projectId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get trackers
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackersTest() throws ApiException {
         Integer projectId = null;
         List<TrackerReference> response = api.getTrackers(projectId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get the list of all trackers in a project
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void searchAllTrackersInProjectTest() throws ApiException {
         Integer projectId = null;
         TrackerFilteringRequest trackerFilteringRequest = null;
         TrackerSearchResult response = api.searchAllTrackersInProject(projectId, trackerFilteringRequest);
+
         // TODO: test validations
     }
-
+    
     /**
      * Search projects by given criteria
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void searchProjectsTest() throws ApiException {
         ProjectFilteringRequest projectFilteringRequest = null;
         ProjectSearchResult response = api.searchProjects(projectFilteringRequest);
+
         // TODO: test validations
     }
-
+    
 }

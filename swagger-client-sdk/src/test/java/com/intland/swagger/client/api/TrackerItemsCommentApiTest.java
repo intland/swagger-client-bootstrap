@@ -16,8 +16,8 @@ package com.intland.swagger.client.api;
 import java.io.File;
 import java.util.List;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.Comment;
@@ -25,15 +25,19 @@ import com.intland.swagger.client.model.Comment;
 /**
  * API tests for TrackerItemsCommentApi
  */
-@Disabled
+@Ignore
 public class TrackerItemsCommentApiTest {
 
     private final TrackerItemsCommentApi api = new TrackerItemsCommentApi();
 
+    
     /**
      * Comment on a tracker item
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void commentOnTrackerItemTest() throws ApiException {
@@ -42,38 +46,50 @@ public class TrackerItemsCommentApiTest {
         File attachments = null;
         String commentFormat = null;
         Comment response = api.commentOnTrackerItem(itemId, comment, attachments, commentFormat);
+
         // TODO: test validations
     }
-
+    
     /**
      * Delete comment of tracker item by id
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void deleteTrackerItemCommentTest() throws ApiException {
         Integer itemId = null;
         Integer commentId = null;
         Comment response = api.deleteTrackerItemComment(itemId, commentId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Delete comments of tracker item by item id
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void deleteTrackerItemCommentsTest() throws ApiException {
         Integer itemId = null;
         api.deleteTrackerItemComments(itemId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Edit comment on a tracker item
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void editCommentOnTrackerItemTest() throws ApiException {
@@ -83,38 +99,50 @@ public class TrackerItemsCommentApiTest {
         File attachments = null;
         String commentFormat = null;
         Comment response = api.editCommentOnTrackerItem(itemId, commentId, comment, attachments, commentFormat);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get comment of tracker item by id
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerItemCommentTest() throws ApiException {
         Integer itemId = null;
         Integer commentId = null;
         Comment response = api.getTrackerItemComment(itemId, commentId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get comments of tracker item
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerItemCommentsTest() throws ApiException {
         Integer itemId = null;
         List<Comment> response = api.getTrackerItemComments(itemId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Reply on a comment of a tracker item
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void replyOnCommentOfTrackerItemTest() throws ApiException {
@@ -124,7 +152,8 @@ public class TrackerItemsCommentApiTest {
         File attachments = null;
         String commentFormat = null;
         Comment response = api.replyOnCommentOfTrackerItem(itemId, commentId, comment, attachments, commentFormat);
+
         // TODO: test validations
     }
-
+    
 }

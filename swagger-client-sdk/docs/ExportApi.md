@@ -2,11 +2,11 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**batchGetTrackerItemReviews**](ExportApi.md#batchGetTrackerItemReviews) | **POST** /v3/export/tracker-item-reviews | Get tracker item reviews by a list of tracker item IDs |
-| [**export**](ExportApi.md#export) | **POST** /v3/projects/{projectId}/content | Exports the specified project to a zip file |
-| [**getTrackerItems**](ExportApi.md#getTrackerItems) | **POST** /v3/export/items | Get tracker items |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**batchGetTrackerItemReviews**](ExportApi.md#batchGetTrackerItemReviews) | **POST** /v3/export/tracker-item-reviews | Get tracker item reviews by a list of tracker item IDs
+[**export**](ExportApi.md#export) | **POST** /v3/projects/{projectId}/content | Exports the specified project to a zip file
+[**getTrackerItems**](ExportApi.md#getTrackerItems) | **POST** /v3/export/items | Get tracker items
 
 
 <a name="batchGetTrackerItemReviews"></a>
@@ -63,9 +63,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **batchGetTrackerItemReviewsRequest** | [**BatchGetTrackerItemReviewsRequest**](BatchGetTrackerItemReviewsRequest.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batchGetTrackerItemReviewsRequest** | [**BatchGetTrackerItemReviewsRequest**](BatchGetTrackerItemReviewsRequest.md)|  |
 
 ### Return type
 
@@ -83,12 +83,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of tracker item reviews for each tracker item |  -  |
-| **400** | Request cannot be processed |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Tracker item reviews are disabled, or access to them is denied |  -  |
-| **404** | There is no baseline accessible with the supplied ID |  -  |
-| **429** | Too many requests |  -  |
+**200** | List of tracker item reviews for each tracker item |  -  |
+**400** | Request cannot be processed |  -  |
+**401** | Authentication is required |  -  |
+**403** | Tracker item reviews are disabled, or access to them is denied |  -  |
+**404** | There is no baseline accessible with the supplied ID |  -  |
+**429** | Too many requests |  -  |
 
 <a name="export"></a>
 # **export**
@@ -145,10 +145,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **projectId** | **Integer**|  | |
-| **exportProject** | [**ExportProject**](ExportProject.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectId** | **Integer**|  |
+ **exportProject** | [**ExportProject**](ExportProject.md)|  |
 
 ### Return type
 
@@ -166,12 +166,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The exported project contents in a zip file. |  -  |
-| **400** | Bad request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Project not found |  -  |
-| **429** | Too many requests |  -  |
-| **500** | Error during the project export |  -  |
+**200** | The exported project contents in a zip file. |  -  |
+**400** | Bad request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Project not found |  -  |
+**429** | Too many requests |  -  |
+**500** | Error during the project export |  -  |
 
 <a name="getTrackerItems"></a>
 # **getTrackerItems**
@@ -230,10 +230,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerItemsRequest** | [**TrackerItemsRequest**](TrackerItemsRequest.md)|  | |
-| **baselineId** | **Integer**|  | [optional] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerItemsRequest** | [**TrackerItemsRequest**](TrackerItemsRequest.md)|  |
+ **baselineId** | **Integer**|  | [optional]
 
 ### Return type
 
@@ -251,9 +251,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tracker item list |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Tracker item list |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 

@@ -13,25 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -40,14 +26,12 @@ import io.swagger.annotations.ApiModelProperty;
  * Tracker item child update request
  */
 @ApiModel(description = "Tracker item child update request")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class UpdateTrackerItemChildrenRequest {
   public static final String SERIALIZED_NAME_CHILDREN = "children";
   @SerializedName(SERIALIZED_NAME_CHILDREN)
   private List<TrackerItemReference> children = null;
 
-  public UpdateTrackerItemChildrenRequest() { 
-  }
 
   public UpdateTrackerItemChildrenRequest children(List<TrackerItemReference> children) {
     
@@ -57,7 +41,7 @@ public class UpdateTrackerItemChildrenRequest {
 
   public UpdateTrackerItemChildrenRequest addChildrenItem(TrackerItemReference childrenItem) {
     if (this.children == null) {
-      this.children = new ArrayList<>();
+      this.children = new ArrayList<TrackerItemReference>();
     }
     this.children.add(childrenItem);
     return this;
@@ -78,7 +62,6 @@ public class UpdateTrackerItemChildrenRequest {
   public void setChildren(List<TrackerItemReference> children) {
     this.children = children;
   }
-
 
 
   @Override
@@ -118,102 +101,5 @@ public class UpdateTrackerItemChildrenRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("children");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to UpdateTrackerItemChildrenRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (UpdateTrackerItemChildrenRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateTrackerItemChildrenRequest is not found in the empty JSON string", UpdateTrackerItemChildrenRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!UpdateTrackerItemChildrenRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateTrackerItemChildrenRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      JsonArray jsonArraychildren = jsonObj.getAsJsonArray("children");
-      if (jsonArraychildren != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("children").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `children` to be an array in the JSON string but got `%s`", jsonObj.get("children").toString()));
-        }
-
-        // validate the optional field `children` (array)
-        for (int i = 0; i < jsonArraychildren.size(); i++) {
-          TrackerItemReference.validateJsonObject(jsonArraychildren.get(i).getAsJsonObject());
-        };
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UpdateTrackerItemChildrenRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UpdateTrackerItemChildrenRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UpdateTrackerItemChildrenRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateTrackerItemChildrenRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<UpdateTrackerItemChildrenRequest>() {
-           @Override
-           public void write(JsonWriter out, UpdateTrackerItemChildrenRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public UpdateTrackerItemChildrenRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of UpdateTrackerItemChildrenRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of UpdateTrackerItemChildrenRequest
-  * @throws IOException if the JSON string is invalid with respect to UpdateTrackerItemChildrenRequest
-  */
-  public static UpdateTrackerItemChildrenRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UpdateTrackerItemChildrenRequest.class);
-  }
-
- /**
-  * Convert an instance of UpdateTrackerItemChildrenRequest to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

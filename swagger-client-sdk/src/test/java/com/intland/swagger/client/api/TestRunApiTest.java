@@ -13,8 +13,8 @@
 
 package com.intland.swagger.client.api;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.AutomatedTestRunRequest;
@@ -27,65 +27,78 @@ import com.intland.swagger.client.model.UpdateTestRunRequest;
 /**
  * API tests for TestRunApi
  */
-@Disabled
+@Ignore
 public class TestRunApiTest {
 
     private final TestRunApi api = new TestRunApi();
 
+    
     /**
      * Create a new test run for test cases or test sets
      *
      * For multiple test sets please use trackers/{testRunTrackerId}/testruns/generatefromtestset endpoint.
      *
-     * @throws ApiException if the Api call fails
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void createTestRunForTestCaseTest() throws ApiException {
         Integer testRunTrackerId = null;
         CreateTestRunRequest createTestRunRequest = null;
         TrackerItem response = api.createTestRunForTestCase(testRunTrackerId, createTestRunRequest);
+
         // TODO: test validations
     }
-
+    
     /**
      * Create a new test run for test cases or test sets
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void createTestRunForTestSetsTest() throws ApiException {
         Integer testRunTrackerId = null;
         CreateTestRunFromTestSetsRequest createTestRunFromTestSetsRequest = null;
         TestRunResult response = api.createTestRunForTestSets(testRunTrackerId, createTestRunFromTestSetsRequest);
+
         // TODO: test validations
     }
-
+    
     /**
      * Update result of a Test Run. 
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void updateTestRunResultTest() throws ApiException {
         Integer testRunId = null;
         UpdateTestRunRequest updateTestRunRequest = null;
         TrackerItem response = api.updateTestRunResult(testRunId, updateTestRunRequest);
+
         // TODO: test validations
     }
-
+    
     /**
      * Create a new test run for large number of automated test cases
      *
      * Upload large amount of automated test case run results into a single test run. This process may take a while, please check your proxy settings to prevent timeout.
      *
-     * @throws ApiException if the Api call fails
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void uploadAutomatedTestResultsTest() throws ApiException {
         Integer testRunTrackerId = null;
         AutomatedTestRunRequest automatedTestRunRequest = null;
         TrackerItem response = api.uploadAutomatedTestResults(testRunTrackerId, automatedTestRunRequest);
+
         // TODO: test validations
     }
-
+    
 }

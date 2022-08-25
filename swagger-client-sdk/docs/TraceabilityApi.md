@@ -2,10 +2,10 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**getTraceabilityInitialItemIds**](TraceabilityApi.md#getTraceabilityInitialItemIds) | **POST** /v3/traceability/items | Get initial ids |
-| [**getTraceabilityLevelItemIds**](TraceabilityApi.md#getTraceabilityLevelItemIds) | **POST** /v3/traceability/relations | Get traceability level item ids |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**getTraceabilityInitialItemIds**](TraceabilityApi.md#getTraceabilityInitialItemIds) | **POST** /v3/traceability/items | Get initial ids
+[**getTraceabilityLevelItemIds**](TraceabilityApi.md#getTraceabilityLevelItemIds) | **POST** /v3/traceability/relations | Get traceability level item ids
 
 
 <a name="getTraceabilityInitialItemIds"></a>
@@ -66,11 +66,11 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **traceabilityInitialLevelFilter** | [**TraceabilityInitialLevelFilter**](TraceabilityInitialLevelFilter.md)|  | |
-| **pageSize** | **Integer**| Number of items in a result page. | [optional] |
-| **pageNo** | **Integer**| Index of the result page. | [optional] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **traceabilityInitialLevelFilter** | [**TraceabilityInitialLevelFilter**](TraceabilityInitialLevelFilter.md)|  |
+ **pageSize** | **Integer**| Number of items in a result page. | [optional]
+ **pageNo** | **Integer**| Index of the result page. | [optional]
 
 ### Return type
 
@@ -88,11 +88,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tracker item list |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Tracker item list |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTraceabilityLevelItemIds"></a>
 # **getTraceabilityLevelItemIds**
@@ -152,11 +152,11 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **traceabilityLevelFilter** | [**TraceabilityLevelFilter**](TraceabilityLevelFilter.md)|  | |
-| **itemsOnLevel** | **Integer**| Number of items per level. | [optional] |
-| **itemsFromPreviousItem** | **Integer**| Number of items per item. | [optional] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **traceabilityLevelFilter** | [**TraceabilityLevelFilter**](TraceabilityLevelFilter.md)|  |
+ **itemsOnLevel** | **Integer**| Number of items per level. | [optional]
+ **itemsFromPreviousItem** | **Integer**| Number of items per item. | [optional]
 
 ### Return type
 
@@ -174,8 +174,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Traceability items list |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **429** | Too many requests |  -  |
+**200** | Traceability items list |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 

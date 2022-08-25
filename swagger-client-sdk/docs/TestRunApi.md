@@ -2,12 +2,12 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**createTestRunForTestCase**](TestRunApi.md#createTestRunForTestCase) | **POST** /v3/trackers/{testRunTrackerId}/testruns | Create a new test run for test cases or test sets |
-| [**createTestRunForTestSets**](TestRunApi.md#createTestRunForTestSets) | **POST** /v3/trackers/{testRunTrackerId}/testruns/generatefromtestset | Create a new test run for test cases or test sets |
-| [**updateTestRunResult**](TestRunApi.md#updateTestRunResult) | **PUT** /v3/testruns/{testRunId} | Update result of a Test Run.  |
-| [**uploadAutomatedTestResults**](TestRunApi.md#uploadAutomatedTestResults) | **POST** /v3/trackers/{testRunTrackerId}/automatedtestruns | Create a new test run for large number of automated test cases |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**createTestRunForTestCase**](TestRunApi.md#createTestRunForTestCase) | **POST** /v3/trackers/{testRunTrackerId}/testruns | Create a new test run for test cases or test sets
+[**createTestRunForTestSets**](TestRunApi.md#createTestRunForTestSets) | **POST** /v3/trackers/{testRunTrackerId}/testruns/generatefromtestset | Create a new test run for test cases or test sets
+[**updateTestRunResult**](TestRunApi.md#updateTestRunResult) | **PUT** /v3/testruns/{testRunId} | Update result of a Test Run. 
+[**uploadAutomatedTestResults**](TestRunApi.md#uploadAutomatedTestResults) | **POST** /v3/trackers/{testRunTrackerId}/automatedtestruns | Create a new test run for large number of automated test cases
 
 
 <a name="createTestRunForTestCase"></a>
@@ -67,10 +67,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **testRunTrackerId** | **Integer**|  | |
-| **createTestRunRequest** | [**CreateTestRunRequest**](CreateTestRunRequest.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **testRunTrackerId** | **Integer**|  |
+ **createTestRunRequest** | [**CreateTestRunRequest**](CreateTestRunRequest.md)|  |
 
 ### Return type
 
@@ -88,13 +88,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The newly created test run |  -  |
-| **400** | Bad request |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Authorization is required |  -  |
-| **404** | Tracker is not found |  -  |
-| **429** | Too many requests |  -  |
-| **500** | Internal server error |  -  |
+**200** | The newly created test run |  -  |
+**400** | Bad request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authorization is required |  -  |
+**404** | Tracker is not found |  -  |
+**429** | Too many requests |  -  |
+**500** | Internal server error |  -  |
 
 <a name="createTestRunForTestSets"></a>
 # **createTestRunForTestSets**
@@ -151,10 +151,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **testRunTrackerId** | **Integer**|  | |
-| **createTestRunFromTestSetsRequest** | [**CreateTestRunFromTestSetsRequest**](CreateTestRunFromTestSetsRequest.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **testRunTrackerId** | **Integer**|  |
+ **createTestRunFromTestSetsRequest** | [**CreateTestRunFromTestSetsRequest**](CreateTestRunFromTestSetsRequest.md)|  |
 
 ### Return type
 
@@ -172,13 +172,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The newly created test run |  -  |
-| **400** | Bad request |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Authorization is required |  -  |
-| **404** | Tracker is not found |  -  |
-| **429** | Too many requests |  -  |
-| **500** | Internal server error |  -  |
+**200** | The newly created test run |  -  |
+**400** | Bad request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authorization is required |  -  |
+**404** | Tracker is not found |  -  |
+**429** | Too many requests |  -  |
+**500** | Internal server error |  -  |
 
 <a name="updateTestRunResult"></a>
 # **updateTestRunResult**
@@ -235,10 +235,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **testRunId** | **Integer**|  | |
-| **updateTestRunRequest** | [**UpdateTestRunRequest**](UpdateTestRunRequest.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **testRunId** | **Integer**|  |
+ **updateTestRunRequest** | [**UpdateTestRunRequest**](UpdateTestRunRequest.md)|  |
 
 ### Return type
 
@@ -256,13 +256,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Updated Test Run item |  -  |
-| **400** | Request cannot be processed |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Access denied |  -  |
-| **404** | Test run not found |  -  |
-| **423** | Tracker item is locked |  -  |
-| **429** | Too many requests |  -  |
+**200** | Updated Test Run item |  -  |
+**400** | Request cannot be processed |  -  |
+**401** | Authentication is required |  -  |
+**403** | Access denied |  -  |
+**404** | Test run not found |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
 
 <a name="uploadAutomatedTestResults"></a>
 # **uploadAutomatedTestResults**
@@ -321,10 +321,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **testRunTrackerId** | **Integer**|  | |
-| **automatedTestRunRequest** | [**AutomatedTestRunRequest**](AutomatedTestRunRequest.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **testRunTrackerId** | **Integer**|  |
+ **automatedTestRunRequest** | [**AutomatedTestRunRequest**](AutomatedTestRunRequest.md)|  |
 
 ### Return type
 
@@ -342,10 +342,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The newly created test run |  -  |
-| **400** | Bad request |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Authorization is required |  -  |
-| **429** | Too many requests |  -  |
-| **500** | Internal server error |  -  |
+**200** | The newly created test run |  -  |
+**400** | Bad request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authorization is required |  -  |
+**429** | Too many requests |  -  |
+**500** | Internal server error |  -  |
 

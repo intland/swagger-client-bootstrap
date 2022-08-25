@@ -15,8 +15,8 @@ package com.intland.swagger.client.api;
 
 import java.util.List;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.AutoApplyTestStepReuses;
@@ -25,21 +25,26 @@ import com.intland.swagger.client.model.TrackerItemReference;
 /**
  * API tests for TestManagementApi
  */
-@Disabled
+@Ignore
 public class TestManagementApiTest {
 
     private final TestManagementApi api = new TestManagementApi();
 
+    
     /**
      * Find duplicate TestSteps in a set of TestCases and converting duplicates to Reuses
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void autoApplyStepReusesTest() throws ApiException {
         AutoApplyTestStepReuses autoApplyTestStepReuses = null;
         List<TrackerItemReference> response = api.autoApplyStepReuses(autoApplyTestStepReuses);
+
         // TODO: test validations
     }
-
+    
 }

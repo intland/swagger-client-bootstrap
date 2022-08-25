@@ -13,8 +13,8 @@
 
 package com.intland.swagger.client.api;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.Baseline;
@@ -23,21 +23,26 @@ import com.intland.swagger.client.model.CreateBaselineRequest;
 /**
  * API tests for BaselineApi
  */
-@Disabled
+@Ignore
 public class BaselineApiTest {
 
     private final BaselineApi api = new BaselineApi();
 
+    
     /**
      * Create a project or tracker baseline
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void createBaselineTest() throws ApiException {
         CreateBaselineRequest createBaselineRequest = null;
         Baseline response = api.createBaseline(createBaselineRequest);
+
         // TODO: test validations
     }
-
+    
 }

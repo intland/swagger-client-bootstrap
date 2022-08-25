@@ -6,8 +6,8 @@ Bool field
 
 ## Properties
 
-| Name | Type | Description | Notes |
-|------------ | ------------- | ------------- | -------------|
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
 
 
 

@@ -16,8 +16,8 @@ package com.intland.swagger.client.api;
 import java.io.File;
 import java.util.List;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.AbstractField;
@@ -36,27 +36,35 @@ import com.intland.swagger.client.model.WorkflowTransition;
 /**
  * API tests for TrackerApi
  */
-@Disabled
+@Ignore
 public class TrackerApiTest {
 
     private final TrackerApi api = new TrackerApi();
 
+    
     /**
      * Deletes a tracker
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void deleteTrackerTest() throws ApiException {
         Integer trackerId = null;
         api.deleteTracker(trackerId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get option of a choice field of tracker
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getChoiceOptionTest() throws ApiException {
@@ -64,13 +72,17 @@ public class TrackerApiTest {
         Integer fieldId = null;
         Integer optionId = null;
         ChoiceOptionReference response = api.getChoiceOption(trackerId, fieldId, optionId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get items in a specific tracker
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getItemsByTrackerTest() throws ApiException {
@@ -78,50 +90,66 @@ public class TrackerApiTest {
         Integer page = null;
         Integer pageSize = null;
         TrackerItemReferenceSearchResult response = api.getItemsByTracker(trackerId, page, pageSize);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get tracker
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerTest() throws ApiException {
         Integer trackerId = null;
         Tracker response = api.getTracker(trackerId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get baselines of a specific tracker
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerBaselinesTest() throws ApiException {
         Integer trackerId = null;
         ReferenceSearchResult response = api.getTrackerBaselines(trackerId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get field of tracker
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerFieldTest() throws ApiException {
         Integer trackerId = null;
         Integer fieldId = null;
         AbstractField response = api.getTrackerField(trackerId, fieldId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get permissions of tracker field
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerFieldPermissionsTest() throws ApiException {
@@ -129,38 +157,50 @@ public class TrackerApiTest {
         Integer fieldId = null;
         Integer statusId = null;
         List<TrackerFieldStatusPermissions> response = api.getTrackerFieldPermissions(trackerId, fieldId, statusId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get fields of tracker
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerFieldsTest() throws ApiException {
         Integer trackerId = null;
         List<FieldReference> response = api.getTrackerFields(trackerId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get permissions of all fields of a tracker
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerFieldsPermissionsTest() throws ApiException {
         Integer trackerId = null;
         Integer statusId = null;
         TrackerFieldsStatusPermissions response = api.getTrackerFieldsPermissions(trackerId, statusId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get outline of a specific tracker
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerOutlineTest() throws ApiException {
@@ -168,82 +208,107 @@ public class TrackerApiTest {
         Integer parentItemId = null;
         Integer resultDepthFilter = null;
         OutlineItemSearchResult response = api.getTrackerOutline(trackerId, parentItemId, resultDepthFilter);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get the schema of a tracker
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerSchemaTest() throws ApiException {
         Integer trackerId = null;
         List<AbstractField> response = api.getTrackerSchema(trackerId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get all transitions of a specific tracker
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerTransitionsTest() throws ApiException {
         Integer trackerId = null;
         Integer fromStatusId = null;
         List<WorkflowTransition> response = api.getTrackerTransitions(trackerId, fromStatusId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get the immutable definition of a tracker type
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerTypeTest() throws ApiException {
         Integer trackerTypeId = null;
         TrackerType response = api.getTrackerType(trackerTypeId);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get the list of tracker types
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerTypesTest() throws ApiException {
         String outline = null;
         List<TrackerTypeReference> response = api.getTrackerTypes(outline);
+
         // TODO: test validations
     }
-
+    
     /**
      * Updates a specific tracker
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void updateTrackerTest() throws ApiException {
         Integer trackerId = null;
         Tracker tracker = null;
         Tracker response = api.updateTracker(trackerId, tracker);
+
         // TODO: test validations
     }
-
+    
     /**
      * Upload a tracker icon
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void updateTrackerIconTest() throws ApiException {
         Integer trackerId = null;
         File icon = null;
         api.updateTrackerIcon(trackerId, icon);
+
         // TODO: test validations
     }
-
+    
 }

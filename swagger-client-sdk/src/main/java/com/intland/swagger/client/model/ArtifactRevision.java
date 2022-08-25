@@ -13,23 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
-import java.time.OffsetDateTime;
-import java.util.HashSet;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import org.threeten.bp.OffsetDateTime;
+
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -38,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Model for a specific version of an artifact
  */
 @ApiModel(description = "Model for a specific version of an artifact")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class ArtifactRevision {
   public static final String SERIALIZED_NAME_CHANGE_SUMMARY = "changeSummary";
   @SerializedName(SERIALIZED_NAME_CHANGE_SUMMARY)
@@ -60,8 +48,6 @@ public class ArtifactRevision {
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Integer version;
 
-  public ArtifactRevision() { 
-  }
 
   public ArtifactRevision changeSummary(String changeSummary) {
     
@@ -179,7 +165,6 @@ public class ArtifactRevision {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -225,101 +210,5 @@ public class ArtifactRevision {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("changeSummary");
-    openapiFields.add("id");
-    openapiFields.add("modifiedAt");
-    openapiFields.add("modifiedBy");
-    openapiFields.add("version");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ArtifactRevision
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ArtifactRevision.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ArtifactRevision is not found in the empty JSON string", ArtifactRevision.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ArtifactRevision.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ArtifactRevision` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      if (jsonObj.get("changeSummary") != null && !jsonObj.get("changeSummary").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `changeSummary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("changeSummary").toString()));
-      }
-      // validate the optional field `modifiedBy`
-      if (jsonObj.getAsJsonObject("modifiedBy") != null) {
-        UserReference.validateJsonObject(jsonObj.getAsJsonObject("modifiedBy"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ArtifactRevision.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ArtifactRevision' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ArtifactRevision> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ArtifactRevision.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ArtifactRevision>() {
-           @Override
-           public void write(JsonWriter out, ArtifactRevision value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ArtifactRevision read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ArtifactRevision given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ArtifactRevision
-  * @throws IOException if the JSON string is invalid with respect to ArtifactRevision
-  */
-  public static ArtifactRevision fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ArtifactRevision.class);
-  }
-
- /**
-  * Convert an instance of ArtifactRevision to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

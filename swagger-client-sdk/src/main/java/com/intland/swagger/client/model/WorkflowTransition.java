@@ -15,24 +15,14 @@ package com.intland.swagger.client.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -41,7 +31,7 @@ import io.swagger.annotations.ApiModelProperty;
  * A transition in the workflow
  */
 @ApiModel(description = "A transition in the workflow")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class WorkflowTransition {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -124,8 +114,6 @@ public class WorkflowTransition {
   @SerializedName(SERIALIZED_NAME_TO_STATUS)
   private ChoiceOptionReference toStatus;
 
-  public WorkflowTransition() { 
-  }
 
   public WorkflowTransition description(String description) {
     
@@ -274,7 +262,7 @@ public class WorkflowTransition {
 
   public WorkflowTransition addPermissionsItem(AccessPermission permissionsItem) {
     if (this.permissions == null) {
-      this.permissions = new ArrayList<>();
+      this.permissions = new ArrayList<AccessPermission>();
     }
     this.permissions.add(permissionsItem);
     return this;
@@ -318,7 +306,6 @@ public class WorkflowTransition {
   public void setToStatus(ChoiceOptionReference toStatus) {
     this.toStatus = toStatus;
   }
-
 
 
   @Override
@@ -372,134 +359,5 @@ public class WorkflowTransition {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("description");
-    openapiFields.add("descriptionFormat");
-    openapiFields.add("fromStatus");
-    openapiFields.add("hidden");
-    openapiFields.add("id");
-    openapiFields.add("name");
-    openapiFields.add("permissions");
-    openapiFields.add("toStatus");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("toStatus");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WorkflowTransition
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (WorkflowTransition.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WorkflowTransition is not found in the empty JSON string", WorkflowTransition.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!WorkflowTransition.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkflowTransition` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WorkflowTransition.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if (jsonObj.get("descriptionFormat") != null && !jsonObj.get("descriptionFormat").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `descriptionFormat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("descriptionFormat").toString()));
-      }
-      // validate the optional field `fromStatus`
-      if (jsonObj.getAsJsonObject("fromStatus") != null) {
-        ChoiceOptionReference.validateJsonObject(jsonObj.getAsJsonObject("fromStatus"));
-      }
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      JsonArray jsonArraypermissions = jsonObj.getAsJsonArray("permissions");
-      if (jsonArraypermissions != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("permissions").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `permissions` to be an array in the JSON string but got `%s`", jsonObj.get("permissions").toString()));
-        }
-
-        // validate the optional field `permissions` (array)
-        for (int i = 0; i < jsonArraypermissions.size(); i++) {
-          AccessPermission.validateJsonObject(jsonArraypermissions.get(i).getAsJsonObject());
-        };
-      }
-      // validate the optional field `toStatus`
-      if (jsonObj.getAsJsonObject("toStatus") != null) {
-        ChoiceOptionReference.validateJsonObject(jsonObj.getAsJsonObject("toStatus"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WorkflowTransition.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WorkflowTransition' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WorkflowTransition> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WorkflowTransition.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WorkflowTransition>() {
-           @Override
-           public void write(JsonWriter out, WorkflowTransition value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public WorkflowTransition read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of WorkflowTransition given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of WorkflowTransition
-  * @throws IOException if the JSON string is invalid with respect to WorkflowTransition
-  */
-  public static WorkflowTransition fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WorkflowTransition.class);
-  }
-
- /**
-  * Convert an instance of WorkflowTransition to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

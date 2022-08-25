@@ -13,7 +13,7 @@
 
 package com.intland.swagger.client.model;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 
 /**

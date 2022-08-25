@@ -13,25 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -40,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Update fields of a tracker item and provide the itemId as well
  */
 @ApiModel(description = "Update fields of a tracker item and provide the itemId as well")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class UpdateTrackerItemFieldWithItemId {
   public static final String SERIALIZED_NAME_FIELD_VALUES = "fieldValues";
   @SerializedName(SERIALIZED_NAME_FIELD_VALUES)
@@ -54,8 +40,6 @@ public class UpdateTrackerItemFieldWithItemId {
   @SerializedName(SERIALIZED_NAME_TABLE_VALUES)
   private List<TableFieldValue> tableValues = null;
 
-  public UpdateTrackerItemFieldWithItemId() { 
-  }
 
   public UpdateTrackerItemFieldWithItemId fieldValues(List<AbstractFieldValue> fieldValues) {
     
@@ -65,7 +49,7 @@ public class UpdateTrackerItemFieldWithItemId {
 
   public UpdateTrackerItemFieldWithItemId addFieldValuesItem(AbstractFieldValue fieldValuesItem) {
     if (this.fieldValues == null) {
-      this.fieldValues = new ArrayList<>();
+      this.fieldValues = new ArrayList<AbstractFieldValue>();
     }
     this.fieldValues.add(fieldValuesItem);
     return this;
@@ -119,7 +103,7 @@ public class UpdateTrackerItemFieldWithItemId {
 
   public UpdateTrackerItemFieldWithItemId addTableValuesItem(TableFieldValue tableValuesItem) {
     if (this.tableValues == null) {
-      this.tableValues = new ArrayList<>();
+      this.tableValues = new ArrayList<TableFieldValue>();
     }
     this.tableValues.add(tableValuesItem);
     return this;
@@ -140,7 +124,6 @@ public class UpdateTrackerItemFieldWithItemId {
   public void setTableValues(List<TableFieldValue> tableValues) {
     this.tableValues = tableValues;
   }
-
 
 
   @Override
@@ -184,116 +167,5 @@ public class UpdateTrackerItemFieldWithItemId {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("fieldValues");
-    openapiFields.add("itemId");
-    openapiFields.add("tableValues");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to UpdateTrackerItemFieldWithItemId
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (UpdateTrackerItemFieldWithItemId.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateTrackerItemFieldWithItemId is not found in the empty JSON string", UpdateTrackerItemFieldWithItemId.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!UpdateTrackerItemFieldWithItemId.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateTrackerItemFieldWithItemId` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      JsonArray jsonArrayfieldValues = jsonObj.getAsJsonArray("fieldValues");
-      if (jsonArrayfieldValues != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("fieldValues").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `fieldValues` to be an array in the JSON string but got `%s`", jsonObj.get("fieldValues").toString()));
-        }
-
-        // validate the optional field `fieldValues` (array)
-        for (int i = 0; i < jsonArrayfieldValues.size(); i++) {
-          AbstractFieldValue.validateJsonObject(jsonArrayfieldValues.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArraytableValues = jsonObj.getAsJsonArray("tableValues");
-      if (jsonArraytableValues != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("tableValues").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `tableValues` to be an array in the JSON string but got `%s`", jsonObj.get("tableValues").toString()));
-        }
-
-        // validate the optional field `tableValues` (array)
-        for (int i = 0; i < jsonArraytableValues.size(); i++) {
-          TableFieldValue.validateJsonObject(jsonArraytableValues.get(i).getAsJsonObject());
-        };
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UpdateTrackerItemFieldWithItemId.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UpdateTrackerItemFieldWithItemId' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UpdateTrackerItemFieldWithItemId> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateTrackerItemFieldWithItemId.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<UpdateTrackerItemFieldWithItemId>() {
-           @Override
-           public void write(JsonWriter out, UpdateTrackerItemFieldWithItemId value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public UpdateTrackerItemFieldWithItemId read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of UpdateTrackerItemFieldWithItemId given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of UpdateTrackerItemFieldWithItemId
-  * @throws IOException if the JSON string is invalid with respect to UpdateTrackerItemFieldWithItemId
-  */
-  public static UpdateTrackerItemFieldWithItemId fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UpdateTrackerItemFieldWithItemId.class);
-  }
-
- /**
-  * Convert an instance of UpdateTrackerItemFieldWithItemId to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

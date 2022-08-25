@@ -13,15 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 
-import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Request model for multiple items.
  */
 @ApiModel(description = "Request model for multiple items.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class TrackerItemsRequest {
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
@@ -40,7 +36,7 @@ public class TrackerItemsRequest {
   @SerializedName(SERIALIZED_NAME_TYPE)
   protected String type;
 
-  public TrackerItemsRequest() { 
+  public TrackerItemsRequest() {
     this.type = this.getClass().getSimpleName();
   }
 
@@ -52,7 +48,7 @@ public class TrackerItemsRequest {
 
   public TrackerItemsRequest addItemsItem(TrackerItemReference itemsItem) {
     if (this.items == null) {
-      this.items = new ArrayList<>();
+      this.items = new ArrayList<TrackerItemReference>();
     }
     this.items.add(itemsItem);
     return this;
@@ -98,7 +94,6 @@ public class TrackerItemsRequest {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -138,64 +133,5 @@ public class TrackerItemsRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("items");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TrackerItemsRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TrackerItemsRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TrackerItemsRequest is not found in the empty JSON string", TrackerItemsRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      String discriminatorValue = jsonObj.get("type").getAsString();
-      switch (discriminatorValue) {
-        case "TrackerItemAttachmentRequest":
-          TrackerItemAttachmentRequest.validateJsonObject(jsonObj);
-          break;
-        default: 
-          throw new IllegalArgumentException(String.format("The value of the `type` field `%s` does not match any key defined in the discriminator's mapping.", discriminatorValue));
-      }
-  }
-
-
- /**
-  * Create an instance of TrackerItemsRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TrackerItemsRequest
-  * @throws IOException if the JSON string is invalid with respect to TrackerItemsRequest
-  */
-  public static TrackerItemsRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TrackerItemsRequest.class);
-  }
-
- /**
-  * Convert an instance of TrackerItemsRequest to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

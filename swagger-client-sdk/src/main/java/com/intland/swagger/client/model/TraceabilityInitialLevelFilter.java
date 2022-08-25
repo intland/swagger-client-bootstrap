@@ -13,23 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
-import java.time.OffsetDateTime;
-import java.util.HashSet;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import org.threeten.bp.OffsetDateTime;
+
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -38,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Settings to filter items
  */
 @ApiModel(description = "Settings to filter items")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class TraceabilityInitialLevelFilter {
   public static final String SERIALIZED_NAME_CB_Q_L = "cbQL";
   @SerializedName(SERIALIZED_NAME_CB_Q_L)
@@ -60,8 +48,6 @@ public class TraceabilityInitialLevelFilter {
   @SerializedName(SERIALIZED_NAME_SHOW_DESCENDANT_ITEMS)
   private Boolean showDescendantItems = false;
 
-  public TraceabilityInitialLevelFilter() { 
-  }
 
   public TraceabilityInitialLevelFilter cbQL(String cbQL) {
     
@@ -178,7 +164,6 @@ public class TraceabilityInitialLevelFilter {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -224,105 +209,5 @@ public class TraceabilityInitialLevelFilter {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("cbQL");
-    openapiFields.add("historyBaselineId");
-    openapiFields.add("historyDate");
-    openapiFields.add("showAncestorItems");
-    openapiFields.add("showDescendantItems");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("cbQL");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TraceabilityInitialLevelFilter
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TraceabilityInitialLevelFilter.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TraceabilityInitialLevelFilter is not found in the empty JSON string", TraceabilityInitialLevelFilter.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TraceabilityInitialLevelFilter.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TraceabilityInitialLevelFilter` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TraceabilityInitialLevelFilter.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (jsonObj.get("cbQL") != null && !jsonObj.get("cbQL").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cbQL` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cbQL").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TraceabilityInitialLevelFilter.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TraceabilityInitialLevelFilter' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TraceabilityInitialLevelFilter> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TraceabilityInitialLevelFilter.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TraceabilityInitialLevelFilter>() {
-           @Override
-           public void write(JsonWriter out, TraceabilityInitialLevelFilter value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TraceabilityInitialLevelFilter read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TraceabilityInitialLevelFilter given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TraceabilityInitialLevelFilter
-  * @throws IOException if the JSON string is invalid with respect to TraceabilityInitialLevelFilter
-  */
-  public static TraceabilityInitialLevelFilter fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TraceabilityInitialLevelFilter.class);
-  }
-
- /**
-  * Convert an instance of TraceabilityInitialLevelFilter to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

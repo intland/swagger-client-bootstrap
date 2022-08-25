@@ -16,8 +16,8 @@ package com.intland.swagger.client.api;
 import java.io.File;
 import java.util.List;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.Attachment;
@@ -26,15 +26,19 @@ import com.intland.swagger.client.model.AttachmentReference;
 /**
  * API tests for WikisCommentApi
  */
-@Disabled
+@Ignore
 public class WikisCommentApiTest {
 
     private final WikisCommentApi api = new WikisCommentApi();
 
+    
     /**
      * Comment on a wiki page
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void commentOnWikiTest() throws ApiException {
@@ -43,20 +47,25 @@ public class WikisCommentApiTest {
         File attachments = null;
         String commentFormat = null;
         List<AttachmentReference> response = api.commentOnWiki(wikiId, comment, attachments, commentFormat);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get attachment of wiki page by file name
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getAttachmentByNameTest() throws ApiException {
         Integer wikiId = null;
         String fileName = null;
         Attachment response = api.getAttachmentByName(wikiId, fileName);
+
         // TODO: test validations
     }
-
+    
 }

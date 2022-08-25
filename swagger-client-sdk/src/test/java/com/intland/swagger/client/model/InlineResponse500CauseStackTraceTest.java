@@ -13,21 +13,21 @@
 
 package com.intland.swagger.client.model;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 
 /**
- * Model tests for UpdateWorkingSet500ResponseCauseStackTraceInner
+ * Model tests for InlineResponse500CauseStackTrace
  */
-public class UpdateWorkingSet500ResponseCauseStackTraceInnerTest {
-    private final UpdateWorkingSet500ResponseCauseStackTraceInner model = new UpdateWorkingSet500ResponseCauseStackTraceInner();
+public class InlineResponse500CauseStackTraceTest {
+    private final InlineResponse500CauseStackTrace model = new InlineResponse500CauseStackTrace();
 
     /**
-     * Model tests for UpdateWorkingSet500ResponseCauseStackTraceInner
+     * Model tests for InlineResponse500CauseStackTrace
      */
     @Test
-    public void testUpdateWorkingSet500ResponseCauseStackTraceInner() {
-        // TODO: test UpdateWorkingSet500ResponseCauseStackTraceInner
+    public void testInlineResponse500CauseStackTrace() {
+        // TODO: test InlineResponse500CauseStackTrace
     }
 
     /**

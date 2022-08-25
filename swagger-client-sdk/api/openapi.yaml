@@ -3,7 +3,6 @@ info:
   contact:
     name: codeBeamer
     url: https://codebeamer.com
-  description: ""
   title: codebeamer swagger API
   version: "3.0"
 externalDocs:
@@ -53,7 +52,7 @@ paths:
       summary: Create a new association
       tags:
       - Association
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/associations/types:
     get:
@@ -276,7 +275,7 @@ paths:
       summary: Update association settings
       tags:
       - Association
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/associations/{associationId}/history:
     get:
@@ -594,7 +593,7 @@ paths:
       summary: Update attachment
       tags:
       - Attachment
-      x-content-type: multipart/form-data
+      x-contentType: multipart/form-data
       x-accepts: application/json
   /v3/attachments/{attachmentId}/history:
     get:
@@ -785,7 +784,7 @@ paths:
       summary: Create a project or tracker baseline
       tags:
       - Baseline
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/branches/{branchId}/item:
     get:
@@ -873,7 +872,7 @@ paths:
       summary: Start a deployment process
       tags:
       - Deployment
-      x-content-type: multipart/form-data
+      x-contentType: multipart/form-data
       x-accepts: application/json
   /v3/deployment/export:
     post:
@@ -918,7 +917,7 @@ paths:
       summary: Export projects for deployment
       tags:
       - Deployment
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/export/items:
     post:
@@ -979,7 +978,7 @@ paths:
       summary: Get tracker items
       tags:
       - Export
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/export/tracker-item-reviews:
     post:
@@ -1038,7 +1037,7 @@ paths:
       summary: Get tracker item reviews by a list of tracker item IDs
       tags:
       - Export
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/items/attachments/content:
     post:
@@ -1082,7 +1081,7 @@ paths:
         filters
       tags:
       - Tracker item's attachment
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/items/fields:
     put:
@@ -1154,7 +1153,7 @@ paths:
       summary: Bulk update fields of a tracker item
       tags:
       - Tracker item
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/items/query:
     get:
@@ -1269,7 +1268,7 @@ paths:
       summary: Get tracker items by cbQL query string
       tags:
       - Tracker item
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/items/relations:
     post:
@@ -1331,7 +1330,7 @@ paths:
       summary: Get tracker items for a baseline version
       tags:
       - Tracker item
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/items/{itemId}:
     delete:
@@ -1540,7 +1539,7 @@ paths:
       summary: Update tracker item
       tags:
       - Tracker item
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/items/{itemId}/attachments:
     delete:
@@ -1716,7 +1715,7 @@ paths:
       summary: Upload an attachment to a tracker item
       tags:
       - Tracker item's attachment
-      x-content-type: multipart/form-data
+      x-contentType: multipart/form-data
       x-accepts: application/json
   /v3/items/{itemId}/attachments/content:
     get:
@@ -2019,7 +2018,7 @@ paths:
       summary: Update content of attachment of tracker item
       tags:
       - Tracker item's attachment
-      x-content-type: multipart/form-data
+      x-contentType: multipart/form-data
       x-accepts: application/json
   /v3/items/{itemId}/children:
     get:
@@ -2168,7 +2167,7 @@ paths:
       summary: Patch the child item list of a tracker item
       tags:
       - Tracker item
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
     post:
       operationId: addChildToTrackerItem
@@ -2233,7 +2232,7 @@ paths:
       summary: Add a child item to a tracker item
       tags:
       - Tracker item
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
     put:
       operationId: replaceChildrenOfTrackerItem
@@ -2308,7 +2307,7 @@ paths:
       summary: Replace the child item list of a tracker item
       tags:
       - Tracker item
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/items/{itemId}/comments:
     delete:
@@ -2460,7 +2459,7 @@ paths:
       summary: Comment on a tracker item
       tags:
       - Tracker item's comment
-      x-content-type: multipart/form-data
+      x-contentType: multipart/form-data
       x-accepts: application/json
   /v3/items/{itemId}/comments/{commentId}:
     delete:
@@ -2641,7 +2640,7 @@ paths:
       summary: Reply on a comment of a tracker item
       tags:
       - Tracker item's comment
-      x-content-type: multipart/form-data
+      x-contentType: multipart/form-data
       x-accepts: application/json
     put:
       operationId: editCommentOnTrackerItem
@@ -2713,7 +2712,7 @@ paths:
       summary: Edit comment on a tracker item
       tags:
       - Tracker item's comment
-      x-content-type: multipart/form-data
+      x-contentType: multipart/form-data
       x-accepts: application/json
   /v3/items/{itemId}/fields:
     get:
@@ -2853,7 +2852,7 @@ paths:
       summary: Update fields of a tracker item
       tags:
       - Tracker item
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/items/{itemId}/fields/accessibility:
     get:
@@ -2983,7 +2982,7 @@ paths:
       summary: Update table field of tracker item
       tags:
       - Tracker item
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/items/{itemId}/fields/{fieldId}/options:
     get:
@@ -3242,7 +3241,7 @@ paths:
       summary: Put a soft lock on a tracker item
       tags:
       - Tracker item
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/items/{itemId}/relations:
     get:
@@ -3537,12 +3536,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/updateWorkingSet_500_response'
+                $ref: '#/components/schemas/inline_response_500'
           description: Unexpected error
       summary: Create background job to update working-set
       tags:
       - Background job
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/migration/attachment:
     post:
@@ -3577,7 +3576,7 @@ paths:
       summary: Migrate attachments
       tags:
       - Migration
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/projects:
     get:
@@ -3681,7 +3680,7 @@ paths:
       summary: Deploy a project configuration to a Project
       tags:
       - Project
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/projects/search:
     post:
@@ -3726,7 +3725,7 @@ paths:
       summary: Search projects by given criteria
       tags:
       - Project
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/projects/{projectId}:
     get:
@@ -3831,7 +3830,7 @@ paths:
       summary: Exports the specified project to a zip file
       tags:
       - Export
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/projects/{projectId}/members:
     get:
@@ -4074,7 +4073,7 @@ paths:
       summary: Create a tracker
       tags:
       - Project
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/projects/{projectId}/trackers/search:
     post:
@@ -4128,7 +4127,7 @@ paths:
       summary: Get the list of all trackers in a project
       tags:
       - Project
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/projects/{projectId}/wiki2html:
     post:
@@ -4204,7 +4203,7 @@ paths:
       summary: Render a wiki page as HTML in a specific context
       tags:
       - Wiki
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/projects/{projectId}/wikipages:
     get:
@@ -4297,7 +4296,7 @@ paths:
       summary: Create a report
       tags:
       - Report
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/reports/{reportId}:
     put:
@@ -4346,7 +4345,7 @@ paths:
       summary: Update report settings
       tags:
       - Report
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/reports/{reportId}/items:
     get:
@@ -4655,7 +4654,7 @@ paths:
       summary: Set system maintenance status
       tags:
       - System
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/testcases/autoApplyStepReuses:
     post:
@@ -4708,7 +4707,7 @@ paths:
         to Reuses
       tags:
       - Test Management
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/testruns/{testRunId}:
     put:
@@ -4777,7 +4776,7 @@ paths:
       summary: 'Update result of a Test Run. '
       tags:
       - Test run
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/traceability/items:
     post:
@@ -4848,7 +4847,7 @@ paths:
       summary: Get initial ids
       tags:
       - Traceability
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/traceability/relations:
     post:
@@ -4907,7 +4906,7 @@ paths:
       summary: Get traceability level item ids
       tags:
       - Traceability
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/trackers/permissions:
     get:
@@ -5152,7 +5151,7 @@ paths:
       summary: Create a new test run for large number of automated test cases
       tags:
       - Test run
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/trackers/{testRunTrackerId}/testruns:
     post:
@@ -5223,7 +5222,7 @@ paths:
       summary: Create a new test run for test cases or test sets
       tags:
       - Test run
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/trackers/{testRunTrackerId}/testruns/generatefromtestset:
     post:
@@ -5292,7 +5291,7 @@ paths:
       summary: Create a new test run for test cases or test sets
       tags:
       - Test run
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/trackers/{trackerId}:
     delete:
@@ -5426,7 +5425,7 @@ paths:
       summary: Updates a specific tracker
       tags:
       - Tracker
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/trackers/{trackerId}/baselines:
     get:
@@ -5633,7 +5632,7 @@ paths:
       summary: Patch the child item list of a tracker item
       tags:
       - Tracker item
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
     post:
       operationId: addChildToTracker
@@ -5698,7 +5697,7 @@ paths:
       summary: Add a child item to a tracker item
       tags:
       - Tracker item
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
     put:
       operationId: replaceChildrenOfTracker
@@ -5773,7 +5772,7 @@ paths:
       summary: Reorder the child item list of a tracker
       tags:
       - Tracker item
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/trackers/{trackerId}/fields:
     get:
@@ -6118,10 +6117,18 @@ paths:
           type: integer
         style: simple
       requestBody:
+        $ref: '#/components/requestBodies/inline_object'
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/updateTrackerIcon_request'
+              properties:
+                icon:
+                  description: Icon image file
+                  format: binary
+                  type: string
+              required:
+              - icon
+              type: object
       responses:
         "200":
           description: Tracker icon uploaded successfully
@@ -6146,7 +6153,7 @@ paths:
       summary: Upload a tracker icon
       tags:
       - Tracker
-      x-content-type: multipart/form-data
+      x-contentType: multipart/form-data
       x-accepts: '*/*'
   /v3/trackers/{trackerId}/items:
     get:
@@ -6302,7 +6309,7 @@ paths:
       summary: Create a tracker item
       tags:
       - Tracker item
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/trackers/{trackerId}/outline:
     get:
@@ -6564,7 +6571,7 @@ paths:
       summary: Creates a report of a specific tracker
       tags:
       - Tracker report
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/trackers/{trackerId}/reports/{reportId}:
     delete:
@@ -6668,7 +6675,7 @@ paths:
       summary: Updates a report of a specific tracker
       tags:
       - Tracker report
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/trackers/{trackerId}/reports/{reportId}/items:
     get:
@@ -6928,7 +6935,7 @@ paths:
       summary: Set the tracker permissions for a specific role
       tags:
       - Tracker permission
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/trackers/{trackerId}/schema:
     get:
@@ -7442,7 +7449,7 @@ paths:
       summary: Search users
       tags:
       - User
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/users/{userId}:
     get:
@@ -7534,7 +7541,7 @@ paths:
       summary: Create a new wiki page
       tags:
       - Wiki
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/wikipages/{itemId}:
     put:
@@ -7595,7 +7602,7 @@ paths:
       summary: Update and/or move a wiki page
       tags:
       - Wiki
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/wikipages/{wikiId}:
     delete:
@@ -7832,7 +7839,7 @@ paths:
       summary: Comment on a wiki page
       tags:
       - Wiki's comment
-      x-content-type: multipart/form-data
+      x-contentType: multipart/form-data
       x-accepts: application/json
   /v3/wikipages/{wikiId}/history:
     get:
@@ -8108,7 +8115,7 @@ paths:
       summary: Lock a wiki page
       tags:
       - Wiki
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/wikipages/{wikiId}/permissions:
     get:
@@ -8247,7 +8254,7 @@ paths:
       summary: Set permissions of a wiki page
       tags:
       - Wiki
-      x-content-type: application/json
+      x-contentType: application/json
       x-accepts: application/json
   /v3/wikipages/{wikiId}/restorecontent:
     put:
@@ -8313,6 +8320,12 @@ paths:
       - Wiki
       x-accepts: application/json
 components:
+  requestBodies:
+    inline_object:
+      content:
+        multipart/form-data:
+          schema:
+            $ref: '#/components/schemas/inline_object'
   schemas:
     AbstractBackgroundJobStatusInfo:
       description: Status information of a background job
@@ -8392,6 +8405,7 @@ components:
           description: List of shared fields assigned to this field
           items:
             $ref: '#/components/schemas/SharedFieldReference'
+          readOnly: true
           type: array
         title:
           description: Title of a field
@@ -14991,7 +15005,7 @@ components:
       - source
       - target
       type: object
-    updateWorkingSet_500_response_cause_stackTrace_inner:
+    inline_response_500_cause_stackTrace:
       properties:
         classLoaderName:
           type: string
@@ -15011,7 +15025,7 @@ components:
         nativeMethod:
           type: boolean
       type: object
-    updateWorkingSet_500_response_cause_suppressed_inner:
+    inline_response_500_cause_suppressed:
       properties:
         localizedMessage:
           type: string
@@ -15019,10 +15033,10 @@ components:
           type: string
         stackTrace:
           items:
-            $ref: '#/components/schemas/updateWorkingSet_500_response_cause_stackTrace_inner'
+            $ref: '#/components/schemas/inline_response_500_cause_stackTrace'
           type: array
       type: object
-    updateWorkingSet_500_response_cause:
+    inline_response_500_cause:
       properties:
         localizedMessage:
           type: string
@@ -15030,33 +15044,33 @@ components:
           type: string
         stackTrace:
           items:
-            $ref: '#/components/schemas/updateWorkingSet_500_response_cause_stackTrace_inner'
+            $ref: '#/components/schemas/inline_response_500_cause_stackTrace'
           type: array
         suppressed:
           items:
-            $ref: '#/components/schemas/updateWorkingSet_500_response_cause_suppressed_inner'
+            $ref: '#/components/schemas/inline_response_500_cause_suppressed'
           type: array
       type: object
-    updateWorkingSet_500_response:
+    inline_response_500:
       properties:
         cause:
-          $ref: '#/components/schemas/updateWorkingSet_500_response_cause'
+          $ref: '#/components/schemas/inline_response_500_cause'
         detail:
-          $ref: '#/components/schemas/updateWorkingSet_500_response_cause'
+          $ref: '#/components/schemas/inline_response_500_cause'
         localizedMessage:
           type: string
         message:
           type: string
         stackTrace:
           items:
-            $ref: '#/components/schemas/updateWorkingSet_500_response_cause_stackTrace_inner'
+            $ref: '#/components/schemas/inline_response_500_cause_stackTrace'
           type: array
         suppressed:
           items:
-            $ref: '#/components/schemas/updateWorkingSet_500_response_cause_suppressed_inner'
+            $ref: '#/components/schemas/inline_response_500_cause_suppressed'
           type: array
       type: object
-    updateTrackerIcon_request:
+    inline_object:
       properties:
         icon:
           description: Icon image file
@@ -15071,7 +15085,6 @@ components:
           description: Value of the field
           type: boolean
       type: object
-      example: null
     ChoiceFieldValue_allOf:
       properties:
         values:
@@ -15080,7 +15093,6 @@ components:
             $ref: '#/components/schemas/AbstractReference'
           type: array
       type: object
-      example: null
     ColorFieldValue_allOf:
       properties:
         value:
@@ -15088,7 +15100,6 @@ components:
           example: '#FF0055'
           type: string
       type: object
-      example: null
     CountryField_allOf:
       properties:
         availableOptions:
@@ -15096,7 +15107,6 @@ components:
             type: string
           type: array
       type: object
-      example: null
     CountryFieldValue_allOf:
       properties:
         values:
@@ -15107,7 +15117,6 @@ components:
           type: array
           uniqueItems: true
       type: object
-      example: null
     DateFieldValue_allOf:
       properties:
         value:
@@ -15115,7 +15124,6 @@ components:
           format: date-time
           type: string
       type: object
-      example: null
     DecimalField_allOf:
       properties:
         max:
@@ -15127,7 +15135,6 @@ components:
           format: double
           type: number
       type: object
-      example: null
     DecimalFieldValue_allOf:
       properties:
         value:
@@ -15135,7 +15142,6 @@ components:
           format: double
           type: number
       type: object
-      example: null
     DependencyEntityReference_allOf:
       properties:
         typeId:
@@ -15143,7 +15149,6 @@ components:
           format: int32
           type: integer
       type: object
-      example: null
     DependencyFinderJobStatusInfo_allOf:
       properties:
         dependencies:
@@ -15160,7 +15165,6 @@ components:
           format: int32
           type: integer
       type: object
-      example: null
     DurationField_allOf:
       properties:
         max:
@@ -15170,7 +15174,6 @@ components:
           description: Minimum value of a field
           type: string
       type: object
-      example: null
     DurationFieldValue_allOf:
       properties:
         value:
@@ -15178,7 +15181,6 @@ components:
           format: int64
           type: integer
       type: object
-      example: null
     FieldReference_allOf:
       properties:
         trackerId:
@@ -15187,7 +15189,6 @@ components:
           format: int32
           type: integer
       type: object
-      example: null
     IntegerField_allOf:
       properties:
         max:
@@ -15199,7 +15200,6 @@ components:
           format: int32
           type: integer
       type: object
-      example: null
     IntegerFieldValue_allOf:
       properties:
         value:
@@ -15207,7 +15207,6 @@ components:
           format: int32
           type: integer
       type: object
-      example: null
     LanguageFieldValue_allOf:
       properties:
         values:
@@ -15218,7 +15217,6 @@ components:
           type: array
           uniqueItems: true
       type: object
-      example: null
     MemberField_allOf:
       properties:
         memberTypes:
@@ -15235,7 +15233,6 @@ components:
           description: Multiple values state of a field
           type: boolean
       type: object
-      example: null
     OptionChoiceField_allOf:
       properties:
         multipleValues:
@@ -15250,7 +15247,6 @@ components:
           description: Type of the contained references
           type: string
       type: object
-      example: null
     OutlineItem_allOf:
       properties:
         hasChildren:
@@ -15259,13 +15255,11 @@ components:
         itemReference:
           $ref: '#/components/schemas/TrackerItemReference'
       type: object
-      example: null
     OutlineWiki_allOf:
       properties:
         wikiPageReferenceModel:
           $ref: '#/components/schemas/WikiPageReference'
       type: object
-      example: null
     ProjectChoiceField_allOf:
       properties:
         multipleValues:
@@ -15275,7 +15269,6 @@ components:
           description: Type of the contained references
           type: string
       type: object
-      example: null
     ReferredTestStepFieldValue_allOf:
       properties:
         referredStepId:
@@ -15289,7 +15282,6 @@ components:
           description: Id of the Test Step
           type: string
       type: object
-      example: null
     ReportGroupWithGroups_allOf:
       properties:
         groups:
@@ -15298,7 +15290,6 @@ components:
             $ref: '#/components/schemas/ReportGroup'
           type: array
       type: object
-      example: null
     ReportGroupWithReferencedRows_allOf:
       properties:
         groupingLevel:
@@ -15312,7 +15303,6 @@ components:
           format: int32
           type: integer
       type: object
-      example: null
     ReportGroupWithRows_allOf:
       properties:
         rows:
@@ -15320,7 +15310,6 @@ components:
             $ref: '#/components/schemas/ReportRow'
           type: array
       type: object
-      example: null
     ReportReferencedRow_allOf:
       properties:
         cells:
@@ -15341,7 +15330,6 @@ components:
         references:
           $ref: '#/components/schemas/ReportReferenceLevel'
       type: object
-      example: null
     TableField_allOf:
       properties:
         columns:
@@ -15350,7 +15338,6 @@ components:
             $ref: '#/components/schemas/AbstractField'
           type: array
       type: object
-      example: null
     TableFieldValue_allOf:
       properties:
         values:
@@ -15362,7 +15349,6 @@ components:
             type: array
           type: array
       type: object
-      example: null
     TextField_allOf:
       properties:
         max:
@@ -15374,14 +15360,12 @@ components:
           format: int32
           type: integer
       type: object
-      example: null
     TextFieldValue_allOf:
       properties:
         value:
           description: Text value
           type: string
       type: object
-      example: null
     TrackerItemAttachmentRequest_allOf:
       properties:
         baselineId:
@@ -15415,13 +15399,11 @@ components:
             type: string
           type: array
       type: object
-      example: null
     TrackerItemReference_allOf:
       properties:
         referenceData:
           $ref: '#/components/schemas/TrackerItemReferenceData'
       type: object
-      example: null
     TrackerItemRowChange_allOf:
       properties:
         rowNumber:
@@ -15430,28 +15412,24 @@ components:
           format: int32
           type: integer
       type: object
-      example: null
     UrlFieldValue_allOf:
       properties:
         value:
           description: Value of the field
           type: string
       type: object
-      example: null
     UserReference_allOf:
       properties:
         email:
           description: Email of a referenced user
           type: string
       type: object
-      example: null
     WikiTextFieldValue_allOf:
       properties:
         value:
           description: Wiki text value
           type: string
       type: object
-      example: null
   securitySchemes:
     ApiKeyAuth:
       description: Please login using your codebeamer token

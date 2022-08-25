@@ -13,13 +13,9 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
-import java.util.HashSet;
 import java.util.Objects;
 
-import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -28,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Reference to an item
  */
 @ApiModel(description = "Reference to an item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class AbstractReference {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -42,7 +38,7 @@ public class AbstractReference {
   @SerializedName(SERIALIZED_NAME_TYPE)
   protected String type;
 
-  public AbstractReference() { 
+  public AbstractReference() {
     this.type = this.getClass().getSimpleName();
   }
 
@@ -116,7 +112,6 @@ public class AbstractReference {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -158,128 +153,5 @@ public class AbstractReference {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("name");
-    openapiFields.add("type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AbstractReference
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (AbstractReference.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AbstractReference is not found in the empty JSON string", AbstractReference.openapiRequiredFields.toString()));
-        }
-      }
-
-      String discriminatorValue = jsonObj.get("type").getAsString();
-      switch (discriminatorValue) {
-        case "ArtifactReference":
-          ArtifactReference.validateJsonObject(jsonObj);
-          break;
-        case "AssociationTypeReference":
-          AssociationTypeReference.validateJsonObject(jsonObj);
-          break;
-        case "AttachmentReference":
-          AttachmentReference.validateJsonObject(jsonObj);
-          break;
-        case "ChoiceOptionReference":
-          ChoiceOptionReference.validateJsonObject(jsonObj);
-          break;
-        case "CommentReference":
-          CommentReference.validateJsonObject(jsonObj);
-          break;
-        case "DependencyEntityReference":
-          DependencyEntityReference.validateJsonObject(jsonObj);
-          break;
-        case "FieldReference":
-          FieldReference.validateJsonObject(jsonObj);
-          break;
-        case "ProjectBaselineReference":
-          ProjectBaselineReference.validateJsonObject(jsonObj);
-          break;
-        case "ProjectReference":
-          ProjectReference.validateJsonObject(jsonObj);
-          break;
-        case "ReportReference":
-          ReportReference.validateJsonObject(jsonObj);
-          break;
-        case "RepositoryReference":
-          RepositoryReference.validateJsonObject(jsonObj);
-          break;
-        case "RoleReference":
-          RoleReference.validateJsonObject(jsonObj);
-          break;
-        case "SharedFieldReference":
-          SharedFieldReference.validateJsonObject(jsonObj);
-          break;
-        case "TrackerBaselineReference":
-          TrackerBaselineReference.validateJsonObject(jsonObj);
-          break;
-        case "TrackerItemReference":
-          TrackerItemReference.validateJsonObject(jsonObj);
-          break;
-        case "TrackerPermissionReference":
-          TrackerPermissionReference.validateJsonObject(jsonObj);
-          break;
-        case "TrackerReference":
-          TrackerReference.validateJsonObject(jsonObj);
-          break;
-        case "TrackerTypeReference":
-          TrackerTypeReference.validateJsonObject(jsonObj);
-          break;
-        case "UserGroupReference":
-          UserGroupReference.validateJsonObject(jsonObj);
-          break;
-        case "UserReference":
-          UserReference.validateJsonObject(jsonObj);
-          break;
-        case "WikiPageReference":
-          WikiPageReference.validateJsonObject(jsonObj);
-          break;
-        case "WorkingSetReference":
-          WorkingSetReference.validateJsonObject(jsonObj);
-          break;
-        default: 
-          throw new IllegalArgumentException(String.format("The value of the `type` field `%s` does not match any key defined in the discriminator's mapping.", discriminatorValue));
-      }
-  }
-
-
- /**
-  * Create an instance of AbstractReference given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AbstractReference
-  * @throws IOException if the JSON string is invalid with respect to AbstractReference
-  */
-  public static AbstractReference fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AbstractReference.class);
-  }
-
- /**
-  * Convert an instance of AbstractReference to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -13,8 +13,8 @@
 
 package com.intland.swagger.client.api;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.TrackerItem;
@@ -22,24 +22,27 @@ import com.intland.swagger.client.model.TrackerItem;
 /**
  * API tests for BranchesApi
  */
-@Disabled
+@Ignore
 public class BranchesApiTest {
 
     private final BranchesApi api = new BranchesApi();
 
+    
     /**
      * Get tracker item on branch
      *
      * API can be used for finding a tracker item by a branch id
      *
-     * @throws ApiException if the Api call fails
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerItemOnBranchTest() throws ApiException {
         Integer sourceItemId = null;
         Integer branchId = null;
         TrackerItem response = api.getTrackerItemOnBranch(sourceItemId, branchId);
+
         // TODO: test validations
     }
-
+    
 }

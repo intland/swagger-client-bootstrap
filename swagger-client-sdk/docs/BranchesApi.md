@@ -2,9 +2,9 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**getTrackerItemOnBranch**](BranchesApi.md#getTrackerItemOnBranch) | **GET** /v3/branches/{branchId}/item | Get tracker item on branch |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**getTrackerItemOnBranch**](BranchesApi.md#getTrackerItemOnBranch) | **GET** /v3/branches/{branchId}/item | Get tracker item on branch
 
 
 <a name="getTrackerItemOnBranch"></a>
@@ -64,10 +64,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **sourceItemId** | **Integer**|  | |
-| **branchId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sourceItemId** | **Integer**|  |
+ **branchId** | **Integer**|  |
 
 ### Return type
 
@@ -85,9 +85,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Basic tracker item by id and branch id |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker item not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Basic tracker item by id and branch id |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
 

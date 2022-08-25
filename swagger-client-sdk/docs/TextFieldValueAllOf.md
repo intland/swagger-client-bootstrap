@@ -5,9 +5,9 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-|------------ | ------------- | ------------- | -------------|
-|**value** | **String** | Text value |  [optional] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**value** | **String** | Text value |  [optional]
 
 
 

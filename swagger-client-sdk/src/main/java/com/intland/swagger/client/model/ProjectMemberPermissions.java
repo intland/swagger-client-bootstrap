@@ -13,28 +13,14 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -43,14 +29,12 @@ import io.swagger.annotations.ApiModelProperty;
  * Project member permissions
  */
 @ApiModel(description = "Project member permissions")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class ProjectMemberPermissions {
   public static final String SERIALIZED_NAME_ROLES = "roles";
   @SerializedName(SERIALIZED_NAME_ROLES)
   private List<RoleReference> roles = null;
 
-  public ProjectMemberPermissions() { 
-  }
 
   public ProjectMemberPermissions roles(List<RoleReference> roles) {
     
@@ -60,7 +44,7 @@ public class ProjectMemberPermissions {
 
   public ProjectMemberPermissions addRolesItem(RoleReference rolesItem) {
     if (this.roles == null) {
-      this.roles = new ArrayList<>();
+      this.roles = new ArrayList<RoleReference>();
     }
     this.roles.add(rolesItem);
     return this;
@@ -83,7 +67,6 @@ public class ProjectMemberPermissions {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -97,7 +80,7 @@ public class ProjectMemberPermissions {
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && a.get().getClass().isArray() ? Arrays.equals((T[])a.get(), (T[])b.get()) : Objects.equals(a.get(), b.get()));
   }
 
   @Override
@@ -109,7 +92,9 @@ public class ProjectMemberPermissions {
     if (a == null) {
       return 1;
     }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return a.isPresent()
+      ? (a.get().getClass().isArray() ? Arrays.hashCode((T[])a.get()) : Objects.hashCode(a.get()))
+      : 31;
   }
 
   @Override
@@ -132,102 +117,5 @@ public class ProjectMemberPermissions {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("roles");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ProjectMemberPermissions
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ProjectMemberPermissions.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectMemberPermissions is not found in the empty JSON string", ProjectMemberPermissions.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ProjectMemberPermissions.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectMemberPermissions` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      JsonArray jsonArrayroles = jsonObj.getAsJsonArray("roles");
-      if (jsonArrayroles != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("roles").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `roles` to be an array in the JSON string but got `%s`", jsonObj.get("roles").toString()));
-        }
-
-        // validate the optional field `roles` (array)
-        for (int i = 0; i < jsonArrayroles.size(); i++) {
-          RoleReference.validateJsonObject(jsonArrayroles.get(i).getAsJsonObject());
-        };
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ProjectMemberPermissions.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ProjectMemberPermissions' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ProjectMemberPermissions> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ProjectMemberPermissions.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ProjectMemberPermissions>() {
-           @Override
-           public void write(JsonWriter out, ProjectMemberPermissions value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ProjectMemberPermissions read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of ProjectMemberPermissions given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ProjectMemberPermissions
-  * @throws IOException if the JSON string is invalid with respect to ProjectMemberPermissions
-  */
-  public static ProjectMemberPermissions fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ProjectMemberPermissions.class);
-  }
-
- /**
-  * Convert an instance of ProjectMemberPermissions to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

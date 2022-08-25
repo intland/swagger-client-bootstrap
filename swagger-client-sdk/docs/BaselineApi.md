@@ -2,9 +2,9 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**createBaseline**](BaselineApi.md#createBaseline) | **POST** /v3/baselines | Create a project or tracker baseline |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**createBaseline**](BaselineApi.md#createBaseline) | **POST** /v3/baselines | Create a project or tracker baseline
 
 
 <a name="createBaseline"></a>
@@ -61,9 +61,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **createBaselineRequest** | [**CreateBaselineRequest**](CreateBaselineRequest.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createBaselineRequest** | [**CreateBaselineRequest**](CreateBaselineRequest.md)|  |
 
 ### Return type
 
@@ -81,10 +81,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Baseline created successfully |  -  |
-| **400** | Bad request |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Authentication is required or user has no permission |  -  |
-| **404** | Project or tracker not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Baseline created successfully |  -  |
+**400** | Bad request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authentication is required or user has no permission |  -  |
+**404** | Project or tracker not found |  -  |
+**429** | Too many requests |  -  |
 

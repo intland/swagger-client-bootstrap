@@ -13,8 +13,8 @@
 
 package com.intland.swagger.client.api;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.MaintenanceMode;
@@ -23,32 +23,41 @@ import com.intland.swagger.client.model.SystemStatus;
 /**
  * API tests for SystemApi
  */
-@Disabled
+@Ignore
 public class SystemApiTest {
 
     private final SystemApi api = new SystemApi();
 
+    
     /**
      * Get system maintenance status
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getSystemStatusTest() throws ApiException {
         SystemStatus response = api.getSystemStatus();
+
         // TODO: test validations
     }
-
+    
     /**
      * Set system maintenance status
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void setSystemStatusTest() throws ApiException {
         MaintenanceMode maintenanceMode = null;
         SystemStatus response = api.setSystemStatus(maintenanceMode);
+
         // TODO: test validations
     }
-
+    
 }

@@ -16,8 +16,8 @@ package com.intland.swagger.client.api;
 import java.io.File;
 import java.util.List;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.BatchGetTrackerItemReviewsRequest;
@@ -29,49 +29,60 @@ import com.intland.swagger.client.model.TrackerItemsRequest;
 /**
  * API tests for ExportApi
  */
-@Disabled
+@Ignore
 public class ExportApiTest {
 
     private final ExportApi api = new ExportApi();
 
+    
     /**
      * Get tracker item reviews by a list of tracker item IDs
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void batchGetTrackerItemReviewsTest() throws ApiException {
         BatchGetTrackerItemReviewsRequest batchGetTrackerItemReviewsRequest = null;
         List<TrackerItemWithTrackerItemReviewsExport> response = api.batchGetTrackerItemReviews(batchGetTrackerItemReviewsRequest);
+
         // TODO: test validations
     }
-
+    
     /**
      * Exports the specified project to a zip file
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void exportTest() throws ApiException {
         Integer projectId = null;
         ExportProject exportProject = null;
         File response = api.export(projectId, exportProject);
+
         // TODO: test validations
     }
-
+    
     /**
      * Get tracker items
      *
      * API can be used for fetching basic information of tracker items
      *
-     * @throws ApiException if the Api call fails
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void getTrackerItemsTest() throws ApiException {
         TrackerItemsRequest trackerItemsRequest = null;
         Integer baselineId = null;
         List<TrackerItem> response = api.getTrackerItems(trackerItemsRequest, baselineId);
+
         // TODO: test validations
     }
-
+    
 }

@@ -2,10 +2,10 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**getSystemStatus**](SystemApi.md#getSystemStatus) | **GET** /v3/system/maintenance | Get system maintenance status |
-| [**setSystemStatus**](SystemApi.md#setSystemStatus) | **PUT** /v3/system/maintenance | Set system maintenance status |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**getSystemStatus**](SystemApi.md#getSystemStatus) | **GET** /v3/system/maintenance | Get system maintenance status
+[**setSystemStatus**](SystemApi.md#setSystemStatus) | **PUT** /v3/system/maintenance | Set system maintenance status
 
 
 <a name="getSystemStatus"></a>
@@ -78,11 +78,11 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | System maintenance status |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Access denied |  -  |
-| **429** | Too many requests |  -  |
+**200** | System maintenance status |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Access denied |  -  |
+**429** | Too many requests |  -  |
 
 <a name="setSystemStatus"></a>
 # **setSystemStatus**
@@ -138,9 +138,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **maintenanceMode** | [**MaintenanceMode**](MaintenanceMode.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **maintenanceMode** | [**MaintenanceMode**](MaintenanceMode.md)|  |
 
 ### Return type
 
@@ -158,9 +158,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | System maintenance status |  -  |
-| **400** | Request cannot be processed |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Access denied |  -  |
-| **429** | Too many requests |  -  |
+**200** | System maintenance status |  -  |
+**400** | Request cannot be processed |  -  |
+**401** | Authentication is required |  -  |
+**403** | Access denied |  -  |
+**429** | Too many requests |  -  |
 

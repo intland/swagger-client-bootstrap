@@ -13,25 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -40,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Holds the response of a bulk operation
  */
 @ApiModel(description = "Holds the response of a bulk operation")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class BulkOperationResponse {
   public static final String SERIALIZED_NAME_FAILED_OPERATIONS = "failedOperations";
   @SerializedName(SERIALIZED_NAME_FAILED_OPERATIONS)
@@ -50,8 +36,6 @@ public class BulkOperationResponse {
   @SerializedName(SERIALIZED_NAME_SUCCESSFUL_OPERATIONS_COUNT)
   private Integer successfulOperationsCount;
 
-  public BulkOperationResponse() { 
-  }
 
   public BulkOperationResponse failedOperations(List<FailedOperation> failedOperations) {
     
@@ -61,7 +45,7 @@ public class BulkOperationResponse {
 
   public BulkOperationResponse addFailedOperationsItem(FailedOperation failedOperationsItem) {
     if (this.failedOperations == null) {
-      this.failedOperations = new ArrayList<>();
+      this.failedOperations = new ArrayList<FailedOperation>();
     }
     this.failedOperations.add(failedOperationsItem);
     return this;
@@ -107,7 +91,6 @@ public class BulkOperationResponse {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -147,103 +130,5 @@ public class BulkOperationResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("failedOperations");
-    openapiFields.add("successfulOperationsCount");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to BulkOperationResponse
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (BulkOperationResponse.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BulkOperationResponse is not found in the empty JSON string", BulkOperationResponse.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!BulkOperationResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BulkOperationResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      JsonArray jsonArrayfailedOperations = jsonObj.getAsJsonArray("failedOperations");
-      if (jsonArrayfailedOperations != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("failedOperations").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `failedOperations` to be an array in the JSON string but got `%s`", jsonObj.get("failedOperations").toString()));
-        }
-
-        // validate the optional field `failedOperations` (array)
-        for (int i = 0; i < jsonArrayfailedOperations.size(); i++) {
-          FailedOperation.validateJsonObject(jsonArrayfailedOperations.get(i).getAsJsonObject());
-        };
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!BulkOperationResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BulkOperationResponse' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<BulkOperationResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(BulkOperationResponse.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<BulkOperationResponse>() {
-           @Override
-           public void write(JsonWriter out, BulkOperationResponse value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public BulkOperationResponse read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of BulkOperationResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of BulkOperationResponse
-  * @throws IOException if the JSON string is invalid with respect to BulkOperationResponse
-  */
-  public static BulkOperationResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BulkOperationResponse.class);
-  }
-
- /**
-  * Convert an instance of BulkOperationResponse to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

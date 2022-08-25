@@ -15,8 +15,8 @@ package com.intland.swagger.client.api;
 
 import java.io.File;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import com.intland.swagger.client.ApiException;
 import com.intland.swagger.client.model.BackgroundJobReference;
@@ -25,33 +25,42 @@ import com.intland.swagger.client.model.ExportForDeploymentRequest;
 /**
  * API tests for DeploymentApi
  */
-@Disabled
+@Ignore
 public class DeploymentApiTest {
 
     private final DeploymentApi api = new DeploymentApi();
 
+    
     /**
      * Export projects for deployment
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void exportForDeploymentTest() throws ApiException {
         ExportForDeploymentRequest exportForDeploymentRequest = null;
         BackgroundJobReference response = api.exportForDeployment(exportForDeploymentRequest);
+
         // TODO: test validations
     }
-
+    
     /**
      * Start a deployment process
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void uploadDeploymentTest() throws ApiException {
         File imports = null;
         api.uploadDeployment(imports);
+
         // TODO: test validations
     }
-
+    
 }

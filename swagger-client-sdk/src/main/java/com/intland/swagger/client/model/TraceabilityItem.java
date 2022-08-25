@@ -13,25 +13,11 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -40,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Traceability Item
  */
 @ApiModel(description = "Traceability Item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class TraceabilityItem {
   public static final String SERIALIZED_NAME_CHILDREN = "children";
   @SerializedName(SERIALIZED_NAME_CHILDREN)
@@ -82,8 +68,6 @@ public class TraceabilityItem {
   @SerializedName(SERIALIZED_NAME_OUTGOING_REFERENCES)
   private List<TrackerItemRevision> outgoingReferences = null;
 
-  public TraceabilityItem() { 
-  }
 
   public TraceabilityItem children(List<TraceabilityItem> children) {
     
@@ -93,7 +77,7 @@ public class TraceabilityItem {
 
   public TraceabilityItem addChildrenItem(TraceabilityItem childrenItem) {
     if (this.children == null) {
-      this.children = new ArrayList<>();
+      this.children = new ArrayList<TraceabilityItem>();
     }
     this.children.add(childrenItem);
     return this;
@@ -124,7 +108,7 @@ public class TraceabilityItem {
 
   public TraceabilityItem addIncomingAssociationItem(TrackerItemRevision incomingAssociationItem) {
     if (this.incomingAssociation == null) {
-      this.incomingAssociation = new ArrayList<>();
+      this.incomingAssociation = new ArrayList<TrackerItemRevision>();
     }
     this.incomingAssociation.add(incomingAssociationItem);
     return this;
@@ -155,7 +139,7 @@ public class TraceabilityItem {
 
   public TraceabilityItem addIncomingReferenceItem(TrackerItemRevision incomingReferenceItem) {
     if (this.incomingReference == null) {
-      this.incomingReference = new ArrayList<>();
+      this.incomingReference = new ArrayList<TrackerItemRevision>();
     }
     this.incomingReference.add(incomingReferenceItem);
     return this;
@@ -186,7 +170,7 @@ public class TraceabilityItem {
 
   public TraceabilityItem addIncomingAssociationsItem(TrackerItemRevision incomingAssociationsItem) {
     if (this.incomingAssociations == null) {
-      this.incomingAssociations = new ArrayList<>();
+      this.incomingAssociations = new ArrayList<TrackerItemRevision>();
     }
     this.incomingAssociations.add(incomingAssociationsItem);
     return this;
@@ -217,7 +201,7 @@ public class TraceabilityItem {
 
   public TraceabilityItem addIncomingReferencesItem(TrackerItemRevision incomingReferencesItem) {
     if (this.incomingReferences == null) {
-      this.incomingReferences = new ArrayList<>();
+      this.incomingReferences = new ArrayList<TrackerItemRevision>();
     }
     this.incomingReferences.add(incomingReferencesItem);
     return this;
@@ -271,7 +255,7 @@ public class TraceabilityItem {
 
   public TraceabilityItem addOutgoingAssociationItem(TrackerItemRevision outgoingAssociationItem) {
     if (this.outgoingAssociation == null) {
-      this.outgoingAssociation = new ArrayList<>();
+      this.outgoingAssociation = new ArrayList<TrackerItemRevision>();
     }
     this.outgoingAssociation.add(outgoingAssociationItem);
     return this;
@@ -302,7 +286,7 @@ public class TraceabilityItem {
 
   public TraceabilityItem addOutgoingReferenceItem(TrackerItemRevision outgoingReferenceItem) {
     if (this.outgoingReference == null) {
-      this.outgoingReference = new ArrayList<>();
+      this.outgoingReference = new ArrayList<TrackerItemRevision>();
     }
     this.outgoingReference.add(outgoingReferenceItem);
     return this;
@@ -333,7 +317,7 @@ public class TraceabilityItem {
 
   public TraceabilityItem addOutgoingAssociationsItem(TrackerItemRevision outgoingAssociationsItem) {
     if (this.outgoingAssociations == null) {
-      this.outgoingAssociations = new ArrayList<>();
+      this.outgoingAssociations = new ArrayList<TrackerItemRevision>();
     }
     this.outgoingAssociations.add(outgoingAssociationsItem);
     return this;
@@ -364,7 +348,7 @@ public class TraceabilityItem {
 
   public TraceabilityItem addOutgoingReferencesItem(TrackerItemRevision outgoingReferencesItem) {
     if (this.outgoingReferences == null) {
-      this.outgoingReferences = new ArrayList<>();
+      this.outgoingReferences = new ArrayList<TrackerItemRevision>();
     }
     this.outgoingReferences.add(outgoingReferencesItem);
     return this;
@@ -385,7 +369,6 @@ public class TraceabilityItem {
   public void setOutgoingReferences(List<TrackerItemRevision> outgoingReferences) {
     this.outgoingReferences = outgoingReferences;
   }
-
 
 
   @Override
@@ -443,211 +426,5 @@ public class TraceabilityItem {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("children");
-    openapiFields.add("incoming association");
-    openapiFields.add("incoming reference");
-    openapiFields.add("incomingAssociations");
-    openapiFields.add("incomingReferences");
-    openapiFields.add("itemRevision");
-    openapiFields.add("outgoing association");
-    openapiFields.add("outgoing reference");
-    openapiFields.add("outgoingAssociations");
-    openapiFields.add("outgoingReferences");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TraceabilityItem
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TraceabilityItem.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TraceabilityItem is not found in the empty JSON string", TraceabilityItem.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TraceabilityItem.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TraceabilityItem` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-      JsonArray jsonArraychildren = jsonObj.getAsJsonArray("children");
-      if (jsonArraychildren != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("children").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `children` to be an array in the JSON string but got `%s`", jsonObj.get("children").toString()));
-        }
-
-        // validate the optional field `children` (array)
-        for (int i = 0; i < jsonArraychildren.size(); i++) {
-          TraceabilityItem.validateJsonObject(jsonArraychildren.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArrayincomingAssociation = jsonObj.getAsJsonArray("incoming association");
-      if (jsonArrayincomingAssociation != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("incoming association").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `incoming association` to be an array in the JSON string but got `%s`", jsonObj.get("incoming association").toString()));
-        }
-
-        // validate the optional field `incoming association` (array)
-        for (int i = 0; i < jsonArrayincomingAssociation.size(); i++) {
-          TrackerItemRevision.validateJsonObject(jsonArrayincomingAssociation.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArrayincomingReference = jsonObj.getAsJsonArray("incoming reference");
-      if (jsonArrayincomingReference != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("incoming reference").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `incoming reference` to be an array in the JSON string but got `%s`", jsonObj.get("incoming reference").toString()));
-        }
-
-        // validate the optional field `incoming reference` (array)
-        for (int i = 0; i < jsonArrayincomingReference.size(); i++) {
-          TrackerItemRevision.validateJsonObject(jsonArrayincomingReference.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArrayincomingAssociations = jsonObj.getAsJsonArray("incomingAssociations");
-      if (jsonArrayincomingAssociations != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("incomingAssociations").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `incomingAssociations` to be an array in the JSON string but got `%s`", jsonObj.get("incomingAssociations").toString()));
-        }
-
-        // validate the optional field `incomingAssociations` (array)
-        for (int i = 0; i < jsonArrayincomingAssociations.size(); i++) {
-          TrackerItemRevision.validateJsonObject(jsonArrayincomingAssociations.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArrayincomingReferences = jsonObj.getAsJsonArray("incomingReferences");
-      if (jsonArrayincomingReferences != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("incomingReferences").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `incomingReferences` to be an array in the JSON string but got `%s`", jsonObj.get("incomingReferences").toString()));
-        }
-
-        // validate the optional field `incomingReferences` (array)
-        for (int i = 0; i < jsonArrayincomingReferences.size(); i++) {
-          TrackerItemRevision.validateJsonObject(jsonArrayincomingReferences.get(i).getAsJsonObject());
-        };
-      }
-      // validate the optional field `itemRevision`
-      if (jsonObj.getAsJsonObject("itemRevision") != null) {
-        TrackerItemRevision.validateJsonObject(jsonObj.getAsJsonObject("itemRevision"));
-      }
-      JsonArray jsonArrayoutgoingAssociation = jsonObj.getAsJsonArray("outgoing association");
-      if (jsonArrayoutgoingAssociation != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("outgoing association").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `outgoing association` to be an array in the JSON string but got `%s`", jsonObj.get("outgoing association").toString()));
-        }
-
-        // validate the optional field `outgoing association` (array)
-        for (int i = 0; i < jsonArrayoutgoingAssociation.size(); i++) {
-          TrackerItemRevision.validateJsonObject(jsonArrayoutgoingAssociation.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArrayoutgoingReference = jsonObj.getAsJsonArray("outgoing reference");
-      if (jsonArrayoutgoingReference != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("outgoing reference").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `outgoing reference` to be an array in the JSON string but got `%s`", jsonObj.get("outgoing reference").toString()));
-        }
-
-        // validate the optional field `outgoing reference` (array)
-        for (int i = 0; i < jsonArrayoutgoingReference.size(); i++) {
-          TrackerItemRevision.validateJsonObject(jsonArrayoutgoingReference.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArrayoutgoingAssociations = jsonObj.getAsJsonArray("outgoingAssociations");
-      if (jsonArrayoutgoingAssociations != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("outgoingAssociations").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `outgoingAssociations` to be an array in the JSON string but got `%s`", jsonObj.get("outgoingAssociations").toString()));
-        }
-
-        // validate the optional field `outgoingAssociations` (array)
-        for (int i = 0; i < jsonArrayoutgoingAssociations.size(); i++) {
-          TrackerItemRevision.validateJsonObject(jsonArrayoutgoingAssociations.get(i).getAsJsonObject());
-        };
-      }
-      JsonArray jsonArrayoutgoingReferences = jsonObj.getAsJsonArray("outgoingReferences");
-      if (jsonArrayoutgoingReferences != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("outgoingReferences").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `outgoingReferences` to be an array in the JSON string but got `%s`", jsonObj.get("outgoingReferences").toString()));
-        }
-
-        // validate the optional field `outgoingReferences` (array)
-        for (int i = 0; i < jsonArrayoutgoingReferences.size(); i++) {
-          TrackerItemRevision.validateJsonObject(jsonArrayoutgoingReferences.get(i).getAsJsonObject());
-        };
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TraceabilityItem.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TraceabilityItem' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TraceabilityItem> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TraceabilityItem.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TraceabilityItem>() {
-           @Override
-           public void write(JsonWriter out, TraceabilityItem value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TraceabilityItem read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of TraceabilityItem given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TraceabilityItem
-  * @throws IOException if the JSON string is invalid with respect to TraceabilityItem
-  */
-  public static TraceabilityItem fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TraceabilityItem.class);
-  }
-
- /**
-  * Convert an instance of TraceabilityItem to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -13,7 +13,7 @@
 
 package com.intland.swagger.client;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class Pair {
     private String name = "";
     private String value = "";
@@ -49,6 +49,10 @@ public class Pair {
 
     private boolean isValidString(String arg) {
         if (arg == null) {
+            return false;
+        }
+
+        if (arg.trim().isEmpty()) {
             return false;
         }
 

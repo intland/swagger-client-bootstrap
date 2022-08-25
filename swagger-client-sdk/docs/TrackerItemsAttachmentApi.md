@@ -2,17 +2,17 @@
 
 All URIs are relative to *http://localhost:8080/cb/api*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**deleteTrackerItemAttachment**](TrackerItemsAttachmentApi.md#deleteTrackerItemAttachment) | **DELETE** /v3/items/{itemId}/attachments/{attachmentId} | Delete attachment of tracker item by id |
-| [**deleteTrackerItemAttachments**](TrackerItemsAttachmentApi.md#deleteTrackerItemAttachments) | **DELETE** /v3/items/{itemId}/attachments | Delete attachments of tracker item |
-| [**getTrackerItemAttachment**](TrackerItemsAttachmentApi.md#getTrackerItemAttachment) | **GET** /v3/items/{itemId}/attachments/{attachmentId} | Get attachment of tracker item by id |
-| [**getTrackerItemAttachmentContent**](TrackerItemsAttachmentApi.md#getTrackerItemAttachmentContent) | **GET** /v3/items/{itemId}/attachments/{attachmentId}/content | Get content of an attachment of tracker item by id |
-| [**getTrackerItemAttachmentContents**](TrackerItemsAttachmentApi.md#getTrackerItemAttachmentContents) | **GET** /v3/items/{itemId}/attachments/content | Get attachments of a tracker item |
-| [**getTrackerItemAttachments**](TrackerItemsAttachmentApi.md#getTrackerItemAttachments) | **GET** /v3/items/{itemId}/attachments | Get attachments of tracker item |
-| [**getTrackerItemsAttachmentContents**](TrackerItemsAttachmentApi.md#getTrackerItemsAttachmentContents) | **POST** /v3/items/attachments/content | Get attachments of tracker items matching the extension or mime type filters |
-| [**updateAttachmentOfTrackerItem**](TrackerItemsAttachmentApi.md#updateAttachmentOfTrackerItem) | **PUT** /v3/items/{itemId}/attachments/{attachmentId}/content | Update content of attachment of tracker item |
-| [**uploadTrackerItemAttachment**](TrackerItemsAttachmentApi.md#uploadTrackerItemAttachment) | **POST** /v3/items/{itemId}/attachments | Upload an attachment to a tracker item |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**deleteTrackerItemAttachment**](TrackerItemsAttachmentApi.md#deleteTrackerItemAttachment) | **DELETE** /v3/items/{itemId}/attachments/{attachmentId} | Delete attachment of tracker item by id
+[**deleteTrackerItemAttachments**](TrackerItemsAttachmentApi.md#deleteTrackerItemAttachments) | **DELETE** /v3/items/{itemId}/attachments | Delete attachments of tracker item
+[**getTrackerItemAttachment**](TrackerItemsAttachmentApi.md#getTrackerItemAttachment) | **GET** /v3/items/{itemId}/attachments/{attachmentId} | Get attachment of tracker item by id
+[**getTrackerItemAttachmentContent**](TrackerItemsAttachmentApi.md#getTrackerItemAttachmentContent) | **GET** /v3/items/{itemId}/attachments/{attachmentId}/content | Get content of an attachment of tracker item by id
+[**getTrackerItemAttachmentContents**](TrackerItemsAttachmentApi.md#getTrackerItemAttachmentContents) | **GET** /v3/items/{itemId}/attachments/content | Get attachments of a tracker item
+[**getTrackerItemAttachments**](TrackerItemsAttachmentApi.md#getTrackerItemAttachments) | **GET** /v3/items/{itemId}/attachments | Get attachments of tracker item
+[**getTrackerItemsAttachmentContents**](TrackerItemsAttachmentApi.md#getTrackerItemsAttachmentContents) | **POST** /v3/items/attachments/content | Get attachments of tracker items matching the extension or mime type filters
+[**updateAttachmentOfTrackerItem**](TrackerItemsAttachmentApi.md#updateAttachmentOfTrackerItem) | **PUT** /v3/items/{itemId}/attachments/{attachmentId}/content | Update content of attachment of tracker item
+[**uploadTrackerItemAttachment**](TrackerItemsAttachmentApi.md#uploadTrackerItemAttachment) | **POST** /v3/items/{itemId}/attachments | Upload an attachment to a tracker item
 
 
 <a name="deleteTrackerItemAttachment"></a>
@@ -71,11 +71,11 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
-| **attachmentId** | **Integer**|  | |
-| **deleteAttachmentGroup** | **Boolean**| Delete attachment group or delete just the attachment and let the comment there | [optional] [default to false] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
+ **attachmentId** | **Integer**|  |
+ **deleteAttachmentGroup** | **Boolean**| Delete attachment group or delete just the attachment and let the comment there | [optional] [default to false]
 
 ### Return type
 
@@ -93,12 +93,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Attachment of tracker item by id |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker not found |  -  |
-| **423** | Tracker item is locked |  -  |
-| **429** | Too many requests |  -  |
+**200** | Attachment of tracker item by id |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker not found |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
 
 <a name="deleteTrackerItemAttachments"></a>
 # **deleteTrackerItemAttachments**
@@ -154,10 +154,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
-| **deleteAttachmentGroup** | **Boolean**| Delete attachment group or delete just the attachment and let the comment there | [optional] [default to false] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
+ **deleteAttachmentGroup** | **Boolean**| Delete attachment group or delete just the attachment and let the comment there | [optional] [default to false]
 
 ### Return type
 
@@ -175,12 +175,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Attachments of tracker item removed |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker not found |  -  |
-| **423** | Tracker item is locked |  -  |
-| **429** | Too many requests |  -  |
+**200** | Attachments of tracker item removed |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker not found |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemAttachment"></a>
 # **getTrackerItemAttachment**
@@ -237,10 +237,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
-| **attachmentId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
+ **attachmentId** | **Integer**|  |
 
 ### Return type
 
@@ -258,11 +258,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Attachment of tracker item by id |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker / Attachment not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Attachment of tracker item by id |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker / Attachment not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemAttachmentContent"></a>
 # **getTrackerItemAttachmentContent**
@@ -319,10 +319,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
-| **attachmentId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
+ **attachmentId** | **Integer**|  |
 
 ### Return type
 
@@ -340,11 +340,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Attachment of tracker item by id |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker / Attachment not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Attachment of tracker item by id |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker / Attachment not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemAttachmentContents"></a>
 # **getTrackerItemAttachmentContents**
@@ -400,9 +400,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
 
 ### Return type
 
@@ -420,11 +420,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Attachments of a tracker item: contains the attachment files prefixed with the attachment id like [attachment-id]_[filename]. |  -  |
-| **400** | Bad request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker item not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Attachments of a tracker item: contains the attachment files prefixed with the attachment id like [attachment-id]_[filename]. |  -  |
+**400** | Bad request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemAttachments"></a>
 # **getTrackerItemAttachments**
@@ -481,10 +481,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**| Id of the tracker item | |
-| **fileName** | **String**| Filter by part of the filename of the attachments | [optional] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**| Id of the tracker item |
+ **fileName** | **String**| Filter by part of the filename of the attachments | [optional]
 
 ### Return type
 
@@ -502,12 +502,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Attachments of tracker item |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Access denied |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker item not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Attachments of tracker item |  -  |
+**400** | Bad Request |  -  |
+**401** | Access denied |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemsAttachmentContents"></a>
 # **getTrackerItemsAttachmentContents**
@@ -563,9 +563,9 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **trackerItemAttachmentRequest** | [**TrackerItemAttachmentRequest**](TrackerItemAttachmentRequest.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerItemAttachmentRequest** | [**TrackerItemAttachmentRequest**](TrackerItemAttachmentRequest.md)|  |
 
 ### Return type
 
@@ -583,11 +583,11 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Attachments of tracker items: each tracker item goes to a subdirectory named as item-id and this directory contains the attachment files prefixed with the attachment id like [attachment-id]_[filename]. |  -  |
-| **400** | Bad request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker items not found |  -  |
-| **429** | Too many requests |  -  |
+**200** | Attachments of tracker items: each tracker item goes to a subdirectory named as item-id and this directory contains the attachment files prefixed with the attachment id like [attachment-id]_[filename]. |  -  |
+**400** | Bad request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker items not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="updateAttachmentOfTrackerItem"></a>
 # **updateAttachmentOfTrackerItem**
@@ -630,7 +630,7 @@ public class Example {
     Integer attachmentId = 56; // Integer | 
     File content = new File("/path/to/file"); // File | 
     String description = "description_example"; // String | Description
-    String descriptionFormat = "PlainText"; // String | Format of description
+    String descriptionFormat = "DescriptionFormatEnum.PLAINTEXT"; // String | Format of description
     try {
       Attachment result = apiInstance.updateAttachmentOfTrackerItem(itemId, attachmentId, content, description, descriptionFormat);
       System.out.println(result);
@@ -647,13 +647,13 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
-| **attachmentId** | **Integer**|  | |
-| **content** | **File**|  | [optional] |
-| **description** | **String**| Description | [optional] |
-| **descriptionFormat** | **String**| Format of description | [optional] [default to PlainText] [enum: PlainText, Html, Wiki] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
+ **attachmentId** | **Integer**|  |
+ **content** | **File**|  | [optional]
+ **description** | **String**| Description | [optional]
+ **descriptionFormat** | **String**| Format of description | [optional] [default to DescriptionFormatEnum.PLAINTEXT] [enum: PlainText, Html, Wiki]
 
 ### Return type
 
@@ -671,14 +671,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Updated attachment |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Authentication is required |  -  |
-| **403** | Authorization is required |  -  |
-| **404** | Tracker item or attachment not found |  -  |
-| **423** | Tracker item is locked |  -  |
-| **429** | Too many requests |  -  |
-| **500** | Unexpected error |  -  |
+**200** | Updated attachment |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authorization is required |  -  |
+**404** | Tracker item or attachment not found |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
+**500** | Unexpected error |  -  |
 
 <a name="uploadTrackerItemAttachment"></a>
 # **uploadTrackerItemAttachment**
@@ -735,10 +735,10 @@ public class Example {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **itemId** | **Integer**|  | |
-| **attachments** | **File**| Attachments of a comment | [optional] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
+ **attachments** | **File**| Attachments of a comment | [optional]
 
 ### Return type
 
@@ -756,10 +756,10 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Attachment of tracker item by id |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication is required |  -  |
-| **404** | Tracker not found |  -  |
-| **423** | Tracker item is locked |  -  |
-| **429** | Too many requests |  -  |
+**200** | Attachment of tracker item by id |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker not found |  -  |
+**423** | Tracker item is locked |  -  |
+**429** | Too many requests |  -  |
 

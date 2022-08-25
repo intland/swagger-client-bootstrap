@@ -14,22 +14,13 @@
 package com.intland.swagger.client.model;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.intland.swagger.client.JSON;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -38,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Request model to render a wiki page in a specific context
  */
 @ApiModel(description = "Request model to render a wiki page in a specific context")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-18T17:30:04.683+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
 public class WikiRenderRequest {
   public static final String SERIALIZED_NAME_CONTEXT_ID = "contextId";
   @SerializedName(SERIALIZED_NAME_CONTEXT_ID)
@@ -103,8 +94,6 @@ public class WikiRenderRequest {
   @SerializedName(SERIALIZED_NAME_RENDERING_CONTEXT_TYPE)
   private RenderingContextTypeEnum renderingContextType;
 
-  public WikiRenderRequest() { 
-  }
 
   public WikiRenderRequest contextId(Integer contextId) {
     
@@ -198,7 +187,6 @@ public class WikiRenderRequest {
   }
 
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -242,107 +230,5 @@ public class WikiRenderRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("contextId");
-    openapiFields.add("contextVersion");
-    openapiFields.add("markup");
-    openapiFields.add("renderingContextType");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("markup");
-  }
-
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WikiRenderRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (WikiRenderRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WikiRenderRequest is not found in the empty JSON string", WikiRenderRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!WikiRenderRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WikiRenderRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WikiRenderRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (jsonObj.get("markup") != null && !jsonObj.get("markup").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `markup` to be a primitive type in the JSON string but got `%s`", jsonObj.get("markup").toString()));
-      }
-      if (jsonObj.get("renderingContextType") != null && !jsonObj.get("renderingContextType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `renderingContextType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("renderingContextType").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WikiRenderRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WikiRenderRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WikiRenderRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WikiRenderRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WikiRenderRequest>() {
-           @Override
-           public void write(JsonWriter out, WikiRenderRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public WikiRenderRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
-           }
-
-       }.nullSafe();
-    }
-  }
-
- /**
-  * Create an instance of WikiRenderRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of WikiRenderRequest
-  * @throws IOException if the JSON string is invalid with respect to WikiRenderRequest
-  */
-  public static WikiRenderRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WikiRenderRequest.class);
-  }
-
- /**
-  * Convert an instance of WikiRenderRequest to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

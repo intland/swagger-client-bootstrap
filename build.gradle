@@ -57,7 +57,7 @@ task generateSwaggerClient(type: GenerateTask){
 
     outputDir = swaggerBuildDir
     configOptions = [
-    		dateLibrary: "legacy",
+            dateLibrary: "legacy",
             systemProperties: "-classpath=" + sourceSets.main.compileClasspath
     ]
 

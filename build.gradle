@@ -52,7 +52,7 @@ task generateSwaggerClient(type: GenerateTask){
     invokerPackage = "com.intland.swagger.client"
     packageName = "com.intland.swagger.client"
 
-	generateApiTests = false
+    generateApiTests = false
     generateModelTests = false
 
     outputDir = swaggerBuildDir

@@ -63,8 +63,12 @@ task generateSwaggerClient(type: GenerateTask){
     invokerPackage = "com.intland.swagger.client"
     packageName = "com.intland.swagger.client"
 
+    generateApiTests = false
+    generateModelTests = false
+
     outputDir = swaggerBuildDir
     configOptions = [
+            dateLibrary: "legacy",
             systemProperties: "-classpath=" + sourceSets.main.compileClasspath
     ]
 

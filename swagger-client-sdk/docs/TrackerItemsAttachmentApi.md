@@ -93,6 +93,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 **200** | Attachment of tracker item by id |  -  |
 
 <a name="deleteTrackerItemAttachments"></a>
@@ -163,7 +164,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -171,6 +172,7 @@ null (empty response body)
 **403** | Authentication is required |  -  |
 **200** | Attachments of tracker item removed |  -  |
 **404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemAttachment"></a>
 # **getTrackerItemAttachment**
@@ -249,8 +251,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**200** | Attachment of tracker item by id |  -  |
 **404** | Tracker / Attachment not found |  -  |
+**429** | Too many requests |  -  |
+**200** | Attachment of tracker item by id |  -  |
 
 <a name="getTrackerItemAttachmentContent"></a>
 # **getTrackerItemAttachmentContent**
@@ -329,8 +332,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**200** | Attachment of tracker item by id |  -  |
 **404** | Tracker / Attachment not found |  -  |
+**429** | Too many requests |  -  |
+**200** | Attachment of tracker item by id |  -  |
 
 <a name="getTrackerItemAttachmentContents"></a>
 # **getTrackerItemAttachmentContents**
@@ -401,15 +405,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/zip
+ - **Accept**: application/zip, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**404** | Tracker item not found |  -  |
-**200** | Attachments of a tracker item: contains the attachment files prefixed with the attachment id like [attachment-id]_[filename]. |  -  |
 **400** | Bad request |  -  |
+**404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
+**200** | Attachments of a tracker item: contains the attachment files prefixed with the attachment id like [attachment-id]_[filename]. |  -  |
 
 <a name="getTrackerItemAttachments"></a>
 # **getTrackerItemAttachments**
@@ -487,10 +492,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**401** | Access denied |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
 **200** | Attachments of tracker item |  -  |
-**401** | Access denied |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemsAttachmentContents"></a>
 # **getTrackerItemsAttachmentContents**
@@ -561,14 +567,15 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/zip
+ - **Accept**: application/zip, application/json, 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Attachments of tracker items: each tracker item goes to a subdirectory named as item-id and this directory contains the attachment files prefixed with the attachment id like [attachment-id]_[filename]. |  -  |
+**403** | Authentication is required |  -  |
 **400** | Bad request |  -  |
+**429** | Too many requests |  -  |
 **404** | Tracker items not found |  -  |
 
 <a name="updateAttachmentOfTrackerItem"></a>
@@ -654,10 +661,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **404** | Tracker item or attachment not found |  -  |
-**500** | Unexpected error |  -  |
+**429** | Too many requests |  -  |
 **200** | Updated attachment |  -  |
-**403** | Authorization is required |  -  |
 **401** | Authentication is required |  -  |
+**403** | Authorization is required |  -  |
+**500** | Unexpected error |  -  |
 
 <a name="updloadTrackerItemAttachment"></a>
 # **updloadTrackerItemAttachment**
@@ -737,5 +745,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 **200** | Attachment of tracker item by id |  -  |
 

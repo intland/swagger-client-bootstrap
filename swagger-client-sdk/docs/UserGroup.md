@@ -2,7 +2,7 @@
 
 # UserGroup
 
-Group of a codeBeamer user
+Group of a codebeamer user
 ## Properties
 
 Name | Type | Description | Notes

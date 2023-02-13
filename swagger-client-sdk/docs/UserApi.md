@@ -86,8 +86,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**200** | User |  -  |
 **404** | User not found |  -  |
+**429** | Too many requests |  -  |
+**200** | User |  -  |
 
 <a name="getUserByEmail"></a>
 # **getUserByEmail**
@@ -164,8 +165,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**200** | User |  -  |
 **404** | User not found |  -  |
+**429** | Too many requests |  -  |
+**200** | User |  -  |
 
 <a name="getUserByName"></a>
 # **getUserByName**
@@ -242,8 +244,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**200** | User |  -  |
 **404** | User not found |  -  |
+**429** | Too many requests |  -  |
+**200** | User |  -  |
 
 <a name="getUsers"></a>
 # **getUsers**
@@ -326,11 +329,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 **200** | Users |  -  |
 
 <a name="searchUsers"></a>
 # **searchUsers**
-> UserReferenceSearchResult searchUsers(page, pageSize, userFilteringRequest)
+> UserSearchResult searchUsers(page, pageSize, userFilteringRequest)
 
 Search users
 
@@ -369,7 +373,7 @@ public class Example {
     Integer pageSize = 25; // Integer | Number of items in a result page. Max value: 500
     UserFilteringRequest userFilteringRequest = new UserFilteringRequest(); // UserFilteringRequest | 
     try {
-      UserReferenceSearchResult result = apiInstance.searchUsers(page, pageSize, userFilteringRequest);
+      UserSearchResult result = apiInstance.searchUsers(page, pageSize, userFilteringRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserApi#searchUsers");
@@ -392,7 +396,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserReferenceSearchResult**](UserReferenceSearchResult.md)
+[**UserSearchResult**](UserSearchResult.md)
 
 ### Authorization
 
@@ -407,6 +411,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**200** | Users |  -  |
 **400** | Bad request |  -  |
+**429** | Too many requests |  -  |
+**200** | Users |  -  |
+**404** | Project is not found |  -  |
 

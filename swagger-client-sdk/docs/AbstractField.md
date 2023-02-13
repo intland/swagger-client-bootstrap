@@ -17,6 +17,9 @@ Name | Type | Description | Notes
 **legacyRestName** | **String** | Identifier matching the legacy REST API naming |  [optional]
 **trackerItemField** | **String** | Tracker item&#39;s field name for this field |  [optional]
 **mandatoryInStatuses** | [**List&lt;ChoiceOptionReference&gt;**](ChoiceOptionReference.md) | List of statuses where the field is mandatory. |  [optional]
+**formula** | **String** | Formula value of a field |  [optional]
+**hideIfDependencyFormula** | **String** | Hide If dependency formula value of a field |  [optional]
+**mandatoryIfDependencyFormula** | **String** | Mandatory If dependency formula value of a field |  [optional]
 
 
 

@@ -94,8 +94,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Details of the lock, or an empty response |  -  |
-**404** | Wiki page not found |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
+**404** | Wiki page not found |  -  |
 
 <a name="createWikiPage"></a>
 # **createWikiPage**
@@ -171,10 +172,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Properties of the created wikipage |  -  |
-**403** | Access denied |  -  |
 **400** | Request cannot be processed |  -  |
+**200** | Properties of the created wikipage |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
+**403** | Access denied |  -  |
 
 <a name="deleteWikiPage"></a>
 # **deleteWikiPage**
@@ -244,16 +246,17 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Access denied |  -  |
 **400** | Request cannot be processed |  -  |
-**200** | The wiki page has been deleted successfully |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
+**403** | Access denied |  -  |
 **404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
+**200** | The wiki page has been deleted successfully |  -  |
 
 <a name="getWikiPage"></a>
 # **getWikiPage**
@@ -331,9 +334,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
 **403** | Access denied |  -  |
 **200** | The wiki page |  -  |
-**401** | Authentication is required |  -  |
 **404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
 
 <a name="getWikiPageHistory"></a>
@@ -415,8 +419,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Wiki page history |  -  |
-**404** | Wiki page not found |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
+**404** | Wiki page not found |  -  |
 
 <a name="getWikiPermissions"></a>
 # **getWikiPermissions**
@@ -493,9 +498,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Permissions of the wiki page |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
 **403** | Authorization is required |  -  |
 **404** | Wiki page not found |  -  |
-**401** | Authentication is required |  -  |
 
 <a name="lockWikiPage"></a>
 # **lockWikiPage**
@@ -567,16 +573,17 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Wiki page not found |  -  |
-**403** | Could not acquire lock |  -  |
-**200** | Lock acquired successfully |  -  |
-**400** | Bad request, request validation error |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
+**403** | Could not acquire lock |  -  |
+**400** | Bad request, request validation error |  -  |
+**404** | Wiki page not found |  -  |
+**200** | Lock acquired successfully |  -  |
 
 <a name="renderWikiMarkup"></a>
 # **renderWikiMarkup**
@@ -654,10 +661,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Access denied |  -  |
 **400** | Request cannot be processed |  -  |
-**200** | The wiki content rendered as HTML |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
+**403** | Access denied |  -  |
+**200** | The wiki content rendered as HTML |  -  |
 **404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
 
 <a name="renderWikiPage"></a>
@@ -736,10 +744,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Access denied |  -  |
 **400** | Request cannot be processed |  -  |
-**200** | The wiki content rendered as HTML |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
+**403** | Access denied |  -  |
+**200** | The wiki content rendered as HTML |  -  |
 **404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
 
 <a name="restoreWikiPageContent"></a>
@@ -818,10 +827,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Wiki page or version not found |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
 **403** | Access denied |  -  |
 **200** | Wiki page has been restored |  -  |
-**401** | Authentication is required |  -  |
+**404** | Wiki page or version not found |  -  |
 
 <a name="setWikiPermissions"></a>
 # **setWikiPermissions**
@@ -901,11 +911,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**400** | Request cannot be processed |  -  |
 **200** | Permissions of the wiki page |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
 **403** | Authorization is required |  -  |
 **404** | Wiki page not found |  -  |
-**400** | Request cannot be processed |  -  |
-**401** | Authentication is required |  -  |
 
 <a name="unlockWikiPage"></a>
 # **unlockWikiPage**
@@ -975,15 +986,16 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Unlock successful |  -  |
-**404** | Wiki page not found |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 **403** | Could not unlock |  -  |
+**404** | Wiki page not found |  -  |
 
 <a name="updateWikiPage"></a>
 # **updateWikiPage**
@@ -1061,9 +1073,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Wikipage not found |  -  |
-**403** | Access denied |  -  |
 **400** | Request cannot be processed |  -  |
-**200** | Properties of the updated wikipage |  -  |
+**404** | Wikipage not found |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
+**403** | Access denied |  -  |
+**200** | Properties of the updated wikipage |  -  |
 

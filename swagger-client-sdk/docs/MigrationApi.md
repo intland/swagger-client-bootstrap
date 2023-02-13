@@ -77,13 +77,14 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Attachments are migrated |  -  |
-**403** | Access denied |  -  |
 **400** | Bad request |  -  |
+**200** | Attachments are migrated |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
+**403** | Access denied |  -  |
 

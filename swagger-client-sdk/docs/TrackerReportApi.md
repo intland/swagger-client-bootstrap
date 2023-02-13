@@ -91,6 +91,7 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **200** | Tracker report settings |  -  |
 **404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="deleteTrackerReport"></a>
 # **deleteTrackerReport**
@@ -162,7 +163,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -170,6 +171,7 @@ null (empty response body)
 **403** | Authentication is required |  -  |
 **200** | Tracker report deleted. |  -  |
 **404** | Tracker / Report not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerReport"></a>
 # **getTrackerReport**
@@ -254,6 +256,7 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **200** | Tracker report |  -  |
 **404** | Tracker / Report not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerReportItems"></a>
 # **getTrackerReportItems**
@@ -338,6 +341,7 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **200** | Tracker report items |  -  |
 **404** | Tracker / Report not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerReports"></a>
 # **getTrackerReports**
@@ -414,8 +418,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**404** | Tracker not found |  -  |
 **200** | Tracker report reference list |  -  |
+**404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 **500** | Internal server error |  -  |
 
 <a name="updateTrackerReport"></a>
@@ -499,4 +504,5 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **200** | Tracker report settings |  -  |
 **404** | Tracker / Report not found |  -  |
+**429** | Too many requests |  -  |
 

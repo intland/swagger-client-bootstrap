@@ -89,10 +89,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Comment created successfully |  -  |
-**500** | Unexpected error |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
 **403** | Authorization is required |  -  |
 **404** | Wiki page not found |  -  |
-**401** | Authentication is required |  -  |
+**500** | Unexpected error |  -  |
 
 <a name="getAttachmentByName"></a>
 # **getAttachmentByName**
@@ -172,6 +173,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Attachment of wiki page |  -  |
 **404** | Wiki page / Attachment not found |  -  |
-**403** | Authorization is required |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
+**403** | Authorization is required |  -  |
 

@@ -86,9 +86,10 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Attachment deleted |  -  |
+**404** | Attachment not found |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 **403** | Access denied |  -  |
-**404** | Attachment not found |  -  |
 
 <a name="getAttachment"></a>
 # **getAttachment**
@@ -166,10 +167,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Attachment by id |  -  |
-**403** | Authorization is required |  -  |
-**401** | Authentication is required |  -  |
 **404** | Tracker / Attachment not found |  -  |
+**200** | Attachment by id |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authorization is required |  -  |
 
 <a name="getAttachmentContent"></a>
 # **getAttachmentContent**
@@ -248,9 +250,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Attachment by id |  -  |
-**403** | Authorization is required |  -  |
-**401** | Authentication is required |  -  |
 **404** | Tracker / Attachment not found |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authorization is required |  -  |
 
 <a name="getAttachmentHistory"></a>
 # **getAttachmentHistory**
@@ -330,11 +333,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Authentication is required |  -  |
-**200** | Attachment history |  -  |
-**403** | Access denied |  -  |
 **404** | Attachment not found |  -  |
+**200** | Attachment history |  -  |
 **400** | Bad request |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
+**403** | Access denied |  -  |
 
 <a name="restoreAttachment"></a>
 # **restoreAttachment**
@@ -412,11 +416,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**500** | Unexpected error |  -  |
+**404** | Attachment not found |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
 **403** | Authorization is required |  -  |
 **200** | Restored attachment |  -  |
-**401** | Authentication is required |  -  |
-**404** | Attachment not found |  -  |
+**500** | Unexpected error |  -  |
 
 <a name="updateAttachment"></a>
 # **updateAttachment**
@@ -498,9 +503,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**500** | Unexpected error |  -  |
-**200** | Updated attachment |  -  |
-**403** | Authorization is required |  -  |
-**401** | Authentication is required |  -  |
 **404** | Attachment not found |  -  |
+**429** | Too many requests |  -  |
+**200** | Updated attachment |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authorization is required |  -  |
+**500** | Unexpected error |  -  |
 

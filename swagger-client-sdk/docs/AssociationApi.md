@@ -88,6 +88,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 **200** | Created association |  -  |
 
 <a name="deleteAssociation"></a>
@@ -164,8 +165,9 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**200** | Delete association by id |  -  |
+**429** | Too many requests |  -  |
 **404** | Association not found |  -  |
+**200** | Delete association by id |  -  |
 
 <a name="getAssociation"></a>
 # **getAssociation**
@@ -242,8 +244,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**200** | Found association |  -  |
+**429** | Too many requests |  -  |
 **404** | Association not found |  -  |
+**200** | Found association |  -  |
 
 <a name="getAssociationHistory"></a>
 # **getAssociationHistory**
@@ -323,9 +326,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Association not found |  -  |
 **200** | Association history |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
+**404** | Association not found |  -  |
 
 <a name="getAssociationType"></a>
 # **getAssociationType**
@@ -401,8 +405,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Association type |  -  |
 **403** | Authentication is required |  -  |
+**200** | Association type |  -  |
+**429** | Too many requests |  -  |
 **404** | Association not found |  -  |
 
 <a name="getAvailableAssociationTypes"></a>
@@ -476,6 +481,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 **200** | List of association types |  -  |
 
 <a name="updateAssociation"></a>
@@ -556,5 +562,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Updated association |  -  |
 **403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 **404** | Association not found |  -  |
 

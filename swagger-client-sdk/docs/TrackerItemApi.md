@@ -4,28 +4,118 @@ All URIs are relative to *http://localhost:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addChildToTracker**](TrackerItemApi.md#addChildToTracker) | **POST** /v3/trackers/{trackerId}/children | Add a child item to a tracker item
 [**addChildToTrackerItem**](TrackerItemApi.md#addChildToTrackerItem) | **POST** /v3/items/{itemId}/children | Add a child item to a tracker item
+[**bulkUpdateTrackerItemFields**](TrackerItemApi.md#bulkUpdateTrackerItemFields) | **PUT** /v3/items/fields | Bulk update fields of a tracker item
 [**checkTrackerItemLock**](TrackerItemApi.md#checkTrackerItemLock) | **GET** /v3/items/{itemId}/lock | Check whether a tracker item is locked, and if it is, retrieve the details of the lock
 [**createTrackerItem**](TrackerItemApi.md#createTrackerItem) | **POST** /v3/trackers/{trackerId}/items | Create a tracker item
-[**deleteTrackerItem**](TrackerItemApi.md#deleteTrackerItem) | **DELETE** /v3/items/{itemId} | Delete tracker item
+[**deleteTrackerItem**](TrackerItemApi.md#deleteTrackerItem) | **DELETE** /v3/items/{itemId} | Move tracker item to trash
+[**findTrackerChildren**](TrackerItemApi.md#findTrackerChildren) | **GET** /v3/trackers/{trackerId}/children | Get child items of a tracker item
 [**findTrackerItemChildren**](TrackerItemApi.md#findTrackerItemChildren) | **GET** /v3/items/{itemId}/children | Get child items of a tracker item
 [**findTrackerItems**](TrackerItemApi.md#findTrackerItems) | **GET** /v3/items/query | Get tracker items by cbQL query string
 [**findTrackerItemsByCbQL**](TrackerItemApi.md#findTrackerItemsByCbQL) | **POST** /v3/items/query | Get tracker items by cbQL query string
 [**getBaselineTrackerItemRelations**](TrackerItemApi.md#getBaselineTrackerItemRelations) | **GET** /v3/items/{itemId}/relations | Get tracker items for a baseline version
 [**getBaselineTrackerItemsRelations**](TrackerItemApi.md#getBaselineTrackerItemsRelations) | **POST** /v3/items/relations | Get tracker items for a baseline version
 [**getChoiceOptions**](TrackerItemApi.md#getChoiceOptions) | **GET** /v3/items/{itemId}/fields/{fieldId}/options | Get the options of a choice field of tracker
+[**getItemAccessibility**](TrackerItemApi.md#getItemAccessibility) | **GET** /v3/items/{itemId}/fields/accessibility | Get a tracker item fields accessibility
 [**getTrackerItem**](TrackerItemApi.md#getTrackerItem) | **GET** /v3/items/{itemId} | Get basic tracker item
+[**getTrackerItemFields**](TrackerItemApi.md#getTrackerItemFields) | **GET** /v3/items/{itemId}/fields | Get fields of a tracker item
 [**getTrackerItemHistory**](TrackerItemApi.md#getTrackerItemHistory) | **GET** /v3/items/{itemId}/history | Get tracker item history
 [**getTrackerItemReviews**](TrackerItemApi.md#getTrackerItemReviews) | **GET** /v3/items/{itemId}/reviews | Get all Tracker Item Reviews for a particular Tracker Item
 [**getTrackerItemTransitions**](TrackerItemApi.md#getTrackerItemTransitions) | **GET** /v3/items/{itemId}/transitions | Get available transitions for a tracker item
 [**lockTrackerItem**](TrackerItemApi.md#lockTrackerItem) | **PUT** /v3/items/{itemId}/lock | Put a soft lock on a tracker item
+[**patchChildrenOfTracker**](TrackerItemApi.md#patchChildrenOfTracker) | **PATCH** /v3/trackers/{trackerId}/children | Patch the child item list of a tracker item
 [**patchChildrenOfTrackerItem**](TrackerItemApi.md#patchChildrenOfTrackerItem) | **PATCH** /v3/items/{itemId}/children | Patch the child item list of a tracker item
+[**replaceChildrenOfTracker**](TrackerItemApi.md#replaceChildrenOfTracker) | **PUT** /v3/trackers/{trackerId}/children | Reorder the child item list of a tracker
 [**replaceChildrenOfTrackerItem**](TrackerItemApi.md#replaceChildrenOfTrackerItem) | **PUT** /v3/items/{itemId}/children | Replace the child item list of a tracker item
 [**unlockTrackerItem**](TrackerItemApi.md#unlockTrackerItem) | **DELETE** /v3/items/{itemId}/lock | Unlock a tracker item
-[**updateCustomFieldTrackerItem**](TrackerItemApi.md#updateCustomFieldTrackerItem) | **PUT** /v3/items/{itemId}/fields | Update field of tracker item
+[**updateCustomFieldTrackerItem**](TrackerItemApi.md#updateCustomFieldTrackerItem) | **PUT** /v3/items/{itemId}/fields | Update fields of a tracker item
 [**updateTableFieldTrackerItem**](TrackerItemApi.md#updateTableFieldTrackerItem) | **PUT** /v3/items/{itemId}/fields/tables/{tableFieldId} | Update table field of tracker item
 [**updateTrackerItem**](TrackerItemApi.md#updateTrackerItem) | **PUT** /v3/items/{itemId} | Update tracker item
 
+
+<a name="addChildToTracker"></a>
+# **addChildToTracker**
+> TrackerItemChildReference addChildToTracker(trackerId, trackerItemRevision)
+
+Add a child item to a tracker item
+
+### Example
+```java
+// Import classes:
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerItemApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
+
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
+
+    TrackerItemApi apiInstance = new TrackerItemApi(defaultClient);
+    Integer trackerId = 56; // Integer | 
+    TrackerItemRevision trackerItemRevision = new TrackerItemRevision(); // TrackerItemRevision | 
+    try {
+      TrackerItemChildReference result = apiInstance.addChildToTracker(trackerId, trackerItemRevision);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerItemApi#addChildToTracker");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **trackerItemRevision** | [**TrackerItemRevision**](TrackerItemRevision.md)|  | [optional]
+
+### Return type
+
+[**TrackerItemChildReference**](TrackerItemChildReference.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**200** | Child item reference with index |  -  |
+**404** | Tracker is not found |  -  |
+**401** | Permission is required |  -  |
+**429** | Too many requests |  -  |
+**400** | Invalid request |  -  |
 
 <a name="addChildToTrackerItem"></a>
 # **addChildToTrackerItem**
@@ -105,7 +195,94 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
 **200** | Child item reference with index |  -  |
+**401** | Permission is required |  -  |
+**429** | Too many requests |  -  |
+**404** | Tracker item is not found |  -  |
+**400** | Invalid request |  -  |
+
+<a name="bulkUpdateTrackerItemFields"></a>
+# **bulkUpdateTrackerItemFields**
+> BulkOperationResponse bulkUpdateTrackerItemFields(atomic, updateTrackerItemFieldWithItemId)
+
+Bulk update fields of a tracker item
+
+### Example
+```java
+// Import classes:
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerItemApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
+
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
+
+    TrackerItemApi apiInstance = new TrackerItemApi(defaultClient);
+    Boolean atomic = false; // Boolean | If it's turned on the whole update will run in a single transaction.
+    List<UpdateTrackerItemFieldWithItemId> updateTrackerItemFieldWithItemId = Arrays.asList(); // List<UpdateTrackerItemFieldWithItemId> | 
+    try {
+      BulkOperationResponse result = apiInstance.bulkUpdateTrackerItemFields(atomic, updateTrackerItemFieldWithItemId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerItemApi#bulkUpdateTrackerItemFields");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **atomic** | **Boolean**| If it&#39;s turned on the whole update will run in a single transaction. | [optional] [default to false]
+ **updateTrackerItemFieldWithItemId** | [**List&lt;UpdateTrackerItemFieldWithItemId&gt;**](UpdateTrackerItemFieldWithItemId.md)|  | [optional]
+
+### Return type
+
+[**BulkOperationResponse**](BulkOperationResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
 **400** | Request cannot be processed |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker / Field not found |  -  |
+**429** | Too many requests |  -  |
+**200** | Bulk update response |  -  |
+**401** | Authentication is required |  -  |
+**500** | Unexpected error |  -  |
 
 <a name="checkTrackerItemLock"></a>
 # **checkTrackerItemLock**
@@ -182,8 +359,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Details of the lock, or an empty response |  -  |
-**404** | Wiki page not found |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
+**404** | Wiki page not found |  -  |
 
 <a name="createTrackerItem"></a>
 # **createTrackerItem**
@@ -267,17 +445,18 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**400** | Request cannot be processed |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker / Field not found |  -  |
-**500** | Unexpected error |  -  |
 **200** | Basic tracker item by id |  -  |
-**400** | Request cannot be processed |  -  |
+**429** | Too many requests |  -  |
+**500** | Unexpected error |  -  |
 
 <a name="deleteTrackerItem"></a>
 # **deleteTrackerItem**
 > TrackerItem deleteTrackerItem(itemId)
 
-Delete tracker item
+Move tracker item to trash
 
 ### Example
 ```java
@@ -348,9 +527,95 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**404** | Tracker not found |  -  |
-**500** | Unexpected error |  -  |
 **200** | Basic tracker item by id |  -  |
+**404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
+**500** | Unexpected error |  -  |
+
+<a name="findTrackerChildren"></a>
+# **findTrackerChildren**
+> TrackerItemReferenceSearchResult findTrackerChildren(trackerId, page, pageSize)
+
+Get child items of a tracker item
+
+### Example
+```java
+// Import classes:
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerItemApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
+
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
+
+    TrackerItemApi apiInstance = new TrackerItemApi(defaultClient);
+    Integer trackerId = 56; // Integer | 
+    Integer page = 1; // Integer | Index of the result page starting from 1.
+    Integer pageSize = 25; // Integer | Number of items in a result page. Max value: 500
+    try {
+      TrackerItemReferenceSearchResult result = apiInstance.findTrackerChildren(trackerId, page, pageSize);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerItemApi#findTrackerChildren");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25]
+
+### Return type
+
+[**TrackerItemReferenceSearchResult**](TrackerItemReferenceSearchResult.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**404** | Tracker is not found |  -  |
+**401** | Permission is required |  -  |
+**429** | Too many requests |  -  |
+**200** | List child items of a tracker item ordered by ordinal |  -  |
+**400** | Invalid request |  -  |
 
 <a name="findTrackerItemChildren"></a>
 # **findTrackerItemChildren**
@@ -431,12 +696,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**400** | Request cannot be processed |  -  |
+**401** | Permission is required |  -  |
+**429** | Too many requests |  -  |
 **200** | List child items of a tracker item ordered by ordinal |  -  |
+**404** | Tracker item is not found |  -  |
+**400** | Invalid request |  -  |
 
 <a name="findTrackerItems"></a>
 # **findTrackerItems**
-> TrackerItemSearchResult findTrackerItems(queryString, page, pageSize)
+> TrackerItemSearchResult findTrackerItems(queryString, baselineId, page, pageSize)
 
 Get tracker items by cbQL query string
 
@@ -472,10 +740,11 @@ public class Example {
 
     TrackerItemApi apiInstance = new TrackerItemApi(defaultClient);
     String queryString = priority='Normal'; // String | 
+    Integer baselineId = 56; // Integer | Baseline on which the queery is applied.
     Integer page = 1; // Integer | Index of the result page starting from 1.
     Integer pageSize = 25; // Integer | Number of items in a result page. Max value: 500
     try {
-      TrackerItemSearchResult result = apiInstance.findTrackerItems(queryString, page, pageSize);
+      TrackerItemSearchResult result = apiInstance.findTrackerItems(queryString, baselineId, page, pageSize);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TrackerItemApi#findTrackerItems");
@@ -493,6 +762,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **queryString** | **String**|  |
+ **baselineId** | **Integer**| Baseline on which the queery is applied. | [optional]
  **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1]
  **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25]
 
@@ -513,8 +783,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List tracker items by cbQL |  -  |
-**403** | Authentication is required |  -  |
 **400** | Request cannot be processed |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 
 <a name="findTrackerItemsByCbQL"></a>
 # **findTrackerItemsByCbQL**
@@ -593,8 +864,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List tracker items by cbQL |  -  |
-**403** | Authentication is required |  -  |
 **400** | Request cannot be processed |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getBaselineTrackerItemRelations"></a>
 # **getBaselineTrackerItemRelations**
@@ -677,6 +949,7 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **200** | Tracker item list |  -  |
 **404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getBaselineTrackerItemsRelations"></a>
 # **getBaselineTrackerItemsRelations**
@@ -759,6 +1032,7 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **200** | Tracker item list |  -  |
 **404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getChoiceOptions"></a>
 # **getChoiceOptions**
@@ -843,7 +1117,89 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **200** | Options |  -  |
 **404** | No option found |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
+
+<a name="getItemAccessibility"></a>
+# **getItemAccessibility**
+> TrackerItemFieldAccessibilityList getItemAccessibility(itemId, targetStatusId)
+
+Get a tracker item fields accessibility
+
+### Example
+```java
+// Import classes:
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerItemApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
+
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
+
+    TrackerItemApi apiInstance = new TrackerItemApi(defaultClient);
+    Integer itemId = 56; // Integer | Tracker item id
+    Integer targetStatusId = 56; // Integer | 
+    try {
+      TrackerItemFieldAccessibilityList result = apiInstance.getItemAccessibility(itemId, targetStatusId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerItemApi#getItemAccessibility");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**| Tracker item id |
+ **targetStatusId** | **Integer**|  | [optional]
+
+### Return type
+
+[**TrackerItemFieldAccessibilityList**](TrackerItemFieldAccessibilityList.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
+**200** | Accessibility returned |  -  |
 
 <a name="getTrackerItem"></a>
 # **getTrackerItem**
@@ -926,8 +1282,90 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**404** | Tracker item not found |  -  |
 **200** | Basic tracker item by id |  -  |
+**404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
+
+<a name="getTrackerItemFields"></a>
+# **getTrackerItemFields**
+> TrackerItemField getTrackerItemFields(itemId)
+
+Get fields of a tracker item
+
+### Example
+```java
+// Import classes:
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerItemApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
+
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
+
+    TrackerItemApi apiInstance = new TrackerItemApi(defaultClient);
+    Integer itemId = 56; // Integer | 
+    try {
+      TrackerItemField result = apiInstance.getTrackerItemFields(itemId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerItemApi#getTrackerItemFields");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **Integer**|  |
+
+### Return type
+
+[**TrackerItemField**](TrackerItemField.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Request cannot be processed |  -  |
+**403** | Authentication is required |  -  |
+**200** | Fields of tracker item by id |  -  |
+**429** | Too many requests |  -  |
+**404** | Tracker / Item not found |  -  |
+**500** | Unexpected error |  -  |
 
 <a name="getTrackerItemHistory"></a>
 # **getTrackerItemHistory**
@@ -1006,8 +1444,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**404** | Tracker not found |  -  |
 **200** | Basic tracker item by id |  -  |
+**404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemReviews"></a>
 # **getTrackerItemReviews**
@@ -1083,11 +1522,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Tracker item not found |  -  |
 **400** | Request cannot be processed |  -  |
+**404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
 **403** | Tracker item reviews are disabled, or access to them is denied |  -  |
 **200** | List of tracker item reviews for the particular item |  -  |
-**401** | Authentication is required |  -  |
 
 <a name="getTrackerItemTransitions"></a>
 # **getTrackerItemTransitions**
@@ -1166,9 +1606,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
 **500** | Internal server error |  -  |
-**200** | Available transitions |  -  |
 **401** | Authentication is required |  -  |
+**200** | Available transitions |  -  |
 **403** | Missing user permissions |  -  |
 
 <a name="lockTrackerItem"></a>
@@ -1241,16 +1682,102 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Wiki page not found |  -  |
-**403** | Could not acquire lock |  -  |
-**200** | Lock acquired successfully |  -  |
-**400** | Bad request, request validation error |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
+**403** | Could not acquire lock |  -  |
+**400** | Bad request, request validation error |  -  |
+**404** | Wiki page not found |  -  |
+**200** | Lock acquired successfully |  -  |
+
+<a name="patchChildrenOfTracker"></a>
+# **patchChildrenOfTracker**
+> TrackerItemChildReference patchChildrenOfTracker(trackerId, mode, trackerItemChildReference)
+
+Patch the child item list of a tracker item
+
+### Example
+```java
+// Import classes:
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerItemApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
+
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
+
+    TrackerItemApi apiInstance = new TrackerItemApi(defaultClient);
+    Integer trackerId = 56; // Integer | 
+    String mode = "INSERT"; // String | 
+    TrackerItemChildReference trackerItemChildReference = new TrackerItemChildReference(); // TrackerItemChildReference | 
+    try {
+      TrackerItemChildReference result = apiInstance.patchChildrenOfTracker(trackerId, mode, trackerItemChildReference);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerItemApi#patchChildrenOfTracker");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **mode** | **String**|  | [optional] [default to INSERT] [enum: INSERT]
+ **trackerItemChildReference** | [**TrackerItemChildReference**](TrackerItemChildReference.md)|  | [optional]
+
+### Return type
+
+[**TrackerItemChildReference**](TrackerItemChildReference.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**403** | Authentication is required |  -  |
+**200** | New child item reference on the requested index |  -  |
+**404** | Tracker is not found |  -  |
+**401** | Permission is required |  -  |
+**429** | Too many requests |  -  |
+**400** | Invalid request |  -  |
 
 <a name="patchChildrenOfTrackerItem"></a>
 # **patchChildrenOfTrackerItem**
@@ -1332,7 +1859,95 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
 **200** | New child item reference on the requested index |  -  |
-**400** | Request cannot be processed |  -  |
+**401** | Permission is required |  -  |
+**429** | Too many requests |  -  |
+**404** | Tracker item is not found |  -  |
+**400** | Invalid request |  -  |
+
+<a name="replaceChildrenOfTracker"></a>
+# **replaceChildrenOfTracker**
+> TrackerItemReferenceSearchResult replaceChildrenOfTracker(trackerId, resultPageSize, updateTrackerItemChildrenRequest)
+
+Reorder the child item list of a tracker
+
+### Example
+```java
+// Import classes:
+import com.intland.swagger.client.ApiClient;
+import com.intland.swagger.client.ApiException;
+import com.intland.swagger.client.Configuration;
+import com.intland.swagger.client.auth.*;
+import com.intland.swagger.client.models.*;
+import com.intland.swagger.client.api.TrackerItemApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    // Configure HTTP basic authorization: BasicAuth
+    HttpBasicAuth BasicAuth = (HttpBasicAuth) defaultClient.getAuthentication("BasicAuth");
+    BasicAuth.setUsername("YOUR USERNAME");
+    BasicAuth.setPassword("YOUR PASSWORD");
+
+    // Configure HTTP bearer authorization: BearerAuth
+    HttpBearerAuth BearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("BearerAuth");
+    BearerAuth.setBearerToken("BEARER TOKEN");
+
+    TrackerItemApi apiInstance = new TrackerItemApi(defaultClient);
+    Integer trackerId = 56; // Integer | 
+    Integer resultPageSize = 25; // Integer | Number of items in the result page. Max value: 500
+    UpdateTrackerItemChildrenRequest updateTrackerItemChildrenRequest = new UpdateTrackerItemChildrenRequest(); // UpdateTrackerItemChildrenRequest | 
+    try {
+      TrackerItemReferenceSearchResult result = apiInstance.replaceChildrenOfTracker(trackerId, resultPageSize, updateTrackerItemChildrenRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TrackerItemApi#replaceChildrenOfTracker");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **trackerId** | **Integer**|  |
+ **resultPageSize** | **Integer**| Number of items in the result page. Max value: 500 | [optional] [default to 25]
+ **updateTrackerItemChildrenRequest** | [**UpdateTrackerItemChildrenRequest**](UpdateTrackerItemChildrenRequest.md)|  | [optional]
+
+### Return type
+
+[**TrackerItemReferenceSearchResult**](TrackerItemReferenceSearchResult.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth), [BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | First page of the new child list |  -  |
+**403** | Authentication is required |  -  |
+**404** | Tracker is not found |  -  |
+**401** | Permission is required |  -  |
+**429** | Too many requests |  -  |
+**400** | Invalid request |  -  |
 
 <a name="replaceChildrenOfTrackerItem"></a>
 # **replaceChildrenOfTrackerItem**
@@ -1414,7 +2029,10 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | First page of the new child list |  -  |
 **403** | Authentication is required |  -  |
-**400** | Request cannot be processed |  -  |
+**401** | Permission is required |  -  |
+**429** | Too many requests |  -  |
+**404** | Tracker item is not found |  -  |
+**400** | Invalid request |  -  |
 
 <a name="unlockTrackerItem"></a>
 # **unlockTrackerItem**
@@ -1484,21 +2102,22 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Unlock successful |  -  |
-**404** | Wiki page not found |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 **403** | Could not unlock |  -  |
+**404** | Wiki page not found |  -  |
 
 <a name="updateCustomFieldTrackerItem"></a>
 # **updateCustomFieldTrackerItem**
 > TrackerItem updateCustomFieldTrackerItem(itemId, quietMode, updateTrackerItemField)
 
-Update field of tracker item
+Update fields of a tracker item
 
 ### Example
 ```java
@@ -1572,11 +2191,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**400** | Request cannot be processed |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker / Field not found |  -  |
-**500** | Unexpected error |  -  |
 **200** | Basic tracker item by id |  -  |
-**400** | Request cannot be processed |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
+**500** | Unexpected error |  -  |
 
 <a name="updateTableFieldTrackerItem"></a>
 # **updateTableFieldTrackerItem**
@@ -1656,11 +2277,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**400** | Request cannot be processed |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker / Field not found |  -  |
-**500** | Unexpected error |  -  |
 **200** | Basic tracker item by id |  -  |
-**400** | Request cannot be processed |  -  |
+**429** | Too many requests |  -  |
+**500** | Unexpected error |  -  |
 
 <a name="updateTrackerItem"></a>
 # **updateTrackerItem**
@@ -1742,9 +2364,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**400** | Request cannot be processed |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker / Field not found |  -  |
-**500** | Unexpected error |  -  |
 **200** | Basic tracker item by id |  -  |
-**400** | Request cannot be processed |  -  |
+**429** | Too many requests |  -  |
+**500** | Unexpected error |  -  |
 

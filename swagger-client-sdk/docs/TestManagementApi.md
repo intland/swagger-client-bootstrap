@@ -1,6 +1,6 @@
 # TestManagementApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *http://adam-Precision-5570:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,7 +26,7 @@ import com.intland.swagger.client.api.TestManagementApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -81,7 +81,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Authentication is required |  -  |
-**200** | The item-references of the modified tracker-items where duplicate Test Steps was found and converted to Reuses |  -  |
 **403** | Authentication is required |  -  |
+**200** | The item-references of the modified tracker-items where duplicate Test Steps was found and converted to Reuses |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
 

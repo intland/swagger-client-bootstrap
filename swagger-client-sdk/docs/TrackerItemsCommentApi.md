@@ -1,6 +1,6 @@
 # TrackerItemsCommentApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *http://adam-Precision-5570:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -32,7 +32,7 @@ import com.intland.swagger.client.api.TrackerItemsCommentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -96,6 +96,7 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
 **200** | Comment of tracker item by id |  -  |
+**429** | Too many requests |  -  |
 
 <a name="deleteTrackerItemComment"></a>
 # **deleteTrackerItemComment**
@@ -116,7 +117,7 @@ import com.intland.swagger.client.api.TrackerItemsCommentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -176,6 +177,7 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
 **200** | Comment of tracker item by id |  -  |
+**429** | Too many requests |  -  |
 
 <a name="deleteTrackerItemComments"></a>
 # **deleteTrackerItemComments**
@@ -196,7 +198,7 @@ import com.intland.swagger.client.api.TrackerItemsCommentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -245,14 +247,15 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**404** | Tracker item not found |  -  |
 **200** | Comments deleted |  -  |
+**404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="editCommentOnTrackerItem"></a>
 # **editCommentOnTrackerItem**
@@ -273,7 +276,7 @@ import com.intland.swagger.client.api.TrackerItemsCommentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -336,10 +339,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Edited comment |  -  |
-**404** | Tracker not found |  -  |
+**403** | Authentication is required |  -  |
 **500** | Unexpected error |  -  |
+**404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemComment"></a>
 # **getTrackerItemComment**
@@ -360,7 +364,7 @@ import com.intland.swagger.client.api.TrackerItemsCommentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -420,6 +424,7 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
 **200** | Comment of tracker item by id |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemComments"></a>
 # **getTrackerItemComments**
@@ -440,7 +445,7 @@ import com.intland.swagger.client.api.TrackerItemsCommentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -497,6 +502,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
 **200** | Comments of tracker item by id |  -  |
 
 <a name="replyOnCommentOfTrackerItem"></a>
@@ -518,7 +524,7 @@ import com.intland.swagger.client.api.TrackerItemsCommentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -584,4 +590,5 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
 **200** | Comment of tracker item by id |  -  |
+**429** | Too many requests |  -  |
 

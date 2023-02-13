@@ -1,6 +1,6 @@
 # AttachmentApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *http://adam-Precision-5570:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,7 +31,7 @@ import com.intland.swagger.client.api.AttachmentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -86,9 +86,10 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Attachment deleted |  -  |
-**401** | Authentication is required |  -  |
-**403** | Access denied |  -  |
 **404** | Attachment not found |  -  |
+**403** | Access denied |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
 
 <a name="getAttachment"></a>
 # **getAttachment**
@@ -109,7 +110,7 @@ import com.intland.swagger.client.api.AttachmentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -167,9 +168,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Attachment by id |  -  |
-**403** | Authorization is required |  -  |
-**401** | Authentication is required |  -  |
 **404** | Tracker / Attachment not found |  -  |
+**403** | Authorization is required |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
 
 <a name="getAttachmentContent"></a>
 # **getAttachmentContent**
@@ -190,7 +192,7 @@ import com.intland.swagger.client.api.AttachmentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -248,9 +250,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Attachment by id |  -  |
-**403** | Authorization is required |  -  |
-**401** | Authentication is required |  -  |
 **404** | Tracker / Attachment not found |  -  |
+**403** | Authorization is required |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
 
 <a name="getAttachmentHistory"></a>
 # **getAttachmentHistory**
@@ -271,7 +274,7 @@ import com.intland.swagger.client.api.AttachmentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -330,11 +333,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Authentication is required |  -  |
 **200** | Attachment history |  -  |
-**403** | Access denied |  -  |
-**404** | Attachment not found |  -  |
 **400** | Bad request |  -  |
+**404** | Attachment not found |  -  |
+**403** | Access denied |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
 
 <a name="restoreAttachment"></a>
 # **restoreAttachment**
@@ -355,7 +359,7 @@ import com.intland.swagger.client.api.AttachmentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -413,10 +417,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **500** | Unexpected error |  -  |
-**403** | Authorization is required |  -  |
-**200** | Restored attachment |  -  |
-**401** | Authentication is required |  -  |
 **404** | Attachment not found |  -  |
+**200** | Restored attachment |  -  |
+**403** | Authorization is required |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
 
 <a name="updateAttachment"></a>
 # **updateAttachment**
@@ -437,7 +442,7 @@ import com.intland.swagger.client.api.AttachmentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -500,7 +505,8 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **500** | Unexpected error |  -  |
 **200** | Updated attachment |  -  |
-**403** | Authorization is required |  -  |
-**401** | Authentication is required |  -  |
 **404** | Attachment not found |  -  |
+**403** | Authorization is required |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
 

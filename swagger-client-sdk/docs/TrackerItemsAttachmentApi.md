@@ -1,6 +1,6 @@
 # TrackerItemsAttachmentApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *http://adam-Precision-5570:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -34,7 +34,7 @@ import com.intland.swagger.client.api.TrackerItemsAttachmentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -94,6 +94,7 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
 **200** | Attachment of tracker item by id |  -  |
+**429** | Too many requests |  -  |
 
 <a name="deleteTrackerItemAttachments"></a>
 # **deleteTrackerItemAttachments**
@@ -114,7 +115,7 @@ import com.intland.swagger.client.api.TrackerItemsAttachmentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -163,14 +164,15 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Attachments of tracker item removed |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemAttachment"></a>
 # **getTrackerItemAttachment**
@@ -191,7 +193,7 @@ import com.intland.swagger.client.api.TrackerItemsAttachmentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -251,6 +253,7 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **200** | Attachment of tracker item by id |  -  |
 **404** | Tracker / Attachment not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemAttachmentContent"></a>
 # **getTrackerItemAttachmentContent**
@@ -271,7 +274,7 @@ import com.intland.swagger.client.api.TrackerItemsAttachmentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -329,8 +332,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**200** | Attachment of tracker item by id |  -  |
 **404** | Tracker / Attachment not found |  -  |
+**429** | Too many requests |  -  |
+**200** | Attachment of tracker item by id |  -  |
 
 <a name="getTrackerItemAttachmentContents"></a>
 # **getTrackerItemAttachmentContents**
@@ -351,7 +355,7 @@ import com.intland.swagger.client.api.TrackerItemsAttachmentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -401,15 +405,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/zip
+ - **Accept**: application/zip, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**400** | Bad request |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
 **200** | Attachments of a tracker item: contains the attachment files prefixed with the attachment id like [attachment-id]_[filename]. |  -  |
-**400** | Bad request |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemAttachments"></a>
 # **getTrackerItemAttachments**
@@ -430,7 +435,7 @@ import com.intland.swagger.client.api.TrackerItemsAttachmentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -487,10 +492,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**404** | Tracker item not found |  -  |
-**200** | Attachments of tracker item |  -  |
 **401** | Access denied |  -  |
+**403** | Authentication is required |  -  |
+**200** | Attachments of tracker item |  -  |
+**404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItemsAttachmentContents"></a>
 # **getTrackerItemsAttachmentContents**
@@ -511,7 +517,7 @@ import com.intland.swagger.client.api.TrackerItemsAttachmentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -561,15 +567,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/zip
+ - **Accept**: application/zip, application/json, 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Attachments of tracker items: each tracker item goes to a subdirectory named as item-id and this directory contains the attachment files prefixed with the attachment id like [attachment-id]_[filename]. |  -  |
 **400** | Bad request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker items not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="updateAttachmentOfTrackerItem"></a>
 # **updateAttachmentOfTrackerItem**
@@ -590,7 +597,7 @@ import com.intland.swagger.client.api.TrackerItemsAttachmentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -653,10 +660,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Tracker item or attachment not found |  -  |
 **500** | Unexpected error |  -  |
 **200** | Updated attachment |  -  |
+**404** | Tracker item or attachment not found |  -  |
 **403** | Authorization is required |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 
 <a name="updloadTrackerItemAttachment"></a>
@@ -678,7 +686,7 @@ import com.intland.swagger.client.api.TrackerItemsAttachmentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -738,4 +746,5 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
 **200** | Attachment of tracker item by id |  -  |
+**429** | Too many requests |  -  |
 

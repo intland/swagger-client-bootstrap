@@ -1,6 +1,6 @@
 # WikisCommentApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *http://adam-Precision-5570:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,7 +27,7 @@ import com.intland.swagger.client.api.WikisCommentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -88,10 +88,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**404** | Wiki page not found |  -  |
 **200** | Comment created successfully |  -  |
 **500** | Unexpected error |  -  |
 **403** | Authorization is required |  -  |
-**404** | Wiki page not found |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 
 <a name="getAttachmentByName"></a>
@@ -113,7 +114,7 @@ import com.intland.swagger.client.api.WikisCommentApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -173,5 +174,6 @@ Name | Type | Description  | Notes
 **200** | Attachment of wiki page |  -  |
 **404** | Wiki page / Attachment not found |  -  |
 **403** | Authorization is required |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 

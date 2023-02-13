@@ -1,6 +1,6 @@
 # BranchesApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *http://adam-Precision-5570:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,7 +28,7 @@ import com.intland.swagger.client.api.BranchesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -88,4 +88,5 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
 **200** | Basic tracker item by id and branch id |  -  |
+**429** | Too many requests |  -  |
 

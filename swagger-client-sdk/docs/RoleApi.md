@@ -1,6 +1,6 @@
 # RoleApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *http://adam-Precision-5570:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,7 +27,7 @@ import com.intland.swagger.client.api.RoleApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -85,6 +85,7 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **404** | Role not found |  -  |
 **200** | Roles |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getRoles"></a>
 # **getRoles**
@@ -105,7 +106,7 @@ import com.intland.swagger.client.api.RoleApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -159,4 +160,5 @@ This endpoint does not need any parameter.
 **403** | Authentication is required |  -  |
 **404** | Role not found |  -  |
 **200** | Roles |  -  |
+**429** | Too many requests |  -  |
 

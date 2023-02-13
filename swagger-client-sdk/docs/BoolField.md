@@ -7,7 +7,6 @@ Bool field
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**formula** | **String** | Formula value of a field |  [optional]
 
 
 

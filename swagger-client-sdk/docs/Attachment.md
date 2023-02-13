@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **modifiedBy** | [**UserReference**](UserReference.md) |  |  [optional]
 **version** | **Integer** | Version of a attachment |  [optional]
 **size** | **Long** | Size of a attachment |  [optional]
-**md5** | **String** | Size of a attachment |  [optional]
+**sha512** | **String** | Hash of a attachment |  [optional]
 
 
 

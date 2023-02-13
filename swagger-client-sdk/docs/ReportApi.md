@@ -1,6 +1,6 @@
 # ReportApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *http://adam-Precision-5570:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,7 +29,7 @@ import com.intland.swagger.client.api.ReportApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -84,9 +84,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**400** | Bad request |  -  |
 **403** | Authentication is required |  -  |
 **200** | Report settings |  -  |
-**400** | Bad request |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getReportById"></a>
 # **getReportById**
@@ -107,7 +108,7 @@ import com.intland.swagger.client.api.ReportApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -166,9 +167,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **404** | Report not found |  -  |
+**403** | Authentication is required |  -  |
 **200** | Report content by id |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getReportItemsById"></a>
 # **getReportItemsById**
@@ -189,7 +191,7 @@ import com.intland.swagger.client.api.ReportApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -248,9 +250,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **404** | Report not found |  -  |
+**403** | Authentication is required |  -  |
 **200** | Report items by id |  -  |
+**429** | Too many requests |  -  |
 
 <a name="updateReport"></a>
 # **updateReport**
@@ -271,7 +274,7 @@ import com.intland.swagger.client.api.ReportApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -328,7 +331,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**400** | Bad request |  -  |
 **403** | Authentication is required |  -  |
 **200** | Updated report settings |  -  |
-**400** | Bad request |  -  |
+**429** | Too many requests |  -  |
 

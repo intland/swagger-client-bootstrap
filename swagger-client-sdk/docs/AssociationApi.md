@@ -1,6 +1,6 @@
 # AssociationApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *http://adam-Precision-5570:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -32,7 +32,7 @@ import com.intland.swagger.client.api.AssociationApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -89,6 +89,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
 **200** | Created association |  -  |
+**429** | Too many requests |  -  |
 
 <a name="deleteAssociation"></a>
 # **deleteAssociation**
@@ -109,7 +110,7 @@ import com.intland.swagger.client.api.AssociationApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -164,8 +165,9 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**200** | Delete association by id |  -  |
 **404** | Association not found |  -  |
+**200** | Delete association by id |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getAssociation"></a>
 # **getAssociation**
@@ -186,7 +188,7 @@ import com.intland.swagger.client.api.AssociationApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -242,8 +244,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**200** | Found association |  -  |
 **404** | Association not found |  -  |
+**200** | Found association |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getAssociationHistory"></a>
 # **getAssociationHistory**
@@ -264,7 +267,7 @@ import com.intland.swagger.client.api.AssociationApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -323,8 +326,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Association not found |  -  |
 **200** | Association history |  -  |
+**404** | Association not found |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 
 <a name="getAssociationType"></a>
@@ -346,7 +350,7 @@ import com.intland.swagger.client.api.AssociationApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -401,9 +405,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Association type |  -  |
 **403** | Authentication is required |  -  |
+**200** | Association type |  -  |
 **404** | Association not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getAvailableAssociationTypes"></a>
 # **getAvailableAssociationTypes**
@@ -424,7 +429,7 @@ import com.intland.swagger.client.api.AssociationApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -477,6 +482,7 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
 **200** | List of association types |  -  |
+**429** | Too many requests |  -  |
 
 <a name="updateAssociation"></a>
 # **updateAssociation**
@@ -497,7 +503,7 @@ import com.intland.swagger.client.api.AssociationApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -557,4 +563,5 @@ Name | Type | Description  | Notes
 **200** | Updated association |  -  |
 **403** | Authentication is required |  -  |
 **404** | Association not found |  -  |
+**429** | Too many requests |  -  |
 

@@ -1,6 +1,6 @@
 # TrackerPermissionApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *http://adam-Precision-5570:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,7 +30,7 @@ import com.intland.swagger.client.api.TrackerPermissionApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -87,6 +87,8 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **403** | Authentication is required. |  -  |
 **200** | Tracker permission. |  -  |
+**404** | Resource is not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerPermissions"></a>
 # **getTrackerPermissions**
@@ -107,7 +109,7 @@ import com.intland.swagger.client.api.TrackerPermissionApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -159,8 +161,9 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required. |  -  |
-**200** | Tracker permissions. |  -  |
 **404** | Tracker permission is not found. |  -  |
+**200** | Tracker permissions. |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerPermissionsWithRoles"></a>
 # **getTrackerPermissionsWithRoles**
@@ -183,7 +186,7 @@ import com.intland.swagger.client.api.TrackerPermissionApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -243,9 +246,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required. |  -  |
-**404** | Tracker is not found. |  -  |
-**200** | Tracker permissions by role. |  -  |
 **400** | No access permission for this resource |  -  |
+**200** | Tracker permissions by role. |  -  |
+**429** | Too many requests |  -  |
+**404** | Tracker is not found. |  -  |
 
 <a name="removePermissions"></a>
 # **removePermissions**
@@ -266,7 +270,7 @@ import com.intland.swagger.client.api.TrackerPermissionApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -317,14 +321,15 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**404** | Tracker/role is not found |  -  |
 **200** | Tracker permissions were removed. |  -  |
+**404** | Tracker/role is not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="updatePermission"></a>
 # **updatePermission**
@@ -345,7 +350,7 @@ import com.intland.swagger.client.api.TrackerPermissionApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -404,7 +409,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker permissions are set |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker / permission / roles not found |  -  |
+**429** | Too many requests |  -  |
 

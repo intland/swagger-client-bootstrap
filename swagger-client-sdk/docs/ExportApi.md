@@ -1,6 +1,6 @@
 # ExportApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *http://adam-Precision-5570:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,7 +28,7 @@ import com.intland.swagger.client.api.ExportApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -83,10 +83,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | There is no baseline accessible with the supplied ID |  -  |
-**200** | List of tracker item reviews for each tracker item |  -  |
 **400** | Request cannot be processed |  -  |
+**404** | There is no baseline accessible with the supplied ID |  -  |
 **403** | Tracker item reviews are disabled, or access to them is denied |  -  |
+**200** | List of tracker item reviews for each tracker item |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 
 <a name="export"></a>
@@ -108,7 +109,7 @@ import com.intland.swagger.client.api.ExportApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -160,16 +161,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/zip
+ - **Accept**: application/zip, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The exported project contents in a zip file. |  -  |
-**403** | Authentication is required |  -  |
-**500** | Error during the project export |  -  |
-**404** | Project not found |  -  |
 **400** | Bad request |  -  |
+**403** | Authentication is required |  -  |
+**200** | The exported project contents in a zip file. |  -  |
+**404** | Project not found |  -  |
+**500** | Error during the project export |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItems"></a>
 # **getTrackerItems**
@@ -192,7 +194,7 @@ import com.intland.swagger.client.api.ExportApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -249,7 +251,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker item list |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 

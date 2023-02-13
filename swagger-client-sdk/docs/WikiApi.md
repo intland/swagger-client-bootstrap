@@ -1,6 +1,6 @@
 # WikiApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *http://adam-Precision-5570:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -38,7 +38,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -93,8 +93,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Details of the lock, or an empty response |  -  |
 **404** | Wiki page not found |  -  |
+**200** | Details of the lock, or an empty response |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 
 <a name="createWikiPage"></a>
@@ -116,7 +117,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -172,8 +173,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Properties of the created wikipage |  -  |
-**403** | Access denied |  -  |
 **400** | Request cannot be processed |  -  |
+**403** | Access denied |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 
 <a name="deleteWikiPage"></a>
@@ -195,7 +197,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -244,16 +246,17 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Access denied |  -  |
+**404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
 **400** | Request cannot be processed |  -  |
 **200** | The wiki page has been deleted successfully |  -  |
+**403** | Access denied |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
-**404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
 
 <a name="getWikiPage"></a>
 # **getWikiPage**
@@ -274,7 +277,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -331,10 +334,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Access denied |  -  |
-**200** | The wiki page |  -  |
-**401** | Authentication is required |  -  |
 **404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
+**200** | The wiki page |  -  |
+**403** | Access denied |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
 
 <a name="getWikiPageHistory"></a>
 # **getWikiPageHistory**
@@ -355,7 +359,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -414,8 +418,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Wiki page history |  -  |
 **404** | Wiki page not found |  -  |
+**200** | Wiki page history |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 
 <a name="getWikiPermissions"></a>
@@ -437,7 +442,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -492,9 +497,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**404** | Wiki page not found |  -  |
 **200** | Permissions of the wiki page |  -  |
 **403** | Authorization is required |  -  |
-**404** | Wiki page not found |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 
 <a name="lockWikiPage"></a>
@@ -516,7 +522,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -567,15 +573,16 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **404** | Wiki page not found |  -  |
+**400** | Bad request, request validation error |  -  |
 **403** | Could not acquire lock |  -  |
 **200** | Lock acquired successfully |  -  |
-**400** | Bad request, request validation error |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 
 <a name="renderWikiMarkup"></a>
@@ -597,7 +604,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -654,11 +661,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Access denied |  -  |
+**404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
 **400** | Request cannot be processed |  -  |
 **200** | The wiki content rendered as HTML |  -  |
+**403** | Access denied |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
-**404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
 
 <a name="renderWikiPage"></a>
 # **renderWikiPage**
@@ -679,7 +687,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -736,11 +744,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Access denied |  -  |
+**404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
 **400** | Request cannot be processed |  -  |
 **200** | The wiki content rendered as HTML |  -  |
+**403** | Access denied |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
-**404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
 
 <a name="restoreWikiPageContent"></a>
 # **restoreWikiPageContent**
@@ -761,7 +770,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -818,9 +827,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Wiki page or version not found |  -  |
-**403** | Access denied |  -  |
 **200** | Wiki page has been restored |  -  |
+**403** | Access denied |  -  |
+**404** | Wiki page or version not found |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 
 <a name="setWikiPermissions"></a>
@@ -842,7 +852,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -901,10 +911,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Permissions of the wiki page |  -  |
-**403** | Authorization is required |  -  |
 **404** | Wiki page not found |  -  |
+**200** | Permissions of the wiki page |  -  |
 **400** | Request cannot be processed |  -  |
+**403** | Authorization is required |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 
 <a name="unlockWikiPage"></a>
@@ -926,7 +937,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -975,15 +986,16 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Unlock successful |  -  |
 **404** | Wiki page not found |  -  |
-**401** | Authentication is required |  -  |
+**200** | Unlock successful |  -  |
 **403** | Could not unlock |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
 
 <a name="updateWikiPage"></a>
 # **updateWikiPage**
@@ -1004,7 +1016,7 @@ import com.intland.swagger.client.api.WikiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -1061,9 +1073,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Wikipage not found |  -  |
-**403** | Access denied |  -  |
 **400** | Request cannot be processed |  -  |
+**404** | Wikipage not found |  -  |
 **200** | Properties of the updated wikipage |  -  |
+**403** | Access denied |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 

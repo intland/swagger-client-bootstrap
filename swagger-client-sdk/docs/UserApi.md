@@ -1,6 +1,6 @@
 # UserApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *http://adam-Precision-5570:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,7 +30,7 @@ import com.intland.swagger.client.api.UserApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -86,8 +86,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**200** | User |  -  |
 **404** | User not found |  -  |
+**200** | User |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getUserByEmail"></a>
 # **getUserByEmail**
@@ -108,7 +109,7 @@ import com.intland.swagger.client.api.UserApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -164,8 +165,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**200** | User |  -  |
 **404** | User not found |  -  |
+**200** | User |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getUserByName"></a>
 # **getUserByName**
@@ -186,7 +188,7 @@ import com.intland.swagger.client.api.UserApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -242,8 +244,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**200** | User |  -  |
 **404** | User not found |  -  |
+**200** | User |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getUsers"></a>
 # **getUsers**
@@ -264,7 +267,7 @@ import com.intland.swagger.client.api.UserApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -327,10 +330,11 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
 **200** | Users |  -  |
+**429** | Too many requests |  -  |
 
 <a name="searchUsers"></a>
 # **searchUsers**
-> UserReferenceSearchResult searchUsers(page, pageSize, userFilteringRequest)
+> UserSearchResult searchUsers(page, pageSize, userFilteringRequest)
 
 Search users
 
@@ -347,7 +351,7 @@ import com.intland.swagger.client.api.UserApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -369,7 +373,7 @@ public class Example {
     Integer pageSize = 25; // Integer | Number of items in a result page. Max value: 500
     UserFilteringRequest userFilteringRequest = new UserFilteringRequest(); // UserFilteringRequest | 
     try {
-      UserReferenceSearchResult result = apiInstance.searchUsers(page, pageSize, userFilteringRequest);
+      UserSearchResult result = apiInstance.searchUsers(page, pageSize, userFilteringRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserApi#searchUsers");
@@ -392,7 +396,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserReferenceSearchResult**](UserReferenceSearchResult.md)
+[**UserSearchResult**](UserSearchResult.md)
 
 ### Authorization
 
@@ -406,7 +410,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**404** | Project is not found |  -  |
+**400** | Bad request |  -  |
 **403** | Authentication is required |  -  |
 **200** | Users |  -  |
-**400** | Bad request |  -  |
+**429** | Too many requests |  -  |
 

@@ -1,6 +1,6 @@
 # TrackerReportApi
 
-All URIs are relative to *http://localhost:8080/cb/api*
+All URIs are relative to *http://adam-Precision-5570:8080/cb/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,7 +31,7 @@ import com.intland.swagger.client.api.TrackerReportApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -88,9 +88,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker report settings |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="deleteTrackerReport"></a>
 # **deleteTrackerReport**
@@ -111,7 +112,7 @@ import com.intland.swagger.client.api.TrackerReportApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -162,14 +163,15 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**200** | Tracker report deleted. |  -  |
 **404** | Tracker / Report not found |  -  |
+**200** | Tracker report deleted. |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerReport"></a>
 # **getTrackerReport**
@@ -190,7 +192,7 @@ import com.intland.swagger.client.api.TrackerReportApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -251,9 +253,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**404** | Tracker / Report not found |  -  |
 **403** | Authentication is required |  -  |
 **200** | Tracker report |  -  |
-**404** | Tracker / Report not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerReportItems"></a>
 # **getTrackerReportItems**
@@ -274,7 +277,7 @@ import com.intland.swagger.client.api.TrackerReportApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -335,9 +338,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**404** | Tracker / Report not found |  -  |
 **403** | Authentication is required |  -  |
 **200** | Tracker report items |  -  |
-**404** | Tracker / Report not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerReports"></a>
 # **getTrackerReports**
@@ -358,7 +362,7 @@ import com.intland.swagger.client.api.TrackerReportApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -413,9 +417,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Tracker report reference list |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
-**200** | Tracker report reference list |  -  |
+**429** | Too many requests |  -  |
 **500** | Internal server error |  -  |
 
 <a name="updateTrackerReport"></a>
@@ -437,7 +442,7 @@ import com.intland.swagger.client.api.TrackerReportApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/cb/api");
+    defaultClient.setBasePath("http://adam-Precision-5570:8080/cb/api");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -496,7 +501,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**200** | Tracker report settings |  -  |
 **404** | Tracker / Report not found |  -  |
+**200** | Tracker report settings |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 

@@ -32,7 +32,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Basic properties of a codebeamer tracker item
  */
 @ApiModel(description = "Basic properties of a codebeamer tracker item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class TrackerItem {
   public static final String SERIALIZED_NAME_ACCRUED_MILLIS = "accruedMillis";
   @SerializedName(SERIALIZED_NAME_ACCRUED_MILLIS)

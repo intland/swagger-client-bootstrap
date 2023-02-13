@@ -22,11 +22,15 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * TrackerItemReferenceAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class TrackerItemReferenceAllOf {
   public static final String SERIALIZED_NAME_REFERENCE_DATA = "referenceData";
   @SerializedName(SERIALIZED_NAME_REFERENCE_DATA)
   private TrackerItemReferenceData referenceData;
+
+  public static final String SERIALIZED_NAME_TEST_STEP_REUSE = "testStepReuse";
+  @SerializedName(SERIALIZED_NAME_TEST_STEP_REUSE)
+  private Boolean testStepReuse;
 
 
   public TrackerItemReferenceAllOf referenceData(TrackerItemReferenceData referenceData) {
@@ -52,6 +56,29 @@ public class TrackerItemReferenceAllOf {
   }
 
 
+  public TrackerItemReferenceAllOf testStepReuse(Boolean testStepReuse) {
+    
+    this.testStepReuse = testStepReuse;
+    return this;
+  }
+
+   /**
+   * Get testStepReuse
+   * @return testStepReuse
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getTestStepReuse() {
+    return testStepReuse;
+  }
+
+
+  public void setTestStepReuse(Boolean testStepReuse) {
+    this.testStepReuse = testStepReuse;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -61,12 +88,13 @@ public class TrackerItemReferenceAllOf {
       return false;
     }
     TrackerItemReferenceAllOf trackerItemReferenceAllOf = (TrackerItemReferenceAllOf) o;
-    return Objects.equals(this.referenceData, trackerItemReferenceAllOf.referenceData);
+    return Objects.equals(this.referenceData, trackerItemReferenceAllOf.referenceData) &&
+        Objects.equals(this.testStepReuse, trackerItemReferenceAllOf.testStepReuse);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(referenceData);
+    return Objects.hash(referenceData, testStepReuse);
   }
 
   @Override
@@ -74,6 +102,7 @@ public class TrackerItemReferenceAllOf {
     StringBuilder sb = new StringBuilder();
     sb.append("class TrackerItemReferenceAllOf {\n");
     sb.append("    referenceData: ").append(toIndentedString(referenceData)).append("\n");
+    sb.append("    testStepReuse: ").append(toIndentedString(testStepReuse)).append("\n");
     sb.append("}");
     return sb.toString();
   }

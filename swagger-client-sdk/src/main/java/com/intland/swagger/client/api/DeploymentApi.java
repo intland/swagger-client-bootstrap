@@ -190,6 +190,7 @@ public class DeploymentApi {
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 501 </td><td> Project Configuration Deployment is disabled </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call uploadDeploymentCall(File imports, final ApiCallback _callback) throws ApiException {
@@ -253,6 +254,7 @@ public class DeploymentApi {
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 501 </td><td> Project Configuration Deployment is disabled </td><td>  -  </td></tr>
      </table>
      */
     public void uploadDeployment(File imports) throws ApiException {
@@ -273,6 +275,7 @@ public class DeploymentApi {
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 501 </td><td> Project Configuration Deployment is disabled </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> uploadDeploymentWithHttpInfo(File imports) throws ApiException {
@@ -295,6 +298,7 @@ public class DeploymentApi {
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 501 </td><td> Project Configuration Deployment is disabled </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call uploadDeploymentAsync(File imports, final ApiCallback<Void> _callback) throws ApiException {

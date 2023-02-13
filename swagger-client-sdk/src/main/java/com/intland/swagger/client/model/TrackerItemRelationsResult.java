@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * References to a tracker item
  */
 @ApiModel(description = "References to a tracker item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class TrackerItemRelationsResult {
   public static final String SERIALIZED_NAME_DOWNSTREAM_REFERENCES = "downstreamReferences";
   @SerializedName(SERIALIZED_NAME_DOWNSTREAM_REFERENCES)
@@ -36,6 +36,14 @@ public class TrackerItemRelationsResult {
   @SerializedName(SERIALIZED_NAME_INCOMING_ASSOCIATIONS)
   private List<IncomingTrackerItemAssociation> incomingAssociations = null;
 
+  public static final String SERIALIZED_NAME_IS_LAST_PAGE = "isLastPage";
+  @SerializedName(SERIALIZED_NAME_IS_LAST_PAGE)
+  private Boolean isLastPage;
+
+  public static final String SERIALIZED_NAME_ITEM_COUNT = "itemCount";
+  @SerializedName(SERIALIZED_NAME_ITEM_COUNT)
+  private Integer itemCount;
+
   public static final String SERIALIZED_NAME_ITEM_ID = "itemId";
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
   private TrackerItemRevision itemId;
@@ -43,6 +51,14 @@ public class TrackerItemRelationsResult {
   public static final String SERIALIZED_NAME_OUTGOING_ASSOCIATIONS = "outgoingAssociations";
   @SerializedName(SERIALIZED_NAME_OUTGOING_ASSOCIATIONS)
   private List<OutgoingTrackerItemAssociation> outgoingAssociations = null;
+
+  public static final String SERIALIZED_NAME_PAGE = "page";
+  @SerializedName(SERIALIZED_NAME_PAGE)
+  private Integer page;
+
+  public static final String SERIALIZED_NAME_PAGE_SIZE = "pageSize";
+  @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
+  private Integer pageSize;
 
   public static final String SERIALIZED_NAME_UPSTREAM_REFERENCES = "upstreamReferences";
   @SerializedName(SERIALIZED_NAME_UPSTREAM_REFERENCES)
@@ -111,6 +127,52 @@ public class TrackerItemRelationsResult {
   }
 
 
+  public TrackerItemRelationsResult isLastPage(Boolean isLastPage) {
+    
+    this.isLastPage = isLastPage;
+    return this;
+  }
+
+   /**
+   * Set to true if it is the last page
+   * @return isLastPage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set to true if it is the last page")
+
+  public Boolean getIsLastPage() {
+    return isLastPage;
+  }
+
+
+  public void setIsLastPage(Boolean isLastPage) {
+    this.isLastPage = isLastPage;
+  }
+
+
+  public TrackerItemRelationsResult itemCount(Integer itemCount) {
+    
+    this.itemCount = itemCount;
+    return this;
+  }
+
+   /**
+   * Number of items on page
+   * @return itemCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of items on page")
+
+  public Integer getItemCount() {
+    return itemCount;
+  }
+
+
+  public void setItemCount(Integer itemCount) {
+    this.itemCount = itemCount;
+  }
+
+
   public TrackerItemRelationsResult itemId(TrackerItemRevision itemId) {
     
     this.itemId = itemId;
@@ -165,6 +227,52 @@ public class TrackerItemRelationsResult {
   }
 
 
+  public TrackerItemRelationsResult page(Integer page) {
+    
+    this.page = page;
+    return this;
+  }
+
+   /**
+   * Page no.
+   * @return page
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Page no.")
+
+  public Integer getPage() {
+    return page;
+  }
+
+
+  public void setPage(Integer page) {
+    this.page = page;
+  }
+
+
+  public TrackerItemRelationsResult pageSize(Integer pageSize) {
+    
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Page size
+   * @return pageSize
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Page size")
+
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+
   public TrackerItemRelationsResult upstreamReferences(List<UpstreamTrackerItemReference> upstreamReferences) {
     
     this.upstreamReferences = upstreamReferences;
@@ -207,14 +315,18 @@ public class TrackerItemRelationsResult {
     TrackerItemRelationsResult trackerItemRelationsResult = (TrackerItemRelationsResult) o;
     return Objects.equals(this.downstreamReferences, trackerItemRelationsResult.downstreamReferences) &&
         Objects.equals(this.incomingAssociations, trackerItemRelationsResult.incomingAssociations) &&
+        Objects.equals(this.isLastPage, trackerItemRelationsResult.isLastPage) &&
+        Objects.equals(this.itemCount, trackerItemRelationsResult.itemCount) &&
         Objects.equals(this.itemId, trackerItemRelationsResult.itemId) &&
         Objects.equals(this.outgoingAssociations, trackerItemRelationsResult.outgoingAssociations) &&
+        Objects.equals(this.page, trackerItemRelationsResult.page) &&
+        Objects.equals(this.pageSize, trackerItemRelationsResult.pageSize) &&
         Objects.equals(this.upstreamReferences, trackerItemRelationsResult.upstreamReferences);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(downstreamReferences, incomingAssociations, itemId, outgoingAssociations, upstreamReferences);
+    return Objects.hash(downstreamReferences, incomingAssociations, isLastPage, itemCount, itemId, outgoingAssociations, page, pageSize, upstreamReferences);
   }
 
   @Override
@@ -223,8 +335,12 @@ public class TrackerItemRelationsResult {
     sb.append("class TrackerItemRelationsResult {\n");
     sb.append("    downstreamReferences: ").append(toIndentedString(downstreamReferences)).append("\n");
     sb.append("    incomingAssociations: ").append(toIndentedString(incomingAssociations)).append("\n");
+    sb.append("    isLastPage: ").append(toIndentedString(isLastPage)).append("\n");
+    sb.append("    itemCount: ").append(toIndentedString(itemCount)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    outgoingAssociations: ").append(toIndentedString(outgoingAssociations)).append("\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    upstreamReferences: ").append(toIndentedString(upstreamReferences)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Request export for deployment
  */
 @ApiModel(description = "Request export for deployment")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class ExportForDeploymentRequest {
   public static final String SERIALIZED_NAME_EXPORT_FILE_NAME = "exportFileName";
   @SerializedName(SERIALIZED_NAME_EXPORT_FILE_NAME)

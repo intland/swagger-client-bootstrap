@@ -24,11 +24,15 @@ import io.swagger.annotations.ApiModelProperty;
  * Reference to a tracker item
  */
 @ApiModel(description = "Reference to a tracker item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class TrackerItemReference extends AbstractReference {
   public static final String SERIALIZED_NAME_REFERENCE_DATA = "referenceData";
   @SerializedName(SERIALIZED_NAME_REFERENCE_DATA)
   private TrackerItemReferenceData referenceData;
+
+  public static final String SERIALIZED_NAME_TEST_STEP_REUSE = "testStepReuse";
+  @SerializedName(SERIALIZED_NAME_TEST_STEP_REUSE)
+  private Boolean testStepReuse;
 
   public TrackerItemReference() {
     this.type = this.getClass().getSimpleName();
@@ -57,6 +61,29 @@ public class TrackerItemReference extends AbstractReference {
   }
 
 
+  public TrackerItemReference testStepReuse(Boolean testStepReuse) {
+    
+    this.testStepReuse = testStepReuse;
+    return this;
+  }
+
+   /**
+   * Get testStepReuse
+   * @return testStepReuse
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getTestStepReuse() {
+    return testStepReuse;
+  }
+
+
+  public void setTestStepReuse(Boolean testStepReuse) {
+    this.testStepReuse = testStepReuse;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -67,12 +94,13 @@ public class TrackerItemReference extends AbstractReference {
     }
     TrackerItemReference trackerItemReference = (TrackerItemReference) o;
     return Objects.equals(this.referenceData, trackerItemReference.referenceData) &&
+        Objects.equals(this.testStepReuse, trackerItemReference.testStepReuse) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(referenceData, super.hashCode());
+    return Objects.hash(referenceData, testStepReuse, super.hashCode());
   }
 
   @Override
@@ -81,6 +109,7 @@ public class TrackerItemReference extends AbstractReference {
     sb.append("class TrackerItemReference {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    referenceData: ").append(toIndentedString(referenceData)).append("\n");
+    sb.append("    testStepReuse: ").append(toIndentedString(testStepReuse)).append("\n");
     sb.append("}");
     return sb.toString();
   }

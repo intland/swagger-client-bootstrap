@@ -656,7 +656,7 @@ public class TrackerItemApi {
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
-     * Tracker item operations
+     * (If the summary of the new item is longer than 255 characters the value will be truncated.) Tracker item operations
      * @see <a href="https://codebeamer.com/cb/wiki/11375769">Create a tracker item Documentation</a>
      */
     public okhttp3.Call createTrackerItemCall(Integer trackerId, TrackerItem trackerItem, Integer parentItemId, Integer referenceItemId, String position, final ApiCallback _callback) throws ApiException {
@@ -741,7 +741,7 @@ public class TrackerItemApi {
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
-     * Tracker item operations
+     * (If the summary of the new item is longer than 255 characters the value will be truncated.) Tracker item operations
      * @see <a href="https://codebeamer.com/cb/wiki/11375769">Create a tracker item Documentation</a>
      */
     public TrackerItem createTrackerItem(Integer trackerId, TrackerItem trackerItem, Integer parentItemId, Integer referenceItemId, String position) throws ApiException {
@@ -769,7 +769,7 @@ public class TrackerItemApi {
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
-     * Tracker item operations
+     * (If the summary of the new item is longer than 255 characters the value will be truncated.) Tracker item operations
      * @see <a href="https://codebeamer.com/cb/wiki/11375769">Create a tracker item Documentation</a>
      */
     public ApiResponse<TrackerItem> createTrackerItemWithHttpInfo(Integer trackerId, TrackerItem trackerItem, Integer parentItemId, Integer referenceItemId, String position) throws ApiException {
@@ -799,7 +799,7 @@ public class TrackerItemApi {
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
-     * Tracker item operations
+     * (If the summary of the new item is longer than 255 characters the value will be truncated.) Tracker item operations
      * @see <a href="https://codebeamer.com/cb/wiki/11375769">Create a tracker item Documentation</a>
      */
     public okhttp3.Call createTrackerItemAsync(Integer trackerId, TrackerItem trackerItem, Integer parentItemId, Integer referenceItemId, String position, final ApiCallback<TrackerItem> _callback) throws ApiException {
@@ -1535,6 +1535,8 @@ public class TrackerItemApi {
      * Build call for getBaselineTrackerItemRelations
      * @param itemId  (required)
      * @param baselineId  (optional)
+     * @param page Index of page, starting from 1. (optional, default to 1)
+     * @param pageSize Number of items per page. Max value: 500 (optional, default to 500)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1548,7 +1550,7 @@ public class TrackerItemApi {
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBaselineTrackerItemRelationsCall(Integer itemId, Integer baselineId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBaselineTrackerItemRelationsCall(Integer itemId, Integer baselineId, Integer page, Integer pageSize, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1563,6 +1565,14 @@ public class TrackerItemApi {
 
         if (baselineId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("baselineId", baselineId));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
         }
 
         final String[] localVarAccepts = {
@@ -1584,7 +1594,7 @@ public class TrackerItemApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBaselineTrackerItemRelationsValidateBeforeCall(Integer itemId, Integer baselineId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBaselineTrackerItemRelationsValidateBeforeCall(Integer itemId, Integer baselineId, Integer page, Integer pageSize, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'itemId' is set
         if (itemId == null) {
@@ -1592,16 +1602,18 @@ public class TrackerItemApi {
         }
         
 
-        okhttp3.Call localVarCall = getBaselineTrackerItemRelationsCall(itemId, baselineId, _callback);
+        okhttp3.Call localVarCall = getBaselineTrackerItemRelationsCall(itemId, baselineId, page, pageSize, _callback);
         return localVarCall;
 
     }
 
     /**
-     * Get tracker items for a baseline version
-     * API can be used for fetching basic information of tracker items at a specific baseline version
+     * Get tracker items related to a tracker item
+     * Use this endpoint to fetch tracker items related to a specified tracker item. The relations include downstream references, upstream references, incoming associations and outgoing associations of the given item. Relations with entities that are not tracker items (e.g., trackers, projects, URLs, etc.) will not be included in the result.
      * @param itemId  (required)
      * @param baselineId  (optional)
+     * @param page Index of page, starting from 1. (optional, default to 1)
+     * @param pageSize Number of items per page. Max value: 500 (optional, default to 500)
      * @return TrackerItemRelationsResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1614,16 +1626,18 @@ public class TrackerItemApi {
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
-    public TrackerItemRelationsResult getBaselineTrackerItemRelations(Integer itemId, Integer baselineId) throws ApiException {
-        ApiResponse<TrackerItemRelationsResult> localVarResp = getBaselineTrackerItemRelationsWithHttpInfo(itemId, baselineId);
+    public TrackerItemRelationsResult getBaselineTrackerItemRelations(Integer itemId, Integer baselineId, Integer page, Integer pageSize) throws ApiException {
+        ApiResponse<TrackerItemRelationsResult> localVarResp = getBaselineTrackerItemRelationsWithHttpInfo(itemId, baselineId, page, pageSize);
         return localVarResp.getData();
     }
 
     /**
-     * Get tracker items for a baseline version
-     * API can be used for fetching basic information of tracker items at a specific baseline version
+     * Get tracker items related to a tracker item
+     * Use this endpoint to fetch tracker items related to a specified tracker item. The relations include downstream references, upstream references, incoming associations and outgoing associations of the given item. Relations with entities that are not tracker items (e.g., trackers, projects, URLs, etc.) will not be included in the result.
      * @param itemId  (required)
      * @param baselineId  (optional)
+     * @param page Index of page, starting from 1. (optional, default to 1)
+     * @param pageSize Number of items per page. Max value: 500 (optional, default to 500)
      * @return ApiResponse&lt;TrackerItemRelationsResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1636,17 +1650,19 @@ public class TrackerItemApi {
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TrackerItemRelationsResult> getBaselineTrackerItemRelationsWithHttpInfo(Integer itemId, Integer baselineId) throws ApiException {
-        okhttp3.Call localVarCall = getBaselineTrackerItemRelationsValidateBeforeCall(itemId, baselineId, null);
+    public ApiResponse<TrackerItemRelationsResult> getBaselineTrackerItemRelationsWithHttpInfo(Integer itemId, Integer baselineId, Integer page, Integer pageSize) throws ApiException {
+        okhttp3.Call localVarCall = getBaselineTrackerItemRelationsValidateBeforeCall(itemId, baselineId, page, pageSize, null);
         Type localVarReturnType = new TypeToken<TrackerItemRelationsResult>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Get tracker items for a baseline version (asynchronously)
-     * API can be used for fetching basic information of tracker items at a specific baseline version
+     * Get tracker items related to a tracker item (asynchronously)
+     * Use this endpoint to fetch tracker items related to a specified tracker item. The relations include downstream references, upstream references, incoming associations and outgoing associations of the given item. Relations with entities that are not tracker items (e.g., trackers, projects, URLs, etc.) will not be included in the result.
      * @param itemId  (required)
      * @param baselineId  (optional)
+     * @param page Index of page, starting from 1. (optional, default to 1)
+     * @param pageSize Number of items per page. Max value: 500 (optional, default to 500)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1660,9 +1676,9 @@ public class TrackerItemApi {
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBaselineTrackerItemRelationsAsync(Integer itemId, Integer baselineId, final ApiCallback<TrackerItemRelationsResult> _callback) throws ApiException {
+    public okhttp3.Call getBaselineTrackerItemRelationsAsync(Integer itemId, Integer baselineId, Integer page, Integer pageSize, final ApiCallback<TrackerItemRelationsResult> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBaselineTrackerItemRelationsValidateBeforeCall(itemId, baselineId, _callback);
+        okhttp3.Call localVarCall = getBaselineTrackerItemRelationsValidateBeforeCall(itemId, baselineId, page, pageSize, _callback);
         Type localVarReturnType = new TypeToken<TrackerItemRelationsResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1733,8 +1749,8 @@ public class TrackerItemApi {
     }
 
     /**
-     * Get tracker items for a baseline version
-     * API can be used for fetching basic information of tracker items at a specific baseline version
+     * Get tracker items related to some tracker items
+     * Use this endpoint to fetch tracker items related to some specified tracker items. The relations include downstream references, upstream references, incoming associations and outgoing associations of the given items. Relations with entities that are not tracker items (e.g., trackers, projects, URLs, etc.) will not be included in the result.
      * @param trackerItemsRequest  (required)
      * @param baselineId  (optional)
      * @return List&lt;TrackerItemRelationsResult&gt;
@@ -1755,8 +1771,8 @@ public class TrackerItemApi {
     }
 
     /**
-     * Get tracker items for a baseline version
-     * API can be used for fetching basic information of tracker items at a specific baseline version
+     * Get tracker items related to some tracker items
+     * Use this endpoint to fetch tracker items related to some specified tracker items. The relations include downstream references, upstream references, incoming associations and outgoing associations of the given items. Relations with entities that are not tracker items (e.g., trackers, projects, URLs, etc.) will not be included in the result.
      * @param trackerItemsRequest  (required)
      * @param baselineId  (optional)
      * @return ApiResponse&lt;List&lt;TrackerItemRelationsResult&gt;&gt;
@@ -1778,8 +1794,8 @@ public class TrackerItemApi {
     }
 
     /**
-     * Get tracker items for a baseline version (asynchronously)
-     * API can be used for fetching basic information of tracker items at a specific baseline version
+     * Get tracker items related to some tracker items (asynchronously)
+     * Use this endpoint to fetch tracker items related to some specified tracker items. The relations include downstream references, upstream references, incoming associations and outgoing associations of the given items. Relations with entities that are not tracker items (e.g., trackers, projects, URLs, etc.) will not be included in the result.
      * @param trackerItemsRequest  (required)
      * @param baselineId  (optional)
      * @param _callback The callback to be executed when the API call finishes

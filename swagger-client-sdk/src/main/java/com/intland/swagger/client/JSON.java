@@ -75,6 +75,7 @@ import com.intland.swagger.client.model.OutlineWiki;
 import com.intland.swagger.client.model.ProjectBaselineReference;
 import com.intland.swagger.client.model.ProjectChoiceField;
 import com.intland.swagger.client.model.ProjectReference;
+import com.intland.swagger.client.model.ProjectRoleReference;
 import com.intland.swagger.client.model.ReferenceField;
 import com.intland.swagger.client.model.ReferredTestStepFieldValue;
 import com.intland.swagger.client.model.ReportGroup;
@@ -217,6 +218,7 @@ public class JSON {
                         classByDiscriminatorValue.put("FieldReference", FieldReference.class);
                         classByDiscriminatorValue.put("ProjectBaselineReference", ProjectBaselineReference.class);
                         classByDiscriminatorValue.put("ProjectReference", ProjectReference.class);
+                        classByDiscriminatorValue.put("ProjectRoleReference", ProjectRoleReference.class);
                         classByDiscriminatorValue.put("ReportReference", ReportReference.class);
                         classByDiscriminatorValue.put("RepositoryReference", RepositoryReference.class);
                         classByDiscriminatorValue.put("RoleReference", RoleReference.class);
@@ -586,6 +588,15 @@ public class JSON {
                     public Class<? extends ProjectReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
                         classByDiscriminatorValue.put("ProjectReference", ProjectReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(ProjectRoleReference.class, new TypeSelector<ProjectRoleReference>() {
+                    @Override
+                    public Class<? extends ProjectRoleReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ProjectRoleReference", ProjectRoleReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }

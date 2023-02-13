@@ -166,4 +166,5 @@ null (empty response body)
 **401** | Authentication is required |  -  |
 **403** | Authentication is required |  -  |
 **429** | Too many requests |  -  |
+**501** | Project Configuration Deployment is disabled |  -  |
 

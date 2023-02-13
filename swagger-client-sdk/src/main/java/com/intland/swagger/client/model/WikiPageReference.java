@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiModel;
  * Reference to a wiki page
  */
 @ApiModel(description = "Reference to a wiki page")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class WikiPageReference extends AbstractReference {
   public WikiPageReference() {
     this.type = this.getClass().getSimpleName();

@@ -27,7 +27,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Traceability level filter
  */
 @ApiModel(description = "Traceability level filter")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class TraceabilityLevelFilter {
   public static final String SERIALIZED_NAME_CB_Q_L = "cbQL";
   @SerializedName(SERIALIZED_NAME_CB_Q_L)
@@ -64,6 +64,10 @@ public class TraceabilityLevelFilter {
   public static final String SERIALIZED_NAME_PREVIOUS_LEVEL_ITEMS = "previousLevelItems";
   @SerializedName(SERIALIZED_NAME_PREVIOUS_LEVEL_ITEMS)
   private List<TrackerItemRevision> previousLevelItems = null;
+
+  public static final String SERIALIZED_NAME_SHOW_TEST_STEP_REFERENCES = "showTestStepReferences";
+  @SerializedName(SERIALIZED_NAME_SHOW_TEST_STEP_REFERENCES)
+  private Boolean showTestStepReferences;
 
 
   public TraceabilityLevelFilter cbQL(String cbQL) {
@@ -281,6 +285,29 @@ public class TraceabilityLevelFilter {
   }
 
 
+  public TraceabilityLevelFilter showTestStepReferences(Boolean showTestStepReferences) {
+    
+    this.showTestStepReferences = showTestStepReferences;
+    return this;
+  }
+
+   /**
+   * Get showTestStepReferences
+   * @return showTestStepReferences
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getShowTestStepReferences() {
+    return showTestStepReferences;
+  }
+
+
+  public void setShowTestStepReferences(Boolean showTestStepReferences) {
+    this.showTestStepReferences = showTestStepReferences;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -298,12 +325,13 @@ public class TraceabilityLevelFilter {
         Objects.equals(this.incomingReference, traceabilityLevelFilter.incomingReference) &&
         Objects.equals(this.outgoingAssociation, traceabilityLevelFilter.outgoingAssociation) &&
         Objects.equals(this.outgoingReference, traceabilityLevelFilter.outgoingReference) &&
-        Objects.equals(this.previousLevelItems, traceabilityLevelFilter.previousLevelItems);
+        Objects.equals(this.previousLevelItems, traceabilityLevelFilter.previousLevelItems) &&
+        Objects.equals(this.showTestStepReferences, traceabilityLevelFilter.showTestStepReferences);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cbQL, foldersAndInformation, historyBaselineId, historyDate, incomingAssociation, incomingReference, outgoingAssociation, outgoingReference, previousLevelItems);
+    return Objects.hash(cbQL, foldersAndInformation, historyBaselineId, historyDate, incomingAssociation, incomingReference, outgoingAssociation, outgoingReference, previousLevelItems, showTestStepReferences);
   }
 
   @Override
@@ -319,6 +347,7 @@ public class TraceabilityLevelFilter {
     sb.append("    outgoingAssociation: ").append(toIndentedString(outgoingAssociation)).append("\n");
     sb.append("    outgoingReference: ").append(toIndentedString(outgoingReference)).append("\n");
     sb.append("    previousLevelItems: ").append(toIndentedString(previousLevelItems)).append("\n");
+    sb.append("    showTestStepReferences: ").append(toIndentedString(showTestStepReferences)).append("\n");
     sb.append("}");
     return sb.toString();
   }

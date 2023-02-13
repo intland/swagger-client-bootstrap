@@ -13,7 +13,6 @@
 
 package com.intland.swagger.client.model;
 
-import java.io.File;
 import java.util.Objects;
 
 import com.google.gson.annotations.SerializedName;
@@ -23,19 +22,11 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * DependencyEntityReferenceAllOf
  */
-<<<<<<<< HEAD:swagger-client-sdk/src/main/java/com/intland/swagger/client/model/DependencyEntityReferenceAllOf.java
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class DependencyEntityReferenceAllOf {
   public static final String SERIALIZED_NAME_TYPE_ID = "typeId";
   @SerializedName(SERIALIZED_NAME_TYPE_ID)
   private Integer typeId;
-========
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
-public class InlineObject {
-  public static final String SERIALIZED_NAME_ICON = "icon";
-  @SerializedName(SERIALIZED_NAME_ICON)
-  private File icon;
->>>>>>>> cb-22.04-compatible:swagger-client-sdk/src/main/java/com/intland/swagger/client/model/InlineObject.java
 
 
   public DependencyEntityReferenceAllOf typeId(Integer typeId) {

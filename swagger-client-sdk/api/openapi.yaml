@@ -877,6 +877,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/TooManyRequestsException'
           description: Too many requests
+        "501":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotImplementedException'
+          description: Project Configuration Deployment is disabled
       summary: Start a deployment process
       tags:
       - Deployment
@@ -1287,8 +1293,11 @@ paths:
       x-accepts: application/json
   /v3/items/relations:
     post:
-      description: API can be used for fetching basic information of tracker items
-        at a specific baseline version
+      description: "Use this endpoint to fetch tracker items related to some specified\
+        \ tracker items. The relations include downstream references, upstream references,\
+        \ incoming associations and outgoing associations of the given items. Relations\
+        \ with entities that are not tracker items (e.g., trackers, projects, URLs,\
+        \ etc.) will not be included in the result."
       operationId: getBaselineTrackerItemsRelations
       parameters:
       - explode: true
@@ -1338,7 +1347,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TooManyRequestsException'
           description: Too many requests
-      summary: Get tracker items for a baseline version
+      summary: Get tracker items related to some tracker items
       tags:
       - Tracker item
       x-contentType: application/json
@@ -3305,8 +3314,11 @@ paths:
       x-accepts: application/json
   /v3/items/{itemId}/relations:
     get:
-      description: API can be used for fetching basic information of tracker items
-        at a specific baseline version
+      description: "Use this endpoint to fetch tracker items related to a specified\
+        \ tracker item. The relations include downstream references, upstream references,\
+        \ incoming associations and outgoing associations of the given item. Relations\
+        \ with entities that are not tracker items (e.g., trackers, projects, URLs,\
+        \ etc.) will not be included in the result."
       operationId: getBaselineTrackerItemRelations
       parameters:
       - explode: false
@@ -3322,6 +3334,26 @@ paths:
         name: baselineId
         required: false
         schema:
+          format: int32
+          type: integer
+        style: form
+      - description: "Index of page, starting from 1."
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+        style: form
+      - description: "Number of items per page. Max value: 500"
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 500
           format: int32
           type: integer
         style: form
@@ -3356,7 +3388,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TooManyRequestsException'
           description: Too many requests
-      summary: Get tracker items for a baseline version
+      summary: Get tracker items related to a tracker item
       tags:
       - Tracker item
       x-accepts: application/json
@@ -6297,7 +6329,8 @@ paths:
       x-accepts: application/json
     post:
       externalDocs:
-        description: Tracker item operations
+        description: (If the summary of the new item is longer than 255 characters
+          the value will be truncated.) Tracker item operations
         url: https://codebeamer.com/cb/wiki/11375769
       operationId: createTrackerItem
       parameters:
@@ -8505,6 +8538,9 @@ components:
       discriminator:
         propertyName: type
       example:
+        sharedFieldNames:
+        - sharedFieldNames
+        - sharedFieldNames
         name: name
         type: type
         fieldId: 6
@@ -8522,6 +8558,14 @@ components:
             be specified as an alternative to fieldId.
           type: string
           writeOnly: true
+        sharedFieldNames:
+          description: The names of a shared fields assigned to the field.
+          items:
+            description: The names of a shared fields assigned to the field.
+            readOnly: true
+            type: string
+          readOnly: true
+          type: array
         type:
           description: Type of the field
           type: string
@@ -8999,12 +9043,16 @@ components:
     AutomatedTestCaseRunResult:
       description: Request model to create a test run from test case
       example:
+        conclusion: conclusion
         result: PASSED
         groupName: groupName
         name: name
         description: description
         runTime: 6
       properties:
+        conclusion:
+          description: Optional Test Case Run conclusion
+          type: string
         description:
           description: Description of the Test Case
           type: string
@@ -9034,12 +9082,14 @@ components:
       description: Request model to create a test run from test case runs
       example:
         testResults:
-        - result: PASSED
+        - conclusion: conclusion
+          result: PASSED
           groupName: groupName
           name: name
           description: description
           runTime: 6
-        - result: PASSED
+        - conclusion: conclusion
+          result: PASSED
           groupName: groupName
           name: name
           description: description
@@ -9051,11 +9101,17 @@ components:
           spentMillis: 2
           assignedAt: 2000-01-23T04:56:07.000+00:00
           customFields:
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
@@ -9580,11 +9636,17 @@ components:
           spentMillis: 2
           assignedAt: 2000-01-23T04:56:07.000+00:00
           customFields:
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
@@ -9710,7 +9772,12 @@ components:
             name: name
             id: 0
             type: type
+        runOnlyAcceptedTestCases: false
       properties:
+        runOnlyAcceptedTestCases:
+          default: false
+          description: Generate Test Runs only from accepted Test Cases.
+          type: boolean
         testRunModel:
           $ref: '#/components/schemas/TrackerItem'
         testSetRefs:
@@ -9736,11 +9803,17 @@ components:
           spentMillis: 2
           assignedAt: 2000-01-23T04:56:07.000+00:00
           customFields:
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
@@ -9872,7 +9945,12 @@ components:
         testCaseRefs:
         - null
         - null
+        runOnlyAcceptedTestCases: false
       properties:
+        runOnlyAcceptedTestCases:
+          default: false
+          description: Generate Test Runs only from accepted Test Cases.
+          type: boolean
         testCaseIds:
           items:
             $ref: '#/components/schemas/TrackerItemReference'
@@ -9900,15 +9978,10 @@ components:
     CrossProjectDependency:
       description: Dependency information between two projects.
       properties:
-        paths:
-          description: Paths in source project where references were found to target
-            project.
+        referredFrom:
+          description: Information on where references were found in source project.
           items:
-            description: Paths in source project where references were found to target
-              project.
-            items:
-              $ref: '#/components/schemas/DependencyEntityReference'
-            type: array
+            $ref: '#/components/schemas/DependencyAttribute'
           type: array
         sourceProject:
           $ref: '#/components/schemas/ProjectReference'
@@ -9948,6 +10021,21 @@ components:
       allOf:
       - $ref: '#/components/schemas/AbstractBackgroundJobStatusInfo'
       description: Basic status information of a background job
+      type: object
+    DependencyAttribute:
+      description: Information on how and where references were found in source project.
+      properties:
+        lookupDirection:
+          description: Direction in which dependency finder discovered the reference.
+          enum:
+          - Forward
+          - Bidirectional
+          type: string
+        path:
+          description: Trace in source project model where the reference was found.
+          items:
+            $ref: '#/components/schemas/DependencyEntityReference'
+          type: array
       type: object
     DependencyEntityReference:
       allOf:
@@ -10406,6 +10494,13 @@ components:
           format: int32
           type: integer
       type: object
+    NotImplementedException:
+      properties:
+        message:
+          type: string
+        resourceUri:
+          type: string
+      type: object
     NotSupportedFieldValue:
       allOf:
       - $ref: '#/components/schemas/AbstractFieldValue'
@@ -10620,6 +10715,11 @@ components:
       allOf:
       - $ref: '#/components/schemas/AbstractReference'
       description: Reference to a project
+      type: object
+    ProjectRoleReference:
+      allOf:
+      - $ref: '#/components/schemas/AbstractReference'
+      description: Reference to a project role
       type: object
     ProjectSearchResult:
       description: One page of artifact revisions.
@@ -10926,11 +11026,17 @@ components:
           spentMillis: 2
           assignedAt: 2000-01-23T04:56:07.000+00:00
           customFields:
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
@@ -11094,11 +11200,17 @@ components:
             spentMillis: 2
             assignedAt: 2000-01-23T04:56:07.000+00:00
             customFields:
-            - name: name
+            - sharedFieldNames:
+              - sharedFieldNames
+              - sharedFieldNames
+              name: name
               type: type
               fieldId: 6
               sharedFieldName: sharedFieldName
-            - name: name
+            - sharedFieldNames:
+              - sharedFieldNames
+              - sharedFieldNames
+              name: name
               type: type
               fieldId: 6
               sharedFieldName: sharedFieldName
@@ -11232,11 +11344,17 @@ components:
             spentMillis: 2
             assignedAt: 2000-01-23T04:56:07.000+00:00
             customFields:
-            - name: name
+            - sharedFieldNames:
+              - sharedFieldNames
+              - sharedFieldNames
+              name: name
               type: type
               fieldId: 6
               sharedFieldName: sharedFieldName
-            - name: name
+            - sharedFieldNames:
+              - sharedFieldNames
+              - sharedFieldNames
+              name: name
               type: type
               fieldId: 6
               sharedFieldName: sharedFieldName
@@ -11823,11 +11941,17 @@ components:
           spentMillis: 2
           assignedAt: 2000-01-23T04:56:07.000+00:00
           customFields:
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
@@ -11958,11 +12082,17 @@ components:
           spentMillis: 2
           assignedAt: 2000-01-23T04:56:07.000+00:00
           customFields:
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
@@ -12154,51 +12284,51 @@ components:
       description: Traceability Item
       example:
         outgoing association:
-        - id: 0
-          version: 6
-        - id: 0
-          version: 6
+        - id: 6
+          version: 1
+        - id: 6
+          version: 1
         incoming association:
-        - id: 0
-          version: 6
-        - id: 0
-          version: 6
+        - id: 6
+          version: 1
+        - id: 6
+          version: 1
         outgoingAssociations:
-        - id: 0
-          version: 6
-        - id: 0
-          version: 6
+        - id: 6
+          version: 1
+        - id: 6
+          version: 1
         children:
         - null
         - null
         itemRevision:
-          id: 0
-          version: 6
+          id: 6
+          version: 1
         outgoingReferences:
-        - id: 0
-          version: 6
-        - id: 0
-          version: 6
+        - id: 6
+          version: 1
+        - id: 6
+          version: 1
         outgoing reference:
-        - id: 0
-          version: 6
-        - id: 0
-          version: 6
+        - id: 6
+          version: 1
+        - id: 6
+          version: 1
         incoming reference:
-        - id: 0
-          version: 6
-        - id: 0
-          version: 6
+        - id: 6
+          version: 1
+        - id: 6
+          version: 1
         incomingAssociations:
-        - id: 0
-          version: 6
-        - id: 0
-          version: 6
+        - id: 6
+          version: 1
+        - id: 6
+          version: 1
         incomingReferences:
-        - id: 0
-          version: 6
-        - id: 0
-          version: 6
+        - id: 6
+          version: 1
+        - id: 6
+          version: 1
       properties:
         children:
           description: children
@@ -12255,13 +12385,14 @@ components:
         cbQL: cbQL
         incomingAssociation: true
         incomingReference: true
+        showTestStepReferences: true
         outgoingReference: true
         outgoingAssociation: true
         previousLevelItems:
-        - id: 0
-          version: 6
-        - id: 0
-          version: 6
+        - id: 6
+          version: 1
+        - id: 6
+          version: 1
         foldersAndInformation: false
         historyBaselineId: 0
       properties:
@@ -12301,6 +12432,9 @@ components:
           items:
             $ref: '#/components/schemas/TrackerItemRevision'
           type: array
+        showTestStepReferences:
+          type: boolean
+          writeOnly: true
       required:
       - cbQL
       type: object
@@ -12310,97 +12444,97 @@ components:
         limitWarnings: limitWarnings
         traceabilityItems:
         - outgoing association:
-          - id: 0
-            version: 6
-          - id: 0
-            version: 6
+          - id: 6
+            version: 1
+          - id: 6
+            version: 1
           incoming association:
-          - id: 0
-            version: 6
-          - id: 0
-            version: 6
+          - id: 6
+            version: 1
+          - id: 6
+            version: 1
           outgoingAssociations:
-          - id: 0
-            version: 6
-          - id: 0
-            version: 6
+          - id: 6
+            version: 1
+          - id: 6
+            version: 1
           children:
           - null
           - null
           itemRevision:
-            id: 0
-            version: 6
+            id: 6
+            version: 1
           outgoingReferences:
-          - id: 0
-            version: 6
-          - id: 0
-            version: 6
+          - id: 6
+            version: 1
+          - id: 6
+            version: 1
           outgoing reference:
-          - id: 0
-            version: 6
-          - id: 0
-            version: 6
+          - id: 6
+            version: 1
+          - id: 6
+            version: 1
           incoming reference:
-          - id: 0
-            version: 6
-          - id: 0
-            version: 6
+          - id: 6
+            version: 1
+          - id: 6
+            version: 1
           incomingAssociations:
-          - id: 0
-            version: 6
-          - id: 0
-            version: 6
+          - id: 6
+            version: 1
+          - id: 6
+            version: 1
           incomingReferences:
-          - id: 0
-            version: 6
-          - id: 0
-            version: 6
+          - id: 6
+            version: 1
+          - id: 6
+            version: 1
         - outgoing association:
-          - id: 0
-            version: 6
-          - id: 0
-            version: 6
+          - id: 6
+            version: 1
+          - id: 6
+            version: 1
           incoming association:
-          - id: 0
-            version: 6
-          - id: 0
-            version: 6
+          - id: 6
+            version: 1
+          - id: 6
+            version: 1
           outgoingAssociations:
-          - id: 0
-            version: 6
-          - id: 0
-            version: 6
+          - id: 6
+            version: 1
+          - id: 6
+            version: 1
           children:
           - null
           - null
           itemRevision:
-            id: 0
-            version: 6
+            id: 6
+            version: 1
           outgoingReferences:
-          - id: 0
-            version: 6
-          - id: 0
-            version: 6
+          - id: 6
+            version: 1
+          - id: 6
+            version: 1
           outgoing reference:
-          - id: 0
-            version: 6
-          - id: 0
-            version: 6
+          - id: 6
+            version: 1
+          - id: 6
+            version: 1
           incoming reference:
-          - id: 0
-            version: 6
-          - id: 0
-            version: 6
+          - id: 6
+            version: 1
+          - id: 6
+            version: 1
           incomingAssociations:
-          - id: 0
-            version: 6
-          - id: 0
-            version: 6
+          - id: 6
+            version: 1
+          - id: 6
+            version: 1
           incomingReferences:
-          - id: 0
-            version: 6
-          - id: 0
-            version: 6
+          - id: 6
+            version: 1
+          - id: 6
+            version: 1
       properties:
         limitWarnings:
           description: limit warnings
@@ -12680,11 +12814,17 @@ components:
         spentMillis: 2
         assignedAt: 2000-01-23T04:56:07.000+00:00
         customFields:
-        - name: name
+        - sharedFieldNames:
+          - sharedFieldNames
+          - sharedFieldNames
+          name: name
           type: type
           fieldId: 6
           sharedFieldName: sharedFieldName
-        - name: name
+        - sharedFieldNames:
+          - sharedFieldNames
+          - sharedFieldNames
+          name: name
           type: type
           fieldId: 6
           sharedFieldName: sharedFieldName
@@ -12985,6 +13125,9 @@ components:
         propertyName: type
       example:
         newValue:
+          sharedFieldNames:
+          - sharedFieldNames
+          - sharedFieldNames
           name: name
           type: type
           fieldId: 6
@@ -12992,6 +13135,9 @@ components:
         field: null
         name: name
         oldValue:
+          sharedFieldNames:
+          - sharedFieldNames
+          - sharedFieldNames
           name: name
           type: type
           fieldId: 6
@@ -13044,20 +13190,32 @@ components:
         - null
         - null
         editableFields:
-        - name: name
+        - sharedFieldNames:
+          - sharedFieldNames
+          - sharedFieldNames
+          name: name
           type: type
           fieldId: 6
           sharedFieldName: sharedFieldName
-        - name: name
+        - sharedFieldNames:
+          - sharedFieldNames
+          - sharedFieldNames
+          name: name
           type: type
           fieldId: 6
           sharedFieldName: sharedFieldName
         readOnlyFields:
-        - name: name
+        - sharedFieldNames:
+          - sharedFieldNames
+          - sharedFieldNames
+          name: name
           type: type
           fieldId: 6
           sharedFieldName: sharedFieldName
-        - name: name
+        - sharedFieldNames:
+          - sharedFieldNames
+          - sharedFieldNames
+          name: name
           type: type
           fieldId: 6
           sharedFieldName: sharedFieldName
@@ -13127,10 +13285,13 @@ components:
         versions:
         - modifiedAt: 2000-01-23T04:56:07.000+00:00
           itemRevision:
-            id: 0
-            version: 6
+            id: 6
+            version: 1
           changes:
           - newValue:
+              sharedFieldNames:
+              - sharedFieldNames
+              - sharedFieldNames
               name: name
               type: type
               fieldId: 6
@@ -13138,12 +13299,18 @@ components:
             field: null
             name: name
             oldValue:
+              sharedFieldNames:
+              - sharedFieldNames
+              - sharedFieldNames
               name: name
               type: type
               fieldId: 6
               sharedFieldName: sharedFieldName
             type: type
           - newValue:
+              sharedFieldNames:
+              - sharedFieldNames
+              - sharedFieldNames
               name: name
               type: type
               fieldId: 6
@@ -13151,6 +13318,9 @@ components:
             field: null
             name: name
             oldValue:
+              sharedFieldNames:
+              - sharedFieldNames
+              - sharedFieldNames
               name: name
               type: type
               fieldId: 6
@@ -13159,10 +13329,13 @@ components:
           modifiedBy: null
         - modifiedAt: 2000-01-23T04:56:07.000+00:00
           itemRevision:
-            id: 0
-            version: 6
+            id: 6
+            version: 1
           changes:
           - newValue:
+              sharedFieldNames:
+              - sharedFieldNames
+              - sharedFieldNames
               name: name
               type: type
               fieldId: 6
@@ -13170,12 +13343,18 @@ components:
             field: null
             name: name
             oldValue:
+              sharedFieldNames:
+              - sharedFieldNames
+              - sharedFieldNames
               name: name
               type: type
               fieldId: 6
               sharedFieldName: sharedFieldName
             type: type
           - newValue:
+              sharedFieldNames:
+              - sharedFieldNames
+              - sharedFieldNames
               name: name
               type: type
               fieldId: 6
@@ -13183,6 +13362,9 @@ components:
             field: null
             name: name
             oldValue:
+              sharedFieldNames:
+              - sharedFieldNames
+              - sharedFieldNames
               name: name
               type: type
               fieldId: 6
@@ -13201,10 +13383,13 @@ components:
       example:
         modifiedAt: 2000-01-23T04:56:07.000+00:00
         itemRevision:
-          id: 0
-          version: 6
+          id: 6
+          version: 1
         changes:
         - newValue:
+            sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
             name: name
             type: type
             fieldId: 6
@@ -13212,12 +13397,18 @@ components:
           field: null
           name: name
           oldValue:
+            sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
             name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
           type: type
         - newValue:
+            sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
             name: name
             type: type
             fieldId: 6
@@ -13225,6 +13416,9 @@ components:
           field: null
           name: name
           oldValue:
+            sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
             name: name
             type: type
             fieldId: 6
@@ -13299,17 +13493,21 @@ components:
         - null
         - null
         itemId:
-          id: 0
-          version: 6
+          id: 6
+          version: 1
         outgoingAssociations:
         - null
         - null
         downstreamReferences:
         - null
         - null
+        isLastPage: true
+        pageSize: 5
+        page: 5
         incomingAssociations:
         - null
         - null
+        itemCount: 0
       properties:
         downstreamReferences:
           description: References and associations to the item
@@ -13321,6 +13519,13 @@ components:
           items:
             $ref: '#/components/schemas/IncomingTrackerItemAssociation'
           type: array
+        isLastPage:
+          description: Set to true if it is the last page
+          type: boolean
+        itemCount:
+          description: Number of items on page
+          format: int32
+          type: integer
         itemId:
           $ref: '#/components/schemas/TrackerItemRevision'
         outgoingAssociations:
@@ -13328,6 +13533,14 @@ components:
           items:
             $ref: '#/components/schemas/OutgoingTrackerItemAssociation'
           type: array
+        page:
+          description: Page no.
+          format: int32
+          type: integer
+        pageSize:
+          description: Page size
+          format: int32
+          type: integer
         upstreamReferences:
           description: References and associations to the item
           items:
@@ -13354,8 +13567,8 @@ components:
           asRole: null
           user: null
         trackerItem:
-          id: 0
-          version: 6
+          id: 6
+          version: 1
       properties:
         config:
           $ref: '#/components/schemas/TrackerItemReviewConfig'
@@ -13489,8 +13702,8 @@ components:
     TrackerItemRevision:
       description: Tracker item revision identifier
       example:
-        id: 0
-        version: 6
+        id: 6
+        version: 1
       properties:
         id:
           description: Tracker item id
@@ -13550,11 +13763,17 @@ components:
           spentMillis: 2
           assignedAt: 2000-01-23T04:56:07.000+00:00
           customFields:
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
@@ -13685,11 +13904,17 @@ components:
           spentMillis: 2
           assignedAt: 2000-01-23T04:56:07.000+00:00
           customFields:
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
@@ -13872,11 +14097,17 @@ components:
           spentMillis: 2
           assignedAt: 2000-01-23T04:56:07.000+00:00
           customFields:
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
@@ -14323,11 +14554,17 @@ components:
         conclusion: conclusion
         result: PASSED
         customFields:
-        - name: name
+        - sharedFieldNames:
+          - sharedFieldNames
+          - sharedFieldNames
+          name: name
           type: type
           fieldId: 6
           sharedFieldName: sharedFieldName
-        - name: name
+        - sharedFieldNames:
+          - sharedFieldNames
+          - sharedFieldNames
+          name: name
           type: type
           fieldId: 6
           sharedFieldName: sharedFieldName
@@ -14375,11 +14612,17 @@ components:
         - conclusion: conclusion
           result: PASSED
           customFields:
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
@@ -14391,11 +14634,17 @@ components:
         - conclusion: conclusion
           result: PASSED
           customFields:
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
@@ -14439,11 +14688,17 @@ components:
         - null
         - null
         fieldValues:
-        - name: name
+        - sharedFieldNames:
+          - sharedFieldNames
+          - sharedFieldNames
+          name: name
           type: type
           fieldId: 6
           sharedFieldName: sharedFieldName
-        - name: name
+        - sharedFieldNames:
+          - sharedFieldNames
+          - sharedFieldNames
+          name: name
           type: type
           fieldId: 6
           sharedFieldName: sharedFieldName
@@ -14467,11 +14722,17 @@ components:
         - null
         - null
         fieldValues:
-        - name: name
+        - sharedFieldNames:
+          - sharedFieldNames
+          - sharedFieldNames
+          name: name
           type: type
           fieldId: 6
           sharedFieldName: sharedFieldName
-        - name: name
+        - sharedFieldNames:
+          - sharedFieldNames
+          - sharedFieldNames
+          name: name
           type: type
           fieldId: 6
           sharedFieldName: sharedFieldName
@@ -14494,19 +14755,31 @@ components:
     UpdateTrackerItemTableField:
       example:
         rows:
-        - - name: name
+        - - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
-        - - name: name
+        - - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
-          - name: name
+          - sharedFieldNames:
+            - sharedFieldNames
+            - sharedFieldNames
+            name: name
             type: type
             fieldId: 6
             sharedFieldName: sharedFieldName
@@ -15121,6 +15394,9 @@ components:
           items:
             type: string
           type: array
+        multipleValues:
+          description: Multiple values state of a field
+          type: boolean
       type: object
     CountryFieldValue_allOf:
       properties:
@@ -15198,6 +15474,14 @@ components:
       type: object
     FieldReference_allOf:
       properties:
+        sharedFieldNames:
+          description: The names of a shared fields assigned to the field.
+          items:
+            description: The names of a shared fields assigned to the field.
+            readOnly: true
+            type: string
+          readOnly: true
+          type: array
         trackerId:
           description: Id of the tracker
           example: 1000
@@ -15418,6 +15702,8 @@ components:
       properties:
         referenceData:
           $ref: '#/components/schemas/TrackerItemReferenceData'
+        testStepReuse:
+          type: boolean
       type: object
     TrackerItemRowChange_allOf:
       properties:

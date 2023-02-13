@@ -9,6 +9,7 @@ Reference to a tracker item
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **referenceData** | [**TrackerItemReferenceData**](TrackerItemReferenceData.md) |  |  [optional]
+**testStepReuse** | **Boolean** |  |  [optional]
 
 
 

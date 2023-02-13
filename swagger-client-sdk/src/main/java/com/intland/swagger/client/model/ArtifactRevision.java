@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Model for a specific version of an artifact
  */
 @ApiModel(description = "Model for a specific version of an artifact")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class ArtifactRevision {
   public static final String SERIALIZED_NAME_CHANGE_SUMMARY = "changeSummary";
   @SerializedName(SERIALIZED_NAME_CHANGE_SUMMARY)

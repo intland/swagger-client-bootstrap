@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Properties of a tracker item reference
  */
 @ApiModel(description = "Properties of a tracker item reference")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class TrackerItemReferenceData {
   /**
    * Type of suspect propagation

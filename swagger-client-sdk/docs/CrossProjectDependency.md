@@ -8,7 +8,7 @@ Dependency information between two projects.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**paths** | **List&lt;List&lt;DependencyEntityReference&gt;&gt;** | Paths in source project where references were found to target project. |  [optional]
+**referredFrom** | [**List&lt;DependencyAttribute&gt;**](DependencyAttribute.md) | Information on where references were found in source project. |  [optional]
 **sourceProject** | [**ProjectReference**](ProjectReference.md) |  |  [optional]
 **targetProject** | [**ProjectReference**](ProjectReference.md) |  |  [optional]
 

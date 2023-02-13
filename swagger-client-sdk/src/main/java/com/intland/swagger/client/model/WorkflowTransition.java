@@ -31,16 +31,8 @@ import io.swagger.annotations.ApiModelProperty;
  * A transition in the workflow
  */
 @ApiModel(description = "A transition in the workflow")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class WorkflowTransition {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -102,64 +94,25 @@ public class WorkflowTransition {
   @SerializedName(SERIALIZED_NAME_FROM_STATUS)
   private ChoiceOptionReference fromStatus;
 
-  public static final String SERIALIZED_NAME_TO_STATUS = "toStatus";
-  @SerializedName(SERIALIZED_NAME_TO_STATUS)
-  private ChoiceOptionReference toStatus;
-
   public static final String SERIALIZED_NAME_HIDDEN = "hidden";
   @SerializedName(SERIALIZED_NAME_HIDDEN)
   private Boolean hidden;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Integer id;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
   private List<AccessPermission> permissions = null;
 
-
-  public WorkflowTransition id(Integer id) {
-    
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Id of the entity
-   * minimum: 0
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Id of the entity")
-
-  public Integer getId() {
-    return id;
-  }
-
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-
-  public WorkflowTransition name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the entity
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the entity")
-
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
-  }
+  public static final String SERIALIZED_NAME_TO_STATUS = "toStatus";
+  @SerializedName(SERIALIZED_NAME_TO_STATUS)
+  private ChoiceOptionReference toStatus;
 
 
   public WorkflowTransition description(String description) {
@@ -231,28 +184,6 @@ public class WorkflowTransition {
   }
 
 
-  public WorkflowTransition toStatus(ChoiceOptionReference toStatus) {
-    
-    this.toStatus = toStatus;
-    return this;
-  }
-
-   /**
-   * Get toStatus
-   * @return toStatus
-  **/
-  @ApiModelProperty(required = true, value = "")
-
-  public ChoiceOptionReference getToStatus() {
-    return toStatus;
-  }
-
-
-  public void setToStatus(ChoiceOptionReference toStatus) {
-    this.toStatus = toStatus;
-  }
-
-
   public WorkflowTransition hidden(Boolean hidden) {
     
     this.hidden = hidden;
@@ -273,6 +204,53 @@ public class WorkflowTransition {
 
   public void setHidden(Boolean hidden) {
     this.hidden = hidden;
+  }
+
+
+  public WorkflowTransition id(Integer id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Id of the entity
+   * minimum: 0
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Id of the entity")
+
+  public Integer getId() {
+    return id;
+  }
+
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+
+  public WorkflowTransition name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the entity
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the entity")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -307,8 +285,31 @@ public class WorkflowTransition {
   }
 
 
+  public WorkflowTransition toStatus(ChoiceOptionReference toStatus) {
+    
+    this.toStatus = toStatus;
+    return this;
+  }
+
+   /**
+   * Get toStatus
+   * @return toStatus
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+
+  public ChoiceOptionReference getToStatus() {
+    return toStatus;
+  }
+
+
+  public void setToStatus(ChoiceOptionReference toStatus) {
+    this.toStatus = toStatus;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -316,34 +317,33 @@ public class WorkflowTransition {
       return false;
     }
     WorkflowTransition workflowTransition = (WorkflowTransition) o;
-    return Objects.equals(this.id, workflowTransition.id) &&
-        Objects.equals(this.name, workflowTransition.name) &&
-        Objects.equals(this.description, workflowTransition.description) &&
+    return Objects.equals(this.description, workflowTransition.description) &&
         Objects.equals(this.descriptionFormat, workflowTransition.descriptionFormat) &&
         Objects.equals(this.fromStatus, workflowTransition.fromStatus) &&
-        Objects.equals(this.toStatus, workflowTransition.toStatus) &&
         Objects.equals(this.hidden, workflowTransition.hidden) &&
-        Objects.equals(this.permissions, workflowTransition.permissions);
+        Objects.equals(this.id, workflowTransition.id) &&
+        Objects.equals(this.name, workflowTransition.name) &&
+        Objects.equals(this.permissions, workflowTransition.permissions) &&
+        Objects.equals(this.toStatus, workflowTransition.toStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, descriptionFormat, fromStatus, toStatus, hidden, permissions);
+    return Objects.hash(description, descriptionFormat, fromStatus, hidden, id, name, permissions, toStatus);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WorkflowTransition {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    descriptionFormat: ").append(toIndentedString(descriptionFormat)).append("\n");
     sb.append("    fromStatus: ").append(toIndentedString(fromStatus)).append("\n");
-    sb.append("    toStatus: ").append(toIndentedString(toStatus)).append("\n");
     sb.append("    hidden: ").append(toIndentedString(hidden)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+    sb.append("    toStatus: ").append(toIndentedString(toStatus)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -352,7 +352,7 @@ public class WorkflowTransition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

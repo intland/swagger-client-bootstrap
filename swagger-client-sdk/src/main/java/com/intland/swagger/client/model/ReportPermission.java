@@ -29,16 +29,8 @@ import io.swagger.annotations.ApiModelProperty;
  * Access permissions for the report.
  */
 @ApiModel(description = "Access permissions for the report.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ReportPermission {
-  public static final String SERIALIZED_NAME_PROJECT = "project";
-  @SerializedName(SERIALIZED_NAME_PROJECT)
-  private ProjectReference project;
-
-  public static final String SERIALIZED_NAME_ROLE = "role";
-  @SerializedName(SERIALIZED_NAME_ROLE)
-  private RoleReference role;
-
   /**
    * Access level
    */
@@ -92,6 +84,37 @@ public class ReportPermission {
   @SerializedName(SERIALIZED_NAME_ACCESS)
   private AccessEnum access;
 
+  public static final String SERIALIZED_NAME_PROJECT = "project";
+  @SerializedName(SERIALIZED_NAME_PROJECT)
+  private ProjectReference project;
+
+  public static final String SERIALIZED_NAME_ROLE = "role";
+  @SerializedName(SERIALIZED_NAME_ROLE)
+  private RoleReference role;
+
+
+  public ReportPermission access(AccessEnum access) {
+    
+    this.access = access;
+    return this;
+  }
+
+   /**
+   * Access level
+   * @return access
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "READ", required = true, value = "Access level")
+
+  public AccessEnum getAccess() {
+    return access;
+  }
+
+
+  public void setAccess(AccessEnum access) {
+    this.access = access;
+  }
+
 
   public ReportPermission project(ProjectReference project) {
     
@@ -103,6 +126,7 @@ public class ReportPermission {
    * Get project
    * @return project
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
   public ProjectReference getProject() {
@@ -125,6 +149,7 @@ public class ReportPermission {
    * Get role
    * @return role
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
   public RoleReference getRole() {
@@ -137,30 +162,8 @@ public class ReportPermission {
   }
 
 
-  public ReportPermission access(AccessEnum access) {
-    
-    this.access = access;
-    return this;
-  }
-
-   /**
-   * Access level
-   * @return access
-  **/
-  @ApiModelProperty(example = "READ", required = true, value = "Access level")
-
-  public AccessEnum getAccess() {
-    return access;
-  }
-
-
-  public void setAccess(AccessEnum access) {
-    this.access = access;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -168,24 +171,23 @@ public class ReportPermission {
       return false;
     }
     ReportPermission reportPermission = (ReportPermission) o;
-    return Objects.equals(this.project, reportPermission.project) &&
-        Objects.equals(this.role, reportPermission.role) &&
-        Objects.equals(this.access, reportPermission.access);
+    return Objects.equals(this.access, reportPermission.access) &&
+        Objects.equals(this.project, reportPermission.project) &&
+        Objects.equals(this.role, reportPermission.role);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(project, role, access);
+    return Objects.hash(access, project, role);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReportPermission {\n");
+    sb.append("    access: ").append(toIndentedString(access)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
-    sb.append("    access: ").append(toIndentedString(access)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -194,7 +196,7 @@ public class ReportPermission {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

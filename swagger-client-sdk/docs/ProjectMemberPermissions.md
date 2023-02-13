@@ -3,6 +3,7 @@
 # ProjectMemberPermissions
 
 Project member permissions
+
 ## Properties
 
 Name | Type | Description | Notes

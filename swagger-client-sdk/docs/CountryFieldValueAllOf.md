@@ -2,11 +2,12 @@
 
 # CountryFieldValueAllOf
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**values** | **List&lt;String&gt;** | Country codes |  [optional]
+**values** | **Set&lt;String&gt;** | Country codes |  [optional]
 
 
 

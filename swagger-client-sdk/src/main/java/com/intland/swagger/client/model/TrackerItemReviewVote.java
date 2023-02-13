@@ -14,9 +14,8 @@
 package com.intland.swagger.client.model;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Objects;
-
-import org.joda.time.DateTime;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -31,12 +30,8 @@ import io.swagger.annotations.ApiModelProperty;
  * A tracker item review instance including its reviewers and their decisions
  */
 @ApiModel(description = "A tracker item review instance including its reviewers and their decisions")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerItemReviewVote {
-  public static final String SERIALIZED_NAME_USER = "user";
-  @SerializedName(SERIALIZED_NAME_USER)
-  private UserReference user;
-
   public static final String SERIALIZED_NAME_AS_ROLE = "asRole";
   @SerializedName(SERIALIZED_NAME_AS_ROLE)
   private RoleReference asRole;
@@ -96,30 +91,11 @@ public class TrackerItemReviewVote {
 
   public static final String SERIALIZED_NAME_REVIEWED_AT = "reviewedAt";
   @SerializedName(SERIALIZED_NAME_REVIEWED_AT)
-  private DateTime reviewedAt;
+  private Date reviewedAt;
 
-
-  public TrackerItemReviewVote user(UserReference user) {
-    
-    this.user = user;
-    return this;
-  }
-
-   /**
-   * Get user
-   * @return user
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public UserReference getUser() {
-    return user;
-  }
-
-
-  public void setUser(UserReference user) {
-    this.user = user;
-  }
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  private UserReference user;
 
 
   public TrackerItemReviewVote asRole(RoleReference asRole) {
@@ -168,7 +144,7 @@ public class TrackerItemReviewVote {
   }
 
 
-  public TrackerItemReviewVote reviewedAt(DateTime reviewedAt) {
+  public TrackerItemReviewVote reviewedAt(Date reviewedAt) {
     
     this.reviewedAt = reviewedAt;
     return this;
@@ -181,18 +157,41 @@ public class TrackerItemReviewVote {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Date and time of the vote")
 
-  public DateTime getReviewedAt() {
+  public Date getReviewedAt() {
     return reviewedAt;
   }
 
 
-  public void setReviewedAt(DateTime reviewedAt) {
+  public void setReviewedAt(Date reviewedAt) {
     this.reviewedAt = reviewedAt;
   }
 
 
+  public TrackerItemReviewVote user(UserReference user) {
+    
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public UserReference getUser() {
+    return user;
+  }
+
+
+  public void setUser(UserReference user) {
+    this.user = user;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -200,26 +199,25 @@ public class TrackerItemReviewVote {
       return false;
     }
     TrackerItemReviewVote trackerItemReviewVote = (TrackerItemReviewVote) o;
-    return Objects.equals(this.user, trackerItemReviewVote.user) &&
-        Objects.equals(this.asRole, trackerItemReviewVote.asRole) &&
+    return Objects.equals(this.asRole, trackerItemReviewVote.asRole) &&
         Objects.equals(this.decision, trackerItemReviewVote.decision) &&
-        Objects.equals(this.reviewedAt, trackerItemReviewVote.reviewedAt);
+        Objects.equals(this.reviewedAt, trackerItemReviewVote.reviewedAt) &&
+        Objects.equals(this.user, trackerItemReviewVote.user);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, asRole, decision, reviewedAt);
+    return Objects.hash(asRole, decision, reviewedAt, user);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TrackerItemReviewVote {\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    asRole: ").append(toIndentedString(asRole)).append("\n");
     sb.append("    decision: ").append(toIndentedString(decision)).append("\n");
     sb.append("    reviewedAt: ").append(toIndentedString(reviewedAt)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -228,7 +226,7 @@ public class TrackerItemReviewVote {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

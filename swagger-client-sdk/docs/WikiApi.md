@@ -88,15 +88,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Details of the lock, or an empty response |  -  |
-**429** | Too many requests |  -  |
+**400** | Bad Request |  -  |
 **401** | Authentication is required |  -  |
 **404** | Wiki page not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="createWikiPage"></a>
 # **createWikiPage**
@@ -135,7 +136,7 @@ public class Example {
     BearerAuth.setBearerToken("BEARER TOKEN");
 
     WikiApi apiInstance = new WikiApi(defaultClient);
-    WikiPage wikiPage = new WikiPage(); // WikiPage | Wiki page details
+    WikiPage wikiPage = new WikiPage(); // WikiPage | 
     try {
       WikiPage result = apiInstance.createWikiPage(wikiPage);
       System.out.println(result);
@@ -154,7 +155,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wikiPage** | [**WikiPage**](WikiPage.md)| Wiki page details |
+ **wikiPage** | [**WikiPage**](WikiPage.md)|  |
 
 ### Return type
 
@@ -172,11 +173,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Request cannot be processed |  -  |
 **200** | Properties of the created wikipage |  -  |
-**429** | Too many requests |  -  |
+**400** | Request cannot be processed |  -  |
 **401** | Authentication is required |  -  |
 **403** | Access denied |  -  |
+**429** | Too many requests |  -  |
 
 <a name="deleteWikiPage"></a>
 # **deleteWikiPage**
@@ -251,12 +252,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | The wiki page has been deleted successfully |  -  |
 **400** | Request cannot be processed |  -  |
-**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 **403** | Access denied |  -  |
 **404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
-**200** | The wiki page has been deleted successfully |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getWikiPage"></a>
 # **getWikiPage**
@@ -329,16 +330,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**429** | Too many requests |  -  |
+**200** | The wiki page |  -  |
+**400** | Bad Request |  -  |
 **401** | Authentication is required |  -  |
 **403** | Access denied |  -  |
-**200** | The wiki page |  -  |
 **404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getWikiPageHistory"></a>
 # **getWikiPageHistory**
@@ -413,15 +415,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Wiki page history |  -  |
-**429** | Too many requests |  -  |
+**400** | Bad Request |  -  |
 **401** | Authentication is required |  -  |
 **404** | Wiki page not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getWikiPermissions"></a>
 # **getWikiPermissions**
@@ -492,16 +495,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Permissions of the wiki page |  -  |
-**429** | Too many requests |  -  |
+**400** | Bad Request |  -  |
 **401** | Authentication is required |  -  |
 **403** | Authorization is required |  -  |
 **404** | Wiki page not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="lockWikiPage"></a>
 # **lockWikiPage**
@@ -541,7 +545,7 @@ public class Example {
 
     WikiApi apiInstance = new WikiApi(defaultClient);
     Integer wikiId = 56; // Integer | Wiki page id
-    LockRequest lockRequest = new LockRequest(); // LockRequest | Requested lock configuration
+    LockRequest lockRequest = new LockRequest(); // LockRequest | 
     try {
       apiInstance.lockWikiPage(wikiId, lockRequest);
     } catch (ApiException e) {
@@ -560,7 +564,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **wikiId** | **Integer**| Wiki page id |
- **lockRequest** | [**LockRequest**](LockRequest.md)| Requested lock configuration | [optional]
+ **lockRequest** | [**LockRequest**](LockRequest.md)|  |
 
 ### Return type
 
@@ -578,12 +582,12 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**429** | Too many requests |  -  |
+**200** | Lock acquired successfully |  -  |
+**400** | Bad request, request validation error |  -  |
 **401** | Authentication is required |  -  |
 **403** | Could not acquire lock |  -  |
-**400** | Bad request, request validation error |  -  |
 **404** | Wiki page not found |  -  |
-**200** | Lock acquired successfully |  -  |
+**429** | Too many requests |  -  |
 
 <a name="renderWikiMarkup"></a>
 # **renderWikiMarkup**
@@ -643,7 +647,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectId** | **Integer**|  |
- **wikiRenderRequest** | [**WikiRenderRequest**](WikiRenderRequest.md)|  | [optional]
+ **wikiRenderRequest** | [**WikiRenderRequest**](WikiRenderRequest.md)|  |
 
 ### Return type
 
@@ -656,17 +660,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: text/html, application/json
+ - **Accept**: application/json, text/html
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | The wiki content rendered as HTML |  -  |
 **400** | Request cannot be processed |  -  |
-**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 **403** | Access denied |  -  |
-**200** | The wiki content rendered as HTML |  -  |
 **404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
+**429** | Too many requests |  -  |
 
 <a name="renderWikiPage"></a>
 # **renderWikiPage**
@@ -739,17 +743,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/html, application/json
+ - **Accept**: application/json, text/html
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | The wiki content rendered as HTML |  -  |
 **400** | Request cannot be processed |  -  |
-**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 **403** | Access denied |  -  |
-**200** | The wiki content rendered as HTML |  -  |
 **404** | The wiki page does not exist, or the artifact is not a wiki page |  -  |
+**429** | Too many requests |  -  |
 
 <a name="restoreWikiPageContent"></a>
 # **restoreWikiPageContent**
@@ -822,20 +826,21 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**429** | Too many requests |  -  |
+**200** | Wiki page has been restored |  -  |
+**400** | Bad Request |  -  |
 **401** | Authentication is required |  -  |
 **403** | Access denied |  -  |
-**200** | Wiki page has been restored |  -  |
 **404** | Wiki page or version not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="setWikiPermissions"></a>
 # **setWikiPermissions**
-> List&lt;AccessPermission&gt; setWikiPermissions(wikiId, recursive, accessPermissionsRequest)
+> List&lt;AccessPermission&gt; setWikiPermissions(wikiId, accessPermissionsRequest, recursive)
 
 Set permissions of a wiki page
 
@@ -871,10 +876,10 @@ public class Example {
 
     WikiApi apiInstance = new WikiApi(defaultClient);
     Integer wikiId = 56; // Integer | Wiki page id
-    Boolean recursive = false; // Boolean | Set permissions of children recursively
     AccessPermissionsRequest accessPermissionsRequest = new AccessPermissionsRequest(); // AccessPermissionsRequest | 
+    Boolean recursive = false; // Boolean | Set permissions of children recursively
     try {
-      List<AccessPermission> result = apiInstance.setWikiPermissions(wikiId, recursive, accessPermissionsRequest);
+      List<AccessPermission> result = apiInstance.setWikiPermissions(wikiId, accessPermissionsRequest, recursive);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WikiApi#setWikiPermissions");
@@ -892,8 +897,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **wikiId** | **Integer**| Wiki page id |
+ **accessPermissionsRequest** | [**AccessPermissionsRequest**](AccessPermissionsRequest.md)|  |
  **recursive** | **Boolean**| Set permissions of children recursively | [optional] [default to false]
- **accessPermissionsRequest** | [**AccessPermissionsRequest**](AccessPermissionsRequest.md)|  | [optional]
 
 ### Return type
 
@@ -911,12 +916,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Request cannot be processed |  -  |
 **200** | Permissions of the wiki page |  -  |
-**429** | Too many requests |  -  |
+**400** | Request cannot be processed |  -  |
 **401** | Authentication is required |  -  |
 **403** | Authorization is required |  -  |
 **404** | Wiki page not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="unlockWikiPage"></a>
 # **unlockWikiPage**
@@ -986,16 +991,17 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: */*, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Unlock successful |  -  |
-**429** | Too many requests |  -  |
+**400** | Bad Request |  -  |
 **401** | Authentication is required |  -  |
 **403** | Could not unlock |  -  |
 **404** | Wiki page not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="updateWikiPage"></a>
 # **updateWikiPage**
@@ -1035,7 +1041,7 @@ public class Example {
 
     WikiApi apiInstance = new WikiApi(defaultClient);
     Integer itemId = 56; // Integer | Id of the wiki page to update
-    WikiPage wikiPage = new WikiPage(); // WikiPage | Wiki page details
+    WikiPage wikiPage = new WikiPage(); // WikiPage | 
     try {
       WikiPage result = apiInstance.updateWikiPage(itemId, wikiPage);
       System.out.println(result);
@@ -1055,7 +1061,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **Integer**| Id of the wiki page to update |
- **wikiPage** | [**WikiPage**](WikiPage.md)| Wiki page details |
+ **wikiPage** | [**WikiPage**](WikiPage.md)|  |
 
 ### Return type
 
@@ -1073,10 +1079,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Properties of the updated wikipage |  -  |
 **400** | Request cannot be processed |  -  |
-**404** | Wikipage not found |  -  |
-**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 **403** | Access denied |  -  |
-**200** | Properties of the updated wikipage |  -  |
+**404** | Wikipage not found |  -  |
+**429** | Too many requests |  -  |
 

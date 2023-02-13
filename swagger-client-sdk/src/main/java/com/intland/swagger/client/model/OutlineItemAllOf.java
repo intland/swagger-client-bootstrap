@@ -22,38 +22,15 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OutlineItemAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class OutlineItemAllOf {
-  public static final String SERIALIZED_NAME_ITEM_REFERENCE = "itemReference";
-  @SerializedName(SERIALIZED_NAME_ITEM_REFERENCE)
-  private TrackerItemReference itemReference;
-
   public static final String SERIALIZED_NAME_HAS_CHILDREN = "hasChildren";
   @SerializedName(SERIALIZED_NAME_HAS_CHILDREN)
   private Boolean hasChildren;
 
-
-  public OutlineItemAllOf itemReference(TrackerItemReference itemReference) {
-    
-    this.itemReference = itemReference;
-    return this;
-  }
-
-   /**
-   * Get itemReference
-   * @return itemReference
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public TrackerItemReference getItemReference() {
-    return itemReference;
-  }
-
-
-  public void setItemReference(TrackerItemReference itemReference) {
-    this.itemReference = itemReference;
-  }
+  public static final String SERIALIZED_NAME_ITEM_REFERENCE = "itemReference";
+  @SerializedName(SERIALIZED_NAME_ITEM_REFERENCE)
+  private TrackerItemReference itemReference;
 
 
   public OutlineItemAllOf hasChildren(Boolean hasChildren) {
@@ -79,8 +56,31 @@ public class OutlineItemAllOf {
   }
 
 
+  public OutlineItemAllOf itemReference(TrackerItemReference itemReference) {
+    
+    this.itemReference = itemReference;
+    return this;
+  }
+
+   /**
+   * Get itemReference
+   * @return itemReference
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public TrackerItemReference getItemReference() {
+    return itemReference;
+  }
+
+
+  public void setItemReference(TrackerItemReference itemReference) {
+    this.itemReference = itemReference;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -88,22 +88,21 @@ public class OutlineItemAllOf {
       return false;
     }
     OutlineItemAllOf outlineItemAllOf = (OutlineItemAllOf) o;
-    return Objects.equals(this.itemReference, outlineItemAllOf.itemReference) &&
-        Objects.equals(this.hasChildren, outlineItemAllOf.hasChildren);
+    return Objects.equals(this.hasChildren, outlineItemAllOf.hasChildren) &&
+        Objects.equals(this.itemReference, outlineItemAllOf.itemReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(itemReference, hasChildren);
+    return Objects.hash(hasChildren, itemReference);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OutlineItemAllOf {\n");
-    sb.append("    itemReference: ").append(toIndentedString(itemReference)).append("\n");
     sb.append("    hasChildren: ").append(toIndentedString(hasChildren)).append("\n");
+    sb.append("    itemReference: ").append(toIndentedString(itemReference)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -112,7 +111,7 @@ public class OutlineItemAllOf {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

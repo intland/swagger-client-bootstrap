@@ -2,11 +2,12 @@
 
 # LanguageFieldValueAllOf
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**values** | **List&lt;String&gt;** | Language codes |  [optional]
+**values** | **Set&lt;String&gt;** | Language codes |  [optional]
 
 
 

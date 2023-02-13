@@ -14,7 +14,10 @@
 package com.intland.swagger.client.model;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Objects;
+
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -29,8 +32,12 @@ import io.swagger.annotations.ApiModelProperty;
  * Basic properties of maintenance mode
  */
 @ApiModel(description = "Basic properties of maintenance mode")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class MaintenanceMode {
+  public static final String SERIALIZED_NAME_PROPERTIES = "properties";
+  @SerializedName(SERIALIZED_NAME_PROPERTIES)
+  private MaintenanceModeProperties properties;
+
   /**
    * System mode
    */
@@ -82,9 +89,28 @@ public class MaintenanceMode {
   @SerializedName(SERIALIZED_NAME_SYSTEM_MODE)
   private SystemModeEnum systemMode;
 
-  public static final String SERIALIZED_NAME_PROPERTIES = "properties";
-  @SerializedName(SERIALIZED_NAME_PROPERTIES)
-  private MaintenanceModeProperties properties;
+
+  public MaintenanceMode properties(MaintenanceModeProperties properties) {
+    
+    this.properties = properties;
+    return this;
+  }
+
+   /**
+   * Get properties
+   * @return properties
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public MaintenanceModeProperties getProperties() {
+    return properties;
+  }
+
+
+  public void setProperties(MaintenanceModeProperties properties) {
+    this.properties = properties;
+  }
 
 
   public MaintenanceMode systemMode(SystemModeEnum systemMode) {
@@ -110,31 +136,8 @@ public class MaintenanceMode {
   }
 
 
-  public MaintenanceMode properties(MaintenanceModeProperties properties) {
-    
-    this.properties = properties;
-    return this;
-  }
-
-   /**
-   * Get properties
-   * @return properties
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public MaintenanceModeProperties getProperties() {
-    return properties;
-  }
-
-
-  public void setProperties(MaintenanceModeProperties properties) {
-    this.properties = properties;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -142,22 +145,34 @@ public class MaintenanceMode {
       return false;
     }
     MaintenanceMode maintenanceMode = (MaintenanceMode) o;
-    return Objects.equals(this.systemMode, maintenanceMode.systemMode) &&
-        Objects.equals(this.properties, maintenanceMode.properties);
+    return Objects.equals(this.properties, maintenanceMode.properties) &&
+        Objects.equals(this.systemMode, maintenanceMode.systemMode);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && a.get().getClass().isArray() ? Arrays.equals((T[])a.get(), (T[])b.get()) : Objects.equals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(systemMode, properties);
+    return Objects.hash(properties, systemMode);
   }
 
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent()
+      ? (a.get().getClass().isArray() ? Arrays.hashCode((T[])a.get()) : Objects.hashCode(a.get()))
+      : 31;
+  }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MaintenanceMode {\n");
-    sb.append("    systemMode: ").append(toIndentedString(systemMode)).append("\n");
     sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
+    sb.append("    systemMode: ").append(toIndentedString(systemMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -166,7 +181,7 @@ public class MaintenanceMode {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

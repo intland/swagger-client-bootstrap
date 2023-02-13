@@ -24,38 +24,15 @@ import io.swagger.annotations.ApiModelProperty;
  * Holds the details of a failed operation
  */
 @ApiModel(description = "Holds the details of a failed operation")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class FailedOperation {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
-
   public static final String SERIALIZED_NAME_EXCEPTION_MESSAGE = "exceptionMessage";
   @SerializedName(SERIALIZED_NAME_EXCEPTION_MESSAGE)
   private String exceptionMessage;
 
-
-  public FailedOperation id(Integer id) {
-    
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Entity id
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Entity id")
-
-  public Integer getId() {
-    return id;
-  }
-
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Integer id;
 
 
   public FailedOperation exceptionMessage(String exceptionMessage) {
@@ -81,8 +58,31 @@ public class FailedOperation {
   }
 
 
+  public FailedOperation id(Integer id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Entity id
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Entity id")
+
+  public Integer getId() {
+    return id;
+  }
+
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -90,22 +90,21 @@ public class FailedOperation {
       return false;
     }
     FailedOperation failedOperation = (FailedOperation) o;
-    return Objects.equals(this.id, failedOperation.id) &&
-        Objects.equals(this.exceptionMessage, failedOperation.exceptionMessage);
+    return Objects.equals(this.exceptionMessage, failedOperation.exceptionMessage) &&
+        Objects.equals(this.id, failedOperation.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, exceptionMessage);
+    return Objects.hash(exceptionMessage, id);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FailedOperation {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    exceptionMessage: ").append(toIndentedString(exceptionMessage)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -114,7 +113,7 @@ public class FailedOperation {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

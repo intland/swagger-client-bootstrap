@@ -80,15 +80,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required. |  -  |
-**429** | Too many requests |  -  |
 **200** | Tracker permission. |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required. |  -  |
 **404** | Resource is not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerPermissions"></a>
 # **getTrackerPermissions**
@@ -155,15 +156,16 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Tracker permissions. |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required. |  -  |
 **404** | Tracker permission is not found. |  -  |
 **429** | Too many requests |  -  |
-**200** | Tracker permissions. |  -  |
 
 <a name="getTrackerPermissionsWithRoles"></a>
 # **getTrackerPermissionsWithRoles**
@@ -245,11 +247,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required. |  -  |
-**429** | Too many requests |  -  |
-**404** | Tracker is not found. |  -  |
 **200** | Tracker permissions by role. |  -  |
 **400** | No access permission for this resource |  -  |
+**403** | Authentication is required. |  -  |
+**404** | Tracker is not found. |  -  |
+**429** | Too many requests |  -  |
 
 <a name="removePermissions"></a>
 # **removePermissions**
@@ -326,10 +328,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**429** | Too many requests |  -  |
 **200** | Tracker permissions were removed. |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker/role is not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="updatePermission"></a>
 # **updatePermission**
@@ -391,7 +394,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **trackerId** | **Integer**|  |
  **roleId** | **Integer**|  |
- **permissionIdsRequest** | [**PermissionIdsRequest**](PermissionIdsRequest.md)|  | [optional]
+ **permissionIdsRequest** | [**PermissionIdsRequest**](PermissionIdsRequest.md)|  |
 
 ### Return type
 
@@ -404,13 +407,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker permissions are set |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker / permission / roles not found |  -  |
 **429** | Too many requests |  -  |
 

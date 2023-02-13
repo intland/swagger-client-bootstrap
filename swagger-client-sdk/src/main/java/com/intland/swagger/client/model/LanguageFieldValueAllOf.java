@@ -13,9 +13,9 @@
 
 package com.intland.swagger.client.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -24,14 +24,14 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * LanguageFieldValueAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class LanguageFieldValueAllOf {
   public static final String SERIALIZED_NAME_VALUES = "values";
   @SerializedName(SERIALIZED_NAME_VALUES)
-  private List<String> values = null;
+  private Set<String> values = null;
 
 
-  public LanguageFieldValueAllOf values(List<String> values) {
+  public LanguageFieldValueAllOf values(Set<String> values) {
     
     this.values = values;
     return this;
@@ -39,7 +39,7 @@ public class LanguageFieldValueAllOf {
 
   public LanguageFieldValueAllOf addValuesItem(String valuesItem) {
     if (this.values == null) {
-      this.values = new ArrayList<String>();
+      this.values = new LinkedHashSet<String>();
     }
     this.values.add(valuesItem);
     return this;
@@ -52,18 +52,18 @@ public class LanguageFieldValueAllOf {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Language codes")
 
-  public List<String> getValues() {
+  public Set<String> getValues() {
     return values;
   }
 
 
-  public void setValues(List<String> values) {
+  public void setValues(Set<String> values) {
     this.values = values;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -79,7 +79,6 @@ public class LanguageFieldValueAllOf {
     return Objects.hash(values);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -93,7 +92,7 @@ public class LanguageFieldValueAllOf {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

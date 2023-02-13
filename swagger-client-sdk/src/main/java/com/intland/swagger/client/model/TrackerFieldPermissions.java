@@ -26,38 +26,15 @@ import io.swagger.annotations.ApiModelProperty;
  * Tracker field permissions
  */
 @ApiModel(description = "Tracker field permissions")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerFieldPermissions {
-  public static final String SERIALIZED_NAME_FIELD_REFERENCE = "fieldReference";
-  @SerializedName(SERIALIZED_NAME_FIELD_REFERENCE)
-  private FieldReference fieldReference;
-
   public static final String SERIALIZED_NAME_FIELD_PERMISSIONS = "fieldPermissions";
   @SerializedName(SERIALIZED_NAME_FIELD_PERMISSIONS)
   private List<TrackerFieldStatusPermissions> fieldPermissions = null;
 
-
-  public TrackerFieldPermissions fieldReference(FieldReference fieldReference) {
-    
-    this.fieldReference = fieldReference;
-    return this;
-  }
-
-   /**
-   * Get fieldReference
-   * @return fieldReference
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public FieldReference getFieldReference() {
-    return fieldReference;
-  }
-
-
-  public void setFieldReference(FieldReference fieldReference) {
-    this.fieldReference = fieldReference;
-  }
+  public static final String SERIALIZED_NAME_FIELD_REFERENCE = "fieldReference";
+  @SerializedName(SERIALIZED_NAME_FIELD_REFERENCE)
+  private FieldReference fieldReference;
 
 
   public TrackerFieldPermissions fieldPermissions(List<TrackerFieldStatusPermissions> fieldPermissions) {
@@ -91,8 +68,31 @@ public class TrackerFieldPermissions {
   }
 
 
+  public TrackerFieldPermissions fieldReference(FieldReference fieldReference) {
+    
+    this.fieldReference = fieldReference;
+    return this;
+  }
+
+   /**
+   * Get fieldReference
+   * @return fieldReference
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public FieldReference getFieldReference() {
+    return fieldReference;
+  }
+
+
+  public void setFieldReference(FieldReference fieldReference) {
+    this.fieldReference = fieldReference;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -100,22 +100,21 @@ public class TrackerFieldPermissions {
       return false;
     }
     TrackerFieldPermissions trackerFieldPermissions = (TrackerFieldPermissions) o;
-    return Objects.equals(this.fieldReference, trackerFieldPermissions.fieldReference) &&
-        Objects.equals(this.fieldPermissions, trackerFieldPermissions.fieldPermissions);
+    return Objects.equals(this.fieldPermissions, trackerFieldPermissions.fieldPermissions) &&
+        Objects.equals(this.fieldReference, trackerFieldPermissions.fieldReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldReference, fieldPermissions);
+    return Objects.hash(fieldPermissions, fieldReference);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TrackerFieldPermissions {\n");
-    sb.append("    fieldReference: ").append(toIndentedString(fieldReference)).append("\n");
     sb.append("    fieldPermissions: ").append(toIndentedString(fieldPermissions)).append("\n");
+    sb.append("    fieldReference: ").append(toIndentedString(fieldReference)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -124,7 +123,7 @@ public class TrackerFieldPermissions {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

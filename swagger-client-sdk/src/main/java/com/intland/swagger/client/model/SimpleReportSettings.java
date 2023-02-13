@@ -26,31 +26,35 @@ import io.swagger.annotations.ApiModelProperty;
  * Settings for a simple report.
  */
 @ApiModel(description = "Settings for a simple report.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class SimpleReportSettings {
-  public static final String SERIALIZED_NAME_REPORT_ID = "reportId";
-  @SerializedName(SERIALIZED_NAME_REPORT_ID)
-  private Integer reportId;
+  public static final String SERIALIZED_NAME_ADDED_PERMISSIONS = "addedPermissions";
+  @SerializedName(SERIALIZED_NAME_ADDED_PERMISSIONS)
+  private List<ReportPermission> addedPermissions = null;
 
   public static final String SERIALIZED_NAME_CB_QL = "cbQl";
   @SerializedName(SERIALIZED_NAME_CB_QL)
   private String cbQl;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String SERIALIZED_NAME_COLUMNS = "columns";
+  @SerializedName(SERIALIZED_NAME_COLUMNS)
+  private List<ResizableReportColumnSettings> columns = new ArrayList<ResizableReportColumnSettings>();
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
-  public static final String SERIALIZED_NAME_COLUMNS = "columns";
-  @SerializedName(SERIALIZED_NAME_COLUMNS)
-  private List<ResizableReportColumnSettings> columns = new ArrayList<ResizableReportColumnSettings>();
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public static final String SERIALIZED_NAME_ADDED_PERMISSIONS = "addedPermissions";
-  @SerializedName(SERIALIZED_NAME_ADDED_PERMISSIONS)
-  private List<ReportPermission> addedPermissions = null;
+  public static final String SERIALIZED_NAME_REPORT_ID = "reportId";
+  @SerializedName(SERIALIZED_NAME_REPORT_ID)
+  private Integer reportId;
+
+  public static final String SERIALIZED_NAME_SHOW_ALL_CHILDREN = "showAllChildren";
+  @SerializedName(SERIALIZED_NAME_SHOW_ALL_CHILDREN)
+  private Boolean showAllChildren;
 
   public static final String SERIALIZED_NAME_SHOW_ANCESTORS = "showAncestors";
   @SerializedName(SERIALIZED_NAME_SHOW_ANCESTORS)
@@ -59,126 +63,6 @@ public class SimpleReportSettings {
   public static final String SERIALIZED_NAME_SHOW_DESCENDANTS = "showDescendants";
   @SerializedName(SERIALIZED_NAME_SHOW_DESCENDANTS)
   private Boolean showDescendants;
-
-  public static final String SERIALIZED_NAME_SHOW_ALL_CHILDREN = "showAllChildren";
-  @SerializedName(SERIALIZED_NAME_SHOW_ALL_CHILDREN)
-  private Boolean showAllChildren;
-
-
-  public SimpleReportSettings reportId(Integer reportId) {
-    
-    this.reportId = reportId;
-    return this;
-  }
-
-   /**
-   * Id of a report
-   * @return reportId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "Id of a report")
-
-  public Integer getReportId() {
-    return reportId;
-  }
-
-
-  public void setReportId(Integer reportId) {
-    this.reportId = reportId;
-  }
-
-
-  public SimpleReportSettings cbQl(String cbQl) {
-    
-    this.cbQl = cbQl;
-    return this;
-  }
-
-   /**
-   * CbQL query string of the report.
-   * @return cbQl
-  **/
-  @ApiModelProperty(example = "priority='Normal'", required = true, value = "CbQL query string of the report.")
-
-  public String getCbQl() {
-    return cbQl;
-  }
-
-
-  public void setCbQl(String cbQl) {
-    this.cbQl = cbQl;
-  }
-
-
-  public SimpleReportSettings name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the report.
-   * @return name
-  **/
-  @ApiModelProperty(example = "My first query", required = true, value = "Name of the report.")
-
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public SimpleReportSettings description(String description) {
-    
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Description of the report.
-   * @return description
-  **/
-  @ApiModelProperty(example = "Normal priority items.", required = true, value = "Description of the report.")
-
-  public String getDescription() {
-    return description;
-  }
-
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-
-  public SimpleReportSettings columns(List<ResizableReportColumnSettings> columns) {
-    
-    this.columns = columns;
-    return this;
-  }
-
-  public SimpleReportSettings addColumnsItem(ResizableReportColumnSettings columnsItem) {
-    this.columns.add(columnsItem);
-    return this;
-  }
-
-   /**
-   * Column definitions.
-   * @return columns
-  **/
-  @ApiModelProperty(required = true, value = "Column definitions.")
-
-  public List<ResizableReportColumnSettings> getColumns() {
-    return columns;
-  }
-
-
-  public void setColumns(List<ResizableReportColumnSettings> columns) {
-    this.columns = columns;
-  }
 
 
   public SimpleReportSettings addedPermissions(List<ReportPermission> addedPermissions) {
@@ -209,6 +93,149 @@ public class SimpleReportSettings {
 
   public void setAddedPermissions(List<ReportPermission> addedPermissions) {
     this.addedPermissions = addedPermissions;
+  }
+
+
+  public SimpleReportSettings cbQl(String cbQl) {
+    
+    this.cbQl = cbQl;
+    return this;
+  }
+
+   /**
+   * CbQL query string of the report.
+   * @return cbQl
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "priority='Normal'", required = true, value = "CbQL query string of the report.")
+
+  public String getCbQl() {
+    return cbQl;
+  }
+
+
+  public void setCbQl(String cbQl) {
+    this.cbQl = cbQl;
+  }
+
+
+  public SimpleReportSettings columns(List<ResizableReportColumnSettings> columns) {
+    
+    this.columns = columns;
+    return this;
+  }
+
+  public SimpleReportSettings addColumnsItem(ResizableReportColumnSettings columnsItem) {
+    this.columns.add(columnsItem);
+    return this;
+  }
+
+   /**
+   * Column definitions.
+   * @return columns
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Column definitions.")
+
+  public List<ResizableReportColumnSettings> getColumns() {
+    return columns;
+  }
+
+
+  public void setColumns(List<ResizableReportColumnSettings> columns) {
+    this.columns = columns;
+  }
+
+
+  public SimpleReportSettings description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the report.
+   * @return description
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "Normal priority items.", required = true, value = "Description of the report.")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
+  public SimpleReportSettings name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the report.
+   * @return name
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "My first query", required = true, value = "Name of the report.")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public SimpleReportSettings reportId(Integer reportId) {
+    
+    this.reportId = reportId;
+    return this;
+  }
+
+   /**
+   * Id of a report
+   * @return reportId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "1", value = "Id of a report")
+
+  public Integer getReportId() {
+    return reportId;
+  }
+
+
+  public void setReportId(Integer reportId) {
+    this.reportId = reportId;
+  }
+
+
+  public SimpleReportSettings showAllChildren(Boolean showAllChildren) {
+    
+    this.showAllChildren = showAllChildren;
+    return this;
+  }
+
+   /**
+   * Indicator to ability to collapse/expand all child items.
+   * @return showAllChildren
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "Indicator to ability to collapse/expand all child items.")
+
+  public Boolean getShowAllChildren() {
+    return showAllChildren;
+  }
+
+
+  public void setShowAllChildren(Boolean showAllChildren) {
+    this.showAllChildren = showAllChildren;
   }
 
 
@@ -258,31 +285,8 @@ public class SimpleReportSettings {
   }
 
 
-  public SimpleReportSettings showAllChildren(Boolean showAllChildren) {
-    
-    this.showAllChildren = showAllChildren;
-    return this;
-  }
-
-   /**
-   * Indicator to ability to collapse/expand all child items.
-   * @return showAllChildren
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "Indicator to ability to collapse/expand all child items.")
-
-  public Boolean getShowAllChildren() {
-    return showAllChildren;
-  }
-
-
-  public void setShowAllChildren(Boolean showAllChildren) {
-    this.showAllChildren = showAllChildren;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -290,36 +294,35 @@ public class SimpleReportSettings {
       return false;
     }
     SimpleReportSettings simpleReportSettings = (SimpleReportSettings) o;
-    return Objects.equals(this.reportId, simpleReportSettings.reportId) &&
+    return Objects.equals(this.addedPermissions, simpleReportSettings.addedPermissions) &&
         Objects.equals(this.cbQl, simpleReportSettings.cbQl) &&
-        Objects.equals(this.name, simpleReportSettings.name) &&
-        Objects.equals(this.description, simpleReportSettings.description) &&
         Objects.equals(this.columns, simpleReportSettings.columns) &&
-        Objects.equals(this.addedPermissions, simpleReportSettings.addedPermissions) &&
+        Objects.equals(this.description, simpleReportSettings.description) &&
+        Objects.equals(this.name, simpleReportSettings.name) &&
+        Objects.equals(this.reportId, simpleReportSettings.reportId) &&
+        Objects.equals(this.showAllChildren, simpleReportSettings.showAllChildren) &&
         Objects.equals(this.showAncestors, simpleReportSettings.showAncestors) &&
-        Objects.equals(this.showDescendants, simpleReportSettings.showDescendants) &&
-        Objects.equals(this.showAllChildren, simpleReportSettings.showAllChildren);
+        Objects.equals(this.showDescendants, simpleReportSettings.showDescendants);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reportId, cbQl, name, description, columns, addedPermissions, showAncestors, showDescendants, showAllChildren);
+    return Objects.hash(addedPermissions, cbQl, columns, description, name, reportId, showAllChildren, showAncestors, showDescendants);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SimpleReportSettings {\n");
-    sb.append("    reportId: ").append(toIndentedString(reportId)).append("\n");
-    sb.append("    cbQl: ").append(toIndentedString(cbQl)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
     sb.append("    addedPermissions: ").append(toIndentedString(addedPermissions)).append("\n");
+    sb.append("    cbQl: ").append(toIndentedString(cbQl)).append("\n");
+    sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    reportId: ").append(toIndentedString(reportId)).append("\n");
+    sb.append("    showAllChildren: ").append(toIndentedString(showAllChildren)).append("\n");
     sb.append("    showAncestors: ").append(toIndentedString(showAncestors)).append("\n");
     sb.append("    showDescendants: ").append(toIndentedString(showDescendants)).append("\n");
-    sb.append("    showAllChildren: ").append(toIndentedString(showAllChildren)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -328,7 +331,7 @@ public class SimpleReportSettings {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

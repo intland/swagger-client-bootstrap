@@ -26,16 +26,15 @@ import io.swagger.annotations.ApiModelProperty;
  * A report group which can contain rows or other groups based on the type.
  */
 @ApiModel(description = "A report group which can contain rows or other groups based on the type.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ReportGroup {
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  protected String type;
+  public static final String SERIALIZED_NAME_AGGREGATES = "aggregates";
+  @SerializedName(SERIALIZED_NAME_AGGREGATES)
+  private List<ReportAggregate> aggregates = null;
 
-  public static final String SERIALIZED_NAME_HEADER = "header";
-  @SerializedName(SERIALIZED_NAME_HEADER)
-  private String header;
+  public static final String SERIALIZED_NAME_COUNT = "count";
+  @SerializedName(SERIALIZED_NAME_COUNT)
+  private Double count;
 
   public static final String SERIALIZED_NAME_GROUPING_VALUE = "groupingValue";
   @SerializedName(SERIALIZED_NAME_GROUPING_VALUE)
@@ -45,61 +44,69 @@ public class ReportGroup {
   @SerializedName(SERIALIZED_NAME_GROUPING_VALUE_ID)
   private Integer groupingValueId;
 
-  public static final String SERIALIZED_NAME_COUNT = "count";
-  @SerializedName(SERIALIZED_NAME_COUNT)
-  private Double count;
+  public static final String SERIALIZED_NAME_HEADER = "header";
+  @SerializedName(SERIALIZED_NAME_HEADER)
+  private String header;
 
-  public static final String SERIALIZED_NAME_AGGREGATES = "aggregates";
-  @SerializedName(SERIALIZED_NAME_AGGREGATES)
-  private List<ReportAggregate> aggregates = null;
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  protected String type;
 
   public ReportGroup() {
     this.type = this.getClass().getSimpleName();
   }
 
-  public ReportGroup type(String type) {
+  public ReportGroup aggregates(List<ReportAggregate> aggregates) {
     
-    this.type = type;
+    this.aggregates = aggregates;
+    return this;
+  }
+
+  public ReportGroup addAggregatesItem(ReportAggregate aggregatesItem) {
+    if (this.aggregates == null) {
+      this.aggregates = new ArrayList<ReportAggregate>();
+    }
+    this.aggregates.add(aggregatesItem);
     return this;
   }
 
    /**
-   * Type of the group.
-   * @return type
+   * List of the aggregate values with column id.
+   * @return aggregates
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "row", value = "Type of the group.")
+  @ApiModelProperty(value = "List of the aggregate values with column id.")
 
-  public String getType() {
-    return type;
+  public List<ReportAggregate> getAggregates() {
+    return aggregates;
   }
 
 
-  public void setType(String type) {
-    this.type = type;
+  public void setAggregates(List<ReportAggregate> aggregates) {
+    this.aggregates = aggregates;
   }
 
 
-  public ReportGroup header(String header) {
+  public ReportGroup count(Double count) {
     
-    this.header = header;
+    this.count = count;
     return this;
   }
 
    /**
-   * Grouping header
-   * @return header
+   * Number of items in the group, if it has subgroups then the aggregated number of items.
+   * @return count
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Status: In progress", value = "Grouping header")
+  @ApiModelProperty(example = "32", value = "Number of items in the group, if it has subgroups then the aggregated number of items.")
 
-  public String getHeader() {
-    return header;
+  public Double getCount() {
+    return count;
   }
 
 
-  public void setHeader(String header) {
-    this.header = header;
+  public void setCount(Double count) {
+    this.count = count;
   }
 
 
@@ -149,62 +156,54 @@ public class ReportGroup {
   }
 
 
-  public ReportGroup count(Double count) {
+  public ReportGroup header(String header) {
     
-    this.count = count;
+    this.header = header;
     return this;
   }
 
    /**
-   * Number of items in the group, if it has subgroups then the aggregated number of items.
-   * @return count
+   * Grouping header
+   * @return header
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "32", value = "Number of items in the group, if it has subgroups then the aggregated number of items.")
+  @ApiModelProperty(example = "Status: In progress", value = "Grouping header")
 
-  public Double getCount() {
-    return count;
+  public String getHeader() {
+    return header;
   }
 
 
-  public void setCount(Double count) {
-    this.count = count;
+  public void setHeader(String header) {
+    this.header = header;
   }
 
 
-  public ReportGroup aggregates(List<ReportAggregate> aggregates) {
+  public ReportGroup type(String type) {
     
-    this.aggregates = aggregates;
-    return this;
-  }
-
-  public ReportGroup addAggregatesItem(ReportAggregate aggregatesItem) {
-    if (this.aggregates == null) {
-      this.aggregates = new ArrayList<ReportAggregate>();
-    }
-    this.aggregates.add(aggregatesItem);
+    this.type = type;
     return this;
   }
 
    /**
-   * List of the aggregate values with column id.
-   * @return aggregates
+   * Type of the group.
+   * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of the aggregate values with column id.")
+  @ApiModelProperty(example = "row", value = "Type of the group.")
 
-  public List<ReportAggregate> getAggregates() {
-    return aggregates;
+  public String getType() {
+    return type;
   }
 
 
-  public void setAggregates(List<ReportAggregate> aggregates) {
-    this.aggregates = aggregates;
+  public void setType(String type) {
+    this.type = type;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -212,30 +211,29 @@ public class ReportGroup {
       return false;
     }
     ReportGroup reportGroup = (ReportGroup) o;
-    return Objects.equals(this.type, reportGroup.type) &&
-        Objects.equals(this.header, reportGroup.header) &&
+    return Objects.equals(this.aggregates, reportGroup.aggregates) &&
+        Objects.equals(this.count, reportGroup.count) &&
         Objects.equals(this.groupingValue, reportGroup.groupingValue) &&
         Objects.equals(this.groupingValueId, reportGroup.groupingValueId) &&
-        Objects.equals(this.count, reportGroup.count) &&
-        Objects.equals(this.aggregates, reportGroup.aggregates);
+        Objects.equals(this.header, reportGroup.header) &&
+        Objects.equals(this.type, reportGroup.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, header, groupingValue, groupingValueId, count, aggregates);
+    return Objects.hash(aggregates, count, groupingValue, groupingValueId, header, type);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReportGroup {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    header: ").append(toIndentedString(header)).append("\n");
+    sb.append("    aggregates: ").append(toIndentedString(aggregates)).append("\n");
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    groupingValue: ").append(toIndentedString(groupingValue)).append("\n");
     sb.append("    groupingValueId: ").append(toIndentedString(groupingValueId)).append("\n");
-    sb.append("    count: ").append(toIndentedString(count)).append("\n");
-    sb.append("    aggregates: ").append(toIndentedString(aggregates)).append("\n");
+    sb.append("    header: ").append(toIndentedString(header)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -244,7 +242,7 @@ public class ReportGroup {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

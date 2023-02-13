@@ -3,14 +3,15 @@
 # AccessPermission
 
 Access permission of specific role
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**role** | [**RoleReference**](RoleReference.md) |  |  [optional]
+**accessLevel** | [**AccessLevelEnum**](#AccessLevelEnum) | Access level |  [optional]
 **field** | [**FieldReference**](FieldReference.md) |  |  [optional]
 **project** | [**ProjectReference**](ProjectReference.md) |  |  [optional]
-**accessLevel** | [**AccessLevelEnum**](#AccessLevelEnum) | Access level |  [optional]
+**role** | [**RoleReference**](RoleReference.md) |  |  [optional]
 
 
 

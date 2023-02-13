@@ -63,7 +63,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **autoApplyTestStepReuses** | [**AutoApplyTestStepReuses**](AutoApplyTestStepReuses.md)|  | [optional]
+ **autoApplyTestStepReuses** | [**AutoApplyTestStepReuses**](AutoApplyTestStepReuses.md)|  |
 
 ### Return type
 
@@ -76,13 +76,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | The item-references of the modified tracker-items where duplicate Test Steps was found and converted to Reuses |  -  |
-**429** | Too many requests |  -  |
+**400** | Bad Request |  -  |
 **401** | Authentication is required |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 

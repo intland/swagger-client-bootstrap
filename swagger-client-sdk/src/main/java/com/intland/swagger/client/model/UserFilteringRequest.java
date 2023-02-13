@@ -27,23 +27,23 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * UserFilteringRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class UserFilteringRequest {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
-  public static final String SERIALIZED_NAME_LAST_NAME = "lastName";
-  @SerializedName(SERIALIZED_NAME_LAST_NAME)
-  private String lastName;
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
 
   public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
 
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  private String email;
+  public static final String SERIALIZED_NAME_LAST_NAME = "lastName";
+  @SerializedName(SERIALIZED_NAME_LAST_NAME)
+  private String lastName;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
@@ -103,49 +103,26 @@ public class UserFilteringRequest {
   private UserStatusEnum userStatus;
 
 
-  public UserFilteringRequest name(String name) {
+  public UserFilteringRequest email(String email) {
     
-    this.name = name;
+    this.email = email;
     return this;
   }
 
    /**
-   * Name of the user
-   * @return name
+   * Email of the user
+   * @return email
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "John Doe", value = "Name of the user")
+  @ApiModelProperty(example = "john.doe@codebeamer.com", value = "Email of the user")
 
-  public String getName() {
-    return name;
+  public String getEmail() {
+    return email;
   }
 
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public UserFilteringRequest lastName(String lastName) {
-    
-    this.lastName = lastName;
-    return this;
-  }
-
-   /**
-   * Last name of the user
-   * @return lastName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "Doe", value = "Last name of the user")
-
-  public String getLastName() {
-    return lastName;
-  }
-
-
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
 
@@ -172,26 +149,49 @@ public class UserFilteringRequest {
   }
 
 
-  public UserFilteringRequest email(String email) {
+  public UserFilteringRequest lastName(String lastName) {
     
-    this.email = email;
+    this.lastName = lastName;
     return this;
   }
 
    /**
-   * Email of the user
-   * @return email
+   * Last name of the user
+   * @return lastName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "john.doe@codebeamer.com", value = "Email of the user")
+  @ApiModelProperty(example = "Doe", value = "Last name of the user")
 
-  public String getEmail() {
-    return email;
+  public String getLastName() {
+    return lastName;
   }
 
 
-  public void setEmail(String email) {
-    this.email = email;
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+
+  public UserFilteringRequest name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the user
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "John Doe", value = "Name of the user")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -242,7 +242,7 @@ public class UserFilteringRequest {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -250,28 +250,27 @@ public class UserFilteringRequest {
       return false;
     }
     UserFilteringRequest userFilteringRequest = (UserFilteringRequest) o;
-    return Objects.equals(this.name, userFilteringRequest.name) &&
-        Objects.equals(this.lastName, userFilteringRequest.lastName) &&
+    return Objects.equals(this.email, userFilteringRequest.email) &&
         Objects.equals(this.firstName, userFilteringRequest.firstName) &&
-        Objects.equals(this.email, userFilteringRequest.email) &&
+        Objects.equals(this.lastName, userFilteringRequest.lastName) &&
+        Objects.equals(this.name, userFilteringRequest.name) &&
         Objects.equals(this.projectId, userFilteringRequest.projectId) &&
         Objects.equals(this.userStatus, userFilteringRequest.userStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, lastName, firstName, email, projectId, userStatus);
+    return Objects.hash(email, firstName, lastName, name, projectId, userStatus);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserFilteringRequest {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    userStatus: ").append(toIndentedString(userStatus)).append("\n");
     sb.append("}");
@@ -282,7 +281,7 @@ public class UserFilteringRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

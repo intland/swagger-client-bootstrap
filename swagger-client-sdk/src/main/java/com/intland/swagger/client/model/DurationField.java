@@ -24,15 +24,41 @@ import io.swagger.annotations.ApiModelProperty;
  * Duration field
  */
 @ApiModel(description = "Duration field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class DurationField extends AbstractField {
+  public static final String SERIALIZED_NAME_MAX = "max";
+  @SerializedName(SERIALIZED_NAME_MAX)
+  private String max;
+
   public static final String SERIALIZED_NAME_MIN = "min";
   @SerializedName(SERIALIZED_NAME_MIN)
   private String min;
 
-  public static final String SERIALIZED_NAME_MAX = "max";
-  @SerializedName(SERIALIZED_NAME_MAX)
-  private String max;
+  public DurationField() {
+    this.type = this.getClass().getSimpleName();
+  }
+
+  public DurationField max(String max) {
+    
+    this.max = max;
+    return this;
+  }
+
+   /**
+   * Maximum value of a field
+   * @return max
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Maximum value of a field")
+
+  public String getMax() {
+    return max;
+  }
+
+
+  public void setMax(String max) {
+    this.max = max;
+  }
 
 
   public DurationField min(String min) {
@@ -58,31 +84,8 @@ public class DurationField extends AbstractField {
   }
 
 
-  public DurationField max(String max) {
-    
-    this.max = max;
-    return this;
-  }
-
-   /**
-   * Maximum value of a field
-   * @return max
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Maximum value of a field")
-
-  public String getMax() {
-    return max;
-  }
-
-
-  public void setMax(String max) {
-    this.max = max;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -90,24 +93,23 @@ public class DurationField extends AbstractField {
       return false;
     }
     DurationField durationField = (DurationField) o;
-    return Objects.equals(this.min, durationField.min) &&
-        Objects.equals(this.max, durationField.max) &&
+    return Objects.equals(this.max, durationField.max) &&
+        Objects.equals(this.min, durationField.min) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(min, max, super.hashCode());
+    return Objects.hash(max, min, super.hashCode());
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DurationField {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    min: ").append(toIndentedString(min)).append("\n");
     sb.append("    max: ").append(toIndentedString(max)).append("\n");
+    sb.append("    min: ").append(toIndentedString(min)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -116,7 +118,7 @@ public class DurationField extends AbstractField {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

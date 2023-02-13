@@ -26,8 +26,12 @@ import io.swagger.annotations.ApiModelProperty;
  * One page of tracker item references.
  */
 @ApiModel(description = "One page of tracker item references.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerItemReferenceSearchResult {
+  public static final String SERIALIZED_NAME_ITEM_REFS = "itemRefs";
+  @SerializedName(SERIALIZED_NAME_ITEM_REFS)
+  private List<TrackerItemReference> itemRefs = null;
+
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
   private Integer page;
@@ -40,9 +44,36 @@ public class TrackerItemReferenceSearchResult {
   @SerializedName(SERIALIZED_NAME_TOTAL)
   private Integer total;
 
-  public static final String SERIALIZED_NAME_ITEM_REFS = "itemRefs";
-  @SerializedName(SERIALIZED_NAME_ITEM_REFS)
-  private List<TrackerItemReference> itemRefs = null;
+
+  public TrackerItemReferenceSearchResult itemRefs(List<TrackerItemReference> itemRefs) {
+    
+    this.itemRefs = itemRefs;
+    return this;
+  }
+
+  public TrackerItemReferenceSearchResult addItemRefsItem(TrackerItemReference itemRefsItem) {
+    if (this.itemRefs == null) {
+      this.itemRefs = new ArrayList<TrackerItemReference>();
+    }
+    this.itemRefs.add(itemRefsItem);
+    return this;
+  }
+
+   /**
+   * Found tracker item references
+   * @return itemRefs
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Found tracker item references")
+
+  public List<TrackerItemReference> getItemRefs() {
+    return itemRefs;
+  }
+
+
+  public void setItemRefs(List<TrackerItemReference> itemRefs) {
+    this.itemRefs = itemRefs;
+  }
 
 
   public TrackerItemReferenceSearchResult page(Integer page) {
@@ -114,39 +145,8 @@ public class TrackerItemReferenceSearchResult {
   }
 
 
-  public TrackerItemReferenceSearchResult itemRefs(List<TrackerItemReference> itemRefs) {
-    
-    this.itemRefs = itemRefs;
-    return this;
-  }
-
-  public TrackerItemReferenceSearchResult addItemRefsItem(TrackerItemReference itemRefsItem) {
-    if (this.itemRefs == null) {
-      this.itemRefs = new ArrayList<TrackerItemReference>();
-    }
-    this.itemRefs.add(itemRefsItem);
-    return this;
-  }
-
-   /**
-   * Found tracker item references
-   * @return itemRefs
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Found tracker item references")
-
-  public List<TrackerItemReference> getItemRefs() {
-    return itemRefs;
-  }
-
-
-  public void setItemRefs(List<TrackerItemReference> itemRefs) {
-    this.itemRefs = itemRefs;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -154,26 +154,25 @@ public class TrackerItemReferenceSearchResult {
       return false;
     }
     TrackerItemReferenceSearchResult trackerItemReferenceSearchResult = (TrackerItemReferenceSearchResult) o;
-    return Objects.equals(this.page, trackerItemReferenceSearchResult.page) &&
+    return Objects.equals(this.itemRefs, trackerItemReferenceSearchResult.itemRefs) &&
+        Objects.equals(this.page, trackerItemReferenceSearchResult.page) &&
         Objects.equals(this.pageSize, trackerItemReferenceSearchResult.pageSize) &&
-        Objects.equals(this.total, trackerItemReferenceSearchResult.total) &&
-        Objects.equals(this.itemRefs, trackerItemReferenceSearchResult.itemRefs);
+        Objects.equals(this.total, trackerItemReferenceSearchResult.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, pageSize, total, itemRefs);
+    return Objects.hash(itemRefs, page, pageSize, total);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TrackerItemReferenceSearchResult {\n");
+    sb.append("    itemRefs: ").append(toIndentedString(itemRefs)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
-    sb.append("    itemRefs: ").append(toIndentedString(itemRefs)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -182,7 +181,7 @@ public class TrackerItemReferenceSearchResult {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

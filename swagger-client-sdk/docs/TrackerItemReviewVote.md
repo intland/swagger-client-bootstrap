@@ -3,14 +3,15 @@
 # TrackerItemReviewVote
 
 A tracker item review instance including its reviewers and their decisions
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user** | [**UserReference**](UserReference.md) |  |  [optional]
 **asRole** | [**RoleReference**](RoleReference.md) |  |  [optional]
 **decision** | [**DecisionEnum**](#DecisionEnum) | The result of this particular vote |  [optional]
-**reviewedAt** | [**DateTime**](DateTime.md) | Date and time of the vote |  [optional]
+**reviewedAt** | **Date** | Date and time of the vote |  [optional]
+**user** | [**UserReference**](UserReference.md) |  |  [optional]
 
 
 

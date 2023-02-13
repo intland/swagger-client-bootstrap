@@ -26,8 +26,12 @@ import io.swagger.annotations.ApiModelProperty;
  * Dependency information between two projects.
  */
 @ApiModel(description = "Dependency information between two projects.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class CrossProjectDependency {
+  public static final String SERIALIZED_NAME_PATHS = "paths";
+  @SerializedName(SERIALIZED_NAME_PATHS)
+  private List<List<DependencyEntityReference>> paths = null;
+
   public static final String SERIALIZED_NAME_SOURCE_PROJECT = "sourceProject";
   @SerializedName(SERIALIZED_NAME_SOURCE_PROJECT)
   private ProjectReference sourceProject;
@@ -36,9 +40,36 @@ public class CrossProjectDependency {
   @SerializedName(SERIALIZED_NAME_TARGET_PROJECT)
   private ProjectReference targetProject;
 
-  public static final String SERIALIZED_NAME_PATHS = "paths";
-  @SerializedName(SERIALIZED_NAME_PATHS)
-  private List<List<DependencyEntityReference>> paths = null;
+
+  public CrossProjectDependency paths(List<List<DependencyEntityReference>> paths) {
+    
+    this.paths = paths;
+    return this;
+  }
+
+  public CrossProjectDependency addPathsItem(List<DependencyEntityReference> pathsItem) {
+    if (this.paths == null) {
+      this.paths = new ArrayList<List<DependencyEntityReference>>();
+    }
+    this.paths.add(pathsItem);
+    return this;
+  }
+
+   /**
+   * Paths in source project where references were found to target project.
+   * @return paths
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Paths in source project where references were found to target project.")
+
+  public List<List<DependencyEntityReference>> getPaths() {
+    return paths;
+  }
+
+
+  public void setPaths(List<List<DependencyEntityReference>> paths) {
+    this.paths = paths;
+  }
 
 
   public CrossProjectDependency sourceProject(ProjectReference sourceProject) {
@@ -87,39 +118,8 @@ public class CrossProjectDependency {
   }
 
 
-  public CrossProjectDependency paths(List<List<DependencyEntityReference>> paths) {
-    
-    this.paths = paths;
-    return this;
-  }
-
-  public CrossProjectDependency addPathsItem(List<DependencyEntityReference> pathsItem) {
-    if (this.paths == null) {
-      this.paths = new ArrayList<List<DependencyEntityReference>>();
-    }
-    this.paths.add(pathsItem);
-    return this;
-  }
-
-   /**
-   * Paths in source project where references were found to target project.
-   * @return paths
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Paths in source project where references were found to target project.")
-
-  public List<List<DependencyEntityReference>> getPaths() {
-    return paths;
-  }
-
-
-  public void setPaths(List<List<DependencyEntityReference>> paths) {
-    this.paths = paths;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -127,24 +127,23 @@ public class CrossProjectDependency {
       return false;
     }
     CrossProjectDependency crossProjectDependency = (CrossProjectDependency) o;
-    return Objects.equals(this.sourceProject, crossProjectDependency.sourceProject) &&
-        Objects.equals(this.targetProject, crossProjectDependency.targetProject) &&
-        Objects.equals(this.paths, crossProjectDependency.paths);
+    return Objects.equals(this.paths, crossProjectDependency.paths) &&
+        Objects.equals(this.sourceProject, crossProjectDependency.sourceProject) &&
+        Objects.equals(this.targetProject, crossProjectDependency.targetProject);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sourceProject, targetProject, paths);
+    return Objects.hash(paths, sourceProject, targetProject);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CrossProjectDependency {\n");
+    sb.append("    paths: ").append(toIndentedString(paths)).append("\n");
     sb.append("    sourceProject: ").append(toIndentedString(sourceProject)).append("\n");
     sb.append("    targetProject: ").append(toIndentedString(targetProject)).append("\n");
-    sb.append("    paths: ").append(toIndentedString(paths)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -153,7 +152,7 @@ public class CrossProjectDependency {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

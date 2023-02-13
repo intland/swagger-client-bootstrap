@@ -26,19 +26,19 @@ import io.swagger.annotations.ApiModelProperty;
  * Update fields of a tracker item and provide the itemId as well
  */
 @ApiModel(description = "Update fields of a tracker item and provide the itemId as well")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class UpdateTrackerItemFieldWithItemId {
   public static final String SERIALIZED_NAME_FIELD_VALUES = "fieldValues";
   @SerializedName(SERIALIZED_NAME_FIELD_VALUES)
   private List<AbstractFieldValue> fieldValues = null;
 
-  public static final String SERIALIZED_NAME_TABLE_VALUES = "tableValues";
-  @SerializedName(SERIALIZED_NAME_TABLE_VALUES)
-  private List<TableFieldValue> tableValues = null;
-
   public static final String SERIALIZED_NAME_ITEM_ID = "itemId";
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
   private Integer itemId;
+
+  public static final String SERIALIZED_NAME_TABLE_VALUES = "tableValues";
+  @SerializedName(SERIALIZED_NAME_TABLE_VALUES)
+  private List<TableFieldValue> tableValues = null;
 
 
   public UpdateTrackerItemFieldWithItemId fieldValues(List<AbstractFieldValue> fieldValues) {
@@ -69,6 +69,29 @@ public class UpdateTrackerItemFieldWithItemId {
 
   public void setFieldValues(List<AbstractFieldValue> fieldValues) {
     this.fieldValues = fieldValues;
+  }
+
+
+  public UpdateTrackerItemFieldWithItemId itemId(Integer itemId) {
+    
+    this.itemId = itemId;
+    return this;
+  }
+
+   /**
+   * Id of a tracker item
+   * @return itemId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Id of a tracker item")
+
+  public Integer getItemId() {
+    return itemId;
+  }
+
+
+  public void setItemId(Integer itemId) {
+    this.itemId = itemId;
   }
 
 
@@ -103,31 +126,8 @@ public class UpdateTrackerItemFieldWithItemId {
   }
 
 
-  public UpdateTrackerItemFieldWithItemId itemId(Integer itemId) {
-    
-    this.itemId = itemId;
-    return this;
-  }
-
-   /**
-   * Id of a tracker item
-   * @return itemId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Id of a tracker item")
-
-  public Integer getItemId() {
-    return itemId;
-  }
-
-
-  public void setItemId(Integer itemId) {
-    this.itemId = itemId;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -136,23 +136,22 @@ public class UpdateTrackerItemFieldWithItemId {
     }
     UpdateTrackerItemFieldWithItemId updateTrackerItemFieldWithItemId = (UpdateTrackerItemFieldWithItemId) o;
     return Objects.equals(this.fieldValues, updateTrackerItemFieldWithItemId.fieldValues) &&
-        Objects.equals(this.tableValues, updateTrackerItemFieldWithItemId.tableValues) &&
-        Objects.equals(this.itemId, updateTrackerItemFieldWithItemId.itemId);
+        Objects.equals(this.itemId, updateTrackerItemFieldWithItemId.itemId) &&
+        Objects.equals(this.tableValues, updateTrackerItemFieldWithItemId.tableValues);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldValues, tableValues, itemId);
+    return Objects.hash(fieldValues, itemId, tableValues);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateTrackerItemFieldWithItemId {\n");
     sb.append("    fieldValues: ").append(toIndentedString(fieldValues)).append("\n");
-    sb.append("    tableValues: ").append(toIndentedString(tableValues)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
+    sb.append("    tableValues: ").append(toIndentedString(tableValues)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -161,7 +160,7 @@ public class UpdateTrackerItemFieldWithItemId {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

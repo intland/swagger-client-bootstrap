@@ -21,41 +21,18 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Configuration to request a lock. If &#39;hard&#39; is true, duration must be null, or unspecified.
+ * Requested lock configuration
  */
-@ApiModel(description = "Configuration to request a lock. If 'hard' is true, duration must be null, or unspecified.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@ApiModel(description = "Requested lock configuration")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class LockRequest {
-  public static final String SERIALIZED_NAME_HARD = "hard";
-  @SerializedName(SERIALIZED_NAME_HARD)
-  private Boolean hard;
-
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
   private String duration;
 
-
-  public LockRequest hard(Boolean hard) {
-    
-    this.hard = hard;
-    return this;
-  }
-
-   /**
-   * Whether the lock should be hard
-   * @return hard
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether the lock should be hard")
-
-  public Boolean getHard() {
-    return hard;
-  }
-
-
-  public void setHard(Boolean hard) {
-    this.hard = hard;
-  }
+  public static final String SERIALIZED_NAME_HARD = "hard";
+  @SerializedName(SERIALIZED_NAME_HARD)
+  private Boolean hard;
 
 
   public LockRequest duration(String duration) {
@@ -81,8 +58,31 @@ public class LockRequest {
   }
 
 
+  public LockRequest hard(Boolean hard) {
+    
+    this.hard = hard;
+    return this;
+  }
+
+   /**
+   * Whether the lock should be hard
+   * @return hard
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether the lock should be hard")
+
+  public Boolean getHard() {
+    return hard;
+  }
+
+
+  public void setHard(Boolean hard) {
+    this.hard = hard;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -90,22 +90,21 @@ public class LockRequest {
       return false;
     }
     LockRequest lockRequest = (LockRequest) o;
-    return Objects.equals(this.hard, lockRequest.hard) &&
-        Objects.equals(this.duration, lockRequest.duration);
+    return Objects.equals(this.duration, lockRequest.duration) &&
+        Objects.equals(this.hard, lockRequest.hard);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hard, duration);
+    return Objects.hash(duration, hard);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LockRequest {\n");
-    sb.append("    hard: ").append(toIndentedString(hard)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    hard: ").append(toIndentedString(hard)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -114,7 +113,7 @@ public class LockRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

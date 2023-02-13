@@ -24,12 +24,8 @@ import io.swagger.annotations.ApiModelProperty;
  * Settings for a resizeable column definition.
  */
 @ApiModel(description = "Settings for a resizeable column definition.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ResizableReportColumnSettings {
-  public static final String SERIALIZED_NAME_FIELD = "field";
-  @SerializedName(SERIALIZED_NAME_FIELD)
-  private FieldReference field;
-
   public static final String SERIALIZED_NAME_COLUMN_INDEX = "columnIndex";
   @SerializedName(SERIALIZED_NAME_COLUMN_INDEX)
   private Integer columnIndex;
@@ -38,27 +34,9 @@ public class ResizableReportColumnSettings {
   @SerializedName(SERIALIZED_NAME_COLUMN_WIDTH_PERCENTAGE)
   private Double columnWidthPercentage;
 
-
-  public ResizableReportColumnSettings field(FieldReference field) {
-    
-    this.field = field;
-    return this;
-  }
-
-   /**
-   * Get field
-   * @return field
-  **/
-  @ApiModelProperty(required = true, value = "")
-
-  public FieldReference getField() {
-    return field;
-  }
-
-
-  public void setField(FieldReference field) {
-    this.field = field;
-  }
+  public static final String SERIALIZED_NAME_FIELD = "field";
+  @SerializedName(SERIALIZED_NAME_FIELD)
+  private FieldReference field;
 
 
   public ResizableReportColumnSettings columnIndex(Integer columnIndex) {
@@ -71,6 +49,7 @@ public class ResizableReportColumnSettings {
    * Index of the column in the report table.
    * @return columnIndex
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "0", required = true, value = "Index of the column in the report table.")
 
   public Integer getColumnIndex() {
@@ -106,8 +85,31 @@ public class ResizableReportColumnSettings {
   }
 
 
+  public ResizableReportColumnSettings field(FieldReference field) {
+    
+    this.field = field;
+    return this;
+  }
+
+   /**
+   * Get field
+   * @return field
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+
+  public FieldReference getField() {
+    return field;
+  }
+
+
+  public void setField(FieldReference field) {
+    this.field = field;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -115,24 +117,23 @@ public class ResizableReportColumnSettings {
       return false;
     }
     ResizableReportColumnSettings resizableReportColumnSettings = (ResizableReportColumnSettings) o;
-    return Objects.equals(this.field, resizableReportColumnSettings.field) &&
-        Objects.equals(this.columnIndex, resizableReportColumnSettings.columnIndex) &&
-        Objects.equals(this.columnWidthPercentage, resizableReportColumnSettings.columnWidthPercentage);
+    return Objects.equals(this.columnIndex, resizableReportColumnSettings.columnIndex) &&
+        Objects.equals(this.columnWidthPercentage, resizableReportColumnSettings.columnWidthPercentage) &&
+        Objects.equals(this.field, resizableReportColumnSettings.field);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, columnIndex, columnWidthPercentage);
+    return Objects.hash(columnIndex, columnWidthPercentage, field);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ResizableReportColumnSettings {\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    columnIndex: ").append(toIndentedString(columnIndex)).append("\n");
     sb.append("    columnWidthPercentage: ").append(toIndentedString(columnWidthPercentage)).append("\n");
+    sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -141,7 +142,7 @@ public class ResizableReportColumnSettings {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

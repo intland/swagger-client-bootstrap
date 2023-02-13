@@ -24,93 +24,27 @@ import io.swagger.annotations.ApiModelProperty;
  * Extra properties for maintenance mode
  */
 @ApiModel(description = "Extra properties for maintenance mode")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class MaintenanceModeProperties {
-  public static final String SERIALIZED_NAME_LOGIN_TEXT = "loginText";
-  @SerializedName(SERIALIZED_NAME_LOGIN_TEXT)
-  private String loginText;
-
-  public static final String SERIALIZED_NAME_WELCOME_TEXT = "welcomeText";
-  @SerializedName(SERIALIZED_NAME_WELCOME_TEXT)
-  private String welcomeText;
-
-  public static final String SERIALIZED_NAME_SLOGAN = "slogan";
-  @SerializedName(SERIALIZED_NAME_SLOGAN)
-  private String slogan;
-
   public static final String SERIALIZED_NAME_LOGIN_ERROR_TEXT = "loginErrorText";
   @SerializedName(SERIALIZED_NAME_LOGIN_ERROR_TEXT)
   private String loginErrorText;
+
+  public static final String SERIALIZED_NAME_LOGIN_TEXT = "loginText";
+  @SerializedName(SERIALIZED_NAME_LOGIN_TEXT)
+  private String loginText;
 
   public static final String SERIALIZED_NAME_NOTIFICATION_TEXT = "notificationText";
   @SerializedName(SERIALIZED_NAME_NOTIFICATION_TEXT)
   private String notificationText;
 
+  public static final String SERIALIZED_NAME_SLOGAN = "slogan";
+  @SerializedName(SERIALIZED_NAME_SLOGAN)
+  private String slogan;
 
-  public MaintenanceModeProperties loginText(String loginText) {
-    
-    this.loginText = loginText;
-    return this;
-  }
-
-   /**
-   * Text shown on login screen
-   * @return loginText
-  **/
-  @ApiModelProperty(required = true, value = "Text shown on login screen")
-
-  public String getLoginText() {
-    return loginText;
-  }
-
-
-  public void setLoginText(String loginText) {
-    this.loginText = loginText;
-  }
-
-
-  public MaintenanceModeProperties welcomeText(String welcomeText) {
-    
-    this.welcomeText = welcomeText;
-    return this;
-  }
-
-   /**
-   * Welcome text
-   * @return welcomeText
-  **/
-  @ApiModelProperty(required = true, value = "Welcome text")
-
-  public String getWelcomeText() {
-    return welcomeText;
-  }
-
-
-  public void setWelcomeText(String welcomeText) {
-    this.welcomeText = welcomeText;
-  }
-
-
-  public MaintenanceModeProperties slogan(String slogan) {
-    
-    this.slogan = slogan;
-    return this;
-  }
-
-   /**
-   * Slogan text
-   * @return slogan
-  **/
-  @ApiModelProperty(required = true, value = "Slogan text")
-
-  public String getSlogan() {
-    return slogan;
-  }
-
-
-  public void setSlogan(String slogan) {
-    this.slogan = slogan;
-  }
+  public static final String SERIALIZED_NAME_WELCOME_TEXT = "welcomeText";
+  @SerializedName(SERIALIZED_NAME_WELCOME_TEXT)
+  private String welcomeText;
 
 
   public MaintenanceModeProperties loginErrorText(String loginErrorText) {
@@ -123,6 +57,7 @@ public class MaintenanceModeProperties {
    * Error text shown during login
    * @return loginErrorText
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Error text shown during login")
 
   public String getLoginErrorText() {
@@ -132,6 +67,29 @@ public class MaintenanceModeProperties {
 
   public void setLoginErrorText(String loginErrorText) {
     this.loginErrorText = loginErrorText;
+  }
+
+
+  public MaintenanceModeProperties loginText(String loginText) {
+    
+    this.loginText = loginText;
+    return this;
+  }
+
+   /**
+   * Text shown on login screen
+   * @return loginText
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Text shown on login screen")
+
+  public String getLoginText() {
+    return loginText;
+  }
+
+
+  public void setLoginText(String loginText) {
+    this.loginText = loginText;
   }
 
 
@@ -145,6 +103,7 @@ public class MaintenanceModeProperties {
    * Notification text
    * @return notificationText
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Notification text")
 
   public String getNotificationText() {
@@ -157,8 +116,54 @@ public class MaintenanceModeProperties {
   }
 
 
+  public MaintenanceModeProperties slogan(String slogan) {
+    
+    this.slogan = slogan;
+    return this;
+  }
+
+   /**
+   * Slogan text
+   * @return slogan
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Slogan text")
+
+  public String getSlogan() {
+    return slogan;
+  }
+
+
+  public void setSlogan(String slogan) {
+    this.slogan = slogan;
+  }
+
+
+  public MaintenanceModeProperties welcomeText(String welcomeText) {
+    
+    this.welcomeText = welcomeText;
+    return this;
+  }
+
+   /**
+   * Welcome text
+   * @return welcomeText
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Welcome text")
+
+  public String getWelcomeText() {
+    return welcomeText;
+  }
+
+
+  public void setWelcomeText(String welcomeText) {
+    this.welcomeText = welcomeText;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -166,28 +171,27 @@ public class MaintenanceModeProperties {
       return false;
     }
     MaintenanceModeProperties maintenanceModeProperties = (MaintenanceModeProperties) o;
-    return Objects.equals(this.loginText, maintenanceModeProperties.loginText) &&
-        Objects.equals(this.welcomeText, maintenanceModeProperties.welcomeText) &&
+    return Objects.equals(this.loginErrorText, maintenanceModeProperties.loginErrorText) &&
+        Objects.equals(this.loginText, maintenanceModeProperties.loginText) &&
+        Objects.equals(this.notificationText, maintenanceModeProperties.notificationText) &&
         Objects.equals(this.slogan, maintenanceModeProperties.slogan) &&
-        Objects.equals(this.loginErrorText, maintenanceModeProperties.loginErrorText) &&
-        Objects.equals(this.notificationText, maintenanceModeProperties.notificationText);
+        Objects.equals(this.welcomeText, maintenanceModeProperties.welcomeText);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loginText, welcomeText, slogan, loginErrorText, notificationText);
+    return Objects.hash(loginErrorText, loginText, notificationText, slogan, welcomeText);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MaintenanceModeProperties {\n");
-    sb.append("    loginText: ").append(toIndentedString(loginText)).append("\n");
-    sb.append("    welcomeText: ").append(toIndentedString(welcomeText)).append("\n");
-    sb.append("    slogan: ").append(toIndentedString(slogan)).append("\n");
     sb.append("    loginErrorText: ").append(toIndentedString(loginErrorText)).append("\n");
+    sb.append("    loginText: ").append(toIndentedString(loginText)).append("\n");
     sb.append("    notificationText: ").append(toIndentedString(notificationText)).append("\n");
+    sb.append("    slogan: ").append(toIndentedString(slogan)).append("\n");
+    sb.append("    welcomeText: ").append(toIndentedString(welcomeText)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -196,7 +200,7 @@ public class MaintenanceModeProperties {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -95,8 +95,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker deleted. |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker is not found |  -  |
 **429** | Too many requests |  -  |
 
@@ -173,16 +174,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**429** | Too many requests |  -  |
-**401** | Authentication is required |  -  |
 **200** | Option by id |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authentication is required |  -  |
 **404** | Option not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getItemsByTracker"></a>
 # **getItemsByTracker**
@@ -262,11 +264,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | List of tracker items |  -  |
 **400** | Request cannot be processed |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker is not found |  -  |
 **429** | Too many requests |  -  |
-**200** | List of tracker items |  -  |
 
 <a name="getTracker"></a>
 # **getTracker**
@@ -337,15 +339,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker |  -  |
-**429** | Too many requests |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Project / Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerBaselines"></a>
 # **getTrackerBaselines**
@@ -416,17 +419,18 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Baselines of the tracker |  -  |
+**400** | Bad Request |  -  |
+**401** | Not authorized |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker is not found |  -  |
 **429** | Too many requests |  -  |
 **500** | Internal server error |  -  |
-**401** | Not authorized |  -  |
-**200** | Baselines of the tracker |  -  |
 
 <a name="getTrackerField"></a>
 # **getTrackerField**
@@ -499,16 +503,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Field by id |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authentication is required |  -  |
 **404** | Field not found |  -  |
 **429** | Too many requests |  -  |
-**401** | Authentication is required |  -  |
 
 <a name="getTrackerFieldPermissions"></a>
 # **getTrackerFieldPermissions**
@@ -588,12 +593,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Tracker or field not found |  -  |
-**429** | Too many requests |  -  |
 **200** | Permissions by status and role |  -  |
+**400** | Status id is invalid |  -  |
 **401** | Authentication is required |  -  |
 **403** | Authorization is required |  -  |
-**400** | Status id is invalid |  -  |
+**404** | Tracker or field not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerFields"></a>
 # **getTrackerFields**
@@ -664,16 +669,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Field references |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
 **403** | Authentication is required |  -  |
 **404** | Field not found |  -  |
 **429** | Too many requests |  -  |
-**200** | Field references |  -  |
-**401** | Authentication is required |  -  |
 
 <a name="getTrackerFieldsPermissions"></a>
 # **getTrackerFieldsPermissions**
@@ -751,12 +757,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Tracker not found |  -  |
-**429** | Too many requests |  -  |
 **200** | Permissions by status and role |  -  |
+**400** | Status id is invalid |  -  |
 **401** | Authentication is required |  -  |
 **403** | Authorization is required |  -  |
-**400** | Status id is invalid |  -  |
+**404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerOutline"></a>
 # **getTrackerOutline**
@@ -836,13 +842,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Outline of the tracker |  -  |
 **400** | Request cannot be processed |  -  |
+**401** | Not authorized |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker is not found |  -  |
 **429** | Too many requests |  -  |
 **500** | Internal server error |  -  |
-**401** | Not authorized |  -  |
-**200** | Outline of the tracker |  -  |
 
 <a name="getTrackerSchema"></a>
 # **getTrackerSchema**
@@ -913,16 +919,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Field definitions |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authentication is required |  -  |
 **404** | Field not found |  -  |
 **429** | Too many requests |  -  |
-**401** | Authentication is required |  -  |
 
 <a name="getTrackerTransitions"></a>
 # **getTrackerTransitions**
@@ -995,13 +1002,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker transition list |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
 **429** | Too many requests |  -  |
 **500** | Internal server error |  -  |
@@ -1075,13 +1083,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker type |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker type is not found |  -  |
 **429** | Too many requests |  -  |
 
@@ -1154,13 +1163,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker types |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **429** | Too many requests |  -  |
 
 <a name="updateTracker"></a>
@@ -1221,7 +1231,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **trackerId** | **Integer**|  |
- **tracker** | [**Tracker**](Tracker.md)|  | [optional]
+ **tracker** | [**Tracker**](Tracker.md)|  |
 
 ### Return type
 
@@ -1234,13 +1244,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker settings |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
 **429** | Too many requests |  -  |
 
@@ -1282,7 +1293,7 @@ public class Example {
 
     TrackerApi apiInstance = new TrackerApi(defaultClient);
     Integer trackerId = 56; // Integer | Id of the tracker
-    File icon = new File("/path/to/file"); // File | 
+    File icon = new File("/path/to/file"); // File | Icon image file
     try {
       apiInstance.updateTrackerIcon(trackerId, icon);
     } catch (ApiException e) {
@@ -1301,7 +1312,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **trackerId** | **Integer**| Id of the tracker |
- **icon** | **File**|  | [optional]
+ **icon** | **File**| Icon image file |
 
 ### Return type
 
@@ -1319,10 +1330,10 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Tracker not found |  -  |
-**429** | Too many requests |  -  |
-**401** | Authentication is required |  -  |
-**403** | The tracker could not be accessed |  -  |
 **200** | Tracker icon uploaded successfully |  -  |
 **400** | Could not read image from the request, or it&#39;s the wrong format |  -  |
+**401** | Authentication is required |  -  |
+**403** | The tracker could not be accessed |  -  |
+**404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 

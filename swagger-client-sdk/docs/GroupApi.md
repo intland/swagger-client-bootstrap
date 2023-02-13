@@ -78,15 +78,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**429** | Too many requests |  -  |
 **200** | User Group |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | User Group is not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getGroupMembers"></a>
 # **getGroupMembers**
@@ -161,16 +162,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Member by id |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
 **403** | Authentication is required |  -  |
 **404** | User group is not found |  -  |
 **429** | Too many requests |  -  |
-**401** | Authentication is required |  -  |
-**200** | Member by id |  -  |
 
 <a name="getGroups"></a>
 # **getGroups**
@@ -237,12 +239,13 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | User Group references |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **429** | Too many requests |  -  |
 

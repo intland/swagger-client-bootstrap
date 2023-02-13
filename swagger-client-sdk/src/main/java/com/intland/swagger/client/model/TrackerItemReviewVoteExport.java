@@ -13,9 +13,8 @@
 
 package com.intland.swagger.client.model;
 
+import java.util.Date;
 import java.util.Objects;
-
-import org.joda.time.DateTime;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -26,16 +25,8 @@ import io.swagger.annotations.ApiModelProperty;
  * A reviewer and its vote for a particular Tracker Item Review instance
  */
 @ApiModel(description = "A reviewer and its vote for a particular Tracker Item Review instance")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerItemReviewVoteExport {
-  public static final String SERIALIZED_NAME_USER_NAME = "userName";
-  @SerializedName(SERIALIZED_NAME_USER_NAME)
-  private String userName;
-
-  public static final String SERIALIZED_NAME_REVIEWED_AT = "reviewedAt";
-  @SerializedName(SERIALIZED_NAME_REVIEWED_AT)
-  private DateTime reviewedAt;
-
   public static final String SERIALIZED_NAME_DECISION = "decision";
   @SerializedName(SERIALIZED_NAME_DECISION)
   private String decision;
@@ -48,55 +39,17 @@ public class TrackerItemReviewVoteExport {
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
   private String lastName;
 
+  public static final String SERIALIZED_NAME_REVIEWED_AT = "reviewedAt";
+  @SerializedName(SERIALIZED_NAME_REVIEWED_AT)
+  private Date reviewedAt;
+
   public static final String SERIALIZED_NAME_ROLE_NAME = "roleName";
   @SerializedName(SERIALIZED_NAME_ROLE_NAME)
   private String roleName;
 
-
-  public TrackerItemReviewVoteExport userName(String userName) {
-    
-    this.userName = userName;
-    return this;
-  }
-
-   /**
-   * Username of the user who voted
-   * @return userName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Username of the user who voted")
-
-  public String getUserName() {
-    return userName;
-  }
-
-
-  public void setUserName(String userName) {
-    this.userName = userName;
-  }
-
-
-  public TrackerItemReviewVoteExport reviewedAt(DateTime reviewedAt) {
-    
-    this.reviewedAt = reviewedAt;
-    return this;
-  }
-
-   /**
-   * Time at when the review was performed
-   * @return reviewedAt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time at when the review was performed")
-
-  public DateTime getReviewedAt() {
-    return reviewedAt;
-  }
-
-
-  public void setReviewedAt(DateTime reviewedAt) {
-    this.reviewedAt = reviewedAt;
-  }
+  public static final String SERIALIZED_NAME_USER_NAME = "userName";
+  @SerializedName(SERIALIZED_NAME_USER_NAME)
+  private String userName;
 
 
   public TrackerItemReviewVoteExport decision(String decision) {
@@ -168,6 +121,29 @@ public class TrackerItemReviewVoteExport {
   }
 
 
+  public TrackerItemReviewVoteExport reviewedAt(Date reviewedAt) {
+    
+    this.reviewedAt = reviewedAt;
+    return this;
+  }
+
+   /**
+   * Time at when the review was performed
+   * @return reviewedAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Time at when the review was performed")
+
+  public Date getReviewedAt() {
+    return reviewedAt;
+  }
+
+
+  public void setReviewedAt(Date reviewedAt) {
+    this.reviewedAt = reviewedAt;
+  }
+
+
   public TrackerItemReviewVoteExport roleName(String roleName) {
     
     this.roleName = roleName;
@@ -191,8 +167,31 @@ public class TrackerItemReviewVoteExport {
   }
 
 
+  public TrackerItemReviewVoteExport userName(String userName) {
+    
+    this.userName = userName;
+    return this;
+  }
+
+   /**
+   * Username of the user who voted
+   * @return userName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Username of the user who voted")
+
+  public String getUserName() {
+    return userName;
+  }
+
+
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -200,30 +199,29 @@ public class TrackerItemReviewVoteExport {
       return false;
     }
     TrackerItemReviewVoteExport trackerItemReviewVoteExport = (TrackerItemReviewVoteExport) o;
-    return Objects.equals(this.userName, trackerItemReviewVoteExport.userName) &&
-        Objects.equals(this.reviewedAt, trackerItemReviewVoteExport.reviewedAt) &&
-        Objects.equals(this.decision, trackerItemReviewVoteExport.decision) &&
+    return Objects.equals(this.decision, trackerItemReviewVoteExport.decision) &&
         Objects.equals(this.firstName, trackerItemReviewVoteExport.firstName) &&
         Objects.equals(this.lastName, trackerItemReviewVoteExport.lastName) &&
-        Objects.equals(this.roleName, trackerItemReviewVoteExport.roleName);
+        Objects.equals(this.reviewedAt, trackerItemReviewVoteExport.reviewedAt) &&
+        Objects.equals(this.roleName, trackerItemReviewVoteExport.roleName) &&
+        Objects.equals(this.userName, trackerItemReviewVoteExport.userName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userName, reviewedAt, decision, firstName, lastName, roleName);
+    return Objects.hash(decision, firstName, lastName, reviewedAt, roleName, userName);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TrackerItemReviewVoteExport {\n");
-    sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
-    sb.append("    reviewedAt: ").append(toIndentedString(reviewedAt)).append("\n");
     sb.append("    decision: ").append(toIndentedString(decision)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    reviewedAt: ").append(toIndentedString(reviewedAt)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
+    sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -232,7 +230,7 @@ public class TrackerItemReviewVoteExport {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

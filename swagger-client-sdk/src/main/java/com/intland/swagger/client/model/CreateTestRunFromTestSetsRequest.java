@@ -26,15 +26,38 @@ import io.swagger.annotations.ApiModelProperty;
  * Request model to create a test run from multiple test sets
  */
 @ApiModel(description = "Request model to create a test run from multiple test sets")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class CreateTestRunFromTestSetsRequest {
+  public static final String SERIALIZED_NAME_TEST_RUN_MODEL = "testRunModel";
+  @SerializedName(SERIALIZED_NAME_TEST_RUN_MODEL)
+  private TrackerItem testRunModel;
+
   public static final String SERIALIZED_NAME_TEST_SET_REFS = "testSetRefs";
   @SerializedName(SERIALIZED_NAME_TEST_SET_REFS)
   private List<TrackerItemReference> testSetRefs = null;
 
-  public static final String SERIALIZED_NAME_TEST_RUN_MODEL = "testRunModel";
-  @SerializedName(SERIALIZED_NAME_TEST_RUN_MODEL)
-  private TrackerItem testRunModel;
+
+  public CreateTestRunFromTestSetsRequest testRunModel(TrackerItem testRunModel) {
+    
+    this.testRunModel = testRunModel;
+    return this;
+  }
+
+   /**
+   * Get testRunModel
+   * @return testRunModel
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public TrackerItem getTestRunModel() {
+    return testRunModel;
+  }
+
+
+  public void setTestRunModel(TrackerItem testRunModel) {
+    this.testRunModel = testRunModel;
+  }
 
 
   public CreateTestRunFromTestSetsRequest testSetRefs(List<TrackerItemReference> testSetRefs) {
@@ -68,31 +91,8 @@ public class CreateTestRunFromTestSetsRequest {
   }
 
 
-  public CreateTestRunFromTestSetsRequest testRunModel(TrackerItem testRunModel) {
-    
-    this.testRunModel = testRunModel;
-    return this;
-  }
-
-   /**
-   * Get testRunModel
-   * @return testRunModel
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public TrackerItem getTestRunModel() {
-    return testRunModel;
-  }
-
-
-  public void setTestRunModel(TrackerItem testRunModel) {
-    this.testRunModel = testRunModel;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -100,22 +100,21 @@ public class CreateTestRunFromTestSetsRequest {
       return false;
     }
     CreateTestRunFromTestSetsRequest createTestRunFromTestSetsRequest = (CreateTestRunFromTestSetsRequest) o;
-    return Objects.equals(this.testSetRefs, createTestRunFromTestSetsRequest.testSetRefs) &&
-        Objects.equals(this.testRunModel, createTestRunFromTestSetsRequest.testRunModel);
+    return Objects.equals(this.testRunModel, createTestRunFromTestSetsRequest.testRunModel) &&
+        Objects.equals(this.testSetRefs, createTestRunFromTestSetsRequest.testSetRefs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(testSetRefs, testRunModel);
+    return Objects.hash(testRunModel, testSetRefs);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateTestRunFromTestSetsRequest {\n");
-    sb.append("    testSetRefs: ").append(toIndentedString(testSetRefs)).append("\n");
     sb.append("    testRunModel: ").append(toIndentedString(testRunModel)).append("\n");
+    sb.append("    testSetRefs: ").append(toIndentedString(testSetRefs)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -124,7 +123,7 @@ public class CreateTestRunFromTestSetsRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

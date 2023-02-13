@@ -24,19 +24,19 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ReportGroupWithReferencedRowsAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ReportGroupWithReferencedRowsAllOf {
   public static final String SERIALIZED_NAME_GROUPING_LEVEL = "groupingLevel";
   @SerializedName(SERIALIZED_NAME_GROUPING_LEVEL)
   private Integer groupingLevel;
 
-  public static final String SERIALIZED_NAME_STAR_ROW = "starRow";
-  @SerializedName(SERIALIZED_NAME_STAR_ROW)
-  private Integer starRow;
-
   public static final String SERIALIZED_NAME_ROWS = "rows";
   @SerializedName(SERIALIZED_NAME_ROWS)
   private List<ReportReferencedRow> rows = null;
+
+  public static final String SERIALIZED_NAME_STAR_ROW = "starRow";
+  @SerializedName(SERIALIZED_NAME_STAR_ROW)
+  private Integer starRow;
 
 
   public ReportGroupWithReferencedRowsAllOf groupingLevel(Integer groupingLevel) {
@@ -59,29 +59,6 @@ public class ReportGroupWithReferencedRowsAllOf {
 
   public void setGroupingLevel(Integer groupingLevel) {
     this.groupingLevel = groupingLevel;
-  }
-
-
-  public ReportGroupWithReferencedRowsAllOf starRow(Integer starRow) {
-    
-    this.starRow = starRow;
-    return this;
-  }
-
-   /**
-   * Get starRow
-   * @return starRow
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Integer getStarRow() {
-    return starRow;
-  }
-
-
-  public void setStarRow(Integer starRow) {
-    this.starRow = starRow;
   }
 
 
@@ -116,8 +93,31 @@ public class ReportGroupWithReferencedRowsAllOf {
   }
 
 
+  public ReportGroupWithReferencedRowsAllOf starRow(Integer starRow) {
+    
+    this.starRow = starRow;
+    return this;
+  }
+
+   /**
+   * Get starRow
+   * @return starRow
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Integer getStarRow() {
+    return starRow;
+  }
+
+
+  public void setStarRow(Integer starRow) {
+    this.starRow = starRow;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -126,23 +126,22 @@ public class ReportGroupWithReferencedRowsAllOf {
     }
     ReportGroupWithReferencedRowsAllOf reportGroupWithReferencedRowsAllOf = (ReportGroupWithReferencedRowsAllOf) o;
     return Objects.equals(this.groupingLevel, reportGroupWithReferencedRowsAllOf.groupingLevel) &&
-        Objects.equals(this.starRow, reportGroupWithReferencedRowsAllOf.starRow) &&
-        Objects.equals(this.rows, reportGroupWithReferencedRowsAllOf.rows);
+        Objects.equals(this.rows, reportGroupWithReferencedRowsAllOf.rows) &&
+        Objects.equals(this.starRow, reportGroupWithReferencedRowsAllOf.starRow);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(groupingLevel, starRow, rows);
+    return Objects.hash(groupingLevel, rows, starRow);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReportGroupWithReferencedRowsAllOf {\n");
     sb.append("    groupingLevel: ").append(toIndentedString(groupingLevel)).append("\n");
-    sb.append("    starRow: ").append(toIndentedString(starRow)).append("\n");
     sb.append("    rows: ").append(toIndentedString(rows)).append("\n");
+    sb.append("    starRow: ").append(toIndentedString(starRow)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -151,7 +150,7 @@ public class ReportGroupWithReferencedRowsAllOf {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

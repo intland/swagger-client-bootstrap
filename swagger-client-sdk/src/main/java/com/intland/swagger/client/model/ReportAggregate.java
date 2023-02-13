@@ -24,50 +24,27 @@ import io.swagger.annotations.ApiModelProperty;
  * Aggregated values for a column of a group.
  */
 @ApiModel(description = "Aggregated values for a column of a group.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ReportAggregate {
-  public static final String SERIALIZED_NAME_COLUMN_REF = "columnRef";
-  @SerializedName(SERIALIZED_NAME_COLUMN_REF)
-  private String columnRef;
-
   public static final String SERIALIZED_NAME_AVERAGE = "average";
   @SerializedName(SERIALIZED_NAME_AVERAGE)
   private Double average;
 
-  public static final String SERIALIZED_NAME_MINIMUM = "minimum";
-  @SerializedName(SERIALIZED_NAME_MINIMUM)
-  private Double minimum;
+  public static final String SERIALIZED_NAME_COLUMN_REF = "columnRef";
+  @SerializedName(SERIALIZED_NAME_COLUMN_REF)
+  private String columnRef;
 
   public static final String SERIALIZED_NAME_MAXIMUM = "maximum";
   @SerializedName(SERIALIZED_NAME_MAXIMUM)
   private Double maximum;
 
+  public static final String SERIALIZED_NAME_MINIMUM = "minimum";
+  @SerializedName(SERIALIZED_NAME_MINIMUM)
+  private Double minimum;
+
   public static final String SERIALIZED_NAME_SUM = "sum";
   @SerializedName(SERIALIZED_NAME_SUM)
   private Double sum;
-
-
-  public ReportAggregate columnRef(String columnRef) {
-    
-    this.columnRef = columnRef;
-    return this;
-  }
-
-   /**
-   * Column reference
-   * @return columnRef
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "11-1", value = "Column reference")
-
-  public String getColumnRef() {
-    return columnRef;
-  }
-
-
-  public void setColumnRef(String columnRef) {
-    this.columnRef = columnRef;
-  }
 
 
   public ReportAggregate average(Double average) {
@@ -93,26 +70,26 @@ public class ReportAggregate {
   }
 
 
-  public ReportAggregate minimum(Double minimum) {
+  public ReportAggregate columnRef(String columnRef) {
     
-    this.minimum = minimum;
+    this.columnRef = columnRef;
     return this;
   }
 
    /**
-   * Minimum of the column values
-   * @return minimum
+   * Column reference
+   * @return columnRef
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1.32", value = "Minimum of the column values")
+  @ApiModelProperty(example = "11-1", value = "Column reference")
 
-  public Double getMinimum() {
-    return minimum;
+  public String getColumnRef() {
+    return columnRef;
   }
 
 
-  public void setMinimum(Double minimum) {
-    this.minimum = minimum;
+  public void setColumnRef(String columnRef) {
+    this.columnRef = columnRef;
   }
 
 
@@ -136,6 +113,29 @@ public class ReportAggregate {
 
   public void setMaximum(Double maximum) {
     this.maximum = maximum;
+  }
+
+
+  public ReportAggregate minimum(Double minimum) {
+    
+    this.minimum = minimum;
+    return this;
+  }
+
+   /**
+   * Minimum of the column values
+   * @return minimum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "1.32", value = "Minimum of the column values")
+
+  public Double getMinimum() {
+    return minimum;
+  }
+
+
+  public void setMinimum(Double minimum) {
+    this.minimum = minimum;
   }
 
 
@@ -163,7 +163,7 @@ public class ReportAggregate {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -171,27 +171,26 @@ public class ReportAggregate {
       return false;
     }
     ReportAggregate reportAggregate = (ReportAggregate) o;
-    return Objects.equals(this.columnRef, reportAggregate.columnRef) &&
-        Objects.equals(this.average, reportAggregate.average) &&
-        Objects.equals(this.minimum, reportAggregate.minimum) &&
+    return Objects.equals(this.average, reportAggregate.average) &&
+        Objects.equals(this.columnRef, reportAggregate.columnRef) &&
         Objects.equals(this.maximum, reportAggregate.maximum) &&
+        Objects.equals(this.minimum, reportAggregate.minimum) &&
         Objects.equals(this.sum, reportAggregate.sum);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(columnRef, average, minimum, maximum, sum);
+    return Objects.hash(average, columnRef, maximum, minimum, sum);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReportAggregate {\n");
-    sb.append("    columnRef: ").append(toIndentedString(columnRef)).append("\n");
     sb.append("    average: ").append(toIndentedString(average)).append("\n");
-    sb.append("    minimum: ").append(toIndentedString(minimum)).append("\n");
+    sb.append("    columnRef: ").append(toIndentedString(columnRef)).append("\n");
     sb.append("    maximum: ").append(toIndentedString(maximum)).append("\n");
+    sb.append("    minimum: ").append(toIndentedString(minimum)).append("\n");
     sb.append("    sum: ").append(toIndentedString(sum)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -201,7 +200,7 @@ public class ReportAggregate {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

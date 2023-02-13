@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * User item type choice field
  */
 @ApiModel(description = "User item type choice field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class UserChoiceField extends AbstractField {
   public static final String SERIALIZED_NAME_MULTIPLE_VALUES = "multipleValues";
   @SerializedName(SERIALIZED_NAME_MULTIPLE_VALUES)
@@ -34,6 +34,9 @@ public class UserChoiceField extends AbstractField {
   @SerializedName(SERIALIZED_NAME_REFERENCE_TYPE)
   private String referenceType;
 
+  public UserChoiceField() {
+    this.type = this.getClass().getSimpleName();
+  }
 
   public UserChoiceField multipleValues(Boolean multipleValues) {
     
@@ -82,7 +85,7 @@ public class UserChoiceField extends AbstractField {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -100,7 +103,6 @@ public class UserChoiceField extends AbstractField {
     return Objects.hash(multipleValues, referenceType, super.hashCode());
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -116,7 +118,7 @@ public class UserChoiceField extends AbstractField {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

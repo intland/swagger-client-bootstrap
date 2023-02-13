@@ -26,15 +26,38 @@ import io.swagger.annotations.ApiModelProperty;
  * Request model to fetch Tracker Item Reviews for multiple Tracker Items.
  */
 @ApiModel(description = "Request model to fetch Tracker Item Reviews for multiple Tracker Items.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class BatchGetTrackerItemReviewsRequest {
+  public static final String SERIALIZED_NAME_BASELINE_ID = "baselineId";
+  @SerializedName(SERIALIZED_NAME_BASELINE_ID)
+  private Integer baselineId;
+
   public static final String SERIALIZED_NAME_ITEM_IDS = "itemIds";
   @SerializedName(SERIALIZED_NAME_ITEM_IDS)
   private List<Integer> itemIds = null;
 
-  public static final String SERIALIZED_NAME_BASELINE_ID = "baselineId";
-  @SerializedName(SERIALIZED_NAME_BASELINE_ID)
-  private Integer baselineId;
+
+  public BatchGetTrackerItemReviewsRequest baselineId(Integer baselineId) {
+    
+    this.baselineId = baselineId;
+    return this;
+  }
+
+   /**
+   * Optional Baseline ID
+   * @return baselineId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Optional Baseline ID")
+
+  public Integer getBaselineId() {
+    return baselineId;
+  }
+
+
+  public void setBaselineId(Integer baselineId) {
+    this.baselineId = baselineId;
+  }
 
 
   public BatchGetTrackerItemReviewsRequest itemIds(List<Integer> itemIds) {
@@ -68,31 +91,8 @@ public class BatchGetTrackerItemReviewsRequest {
   }
 
 
-  public BatchGetTrackerItemReviewsRequest baselineId(Integer baselineId) {
-    
-    this.baselineId = baselineId;
-    return this;
-  }
-
-   /**
-   * Optional Baseline ID
-   * @return baselineId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Optional Baseline ID")
-
-  public Integer getBaselineId() {
-    return baselineId;
-  }
-
-
-  public void setBaselineId(Integer baselineId) {
-    this.baselineId = baselineId;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -100,22 +100,21 @@ public class BatchGetTrackerItemReviewsRequest {
       return false;
     }
     BatchGetTrackerItemReviewsRequest batchGetTrackerItemReviewsRequest = (BatchGetTrackerItemReviewsRequest) o;
-    return Objects.equals(this.itemIds, batchGetTrackerItemReviewsRequest.itemIds) &&
-        Objects.equals(this.baselineId, batchGetTrackerItemReviewsRequest.baselineId);
+    return Objects.equals(this.baselineId, batchGetTrackerItemReviewsRequest.baselineId) &&
+        Objects.equals(this.itemIds, batchGetTrackerItemReviewsRequest.itemIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(itemIds, baselineId);
+    return Objects.hash(baselineId, itemIds);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BatchGetTrackerItemReviewsRequest {\n");
-    sb.append("    itemIds: ").append(toIndentedString(itemIds)).append("\n");
     sb.append("    baselineId: ").append(toIndentedString(baselineId)).append("\n");
+    sb.append("    itemIds: ").append(toIndentedString(itemIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -124,7 +123,7 @@ public class BatchGetTrackerItemReviewsRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

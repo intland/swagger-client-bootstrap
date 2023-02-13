@@ -26,27 +26,27 @@ import io.swagger.annotations.ApiModelProperty;
  * Request model to create a test run from multiple test cases or 1 test set
  */
 @ApiModel(description = "Request model to create a test run from multiple test cases or 1 test set")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class CreateTestRunRequest {
   public static final String SERIALIZED_NAME_TEST_CASE_IDS = "testCaseIds";
   @SerializedName(SERIALIZED_NAME_TEST_CASE_IDS)
   private List<TrackerItemReference> testCaseIds = null;
 
-  public static final String SERIALIZED_NAME_TEST_SET_IDS = "testSetIds";
-  @SerializedName(SERIALIZED_NAME_TEST_SET_IDS)
-  private List<TrackerItemReference> testSetIds = null;
+  public static final String SERIALIZED_NAME_TEST_CASE_REFS = "testCaseRefs";
+  @SerializedName(SERIALIZED_NAME_TEST_CASE_REFS)
+  private List<TrackerItemReference> testCaseRefs = null;
 
   public static final String SERIALIZED_NAME_TEST_RUN_MODEL = "testRunModel";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_MODEL)
   private TrackerItem testRunModel;
 
+  public static final String SERIALIZED_NAME_TEST_SET_IDS = "testSetIds";
+  @SerializedName(SERIALIZED_NAME_TEST_SET_IDS)
+  private List<TrackerItemReference> testSetIds = null;
+
   public static final String SERIALIZED_NAME_TEST_SET_REFS = "testSetRefs";
   @SerializedName(SERIALIZED_NAME_TEST_SET_REFS)
   private List<TrackerItemReference> testSetRefs = null;
-
-  public static final String SERIALIZED_NAME_TEST_CASE_REFS = "testCaseRefs";
-  @SerializedName(SERIALIZED_NAME_TEST_CASE_REFS)
-  private List<TrackerItemReference> testCaseRefs = null;
 
 
   public CreateTestRunRequest testCaseIds(List<TrackerItemReference> testCaseIds) {
@@ -77,91 +77,6 @@ public class CreateTestRunRequest {
 
   public void setTestCaseIds(List<TrackerItemReference> testCaseIds) {
     this.testCaseIds = testCaseIds;
-  }
-
-
-  public CreateTestRunRequest testSetIds(List<TrackerItemReference> testSetIds) {
-    
-    this.testSetIds = testSetIds;
-    return this;
-  }
-
-  public CreateTestRunRequest addTestSetIdsItem(TrackerItemReference testSetIdsItem) {
-    if (this.testSetIds == null) {
-      this.testSetIds = new ArrayList<TrackerItemReference>();
-    }
-    this.testSetIds.add(testSetIdsItem);
-    return this;
-  }
-
-   /**
-   * Get testSetIds
-   * @return testSetIds
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<TrackerItemReference> getTestSetIds() {
-    return testSetIds;
-  }
-
-
-  public void setTestSetIds(List<TrackerItemReference> testSetIds) {
-    this.testSetIds = testSetIds;
-  }
-
-
-  public CreateTestRunRequest testRunModel(TrackerItem testRunModel) {
-    
-    this.testRunModel = testRunModel;
-    return this;
-  }
-
-   /**
-   * Get testRunModel
-   * @return testRunModel
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public TrackerItem getTestRunModel() {
-    return testRunModel;
-  }
-
-
-  public void setTestRunModel(TrackerItem testRunModel) {
-    this.testRunModel = testRunModel;
-  }
-
-
-  public CreateTestRunRequest testSetRefs(List<TrackerItemReference> testSetRefs) {
-    
-    this.testSetRefs = testSetRefs;
-    return this;
-  }
-
-  public CreateTestRunRequest addTestSetRefsItem(TrackerItemReference testSetRefsItem) {
-    if (this.testSetRefs == null) {
-      this.testSetRefs = new ArrayList<TrackerItemReference>();
-    }
-    this.testSetRefs.add(testSetRefsItem);
-    return this;
-  }
-
-   /**
-   * Test set ids to include into the test run. Only the first test set will be considered.
-   * @return testSetRefs
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Test set ids to include into the test run. Only the first test set will be considered.")
-
-  public List<TrackerItemReference> getTestSetRefs() {
-    return testSetRefs;
-  }
-
-
-  public void setTestSetRefs(List<TrackerItemReference> testSetRefs) {
-    this.testSetRefs = testSetRefs;
   }
 
 
@@ -196,8 +111,93 @@ public class CreateTestRunRequest {
   }
 
 
+  public CreateTestRunRequest testRunModel(TrackerItem testRunModel) {
+    
+    this.testRunModel = testRunModel;
+    return this;
+  }
+
+   /**
+   * Get testRunModel
+   * @return testRunModel
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public TrackerItem getTestRunModel() {
+    return testRunModel;
+  }
+
+
+  public void setTestRunModel(TrackerItem testRunModel) {
+    this.testRunModel = testRunModel;
+  }
+
+
+  public CreateTestRunRequest testSetIds(List<TrackerItemReference> testSetIds) {
+    
+    this.testSetIds = testSetIds;
+    return this;
+  }
+
+  public CreateTestRunRequest addTestSetIdsItem(TrackerItemReference testSetIdsItem) {
+    if (this.testSetIds == null) {
+      this.testSetIds = new ArrayList<TrackerItemReference>();
+    }
+    this.testSetIds.add(testSetIdsItem);
+    return this;
+  }
+
+   /**
+   * Get testSetIds
+   * @return testSetIds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<TrackerItemReference> getTestSetIds() {
+    return testSetIds;
+  }
+
+
+  public void setTestSetIds(List<TrackerItemReference> testSetIds) {
+    this.testSetIds = testSetIds;
+  }
+
+
+  public CreateTestRunRequest testSetRefs(List<TrackerItemReference> testSetRefs) {
+    
+    this.testSetRefs = testSetRefs;
+    return this;
+  }
+
+  public CreateTestRunRequest addTestSetRefsItem(TrackerItemReference testSetRefsItem) {
+    if (this.testSetRefs == null) {
+      this.testSetRefs = new ArrayList<TrackerItemReference>();
+    }
+    this.testSetRefs.add(testSetRefsItem);
+    return this;
+  }
+
+   /**
+   * Test set ids to include into the test run. Only the first test set will be considered.
+   * @return testSetRefs
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Test set ids to include into the test run. Only the first test set will be considered.")
+
+  public List<TrackerItemReference> getTestSetRefs() {
+    return testSetRefs;
+  }
+
+
+  public void setTestSetRefs(List<TrackerItemReference> testSetRefs) {
+    this.testSetRefs = testSetRefs;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -206,27 +206,26 @@ public class CreateTestRunRequest {
     }
     CreateTestRunRequest createTestRunRequest = (CreateTestRunRequest) o;
     return Objects.equals(this.testCaseIds, createTestRunRequest.testCaseIds) &&
-        Objects.equals(this.testSetIds, createTestRunRequest.testSetIds) &&
+        Objects.equals(this.testCaseRefs, createTestRunRequest.testCaseRefs) &&
         Objects.equals(this.testRunModel, createTestRunRequest.testRunModel) &&
-        Objects.equals(this.testSetRefs, createTestRunRequest.testSetRefs) &&
-        Objects.equals(this.testCaseRefs, createTestRunRequest.testCaseRefs);
+        Objects.equals(this.testSetIds, createTestRunRequest.testSetIds) &&
+        Objects.equals(this.testSetRefs, createTestRunRequest.testSetRefs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(testCaseIds, testSetIds, testRunModel, testSetRefs, testCaseRefs);
+    return Objects.hash(testCaseIds, testCaseRefs, testRunModel, testSetIds, testSetRefs);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateTestRunRequest {\n");
     sb.append("    testCaseIds: ").append(toIndentedString(testCaseIds)).append("\n");
-    sb.append("    testSetIds: ").append(toIndentedString(testSetIds)).append("\n");
-    sb.append("    testRunModel: ").append(toIndentedString(testRunModel)).append("\n");
-    sb.append("    testSetRefs: ").append(toIndentedString(testSetRefs)).append("\n");
     sb.append("    testCaseRefs: ").append(toIndentedString(testCaseRefs)).append("\n");
+    sb.append("    testRunModel: ").append(toIndentedString(testRunModel)).append("\n");
+    sb.append("    testSetIds: ").append(toIndentedString(testSetIds)).append("\n");
+    sb.append("    testSetRefs: ").append(toIndentedString(testSetRefs)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -235,7 +234,7 @@ public class CreateTestRunRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

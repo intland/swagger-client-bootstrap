@@ -14,9 +14,8 @@
 package com.intland.swagger.client.model;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Objects;
-
-import org.joda.time.DateTime;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -24,20 +23,22 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Attachment
+ * Attachments of a comment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@ApiModel(description = "Attachments of a comment")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class Attachment {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
+  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private Date createdAt;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
+  @SerializedName(SERIALIZED_NAME_CREATED_BY)
+  private UserReference createdBy;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -96,79 +97,78 @@ public class Attachment {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION_FORMAT)
   private DescriptionFormatEnum descriptionFormat;
 
-  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private DateTime createdAt;
-
-  public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY)
-  private UserReference createdBy;
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Integer id;
 
   public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
   @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
-  private DateTime modifiedAt;
+  private Date modifiedAt;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
   private UserReference modifiedBy;
 
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
-  private Integer version;
-
-  public static final String SERIALIZED_NAME_SIZE = "size";
-  @SerializedName(SERIALIZED_NAME_SIZE)
-  private Long size;
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
   public static final String SERIALIZED_NAME_SHA512 = "sha512";
   @SerializedName(SERIALIZED_NAME_SHA512)
   private String sha512;
 
+  public static final String SERIALIZED_NAME_SIZE = "size";
+  @SerializedName(SERIALIZED_NAME_SIZE)
+  private Long size;
 
-  public Attachment id(Integer id) {
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private Integer version;
+
+
+  public Attachment createdAt(Date createdAt) {
     
-    this.id = id;
+    this.createdAt = createdAt;
     return this;
   }
 
    /**
-   * Id of the entity
-   * minimum: 0
-   * @return id
+   * The date when the entity was created
+   * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Id of the entity")
+  @ApiModelProperty(value = "The date when the entity was created")
 
-  public Integer getId() {
-    return id;
+  public Date getCreatedAt() {
+    return createdAt;
   }
 
 
-  public void setId(Integer id) {
-    this.id = id;
+  public void setCreatedAt(Date createdAt) {
+    this.createdAt = createdAt;
   }
 
 
-  public Attachment name(String name) {
+  public Attachment createdBy(UserReference createdBy) {
     
-    this.name = name;
+    this.createdBy = createdBy;
     return this;
   }
 
    /**
-   * Name of the entity
-   * @return name
+   * Get createdBy
+   * @return createdBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the entity")
+  @ApiModelProperty(value = "")
 
-  public String getName() {
-    return name;
+  public UserReference getCreatedBy() {
+    return createdBy;
   }
 
 
-  public void setName(String name) {
-    this.name = name;
+  public void setCreatedBy(UserReference createdBy) {
+    this.createdBy = createdBy;
   }
 
 
@@ -218,53 +218,31 @@ public class Attachment {
   }
 
 
-  public Attachment createdAt(DateTime createdAt) {
+  public Attachment id(Integer id) {
     
-    this.createdAt = createdAt;
+    this.id = id;
     return this;
   }
 
    /**
-   * The date when the entity was created
-   * @return createdAt
+   * Id of the entity
+   * minimum: 0
+   * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The date when the entity was created")
+  @ApiModelProperty(value = "Id of the entity")
 
-  public DateTime getCreatedAt() {
-    return createdAt;
+  public Integer getId() {
+    return id;
   }
 
 
-  public void setCreatedAt(DateTime createdAt) {
-    this.createdAt = createdAt;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
 
-  public Attachment createdBy(UserReference createdBy) {
-    
-    this.createdBy = createdBy;
-    return this;
-  }
-
-   /**
-   * Get createdBy
-   * @return createdBy
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public UserReference getCreatedBy() {
-    return createdBy;
-  }
-
-
-  public void setCreatedBy(UserReference createdBy) {
-    this.createdBy = createdBy;
-  }
-
-
-  public Attachment modifiedAt(DateTime modifiedAt) {
+  public Attachment modifiedAt(Date modifiedAt) {
     
     this.modifiedAt = modifiedAt;
     return this;
@@ -277,12 +255,12 @@ public class Attachment {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
 
-  public DateTime getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
 
-  public void setModifiedAt(DateTime modifiedAt) {
+  public void setModifiedAt(Date modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 
@@ -310,49 +288,26 @@ public class Attachment {
   }
 
 
-  public Attachment version(Integer version) {
+  public Attachment name(String name) {
     
-    this.version = version;
+    this.name = name;
     return this;
   }
 
    /**
-   * Version of a attachment
-   * @return version
+   * Name of the entity
+   * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Version of a attachment")
+  @ApiModelProperty(value = "Name of the entity")
 
-  public Integer getVersion() {
-    return version;
+  public String getName() {
+    return name;
   }
 
 
-  public void setVersion(Integer version) {
-    this.version = version;
-  }
-
-
-  public Attachment size(Long size) {
-    
-    this.size = size;
-    return this;
-  }
-
-   /**
-   * Size of a attachment
-   * @return size
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of a attachment")
-
-  public Long getSize() {
-    return size;
-  }
-
-
-  public void setSize(Long size) {
-    this.size = size;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -379,8 +334,54 @@ public class Attachment {
   }
 
 
+  public Attachment size(Long size) {
+    
+    this.size = size;
+    return this;
+  }
+
+   /**
+   * Size of a attachment
+   * @return size
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Size of a attachment")
+
+  public Long getSize() {
+    return size;
+  }
+
+
+  public void setSize(Long size) {
+    this.size = size;
+  }
+
+
+  public Attachment version(Integer version) {
+    
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Version of a attachment
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Version of a attachment")
+
+  public Integer getVersion() {
+    return version;
+  }
+
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -388,40 +389,39 @@ public class Attachment {
       return false;
     }
     Attachment attachment = (Attachment) o;
-    return Objects.equals(this.id, attachment.id) &&
-        Objects.equals(this.name, attachment.name) &&
+    return Objects.equals(this.createdAt, attachment.createdAt) &&
+        Objects.equals(this.createdBy, attachment.createdBy) &&
         Objects.equals(this.description, attachment.description) &&
         Objects.equals(this.descriptionFormat, attachment.descriptionFormat) &&
-        Objects.equals(this.createdAt, attachment.createdAt) &&
-        Objects.equals(this.createdBy, attachment.createdBy) &&
+        Objects.equals(this.id, attachment.id) &&
         Objects.equals(this.modifiedAt, attachment.modifiedAt) &&
         Objects.equals(this.modifiedBy, attachment.modifiedBy) &&
-        Objects.equals(this.version, attachment.version) &&
+        Objects.equals(this.name, attachment.name) &&
+        Objects.equals(this.sha512, attachment.sha512) &&
         Objects.equals(this.size, attachment.size) &&
-        Objects.equals(this.sha512, attachment.sha512);
+        Objects.equals(this.version, attachment.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, descriptionFormat, createdAt, createdBy, modifiedAt, modifiedBy, version, size, sha512);
+    return Objects.hash(createdAt, createdBy, description, descriptionFormat, id, modifiedAt, modifiedBy, name, sha512, size, version);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Attachment {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    descriptionFormat: ").append(toIndentedString(descriptionFormat)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    descriptionFormat: ").append(toIndentedString(descriptionFormat)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    sha512: ").append(toIndentedString(sha512)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -430,7 +430,7 @@ public class Attachment {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

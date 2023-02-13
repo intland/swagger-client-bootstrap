@@ -59,10 +59,11 @@ public class UserApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUserCall(Integer userId, final ApiCallback _callback) throws ApiException {
@@ -77,8 +78,9 @@ public class UserApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -118,10 +120,11 @@ public class UserApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
      </table>
      */
     public User getUser(Integer userId) throws ApiException {
@@ -138,10 +141,11 @@ public class UserApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<User> getUserWithHttpInfo(Integer userId) throws ApiException {
@@ -160,10 +164,11 @@ public class UserApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUserAsync(Integer userId, final ApiCallback<User> _callback) throws ApiException {
@@ -182,10 +187,11 @@ public class UserApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUserByEmailCall(String email, final ApiCallback _callback) throws ApiException {
@@ -196,15 +202,16 @@ public class UserApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (email != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("email", email));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -244,10 +251,11 @@ public class UserApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
      </table>
      */
     public User getUserByEmail(String email) throws ApiException {
@@ -264,10 +272,11 @@ public class UserApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<User> getUserByEmailWithHttpInfo(String email) throws ApiException {
@@ -286,10 +295,11 @@ public class UserApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUserByEmailAsync(String email, final ApiCallback<User> _callback) throws ApiException {
@@ -308,10 +318,11 @@ public class UserApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUserByNameCall(String name, final ApiCallback _callback) throws ApiException {
@@ -322,15 +333,16 @@ public class UserApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (name != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("name", name));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -370,10 +382,11 @@ public class UserApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
      </table>
      */
     public User getUserByName(String name) throws ApiException {
@@ -390,10 +403,11 @@ public class UserApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<User> getUserByNameWithHttpInfo(String name) throws ApiException {
@@ -412,10 +426,11 @@ public class UserApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> User </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUserByNameAsync(String name, final ApiCallback<User> _callback) throws ApiException {
@@ -437,9 +452,10 @@ public class UserApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Users </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Users </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUsersCall(Integer page, Integer pageSize, Integer groupId, String queryString, final ApiCallback _callback) throws ApiException {
@@ -450,6 +466,10 @@ public class UserApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (page != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
@@ -466,11 +486,8 @@ public class UserApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("queryString", queryString));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -508,9 +525,10 @@ public class UserApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Users </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Users </td><td>  -  </td></tr>
      </table>
      */
     public UserReferenceSearchResult getUsers(Integer page, Integer pageSize, Integer groupId, String queryString) throws ApiException {
@@ -530,9 +548,10 @@ public class UserApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Users </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Users </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UserReferenceSearchResult> getUsersWithHttpInfo(Integer page, Integer pageSize, Integer groupId, String queryString) throws ApiException {
@@ -554,9 +573,10 @@ public class UserApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Users </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Users </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUsersAsync(Integer page, Integer pageSize, Integer groupId, String queryString, final ApiCallback<UserReferenceSearchResult> _callback) throws ApiException {
@@ -568,23 +588,23 @@ public class UserApi {
     }
     /**
      * Build call for searchUsers
+     * @param userFilteringRequest  (required)
      * @param page Index of the result page starting from 1. (optional, default to 1)
      * @param pageSize Number of items in a result page. Max value: 500 (optional, default to 25)
-     * @param userFilteringRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Users </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project is not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchUsersCall(Integer page, Integer pageSize, UserFilteringRequest userFilteringRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchUsersCall(UserFilteringRequest userFilteringRequest, Integer page, Integer pageSize, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = userFilteringRequest;
 
         // create path and map variables
@@ -592,6 +612,10 @@ public class UserApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (page != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
@@ -600,9 +624,6 @@ public class UserApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -622,10 +643,15 @@ public class UserApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchUsersValidateBeforeCall(Integer page, Integer pageSize, UserFilteringRequest userFilteringRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchUsersValidateBeforeCall(UserFilteringRequest userFilteringRequest, Integer page, Integer pageSize, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userFilteringRequest' is set
+        if (userFilteringRequest == null) {
+            throw new ApiException("Missing the required parameter 'userFilteringRequest' when calling searchUsers(Async)");
+        }
         
 
-        okhttp3.Call localVarCall = searchUsersCall(page, pageSize, userFilteringRequest, _callback);
+        okhttp3.Call localVarCall = searchUsersCall(userFilteringRequest, page, pageSize, _callback);
         return localVarCall;
 
     }
@@ -633,46 +659,46 @@ public class UserApi {
     /**
      * Search users
      * 
+     * @param userFilteringRequest  (required)
      * @param page Index of the result page starting from 1. (optional, default to 1)
      * @param pageSize Number of items in a result page. Max value: 500 (optional, default to 25)
-     * @param userFilteringRequest  (optional)
      * @return UserSearchResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Users </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project is not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
-    public UserSearchResult searchUsers(Integer page, Integer pageSize, UserFilteringRequest userFilteringRequest) throws ApiException {
-        ApiResponse<UserSearchResult> localVarResp = searchUsersWithHttpInfo(page, pageSize, userFilteringRequest);
+    public UserSearchResult searchUsers(UserFilteringRequest userFilteringRequest, Integer page, Integer pageSize) throws ApiException {
+        ApiResponse<UserSearchResult> localVarResp = searchUsersWithHttpInfo(userFilteringRequest, page, pageSize);
         return localVarResp.getData();
     }
 
     /**
      * Search users
      * 
+     * @param userFilteringRequest  (required)
      * @param page Index of the result page starting from 1. (optional, default to 1)
      * @param pageSize Number of items in a result page. Max value: 500 (optional, default to 25)
-     * @param userFilteringRequest  (optional)
      * @return ApiResponse&lt;UserSearchResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Users </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project is not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UserSearchResult> searchUsersWithHttpInfo(Integer page, Integer pageSize, UserFilteringRequest userFilteringRequest) throws ApiException {
-        okhttp3.Call localVarCall = searchUsersValidateBeforeCall(page, pageSize, userFilteringRequest, null);
+    public ApiResponse<UserSearchResult> searchUsersWithHttpInfo(UserFilteringRequest userFilteringRequest, Integer page, Integer pageSize) throws ApiException {
+        okhttp3.Call localVarCall = searchUsersValidateBeforeCall(userFilteringRequest, page, pageSize, null);
         Type localVarReturnType = new TypeToken<UserSearchResult>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -680,25 +706,25 @@ public class UserApi {
     /**
      * Search users (asynchronously)
      * 
+     * @param userFilteringRequest  (required)
      * @param page Index of the result page starting from 1. (optional, default to 1)
      * @param pageSize Number of items in a result page. Max value: 500 (optional, default to 25)
-     * @param userFilteringRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Users </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project is not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchUsersAsync(Integer page, Integer pageSize, UserFilteringRequest userFilteringRequest, final ApiCallback<UserSearchResult> _callback) throws ApiException {
+    public okhttp3.Call searchUsersAsync(UserFilteringRequest userFilteringRequest, Integer page, Integer pageSize, final ApiCallback<UserSearchResult> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchUsersValidateBeforeCall(page, pageSize, userFilteringRequest, _callback);
+        okhttp3.Call localVarCall = searchUsersValidateBeforeCall(userFilteringRequest, page, pageSize, _callback);
         Type localVarReturnType = new TypeToken<UserSearchResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

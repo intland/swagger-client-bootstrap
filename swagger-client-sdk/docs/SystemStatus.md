@@ -3,6 +3,7 @@
 # SystemStatus
 
 Basic properties of system status
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -26,42 +26,15 @@ import io.swagger.annotations.ApiModelProperty;
  * Model to contain Test Case run update request models
  */
 @ApiModel(description = "Model to contain Test Case run update request models")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class UpdateTestRunRequest {
-  public static final String SERIALIZED_NAME_UPDATE_REQUEST_MODELS = "updateRequestModels";
-  @SerializedName(SERIALIZED_NAME_UPDATE_REQUEST_MODELS)
-  private List<UpdateTestCaseRunRequest> updateRequestModels = new ArrayList<UpdateTestCaseRunRequest>();
-
   public static final String SERIALIZED_NAME_PARENT_RESULT_PROPAGATION = "parentResultPropagation";
   @SerializedName(SERIALIZED_NAME_PARENT_RESULT_PROPAGATION)
   private Boolean parentResultPropagation = true;
 
-
-  public UpdateTestRunRequest updateRequestModels(List<UpdateTestCaseRunRequest> updateRequestModels) {
-    
-    this.updateRequestModels = updateRequestModels;
-    return this;
-  }
-
-  public UpdateTestRunRequest addUpdateRequestModelsItem(UpdateTestCaseRunRequest updateRequestModelsItem) {
-    this.updateRequestModels.add(updateRequestModelsItem);
-    return this;
-  }
-
-   /**
-   * List of update Test Case run request models
-   * @return updateRequestModels
-  **/
-  @ApiModelProperty(required = true, value = "List of update Test Case run request models")
-
-  public List<UpdateTestCaseRunRequest> getUpdateRequestModels() {
-    return updateRequestModels;
-  }
-
-
-  public void setUpdateRequestModels(List<UpdateTestCaseRunRequest> updateRequestModels) {
-    this.updateRequestModels = updateRequestModels;
-  }
+  public static final String SERIALIZED_NAME_UPDATE_REQUEST_MODELS = "updateRequestModels";
+  @SerializedName(SERIALIZED_NAME_UPDATE_REQUEST_MODELS)
+  private List<UpdateTestCaseRunRequest> updateRequestModels = new ArrayList<UpdateTestCaseRunRequest>();
 
 
   public UpdateTestRunRequest parentResultPropagation(Boolean parentResultPropagation) {
@@ -87,8 +60,36 @@ public class UpdateTestRunRequest {
   }
 
 
+  public UpdateTestRunRequest updateRequestModels(List<UpdateTestCaseRunRequest> updateRequestModels) {
+    
+    this.updateRequestModels = updateRequestModels;
+    return this;
+  }
+
+  public UpdateTestRunRequest addUpdateRequestModelsItem(UpdateTestCaseRunRequest updateRequestModelsItem) {
+    this.updateRequestModels.add(updateRequestModelsItem);
+    return this;
+  }
+
+   /**
+   * List of update Test Case run request models
+   * @return updateRequestModels
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "List of update Test Case run request models")
+
+  public List<UpdateTestCaseRunRequest> getUpdateRequestModels() {
+    return updateRequestModels;
+  }
+
+
+  public void setUpdateRequestModels(List<UpdateTestCaseRunRequest> updateRequestModels) {
+    this.updateRequestModels = updateRequestModels;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -96,22 +97,21 @@ public class UpdateTestRunRequest {
       return false;
     }
     UpdateTestRunRequest updateTestRunRequest = (UpdateTestRunRequest) o;
-    return Objects.equals(this.updateRequestModels, updateTestRunRequest.updateRequestModels) &&
-        Objects.equals(this.parentResultPropagation, updateTestRunRequest.parentResultPropagation);
+    return Objects.equals(this.parentResultPropagation, updateTestRunRequest.parentResultPropagation) &&
+        Objects.equals(this.updateRequestModels, updateTestRunRequest.updateRequestModels);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(updateRequestModels, parentResultPropagation);
+    return Objects.hash(parentResultPropagation, updateRequestModels);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateTestRunRequest {\n");
-    sb.append("    updateRequestModels: ").append(toIndentedString(updateRequestModels)).append("\n");
     sb.append("    parentResultPropagation: ").append(toIndentedString(parentResultPropagation)).append("\n");
+    sb.append("    updateRequestModels: ").append(toIndentedString(updateRequestModels)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -120,7 +120,7 @@ public class UpdateTestRunRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -26,20 +26,23 @@ import io.swagger.annotations.ApiModelProperty;
  * ReportGroup having rows with references.
  */
 @ApiModel(description = "ReportGroup having rows with references.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ReportGroupWithReferencedRows extends ReportGroup {
   public static final String SERIALIZED_NAME_GROUPING_LEVEL = "groupingLevel";
   @SerializedName(SERIALIZED_NAME_GROUPING_LEVEL)
   private Integer groupingLevel;
 
-  public static final String SERIALIZED_NAME_STAR_ROW = "starRow";
-  @SerializedName(SERIALIZED_NAME_STAR_ROW)
-  private Integer starRow;
-
   public static final String SERIALIZED_NAME_ROWS = "rows";
   @SerializedName(SERIALIZED_NAME_ROWS)
   private List<ReportReferencedRow> rows = null;
 
+  public static final String SERIALIZED_NAME_STAR_ROW = "starRow";
+  @SerializedName(SERIALIZED_NAME_STAR_ROW)
+  private Integer starRow;
+
+  public ReportGroupWithReferencedRows() {
+    this.type = this.getClass().getSimpleName();
+  }
 
   public ReportGroupWithReferencedRows groupingLevel(Integer groupingLevel) {
     
@@ -61,29 +64,6 @@ public class ReportGroupWithReferencedRows extends ReportGroup {
 
   public void setGroupingLevel(Integer groupingLevel) {
     this.groupingLevel = groupingLevel;
-  }
-
-
-  public ReportGroupWithReferencedRows starRow(Integer starRow) {
-    
-    this.starRow = starRow;
-    return this;
-  }
-
-   /**
-   * Get starRow
-   * @return starRow
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Integer getStarRow() {
-    return starRow;
-  }
-
-
-  public void setStarRow(Integer starRow) {
-    this.starRow = starRow;
   }
 
 
@@ -118,8 +98,31 @@ public class ReportGroupWithReferencedRows extends ReportGroup {
   }
 
 
+  public ReportGroupWithReferencedRows starRow(Integer starRow) {
+    
+    this.starRow = starRow;
+    return this;
+  }
+
+   /**
+   * Get starRow
+   * @return starRow
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Integer getStarRow() {
+    return starRow;
+  }
+
+
+  public void setStarRow(Integer starRow) {
+    this.starRow = starRow;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -128,16 +131,15 @@ public class ReportGroupWithReferencedRows extends ReportGroup {
     }
     ReportGroupWithReferencedRows reportGroupWithReferencedRows = (ReportGroupWithReferencedRows) o;
     return Objects.equals(this.groupingLevel, reportGroupWithReferencedRows.groupingLevel) &&
-        Objects.equals(this.starRow, reportGroupWithReferencedRows.starRow) &&
         Objects.equals(this.rows, reportGroupWithReferencedRows.rows) &&
+        Objects.equals(this.starRow, reportGroupWithReferencedRows.starRow) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(groupingLevel, starRow, rows, super.hashCode());
+    return Objects.hash(groupingLevel, rows, starRow, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -145,8 +147,8 @@ public class ReportGroupWithReferencedRows extends ReportGroup {
     sb.append("class ReportGroupWithReferencedRows {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    groupingLevel: ").append(toIndentedString(groupingLevel)).append("\n");
-    sb.append("    starRow: ").append(toIndentedString(starRow)).append("\n");
     sb.append("    rows: ").append(toIndentedString(rows)).append("\n");
+    sb.append("    starRow: ").append(toIndentedString(starRow)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -155,7 +157,7 @@ public class ReportGroupWithReferencedRows extends ReportGroup {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

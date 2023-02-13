@@ -26,38 +26,15 @@ import io.swagger.annotations.ApiModelProperty;
  * Holds the response of a bulk operation
  */
 @ApiModel(description = "Holds the response of a bulk operation")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class BulkOperationResponse {
-  public static final String SERIALIZED_NAME_SUCCESSFUL_OPERATIONS_COUNT = "successfulOperationsCount";
-  @SerializedName(SERIALIZED_NAME_SUCCESSFUL_OPERATIONS_COUNT)
-  private Integer successfulOperationsCount;
-
   public static final String SERIALIZED_NAME_FAILED_OPERATIONS = "failedOperations";
   @SerializedName(SERIALIZED_NAME_FAILED_OPERATIONS)
   private List<FailedOperation> failedOperations = null;
 
-
-  public BulkOperationResponse successfulOperationsCount(Integer successfulOperationsCount) {
-    
-    this.successfulOperationsCount = successfulOperationsCount;
-    return this;
-  }
-
-   /**
-   * Count of successful operations
-   * @return successfulOperationsCount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Count of successful operations")
-
-  public Integer getSuccessfulOperationsCount() {
-    return successfulOperationsCount;
-  }
-
-
-  public void setSuccessfulOperationsCount(Integer successfulOperationsCount) {
-    this.successfulOperationsCount = successfulOperationsCount;
-  }
+  public static final String SERIALIZED_NAME_SUCCESSFUL_OPERATIONS_COUNT = "successfulOperationsCount";
+  @SerializedName(SERIALIZED_NAME_SUCCESSFUL_OPERATIONS_COUNT)
+  private Integer successfulOperationsCount;
 
 
   public BulkOperationResponse failedOperations(List<FailedOperation> failedOperations) {
@@ -91,8 +68,31 @@ public class BulkOperationResponse {
   }
 
 
+  public BulkOperationResponse successfulOperationsCount(Integer successfulOperationsCount) {
+    
+    this.successfulOperationsCount = successfulOperationsCount;
+    return this;
+  }
+
+   /**
+   * Count of successful operations
+   * @return successfulOperationsCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Count of successful operations")
+
+  public Integer getSuccessfulOperationsCount() {
+    return successfulOperationsCount;
+  }
+
+
+  public void setSuccessfulOperationsCount(Integer successfulOperationsCount) {
+    this.successfulOperationsCount = successfulOperationsCount;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -100,22 +100,21 @@ public class BulkOperationResponse {
       return false;
     }
     BulkOperationResponse bulkOperationResponse = (BulkOperationResponse) o;
-    return Objects.equals(this.successfulOperationsCount, bulkOperationResponse.successfulOperationsCount) &&
-        Objects.equals(this.failedOperations, bulkOperationResponse.failedOperations);
+    return Objects.equals(this.failedOperations, bulkOperationResponse.failedOperations) &&
+        Objects.equals(this.successfulOperationsCount, bulkOperationResponse.successfulOperationsCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(successfulOperationsCount, failedOperations);
+    return Objects.hash(failedOperations, successfulOperationsCount);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BulkOperationResponse {\n");
-    sb.append("    successfulOperationsCount: ").append(toIndentedString(successfulOperationsCount)).append("\n");
     sb.append("    failedOperations: ").append(toIndentedString(failedOperations)).append("\n");
+    sb.append("    successfulOperationsCount: ").append(toIndentedString(successfulOperationsCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -124,7 +123,7 @@ public class BulkOperationResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

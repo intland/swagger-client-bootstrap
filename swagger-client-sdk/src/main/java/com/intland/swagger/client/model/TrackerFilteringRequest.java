@@ -24,23 +24,92 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * TrackerFilteringRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerFilteringRequest {
-  public static final String SERIALIZED_NAME_TYPES = "types";
-  @SerializedName(SERIALIZED_NAME_TYPES)
-  private List<TrackerTypeReference> types = null;
+  public static final String SERIALIZED_NAME_DELETED = "deleted";
+  @SerializedName(SERIALIZED_NAME_DELETED)
+  private Boolean deleted;
 
   public static final String SERIALIZED_NAME_HIDDEN = "hidden";
   @SerializedName(SERIALIZED_NAME_HIDDEN)
   private Boolean hidden;
 
-  public static final String SERIALIZED_NAME_DELETED = "deleted";
-  @SerializedName(SERIALIZED_NAME_DELETED)
-  private Boolean deleted;
-
   public static final String SERIALIZED_NAME_KEY_NAME = "keyName";
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
+
+  public static final String SERIALIZED_NAME_TYPES = "types";
+  @SerializedName(SERIALIZED_NAME_TYPES)
+  private List<TrackerTypeReference> types = null;
+
+
+  public TrackerFilteringRequest deleted(Boolean deleted) {
+    
+    this.deleted = deleted;
+    return this;
+  }
+
+   /**
+   * True to also show removed trackers.
+   * @return deleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "True to also show removed trackers.")
+
+  public Boolean getDeleted() {
+    return deleted;
+  }
+
+
+  public void setDeleted(Boolean deleted) {
+    this.deleted = deleted;
+  }
+
+
+  public TrackerFilteringRequest hidden(Boolean hidden) {
+    
+    this.hidden = hidden;
+    return this;
+  }
+
+   /**
+   * True to also show hidden trackers.
+   * @return hidden
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "True to also show hidden trackers.")
+
+  public Boolean getHidden() {
+    return hidden;
+  }
+
+
+  public void setHidden(Boolean hidden) {
+    this.hidden = hidden;
+  }
+
+
+  public TrackerFilteringRequest keyName(String keyName) {
+    
+    this.keyName = keyName;
+    return this;
+  }
+
+   /**
+   * Filter by project key name
+   * @return keyName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Filter by project key name")
+
+  public String getKeyName() {
+    return keyName;
+  }
+
+
+  public void setKeyName(String keyName) {
+    this.keyName = keyName;
+  }
 
 
   public TrackerFilteringRequest types(List<TrackerTypeReference> types) {
@@ -74,77 +143,8 @@ public class TrackerFilteringRequest {
   }
 
 
-  public TrackerFilteringRequest hidden(Boolean hidden) {
-    
-    this.hidden = hidden;
-    return this;
-  }
-
-   /**
-   * True to also show hidden trackers.
-   * @return hidden
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "True to also show hidden trackers.")
-
-  public Boolean getHidden() {
-    return hidden;
-  }
-
-
-  public void setHidden(Boolean hidden) {
-    this.hidden = hidden;
-  }
-
-
-  public TrackerFilteringRequest deleted(Boolean deleted) {
-    
-    this.deleted = deleted;
-    return this;
-  }
-
-   /**
-   * True to also show removed trackers.
-   * @return deleted
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "True to also show removed trackers.")
-
-  public Boolean getDeleted() {
-    return deleted;
-  }
-
-
-  public void setDeleted(Boolean deleted) {
-    this.deleted = deleted;
-  }
-
-
-  public TrackerFilteringRequest keyName(String keyName) {
-    
-    this.keyName = keyName;
-    return this;
-  }
-
-   /**
-   * Filter by project key name
-   * @return keyName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Filter by project key name")
-
-  public String getKeyName() {
-    return keyName;
-  }
-
-
-  public void setKeyName(String keyName) {
-    this.keyName = keyName;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -152,26 +152,25 @@ public class TrackerFilteringRequest {
       return false;
     }
     TrackerFilteringRequest trackerFilteringRequest = (TrackerFilteringRequest) o;
-    return Objects.equals(this.types, trackerFilteringRequest.types) &&
+    return Objects.equals(this.deleted, trackerFilteringRequest.deleted) &&
         Objects.equals(this.hidden, trackerFilteringRequest.hidden) &&
-        Objects.equals(this.deleted, trackerFilteringRequest.deleted) &&
-        Objects.equals(this.keyName, trackerFilteringRequest.keyName);
+        Objects.equals(this.keyName, trackerFilteringRequest.keyName) &&
+        Objects.equals(this.types, trackerFilteringRequest.types);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(types, hidden, deleted, keyName);
+    return Objects.hash(deleted, hidden, keyName, types);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TrackerFilteringRequest {\n");
-    sb.append("    types: ").append(toIndentedString(types)).append("\n");
-    sb.append("    hidden: ").append(toIndentedString(hidden)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
+    sb.append("    hidden: ").append(toIndentedString(hidden)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
+    sb.append("    types: ").append(toIndentedString(types)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -180,7 +179,7 @@ public class TrackerFilteringRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

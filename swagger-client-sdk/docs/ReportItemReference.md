@@ -3,6 +3,7 @@
 # ReportItemReference
 
 Reference data of an underlying item of a row.
+
 ## Properties
 
 Name | Type | Description | Notes

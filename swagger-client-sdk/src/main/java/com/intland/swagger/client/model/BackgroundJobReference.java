@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Reference to a background job
  */
 @ApiModel(description = "Reference to a background job")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class BackgroundJobReference {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -46,7 +46,11 @@ public class BackgroundJobReference {
     
     DEPENDENCY_FINDER("DEPENDENCY_FINDER"),
     
-    ITEM_EXCEL_IMPORT("ITEM_EXCEL_IMPORT");
+    ITEM_EXCEL_IMPORT("ITEM_EXCEL_IMPORT"),
+    
+    DEPLOYMENT_EXPORT("DEPLOYMENT_EXPORT"),
+    
+    WORKING_SET_UPDATE("WORKING_SET_UPDATE");
 
     private String value;
 
@@ -101,6 +105,7 @@ public class BackgroundJobReference {
    * String id of the job
    * @return id
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "String id of the job")
 
   public String getId() {
@@ -123,6 +128,7 @@ public class BackgroundJobReference {
    * Type of a background job
    * @return type
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Type of a background job")
 
   public TypeEnum getType() {
@@ -136,7 +142,7 @@ public class BackgroundJobReference {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -153,7 +159,6 @@ public class BackgroundJobReference {
     return Objects.hash(id, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -168,7 +173,7 @@ public class BackgroundJobReference {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -65,7 +65,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **batchGetTrackerItemReviewsRequest** | [**BatchGetTrackerItemReviewsRequest**](BatchGetTrackerItemReviewsRequest.md)|  | [optional]
+ **batchGetTrackerItemReviewsRequest** | [**BatchGetTrackerItemReviewsRequest**](BatchGetTrackerItemReviewsRequest.md)|  |
 
 ### Return type
 
@@ -83,12 +83,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | List of tracker item reviews for each tracker item |  -  |
 **400** | Request cannot be processed |  -  |
+**401** | Authentication is required |  -  |
+**403** | Tracker item reviews are disabled, or access to them is denied |  -  |
 **404** | There is no baseline accessible with the supplied ID |  -  |
 **429** | Too many requests |  -  |
-**401** | Authentication is required |  -  |
-**200** | List of tracker item reviews for each tracker item |  -  |
-**403** | Tracker item reviews are disabled, or access to them is denied |  -  |
 
 <a name="export"></a>
 # **export**
@@ -148,7 +148,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectId** | **Integer**|  |
- **exportProject** | [**ExportProject**](ExportProject.md)|  | [optional]
+ **exportProject** | [**ExportProject**](ExportProject.md)|  |
 
 ### Return type
 
@@ -166,16 +166,16 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | The exported project contents in a zip file. |  -  |
 **400** | Bad request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Project not found |  -  |
-**500** | Error during the project export |  -  |
 **429** | Too many requests |  -  |
+**500** | Error during the project export |  -  |
 
 <a name="getTrackerItems"></a>
 # **getTrackerItems**
-> List&lt;TrackerItem&gt; getTrackerItems(baselineId, trackerItemsRequest)
+> List&lt;TrackerItem&gt; getTrackerItems(trackerItemsRequest, baselineId)
 
 Get tracker items
 
@@ -212,10 +212,10 @@ public class Example {
     BearerAuth.setBearerToken("BEARER TOKEN");
 
     ExportApi apiInstance = new ExportApi(defaultClient);
-    Integer baselineId = 56; // Integer | 
     TrackerItemsRequest trackerItemsRequest = new TrackerItemsRequest(); // TrackerItemsRequest | 
+    Integer baselineId = 56; // Integer | 
     try {
-      List<TrackerItem> result = apiInstance.getTrackerItems(baselineId, trackerItemsRequest);
+      List<TrackerItem> result = apiInstance.getTrackerItems(trackerItemsRequest, baselineId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExportApi#getTrackerItems");
@@ -232,8 +232,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **trackerItemsRequest** | [**TrackerItemsRequest**](TrackerItemsRequest.md)|  |
  **baselineId** | **Integer**|  | [optional]
- **trackerItemsRequest** | [**TrackerItemsRequest**](TrackerItemsRequest.md)|  | [optional]
 
 ### Return type
 
@@ -246,13 +246,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker item list |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
 **429** | Too many requests |  -  |
 

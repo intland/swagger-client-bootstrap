@@ -13,6 +13,7 @@
 
 package com.intland.swagger.client.model;
 
+import java.io.File;
 import java.util.Objects;
 
 import com.google.gson.annotations.SerializedName;
@@ -22,11 +23,19 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * DependencyEntityReferenceAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+<<<<<<<< HEAD:swagger-client-sdk/src/main/java/com/intland/swagger/client/model/DependencyEntityReferenceAllOf.java
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class DependencyEntityReferenceAllOf {
   public static final String SERIALIZED_NAME_TYPE_ID = "typeId";
   @SerializedName(SERIALIZED_NAME_TYPE_ID)
   private Integer typeId;
+========
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+public class InlineObject {
+  public static final String SERIALIZED_NAME_ICON = "icon";
+  @SerializedName(SERIALIZED_NAME_ICON)
+  private File icon;
+>>>>>>>> cb-22.04-compatible:swagger-client-sdk/src/main/java/com/intland/swagger/client/model/InlineObject.java
 
 
   public DependencyEntityReferenceAllOf typeId(Integer typeId) {
@@ -53,7 +62,7 @@ public class DependencyEntityReferenceAllOf {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -69,7 +78,6 @@ public class DependencyEntityReferenceAllOf {
     return Objects.hash(typeId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -83,7 +91,7 @@ public class DependencyEntityReferenceAllOf {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

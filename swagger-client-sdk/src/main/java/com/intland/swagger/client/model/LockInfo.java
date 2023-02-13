@@ -24,38 +24,15 @@ import io.swagger.annotations.ApiModelProperty;
  * Information about an artifact lock
  */
 @ApiModel(description = "Information about an artifact lock")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class LockInfo {
-  public static final String SERIALIZED_NAME_USER = "user";
-  @SerializedName(SERIALIZED_NAME_USER)
-  private UserReference user;
-
   public static final String SERIALIZED_NAME_EXPIRES = "expires";
   @SerializedName(SERIALIZED_NAME_EXPIRES)
   private Boolean expires;
 
-
-  public LockInfo user(UserReference user) {
-    
-    this.user = user;
-    return this;
-  }
-
-   /**
-   * Get user
-   * @return user
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public UserReference getUser() {
-    return user;
-  }
-
-
-  public void setUser(UserReference user) {
-    this.user = user;
-  }
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  private UserReference user;
 
 
   public LockInfo expires(Boolean expires) {
@@ -81,8 +58,31 @@ public class LockInfo {
   }
 
 
+  public LockInfo user(UserReference user) {
+    
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public UserReference getUser() {
+    return user;
+  }
+
+
+  public void setUser(UserReference user) {
+    this.user = user;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -90,22 +90,21 @@ public class LockInfo {
       return false;
     }
     LockInfo lockInfo = (LockInfo) o;
-    return Objects.equals(this.user, lockInfo.user) &&
-        Objects.equals(this.expires, lockInfo.expires);
+    return Objects.equals(this.expires, lockInfo.expires) &&
+        Objects.equals(this.user, lockInfo.user);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, expires);
+    return Objects.hash(expires, user);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LockInfo {\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    expires: ").append(toIndentedString(expires)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -114,7 +113,7 @@ public class LockInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

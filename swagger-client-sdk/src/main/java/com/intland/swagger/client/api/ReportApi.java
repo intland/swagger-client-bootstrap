@@ -51,17 +51,17 @@ public class ReportApi {
 
     /**
      * Build call for createReport
-     * @param simpleReportSettings  (optional)
+     * @param simpleReportSettings  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createReportCall(SimpleReportSettings simpleReportSettings, final ApiCallback _callback) throws ApiException {
@@ -75,6 +75,7 @@ public class ReportApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -96,6 +97,11 @@ public class ReportApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createReportValidateBeforeCall(SimpleReportSettings simpleReportSettings, final ApiCallback _callback) throws ApiException {
         
+        // verify the required parameter 'simpleReportSettings' is set
+        if (simpleReportSettings == null) {
+            throw new ApiException("Missing the required parameter 'simpleReportSettings' when calling createReport(Async)");
+        }
+        
 
         okhttp3.Call localVarCall = createReportCall(simpleReportSettings, _callback);
         return localVarCall;
@@ -105,16 +111,16 @@ public class ReportApi {
     /**
      * Create a report
      * 
-     * @param simpleReportSettings  (optional)
+     * @param simpleReportSettings  (required)
      * @return SimpleReportSettings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public SimpleReportSettings createReport(SimpleReportSettings simpleReportSettings) throws ApiException {
@@ -125,16 +131,16 @@ public class ReportApi {
     /**
      * Create a report
      * 
-     * @param simpleReportSettings  (optional)
+     * @param simpleReportSettings  (required)
      * @return ApiResponse&lt;SimpleReportSettings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<SimpleReportSettings> createReportWithHttpInfo(SimpleReportSettings simpleReportSettings) throws ApiException {
@@ -146,17 +152,17 @@ public class ReportApi {
     /**
      * Create a report (asynchronously)
      * 
-     * @param simpleReportSettings  (optional)
+     * @param simpleReportSettings  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createReportAsync(SimpleReportSettings simpleReportSettings, final ApiCallback<SimpleReportSettings> _callback) throws ApiException {
@@ -177,10 +183,11 @@ public class ReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Report content by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getReportByIdCall(Integer reportId, Integer page, Integer pageSize, final ApiCallback _callback) throws ApiException {
@@ -192,6 +199,10 @@ public class ReportApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (page != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
@@ -200,11 +211,8 @@ public class ReportApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -246,10 +254,11 @@ public class ReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Report content by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ReportResult getReportById(Integer reportId, Integer page, Integer pageSize) throws ApiException {
@@ -268,10 +277,11 @@ public class ReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Report content by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ReportResult> getReportByIdWithHttpInfo(Integer reportId, Integer page, Integer pageSize) throws ApiException {
@@ -292,10 +302,11 @@ public class ReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Report content by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getReportByIdAsync(Integer reportId, Integer page, Integer pageSize, final ApiCallback<ReportResult> _callback) throws ApiException {
@@ -316,10 +327,11 @@ public class ReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Report items by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getReportItemsByIdCall(Integer reportId, Integer page, Integer pageSize, final ApiCallback _callback) throws ApiException {
@@ -331,6 +343,10 @@ public class ReportApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (page != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
@@ -339,11 +355,8 @@ public class ReportApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -385,10 +398,11 @@ public class ReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Report items by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ReportItemResult getReportItemsById(Integer reportId, Integer page, Integer pageSize) throws ApiException {
@@ -407,10 +421,11 @@ public class ReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Report items by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ReportItemResult> getReportItemsByIdWithHttpInfo(Integer reportId, Integer page, Integer pageSize) throws ApiException {
@@ -431,10 +446,11 @@ public class ReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Report items by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Report not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getReportItemsByIdAsync(Integer reportId, Integer page, Integer pageSize, final ApiCallback<ReportItemResult> _callback) throws ApiException {
@@ -447,17 +463,17 @@ public class ReportApi {
     /**
      * Build call for updateReport
      * @param reportId Id of a report (required)
-     * @param simpleReportSettings  (optional)
+     * @param simpleReportSettings  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Updated report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateReportCall(Integer reportId, SimpleReportSettings simpleReportSettings, final ApiCallback _callback) throws ApiException {
@@ -472,6 +488,7 @@ public class ReportApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -498,6 +515,11 @@ public class ReportApi {
             throw new ApiException("Missing the required parameter 'reportId' when calling updateReport(Async)");
         }
         
+        // verify the required parameter 'simpleReportSettings' is set
+        if (simpleReportSettings == null) {
+            throw new ApiException("Missing the required parameter 'simpleReportSettings' when calling updateReport(Async)");
+        }
+        
 
         okhttp3.Call localVarCall = updateReportCall(reportId, simpleReportSettings, _callback);
         return localVarCall;
@@ -508,16 +530,16 @@ public class ReportApi {
      * Update report settings
      * 
      * @param reportId Id of a report (required)
-     * @param simpleReportSettings  (optional)
+     * @param simpleReportSettings  (required)
      * @return SimpleReportSettings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Updated report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public SimpleReportSettings updateReport(Integer reportId, SimpleReportSettings simpleReportSettings) throws ApiException {
@@ -529,16 +551,16 @@ public class ReportApi {
      * Update report settings
      * 
      * @param reportId Id of a report (required)
-     * @param simpleReportSettings  (optional)
+     * @param simpleReportSettings  (required)
      * @return ApiResponse&lt;SimpleReportSettings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Updated report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<SimpleReportSettings> updateReportWithHttpInfo(Integer reportId, SimpleReportSettings simpleReportSettings) throws ApiException {
@@ -551,17 +573,17 @@ public class ReportApi {
      * Update report settings (asynchronously)
      * 
      * @param reportId Id of a report (required)
-     * @param simpleReportSettings  (optional)
+     * @param simpleReportSettings  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Updated report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateReportAsync(Integer reportId, SimpleReportSettings simpleReportSettings, final ApiCallback<SimpleReportSettings> _callback) throws ApiException {

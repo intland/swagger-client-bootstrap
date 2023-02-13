@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * TrackerItemSearchRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerItemSearchRequest {
   public static final String SERIALIZED_NAME_BASELINE_ID = "baselineId";
   @SerializedName(SERIALIZED_NAME_BASELINE_ID)
@@ -120,6 +120,7 @@ public class TrackerItemSearchRequest {
    * CbQL query for the requested items
    * @return queryString
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "priority='Normal'", required = true, value = "CbQL query for the requested items")
 
   public String getQueryString() {
@@ -133,7 +134,7 @@ public class TrackerItemSearchRequest {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -152,7 +153,6 @@ public class TrackerItemSearchRequest {
     return Objects.hash(baselineId, page, pageSize, queryString);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -169,7 +169,7 @@ public class TrackerItemSearchRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

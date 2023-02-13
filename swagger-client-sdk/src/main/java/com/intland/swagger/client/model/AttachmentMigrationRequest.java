@@ -15,10 +15,9 @@ package com.intland.swagger.client.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-
-import org.joda.time.DateTime;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -33,27 +32,15 @@ import io.swagger.annotations.ApiModelProperty;
  * Request for migrating attachments
  */
 @ApiModel(description = "Request for migrating attachments")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class AttachmentMigrationRequest {
-  public static final String SERIALIZED_NAME_TARGET_ITEM = "targetItem";
-  @SerializedName(SERIALIZED_NAME_TARGET_ITEM)
-  private TrackerItemReference targetItem;
-
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private DateTime createdAt;
+  private Date createdAt;
 
   public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
   @SerializedName(SERIALIZED_NAME_CREATED_BY)
   private UserReference createdBy;
-
-  public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
-  private DateTime modifiedAt;
-
-  public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
-  private UserReference modifiedBy;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -112,6 +99,10 @@ public class AttachmentMigrationRequest {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION_FORMAT)
   private DescriptionFormatEnum descriptionFormat;
 
+  public static final String SERIALIZED_NAME_FILES = "files";
+  @SerializedName(SERIALIZED_NAME_FILES)
+  private List<RemoteMigrationFile> files = null;
+
   /**
    * Type of action made on the source files.
    */
@@ -163,35 +154,20 @@ public class AttachmentMigrationRequest {
   @SerializedName(SERIALIZED_NAME_MIGRATION_ACTION)
   private MigrationActionEnum migrationAction;
 
-  public static final String SERIALIZED_NAME_FILES = "files";
-  @SerializedName(SERIALIZED_NAME_FILES)
-  private List<RemoteMigrationFile> files = null;
+  public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
+  private Date modifiedAt;
+
+  public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
+  private UserReference modifiedBy;
+
+  public static final String SERIALIZED_NAME_TARGET_ITEM = "targetItem";
+  @SerializedName(SERIALIZED_NAME_TARGET_ITEM)
+  private TrackerItemReference targetItem;
 
 
-  public AttachmentMigrationRequest targetItem(TrackerItemReference targetItem) {
-    
-    this.targetItem = targetItem;
-    return this;
-  }
-
-   /**
-   * Get targetItem
-   * @return targetItem
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public TrackerItemReference getTargetItem() {
-    return targetItem;
-  }
-
-
-  public void setTargetItem(TrackerItemReference targetItem) {
-    this.targetItem = targetItem;
-  }
-
-
-  public AttachmentMigrationRequest createdAt(DateTime createdAt) {
+  public AttachmentMigrationRequest createdAt(Date createdAt) {
     
     this.createdAt = createdAt;
     return this;
@@ -204,12 +180,12 @@ public class AttachmentMigrationRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was created")
 
-  public DateTime getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
 
-  public void setCreatedAt(DateTime createdAt) {
+  public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -234,52 +210,6 @@ public class AttachmentMigrationRequest {
 
   public void setCreatedBy(UserReference createdBy) {
     this.createdBy = createdBy;
-  }
-
-
-  public AttachmentMigrationRequest modifiedAt(DateTime modifiedAt) {
-    
-    this.modifiedAt = modifiedAt;
-    return this;
-  }
-
-   /**
-   * The date when the entity was modified
-   * @return modifiedAt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The date when the entity was modified")
-
-  public DateTime getModifiedAt() {
-    return modifiedAt;
-  }
-
-
-  public void setModifiedAt(DateTime modifiedAt) {
-    this.modifiedAt = modifiedAt;
-  }
-
-
-  public AttachmentMigrationRequest modifiedBy(UserReference modifiedBy) {
-    
-    this.modifiedBy = modifiedBy;
-    return this;
-  }
-
-   /**
-   * Get modifiedBy
-   * @return modifiedBy
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public UserReference getModifiedBy() {
-    return modifiedBy;
-  }
-
-
-  public void setModifiedBy(UserReference modifiedBy) {
-    this.modifiedBy = modifiedBy;
   }
 
 
@@ -329,29 +259,6 @@ public class AttachmentMigrationRequest {
   }
 
 
-  public AttachmentMigrationRequest migrationAction(MigrationActionEnum migrationAction) {
-    
-    this.migrationAction = migrationAction;
-    return this;
-  }
-
-   /**
-   * Type of action made on the source files.
-   * @return migrationAction
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of action made on the source files.")
-
-  public MigrationActionEnum getMigrationAction() {
-    return migrationAction;
-  }
-
-
-  public void setMigrationAction(MigrationActionEnum migrationAction) {
-    this.migrationAction = migrationAction;
-  }
-
-
   public AttachmentMigrationRequest files(List<RemoteMigrationFile> files) {
     
     this.files = files;
@@ -383,8 +290,100 @@ public class AttachmentMigrationRequest {
   }
 
 
+  public AttachmentMigrationRequest migrationAction(MigrationActionEnum migrationAction) {
+    
+    this.migrationAction = migrationAction;
+    return this;
+  }
+
+   /**
+   * Type of action made on the source files.
+   * @return migrationAction
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Type of action made on the source files.")
+
+  public MigrationActionEnum getMigrationAction() {
+    return migrationAction;
+  }
+
+
+  public void setMigrationAction(MigrationActionEnum migrationAction) {
+    this.migrationAction = migrationAction;
+  }
+
+
+  public AttachmentMigrationRequest modifiedAt(Date modifiedAt) {
+    
+    this.modifiedAt = modifiedAt;
+    return this;
+  }
+
+   /**
+   * The date when the entity was modified
+   * @return modifiedAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date when the entity was modified")
+
+  public Date getModifiedAt() {
+    return modifiedAt;
+  }
+
+
+  public void setModifiedAt(Date modifiedAt) {
+    this.modifiedAt = modifiedAt;
+  }
+
+
+  public AttachmentMigrationRequest modifiedBy(UserReference modifiedBy) {
+    
+    this.modifiedBy = modifiedBy;
+    return this;
+  }
+
+   /**
+   * Get modifiedBy
+   * @return modifiedBy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public UserReference getModifiedBy() {
+    return modifiedBy;
+  }
+
+
+  public void setModifiedBy(UserReference modifiedBy) {
+    this.modifiedBy = modifiedBy;
+  }
+
+
+  public AttachmentMigrationRequest targetItem(TrackerItemReference targetItem) {
+    
+    this.targetItem = targetItem;
+    return this;
+  }
+
+   /**
+   * Get targetItem
+   * @return targetItem
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public TrackerItemReference getTargetItem() {
+    return targetItem;
+  }
+
+
+  public void setTargetItem(TrackerItemReference targetItem) {
+    this.targetItem = targetItem;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -392,36 +391,35 @@ public class AttachmentMigrationRequest {
       return false;
     }
     AttachmentMigrationRequest attachmentMigrationRequest = (AttachmentMigrationRequest) o;
-    return Objects.equals(this.targetItem, attachmentMigrationRequest.targetItem) &&
-        Objects.equals(this.createdAt, attachmentMigrationRequest.createdAt) &&
+    return Objects.equals(this.createdAt, attachmentMigrationRequest.createdAt) &&
         Objects.equals(this.createdBy, attachmentMigrationRequest.createdBy) &&
-        Objects.equals(this.modifiedAt, attachmentMigrationRequest.modifiedAt) &&
-        Objects.equals(this.modifiedBy, attachmentMigrationRequest.modifiedBy) &&
         Objects.equals(this.description, attachmentMigrationRequest.description) &&
         Objects.equals(this.descriptionFormat, attachmentMigrationRequest.descriptionFormat) &&
+        Objects.equals(this.files, attachmentMigrationRequest.files) &&
         Objects.equals(this.migrationAction, attachmentMigrationRequest.migrationAction) &&
-        Objects.equals(this.files, attachmentMigrationRequest.files);
+        Objects.equals(this.modifiedAt, attachmentMigrationRequest.modifiedAt) &&
+        Objects.equals(this.modifiedBy, attachmentMigrationRequest.modifiedBy) &&
+        Objects.equals(this.targetItem, attachmentMigrationRequest.targetItem);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(targetItem, createdAt, createdBy, modifiedAt, modifiedBy, description, descriptionFormat, migrationAction, files);
+    return Objects.hash(createdAt, createdBy, description, descriptionFormat, files, migrationAction, modifiedAt, modifiedBy, targetItem);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AttachmentMigrationRequest {\n");
-    sb.append("    targetItem: ").append(toIndentedString(targetItem)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
-    sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    descriptionFormat: ").append(toIndentedString(descriptionFormat)).append("\n");
-    sb.append("    migrationAction: ").append(toIndentedString(migrationAction)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
+    sb.append("    migrationAction: ").append(toIndentedString(migrationAction)).append("\n");
+    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
+    sb.append("    targetItem: ").append(toIndentedString(targetItem)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -430,7 +428,7 @@ public class AttachmentMigrationRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -24,8 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Reference to an item
  */
 @ApiModel(description = "Reference to an item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerItemChange {
   public static final String SERIALIZED_NAME_FIELD = "field";
   @SerializedName(SERIALIZED_NAME_FIELD)
@@ -35,13 +34,13 @@ public class TrackerItemChange {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
-  @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  private AbstractFieldValue oldValue;
-
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
   private AbstractFieldValue newValue;
+
+  public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
+  @SerializedName(SERIALIZED_NAME_OLD_VALUE)
+  private AbstractFieldValue oldValue;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -97,29 +96,6 @@ public class TrackerItemChange {
   }
 
 
-  public TrackerItemChange oldValue(AbstractFieldValue oldValue) {
-    
-    this.oldValue = oldValue;
-    return this;
-  }
-
-   /**
-   * Get oldValue
-   * @return oldValue
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public AbstractFieldValue getOldValue() {
-    return oldValue;
-  }
-
-
-  public void setOldValue(AbstractFieldValue oldValue) {
-    this.oldValue = oldValue;
-  }
-
-
   public TrackerItemChange newValue(AbstractFieldValue newValue) {
     
     this.newValue = newValue;
@@ -140,6 +116,29 @@ public class TrackerItemChange {
 
   public void setNewValue(AbstractFieldValue newValue) {
     this.newValue = newValue;
+  }
+
+
+  public TrackerItemChange oldValue(AbstractFieldValue oldValue) {
+    
+    this.oldValue = oldValue;
+    return this;
+  }
+
+   /**
+   * Get oldValue
+   * @return oldValue
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public AbstractFieldValue getOldValue() {
+    return oldValue;
+  }
+
+
+  public void setOldValue(AbstractFieldValue oldValue) {
+    this.oldValue = oldValue;
   }
 
 
@@ -167,7 +166,7 @@ public class TrackerItemChange {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -177,16 +176,15 @@ public class TrackerItemChange {
     TrackerItemChange trackerItemChange = (TrackerItemChange) o;
     return Objects.equals(this.field, trackerItemChange.field) &&
         Objects.equals(this.name, trackerItemChange.name) &&
-        Objects.equals(this.oldValue, trackerItemChange.oldValue) &&
         Objects.equals(this.newValue, trackerItemChange.newValue) &&
+        Objects.equals(this.oldValue, trackerItemChange.oldValue) &&
         Objects.equals(this.type, trackerItemChange.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, name, oldValue, newValue, type);
+    return Objects.hash(field, name, newValue, oldValue, type);
   }
-
 
   @Override
   public String toString() {
@@ -194,8 +192,8 @@ public class TrackerItemChange {
     sb.append("class TrackerItemChange {\n");
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    oldValue: ").append(toIndentedString(oldValue)).append("\n");
     sb.append("    newValue: ").append(toIndentedString(newValue)).append("\n");
+    sb.append("    oldValue: ").append(toIndentedString(oldValue)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -205,7 +203,7 @@ public class TrackerItemChange {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

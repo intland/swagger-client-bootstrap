@@ -26,12 +26,8 @@ import io.swagger.annotations.ApiModelProperty;
  * Report data model
  */
 @ApiModel(description = "Report data model")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ReportResult {
-  public static final String SERIALIZED_NAME_REPORT = "report";
-  @SerializedName(SERIALIZED_NAME_REPORT)
-  private ReportReference report;
-
   public static final String SERIALIZED_NAME_CB_Q_L = "cbQL";
   @SerializedName(SERIALIZED_NAME_CB_Q_L)
   private String cbQL;
@@ -40,40 +36,21 @@ public class ReportResult {
   @SerializedName(SERIALIZED_NAME_COLUMNS)
   private List<ReportColumn> columns = null;
 
-  public static final String SERIALIZED_NAME_PAGING_INFORMATION = "pagingInformation";
-  @SerializedName(SERIALIZED_NAME_PAGING_INFORMATION)
-  private ReportPagingInformation pagingInformation;
-
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   private ReportGroup data;
 
+  public static final String SERIALIZED_NAME_PAGING_INFORMATION = "pagingInformation";
+  @SerializedName(SERIALIZED_NAME_PAGING_INFORMATION)
+  private ReportPagingInformation pagingInformation;
+
+  public static final String SERIALIZED_NAME_REPORT = "report";
+  @SerializedName(SERIALIZED_NAME_REPORT)
+  private ReportReference report;
+
   public static final String SERIALIZED_NAME_SHOW_ALL_CHILDREN = "showAllChildren";
   @SerializedName(SERIALIZED_NAME_SHOW_ALL_CHILDREN)
   private Boolean showAllChildren;
-
-
-  public ReportResult report(ReportReference report) {
-    
-    this.report = report;
-    return this;
-  }
-
-   /**
-   * Get report
-   * @return report
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ReportReference getReport() {
-    return report;
-  }
-
-
-  public void setReport(ReportReference report) {
-    this.report = report;
-  }
 
 
   public ReportResult cbQL(String cbQL) {
@@ -130,6 +107,29 @@ public class ReportResult {
   }
 
 
+  public ReportResult data(ReportGroup data) {
+    
+    this.data = data;
+    return this;
+  }
+
+   /**
+   * Get data
+   * @return data
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ReportGroup getData() {
+    return data;
+  }
+
+
+  public void setData(ReportGroup data) {
+    this.data = data;
+  }
+
+
   public ReportResult pagingInformation(ReportPagingInformation pagingInformation) {
     
     this.pagingInformation = pagingInformation;
@@ -153,26 +153,26 @@ public class ReportResult {
   }
 
 
-  public ReportResult data(ReportGroup data) {
+  public ReportResult report(ReportReference report) {
     
-    this.data = data;
+    this.report = report;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * Get report
+   * @return report
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ReportGroup getData() {
-    return data;
+  public ReportReference getReport() {
+    return report;
   }
 
 
-  public void setData(ReportGroup data) {
-    this.data = data;
+  public void setReport(ReportReference report) {
+    this.report = report;
   }
 
 
@@ -200,7 +200,7 @@ public class ReportResult {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -208,29 +208,28 @@ public class ReportResult {
       return false;
     }
     ReportResult reportResult = (ReportResult) o;
-    return Objects.equals(this.report, reportResult.report) &&
-        Objects.equals(this.cbQL, reportResult.cbQL) &&
+    return Objects.equals(this.cbQL, reportResult.cbQL) &&
         Objects.equals(this.columns, reportResult.columns) &&
-        Objects.equals(this.pagingInformation, reportResult.pagingInformation) &&
         Objects.equals(this.data, reportResult.data) &&
+        Objects.equals(this.pagingInformation, reportResult.pagingInformation) &&
+        Objects.equals(this.report, reportResult.report) &&
         Objects.equals(this.showAllChildren, reportResult.showAllChildren);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(report, cbQL, columns, pagingInformation, data, showAllChildren);
+    return Objects.hash(cbQL, columns, data, pagingInformation, report, showAllChildren);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReportResult {\n");
-    sb.append("    report: ").append(toIndentedString(report)).append("\n");
     sb.append("    cbQL: ").append(toIndentedString(cbQL)).append("\n");
     sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
-    sb.append("    pagingInformation: ").append(toIndentedString(pagingInformation)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    pagingInformation: ").append(toIndentedString(pagingInformation)).append("\n");
+    sb.append("    report: ").append(toIndentedString(report)).append("\n");
     sb.append("    showAllChildren: ").append(toIndentedString(showAllChildren)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -240,7 +239,7 @@ public class ReportResult {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

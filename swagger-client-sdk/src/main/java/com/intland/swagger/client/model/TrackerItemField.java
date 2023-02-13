@@ -24,19 +24,19 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * TrackerItemField
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerItemField {
   public static final String SERIALIZED_NAME_EDITABLE_FIELDS = "editableFields";
   @SerializedName(SERIALIZED_NAME_EDITABLE_FIELDS)
   private List<AbstractFieldValue> editableFields = null;
 
-  public static final String SERIALIZED_NAME_READ_ONLY_FIELDS = "readOnlyFields";
-  @SerializedName(SERIALIZED_NAME_READ_ONLY_FIELDS)
-  private List<AbstractFieldValue> readOnlyFields = null;
-
   public static final String SERIALIZED_NAME_EDITABLE_TABLE_FIELDS = "editableTableFields";
   @SerializedName(SERIALIZED_NAME_EDITABLE_TABLE_FIELDS)
   private List<TableFieldValue> editableTableFields = null;
+
+  public static final String SERIALIZED_NAME_READ_ONLY_FIELDS = "readOnlyFields";
+  @SerializedName(SERIALIZED_NAME_READ_ONLY_FIELDS)
+  private List<AbstractFieldValue> readOnlyFields = null;
 
   public static final String SERIALIZED_NAME_READ_ONLY_TABLE_FIELDS = "readOnlyTableFields";
   @SerializedName(SERIALIZED_NAME_READ_ONLY_TABLE_FIELDS)
@@ -74,37 +74,6 @@ public class TrackerItemField {
   }
 
 
-  public TrackerItemField readOnlyFields(List<AbstractFieldValue> readOnlyFields) {
-    
-    this.readOnlyFields = readOnlyFields;
-    return this;
-  }
-
-  public TrackerItemField addReadOnlyFieldsItem(AbstractFieldValue readOnlyFieldsItem) {
-    if (this.readOnlyFields == null) {
-      this.readOnlyFields = new ArrayList<AbstractFieldValue>();
-    }
-    this.readOnlyFields.add(readOnlyFieldsItem);
-    return this;
-  }
-
-   /**
-   * Fields which are not writable in the current state
-   * @return readOnlyFields
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Fields which are not writable in the current state")
-
-  public List<AbstractFieldValue> getReadOnlyFields() {
-    return readOnlyFields;
-  }
-
-
-  public void setReadOnlyFields(List<AbstractFieldValue> readOnlyFields) {
-    this.readOnlyFields = readOnlyFields;
-  }
-
-
   public TrackerItemField editableTableFields(List<TableFieldValue> editableTableFields) {
     
     this.editableTableFields = editableTableFields;
@@ -133,6 +102,37 @@ public class TrackerItemField {
 
   public void setEditableTableFields(List<TableFieldValue> editableTableFields) {
     this.editableTableFields = editableTableFields;
+  }
+
+
+  public TrackerItemField readOnlyFields(List<AbstractFieldValue> readOnlyFields) {
+    
+    this.readOnlyFields = readOnlyFields;
+    return this;
+  }
+
+  public TrackerItemField addReadOnlyFieldsItem(AbstractFieldValue readOnlyFieldsItem) {
+    if (this.readOnlyFields == null) {
+      this.readOnlyFields = new ArrayList<AbstractFieldValue>();
+    }
+    this.readOnlyFields.add(readOnlyFieldsItem);
+    return this;
+  }
+
+   /**
+   * Fields which are not writable in the current state
+   * @return readOnlyFields
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Fields which are not writable in the current state")
+
+  public List<AbstractFieldValue> getReadOnlyFields() {
+    return readOnlyFields;
+  }
+
+
+  public void setReadOnlyFields(List<AbstractFieldValue> readOnlyFields) {
+    this.readOnlyFields = readOnlyFields;
   }
 
 
@@ -168,7 +168,7 @@ public class TrackerItemField {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -177,24 +177,23 @@ public class TrackerItemField {
     }
     TrackerItemField trackerItemField = (TrackerItemField) o;
     return Objects.equals(this.editableFields, trackerItemField.editableFields) &&
-        Objects.equals(this.readOnlyFields, trackerItemField.readOnlyFields) &&
         Objects.equals(this.editableTableFields, trackerItemField.editableTableFields) &&
+        Objects.equals(this.readOnlyFields, trackerItemField.readOnlyFields) &&
         Objects.equals(this.readOnlyTableFields, trackerItemField.readOnlyTableFields);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(editableFields, readOnlyFields, editableTableFields, readOnlyTableFields);
+    return Objects.hash(editableFields, editableTableFields, readOnlyFields, readOnlyTableFields);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TrackerItemField {\n");
     sb.append("    editableFields: ").append(toIndentedString(editableFields)).append("\n");
-    sb.append("    readOnlyFields: ").append(toIndentedString(readOnlyFields)).append("\n");
     sb.append("    editableTableFields: ").append(toIndentedString(editableTableFields)).append("\n");
+    sb.append("    readOnlyFields: ").append(toIndentedString(readOnlyFields)).append("\n");
     sb.append("    readOnlyTableFields: ").append(toIndentedString(readOnlyTableFields)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -204,7 +203,7 @@ public class TrackerItemField {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

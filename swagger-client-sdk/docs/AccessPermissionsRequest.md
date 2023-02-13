@@ -3,6 +3,7 @@
 # AccessPermissionsRequest
 
 Request model to provide permissions.
+
 ## Properties
 
 Name | Type | Description | Notes

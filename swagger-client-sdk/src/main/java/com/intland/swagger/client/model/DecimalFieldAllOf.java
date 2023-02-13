@@ -22,38 +22,15 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * DecimalFieldAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class DecimalFieldAllOf {
-  public static final String SERIALIZED_NAME_MIN = "min";
-  @SerializedName(SERIALIZED_NAME_MIN)
-  private Double min;
-
   public static final String SERIALIZED_NAME_MAX = "max";
   @SerializedName(SERIALIZED_NAME_MAX)
   private Double max;
 
-
-  public DecimalFieldAllOf min(Double min) {
-    
-    this.min = min;
-    return this;
-  }
-
-   /**
-   * Minimum value of a field
-   * @return min
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Minimum value of a field")
-
-  public Double getMin() {
-    return min;
-  }
-
-
-  public void setMin(Double min) {
-    this.min = min;
-  }
+  public static final String SERIALIZED_NAME_MIN = "min";
+  @SerializedName(SERIALIZED_NAME_MIN)
+  private Double min;
 
 
   public DecimalFieldAllOf max(Double max) {
@@ -79,8 +56,31 @@ public class DecimalFieldAllOf {
   }
 
 
+  public DecimalFieldAllOf min(Double min) {
+    
+    this.min = min;
+    return this;
+  }
+
+   /**
+   * Minimum value of a field
+   * @return min
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Minimum value of a field")
+
+  public Double getMin() {
+    return min;
+  }
+
+
+  public void setMin(Double min) {
+    this.min = min;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -88,22 +88,21 @@ public class DecimalFieldAllOf {
       return false;
     }
     DecimalFieldAllOf decimalFieldAllOf = (DecimalFieldAllOf) o;
-    return Objects.equals(this.min, decimalFieldAllOf.min) &&
-        Objects.equals(this.max, decimalFieldAllOf.max);
+    return Objects.equals(this.max, decimalFieldAllOf.max) &&
+        Objects.equals(this.min, decimalFieldAllOf.min);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(min, max);
+    return Objects.hash(max, min);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DecimalFieldAllOf {\n");
-    sb.append("    min: ").append(toIndentedString(min)).append("\n");
     sb.append("    max: ").append(toIndentedString(max)).append("\n");
+    sb.append("    min: ").append(toIndentedString(min)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -112,7 +111,7 @@ public class DecimalFieldAllOf {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

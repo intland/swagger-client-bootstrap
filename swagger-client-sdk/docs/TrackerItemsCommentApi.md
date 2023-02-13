@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="commentOnTrackerItem"></a>
 # **commentOnTrackerItem**
-> Comment commentOnTrackerItem(itemId, comment, commentFormat, attachments)
+> Comment commentOnTrackerItem(itemId, comment, attachments, commentFormat)
 
 Comment on a tracker item
 
@@ -52,10 +52,10 @@ public class Example {
     TrackerItemsCommentApi apiInstance = new TrackerItemsCommentApi(defaultClient);
     Integer itemId = 56; // Integer | 
     String comment = "comment_example"; // String | Text of a comment
-    String commentFormat = "PlainText"; // String | Format of a comment
     File attachments = new File("/path/to/file"); // File | Attachments of a comment
+    String commentFormat = "PlainText"; // String | Format of a comment
     try {
-      Comment result = apiInstance.commentOnTrackerItem(itemId, comment, commentFormat, attachments);
+      Comment result = apiInstance.commentOnTrackerItem(itemId, comment, attachments, commentFormat);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TrackerItemsCommentApi#commentOnTrackerItem");
@@ -74,8 +74,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **Integer**|  |
  **comment** | **String**| Text of a comment |
- **commentFormat** | **String**| Format of a comment | [optional] [default to PlainText] [enum: PlainText, Html, Wiki]
  **attachments** | **File**| Attachments of a comment | [optional]
+ **commentFormat** | **String**| Format of a comment | [optional] [default to PlainText] [enum: PlainText, Html, Wiki]
 
 ### Return type
 
@@ -88,15 +88,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Comment of tracker item by id |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
+**423** | Tracker item is locked |  -  |
 **429** | Too many requests |  -  |
-**200** | Comment of tracker item by id |  -  |
 
 <a name="deleteTrackerItemComment"></a>
 # **deleteTrackerItemComment**
@@ -169,15 +171,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Comment of tracker item by id |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
+**423** | Tracker item is locked |  -  |
 **429** | Too many requests |  -  |
-**200** | Comment of tracker item by id |  -  |
 
 <a name="deleteTrackerItemComments"></a>
 # **deleteTrackerItemComments**
@@ -252,14 +256,16 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Comments deleted |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
-**200** | Comments deleted |  -  |
+**423** | Tracker item is locked |  -  |
 **429** | Too many requests |  -  |
 
 <a name="editCommentOnTrackerItem"></a>
 # **editCommentOnTrackerItem**
-> Comment editCommentOnTrackerItem(itemId, commentId, comment, commentFormat, attachments)
+> Comment editCommentOnTrackerItem(itemId, commentId, comment, attachments, commentFormat)
 
 Edit comment on a tracker item
 
@@ -297,10 +303,10 @@ public class Example {
     Integer itemId = 56; // Integer | 
     Integer commentId = 56; // Integer | 
     String comment = "comment_example"; // String | Text of a comment
-    String commentFormat = "PlainText"; // String | Format of a comment
     File attachments = new File("/path/to/file"); // File | Attachments of a comment
+    String commentFormat = "CommentFormatEnum.PLAINTEXT"; // String | Format of a comment
     try {
-      Comment result = apiInstance.editCommentOnTrackerItem(itemId, commentId, comment, commentFormat, attachments);
+      Comment result = apiInstance.editCommentOnTrackerItem(itemId, commentId, comment, attachments, commentFormat);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TrackerItemsCommentApi#editCommentOnTrackerItem");
@@ -320,8 +326,8 @@ Name | Type | Description  | Notes
  **itemId** | **Integer**|  |
  **commentId** | **Integer**|  |
  **comment** | **String**| Text of a comment |
- **commentFormat** | **String**| Format of a comment | [optional] [default to PlainText] [enum: PlainText, Html, Wiki]
  **attachments** | **File**| Attachments of a comment | [optional]
+ **commentFormat** | **String**| Format of a comment | [optional] [default to CommentFormatEnum.PLAINTEXT] [enum: PlainText, Html, Wiki]
 
 ### Return type
 
@@ -334,14 +340,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Edited comment |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
+**423** | Tracker item is locked |  -  |
 **429** | Too many requests |  -  |
 **500** | Unexpected error |  -  |
 
@@ -416,15 +424,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Comment of tracker item by id |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
 **429** | Too many requests |  -  |
-**200** | Comment of tracker item by id |  -  |
 
 <a name="getTrackerItemComments"></a>
 # **getTrackerItemComments**
@@ -495,19 +504,20 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Comments of tracker item by id |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
 **429** | Too many requests |  -  |
-**200** | Comments of tracker item by id |  -  |
 
 <a name="replyOnCommentOfTrackerItem"></a>
 # **replyOnCommentOfTrackerItem**
-> Comment replyOnCommentOfTrackerItem(itemId, commentId, comment, commentFormat, attachments)
+> Comment replyOnCommentOfTrackerItem(itemId, commentId, comment, attachments, commentFormat)
 
 Reply on a comment of a tracker item
 
@@ -545,10 +555,10 @@ public class Example {
     Integer itemId = 56; // Integer | 
     Integer commentId = 56; // Integer | 
     String comment = "comment_example"; // String | Text of a comment
-    String commentFormat = "PlainText"; // String | Format of a comment
     File attachments = new File("/path/to/file"); // File | Attachments of a comment
+    String commentFormat = "CommentFormatEnum.PLAINTEXT"; // String | Format of a comment
     try {
-      Comment result = apiInstance.replyOnCommentOfTrackerItem(itemId, commentId, comment, commentFormat, attachments);
+      Comment result = apiInstance.replyOnCommentOfTrackerItem(itemId, commentId, comment, attachments, commentFormat);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TrackerItemsCommentApi#replyOnCommentOfTrackerItem");
@@ -568,8 +578,8 @@ Name | Type | Description  | Notes
  **itemId** | **Integer**|  |
  **commentId** | **Integer**|  |
  **comment** | **String**| Text of a comment |
- **commentFormat** | **String**| Format of a comment | [optional] [default to PlainText] [enum: PlainText, Html, Wiki]
  **attachments** | **File**| Attachments of a comment | [optional]
+ **commentFormat** | **String**| Format of a comment | [optional] [default to CommentFormatEnum.PLAINTEXT] [enum: PlainText, Html, Wiki]
 
 ### Return type
 
@@ -582,13 +592,15 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Comment of tracker item by id |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
+**423** | Tracker item is locked |  -  |
 **429** | Too many requests |  -  |
-**200** | Comment of tracker item by id |  -  |
 

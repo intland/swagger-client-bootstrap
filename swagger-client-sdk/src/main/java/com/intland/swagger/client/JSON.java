@@ -23,12 +23,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
-import org.joda.time.format.DateTimeFormatter;
-import org.joda.time.format.DateTimeFormatterBuilder;
-import org.joda.time.format.ISODateTimeFormat;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -60,6 +54,7 @@ import com.intland.swagger.client.model.DateField;
 import com.intland.swagger.client.model.DateFieldValue;
 import com.intland.swagger.client.model.DecimalField;
 import com.intland.swagger.client.model.DecimalFieldValue;
+import com.intland.swagger.client.model.DefaultBackgroundJobStatusInfo;
 import com.intland.swagger.client.model.DependencyEntityReference;
 import com.intland.swagger.client.model.DependencyFinderJobStatusInfo;
 import com.intland.swagger.client.model.DownstreamTrackerItemReference;
@@ -73,7 +68,6 @@ import com.intland.swagger.client.model.LanguageField;
 import com.intland.swagger.client.model.LanguageFieldValue;
 import com.intland.swagger.client.model.MemberField;
 import com.intland.swagger.client.model.NotSupportedFieldValue;
-import com.intland.swagger.client.model.NotSupportedJobStatusInfo;
 import com.intland.swagger.client.model.OptionChoiceField;
 import com.intland.swagger.client.model.OutgoingTrackerItemAssociation;
 import com.intland.swagger.client.model.OutlineItem;
@@ -92,6 +86,7 @@ import com.intland.swagger.client.model.RepositoryChoiceField;
 import com.intland.swagger.client.model.RepositoryReference;
 import com.intland.swagger.client.model.ReviewMemberReferenceField;
 import com.intland.swagger.client.model.RoleReference;
+import com.intland.swagger.client.model.SharedFieldReference;
 import com.intland.swagger.client.model.TableField;
 import com.intland.swagger.client.model.TableFieldValue;
 import com.intland.swagger.client.model.TextField;
@@ -116,6 +111,7 @@ import com.intland.swagger.client.model.UserReference;
 import com.intland.swagger.client.model.WikiPageReference;
 import com.intland.swagger.client.model.WikiTextField;
 import com.intland.swagger.client.model.WikiTextFieldValue;
+import com.intland.swagger.client.model.WorkingSetReference;
 
 import io.gsonfire.GsonFireBuilder;
 import io.gsonfire.TypeSelector;
@@ -126,26 +122,25 @@ public class JSON {
     private boolean isLenientOnJson = false;
     private DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();
     private SqlDateTypeAdapter sqlDateTypeAdapter = new SqlDateTypeAdapter();
-    private DateTimeTypeAdapter dateTimeTypeAdapter = new DateTimeTypeAdapter();
-    private LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
     private ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();
 
+    @SuppressWarnings("unchecked")
     public static GsonBuilder createGson() {
         GsonFireBuilder fireBuilder = new GsonFireBuilder()
-                .registerTypeSelector(AbstractBackgroundJobStatusInfo.class, new TypeSelector() {
+                .registerTypeSelector(AbstractBackgroundJobStatusInfo.class, new TypeSelector<AbstractBackgroundJobStatusInfo>() {
                     @Override
-                    public Class getClassForElement(JsonElement readElement) {
+                    public Class<? extends AbstractBackgroundJobStatusInfo> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("DefaultBackgroundJobStatusInfo", DefaultBackgroundJobStatusInfo.class);
                         classByDiscriminatorValue.put("DependencyFinderJobStatusInfo", DependencyFinderJobStatusInfo.class);
-                        classByDiscriminatorValue.put("NotSupportedJobStatusInfo", NotSupportedJobStatusInfo.class);
                         classByDiscriminatorValue.put("AbstractBackgroundJobStatusInfo", AbstractBackgroundJobStatusInfo.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(AbstractField.class, new TypeSelector() {
+                .registerTypeSelector(AbstractField.class, new TypeSelector<AbstractField>() {
                     @Override
-                    public Class getClassForElement(JsonElement readElement) {
+                    public Class<? extends AbstractField> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
                         classByDiscriminatorValue.put("ArtifactReferenceField", ArtifactReferenceField.class);
                         classByDiscriminatorValue.put("BoolField", BoolField.class);
@@ -174,9 +169,9 @@ public class JSON {
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(AbstractFieldValue.class, new TypeSelector() {
+                .registerTypeSelector(AbstractFieldValue.class, new TypeSelector<AbstractFieldValue>() {
                     @Override
-                    public Class getClassForElement(JsonElement readElement) {
+                    public Class<? extends AbstractFieldValue> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
                         classByDiscriminatorValue.put("BoolFieldValue", BoolFieldValue.class);
                         classByDiscriminatorValue.put("ChoiceFieldValue", ChoiceFieldValue.class);
@@ -198,9 +193,9 @@ public class JSON {
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(AbstractOutline.class, new TypeSelector() {
+                .registerTypeSelector(AbstractOutline.class, new TypeSelector<AbstractOutline>() {
                     @Override
-                    public Class getClassForElement(JsonElement readElement) {
+                    public Class<? extends AbstractOutline> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
                         classByDiscriminatorValue.put("OutlineItem", OutlineItem.class);
                         classByDiscriminatorValue.put("OutlineWiki", OutlineWiki.class);
@@ -209,9 +204,9 @@ public class JSON {
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(AbstractReference.class, new TypeSelector() {
+                .registerTypeSelector(AbstractReference.class, new TypeSelector<AbstractReference>() {
                     @Override
-                    public Class getClassForElement(JsonElement readElement) {
+                    public Class<? extends AbstractReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
                         classByDiscriminatorValue.put("ArtifactReference", ArtifactReference.class);
                         classByDiscriminatorValue.put("AssociationTypeReference", AssociationTypeReference.class);
@@ -225,6 +220,7 @@ public class JSON {
                         classByDiscriminatorValue.put("ReportReference", ReportReference.class);
                         classByDiscriminatorValue.put("RepositoryReference", RepositoryReference.class);
                         classByDiscriminatorValue.put("RoleReference", RoleReference.class);
+                        classByDiscriminatorValue.put("SharedFieldReference", SharedFieldReference.class);
                         classByDiscriminatorValue.put("TrackerBaselineReference", TrackerBaselineReference.class);
                         classByDiscriminatorValue.put("TrackerItemReference", TrackerItemReference.class);
                         classByDiscriminatorValue.put("TrackerPermissionReference", TrackerPermissionReference.class);
@@ -233,14 +229,15 @@ public class JSON {
                         classByDiscriminatorValue.put("UserGroupReference", UserGroupReference.class);
                         classByDiscriminatorValue.put("UserReference", UserReference.class);
                         classByDiscriminatorValue.put("WikiPageReference", WikiPageReference.class);
+                        classByDiscriminatorValue.put("WorkingSetReference", WorkingSetReference.class);
                         classByDiscriminatorValue.put("AbstractReference", AbstractReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(AbstractTrackerItemReference.class, new TypeSelector() {
+                .registerTypeSelector(AbstractTrackerItemReference.class, new TypeSelector<AbstractTrackerItemReference>() {
                     @Override
-                    public Class getClassForElement(JsonElement readElement) {
+                    public Class<? extends AbstractTrackerItemReference> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
                         classByDiscriminatorValue.put("DownstreamTrackerItemReference", DownstreamTrackerItemReference.class);
                         classByDiscriminatorValue.put("IncomingTrackerItemAssociation", IncomingTrackerItemAssociation.class);
@@ -251,9 +248,369 @@ public class JSON {
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(ReportGroup.class, new TypeSelector() {
+                .registerTypeSelector(ArtifactReference.class, new TypeSelector<ArtifactReference>() {
                     @Override
-                    public Class getClassForElement(JsonElement readElement) {
+                    public Class<? extends ArtifactReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ArtifactReference", ArtifactReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(ArtifactReferenceField.class, new TypeSelector<ArtifactReferenceField>() {
+                    @Override
+                    public Class<? extends ArtifactReferenceField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ArtifactReferenceField", ArtifactReferenceField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(AssociationTypeReference.class, new TypeSelector<AssociationTypeReference>() {
+                    @Override
+                    public Class<? extends AssociationTypeReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("AssociationTypeReference", AssociationTypeReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(AttachmentReference.class, new TypeSelector<AttachmentReference>() {
+                    @Override
+                    public Class<? extends AttachmentReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("AttachmentReference", AttachmentReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(BoolField.class, new TypeSelector<BoolField>() {
+                    @Override
+                    public Class<? extends BoolField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("BoolField", BoolField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(BoolFieldValue.class, new TypeSelector<BoolFieldValue>() {
+                    @Override
+                    public Class<? extends BoolFieldValue> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("BoolFieldValue", BoolFieldValue.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(ChoiceFieldValue.class, new TypeSelector<ChoiceFieldValue>() {
+                    @Override
+                    public Class<? extends ChoiceFieldValue> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ChoiceFieldValue", ChoiceFieldValue.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(ChoiceOptionReference.class, new TypeSelector<ChoiceOptionReference>() {
+                    @Override
+                    public Class<? extends ChoiceOptionReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ChoiceOptionReference", ChoiceOptionReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(ColorField.class, new TypeSelector<ColorField>() {
+                    @Override
+                    public Class<? extends ColorField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ColorField", ColorField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(ColorFieldValue.class, new TypeSelector<ColorFieldValue>() {
+                    @Override
+                    public Class<? extends ColorFieldValue> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ColorFieldValue", ColorFieldValue.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(CommentReference.class, new TypeSelector<CommentReference>() {
+                    @Override
+                    public Class<? extends CommentReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("CommentReference", CommentReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(CountryField.class, new TypeSelector<CountryField>() {
+                    @Override
+                    public Class<? extends CountryField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("CountryField", CountryField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(CountryFieldValue.class, new TypeSelector<CountryFieldValue>() {
+                    @Override
+                    public Class<? extends CountryFieldValue> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("CountryFieldValue", CountryFieldValue.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(DateField.class, new TypeSelector<DateField>() {
+                    @Override
+                    public Class<? extends DateField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("DateField", DateField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(DateFieldValue.class, new TypeSelector<DateFieldValue>() {
+                    @Override
+                    public Class<? extends DateFieldValue> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("DateFieldValue", DateFieldValue.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(DecimalField.class, new TypeSelector<DecimalField>() {
+                    @Override
+                    public Class<? extends DecimalField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("DecimalField", DecimalField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(DecimalFieldValue.class, new TypeSelector<DecimalFieldValue>() {
+                    @Override
+                    public Class<? extends DecimalFieldValue> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("DecimalFieldValue", DecimalFieldValue.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(DefaultBackgroundJobStatusInfo.class, new TypeSelector<DefaultBackgroundJobStatusInfo>() {
+                    @Override
+                    public Class<? extends DefaultBackgroundJobStatusInfo> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("DefaultBackgroundJobStatusInfo", DefaultBackgroundJobStatusInfo.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(DependencyEntityReference.class, new TypeSelector<DependencyEntityReference>() {
+                    @Override
+                    public Class<? extends DependencyEntityReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("DependencyEntityReference", DependencyEntityReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(DependencyFinderJobStatusInfo.class, new TypeSelector<DependencyFinderJobStatusInfo>() {
+                    @Override
+                    public Class<? extends DependencyFinderJobStatusInfo> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("DependencyFinderJobStatusInfo", DependencyFinderJobStatusInfo.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(DownstreamTrackerItemReference.class, new TypeSelector<DownstreamTrackerItemReference>() {
+                    @Override
+                    public Class<? extends DownstreamTrackerItemReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("DownstreamTrackerItemReference", DownstreamTrackerItemReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(DurationField.class, new TypeSelector<DurationField>() {
+                    @Override
+                    public Class<? extends DurationField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("DurationField", DurationField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(DurationFieldValue.class, new TypeSelector<DurationFieldValue>() {
+                    @Override
+                    public Class<? extends DurationFieldValue> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("DurationFieldValue", DurationFieldValue.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(FieldReference.class, new TypeSelector<FieldReference>() {
+                    @Override
+                    public Class<? extends FieldReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("FieldReference", FieldReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(IncomingTrackerItemAssociation.class, new TypeSelector<IncomingTrackerItemAssociation>() {
+                    @Override
+                    public Class<? extends IncomingTrackerItemAssociation> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("IncomingTrackerItemAssociation", IncomingTrackerItemAssociation.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(IntegerField.class, new TypeSelector<IntegerField>() {
+                    @Override
+                    public Class<? extends IntegerField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("IntegerField", IntegerField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(IntegerFieldValue.class, new TypeSelector<IntegerFieldValue>() {
+                    @Override
+                    public Class<? extends IntegerFieldValue> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("IntegerFieldValue", IntegerFieldValue.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(LanguageField.class, new TypeSelector<LanguageField>() {
+                    @Override
+                    public Class<? extends LanguageField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("LanguageField", LanguageField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(LanguageFieldValue.class, new TypeSelector<LanguageFieldValue>() {
+                    @Override
+                    public Class<? extends LanguageFieldValue> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("LanguageFieldValue", LanguageFieldValue.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(MemberField.class, new TypeSelector<MemberField>() {
+                    @Override
+                    public Class<? extends MemberField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("MemberField", MemberField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(NotSupportedFieldValue.class, new TypeSelector<NotSupportedFieldValue>() {
+                    @Override
+                    public Class<? extends NotSupportedFieldValue> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("NotSupportedFieldValue", NotSupportedFieldValue.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(OptionChoiceField.class, new TypeSelector<OptionChoiceField>() {
+                    @Override
+                    public Class<? extends OptionChoiceField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("OptionChoiceField", OptionChoiceField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(OutgoingTrackerItemAssociation.class, new TypeSelector<OutgoingTrackerItemAssociation>() {
+                    @Override
+                    public Class<? extends OutgoingTrackerItemAssociation> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("OutgoingTrackerItemAssociation", OutgoingTrackerItemAssociation.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(OutlineItem.class, new TypeSelector<OutlineItem>() {
+                    @Override
+                    public Class<? extends OutlineItem> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("OutlineItem", OutlineItem.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(OutlineWiki.class, new TypeSelector<OutlineWiki>() {
+                    @Override
+                    public Class<? extends OutlineWiki> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("OutlineWiki", OutlineWiki.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(ProjectBaselineReference.class, new TypeSelector<ProjectBaselineReference>() {
+                    @Override
+                    public Class<? extends ProjectBaselineReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ProjectBaselineReference", ProjectBaselineReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(ProjectChoiceField.class, new TypeSelector<ProjectChoiceField>() {
+                    @Override
+                    public Class<? extends ProjectChoiceField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ProjectChoiceField", ProjectChoiceField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(ProjectReference.class, new TypeSelector<ProjectReference>() {
+                    @Override
+                    public Class<? extends ProjectReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ProjectReference", ProjectReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(ReferenceField.class, new TypeSelector<ReferenceField>() {
+                    @Override
+                    public Class<? extends ReferenceField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ReferenceField", ReferenceField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(ReferredTestStepFieldValue.class, new TypeSelector<ReferredTestStepFieldValue>() {
+                    @Override
+                    public Class<? extends ReferredTestStepFieldValue> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ReferredTestStepFieldValue", ReferredTestStepFieldValue.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(ReportGroup.class, new TypeSelector<ReportGroup>() {
+                    @Override
+                    public Class<? extends ReportGroup> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
                         classByDiscriminatorValue.put("ReportGroupWithGroups", ReportGroupWithGroups.class);
                         classByDiscriminatorValue.put("ReportGroupWithReferencedRows", ReportGroupWithReferencedRows.class);
@@ -263,9 +620,153 @@ public class JSON {
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(TrackerItemChange.class, new TypeSelector() {
+                .registerTypeSelector(ReportGroupWithGroups.class, new TypeSelector<ReportGroupWithGroups>() {
                     @Override
-                    public Class getClassForElement(JsonElement readElement) {
+                    public Class<? extends ReportGroupWithGroups> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ReportGroupWithGroups", ReportGroupWithGroups.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(ReportGroupWithReferencedRows.class, new TypeSelector<ReportGroupWithReferencedRows>() {
+                    @Override
+                    public Class<? extends ReportGroupWithReferencedRows> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ReportGroupWithReferencedRows", ReportGroupWithReferencedRows.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(ReportGroupWithRows.class, new TypeSelector<ReportGroupWithRows>() {
+                    @Override
+                    public Class<? extends ReportGroupWithRows> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ReportGroupWithRows", ReportGroupWithRows.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(ReportReference.class, new TypeSelector<ReportReference>() {
+                    @Override
+                    public Class<? extends ReportReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ReportReference", ReportReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(RepositoryChoiceField.class, new TypeSelector<RepositoryChoiceField>() {
+                    @Override
+                    public Class<? extends RepositoryChoiceField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("RepositoryChoiceField", RepositoryChoiceField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(RepositoryReference.class, new TypeSelector<RepositoryReference>() {
+                    @Override
+                    public Class<? extends RepositoryReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("RepositoryReference", RepositoryReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(ReviewMemberReferenceField.class, new TypeSelector<ReviewMemberReferenceField>() {
+                    @Override
+                    public Class<? extends ReviewMemberReferenceField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ReviewMemberReferenceField", ReviewMemberReferenceField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(RoleReference.class, new TypeSelector<RoleReference>() {
+                    @Override
+                    public Class<? extends RoleReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("RoleReference", RoleReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(SharedFieldReference.class, new TypeSelector<SharedFieldReference>() {
+                    @Override
+                    public Class<? extends SharedFieldReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("SharedFieldReference", SharedFieldReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(TableField.class, new TypeSelector<TableField>() {
+                    @Override
+                    public Class<? extends TableField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("TableField", TableField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(TableFieldValue.class, new TypeSelector<TableFieldValue>() {
+                    @Override
+                    public Class<? extends TableFieldValue> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("TableFieldValue", TableFieldValue.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(TextField.class, new TypeSelector<TextField>() {
+                    @Override
+                    public Class<? extends TextField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("TextField", TextField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(TextFieldValue.class, new TypeSelector<TextFieldValue>() {
+                    @Override
+                    public Class<? extends TextFieldValue> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("TextFieldValue", TextFieldValue.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(TrackerBaselineReference.class, new TypeSelector<TrackerBaselineReference>() {
+                    @Override
+                    public Class<? extends TrackerBaselineReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("TrackerBaselineReference", TrackerBaselineReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(TrackerChoiceField.class, new TypeSelector<TrackerChoiceField>() {
+                    @Override
+                    public Class<? extends TrackerChoiceField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("TrackerChoiceField", TrackerChoiceField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(TrackerItemAttachmentRequest.class, new TypeSelector<TrackerItemAttachmentRequest>() {
+                    @Override
+                    public Class<? extends TrackerItemAttachmentRequest> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("TrackerItemAttachmentRequest", TrackerItemAttachmentRequest.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(TrackerItemChange.class, new TypeSelector<TrackerItemChange>() {
+                    @Override
+                    public Class<? extends TrackerItemChange> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
                         classByDiscriminatorValue.put("TrackerItemRowChange", TrackerItemRowChange.class);
                         classByDiscriminatorValue.put("TrackerItemChange", TrackerItemChange.class);
@@ -273,12 +774,156 @@ public class JSON {
                                 getDiscriminatorValue(readElement, "type"));
                     }
           })
-                .registerTypeSelector(TrackerItemsRequest.class, new TypeSelector() {
+                .registerTypeSelector(TrackerItemChoiceField.class, new TypeSelector<TrackerItemChoiceField>() {
                     @Override
-                    public Class getClassForElement(JsonElement readElement) {
+                    public Class<? extends TrackerItemChoiceField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("TrackerItemChoiceField", TrackerItemChoiceField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(TrackerItemReference.class, new TypeSelector<TrackerItemReference>() {
+                    @Override
+                    public Class<? extends TrackerItemReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("TrackerItemReference", TrackerItemReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(TrackerItemRowChange.class, new TypeSelector<TrackerItemRowChange>() {
+                    @Override
+                    public Class<? extends TrackerItemRowChange> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("TrackerItemRowChange", TrackerItemRowChange.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(TrackerItemsRequest.class, new TypeSelector<TrackerItemsRequest>() {
+                    @Override
+                    public Class<? extends TrackerItemsRequest> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
                         classByDiscriminatorValue.put("TrackerItemAttachmentRequest", TrackerItemAttachmentRequest.class);
                         classByDiscriminatorValue.put("TrackerItemsRequest", TrackerItemsRequest.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(TrackerPermissionReference.class, new TypeSelector<TrackerPermissionReference>() {
+                    @Override
+                    public Class<? extends TrackerPermissionReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("TrackerPermissionReference", TrackerPermissionReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(TrackerReference.class, new TypeSelector<TrackerReference>() {
+                    @Override
+                    public Class<? extends TrackerReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("TrackerReference", TrackerReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(TrackerTypeReference.class, new TypeSelector<TrackerTypeReference>() {
+                    @Override
+                    public Class<? extends TrackerTypeReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("TrackerTypeReference", TrackerTypeReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(UpstreamTrackerItemReference.class, new TypeSelector<UpstreamTrackerItemReference>() {
+                    @Override
+                    public Class<? extends UpstreamTrackerItemReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("UpstreamTrackerItemReference", UpstreamTrackerItemReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(UrlField.class, new TypeSelector<UrlField>() {
+                    @Override
+                    public Class<? extends UrlField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("UrlField", UrlField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(UrlFieldValue.class, new TypeSelector<UrlFieldValue>() {
+                    @Override
+                    public Class<? extends UrlFieldValue> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("UrlFieldValue", UrlFieldValue.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(UserChoiceField.class, new TypeSelector<UserChoiceField>() {
+                    @Override
+                    public Class<? extends UserChoiceField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("UserChoiceField", UserChoiceField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(UserGroupReference.class, new TypeSelector<UserGroupReference>() {
+                    @Override
+                    public Class<? extends UserGroupReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("UserGroupReference", UserGroupReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(UserReference.class, new TypeSelector<UserReference>() {
+                    @Override
+                    public Class<? extends UserReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("UserReference", UserReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(WikiPageReference.class, new TypeSelector<WikiPageReference>() {
+                    @Override
+                    public Class<? extends WikiPageReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("WikiPageReference", WikiPageReference.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(WikiTextField.class, new TypeSelector<WikiTextField>() {
+                    @Override
+                    public Class<? extends WikiTextField> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("WikiTextField", WikiTextField.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(WikiTextFieldValue.class, new TypeSelector<WikiTextFieldValue>() {
+                    @Override
+                    public Class<? extends WikiTextFieldValue> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("WikiTextFieldValue", WikiTextFieldValue.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(WorkingSetReference.class, new TypeSelector<WorkingSetReference>() {
+                    @Override
+                    public Class<? extends WorkingSetReference> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("WorkingSetReference", WorkingSetReference.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "type"));
                     }
@@ -315,8 +960,6 @@ public class JSON {
         gson = createGson()
             .registerTypeAdapter(Date.class, dateTypeAdapter)
             .registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter)
-            .registerTypeAdapter(DateTime.class, dateTimeTypeAdapter)
-            .registerTypeAdapter(LocalDate.class, localDateTypeAdapter)
             .registerTypeAdapter(byte[].class, byteArrayAdapter)
             .create();
     }
@@ -412,100 +1055,6 @@ public class JSON {
                     return byteString.toByteArray();
             }
         }
-    }
-
-    /**
-     * Gson TypeAdapter for Joda DateTime type
-     */
-    public static class DateTimeTypeAdapter extends TypeAdapter<DateTime> {
-
-        private DateTimeFormatter formatter;
-
-        public DateTimeTypeAdapter() {
-            this(new DateTimeFormatterBuilder()
-                .append(ISODateTimeFormat.dateTime().getPrinter(), ISODateTimeFormat.dateOptionalTimeParser().getParser())
-                .toFormatter());
-        }
-
-        public DateTimeTypeAdapter(DateTimeFormatter formatter) {
-            this.formatter = formatter;
-        }
-
-        public void setFormat(DateTimeFormatter dateFormat) {
-            this.formatter = dateFormat;
-        }
-
-        @Override
-        public void write(JsonWriter out, DateTime date) throws IOException {
-            if (date == null) {
-                out.nullValue();
-            } else {
-                out.value(formatter.print(date));
-            }
-        }
-
-        @Override
-        public DateTime read(JsonReader in) throws IOException {
-            switch (in.peek()) {
-                case NULL:
-                    in.nextNull();
-                    return null;
-                default:
-                    String date = in.nextString();
-                    return formatter.parseDateTime(date);
-            }
-        }
-    }
-
-    /**
-     * Gson TypeAdapter for Joda LocalDate type
-     */
-    public class LocalDateTypeAdapter extends TypeAdapter<LocalDate> {
-
-        private DateTimeFormatter formatter;
-
-        public LocalDateTypeAdapter() {
-            this(ISODateTimeFormat.date());
-        }
-
-        public LocalDateTypeAdapter(DateTimeFormatter formatter) {
-            this.formatter = formatter;
-        }
-
-        public void setFormat(DateTimeFormatter dateFormat) {
-            this.formatter = dateFormat;
-        }
-
-        @Override
-        public void write(JsonWriter out, LocalDate date) throws IOException {
-            if (date == null) {
-                out.nullValue();
-            } else {
-                out.value(formatter.print(date));
-            }
-        }
-
-        @Override
-        public LocalDate read(JsonReader in) throws IOException {
-            switch (in.peek()) {
-                case NULL:
-                    in.nextNull();
-                    return null;
-                default:
-                    String date = in.nextString();
-                    return formatter.parseLocalDate(date);
-            }
-        }
-    }
-
-    public JSON setDateTimeFormat(DateTimeFormatter dateFormat) {
-        dateTimeTypeAdapter.setFormat(dateFormat);
-        return this;
-    }
-
-    public JSON setLocalDateFormat(DateTimeFormatter dateFormat) {
-        localDateTypeAdapter.setFormat(dateFormat);
-        return this;
     }
 
     /**

@@ -26,15 +26,38 @@ import io.swagger.annotations.ApiModelProperty;
  * Specifies which Test Cases are checked for duplicate Steps
  */
 @ApiModel(description = "Specifies which Test Cases are checked for duplicate Steps")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class AutoApplyTestStepReuses {
+  public static final String SERIALIZED_NAME_SCAN_TEST_CASE_LIBRARIES = "scanTestCaseLibraries";
+  @SerializedName(SERIALIZED_NAME_SCAN_TEST_CASE_LIBRARIES)
+  private Boolean scanTestCaseLibraries;
+
   public static final String SERIALIZED_NAME_TEST_CASES = "testCases";
   @SerializedName(SERIALIZED_NAME_TEST_CASES)
   private List<TrackerItemReference> testCases = null;
 
-  public static final String SERIALIZED_NAME_SCAN_TEST_CASE_LIBRARIES = "scanTestCaseLibraries";
-  @SerializedName(SERIALIZED_NAME_SCAN_TEST_CASE_LIBRARIES)
-  private Boolean scanTestCaseLibraries;
+
+  public AutoApplyTestStepReuses scanTestCaseLibraries(Boolean scanTestCaseLibraries) {
+    
+    this.scanTestCaseLibraries = scanTestCaseLibraries;
+    return this;
+  }
+
+   /**
+   * If it scans/finds the duplicate Steps in Test Case libraries of the user? Note: that only Reusable Steps will be reused from these libraries!
+   * @return scanTestCaseLibraries
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If it scans/finds the duplicate Steps in Test Case libraries of the user? Note: that only Reusable Steps will be reused from these libraries!")
+
+  public Boolean getScanTestCaseLibraries() {
+    return scanTestCaseLibraries;
+  }
+
+
+  public void setScanTestCaseLibraries(Boolean scanTestCaseLibraries) {
+    this.scanTestCaseLibraries = scanTestCaseLibraries;
+  }
 
 
   public AutoApplyTestStepReuses testCases(List<TrackerItemReference> testCases) {
@@ -68,31 +91,8 @@ public class AutoApplyTestStepReuses {
   }
 
 
-  public AutoApplyTestStepReuses scanTestCaseLibraries(Boolean scanTestCaseLibraries) {
-    
-    this.scanTestCaseLibraries = scanTestCaseLibraries;
-    return this;
-  }
-
-   /**
-   * If it scans/finds the duplicate Steps in Test Case libraries of the user? Note: that only Reusable Steps will be reused from these libraries!
-   * @return scanTestCaseLibraries
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "If it scans/finds the duplicate Steps in Test Case libraries of the user? Note: that only Reusable Steps will be reused from these libraries!")
-
-  public Boolean getScanTestCaseLibraries() {
-    return scanTestCaseLibraries;
-  }
-
-
-  public void setScanTestCaseLibraries(Boolean scanTestCaseLibraries) {
-    this.scanTestCaseLibraries = scanTestCaseLibraries;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -100,22 +100,21 @@ public class AutoApplyTestStepReuses {
       return false;
     }
     AutoApplyTestStepReuses autoApplyTestStepReuses = (AutoApplyTestStepReuses) o;
-    return Objects.equals(this.testCases, autoApplyTestStepReuses.testCases) &&
-        Objects.equals(this.scanTestCaseLibraries, autoApplyTestStepReuses.scanTestCaseLibraries);
+    return Objects.equals(this.scanTestCaseLibraries, autoApplyTestStepReuses.scanTestCaseLibraries) &&
+        Objects.equals(this.testCases, autoApplyTestStepReuses.testCases);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(testCases, scanTestCaseLibraries);
+    return Objects.hash(scanTestCaseLibraries, testCases);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AutoApplyTestStepReuses {\n");
-    sb.append("    testCases: ").append(toIndentedString(testCases)).append("\n");
     sb.append("    scanTestCaseLibraries: ").append(toIndentedString(scanTestCaseLibraries)).append("\n");
+    sb.append("    testCases: ").append(toIndentedString(testCases)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -124,7 +123,7 @@ public class AutoApplyTestStepReuses {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -61,8 +61,8 @@ public class ProjectApi {
     /**
      * Build call for createTracker
      * @param projectId  (required)
+     * @param tracker  (required)
      * @param templateId Identifier of the template tracker. (optional)
-     * @param tracker  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -70,12 +70,13 @@ public class ProjectApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Tracker settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required / Bad request: Tracker settings validation failed. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTrackerCall(Integer projectId, Integer templateId, Tracker tracker, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createTrackerCall(Integer projectId, Tracker tracker, Integer templateId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = tracker;
 
         // create path and map variables
@@ -84,15 +85,16 @@ public class ProjectApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (templateId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("templateId", templateId));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -110,15 +112,20 @@ public class ProjectApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createTrackerValidateBeforeCall(Integer projectId, Integer templateId, Tracker tracker, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createTrackerValidateBeforeCall(Integer projectId, Tracker tracker, Integer templateId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling createTracker(Async)");
         }
         
+        // verify the required parameter 'tracker' is set
+        if (tracker == null) {
+            throw new ApiException("Missing the required parameter 'tracker' when calling createTracker(Async)");
+        }
+        
 
-        okhttp3.Call localVarCall = createTrackerCall(projectId, templateId, tracker, _callback);
+        okhttp3.Call localVarCall = createTrackerCall(projectId, tracker, templateId, _callback);
         return localVarCall;
 
     }
@@ -127,21 +134,22 @@ public class ProjectApi {
      * Create a tracker
      * 
      * @param projectId  (required)
+     * @param tracker  (required)
      * @param templateId Identifier of the template tracker. (optional)
-     * @param tracker  (optional)
      * @return Tracker
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Tracker settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required / Bad request: Tracker settings validation failed. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
-    public Tracker createTracker(Integer projectId, Integer templateId, Tracker tracker) throws ApiException {
-        ApiResponse<Tracker> localVarResp = createTrackerWithHttpInfo(projectId, templateId, tracker);
+    public Tracker createTracker(Integer projectId, Tracker tracker, Integer templateId) throws ApiException {
+        ApiResponse<Tracker> localVarResp = createTrackerWithHttpInfo(projectId, tracker, templateId);
         return localVarResp.getData();
     }
 
@@ -149,21 +157,22 @@ public class ProjectApi {
      * Create a tracker
      * 
      * @param projectId  (required)
+     * @param tracker  (required)
      * @param templateId Identifier of the template tracker. (optional)
-     * @param tracker  (optional)
      * @return ApiResponse&lt;Tracker&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Tracker settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required / Bad request: Tracker settings validation failed. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Tracker> createTrackerWithHttpInfo(Integer projectId, Integer templateId, Tracker tracker) throws ApiException {
-        okhttp3.Call localVarCall = createTrackerValidateBeforeCall(projectId, templateId, tracker, null);
+    public ApiResponse<Tracker> createTrackerWithHttpInfo(Integer projectId, Tracker tracker, Integer templateId) throws ApiException {
+        okhttp3.Call localVarCall = createTrackerValidateBeforeCall(projectId, tracker, templateId, null);
         Type localVarReturnType = new TypeToken<Tracker>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -172,8 +181,8 @@ public class ProjectApi {
      * Create a tracker (asynchronously)
      * 
      * @param projectId  (required)
+     * @param tracker  (required)
      * @param templateId Identifier of the template tracker. (optional)
-     * @param tracker  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -181,33 +190,34 @@ public class ProjectApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Tracker settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required / Bad request: Tracker settings validation failed. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTrackerAsync(Integer projectId, Integer templateId, Tracker tracker, final ApiCallback<Tracker> _callback) throws ApiException {
+    public okhttp3.Call createTrackerAsync(Integer projectId, Tracker tracker, Integer templateId, final ApiCallback<Tracker> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createTrackerValidateBeforeCall(projectId, templateId, tracker, _callback);
+        okhttp3.Call localVarCall = createTrackerValidateBeforeCall(projectId, tracker, templateId, _callback);
         Type localVarReturnType = new TypeToken<Tracker>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deployConfiguration
-     * @param deployProject  (optional)
+     * @param deployProject  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project configuration deployed </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error when deploying the project configuration. </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project or configuration file not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Project configuration deployed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Error when deploying the project configuration. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deployConfigurationCall(DeployProject deployProject, final ApiCallback _callback) throws ApiException {
@@ -221,6 +231,7 @@ public class ProjectApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -242,6 +253,11 @@ public class ProjectApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deployConfigurationValidateBeforeCall(DeployProject deployProject, final ApiCallback _callback) throws ApiException {
         
+        // verify the required parameter 'deployProject' is set
+        if (deployProject == null) {
+            throw new ApiException("Missing the required parameter 'deployProject' when calling deployConfiguration(Async)");
+        }
+        
 
         okhttp3.Call localVarCall = deployConfigurationCall(deployProject, _callback);
         return localVarCall;
@@ -251,18 +267,18 @@ public class ProjectApi {
     /**
      * Deploy a project configuration to a Project
      * The configuration file needs to be uploaded to codebeamer Documents
-     * @param deployProject  (optional)
+     * @param deployProject  (required)
      * @return Project
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project configuration deployed </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error when deploying the project configuration. </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project or configuration file not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Project configuration deployed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Error when deploying the project configuration. </td><td>  -  </td></tr>
      </table>
      */
     public Project deployConfiguration(DeployProject deployProject) throws ApiException {
@@ -273,18 +289,18 @@ public class ProjectApi {
     /**
      * Deploy a project configuration to a Project
      * The configuration file needs to be uploaded to codebeamer Documents
-     * @param deployProject  (optional)
+     * @param deployProject  (required)
      * @return ApiResponse&lt;Project&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project configuration deployed </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error when deploying the project configuration. </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project or configuration file not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Project configuration deployed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Error when deploying the project configuration. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Project> deployConfigurationWithHttpInfo(DeployProject deployProject) throws ApiException {
@@ -296,19 +312,19 @@ public class ProjectApi {
     /**
      * Deploy a project configuration to a Project (asynchronously)
      * The configuration file needs to be uploaded to codebeamer Documents
-     * @param deployProject  (optional)
+     * @param deployProject  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project configuration deployed </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Request cannot be processed </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Error when deploying the project configuration. </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project or configuration file not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Project configuration deployed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Error when deploying the project configuration. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deployConfigurationAsync(DeployProject deployProject, final ApiCallback<Project> _callback) throws ApiException {
@@ -329,11 +345,12 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Member by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project is not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getMembersOfProjectCall(Integer projectId, Integer page, Integer pageSize, final ApiCallback _callback) throws ApiException {
@@ -345,6 +362,10 @@ public class ProjectApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (page != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
@@ -353,11 +374,8 @@ public class ProjectApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -399,11 +417,12 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Member by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project is not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public MemberReferenceSearchResult getMembersOfProject(Integer projectId, Integer page, Integer pageSize) throws ApiException {
@@ -422,11 +441,12 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Member by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project is not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<MemberReferenceSearchResult> getMembersOfProjectWithHttpInfo(Integer projectId, Integer page, Integer pageSize) throws ApiException {
@@ -447,11 +467,12 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Member by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project is not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getMembersOfProjectAsync(Integer projectId, Integer page, Integer pageSize, final ApiCallback<MemberReferenceSearchResult> _callback) throws ApiException {
@@ -470,11 +491,12 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Project </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getProjectByIdCall(Integer projectId, final ApiCallback _callback) throws ApiException {
@@ -489,8 +511,9 @@ public class ProjectApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -530,11 +553,12 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Project </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
      </table>
      */
     public Project getProjectById(Integer projectId) throws ApiException {
@@ -551,11 +575,12 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Project </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Project> getProjectByIdWithHttpInfo(Integer projectId) throws ApiException {
@@ -574,11 +599,12 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Project </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getProjectByIdAsync(Integer projectId, final ApiCallback<Project> _callback) throws ApiException {
@@ -598,10 +624,11 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Roles </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project or User is not found / User is not a member of the project </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Roles </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getProjectRolesOfMemberCall(Integer projectId, Integer userId, final ApiCallback _callback) throws ApiException {
@@ -617,8 +644,9 @@ public class ProjectApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -664,10 +692,11 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Roles </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project or User is not found / User is not a member of the project </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Roles </td><td>  -  </td></tr>
      </table>
      */
     public ProjectMemberPermissions getProjectRolesOfMember(Integer projectId, Integer userId) throws ApiException {
@@ -685,10 +714,11 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Roles </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project or User is not found / User is not a member of the project </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Roles </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ProjectMemberPermissions> getProjectRolesOfMemberWithHttpInfo(Integer projectId, Integer userId) throws ApiException {
@@ -708,10 +738,11 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Roles </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project or User is not found / User is not a member of the project </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Roles </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getProjectRolesOfMemberAsync(Integer projectId, Integer userId, final ApiCallback<ProjectMemberPermissions> _callback) throws ApiException {
@@ -729,11 +760,12 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Projects </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Projects </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getProjectsCall(final ApiCallback _callback) throws ApiException {
@@ -747,8 +779,9 @@ public class ProjectApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -782,11 +815,12 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Projects </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Projects </td><td>  -  </td></tr>
      </table>
      */
     public List<ProjectReference> getProjects() throws ApiException {
@@ -802,11 +836,12 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Projects </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Projects </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<ProjectReference>> getProjectsWithHttpInfo() throws ApiException {
@@ -824,11 +859,12 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Projects </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Projects </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getProjectsAsync(final ApiCallback<List<ProjectReference>> _callback) throws ApiException {
@@ -847,11 +883,12 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> The project does not exists </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The list of wiki pages </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> The list of wiki pages </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The project does not exists </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTopLevelWikiPagesCall(Integer projectId, final ApiCallback _callback) throws ApiException {
@@ -866,8 +903,9 @@ public class ProjectApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -907,11 +945,12 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> The project does not exists </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The list of wiki pages </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> The list of wiki pages </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The project does not exists </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public WikiOutlineSearchResult getTopLevelWikiPages(Integer projectId) throws ApiException {
@@ -928,11 +967,12 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> The project does not exists </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The list of wiki pages </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> The list of wiki pages </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The project does not exists </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<WikiOutlineSearchResult> getTopLevelWikiPagesWithHttpInfo(Integer projectId) throws ApiException {
@@ -951,11 +991,12 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> The project does not exists </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The list of wiki pages </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> The list of wiki pages </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The project does not exists </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTopLevelWikiPagesAsync(Integer projectId, final ApiCallback<WikiOutlineSearchResult> _callback) throws ApiException {
@@ -974,10 +1015,11 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Trackers </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTrackersCall(Integer projectId, final ApiCallback _callback) throws ApiException {
@@ -992,8 +1034,9 @@ public class ProjectApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1033,10 +1076,11 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Trackers </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public List<TrackerReference> getTrackers(Integer projectId) throws ApiException {
@@ -1053,10 +1097,11 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Trackers </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TrackerReference>> getTrackersWithHttpInfo(Integer projectId) throws ApiException {
@@ -1075,10 +1120,11 @@ public class ProjectApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Trackers </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTrackersAsync(Integer projectId, final ApiCallback<List<TrackerReference>> _callback) throws ApiException {
@@ -1091,17 +1137,18 @@ public class ProjectApi {
     /**
      * Build call for searchAllTrackersInProject
      * @param projectId  (required)
-     * @param trackerFilteringRequest  (optional)
+     * @param trackerFilteringRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Trackers </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call searchAllTrackersInProjectCall(Integer projectId, TrackerFilteringRequest trackerFilteringRequest, final ApiCallback _callback) throws ApiException {
@@ -1116,8 +1163,9 @@ public class ProjectApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1142,6 +1190,11 @@ public class ProjectApi {
             throw new ApiException("Missing the required parameter 'projectId' when calling searchAllTrackersInProject(Async)");
         }
         
+        // verify the required parameter 'trackerFilteringRequest' is set
+        if (trackerFilteringRequest == null) {
+            throw new ApiException("Missing the required parameter 'trackerFilteringRequest' when calling searchAllTrackersInProject(Async)");
+        }
+        
 
         okhttp3.Call localVarCall = searchAllTrackersInProjectCall(projectId, trackerFilteringRequest, _callback);
         return localVarCall;
@@ -1152,16 +1205,17 @@ public class ProjectApi {
      * Get the list of all trackers in a project
      * 
      * @param projectId  (required)
-     * @param trackerFilteringRequest  (optional)
+     * @param trackerFilteringRequest  (required)
      * @return TrackerSearchResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Trackers </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public TrackerSearchResult searchAllTrackersInProject(Integer projectId, TrackerFilteringRequest trackerFilteringRequest) throws ApiException {
@@ -1173,16 +1227,17 @@ public class ProjectApi {
      * Get the list of all trackers in a project
      * 
      * @param projectId  (required)
-     * @param trackerFilteringRequest  (optional)
+     * @param trackerFilteringRequest  (required)
      * @return ApiResponse&lt;TrackerSearchResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Trackers </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TrackerSearchResult> searchAllTrackersInProjectWithHttpInfo(Integer projectId, TrackerFilteringRequest trackerFilteringRequest) throws ApiException {
@@ -1195,17 +1250,18 @@ public class ProjectApi {
      * Get the list of all trackers in a project (asynchronously)
      * 
      * @param projectId  (required)
-     * @param trackerFilteringRequest  (optional)
+     * @param trackerFilteringRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Trackers </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project / Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call searchAllTrackersInProjectAsync(Integer projectId, TrackerFilteringRequest trackerFilteringRequest, final ApiCallback<TrackerSearchResult> _callback) throws ApiException {
@@ -1217,18 +1273,18 @@ public class ProjectApi {
     }
     /**
      * Build call for searchProjects
-     * @param projectFilteringRequest  (optional)
+     * @param projectFilteringRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> One page of projects </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call searchProjectsCall(ProjectFilteringRequest projectFilteringRequest, final ApiCallback _callback) throws ApiException {
@@ -1242,6 +1298,7 @@ public class ProjectApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1263,6 +1320,11 @@ public class ProjectApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchProjectsValidateBeforeCall(ProjectFilteringRequest projectFilteringRequest, final ApiCallback _callback) throws ApiException {
         
+        // verify the required parameter 'projectFilteringRequest' is set
+        if (projectFilteringRequest == null) {
+            throw new ApiException("Missing the required parameter 'projectFilteringRequest' when calling searchProjects(Async)");
+        }
+        
 
         okhttp3.Call localVarCall = searchProjectsCall(projectFilteringRequest, _callback);
         return localVarCall;
@@ -1272,17 +1334,17 @@ public class ProjectApi {
     /**
      * Search projects by given criteria
      * 
-     * @param projectFilteringRequest  (optional)
+     * @param projectFilteringRequest  (required)
      * @return ProjectSearchResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> One page of projects </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ProjectSearchResult searchProjects(ProjectFilteringRequest projectFilteringRequest) throws ApiException {
@@ -1293,17 +1355,17 @@ public class ProjectApi {
     /**
      * Search projects by given criteria
      * 
-     * @param projectFilteringRequest  (optional)
+     * @param projectFilteringRequest  (required)
      * @return ApiResponse&lt;ProjectSearchResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> One page of projects </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ProjectSearchResult> searchProjectsWithHttpInfo(ProjectFilteringRequest projectFilteringRequest) throws ApiException {
@@ -1315,18 +1377,18 @@ public class ProjectApi {
     /**
      * Search projects by given criteria (asynchronously)
      * 
-     * @param projectFilteringRequest  (optional)
+     * @param projectFilteringRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> One page of projects </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call searchProjectsAsync(ProjectFilteringRequest projectFilteringRequest, final ApiCallback<ProjectSearchResult> _callback) throws ApiException {

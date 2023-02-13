@@ -24,15 +24,41 @@ import io.swagger.annotations.ApiModelProperty;
  * Text field
  */
 @ApiModel(description = "Text field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TextField extends AbstractField {
+  public static final String SERIALIZED_NAME_MAX = "max";
+  @SerializedName(SERIALIZED_NAME_MAX)
+  private Integer max;
+
   public static final String SERIALIZED_NAME_MIN = "min";
   @SerializedName(SERIALIZED_NAME_MIN)
   private Integer min;
 
-  public static final String SERIALIZED_NAME_MAX = "max";
-  @SerializedName(SERIALIZED_NAME_MAX)
-  private Integer max;
+  public TextField() {
+    this.type = this.getClass().getSimpleName();
+  }
+
+  public TextField max(Integer max) {
+    
+    this.max = max;
+    return this;
+  }
+
+   /**
+   * Max length of value of a field
+   * @return max
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Max length of value of a field")
+
+  public Integer getMax() {
+    return max;
+  }
+
+
+  public void setMax(Integer max) {
+    this.max = max;
+  }
 
 
   public TextField min(Integer min) {
@@ -58,31 +84,8 @@ public class TextField extends AbstractField {
   }
 
 
-  public TextField max(Integer max) {
-    
-    this.max = max;
-    return this;
-  }
-
-   /**
-   * Max length of value of a field
-   * @return max
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Max length of value of a field")
-
-  public Integer getMax() {
-    return max;
-  }
-
-
-  public void setMax(Integer max) {
-    this.max = max;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -90,24 +93,23 @@ public class TextField extends AbstractField {
       return false;
     }
     TextField textField = (TextField) o;
-    return Objects.equals(this.min, textField.min) &&
-        Objects.equals(this.max, textField.max) &&
+    return Objects.equals(this.max, textField.max) &&
+        Objects.equals(this.min, textField.min) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(min, max, super.hashCode());
+    return Objects.hash(max, min, super.hashCode());
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TextField {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    min: ").append(toIndentedString(min)).append("\n");
     sb.append("    max: ").append(toIndentedString(max)).append("\n");
+    sb.append("    min: ").append(toIndentedString(min)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -116,7 +118,7 @@ public class TextField extends AbstractField {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

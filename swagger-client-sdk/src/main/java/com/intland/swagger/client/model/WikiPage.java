@@ -15,10 +15,9 @@ package com.intland.swagger.client.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-
-import org.joda.time.DateTime;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -30,18 +29,30 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Properties of a wiki page
+ * Wiki page details
  */
-@ApiModel(description = "Properties of a wiki page")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@ApiModel(description = "Wiki page details")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class WikiPage {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
+  public static final String SERIALIZED_NAME_CHANGE_COMMENT = "changeComment";
+  @SerializedName(SERIALIZED_NAME_CHANGE_COMMENT)
+  private String changeComment;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String SERIALIZED_NAME_CHILD_PAGES = "childPages";
+  @SerializedName(SERIALIZED_NAME_CHILD_PAGES)
+  private List<WikiPageReference> childPages = null;
+
+  public static final String SERIALIZED_NAME_COMMENTS = "comments";
+  @SerializedName(SERIALIZED_NAME_COMMENTS)
+  private List<AttachmentReference> comments = null;
+
+  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private Date createdAt;
+
+  public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
+  @SerializedName(SERIALIZED_NAME_CREATED_BY)
+  private UserReference createdBy;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -100,95 +111,150 @@ public class WikiPage {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION_FORMAT)
   private DescriptionFormatEnum descriptionFormat;
 
-  public static final String SERIALIZED_NAME_PROJECT = "project";
-  @SerializedName(SERIALIZED_NAME_PROJECT)
-  private ProjectReference project;
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Integer id;
 
   public static final String SERIALIZED_NAME_MARKUP = "markup";
   @SerializedName(SERIALIZED_NAME_MARKUP)
   private String markup;
 
-  public static final String SERIALIZED_NAME_COMMENTS = "comments";
-  @SerializedName(SERIALIZED_NAME_COMMENTS)
-  private List<AttachmentReference> comments = null;
-
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
-  private Integer version;
-
-  public static final String SERIALIZED_NAME_CHANGE_COMMENT = "changeComment";
-  @SerializedName(SERIALIZED_NAME_CHANGE_COMMENT)
-  private String changeComment;
-
-  public static final String SERIALIZED_NAME_CHILD_PAGES = "childPages";
-  @SerializedName(SERIALIZED_NAME_CHILD_PAGES)
-  private List<WikiPageReference> childPages = null;
-
-  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private DateTime createdAt;
-
-  public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY)
-  private UserReference createdBy;
-
   public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
   @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
-  private DateTime modifiedAt;
+  private Date modifiedAt;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
   private UserReference modifiedBy;
 
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
   public static final String SERIALIZED_NAME_PARENT = "parent";
   @SerializedName(SERIALIZED_NAME_PARENT)
   private AbstractReference parent;
 
+  public static final String SERIALIZED_NAME_PROJECT = "project";
+  @SerializedName(SERIALIZED_NAME_PROJECT)
+  private ProjectReference project;
 
-  public WikiPage id(Integer id) {
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private Integer version;
+
+
+  public WikiPage changeComment(String changeComment) {
     
-    this.id = id;
+    this.changeComment = changeComment;
     return this;
   }
 
    /**
-   * Id of the entity
-   * minimum: 0
-   * @return id
+   * Summary of the changes in this wiki page version
+   * @return changeComment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Id of the entity")
+  @ApiModelProperty(value = "Summary of the changes in this wiki page version")
 
-  public Integer getId() {
-    return id;
+  public String getChangeComment() {
+    return changeComment;
   }
 
 
-  public void setId(Integer id) {
-    this.id = id;
+  public void setChangeComment(String changeComment) {
+    this.changeComment = changeComment;
   }
 
 
-  public WikiPage name(String name) {
+   /**
+   * Child pages of the current Wiki page
+   * @return childPages
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Child pages of the current Wiki page")
+
+  public List<WikiPageReference> getChildPages() {
+    return childPages;
+  }
+
+
+
+
+  public WikiPage comments(List<AttachmentReference> comments) {
     
-    this.name = name;
+    this.comments = comments;
+    return this;
+  }
+
+  public WikiPage addCommentsItem(AttachmentReference commentsItem) {
+    if (this.comments == null) {
+      this.comments = new ArrayList<AttachmentReference>();
+    }
+    this.comments.add(commentsItem);
     return this;
   }
 
    /**
-   * Name of the entity
-   * @return name
+   * Comments/attachments associated with the wiki page
+   * @return comments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the entity")
+  @ApiModelProperty(value = "Comments/attachments associated with the wiki page")
 
-  public String getName() {
-    return name;
+  public List<AttachmentReference> getComments() {
+    return comments;
   }
 
 
-  public void setName(String name) {
-    this.name = name;
+  public void setComments(List<AttachmentReference> comments) {
+    this.comments = comments;
+  }
+
+
+  public WikiPage createdAt(Date createdAt) {
+    
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * The date when the entity was created
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date when the entity was created")
+
+  public Date getCreatedAt() {
+    return createdAt;
+  }
+
+
+  public void setCreatedAt(Date createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public WikiPage createdBy(UserReference createdBy) {
+    
+    this.createdBy = createdBy;
+    return this;
+  }
+
+   /**
+   * Get createdBy
+   * @return createdBy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public UserReference getCreatedBy() {
+    return createdBy;
+  }
+
+
+  public void setCreatedBy(UserReference createdBy) {
+    this.createdBy = createdBy;
   }
 
 
@@ -238,26 +304,27 @@ public class WikiPage {
   }
 
 
-  public WikiPage project(ProjectReference project) {
+  public WikiPage id(Integer id) {
     
-    this.project = project;
+    this.id = id;
     return this;
   }
 
    /**
-   * Get project
-   * @return project
+   * Id of the entity
+   * minimum: 0
+   * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Id of the entity")
 
-  public ProjectReference getProject() {
-    return project;
+  public Integer getId() {
+    return id;
   }
 
 
-  public void setProject(ProjectReference project) {
-    this.project = project;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
 
@@ -284,144 +351,7 @@ public class WikiPage {
   }
 
 
-  public WikiPage comments(List<AttachmentReference> comments) {
-    
-    this.comments = comments;
-    return this;
-  }
-
-  public WikiPage addCommentsItem(AttachmentReference commentsItem) {
-    if (this.comments == null) {
-      this.comments = new ArrayList<AttachmentReference>();
-    }
-    this.comments.add(commentsItem);
-    return this;
-  }
-
-   /**
-   * Comments/attachments associated with the wiki page
-   * @return comments
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comments/attachments associated with the wiki page")
-
-  public List<AttachmentReference> getComments() {
-    return comments;
-  }
-
-
-  public void setComments(List<AttachmentReference> comments) {
-    this.comments = comments;
-  }
-
-
-  public WikiPage version(Integer version) {
-    
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * Version of the wiki page
-   * @return version
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Version of the wiki page")
-
-  public Integer getVersion() {
-    return version;
-  }
-
-
-  public void setVersion(Integer version) {
-    this.version = version;
-  }
-
-
-  public WikiPage changeComment(String changeComment) {
-    
-    this.changeComment = changeComment;
-    return this;
-  }
-
-   /**
-   * Summary of the changes in this wiki page version
-   * @return changeComment
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Summary of the changes in this wiki page version")
-
-  public String getChangeComment() {
-    return changeComment;
-  }
-
-
-  public void setChangeComment(String changeComment) {
-    this.changeComment = changeComment;
-  }
-
-
-   /**
-   * Child pages of the current Wiki page
-   * @return childPages
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Child pages of the current Wiki page")
-
-  public List<WikiPageReference> getChildPages() {
-    return childPages;
-  }
-
-
-
-
-  public WikiPage createdAt(DateTime createdAt) {
-    
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * The date when the entity was created
-   * @return createdAt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The date when the entity was created")
-
-  public DateTime getCreatedAt() {
-    return createdAt;
-  }
-
-
-  public void setCreatedAt(DateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
-  public WikiPage createdBy(UserReference createdBy) {
-    
-    this.createdBy = createdBy;
-    return this;
-  }
-
-   /**
-   * Get createdBy
-   * @return createdBy
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public UserReference getCreatedBy() {
-    return createdBy;
-  }
-
-
-  public void setCreatedBy(UserReference createdBy) {
-    this.createdBy = createdBy;
-  }
-
-
-  public WikiPage modifiedAt(DateTime modifiedAt) {
+  public WikiPage modifiedAt(Date modifiedAt) {
     
     this.modifiedAt = modifiedAt;
     return this;
@@ -434,12 +364,12 @@ public class WikiPage {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
 
-  public DateTime getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
 
-  public void setModifiedAt(DateTime modifiedAt) {
+  public void setModifiedAt(Date modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 
@@ -467,6 +397,29 @@ public class WikiPage {
   }
 
 
+  public WikiPage name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the entity
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the entity")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
   public WikiPage parent(AbstractReference parent) {
     
     this.parent = parent;
@@ -490,8 +443,54 @@ public class WikiPage {
   }
 
 
+  public WikiPage project(ProjectReference project) {
+    
+    this.project = project;
+    return this;
+  }
+
+   /**
+   * Get project
+   * @return project
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ProjectReference getProject() {
+    return project;
+  }
+
+
+  public void setProject(ProjectReference project) {
+    this.project = project;
+  }
+
+
+  public WikiPage version(Integer version) {
+    
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Version of the wiki page
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Version of the wiki page")
+
+  public Integer getVersion() {
+    return version;
+  }
+
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -499,48 +498,47 @@ public class WikiPage {
       return false;
     }
     WikiPage wikiPage = (WikiPage) o;
-    return Objects.equals(this.id, wikiPage.id) &&
-        Objects.equals(this.name, wikiPage.name) &&
-        Objects.equals(this.description, wikiPage.description) &&
-        Objects.equals(this.descriptionFormat, wikiPage.descriptionFormat) &&
-        Objects.equals(this.project, wikiPage.project) &&
-        Objects.equals(this.markup, wikiPage.markup) &&
-        Objects.equals(this.comments, wikiPage.comments) &&
-        Objects.equals(this.version, wikiPage.version) &&
-        Objects.equals(this.changeComment, wikiPage.changeComment) &&
+    return Objects.equals(this.changeComment, wikiPage.changeComment) &&
         Objects.equals(this.childPages, wikiPage.childPages) &&
+        Objects.equals(this.comments, wikiPage.comments) &&
         Objects.equals(this.createdAt, wikiPage.createdAt) &&
         Objects.equals(this.createdBy, wikiPage.createdBy) &&
+        Objects.equals(this.description, wikiPage.description) &&
+        Objects.equals(this.descriptionFormat, wikiPage.descriptionFormat) &&
+        Objects.equals(this.id, wikiPage.id) &&
+        Objects.equals(this.markup, wikiPage.markup) &&
         Objects.equals(this.modifiedAt, wikiPage.modifiedAt) &&
         Objects.equals(this.modifiedBy, wikiPage.modifiedBy) &&
-        Objects.equals(this.parent, wikiPage.parent);
+        Objects.equals(this.name, wikiPage.name) &&
+        Objects.equals(this.parent, wikiPage.parent) &&
+        Objects.equals(this.project, wikiPage.project) &&
+        Objects.equals(this.version, wikiPage.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, descriptionFormat, project, markup, comments, version, changeComment, childPages, createdAt, createdBy, modifiedAt, modifiedBy, parent);
+    return Objects.hash(changeComment, childPages, comments, createdAt, createdBy, description, descriptionFormat, id, markup, modifiedAt, modifiedBy, name, parent, project, version);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WikiPage {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    descriptionFormat: ").append(toIndentedString(descriptionFormat)).append("\n");
-    sb.append("    project: ").append(toIndentedString(project)).append("\n");
-    sb.append("    markup: ").append(toIndentedString(markup)).append("\n");
-    sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    changeComment: ").append(toIndentedString(changeComment)).append("\n");
     sb.append("    childPages: ").append(toIndentedString(childPages)).append("\n");
+    sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    descriptionFormat: ").append(toIndentedString(descriptionFormat)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    markup: ").append(toIndentedString(markup)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
+    sb.append("    project: ").append(toIndentedString(project)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -549,7 +547,7 @@ public class WikiPage {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

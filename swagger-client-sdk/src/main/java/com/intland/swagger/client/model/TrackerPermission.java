@@ -22,23 +22,46 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * TrackerPermission
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerPermission {
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private Integer id;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
 
   public static final String SERIALIZED_NAME_LABEL = "label";
   @SerializedName(SERIALIZED_NAME_LABEL)
   private String label;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
+
+  public TrackerPermission description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of the permission
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of the permission")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
 
   public TrackerPermission id(Integer id) {
@@ -65,29 +88,6 @@ public class TrackerPermission {
   }
 
 
-  public TrackerPermission name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the entity
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the entity")
-
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
   public TrackerPermission label(String label) {
     
     this.label = label;
@@ -111,31 +111,31 @@ public class TrackerPermission {
   }
 
 
-  public TrackerPermission description(String description) {
+  public TrackerPermission name(String name) {
     
-    this.description = description;
+    this.name = name;
     return this;
   }
 
    /**
-   * Description of the permission
-   * @return description
+   * Name of the entity
+   * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the permission")
+  @ApiModelProperty(value = "Name of the entity")
 
-  public String getDescription() {
-    return description;
+  public String getName() {
+    return name;
   }
 
 
-  public void setDescription(String description) {
-    this.description = description;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -143,26 +143,25 @@ public class TrackerPermission {
       return false;
     }
     TrackerPermission trackerPermission = (TrackerPermission) o;
-    return Objects.equals(this.id, trackerPermission.id) &&
-        Objects.equals(this.name, trackerPermission.name) &&
+    return Objects.equals(this.description, trackerPermission.description) &&
+        Objects.equals(this.id, trackerPermission.id) &&
         Objects.equals(this.label, trackerPermission.label) &&
-        Objects.equals(this.description, trackerPermission.description);
+        Objects.equals(this.name, trackerPermission.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, label, description);
+    return Objects.hash(description, id, label, name);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TrackerPermission {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    label: ").append(toIndentedString(label)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -171,7 +170,7 @@ public class TrackerPermission {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

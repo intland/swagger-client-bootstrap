@@ -29,8 +29,16 @@ import io.swagger.annotations.ApiModelProperty;
  * The configuration from which the review was created
  */
 @ApiModel(description = "The configuration from which the review was created")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerItemReviewConfig {
+  public static final String SERIALIZED_NAME_REQUIRED_APPROVALS = "requiredApprovals";
+  @SerializedName(SERIALIZED_NAME_REQUIRED_APPROVALS)
+  private Integer requiredApprovals;
+
+  public static final String SERIALIZED_NAME_REQUIRED_REJECTIONS = "requiredRejections";
+  @SerializedName(SERIALIZED_NAME_REQUIRED_REJECTIONS)
+  private Integer requiredRejections;
+
   /**
    * Whether the user has to provide its credentials to vote
    */
@@ -84,40 +92,9 @@ public class TrackerItemReviewConfig {
   @SerializedName(SERIALIZED_NAME_REQUIRED_SIGNATURE)
   private RequiredSignatureEnum requiredSignature;
 
-  public static final String SERIALIZED_NAME_REQUIRED_APPROVALS = "requiredApprovals";
-  @SerializedName(SERIALIZED_NAME_REQUIRED_APPROVALS)
-  private Integer requiredApprovals;
-
-  public static final String SERIALIZED_NAME_REQUIRED_REJECTIONS = "requiredRejections";
-  @SerializedName(SERIALIZED_NAME_REQUIRED_REJECTIONS)
-  private Integer requiredRejections;
-
   public static final String SERIALIZED_NAME_ROLE_REQUIRED = "roleRequired";
   @SerializedName(SERIALIZED_NAME_ROLE_REQUIRED)
   private Boolean roleRequired;
-
-
-  public TrackerItemReviewConfig requiredSignature(RequiredSignatureEnum requiredSignature) {
-    
-    this.requiredSignature = requiredSignature;
-    return this;
-  }
-
-   /**
-   * Whether the user has to provide its credentials to vote
-   * @return requiredSignature
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether the user has to provide its credentials to vote")
-
-  public RequiredSignatureEnum getRequiredSignature() {
-    return requiredSignature;
-  }
-
-
-  public void setRequiredSignature(RequiredSignatureEnum requiredSignature) {
-    this.requiredSignature = requiredSignature;
-  }
 
 
   public TrackerItemReviewConfig requiredApprovals(Integer requiredApprovals) {
@@ -166,6 +143,29 @@ public class TrackerItemReviewConfig {
   }
 
 
+  public TrackerItemReviewConfig requiredSignature(RequiredSignatureEnum requiredSignature) {
+    
+    this.requiredSignature = requiredSignature;
+    return this;
+  }
+
+   /**
+   * Whether the user has to provide its credentials to vote
+   * @return requiredSignature
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether the user has to provide its credentials to vote")
+
+  public RequiredSignatureEnum getRequiredSignature() {
+    return requiredSignature;
+  }
+
+
+  public void setRequiredSignature(RequiredSignatureEnum requiredSignature) {
+    this.requiredSignature = requiredSignature;
+  }
+
+
   public TrackerItemReviewConfig roleRequired(Boolean roleRequired) {
     
     this.roleRequired = roleRequired;
@@ -190,7 +190,7 @@ public class TrackerItemReviewConfig {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -198,25 +198,24 @@ public class TrackerItemReviewConfig {
       return false;
     }
     TrackerItemReviewConfig trackerItemReviewConfig = (TrackerItemReviewConfig) o;
-    return Objects.equals(this.requiredSignature, trackerItemReviewConfig.requiredSignature) &&
-        Objects.equals(this.requiredApprovals, trackerItemReviewConfig.requiredApprovals) &&
+    return Objects.equals(this.requiredApprovals, trackerItemReviewConfig.requiredApprovals) &&
         Objects.equals(this.requiredRejections, trackerItemReviewConfig.requiredRejections) &&
+        Objects.equals(this.requiredSignature, trackerItemReviewConfig.requiredSignature) &&
         Objects.equals(this.roleRequired, trackerItemReviewConfig.roleRequired);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requiredSignature, requiredApprovals, requiredRejections, roleRequired);
+    return Objects.hash(requiredApprovals, requiredRejections, requiredSignature, roleRequired);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TrackerItemReviewConfig {\n");
-    sb.append("    requiredSignature: ").append(toIndentedString(requiredSignature)).append("\n");
     sb.append("    requiredApprovals: ").append(toIndentedString(requiredApprovals)).append("\n");
     sb.append("    requiredRejections: ").append(toIndentedString(requiredRejections)).append("\n");
+    sb.append("    requiredSignature: ").append(toIndentedString(requiredSignature)).append("\n");
     sb.append("    roleRequired: ").append(toIndentedString(roleRequired)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -226,7 +225,7 @@ public class TrackerItemReviewConfig {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

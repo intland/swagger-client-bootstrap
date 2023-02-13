@@ -26,8 +26,12 @@ import io.swagger.annotations.ApiModelProperty;
  * One page of tracker items.
  */
 @ApiModel(description = "One page of tracker items.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerItemSearchResult {
+  public static final String SERIALIZED_NAME_ITEMS = "items";
+  @SerializedName(SERIALIZED_NAME_ITEMS)
+  private List<TrackerItem> items = null;
+
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
   private Integer page;
@@ -40,9 +44,36 @@ public class TrackerItemSearchResult {
   @SerializedName(SERIALIZED_NAME_TOTAL)
   private Integer total;
 
-  public static final String SERIALIZED_NAME_ITEMS = "items";
-  @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<TrackerItem> items = null;
+
+  public TrackerItemSearchResult items(List<TrackerItem> items) {
+    
+    this.items = items;
+    return this;
+  }
+
+  public TrackerItemSearchResult addItemsItem(TrackerItem itemsItem) {
+    if (this.items == null) {
+      this.items = new ArrayList<TrackerItem>();
+    }
+    this.items.add(itemsItem);
+    return this;
+  }
+
+   /**
+   * Found tracker items
+   * @return items
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Found tracker items")
+
+  public List<TrackerItem> getItems() {
+    return items;
+  }
+
+
+  public void setItems(List<TrackerItem> items) {
+    this.items = items;
+  }
 
 
   public TrackerItemSearchResult page(Integer page) {
@@ -114,39 +145,8 @@ public class TrackerItemSearchResult {
   }
 
 
-  public TrackerItemSearchResult items(List<TrackerItem> items) {
-    
-    this.items = items;
-    return this;
-  }
-
-  public TrackerItemSearchResult addItemsItem(TrackerItem itemsItem) {
-    if (this.items == null) {
-      this.items = new ArrayList<TrackerItem>();
-    }
-    this.items.add(itemsItem);
-    return this;
-  }
-
-   /**
-   * Found tracker items
-   * @return items
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Found tracker items")
-
-  public List<TrackerItem> getItems() {
-    return items;
-  }
-
-
-  public void setItems(List<TrackerItem> items) {
-    this.items = items;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -154,26 +154,25 @@ public class TrackerItemSearchResult {
       return false;
     }
     TrackerItemSearchResult trackerItemSearchResult = (TrackerItemSearchResult) o;
-    return Objects.equals(this.page, trackerItemSearchResult.page) &&
+    return Objects.equals(this.items, trackerItemSearchResult.items) &&
+        Objects.equals(this.page, trackerItemSearchResult.page) &&
         Objects.equals(this.pageSize, trackerItemSearchResult.pageSize) &&
-        Objects.equals(this.total, trackerItemSearchResult.total) &&
-        Objects.equals(this.items, trackerItemSearchResult.items);
+        Objects.equals(this.total, trackerItemSearchResult.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, pageSize, total, items);
+    return Objects.hash(items, page, pageSize, total);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TrackerItemSearchResult {\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
-    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -182,7 +181,7 @@ public class TrackerItemSearchResult {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

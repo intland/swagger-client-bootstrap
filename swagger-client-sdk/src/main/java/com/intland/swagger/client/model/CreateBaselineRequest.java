@@ -22,15 +22,15 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * CreateBaselineRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class CreateBaselineRequest {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
   public static final String SERIALIZED_NAME_PROJECT = "project";
   @SerializedName(SERIALIZED_NAME_PROJECT)
@@ -39,28 +39,6 @@ public class CreateBaselineRequest {
   public static final String SERIALIZED_NAME_TRACKER = "tracker";
   @SerializedName(SERIALIZED_NAME_TRACKER)
   private TrackerReference tracker;
-
-
-  public CreateBaselineRequest name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of baseline
-   * @return name
-  **/
-  @ApiModelProperty(required = true, value = "Name of baseline")
-
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
-  }
 
 
   public CreateBaselineRequest description(String description) {
@@ -86,6 +64,29 @@ public class CreateBaselineRequest {
   }
 
 
+  public CreateBaselineRequest name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of baseline
+   * @return name
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Name of baseline")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
   public CreateBaselineRequest project(ProjectReference project) {
     
     this.project = project;
@@ -96,6 +97,7 @@ public class CreateBaselineRequest {
    * Get project
    * @return project
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
   public ProjectReference getProject() {
@@ -132,7 +134,7 @@ public class CreateBaselineRequest {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -140,24 +142,23 @@ public class CreateBaselineRequest {
       return false;
     }
     CreateBaselineRequest createBaselineRequest = (CreateBaselineRequest) o;
-    return Objects.equals(this.name, createBaselineRequest.name) &&
-        Objects.equals(this.description, createBaselineRequest.description) &&
+    return Objects.equals(this.description, createBaselineRequest.description) &&
+        Objects.equals(this.name, createBaselineRequest.name) &&
         Objects.equals(this.project, createBaselineRequest.project) &&
         Objects.equals(this.tracker, createBaselineRequest.tracker);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, project, tracker);
+    return Objects.hash(description, name, project, tracker);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateBaselineRequest {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    tracker: ").append(toIndentedString(tracker)).append("\n");
     sb.append("}");
@@ -168,7 +169,7 @@ public class CreateBaselineRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

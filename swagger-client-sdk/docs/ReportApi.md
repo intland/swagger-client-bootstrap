@@ -66,7 +66,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **simpleReportSettings** | [**SimpleReportSettings**](SimpleReportSettings.md)|  | [optional]
+ **simpleReportSettings** | [**SimpleReportSettings**](SimpleReportSettings.md)|  |
 
 ### Return type
 
@@ -84,10 +84,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**400** | Bad request |  -  |
-**429** | Too many requests |  -  |
 **200** | Report settings |  -  |
+**400** | Bad request |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getReportById"></a>
 # **getReportById**
@@ -162,15 +162,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**429** | Too many requests |  -  |
-**404** | Report not found |  -  |
 **200** | Report content by id |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Report not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getReportItemsById"></a>
 # **getReportItemsById**
@@ -245,15 +246,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**429** | Too many requests |  -  |
-**404** | Report not found |  -  |
 **200** | Report items by id |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Report not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="updateReport"></a>
 # **updateReport**
@@ -313,7 +315,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **reportId** | **Integer**| Id of a report |
- **simpleReportSettings** | [**SimpleReportSettings**](SimpleReportSettings.md)|  | [optional]
+ **simpleReportSettings** | [**SimpleReportSettings**](SimpleReportSettings.md)|  |
 
 ### Return type
 
@@ -331,8 +333,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**400** | Bad request |  -  |
-**429** | Too many requests |  -  |
 **200** | Updated report settings |  -  |
+**400** | Bad request |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 

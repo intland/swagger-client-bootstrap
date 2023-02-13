@@ -24,37 +24,15 @@ import io.swagger.annotations.ApiModelProperty;
  * Reference to a child item in the tracker outline.
  */
 @ApiModel(description = "Reference to a child item in the tracker outline.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerItemChildReference {
-  public static final String SERIALIZED_NAME_ITEM_REFERENCE = "itemReference";
-  @SerializedName(SERIALIZED_NAME_ITEM_REFERENCE)
-  private TrackerItemReference itemReference;
-
   public static final String SERIALIZED_NAME_INDEX = "index";
   @SerializedName(SERIALIZED_NAME_INDEX)
   private Integer index;
 
-
-  public TrackerItemChildReference itemReference(TrackerItemReference itemReference) {
-    
-    this.itemReference = itemReference;
-    return this;
-  }
-
-   /**
-   * Get itemReference
-   * @return itemReference
-  **/
-  @ApiModelProperty(required = true, value = "")
-
-  public TrackerItemReference getItemReference() {
-    return itemReference;
-  }
-
-
-  public void setItemReference(TrackerItemReference itemReference) {
-    this.itemReference = itemReference;
-  }
+  public static final String SERIALIZED_NAME_ITEM_REFERENCE = "itemReference";
+  @SerializedName(SERIALIZED_NAME_ITEM_REFERENCE)
+  private TrackerItemReference itemReference;
 
 
   public TrackerItemChildReference index(Integer index) {
@@ -68,6 +46,7 @@ public class TrackerItemChildReference {
    * minimum: 0
    * @return index
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "0", required = true, value = "Ordinal in the tracker outline.")
 
   public Integer getIndex() {
@@ -80,8 +59,31 @@ public class TrackerItemChildReference {
   }
 
 
+  public TrackerItemChildReference itemReference(TrackerItemReference itemReference) {
+    
+    this.itemReference = itemReference;
+    return this;
+  }
+
+   /**
+   * Get itemReference
+   * @return itemReference
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+
+  public TrackerItemReference getItemReference() {
+    return itemReference;
+  }
+
+
+  public void setItemReference(TrackerItemReference itemReference) {
+    this.itemReference = itemReference;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -89,22 +91,21 @@ public class TrackerItemChildReference {
       return false;
     }
     TrackerItemChildReference trackerItemChildReference = (TrackerItemChildReference) o;
-    return Objects.equals(this.itemReference, trackerItemChildReference.itemReference) &&
-        Objects.equals(this.index, trackerItemChildReference.index);
+    return Objects.equals(this.index, trackerItemChildReference.index) &&
+        Objects.equals(this.itemReference, trackerItemChildReference.itemReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(itemReference, index);
+    return Objects.hash(index, itemReference);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TrackerItemChildReference {\n");
-    sb.append("    itemReference: ").append(toIndentedString(itemReference)).append("\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
+    sb.append("    itemReference: ").append(toIndentedString(itemReference)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -113,7 +114,7 @@ public class TrackerItemChildReference {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

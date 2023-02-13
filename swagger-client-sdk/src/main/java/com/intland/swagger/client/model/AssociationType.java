@@ -29,16 +29,8 @@ import io.swagger.annotations.ApiModelProperty;
  * Basic properties of a codebeamer association type
  */
 @ApiModel(description = "Basic properties of a codebeamer association type")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class AssociationType {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -96,52 +88,13 @@ public class AssociationType {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION_FORMAT)
   private DescriptionFormatEnum descriptionFormat;
 
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Integer id;
 
-  public AssociationType id(Integer id) {
-    
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Id of the entity
-   * minimum: 0
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Id of the entity")
-
-  public Integer getId() {
-    return id;
-  }
-
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-
-  public AssociationType name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the entity
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the entity")
-
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
-  }
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
 
   public AssociationType description(String description) {
@@ -190,8 +143,55 @@ public class AssociationType {
   }
 
 
+  public AssociationType id(Integer id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Id of the entity
+   * minimum: 0
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Id of the entity")
+
+  public Integer getId() {
+    return id;
+  }
+
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+
+  public AssociationType name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the entity
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the entity")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -199,26 +199,25 @@ public class AssociationType {
       return false;
     }
     AssociationType associationType = (AssociationType) o;
-    return Objects.equals(this.id, associationType.id) &&
-        Objects.equals(this.name, associationType.name) &&
-        Objects.equals(this.description, associationType.description) &&
-        Objects.equals(this.descriptionFormat, associationType.descriptionFormat);
+    return Objects.equals(this.description, associationType.description) &&
+        Objects.equals(this.descriptionFormat, associationType.descriptionFormat) &&
+        Objects.equals(this.id, associationType.id) &&
+        Objects.equals(this.name, associationType.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, descriptionFormat);
+    return Objects.hash(description, descriptionFormat, id, name);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssociationType {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    descriptionFormat: ").append(toIndentedString(descriptionFormat)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -227,7 +226,7 @@ public class AssociationType {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

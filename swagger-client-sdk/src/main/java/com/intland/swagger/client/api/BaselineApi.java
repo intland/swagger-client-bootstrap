@@ -50,19 +50,19 @@ public class BaselineApi {
 
     /**
      * Build call for createBaseline
-     * @param createBaselineRequest  (optional)
+     * @param createBaselineRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Baseline created successfully </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required or user has no permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project or tracker not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createBaselineCall(CreateBaselineRequest createBaselineRequest, final ApiCallback _callback) throws ApiException {
@@ -76,6 +76,7 @@ public class BaselineApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -97,6 +98,11 @@ public class BaselineApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createBaselineValidateBeforeCall(CreateBaselineRequest createBaselineRequest, final ApiCallback _callback) throws ApiException {
         
+        // verify the required parameter 'createBaselineRequest' is set
+        if (createBaselineRequest == null) {
+            throw new ApiException("Missing the required parameter 'createBaselineRequest' when calling createBaseline(Async)");
+        }
+        
 
         okhttp3.Call localVarCall = createBaselineCall(createBaselineRequest, _callback);
         return localVarCall;
@@ -106,18 +112,18 @@ public class BaselineApi {
     /**
      * Create a project or tracker baseline
      * 
-     * @param createBaselineRequest  (optional)
+     * @param createBaselineRequest  (required)
      * @return Baseline
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Baseline created successfully </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required or user has no permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project or tracker not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public Baseline createBaseline(CreateBaselineRequest createBaselineRequest) throws ApiException {
@@ -128,18 +134,18 @@ public class BaselineApi {
     /**
      * Create a project or tracker baseline
      * 
-     * @param createBaselineRequest  (optional)
+     * @param createBaselineRequest  (required)
      * @return ApiResponse&lt;Baseline&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Baseline created successfully </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required or user has no permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project or tracker not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Baseline> createBaselineWithHttpInfo(CreateBaselineRequest createBaselineRequest) throws ApiException {
@@ -151,19 +157,19 @@ public class BaselineApi {
     /**
      * Create a project or tracker baseline (asynchronously)
      * 
-     * @param createBaselineRequest  (optional)
+     * @param createBaselineRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Baseline created successfully </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required or user has no permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project or tracker not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createBaselineAsync(CreateBaselineRequest createBaselineRequest, final ApiCallback<Baseline> _callback) throws ApiException {

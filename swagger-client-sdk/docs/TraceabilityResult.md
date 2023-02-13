@@ -3,6 +3,7 @@
 # TraceabilityResult
 
 Traceability result
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -26,50 +26,27 @@ import io.swagger.annotations.ApiModelProperty;
  * References to a tracker item
  */
 @ApiModel(description = "References to a tracker item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerItemRelationsResult {
-  public static final String SERIALIZED_NAME_ITEM_ID = "itemId";
-  @SerializedName(SERIALIZED_NAME_ITEM_ID)
-  private TrackerItemRevision itemId;
-
   public static final String SERIALIZED_NAME_DOWNSTREAM_REFERENCES = "downstreamReferences";
   @SerializedName(SERIALIZED_NAME_DOWNSTREAM_REFERENCES)
   private List<DownstreamTrackerItemReference> downstreamReferences = null;
-
-  public static final String SERIALIZED_NAME_UPSTREAM_REFERENCES = "upstreamReferences";
-  @SerializedName(SERIALIZED_NAME_UPSTREAM_REFERENCES)
-  private List<UpstreamTrackerItemReference> upstreamReferences = null;
 
   public static final String SERIALIZED_NAME_INCOMING_ASSOCIATIONS = "incomingAssociations";
   @SerializedName(SERIALIZED_NAME_INCOMING_ASSOCIATIONS)
   private List<IncomingTrackerItemAssociation> incomingAssociations = null;
 
+  public static final String SERIALIZED_NAME_ITEM_ID = "itemId";
+  @SerializedName(SERIALIZED_NAME_ITEM_ID)
+  private TrackerItemRevision itemId;
+
   public static final String SERIALIZED_NAME_OUTGOING_ASSOCIATIONS = "outgoingAssociations";
   @SerializedName(SERIALIZED_NAME_OUTGOING_ASSOCIATIONS)
   private List<OutgoingTrackerItemAssociation> outgoingAssociations = null;
 
-
-  public TrackerItemRelationsResult itemId(TrackerItemRevision itemId) {
-    
-    this.itemId = itemId;
-    return this;
-  }
-
-   /**
-   * Get itemId
-   * @return itemId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public TrackerItemRevision getItemId() {
-    return itemId;
-  }
-
-
-  public void setItemId(TrackerItemRevision itemId) {
-    this.itemId = itemId;
-  }
+  public static final String SERIALIZED_NAME_UPSTREAM_REFERENCES = "upstreamReferences";
+  @SerializedName(SERIALIZED_NAME_UPSTREAM_REFERENCES)
+  private List<UpstreamTrackerItemReference> upstreamReferences = null;
 
 
   public TrackerItemRelationsResult downstreamReferences(List<DownstreamTrackerItemReference> downstreamReferences) {
@@ -100,37 +77,6 @@ public class TrackerItemRelationsResult {
 
   public void setDownstreamReferences(List<DownstreamTrackerItemReference> downstreamReferences) {
     this.downstreamReferences = downstreamReferences;
-  }
-
-
-  public TrackerItemRelationsResult upstreamReferences(List<UpstreamTrackerItemReference> upstreamReferences) {
-    
-    this.upstreamReferences = upstreamReferences;
-    return this;
-  }
-
-  public TrackerItemRelationsResult addUpstreamReferencesItem(UpstreamTrackerItemReference upstreamReferencesItem) {
-    if (this.upstreamReferences == null) {
-      this.upstreamReferences = new ArrayList<UpstreamTrackerItemReference>();
-    }
-    this.upstreamReferences.add(upstreamReferencesItem);
-    return this;
-  }
-
-   /**
-   * References and associations to the item
-   * @return upstreamReferences
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "References and associations to the item")
-
-  public List<UpstreamTrackerItemReference> getUpstreamReferences() {
-    return upstreamReferences;
-  }
-
-
-  public void setUpstreamReferences(List<UpstreamTrackerItemReference> upstreamReferences) {
-    this.upstreamReferences = upstreamReferences;
   }
 
 
@@ -165,6 +111,29 @@ public class TrackerItemRelationsResult {
   }
 
 
+  public TrackerItemRelationsResult itemId(TrackerItemRevision itemId) {
+    
+    this.itemId = itemId;
+    return this;
+  }
+
+   /**
+   * Get itemId
+   * @return itemId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public TrackerItemRevision getItemId() {
+    return itemId;
+  }
+
+
+  public void setItemId(TrackerItemRevision itemId) {
+    this.itemId = itemId;
+  }
+
+
   public TrackerItemRelationsResult outgoingAssociations(List<OutgoingTrackerItemAssociation> outgoingAssociations) {
     
     this.outgoingAssociations = outgoingAssociations;
@@ -196,8 +165,39 @@ public class TrackerItemRelationsResult {
   }
 
 
+  public TrackerItemRelationsResult upstreamReferences(List<UpstreamTrackerItemReference> upstreamReferences) {
+    
+    this.upstreamReferences = upstreamReferences;
+    return this;
+  }
+
+  public TrackerItemRelationsResult addUpstreamReferencesItem(UpstreamTrackerItemReference upstreamReferencesItem) {
+    if (this.upstreamReferences == null) {
+      this.upstreamReferences = new ArrayList<UpstreamTrackerItemReference>();
+    }
+    this.upstreamReferences.add(upstreamReferencesItem);
+    return this;
+  }
+
+   /**
+   * References and associations to the item
+   * @return upstreamReferences
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "References and associations to the item")
+
+  public List<UpstreamTrackerItemReference> getUpstreamReferences() {
+    return upstreamReferences;
+  }
+
+
+  public void setUpstreamReferences(List<UpstreamTrackerItemReference> upstreamReferences) {
+    this.upstreamReferences = upstreamReferences;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -205,28 +205,27 @@ public class TrackerItemRelationsResult {
       return false;
     }
     TrackerItemRelationsResult trackerItemRelationsResult = (TrackerItemRelationsResult) o;
-    return Objects.equals(this.itemId, trackerItemRelationsResult.itemId) &&
-        Objects.equals(this.downstreamReferences, trackerItemRelationsResult.downstreamReferences) &&
-        Objects.equals(this.upstreamReferences, trackerItemRelationsResult.upstreamReferences) &&
+    return Objects.equals(this.downstreamReferences, trackerItemRelationsResult.downstreamReferences) &&
         Objects.equals(this.incomingAssociations, trackerItemRelationsResult.incomingAssociations) &&
-        Objects.equals(this.outgoingAssociations, trackerItemRelationsResult.outgoingAssociations);
+        Objects.equals(this.itemId, trackerItemRelationsResult.itemId) &&
+        Objects.equals(this.outgoingAssociations, trackerItemRelationsResult.outgoingAssociations) &&
+        Objects.equals(this.upstreamReferences, trackerItemRelationsResult.upstreamReferences);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(itemId, downstreamReferences, upstreamReferences, incomingAssociations, outgoingAssociations);
+    return Objects.hash(downstreamReferences, incomingAssociations, itemId, outgoingAssociations, upstreamReferences);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TrackerItemRelationsResult {\n");
-    sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    downstreamReferences: ").append(toIndentedString(downstreamReferences)).append("\n");
-    sb.append("    upstreamReferences: ").append(toIndentedString(upstreamReferences)).append("\n");
     sb.append("    incomingAssociations: ").append(toIndentedString(incomingAssociations)).append("\n");
+    sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    outgoingAssociations: ").append(toIndentedString(outgoingAssociations)).append("\n");
+    sb.append("    upstreamReferences: ").append(toIndentedString(upstreamReferences)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -235,7 +234,7 @@ public class TrackerItemRelationsResult {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

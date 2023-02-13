@@ -26,8 +26,20 @@ import io.swagger.annotations.ApiModelProperty;
  * Request export for deployment
  */
 @ApiModel(description = "Request export for deployment")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ExportForDeploymentRequest {
+  public static final String SERIALIZED_NAME_EXPORT_FILE_NAME = "exportFileName";
+  @SerializedName(SERIALIZED_NAME_EXPORT_FILE_NAME)
+  private String exportFileName;
+
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  private String password;
+
+  public static final String SERIALIZED_NAME_PROJECT_SETTINGS = "projectSettings";
+  @SerializedName(SERIALIZED_NAME_PROJECT_SETTINGS)
+  private List<DeploymentProjectExportSettings> projectSettings = null;
+
   public static final String SERIALIZED_NAME_SCHEMA_NAME = "schemaName";
   @SerializedName(SERIALIZED_NAME_SCHEMA_NAME)
   private String schemaName;
@@ -36,45 +48,51 @@ public class ExportForDeploymentRequest {
   @SerializedName(SERIALIZED_NAME_SCHEMA_VERSION)
   private String schemaVersion;
 
-  public static final String SERIALIZED_NAME_PROJECT_SETTINGS = "projectSettings";
-  @SerializedName(SERIALIZED_NAME_PROJECT_SETTINGS)
-  private List<DeploymentProjectExportSettings> projectSettings = null;
 
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
-
-  public static final String SERIALIZED_NAME_EXPORT_FILE_NAME = "exportFileName";
-  @SerializedName(SERIALIZED_NAME_EXPORT_FILE_NAME)
-  private String exportFileName;
-
+  public ExportForDeploymentRequest exportFileName(String exportFileName) {
+    
+    this.exportFileName = exportFileName;
+    return this;
+  }
 
    /**
-   * Name of deployment settings schema
-   * @return schemaName
+   * Name of the resulting export file (without extension).
+   * @return exportFileName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of deployment settings schema")
+  @ApiModelProperty(value = "Name of the resulting export file (without extension).")
 
-  public String getSchemaName() {
-    return schemaName;
+  public String getExportFileName() {
+    return exportFileName;
   }
 
 
-
-
-   /**
-   * Version of deployment settings schema
-   * @return schemaVersion
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Version of deployment settings schema")
-
-  public String getSchemaVersion() {
-    return schemaVersion;
+  public void setExportFileName(String exportFileName) {
+    this.exportFileName = exportFileName;
   }
 
 
+  public ExportForDeploymentRequest password(String password) {
+    
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * A password that is used during the project encryption.
+   * @return password
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A password that is used during the project encryption.")
+
+  public String getPassword() {
+    return password;
+  }
+
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
 
   public ExportForDeploymentRequest projectSettings(List<DeploymentProjectExportSettings> projectSettings) {
@@ -108,54 +126,36 @@ public class ExportForDeploymentRequest {
   }
 
 
-  public ExportForDeploymentRequest password(String password) {
-    
-    this.password = password;
-    return this;
-  }
-
    /**
-   * A password that is used during the project encryption.
-   * @return password
+   * Name of deployment settings schema
+   * @return schemaName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A password that is used during the project encryption.")
+  @ApiModelProperty(value = "Name of deployment settings schema")
 
-  public String getPassword() {
-    return password;
+  public String getSchemaName() {
+    return schemaName;
   }
 
 
-  public void setPassword(String password) {
-    this.password = password;
-  }
 
-
-  public ExportForDeploymentRequest exportFileName(String exportFileName) {
-    
-    this.exportFileName = exportFileName;
-    return this;
-  }
 
    /**
-   * Name of the resulting export file (without extension).
-   * @return exportFileName
+   * Version of deployment settings schema
+   * @return schemaVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the resulting export file (without extension).")
+  @ApiModelProperty(value = "Version of deployment settings schema")
 
-  public String getExportFileName() {
-    return exportFileName;
+  public String getSchemaVersion() {
+    return schemaVersion;
   }
 
 
-  public void setExportFileName(String exportFileName) {
-    this.exportFileName = exportFileName;
-  }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -163,28 +163,27 @@ public class ExportForDeploymentRequest {
       return false;
     }
     ExportForDeploymentRequest exportForDeploymentRequest = (ExportForDeploymentRequest) o;
-    return Objects.equals(this.schemaName, exportForDeploymentRequest.schemaName) &&
-        Objects.equals(this.schemaVersion, exportForDeploymentRequest.schemaVersion) &&
-        Objects.equals(this.projectSettings, exportForDeploymentRequest.projectSettings) &&
+    return Objects.equals(this.exportFileName, exportForDeploymentRequest.exportFileName) &&
         Objects.equals(this.password, exportForDeploymentRequest.password) &&
-        Objects.equals(this.exportFileName, exportForDeploymentRequest.exportFileName);
+        Objects.equals(this.projectSettings, exportForDeploymentRequest.projectSettings) &&
+        Objects.equals(this.schemaName, exportForDeploymentRequest.schemaName) &&
+        Objects.equals(this.schemaVersion, exportForDeploymentRequest.schemaVersion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(schemaName, schemaVersion, projectSettings, password, exportFileName);
+    return Objects.hash(exportFileName, password, projectSettings, schemaName, schemaVersion);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExportForDeploymentRequest {\n");
+    sb.append("    exportFileName: ").append(toIndentedString(exportFileName)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    projectSettings: ").append(toIndentedString(projectSettings)).append("\n");
     sb.append("    schemaName: ").append(toIndentedString(schemaName)).append("\n");
     sb.append("    schemaVersion: ").append(toIndentedString(schemaVersion)).append("\n");
-    sb.append("    projectSettings: ").append(toIndentedString(projectSettings)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    exportFileName: ").append(toIndentedString(exportFileName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -193,7 +192,7 @@ public class ExportForDeploymentRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

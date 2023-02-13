@@ -73,15 +73,16 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**429** | Too many requests |  -  |
+**200** | System maintenance status |  -  |
+**400** | Bad Request |  -  |
 **401** | Authentication is required |  -  |
 **403** | Access denied |  -  |
-**200** | System maintenance status |  -  |
+**429** | Too many requests |  -  |
 
 <a name="setSystemStatus"></a>
 # **setSystemStatus**
@@ -139,7 +140,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **maintenanceMode** | [**MaintenanceMode**](MaintenanceMode.md)|  | [optional]
+ **maintenanceMode** | [**MaintenanceMode**](MaintenanceMode.md)|  |
 
 ### Return type
 
@@ -157,9 +158,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | System maintenance status |  -  |
 **400** | Request cannot be processed |  -  |
-**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 **403** | Access denied |  -  |
-**200** | System maintenance status |  -  |
+**429** | Too many requests |  -  |
 

@@ -31,11 +31,11 @@ import io.swagger.annotations.ApiModelProperty;
  * A tracker item review instance including its reviewers and their decisions
  */
 @ApiModel(description = "A tracker item review instance including its reviewers and their decisions")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerItemReview {
-  public static final String SERIALIZED_NAME_REVIEWERS = "reviewers";
-  @SerializedName(SERIALIZED_NAME_REVIEWERS)
-  private List<TrackerItemReviewVote> reviewers = null;
+  public static final String SERIALIZED_NAME_CONFIG = "config";
+  @SerializedName(SERIALIZED_NAME_CONFIG)
+  private TrackerItemReviewConfig config;
 
   /**
    * Whether the review is approved or rejected
@@ -90,13 +90,59 @@ public class TrackerItemReview {
   @SerializedName(SERIALIZED_NAME_RESULT)
   private ResultEnum result;
 
+  public static final String SERIALIZED_NAME_REVIEWERS = "reviewers";
+  @SerializedName(SERIALIZED_NAME_REVIEWERS)
+  private List<TrackerItemReviewVote> reviewers = null;
+
   public static final String SERIALIZED_NAME_TRACKER_ITEM = "trackerItem";
   @SerializedName(SERIALIZED_NAME_TRACKER_ITEM)
   private TrackerItemRevision trackerItem;
 
-  public static final String SERIALIZED_NAME_CONFIG = "config";
-  @SerializedName(SERIALIZED_NAME_CONFIG)
-  private TrackerItemReviewConfig config;
+
+  public TrackerItemReview config(TrackerItemReviewConfig config) {
+    
+    this.config = config;
+    return this;
+  }
+
+   /**
+   * Get config
+   * @return config
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public TrackerItemReviewConfig getConfig() {
+    return config;
+  }
+
+
+  public void setConfig(TrackerItemReviewConfig config) {
+    this.config = config;
+  }
+
+
+  public TrackerItemReview result(ResultEnum result) {
+    
+    this.result = result;
+    return this;
+  }
+
+   /**
+   * Whether the review is approved or rejected
+   * @return result
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether the review is approved or rejected")
+
+  public ResultEnum getResult() {
+    return result;
+  }
+
+
+  public void setResult(ResultEnum result) {
+    this.result = result;
+  }
 
 
   public TrackerItemReview reviewers(List<TrackerItemReviewVote> reviewers) {
@@ -130,29 +176,6 @@ public class TrackerItemReview {
   }
 
 
-  public TrackerItemReview result(ResultEnum result) {
-    
-    this.result = result;
-    return this;
-  }
-
-   /**
-   * Whether the review is approved or rejected
-   * @return result
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether the review is approved or rejected")
-
-  public ResultEnum getResult() {
-    return result;
-  }
-
-
-  public void setResult(ResultEnum result) {
-    this.result = result;
-  }
-
-
   public TrackerItemReview trackerItem(TrackerItemRevision trackerItem) {
     
     this.trackerItem = trackerItem;
@@ -176,31 +199,8 @@ public class TrackerItemReview {
   }
 
 
-  public TrackerItemReview config(TrackerItemReviewConfig config) {
-    
-    this.config = config;
-    return this;
-  }
-
-   /**
-   * Get config
-   * @return config
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public TrackerItemReviewConfig getConfig() {
-    return config;
-  }
-
-
-  public void setConfig(TrackerItemReviewConfig config) {
-    this.config = config;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -208,26 +208,25 @@ public class TrackerItemReview {
       return false;
     }
     TrackerItemReview trackerItemReview = (TrackerItemReview) o;
-    return Objects.equals(this.reviewers, trackerItemReview.reviewers) &&
+    return Objects.equals(this.config, trackerItemReview.config) &&
         Objects.equals(this.result, trackerItemReview.result) &&
-        Objects.equals(this.trackerItem, trackerItemReview.trackerItem) &&
-        Objects.equals(this.config, trackerItemReview.config);
+        Objects.equals(this.reviewers, trackerItemReview.reviewers) &&
+        Objects.equals(this.trackerItem, trackerItemReview.trackerItem);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reviewers, result, trackerItem, config);
+    return Objects.hash(config, result, reviewers, trackerItem);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TrackerItemReview {\n");
-    sb.append("    reviewers: ").append(toIndentedString(reviewers)).append("\n");
-    sb.append("    result: ").append(toIndentedString(result)).append("\n");
-    sb.append("    trackerItem: ").append(toIndentedString(trackerItem)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
+    sb.append("    result: ").append(toIndentedString(result)).append("\n");
+    sb.append("    reviewers: ").append(toIndentedString(reviewers)).append("\n");
+    sb.append("    trackerItem: ").append(toIndentedString(trackerItem)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -236,7 +235,7 @@ public class TrackerItemReview {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

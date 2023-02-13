@@ -2,6 +2,7 @@
 
 # ReportGroupWithGroupsAllOf
 
+
 ## Properties
 
 Name | Type | Description | Notes

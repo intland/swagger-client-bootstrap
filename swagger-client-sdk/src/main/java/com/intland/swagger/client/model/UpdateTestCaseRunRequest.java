@@ -31,11 +31,19 @@ import io.swagger.annotations.ApiModelProperty;
  * Request model to update Test Run&#39;s result for a Test Case
  */
 @ApiModel(description = "Request model to update Test Run's result for a Test Case")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class UpdateTestCaseRunRequest {
-  public static final String SERIALIZED_NAME_TEST_CASE_REFERENCE = "testCaseReference";
-  @SerializedName(SERIALIZED_NAME_TEST_CASE_REFERENCE)
-  private TrackerItemReference testCaseReference;
+  public static final String SERIALIZED_NAME_CONCLUSION = "conclusion";
+  @SerializedName(SERIALIZED_NAME_CONCLUSION)
+  private String conclusion;
+
+  public static final String SERIALIZED_NAME_CUSTOM_FIELDS = "customFields";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_FIELDS)
+  private List<AbstractFieldValue> customFields = null;
+
+  public static final String SERIALIZED_NAME_REPORTED_BUG_REFERENCES = "reportedBugReferences";
+  @SerializedName(SERIALIZED_NAME_REPORTED_BUG_REFERENCES)
+  private List<TrackerItemReference> reportedBugReferences = null;
 
   /**
    * Result of the test case
@@ -46,7 +54,9 @@ public class UpdateTestCaseRunRequest {
     
     FAILED("FAILED"),
     
-    BLOCKED("BLOCKED");
+    BLOCKED("BLOCKED"),
+    
+    NOT_APPLICABLE("NOT_APPLICABLE");
 
     private String value;
 
@@ -90,65 +100,13 @@ public class UpdateTestCaseRunRequest {
   @SerializedName(SERIALIZED_NAME_RESULT)
   private ResultEnum result;
 
-  public static final String SERIALIZED_NAME_CONCLUSION = "conclusion";
-  @SerializedName(SERIALIZED_NAME_CONCLUSION)
-  private String conclusion;
-
   public static final String SERIALIZED_NAME_RUN_TIME = "runTime";
   @SerializedName(SERIALIZED_NAME_RUN_TIME)
   private Integer runTime;
 
-  public static final String SERIALIZED_NAME_REPORTED_BUG_REFERENCES = "reportedBugReferences";
-  @SerializedName(SERIALIZED_NAME_REPORTED_BUG_REFERENCES)
-  private List<TrackerItemReference> reportedBugReferences = null;
-
-  public static final String SERIALIZED_NAME_CUSTOM_FIELDS = "customFields";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_FIELDS)
-  private List<AbstractFieldValue> customFields = null;
-
-
-  public UpdateTestCaseRunRequest testCaseReference(TrackerItemReference testCaseReference) {
-    
-    this.testCaseReference = testCaseReference;
-    return this;
-  }
-
-   /**
-   * Get testCaseReference
-   * @return testCaseReference
-  **/
-  @ApiModelProperty(required = true, value = "")
-
-  public TrackerItemReference getTestCaseReference() {
-    return testCaseReference;
-  }
-
-
-  public void setTestCaseReference(TrackerItemReference testCaseReference) {
-    this.testCaseReference = testCaseReference;
-  }
-
-
-  public UpdateTestCaseRunRequest result(ResultEnum result) {
-    
-    this.result = result;
-    return this;
-  }
-
-   /**
-   * Result of the test case
-   * @return result
-  **/
-  @ApiModelProperty(required = true, value = "Result of the test case")
-
-  public ResultEnum getResult() {
-    return result;
-  }
-
-
-  public void setResult(ResultEnum result) {
-    this.result = result;
-  }
+  public static final String SERIALIZED_NAME_TEST_CASE_REFERENCE = "testCaseReference";
+  @SerializedName(SERIALIZED_NAME_TEST_CASE_REFERENCE)
+  private TrackerItemReference testCaseReference;
 
 
   public UpdateTestCaseRunRequest conclusion(String conclusion) {
@@ -171,60 +129,6 @@ public class UpdateTestCaseRunRequest {
 
   public void setConclusion(String conclusion) {
     this.conclusion = conclusion;
-  }
-
-
-  public UpdateTestCaseRunRequest runTime(Integer runTime) {
-    
-    this.runTime = runTime;
-    return this;
-  }
-
-   /**
-   * Optional runtime in seconds
-   * @return runTime
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Optional runtime in seconds")
-
-  public Integer getRunTime() {
-    return runTime;
-  }
-
-
-  public void setRunTime(Integer runTime) {
-    this.runTime = runTime;
-  }
-
-
-  public UpdateTestCaseRunRequest reportedBugReferences(List<TrackerItemReference> reportedBugReferences) {
-    
-    this.reportedBugReferences = reportedBugReferences;
-    return this;
-  }
-
-  public UpdateTestCaseRunRequest addReportedBugReferencesItem(TrackerItemReference reportedBugReferencesItem) {
-    if (this.reportedBugReferences == null) {
-      this.reportedBugReferences = new ArrayList<TrackerItemReference>();
-    }
-    this.reportedBugReferences.add(reportedBugReferencesItem);
-    return this;
-  }
-
-   /**
-   * Optional reference list of Bugs attached to the Test result
-   * @return reportedBugReferences
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Optional reference list of Bugs attached to the Test result")
-
-  public List<TrackerItemReference> getReportedBugReferences() {
-    return reportedBugReferences;
-  }
-
-
-  public void setReportedBugReferences(List<TrackerItemReference> reportedBugReferences) {
-    this.reportedBugReferences = reportedBugReferences;
   }
 
 
@@ -259,8 +163,108 @@ public class UpdateTestCaseRunRequest {
   }
 
 
+  public UpdateTestCaseRunRequest reportedBugReferences(List<TrackerItemReference> reportedBugReferences) {
+    
+    this.reportedBugReferences = reportedBugReferences;
+    return this;
+  }
+
+  public UpdateTestCaseRunRequest addReportedBugReferencesItem(TrackerItemReference reportedBugReferencesItem) {
+    if (this.reportedBugReferences == null) {
+      this.reportedBugReferences = new ArrayList<TrackerItemReference>();
+    }
+    this.reportedBugReferences.add(reportedBugReferencesItem);
+    return this;
+  }
+
+   /**
+   * Optional reference list of Bugs attached to the Test result
+   * @return reportedBugReferences
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Optional reference list of Bugs attached to the Test result")
+
+  public List<TrackerItemReference> getReportedBugReferences() {
+    return reportedBugReferences;
+  }
+
+
+  public void setReportedBugReferences(List<TrackerItemReference> reportedBugReferences) {
+    this.reportedBugReferences = reportedBugReferences;
+  }
+
+
+  public UpdateTestCaseRunRequest result(ResultEnum result) {
+    
+    this.result = result;
+    return this;
+  }
+
+   /**
+   * Result of the test case
+   * @return result
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Result of the test case")
+
+  public ResultEnum getResult() {
+    return result;
+  }
+
+
+  public void setResult(ResultEnum result) {
+    this.result = result;
+  }
+
+
+  public UpdateTestCaseRunRequest runTime(Integer runTime) {
+    
+    this.runTime = runTime;
+    return this;
+  }
+
+   /**
+   * Optional runtime in seconds
+   * @return runTime
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Optional runtime in seconds")
+
+  public Integer getRunTime() {
+    return runTime;
+  }
+
+
+  public void setRunTime(Integer runTime) {
+    this.runTime = runTime;
+  }
+
+
+  public UpdateTestCaseRunRequest testCaseReference(TrackerItemReference testCaseReference) {
+    
+    this.testCaseReference = testCaseReference;
+    return this;
+  }
+
+   /**
+   * Get testCaseReference
+   * @return testCaseReference
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+
+  public TrackerItemReference getTestCaseReference() {
+    return testCaseReference;
+  }
+
+
+  public void setTestCaseReference(TrackerItemReference testCaseReference) {
+    this.testCaseReference = testCaseReference;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -268,30 +272,29 @@ public class UpdateTestCaseRunRequest {
       return false;
     }
     UpdateTestCaseRunRequest updateTestCaseRunRequest = (UpdateTestCaseRunRequest) o;
-    return Objects.equals(this.testCaseReference, updateTestCaseRunRequest.testCaseReference) &&
-        Objects.equals(this.result, updateTestCaseRunRequest.result) &&
-        Objects.equals(this.conclusion, updateTestCaseRunRequest.conclusion) &&
-        Objects.equals(this.runTime, updateTestCaseRunRequest.runTime) &&
+    return Objects.equals(this.conclusion, updateTestCaseRunRequest.conclusion) &&
+        Objects.equals(this.customFields, updateTestCaseRunRequest.customFields) &&
         Objects.equals(this.reportedBugReferences, updateTestCaseRunRequest.reportedBugReferences) &&
-        Objects.equals(this.customFields, updateTestCaseRunRequest.customFields);
+        Objects.equals(this.result, updateTestCaseRunRequest.result) &&
+        Objects.equals(this.runTime, updateTestCaseRunRequest.runTime) &&
+        Objects.equals(this.testCaseReference, updateTestCaseRunRequest.testCaseReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(testCaseReference, result, conclusion, runTime, reportedBugReferences, customFields);
+    return Objects.hash(conclusion, customFields, reportedBugReferences, result, runTime, testCaseReference);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateTestCaseRunRequest {\n");
-    sb.append("    testCaseReference: ").append(toIndentedString(testCaseReference)).append("\n");
-    sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    conclusion: ").append(toIndentedString(conclusion)).append("\n");
-    sb.append("    runTime: ").append(toIndentedString(runTime)).append("\n");
-    sb.append("    reportedBugReferences: ").append(toIndentedString(reportedBugReferences)).append("\n");
     sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
+    sb.append("    reportedBugReferences: ").append(toIndentedString(reportedBugReferences)).append("\n");
+    sb.append("    result: ").append(toIndentedString(result)).append("\n");
+    sb.append("    runTime: ").append(toIndentedString(runTime)).append("\n");
+    sb.append("    testCaseReference: ").append(toIndentedString(testCaseReference)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -300,7 +303,7 @@ public class UpdateTestCaseRunRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

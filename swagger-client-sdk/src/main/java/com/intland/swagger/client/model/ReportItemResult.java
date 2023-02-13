@@ -24,8 +24,12 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ReportItemResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ReportItemResult {
+  public static final String SERIALIZED_NAME_ITEMS = "items";
+  @SerializedName(SERIALIZED_NAME_ITEMS)
+  private List<ReportItem> items = null;
+
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
   private Integer page;
@@ -38,9 +42,36 @@ public class ReportItemResult {
   @SerializedName(SERIALIZED_NAME_TOTAL)
   private Integer total;
 
-  public static final String SERIALIZED_NAME_ITEMS = "items";
-  @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<ReportItem> items = null;
+
+  public ReportItemResult items(List<ReportItem> items) {
+    
+    this.items = items;
+    return this;
+  }
+
+  public ReportItemResult addItemsItem(ReportItem itemsItem) {
+    if (this.items == null) {
+      this.items = new ArrayList<ReportItem>();
+    }
+    this.items.add(itemsItem);
+    return this;
+  }
+
+   /**
+   * Found tracker items
+   * @return items
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Found tracker items")
+
+  public List<ReportItem> getItems() {
+    return items;
+  }
+
+
+  public void setItems(List<ReportItem> items) {
+    this.items = items;
+  }
 
 
   public ReportItemResult page(Integer page) {
@@ -112,39 +143,8 @@ public class ReportItemResult {
   }
 
 
-  public ReportItemResult items(List<ReportItem> items) {
-    
-    this.items = items;
-    return this;
-  }
-
-  public ReportItemResult addItemsItem(ReportItem itemsItem) {
-    if (this.items == null) {
-      this.items = new ArrayList<ReportItem>();
-    }
-    this.items.add(itemsItem);
-    return this;
-  }
-
-   /**
-   * Found tracker items
-   * @return items
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Found tracker items")
-
-  public List<ReportItem> getItems() {
-    return items;
-  }
-
-
-  public void setItems(List<ReportItem> items) {
-    this.items = items;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -152,26 +152,25 @@ public class ReportItemResult {
       return false;
     }
     ReportItemResult reportItemResult = (ReportItemResult) o;
-    return Objects.equals(this.page, reportItemResult.page) &&
+    return Objects.equals(this.items, reportItemResult.items) &&
+        Objects.equals(this.page, reportItemResult.page) &&
         Objects.equals(this.pageSize, reportItemResult.pageSize) &&
-        Objects.equals(this.total, reportItemResult.total) &&
-        Objects.equals(this.items, reportItemResult.items);
+        Objects.equals(this.total, reportItemResult.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, pageSize, total, items);
+    return Objects.hash(items, page, pageSize, total);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReportItemResult {\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
-    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -180,7 +179,7 @@ public class ReportItemResult {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

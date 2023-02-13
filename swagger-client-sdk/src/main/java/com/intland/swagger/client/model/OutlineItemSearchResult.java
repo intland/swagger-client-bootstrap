@@ -26,8 +26,12 @@ import io.swagger.annotations.ApiModelProperty;
  * Paginated search result of outline items
  */
 @ApiModel(description = "Paginated search result of outline items")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class OutlineItemSearchResult {
+  public static final String SERIALIZED_NAME_OUTLINE_ITEMS = "outlineItems";
+  @SerializedName(SERIALIZED_NAME_OUTLINE_ITEMS)
+  private List<OutlineItem> outlineItems = null;
+
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
   private Integer page;
@@ -40,9 +44,36 @@ public class OutlineItemSearchResult {
   @SerializedName(SERIALIZED_NAME_TOTAL)
   private Integer total;
 
-  public static final String SERIALIZED_NAME_OUTLINE_ITEMS = "outlineItems";
-  @SerializedName(SERIALIZED_NAME_OUTLINE_ITEMS)
-  private List<OutlineItem> outlineItems = null;
+
+  public OutlineItemSearchResult outlineItems(List<OutlineItem> outlineItems) {
+    
+    this.outlineItems = outlineItems;
+    return this;
+  }
+
+  public OutlineItemSearchResult addOutlineItemsItem(OutlineItem outlineItemsItem) {
+    if (this.outlineItems == null) {
+      this.outlineItems = new ArrayList<OutlineItem>();
+    }
+    this.outlineItems.add(outlineItemsItem);
+    return this;
+  }
+
+   /**
+   * Found outline items
+   * @return outlineItems
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Found outline items")
+
+  public List<OutlineItem> getOutlineItems() {
+    return outlineItems;
+  }
+
+
+  public void setOutlineItems(List<OutlineItem> outlineItems) {
+    this.outlineItems = outlineItems;
+  }
 
 
   public OutlineItemSearchResult page(Integer page) {
@@ -114,39 +145,8 @@ public class OutlineItemSearchResult {
   }
 
 
-  public OutlineItemSearchResult outlineItems(List<OutlineItem> outlineItems) {
-    
-    this.outlineItems = outlineItems;
-    return this;
-  }
-
-  public OutlineItemSearchResult addOutlineItemsItem(OutlineItem outlineItemsItem) {
-    if (this.outlineItems == null) {
-      this.outlineItems = new ArrayList<OutlineItem>();
-    }
-    this.outlineItems.add(outlineItemsItem);
-    return this;
-  }
-
-   /**
-   * Found outline items
-   * @return outlineItems
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Found outline items")
-
-  public List<OutlineItem> getOutlineItems() {
-    return outlineItems;
-  }
-
-
-  public void setOutlineItems(List<OutlineItem> outlineItems) {
-    this.outlineItems = outlineItems;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -154,26 +154,25 @@ public class OutlineItemSearchResult {
       return false;
     }
     OutlineItemSearchResult outlineItemSearchResult = (OutlineItemSearchResult) o;
-    return Objects.equals(this.page, outlineItemSearchResult.page) &&
+    return Objects.equals(this.outlineItems, outlineItemSearchResult.outlineItems) &&
+        Objects.equals(this.page, outlineItemSearchResult.page) &&
         Objects.equals(this.pageSize, outlineItemSearchResult.pageSize) &&
-        Objects.equals(this.total, outlineItemSearchResult.total) &&
-        Objects.equals(this.outlineItems, outlineItemSearchResult.outlineItems);
+        Objects.equals(this.total, outlineItemSearchResult.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, pageSize, total, outlineItems);
+    return Objects.hash(outlineItems, page, pageSize, total);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OutlineItemSearchResult {\n");
+    sb.append("    outlineItems: ").append(toIndentedString(outlineItems)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
-    sb.append("    outlineItems: ").append(toIndentedString(outlineItems)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -182,7 +181,7 @@ public class OutlineItemSearchResult {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

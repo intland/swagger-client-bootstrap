@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * One page of artifact revisions.
  */
 @ApiModel(description = "One page of artifact revisions.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ProjectSearchResult {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
@@ -36,13 +36,13 @@ public class ProjectSearchResult {
   @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
   private Integer pageSize;
 
-  public static final String SERIALIZED_NAME_TOTAL = "total";
-  @SerializedName(SERIALIZED_NAME_TOTAL)
-  private Integer total;
-
   public static final String SERIALIZED_NAME_PROJECTS = "projects";
   @SerializedName(SERIALIZED_NAME_PROJECTS)
   private List<Project> projects = null;
+
+  public static final String SERIALIZED_NAME_TOTAL = "total";
+  @SerializedName(SERIALIZED_NAME_TOTAL)
+  private Integer total;
 
 
   public ProjectSearchResult page(Integer page) {
@@ -91,29 +91,6 @@ public class ProjectSearchResult {
   }
 
 
-  public ProjectSearchResult total(Integer total) {
-    
-    this.total = total;
-    return this;
-  }
-
-   /**
-   * Number of matched tracker items by the search criteria
-   * @return total
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of matched tracker items by the search criteria")
-
-  public Integer getTotal() {
-    return total;
-  }
-
-
-  public void setTotal(Integer total) {
-    this.total = total;
-  }
-
-
   public ProjectSearchResult projects(List<Project> projects) {
     
     this.projects = projects;
@@ -145,8 +122,31 @@ public class ProjectSearchResult {
   }
 
 
+  public ProjectSearchResult total(Integer total) {
+    
+    this.total = total;
+    return this;
+  }
+
+   /**
+   * Number of matched tracker items by the search criteria
+   * @return total
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of matched tracker items by the search criteria")
+
+  public Integer getTotal() {
+    return total;
+  }
+
+
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -156,15 +156,14 @@ public class ProjectSearchResult {
     ProjectSearchResult projectSearchResult = (ProjectSearchResult) o;
     return Objects.equals(this.page, projectSearchResult.page) &&
         Objects.equals(this.pageSize, projectSearchResult.pageSize) &&
-        Objects.equals(this.total, projectSearchResult.total) &&
-        Objects.equals(this.projects, projectSearchResult.projects);
+        Objects.equals(this.projects, projectSearchResult.projects) &&
+        Objects.equals(this.total, projectSearchResult.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, pageSize, total, projects);
+    return Objects.hash(page, pageSize, projects, total);
   }
-
 
   @Override
   public String toString() {
@@ -172,8 +171,8 @@ public class ProjectSearchResult {
     sb.append("class ProjectSearchResult {\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    projects: ").append(toIndentedString(projects)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -182,7 +181,7 @@ public class ProjectSearchResult {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

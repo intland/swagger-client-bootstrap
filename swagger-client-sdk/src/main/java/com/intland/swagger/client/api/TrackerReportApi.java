@@ -53,15 +53,16 @@ public class TrackerReportApi {
     /**
      * Build call for createTrackerReport
      * @param trackerId  (required)
-     * @param trackerReportSettings  (optional)
+     * @param trackerReportSettings  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -78,8 +79,9 @@ public class TrackerReportApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -104,6 +106,11 @@ public class TrackerReportApi {
             throw new ApiException("Missing the required parameter 'trackerId' when calling createTrackerReport(Async)");
         }
         
+        // verify the required parameter 'trackerReportSettings' is set
+        if (trackerReportSettings == null) {
+            throw new ApiException("Missing the required parameter 'trackerReportSettings' when calling createTrackerReport(Async)");
+        }
+        
 
         okhttp3.Call localVarCall = createTrackerReportCall(trackerId, trackerReportSettings, _callback);
         return localVarCall;
@@ -114,14 +121,15 @@ public class TrackerReportApi {
      * Creates a report of a specific tracker
      * 
      * @param trackerId  (required)
-     * @param trackerReportSettings  (optional)
+     * @param trackerReportSettings  (required)
      * @return TrackerReportSettings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -135,14 +143,15 @@ public class TrackerReportApi {
      * Creates a report of a specific tracker
      * 
      * @param trackerId  (required)
-     * @param trackerReportSettings  (optional)
+     * @param trackerReportSettings  (required)
      * @return ApiResponse&lt;TrackerReportSettings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -157,15 +166,16 @@ public class TrackerReportApi {
      * Creates a report of a specific tracker (asynchronously)
      * 
      * @param trackerId  (required)
-     * @param trackerReportSettings  (optional)
+     * @param trackerReportSettings  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -187,8 +197,9 @@ public class TrackerReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report deleted. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -206,8 +217,9 @@ public class TrackerReportApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json"
+            "*/*", "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -252,8 +264,9 @@ public class TrackerReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report deleted. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -272,8 +285,9 @@ public class TrackerReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report deleted. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -294,8 +308,9 @@ public class TrackerReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report deleted. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -318,8 +333,9 @@ public class TrackerReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -334,6 +350,10 @@ public class TrackerReportApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (page != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
@@ -342,11 +362,8 @@ public class TrackerReportApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -394,8 +411,9 @@ public class TrackerReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -417,8 +435,9 @@ public class TrackerReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -442,8 +461,9 @@ public class TrackerReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -467,8 +487,9 @@ public class TrackerReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report items </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -483,6 +504,10 @@ public class TrackerReportApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (page != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
@@ -491,11 +516,8 @@ public class TrackerReportApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -543,8 +565,9 @@ public class TrackerReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report items </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -566,8 +589,9 @@ public class TrackerReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report items </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -591,8 +615,9 @@ public class TrackerReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report items </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -613,8 +638,9 @@ public class TrackerReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report reference list </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
@@ -632,8 +658,9 @@ public class TrackerReportApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -673,8 +700,9 @@ public class TrackerReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report reference list </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
@@ -694,8 +722,9 @@ public class TrackerReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report reference list </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
@@ -717,8 +746,9 @@ public class TrackerReportApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report reference list </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
@@ -735,15 +765,16 @@ public class TrackerReportApi {
      * Build call for updateTrackerReport
      * @param trackerId  (required)
      * @param reportId  (required)
-     * @param trackerReportSettings  (optional)
+     * @param trackerReportSettings  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -761,8 +792,9 @@ public class TrackerReportApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -792,6 +824,11 @@ public class TrackerReportApi {
             throw new ApiException("Missing the required parameter 'reportId' when calling updateTrackerReport(Async)");
         }
         
+        // verify the required parameter 'trackerReportSettings' is set
+        if (trackerReportSettings == null) {
+            throw new ApiException("Missing the required parameter 'trackerReportSettings' when calling updateTrackerReport(Async)");
+        }
+        
 
         okhttp3.Call localVarCall = updateTrackerReportCall(trackerId, reportId, trackerReportSettings, _callback);
         return localVarCall;
@@ -803,14 +840,15 @@ public class TrackerReportApi {
      * 
      * @param trackerId  (required)
      * @param reportId  (required)
-     * @param trackerReportSettings  (optional)
+     * @param trackerReportSettings  (required)
      * @return TrackerReportSettings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -825,14 +863,15 @@ public class TrackerReportApi {
      * 
      * @param trackerId  (required)
      * @param reportId  (required)
-     * @param trackerReportSettings  (optional)
+     * @param trackerReportSettings  (required)
      * @return ApiResponse&lt;TrackerReportSettings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -848,15 +887,16 @@ public class TrackerReportApi {
      * 
      * @param trackerId  (required)
      * @param reportId  (required)
-     * @param trackerReportSettings  (optional)
+     * @param trackerReportSettings  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker report settings </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / Report not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>

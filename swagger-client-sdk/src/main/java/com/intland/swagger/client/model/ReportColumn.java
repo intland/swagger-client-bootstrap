@@ -24,11 +24,19 @@ import io.swagger.annotations.ApiModelProperty;
  * Column definition for a report
  */
 @ApiModel(description = "Column definition for a report")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ReportColumn {
+  public static final String SERIALIZED_NAME_COLUMN_INDEX = "columnIndex";
+  @SerializedName(SERIALIZED_NAME_COLUMN_INDEX)
+  private Integer columnIndex;
+
   public static final String SERIALIZED_NAME_COLUMN_REF = "columnRef";
   @SerializedName(SERIALIZED_NAME_COLUMN_REF)
   private String columnRef;
+
+  public static final String SERIALIZED_NAME_COLUMN_WIDTH_PERCENTAGE = "columnWidthPercentage";
+  @SerializedName(SERIALIZED_NAME_COLUMN_WIDTH_PERCENTAGE)
+  private Double columnWidthPercentage;
 
   public static final String SERIALIZED_NAME_FIELD = "field";
   @SerializedName(SERIALIZED_NAME_FIELD)
@@ -42,13 +50,28 @@ public class ReportColumn {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
-  public static final String SERIALIZED_NAME_COLUMN_WIDTH_PERCENTAGE = "columnWidthPercentage";
-  @SerializedName(SERIALIZED_NAME_COLUMN_WIDTH_PERCENTAGE)
-  private Double columnWidthPercentage;
 
-  public static final String SERIALIZED_NAME_COLUMN_INDEX = "columnIndex";
-  @SerializedName(SERIALIZED_NAME_COLUMN_INDEX)
-  private Integer columnIndex;
+  public ReportColumn columnIndex(Integer columnIndex) {
+    
+    this.columnIndex = columnIndex;
+    return this;
+  }
+
+   /**
+   * Column position index in the report.
+   * @return columnIndex
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "0", value = "Column position index in the report.")
+
+  public Integer getColumnIndex() {
+    return columnIndex;
+  }
+
+
+  public void setColumnIndex(Integer columnIndex) {
+    this.columnIndex = columnIndex;
+  }
 
 
   public ReportColumn columnRef(String columnRef) {
@@ -71,6 +94,29 @@ public class ReportColumn {
 
   public void setColumnRef(String columnRef) {
     this.columnRef = columnRef;
+  }
+
+
+  public ReportColumn columnWidthPercentage(Double columnWidthPercentage) {
+    
+    this.columnWidthPercentage = columnWidthPercentage;
+    return this;
+  }
+
+   /**
+   * Column width in percentage
+   * @return columnWidthPercentage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "16.533667", value = "Column width in percentage")
+
+  public Double getColumnWidthPercentage() {
+    return columnWidthPercentage;
+  }
+
+
+  public void setColumnWidthPercentage(Double columnWidthPercentage) {
+    this.columnWidthPercentage = columnWidthPercentage;
   }
 
 
@@ -143,54 +189,8 @@ public class ReportColumn {
   }
 
 
-  public ReportColumn columnWidthPercentage(Double columnWidthPercentage) {
-    
-    this.columnWidthPercentage = columnWidthPercentage;
-    return this;
-  }
-
-   /**
-   * Column width in percentage
-   * @return columnWidthPercentage
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "16.533667", value = "Column width in percentage")
-
-  public Double getColumnWidthPercentage() {
-    return columnWidthPercentage;
-  }
-
-
-  public void setColumnWidthPercentage(Double columnWidthPercentage) {
-    this.columnWidthPercentage = columnWidthPercentage;
-  }
-
-
-  public ReportColumn columnIndex(Integer columnIndex) {
-    
-    this.columnIndex = columnIndex;
-    return this;
-  }
-
-   /**
-   * Column position index in the report.
-   * @return columnIndex
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "0", value = "Column position index in the report.")
-
-  public Integer getColumnIndex() {
-    return columnIndex;
-  }
-
-
-  public void setColumnIndex(Integer columnIndex) {
-    this.columnIndex = columnIndex;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -198,30 +198,29 @@ public class ReportColumn {
       return false;
     }
     ReportColumn reportColumn = (ReportColumn) o;
-    return Objects.equals(this.columnRef, reportColumn.columnRef) &&
+    return Objects.equals(this.columnIndex, reportColumn.columnIndex) &&
+        Objects.equals(this.columnRef, reportColumn.columnRef) &&
+        Objects.equals(this.columnWidthPercentage, reportColumn.columnWidthPercentage) &&
         Objects.equals(this.field, reportColumn.field) &&
         Objects.equals(this.name, reportColumn.name) &&
-        Objects.equals(this.type, reportColumn.type) &&
-        Objects.equals(this.columnWidthPercentage, reportColumn.columnWidthPercentage) &&
-        Objects.equals(this.columnIndex, reportColumn.columnIndex);
+        Objects.equals(this.type, reportColumn.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(columnRef, field, name, type, columnWidthPercentage, columnIndex);
+    return Objects.hash(columnIndex, columnRef, columnWidthPercentage, field, name, type);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReportColumn {\n");
+    sb.append("    columnIndex: ").append(toIndentedString(columnIndex)).append("\n");
     sb.append("    columnRef: ").append(toIndentedString(columnRef)).append("\n");
+    sb.append("    columnWidthPercentage: ").append(toIndentedString(columnWidthPercentage)).append("\n");
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    columnWidthPercentage: ").append(toIndentedString(columnWidthPercentage)).append("\n");
-    sb.append("    columnIndex: ").append(toIndentedString(columnIndex)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -230,7 +229,7 @@ public class ReportColumn {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

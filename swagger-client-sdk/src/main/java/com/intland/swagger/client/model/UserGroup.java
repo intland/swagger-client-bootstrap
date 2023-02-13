@@ -13,9 +13,8 @@
 
 package com.intland.swagger.client.model;
 
+import java.util.Date;
 import java.util.Objects;
-
-import org.joda.time.DateTime;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -26,108 +25,38 @@ import io.swagger.annotations.ApiModelProperty;
  * Group of a codebeamer user
  */
 @ApiModel(description = "Group of a codebeamer user")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class UserGroup {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
-
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private DateTime createdAt;
+  private Date createdAt;
 
   public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
   @SerializedName(SERIALIZED_NAME_CREATED_BY)
   private UserReference createdBy;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Integer id;
+
   public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
   @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
-  private DateTime modifiedAt;
+  private Date modifiedAt;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
   private UserReference modifiedBy;
 
-
-  public UserGroup id(Integer id) {
-    
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Id of the entity
-   * minimum: 0
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Id of the entity")
-
-  public Integer getId() {
-    return id;
-  }
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
 
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-
-  public UserGroup name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the entity
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the entity")
-
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public UserGroup description(String description) {
-    
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Description of a user group
-   * @return description
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of a user group")
-
-  public String getDescription() {
-    return description;
-  }
-
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-
-  public UserGroup createdAt(DateTime createdAt) {
+  public UserGroup createdAt(Date createdAt) {
     
     this.createdAt = createdAt;
     return this;
@@ -140,12 +69,12 @@ public class UserGroup {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was created")
 
-  public DateTime getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
 
-  public void setCreatedAt(DateTime createdAt) {
+  public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -173,7 +102,54 @@ public class UserGroup {
   }
 
 
-  public UserGroup modifiedAt(DateTime modifiedAt) {
+  public UserGroup description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Description of a user group
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Description of a user group")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
+  public UserGroup id(Integer id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Id of the entity
+   * minimum: 0
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Id of the entity")
+
+  public Integer getId() {
+    return id;
+  }
+
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+
+  public UserGroup modifiedAt(Date modifiedAt) {
     
     this.modifiedAt = modifiedAt;
     return this;
@@ -186,12 +162,12 @@ public class UserGroup {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
 
-  public DateTime getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
 
-  public void setModifiedAt(DateTime modifiedAt) {
+  public void setModifiedAt(Date modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 
@@ -219,8 +195,31 @@ public class UserGroup {
   }
 
 
+  public UserGroup name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the entity
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the entity")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -228,32 +227,31 @@ public class UserGroup {
       return false;
     }
     UserGroup userGroup = (UserGroup) o;
-    return Objects.equals(this.id, userGroup.id) &&
-        Objects.equals(this.name, userGroup.name) &&
-        Objects.equals(this.description, userGroup.description) &&
-        Objects.equals(this.createdAt, userGroup.createdAt) &&
+    return Objects.equals(this.createdAt, userGroup.createdAt) &&
         Objects.equals(this.createdBy, userGroup.createdBy) &&
+        Objects.equals(this.description, userGroup.description) &&
+        Objects.equals(this.id, userGroup.id) &&
         Objects.equals(this.modifiedAt, userGroup.modifiedAt) &&
-        Objects.equals(this.modifiedBy, userGroup.modifiedBy);
+        Objects.equals(this.modifiedBy, userGroup.modifiedBy) &&
+        Objects.equals(this.name, userGroup.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, createdAt, createdBy, modifiedAt, modifiedBy);
+    return Objects.hash(createdAt, createdBy, description, id, modifiedAt, modifiedBy, name);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserGroup {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -262,7 +260,7 @@ public class UserGroup {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

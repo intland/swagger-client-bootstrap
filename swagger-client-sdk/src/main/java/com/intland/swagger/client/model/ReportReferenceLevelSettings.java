@@ -26,23 +26,11 @@ import io.swagger.annotations.ApiModelProperty;
  * Reference level settings for Intelligent Table View.
  */
 @ApiModel(description = "Reference level settings for Intelligent Table View.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ReportReferenceLevelSettings {
-  public static final String SERIALIZED_NAME_REFERENCE_TRACKERS = "referenceTrackers";
-  @SerializedName(SERIALIZED_NAME_REFERENCE_TRACKERS)
-  private List<TrackerReference> referenceTrackers = null;
-
-  public static final String SERIALIZED_NAME_REFERENCE_TRACKER_TYPES = "referenceTrackerTypes";
-  @SerializedName(SERIALIZED_NAME_REFERENCE_TRACKER_TYPES)
-  private List<TrackerTypeReference> referenceTrackerTypes = null;
-
   public static final String SERIALIZED_NAME_COLUMNS = "columns";
   @SerializedName(SERIALIZED_NAME_COLUMNS)
   private List<ReportColumnSettings> columns = new ArrayList<ReportColumnSettings>();
-
-  public static final String SERIALIZED_NAME_UPSTREAM_REFERENCE = "upstreamReference";
-  @SerializedName(SERIALIZED_NAME_UPSTREAM_REFERENCE)
-  private Boolean upstreamReference;
 
   public static final String SERIALIZED_NAME_DOWNSTREAM_REFERENCE = "downstreamReference";
   @SerializedName(SERIALIZED_NAME_DOWNSTREAM_REFERENCE)
@@ -52,35 +40,91 @@ public class ReportReferenceLevelSettings {
   @SerializedName(SERIALIZED_NAME_LEVEL)
   private Integer level;
 
+  public static final String SERIALIZED_NAME_REFERENCE_TRACKER_TYPES = "referenceTrackerTypes";
+  @SerializedName(SERIALIZED_NAME_REFERENCE_TRACKER_TYPES)
+  private List<TrackerTypeReference> referenceTrackerTypes = null;
 
-  public ReportReferenceLevelSettings referenceTrackers(List<TrackerReference> referenceTrackers) {
+  public static final String SERIALIZED_NAME_REFERENCE_TRACKERS = "referenceTrackers";
+  @SerializedName(SERIALIZED_NAME_REFERENCE_TRACKERS)
+  private List<TrackerReference> referenceTrackers = null;
+
+  public static final String SERIALIZED_NAME_UPSTREAM_REFERENCE = "upstreamReference";
+  @SerializedName(SERIALIZED_NAME_UPSTREAM_REFERENCE)
+  private Boolean upstreamReference;
+
+
+  public ReportReferenceLevelSettings columns(List<ReportColumnSettings> columns) {
     
-    this.referenceTrackers = referenceTrackers;
+    this.columns = columns;
     return this;
   }
 
-  public ReportReferenceLevelSettings addReferenceTrackersItem(TrackerReference referenceTrackersItem) {
-    if (this.referenceTrackers == null) {
-      this.referenceTrackers = new ArrayList<TrackerReference>();
-    }
-    this.referenceTrackers.add(referenceTrackersItem);
+  public ReportReferenceLevelSettings addColumnsItem(ReportColumnSettings columnsItem) {
+    this.columns.add(columnsItem);
     return this;
   }
 
    /**
-   * Trackers to include on this level.
-   * @return referenceTrackers
+   * Columns to show on this reference level.
+   * @return columns
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Trackers to include on this level.")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Columns to show on this reference level.")
 
-  public List<TrackerReference> getReferenceTrackers() {
-    return referenceTrackers;
+  public List<ReportColumnSettings> getColumns() {
+    return columns;
   }
 
 
-  public void setReferenceTrackers(List<TrackerReference> referenceTrackers) {
-    this.referenceTrackers = referenceTrackers;
+  public void setColumns(List<ReportColumnSettings> columns) {
+    this.columns = columns;
+  }
+
+
+  public ReportReferenceLevelSettings downstreamReference(Boolean downstreamReference) {
+    
+    this.downstreamReference = downstreamReference;
+    return this;
+  }
+
+   /**
+   * Include downstream references indicator.
+   * @return downstreamReference
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "false", required = true, value = "Include downstream references indicator.")
+
+  public Boolean getDownstreamReference() {
+    return downstreamReference;
+  }
+
+
+  public void setDownstreamReference(Boolean downstreamReference) {
+    this.downstreamReference = downstreamReference;
+  }
+
+
+  public ReportReferenceLevelSettings level(Integer level) {
+    
+    this.level = level;
+    return this;
+  }
+
+   /**
+   * Level of the reference layer
+   * minimum: 1
+   * @return level
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "1", required = true, value = "Level of the reference layer")
+
+  public Integer getLevel() {
+    return level;
+  }
+
+
+  public void setLevel(Integer level) {
+    this.level = level;
   }
 
 
@@ -115,30 +159,34 @@ public class ReportReferenceLevelSettings {
   }
 
 
-  public ReportReferenceLevelSettings columns(List<ReportColumnSettings> columns) {
+  public ReportReferenceLevelSettings referenceTrackers(List<TrackerReference> referenceTrackers) {
     
-    this.columns = columns;
+    this.referenceTrackers = referenceTrackers;
     return this;
   }
 
-  public ReportReferenceLevelSettings addColumnsItem(ReportColumnSettings columnsItem) {
-    this.columns.add(columnsItem);
+  public ReportReferenceLevelSettings addReferenceTrackersItem(TrackerReference referenceTrackersItem) {
+    if (this.referenceTrackers == null) {
+      this.referenceTrackers = new ArrayList<TrackerReference>();
+    }
+    this.referenceTrackers.add(referenceTrackersItem);
     return this;
   }
 
    /**
-   * Columns to show on this reference level.
-   * @return columns
+   * Trackers to include on this level.
+   * @return referenceTrackers
   **/
-  @ApiModelProperty(required = true, value = "Columns to show on this reference level.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Trackers to include on this level.")
 
-  public List<ReportColumnSettings> getColumns() {
-    return columns;
+  public List<TrackerReference> getReferenceTrackers() {
+    return referenceTrackers;
   }
 
 
-  public void setColumns(List<ReportColumnSettings> columns) {
-    this.columns = columns;
+  public void setReferenceTrackers(List<TrackerReference> referenceTrackers) {
+    this.referenceTrackers = referenceTrackers;
   }
 
 
@@ -152,6 +200,7 @@ public class ReportReferenceLevelSettings {
    * Include upstream references indicator.
    * @return upstreamReference
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "true", required = true, value = "Include upstream references indicator.")
 
   public Boolean getUpstreamReference() {
@@ -164,53 +213,8 @@ public class ReportReferenceLevelSettings {
   }
 
 
-  public ReportReferenceLevelSettings downstreamReference(Boolean downstreamReference) {
-    
-    this.downstreamReference = downstreamReference;
-    return this;
-  }
-
-   /**
-   * Include downstream references indicator.
-   * @return downstreamReference
-  **/
-  @ApiModelProperty(example = "false", required = true, value = "Include downstream references indicator.")
-
-  public Boolean getDownstreamReference() {
-    return downstreamReference;
-  }
-
-
-  public void setDownstreamReference(Boolean downstreamReference) {
-    this.downstreamReference = downstreamReference;
-  }
-
-
-  public ReportReferenceLevelSettings level(Integer level) {
-    
-    this.level = level;
-    return this;
-  }
-
-   /**
-   * Level of the reference layer
-   * minimum: 1
-   * @return level
-  **/
-  @ApiModelProperty(example = "1", required = true, value = "Level of the reference layer")
-
-  public Integer getLevel() {
-    return level;
-  }
-
-
-  public void setLevel(Integer level) {
-    this.level = level;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -218,30 +222,29 @@ public class ReportReferenceLevelSettings {
       return false;
     }
     ReportReferenceLevelSettings reportReferenceLevelSettings = (ReportReferenceLevelSettings) o;
-    return Objects.equals(this.referenceTrackers, reportReferenceLevelSettings.referenceTrackers) &&
-        Objects.equals(this.referenceTrackerTypes, reportReferenceLevelSettings.referenceTrackerTypes) &&
-        Objects.equals(this.columns, reportReferenceLevelSettings.columns) &&
-        Objects.equals(this.upstreamReference, reportReferenceLevelSettings.upstreamReference) &&
+    return Objects.equals(this.columns, reportReferenceLevelSettings.columns) &&
         Objects.equals(this.downstreamReference, reportReferenceLevelSettings.downstreamReference) &&
-        Objects.equals(this.level, reportReferenceLevelSettings.level);
+        Objects.equals(this.level, reportReferenceLevelSettings.level) &&
+        Objects.equals(this.referenceTrackerTypes, reportReferenceLevelSettings.referenceTrackerTypes) &&
+        Objects.equals(this.referenceTrackers, reportReferenceLevelSettings.referenceTrackers) &&
+        Objects.equals(this.upstreamReference, reportReferenceLevelSettings.upstreamReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(referenceTrackers, referenceTrackerTypes, columns, upstreamReference, downstreamReference, level);
+    return Objects.hash(columns, downstreamReference, level, referenceTrackerTypes, referenceTrackers, upstreamReference);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReportReferenceLevelSettings {\n");
-    sb.append("    referenceTrackers: ").append(toIndentedString(referenceTrackers)).append("\n");
-    sb.append("    referenceTrackerTypes: ").append(toIndentedString(referenceTrackerTypes)).append("\n");
     sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
-    sb.append("    upstreamReference: ").append(toIndentedString(upstreamReference)).append("\n");
     sb.append("    downstreamReference: ").append(toIndentedString(downstreamReference)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
+    sb.append("    referenceTrackerTypes: ").append(toIndentedString(referenceTrackerTypes)).append("\n");
+    sb.append("    referenceTrackers: ").append(toIndentedString(referenceTrackers)).append("\n");
+    sb.append("    upstreamReference: ").append(toIndentedString(upstreamReference)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -250,7 +253,7 @@ public class ReportReferenceLevelSettings {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

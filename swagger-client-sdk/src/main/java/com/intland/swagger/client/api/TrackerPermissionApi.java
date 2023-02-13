@@ -59,10 +59,11 @@ public class TrackerPermissionApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker permission. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource is not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTrackerPermissionCall(Integer trackerPermissionId, final ApiCallback _callback) throws ApiException {
@@ -77,8 +78,9 @@ public class TrackerPermissionApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -118,10 +120,11 @@ public class TrackerPermissionApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker permission. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource is not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public TrackerPermission getTrackerPermission(Integer trackerPermissionId) throws ApiException {
@@ -138,10 +141,11 @@ public class TrackerPermissionApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker permission. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource is not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TrackerPermission> getTrackerPermissionWithHttpInfo(Integer trackerPermissionId) throws ApiException {
@@ -160,10 +164,11 @@ public class TrackerPermissionApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker permission. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource is not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTrackerPermissionAsync(Integer trackerPermissionId, final ApiCallback<TrackerPermission> _callback) throws ApiException {
@@ -181,10 +186,11 @@ public class TrackerPermissionApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker permission is not found. </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Tracker permissions. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTrackerPermissionsCall(final ApiCallback _callback) throws ApiException {
@@ -198,8 +204,9 @@ public class TrackerPermissionApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -233,10 +240,11 @@ public class TrackerPermissionApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker permission is not found. </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Tracker permissions. </td><td>  -  </td></tr>
      </table>
      */
     public List<TrackerPermissionReference> getTrackerPermissions() throws ApiException {
@@ -252,10 +260,11 @@ public class TrackerPermissionApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker permission is not found. </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Tracker permissions. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<TrackerPermissionReference>> getTrackerPermissionsWithHttpInfo() throws ApiException {
@@ -273,10 +282,11 @@ public class TrackerPermissionApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Tracker permissions. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker permission is not found. </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Tracker permissions. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTrackerPermissionsAsync(final ApiCallback<List<TrackerPermissionReference>> _callback) throws ApiException {
@@ -297,11 +307,11 @@ public class TrackerPermissionApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Tracker is not found. </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker permissions by role. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> No access permission for this resource </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker is not found. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTrackerPermissionsWithRolesCall(Integer trackerId, Integer userId, Integer roleId, final ApiCallback _callback) throws ApiException {
@@ -313,6 +323,10 @@ public class TrackerPermissionApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (userId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("userId", userId));
         }
@@ -321,9 +335,6 @@ public class TrackerPermissionApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("roleId", roleId));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -367,11 +378,11 @@ public class TrackerPermissionApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Tracker is not found. </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker permissions by role. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> No access permission for this resource </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker is not found. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public List<RoleWithPermissions> getTrackerPermissionsWithRoles(Integer trackerId, Integer userId, Integer roleId) throws ApiException {
@@ -390,11 +401,11 @@ public class TrackerPermissionApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Tracker is not found. </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker permissions by role. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> No access permission for this resource </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker is not found. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<RoleWithPermissions>> getTrackerPermissionsWithRolesWithHttpInfo(Integer trackerId, Integer userId, Integer roleId) throws ApiException {
@@ -415,11 +426,11 @@ public class TrackerPermissionApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Tracker is not found. </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker permissions by role. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> No access permission for this resource </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Tracker is not found. </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTrackerPermissionsWithRolesAsync(Integer trackerId, Integer userId, Integer roleId, final ApiCallback<List<RoleWithPermissions>> _callback) throws ApiException {
@@ -439,10 +450,11 @@ public class TrackerPermissionApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker permissions were removed. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker/role is not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call removePermissionsCall(Integer trackerId, Integer roleId, final ApiCallback _callback) throws ApiException {
@@ -458,6 +470,7 @@ public class TrackerPermissionApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
             "*/*"
         };
@@ -504,10 +517,11 @@ public class TrackerPermissionApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker permissions were removed. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker/role is not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public void removePermissions(Integer trackerId, Integer roleId) throws ApiException {
@@ -524,10 +538,11 @@ public class TrackerPermissionApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker permissions were removed. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker/role is not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> removePermissionsWithHttpInfo(Integer trackerId, Integer roleId) throws ApiException {
@@ -546,10 +561,11 @@ public class TrackerPermissionApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker permissions were removed. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker/role is not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call removePermissionsAsync(Integer trackerId, Integer roleId, final ApiCallback<Void> _callback) throws ApiException {
@@ -562,15 +578,16 @@ public class TrackerPermissionApi {
      * Build call for updatePermission
      * @param trackerId  (required)
      * @param roleId  (required)
-     * @param permissionIdsRequest  (optional)
+     * @param permissionIdsRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker permissions are set </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / permission / roles not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -588,8 +605,9 @@ public class TrackerPermissionApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -619,6 +637,11 @@ public class TrackerPermissionApi {
             throw new ApiException("Missing the required parameter 'roleId' when calling updatePermission(Async)");
         }
         
+        // verify the required parameter 'permissionIdsRequest' is set
+        if (permissionIdsRequest == null) {
+            throw new ApiException("Missing the required parameter 'permissionIdsRequest' when calling updatePermission(Async)");
+        }
+        
 
         okhttp3.Call localVarCall = updatePermissionCall(trackerId, roleId, permissionIdsRequest, _callback);
         return localVarCall;
@@ -630,14 +653,15 @@ public class TrackerPermissionApi {
      * 
      * @param trackerId  (required)
      * @param roleId  (required)
-     * @param permissionIdsRequest  (optional)
+     * @param permissionIdsRequest  (required)
      * @return List&lt;RoleWithPermissions&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker permissions are set </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / permission / roles not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -652,14 +676,15 @@ public class TrackerPermissionApi {
      * 
      * @param trackerId  (required)
      * @param roleId  (required)
-     * @param permissionIdsRequest  (optional)
+     * @param permissionIdsRequest  (required)
      * @return ApiResponse&lt;List&lt;RoleWithPermissions&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker permissions are set </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / permission / roles not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -675,15 +700,16 @@ public class TrackerPermissionApi {
      * 
      * @param trackerId  (required)
      * @param roleId  (required)
-     * @param permissionIdsRequest  (optional)
+     * @param permissionIdsRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Tracker permissions are set </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker / permission / roles not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>

@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Tracker item history containing all versions of an item.
  */
 @ApiModel(description = "Tracker item history containing all versions of an item.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerItemHistory {
   public static final String SERIALIZED_NAME_VERSIONS = "versions";
   @SerializedName(SERIALIZED_NAME_VERSIONS)
@@ -65,7 +65,7 @@ public class TrackerItemHistory {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -81,7 +81,6 @@ public class TrackerItemHistory {
     return Objects.hash(versions);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -95,7 +94,7 @@ public class TrackerItemHistory {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

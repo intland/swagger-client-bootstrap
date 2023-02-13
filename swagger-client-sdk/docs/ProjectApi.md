@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 <a name="createTracker"></a>
 # **createTracker**
-> Tracker createTracker(projectId, templateId, tracker)
+> Tracker createTracker(projectId, tracker, templateId)
 
 Create a tracker
 
@@ -54,10 +54,10 @@ public class Example {
 
     ProjectApi apiInstance = new ProjectApi(defaultClient);
     Integer projectId = 56; // Integer | 
-    Integer templateId = 56; // Integer | Identifier of the template tracker.
     Tracker tracker = new Tracker(); // Tracker | 
+    Integer templateId = 56; // Integer | Identifier of the template tracker.
     try {
-      Tracker result = apiInstance.createTracker(projectId, templateId, tracker);
+      Tracker result = apiInstance.createTracker(projectId, tracker, templateId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectApi#createTracker");
@@ -75,8 +75,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectId** | **Integer**|  |
+ **tracker** | [**Tracker**](Tracker.md)|  |
  **templateId** | **Integer**| Identifier of the template tracker. | [optional]
- **tracker** | [**Tracker**](Tracker.md)|  | [optional]
 
 ### Return type
 
@@ -89,12 +89,13 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Tracker settings |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required / Bad request: Tracker settings validation failed. |  -  |
 **404** | Tracker not found |  -  |
 **429** | Too many requests |  -  |
@@ -157,7 +158,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deployProject** | [**DeployProject**](DeployProject.md)|  | [optional]
+ **deployProject** | [**DeployProject**](DeployProject.md)|  |
 
 ### Return type
 
@@ -175,12 +176,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Project configuration deployed |  -  |
 **400** | Request cannot be processed |  -  |
 **403** | Authentication is required |  -  |
-**500** | Error when deploying the project configuration. |  -  |
-**429** | Too many requests |  -  |
 **404** | Project or configuration file not found |  -  |
-**200** | Project configuration deployed |  -  |
+**429** | Too many requests |  -  |
+**500** | Error when deploying the project configuration. |  -  |
 
 <a name="getMembersOfProject"></a>
 # **getMembersOfProject**
@@ -255,16 +256,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**429** | Too many requests |  -  |
-**401** | Authentication is required |  -  |
 **200** | Member by id |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authentication is required |  -  |
 **404** | Project is not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getProjectById"></a>
 # **getProjectById**
@@ -335,16 +337,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Project |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authentication is required |  -  |
 **404** | Project not found |  -  |
 **429** | Too many requests |  -  |
-**401** | Authentication is required |  -  |
 
 <a name="getProjectRolesOfMember"></a>
 # **getProjectRolesOfMember**
@@ -417,15 +420,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Roles |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
 **404** | Project or User is not found / User is not a member of the project |  -  |
 **429** | Too many requests |  -  |
-**401** | Authentication is required |  -  |
-**200** | Roles |  -  |
 
 <a name="getProjects"></a>
 # **getProjects**
@@ -492,16 +496,17 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Projects |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication is required |  -  |
 **403** | Authentication is required |  -  |
 **404** | Project not found |  -  |
 **429** | Too many requests |  -  |
-**401** | Authentication is required |  -  |
-**200** | Projects |  -  |
 
 <a name="getTopLevelWikiPages"></a>
 # **getTopLevelWikiPages**
@@ -572,16 +577,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | The project does not exists |  -  |
-**429** | Too many requests |  -  |
+**200** | The list of wiki pages |  -  |
+**400** | Bad Request |  -  |
 **401** | Authentication is required |  -  |
 **403** | Access denied |  -  |
-**200** | The list of wiki pages |  -  |
+**404** | The project does not exists |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackers"></a>
 # **getTrackers**
@@ -652,15 +658,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**429** | Too many requests |  -  |
-**404** | Project / Tracker not found |  -  |
 **200** | Trackers |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Project / Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="searchAllTrackersInProject"></a>
 # **searchAllTrackersInProject**
@@ -720,7 +727,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectId** | **Integer**|  |
- **trackerFilteringRequest** | [**TrackerFilteringRequest**](TrackerFilteringRequest.md)|  | [optional]
+ **trackerFilteringRequest** | [**TrackerFilteringRequest**](TrackerFilteringRequest.md)|  |
 
 ### Return type
 
@@ -733,15 +740,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**429** | Too many requests |  -  |
-**404** | Project / Tracker not found |  -  |
 **200** | Trackers |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
+**404** | Project / Tracker not found |  -  |
+**429** | Too many requests |  -  |
 
 <a name="searchProjects"></a>
 # **searchProjects**
@@ -799,7 +807,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectFilteringRequest** | [**ProjectFilteringRequest**](ProjectFilteringRequest.md)|  | [optional]
+ **projectFilteringRequest** | [**ProjectFilteringRequest**](ProjectFilteringRequest.md)|  |
 
 ### Return type
 
@@ -817,9 +825,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad request |  -  |
 **200** | One page of projects |  -  |
-**429** | Too many requests |  -  |
+**400** | Bad request |  -  |
 **401** | Authentication is required |  -  |
 **403** | Access denied |  -  |
+**429** | Too many requests |  -  |
 

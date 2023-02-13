@@ -3,6 +3,7 @@
 # UserSearchResult
 
 Paginated search result of users
+
 ## Properties
 
 Name | Type | Description | Notes

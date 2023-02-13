@@ -24,19 +24,15 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ExportProject
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ExportProject {
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
 
-  public static final String SERIALIZED_NAME_SKIP_TRACKER_ITEMS = "skipTrackerItems";
-  @SerializedName(SERIALIZED_NAME_SKIP_TRACKER_ITEMS)
-  private Boolean skipTrackerItems = false;
-
-  public static final String SERIALIZED_NAME_SKIP_WIKI_PAGES = "skipWikiPages";
-  @SerializedName(SERIALIZED_NAME_SKIP_WIKI_PAGES)
-  private Boolean skipWikiPages = true;
+  public static final String SERIALIZED_NAME_SELECTED_TRACKER_IDS = "selectedTrackerIds";
+  @SerializedName(SERIALIZED_NAME_SELECTED_TRACKER_IDS)
+  private List<Integer> selectedTrackerIds = null;
 
   public static final String SERIALIZED_NAME_SKIP_ASSOCIATIONS = "skipAssociations";
   @SerializedName(SERIALIZED_NAME_SKIP_ASSOCIATIONS)
@@ -46,9 +42,13 @@ public class ExportProject {
   @SerializedName(SERIALIZED_NAME_SKIP_REPORTS)
   private Boolean skipReports = false;
 
-  public static final String SERIALIZED_NAME_SELECTED_TRACKER_IDS = "selectedTrackerIds";
-  @SerializedName(SERIALIZED_NAME_SELECTED_TRACKER_IDS)
-  private List<Integer> selectedTrackerIds = null;
+  public static final String SERIALIZED_NAME_SKIP_TRACKER_ITEMS = "skipTrackerItems";
+  @SerializedName(SERIALIZED_NAME_SKIP_TRACKER_ITEMS)
+  private Boolean skipTrackerItems = false;
+
+  public static final String SERIALIZED_NAME_SKIP_WIKI_PAGES = "skipWikiPages";
+  @SerializedName(SERIALIZED_NAME_SKIP_WIKI_PAGES)
+  private Boolean skipWikiPages = true;
 
 
   public ExportProject password(String password) {
@@ -74,49 +74,34 @@ public class ExportProject {
   }
 
 
-  public ExportProject skipTrackerItems(Boolean skipTrackerItems) {
+  public ExportProject selectedTrackerIds(List<Integer> selectedTrackerIds) {
     
-    this.skipTrackerItems = skipTrackerItems;
+    this.selectedTrackerIds = selectedTrackerIds;
+    return this;
+  }
+
+  public ExportProject addSelectedTrackerIdsItem(Integer selectedTrackerIdsItem) {
+    if (this.selectedTrackerIds == null) {
+      this.selectedTrackerIds = new ArrayList<Integer>();
+    }
+    this.selectedTrackerIds.add(selectedTrackerIdsItem);
     return this;
   }
 
    /**
-   * If true, then the Tracker Items are not exported
-   * @return skipTrackerItems
+   * If this list is not empty then only the Trackers listed here are exported.
+   * @return selectedTrackerIds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If true, then the Tracker Items are not exported")
+  @ApiModelProperty(value = "If this list is not empty then only the Trackers listed here are exported.")
 
-  public Boolean getSkipTrackerItems() {
-    return skipTrackerItems;
+  public List<Integer> getSelectedTrackerIds() {
+    return selectedTrackerIds;
   }
 
 
-  public void setSkipTrackerItems(Boolean skipTrackerItems) {
-    this.skipTrackerItems = skipTrackerItems;
-  }
-
-
-  public ExportProject skipWikiPages(Boolean skipWikiPages) {
-    
-    this.skipWikiPages = skipWikiPages;
-    return this;
-  }
-
-   /**
-   * If true, then the Wiki PAges are not exported
-   * @return skipWikiPages
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "If true, then the Wiki PAges are not exported")
-
-  public Boolean getSkipWikiPages() {
-    return skipWikiPages;
-  }
-
-
-  public void setSkipWikiPages(Boolean skipWikiPages) {
-    this.skipWikiPages = skipWikiPages;
+  public void setSelectedTrackerIds(List<Integer> selectedTrackerIds) {
+    this.selectedTrackerIds = selectedTrackerIds;
   }
 
 
@@ -166,39 +151,54 @@ public class ExportProject {
   }
 
 
-  public ExportProject selectedTrackerIds(List<Integer> selectedTrackerIds) {
+  public ExportProject skipTrackerItems(Boolean skipTrackerItems) {
     
-    this.selectedTrackerIds = selectedTrackerIds;
-    return this;
-  }
-
-  public ExportProject addSelectedTrackerIdsItem(Integer selectedTrackerIdsItem) {
-    if (this.selectedTrackerIds == null) {
-      this.selectedTrackerIds = new ArrayList<Integer>();
-    }
-    this.selectedTrackerIds.add(selectedTrackerIdsItem);
+    this.skipTrackerItems = skipTrackerItems;
     return this;
   }
 
    /**
-   * If this list is not empty then only the Trackers listed here are exported.
-   * @return selectedTrackerIds
+   * If true, then the Tracker Items are not exported
+   * @return skipTrackerItems
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If this list is not empty then only the Trackers listed here are exported.")
+  @ApiModelProperty(value = "If true, then the Tracker Items are not exported")
 
-  public List<Integer> getSelectedTrackerIds() {
-    return selectedTrackerIds;
+  public Boolean getSkipTrackerItems() {
+    return skipTrackerItems;
   }
 
 
-  public void setSelectedTrackerIds(List<Integer> selectedTrackerIds) {
-    this.selectedTrackerIds = selectedTrackerIds;
+  public void setSkipTrackerItems(Boolean skipTrackerItems) {
+    this.skipTrackerItems = skipTrackerItems;
+  }
+
+
+  public ExportProject skipWikiPages(Boolean skipWikiPages) {
+    
+    this.skipWikiPages = skipWikiPages;
+    return this;
+  }
+
+   /**
+   * If true, then the Wiki PAges are not exported
+   * @return skipWikiPages
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If true, then the Wiki PAges are not exported")
+
+  public Boolean getSkipWikiPages() {
+    return skipWikiPages;
+  }
+
+
+  public void setSkipWikiPages(Boolean skipWikiPages) {
+    this.skipWikiPages = skipWikiPages;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -207,29 +207,28 @@ public class ExportProject {
     }
     ExportProject exportProject = (ExportProject) o;
     return Objects.equals(this.password, exportProject.password) &&
-        Objects.equals(this.skipTrackerItems, exportProject.skipTrackerItems) &&
-        Objects.equals(this.skipWikiPages, exportProject.skipWikiPages) &&
+        Objects.equals(this.selectedTrackerIds, exportProject.selectedTrackerIds) &&
         Objects.equals(this.skipAssociations, exportProject.skipAssociations) &&
         Objects.equals(this.skipReports, exportProject.skipReports) &&
-        Objects.equals(this.selectedTrackerIds, exportProject.selectedTrackerIds);
+        Objects.equals(this.skipTrackerItems, exportProject.skipTrackerItems) &&
+        Objects.equals(this.skipWikiPages, exportProject.skipWikiPages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password, skipTrackerItems, skipWikiPages, skipAssociations, skipReports, selectedTrackerIds);
+    return Objects.hash(password, selectedTrackerIds, skipAssociations, skipReports, skipTrackerItems, skipWikiPages);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExportProject {\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    skipTrackerItems: ").append(toIndentedString(skipTrackerItems)).append("\n");
-    sb.append("    skipWikiPages: ").append(toIndentedString(skipWikiPages)).append("\n");
+    sb.append("    selectedTrackerIds: ").append(toIndentedString(selectedTrackerIds)).append("\n");
     sb.append("    skipAssociations: ").append(toIndentedString(skipAssociations)).append("\n");
     sb.append("    skipReports: ").append(toIndentedString(skipReports)).append("\n");
-    sb.append("    selectedTrackerIds: ").append(toIndentedString(selectedTrackerIds)).append("\n");
+    sb.append("    skipTrackerItems: ").append(toIndentedString(skipTrackerItems)).append("\n");
+    sb.append("    skipWikiPages: ").append(toIndentedString(skipWikiPages)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -238,7 +237,7 @@ public class ExportProject {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

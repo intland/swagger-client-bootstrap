@@ -80,15 +80,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | User |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
 **404** | User not found |  -  |
 **429** | Too many requests |  -  |
-**200** | User |  -  |
 
 <a name="getUserByEmail"></a>
 # **getUserByEmail**
@@ -159,15 +160,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | User |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
 **404** | User not found |  -  |
 **429** | Too many requests |  -  |
-**200** | User |  -  |
 
 <a name="getUserByName"></a>
 # **getUserByName**
@@ -238,15 +240,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | User |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
 **404** | User not found |  -  |
 **429** | Too many requests |  -  |
-**200** | User |  -  |
 
 <a name="getUsers"></a>
 # **getUsers**
@@ -288,7 +291,7 @@ public class Example {
     Integer page = 1; // Integer | Index of the result page starting from 1.
     Integer pageSize = 25; // Integer | Number of items in a result page. Max value: 500
     Integer groupId = 56; // Integer | 
-    String queryString = Intland; // String | 
+    String queryString = "Intland"; // String | 
     try {
       UserReferenceSearchResult result = apiInstance.getUsers(page, pageSize, groupId, queryString);
       System.out.println(result);
@@ -323,18 +326,19 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Users |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
 **429** | Too many requests |  -  |
-**200** | Users |  -  |
 
 <a name="searchUsers"></a>
 # **searchUsers**
-> UserSearchResult searchUsers(page, pageSize, userFilteringRequest)
+> UserSearchResult searchUsers(userFilteringRequest, page, pageSize)
 
 Search users
 
@@ -369,11 +373,11 @@ public class Example {
     BearerAuth.setBearerToken("BEARER TOKEN");
 
     UserApi apiInstance = new UserApi(defaultClient);
+    UserFilteringRequest userFilteringRequest = new UserFilteringRequest(); // UserFilteringRequest | 
     Integer page = 1; // Integer | Index of the result page starting from 1.
     Integer pageSize = 25; // Integer | Number of items in a result page. Max value: 500
-    UserFilteringRequest userFilteringRequest = new UserFilteringRequest(); // UserFilteringRequest | 
     try {
-      UserSearchResult result = apiInstance.searchUsers(page, pageSize, userFilteringRequest);
+      UserSearchResult result = apiInstance.searchUsers(userFilteringRequest, page, pageSize);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserApi#searchUsers");
@@ -390,9 +394,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **userFilteringRequest** | [**UserFilteringRequest**](UserFilteringRequest.md)|  |
  **page** | **Integer**| Index of the result page starting from 1. | [optional] [default to 1]
  **pageSize** | **Integer**| Number of items in a result page. Max value: 500 | [optional] [default to 25]
- **userFilteringRequest** | [**UserFilteringRequest**](UserFilteringRequest.md)|  | [optional]
 
 ### Return type
 
@@ -410,9 +414,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**400** | Bad request |  -  |
-**429** | Too many requests |  -  |
 **200** | Users |  -  |
+**400** | Bad request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Project is not found |  -  |
+**429** | Too many requests |  -  |
 

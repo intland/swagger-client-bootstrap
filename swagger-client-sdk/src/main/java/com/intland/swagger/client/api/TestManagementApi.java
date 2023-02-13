@@ -50,17 +50,18 @@ public class TestManagementApi {
 
     /**
      * Build call for autoApplyStepReuses
-     * @param autoApplyTestStepReuses  (optional)
+     * @param autoApplyTestStepReuses  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> The item-references of the modified tracker-items where duplicate Test Steps was found and converted to Reuses </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      * Detecting and automatically converting Test Step duplicates to Step-reuses
      * @see <a href="https://codebeamer.com/cb/wiki/792788#section-Detecting+and+automatically+converting+Test+Step+duplicates+to+Step-reuses">Find duplicate TestSteps in a set of TestCases and converting duplicates to Reuses Documentation</a>
@@ -76,8 +77,9 @@ public class TestManagementApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -97,6 +99,11 @@ public class TestManagementApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call autoApplyStepReusesValidateBeforeCall(AutoApplyTestStepReuses autoApplyTestStepReuses, final ApiCallback _callback) throws ApiException {
         
+        // verify the required parameter 'autoApplyTestStepReuses' is set
+        if (autoApplyTestStepReuses == null) {
+            throw new ApiException("Missing the required parameter 'autoApplyTestStepReuses' when calling autoApplyStepReuses(Async)");
+        }
+        
 
         okhttp3.Call localVarCall = autoApplyStepReusesCall(autoApplyTestStepReuses, _callback);
         return localVarCall;
@@ -106,16 +113,17 @@ public class TestManagementApi {
     /**
      * Find duplicate TestSteps in a set of TestCases and converting duplicates to Reuses
      * 
-     * @param autoApplyTestStepReuses  (optional)
+     * @param autoApplyTestStepReuses  (required)
      * @return List&lt;TrackerItemReference&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> The item-references of the modified tracker-items where duplicate Test Steps was found and converted to Reuses </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      * Detecting and automatically converting Test Step duplicates to Step-reuses
      * @see <a href="https://codebeamer.com/cb/wiki/792788#section-Detecting+and+automatically+converting+Test+Step+duplicates+to+Step-reuses">Find duplicate TestSteps in a set of TestCases and converting duplicates to Reuses Documentation</a>
@@ -128,16 +136,17 @@ public class TestManagementApi {
     /**
      * Find duplicate TestSteps in a set of TestCases and converting duplicates to Reuses
      * 
-     * @param autoApplyTestStepReuses  (optional)
+     * @param autoApplyTestStepReuses  (required)
      * @return ApiResponse&lt;List&lt;TrackerItemReference&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> The item-references of the modified tracker-items where duplicate Test Steps was found and converted to Reuses </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      * Detecting and automatically converting Test Step duplicates to Step-reuses
      * @see <a href="https://codebeamer.com/cb/wiki/792788#section-Detecting+and+automatically+converting+Test+Step+duplicates+to+Step-reuses">Find duplicate TestSteps in a set of TestCases and converting duplicates to Reuses Documentation</a>
@@ -151,17 +160,18 @@ public class TestManagementApi {
     /**
      * Find duplicate TestSteps in a set of TestCases and converting duplicates to Reuses (asynchronously)
      * 
-     * @param autoApplyTestStepReuses  (optional)
+     * @param autoApplyTestStepReuses  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> The item-references of the modified tracker-items where duplicate Test Steps was found and converted to Reuses </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      * Detecting and automatically converting Test Step duplicates to Step-reuses
      * @see <a href="https://codebeamer.com/cb/wiki/792788#section-Detecting+and+automatically+converting+Test+Step+duplicates+to+Step-reuses">Find duplicate TestSteps in a set of TestCases and converting duplicates to Reuses Documentation</a>

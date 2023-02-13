@@ -14,8 +14,11 @@
 package com.intland.swagger.client.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -26,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Project member permissions
  */
 @ApiModel(description = "Project member permissions")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ProjectMemberPermissions {
   public static final String SERIALIZED_NAME_ROLES = "roles";
   @SerializedName(SERIALIZED_NAME_ROLES)
@@ -65,7 +68,7 @@ public class ProjectMemberPermissions {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -76,11 +79,23 @@ public class ProjectMemberPermissions {
     return Objects.equals(this.roles, projectMemberPermissions.roles);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && a.get().getClass().isArray() ? Arrays.equals((T[])a.get(), (T[])b.get()) : Objects.equals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(roles);
   }
 
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent()
+      ? (a.get().getClass().isArray() ? Arrays.hashCode((T[])a.get()) : Objects.hashCode(a.get()))
+      : 31;
+  }
 
   @Override
   public String toString() {
@@ -95,7 +110,7 @@ public class ProjectMemberPermissions {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

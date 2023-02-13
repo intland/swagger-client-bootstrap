@@ -29,20 +29,8 @@ import io.swagger.annotations.ApiModelProperty;
  * Access permission of specific role
  */
 @ApiModel(description = "Access permission of specific role")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class AccessPermission {
-  public static final String SERIALIZED_NAME_ROLE = "role";
-  @SerializedName(SERIALIZED_NAME_ROLE)
-  private RoleReference role;
-
-  public static final String SERIALIZED_NAME_FIELD = "field";
-  @SerializedName(SERIALIZED_NAME_FIELD)
-  private FieldReference field;
-
-  public static final String SERIALIZED_NAME_PROJECT = "project";
-  @SerializedName(SERIALIZED_NAME_PROJECT)
-  private ProjectReference project;
-
   /**
    * Access level
    */
@@ -96,27 +84,39 @@ public class AccessPermission {
   @SerializedName(SERIALIZED_NAME_ACCESS_LEVEL)
   private AccessLevelEnum accessLevel;
 
+  public static final String SERIALIZED_NAME_FIELD = "field";
+  @SerializedName(SERIALIZED_NAME_FIELD)
+  private FieldReference field;
 
-  public AccessPermission role(RoleReference role) {
+  public static final String SERIALIZED_NAME_PROJECT = "project";
+  @SerializedName(SERIALIZED_NAME_PROJECT)
+  private ProjectReference project;
+
+  public static final String SERIALIZED_NAME_ROLE = "role";
+  @SerializedName(SERIALIZED_NAME_ROLE)
+  private RoleReference role;
+
+
+  public AccessPermission accessLevel(AccessLevelEnum accessLevel) {
     
-    this.role = role;
+    this.accessLevel = accessLevel;
     return this;
   }
 
    /**
-   * Get role
-   * @return role
+   * Access level
+   * @return accessLevel
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Access level")
 
-  public RoleReference getRole() {
-    return role;
+  public AccessLevelEnum getAccessLevel() {
+    return accessLevel;
   }
 
 
-  public void setRole(RoleReference role) {
-    this.role = role;
+  public void setAccessLevel(AccessLevelEnum accessLevel) {
+    this.accessLevel = accessLevel;
   }
 
 
@@ -166,31 +166,31 @@ public class AccessPermission {
   }
 
 
-  public AccessPermission accessLevel(AccessLevelEnum accessLevel) {
+  public AccessPermission role(RoleReference role) {
     
-    this.accessLevel = accessLevel;
+    this.role = role;
     return this;
   }
 
    /**
-   * Access level
-   * @return accessLevel
+   * Get role
+   * @return role
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Access level")
+  @ApiModelProperty(value = "")
 
-  public AccessLevelEnum getAccessLevel() {
-    return accessLevel;
+  public RoleReference getRole() {
+    return role;
   }
 
 
-  public void setAccessLevel(AccessLevelEnum accessLevel) {
-    this.accessLevel = accessLevel;
+  public void setRole(RoleReference role) {
+    this.role = role;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -198,26 +198,25 @@ public class AccessPermission {
       return false;
     }
     AccessPermission accessPermission = (AccessPermission) o;
-    return Objects.equals(this.role, accessPermission.role) &&
+    return Objects.equals(this.accessLevel, accessPermission.accessLevel) &&
         Objects.equals(this.field, accessPermission.field) &&
         Objects.equals(this.project, accessPermission.project) &&
-        Objects.equals(this.accessLevel, accessPermission.accessLevel);
+        Objects.equals(this.role, accessPermission.role);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(role, field, project, accessLevel);
+    return Objects.hash(accessLevel, field, project, role);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccessPermission {\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    accessLevel: ").append(toIndentedString(accessLevel)).append("\n");
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
-    sb.append("    accessLevel: ").append(toIndentedString(accessLevel)).append("\n");
+    sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -226,7 +225,7 @@ public class AccessPermission {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

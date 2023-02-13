@@ -13,9 +13,8 @@
 
 package com.intland.swagger.client.model;
 
+import java.util.Date;
 import java.util.Objects;
-
-import org.joda.time.DateTime;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -26,27 +25,50 @@ import io.swagger.annotations.ApiModelProperty;
  * Model for a specific version of an artifact
  */
 @ApiModel(description = "Model for a specific version of an artifact")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ArtifactRevision {
+  public static final String SERIALIZED_NAME_CHANGE_SUMMARY = "changeSummary";
+  @SerializedName(SERIALIZED_NAME_CHANGE_SUMMARY)
+  private String changeSummary;
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private Integer id;
+
+  public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
+  private Date modifiedAt;
+
+  public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
+  private UserReference modifiedBy;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Integer version;
 
-  public static final String SERIALIZED_NAME_CHANGE_SUMMARY = "changeSummary";
-  @SerializedName(SERIALIZED_NAME_CHANGE_SUMMARY)
-  private String changeSummary;
 
-  public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
-  private DateTime modifiedAt;
+  public ArtifactRevision changeSummary(String changeSummary) {
+    
+    this.changeSummary = changeSummary;
+    return this;
+  }
 
-  public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
-  private UserReference modifiedBy;
+   /**
+   * Summary of the change
+   * @return changeSummary
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Summary of the change")
+
+  public String getChangeSummary() {
+    return changeSummary;
+  }
+
+
+  public void setChangeSummary(String changeSummary) {
+    this.changeSummary = changeSummary;
+  }
 
 
   public ArtifactRevision id(Integer id) {
@@ -73,53 +95,7 @@ public class ArtifactRevision {
   }
 
 
-  public ArtifactRevision version(Integer version) {
-    
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * Version of the artifact
-   * @return version
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Version of the artifact")
-
-  public Integer getVersion() {
-    return version;
-  }
-
-
-  public void setVersion(Integer version) {
-    this.version = version;
-  }
-
-
-  public ArtifactRevision changeSummary(String changeSummary) {
-    
-    this.changeSummary = changeSummary;
-    return this;
-  }
-
-   /**
-   * Summary of the change
-   * @return changeSummary
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Summary of the change")
-
-  public String getChangeSummary() {
-    return changeSummary;
-  }
-
-
-  public void setChangeSummary(String changeSummary) {
-    this.changeSummary = changeSummary;
-  }
-
-
-  public ArtifactRevision modifiedAt(DateTime modifiedAt) {
+  public ArtifactRevision modifiedAt(Date modifiedAt) {
     
     this.modifiedAt = modifiedAt;
     return this;
@@ -132,12 +108,12 @@ public class ArtifactRevision {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
 
-  public DateTime getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
 
-  public void setModifiedAt(DateTime modifiedAt) {
+  public void setModifiedAt(Date modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 
@@ -165,8 +141,31 @@ public class ArtifactRevision {
   }
 
 
+  public ArtifactRevision version(Integer version) {
+    
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Version of the artifact
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Version of the artifact")
+
+  public Integer getVersion() {
+    return version;
+  }
+
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -174,28 +173,27 @@ public class ArtifactRevision {
       return false;
     }
     ArtifactRevision artifactRevision = (ArtifactRevision) o;
-    return Objects.equals(this.id, artifactRevision.id) &&
-        Objects.equals(this.version, artifactRevision.version) &&
-        Objects.equals(this.changeSummary, artifactRevision.changeSummary) &&
+    return Objects.equals(this.changeSummary, artifactRevision.changeSummary) &&
+        Objects.equals(this.id, artifactRevision.id) &&
         Objects.equals(this.modifiedAt, artifactRevision.modifiedAt) &&
-        Objects.equals(this.modifiedBy, artifactRevision.modifiedBy);
+        Objects.equals(this.modifiedBy, artifactRevision.modifiedBy) &&
+        Objects.equals(this.version, artifactRevision.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, version, changeSummary, modifiedAt, modifiedBy);
+    return Objects.hash(changeSummary, id, modifiedAt, modifiedBy, version);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ArtifactRevision {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    changeSummary: ").append(toIndentedString(changeSummary)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -204,7 +202,7 @@ public class ArtifactRevision {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -24,15 +24,41 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents an outline item.
  */
 @ApiModel(description = "Represents an outline item.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class OutlineItem extends AbstractOutline {
+  public static final String SERIALIZED_NAME_HAS_CHILDREN = "hasChildren";
+  @SerializedName(SERIALIZED_NAME_HAS_CHILDREN)
+  private Boolean hasChildren;
+
   public static final String SERIALIZED_NAME_ITEM_REFERENCE = "itemReference";
   @SerializedName(SERIALIZED_NAME_ITEM_REFERENCE)
   private TrackerItemReference itemReference;
 
-  public static final String SERIALIZED_NAME_HAS_CHILDREN = "hasChildren";
-  @SerializedName(SERIALIZED_NAME_HAS_CHILDREN)
-  private Boolean hasChildren;
+  public OutlineItem() {
+    this.type = this.getClass().getSimpleName();
+  }
+
+  public OutlineItem hasChildren(Boolean hasChildren) {
+    
+    this.hasChildren = hasChildren;
+    return this;
+  }
+
+   /**
+   * Indicator if the item has child items.
+   * @return hasChildren
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicator if the item has child items.")
+
+  public Boolean getHasChildren() {
+    return hasChildren;
+  }
+
+
+  public void setHasChildren(Boolean hasChildren) {
+    this.hasChildren = hasChildren;
+  }
 
 
   public OutlineItem itemReference(TrackerItemReference itemReference) {
@@ -58,31 +84,8 @@ public class OutlineItem extends AbstractOutline {
   }
 
 
-  public OutlineItem hasChildren(Boolean hasChildren) {
-    
-    this.hasChildren = hasChildren;
-    return this;
-  }
-
-   /**
-   * Indicator if the item has child items.
-   * @return hasChildren
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicator if the item has child items.")
-
-  public Boolean getHasChildren() {
-    return hasChildren;
-  }
-
-
-  public void setHasChildren(Boolean hasChildren) {
-    this.hasChildren = hasChildren;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -90,24 +93,23 @@ public class OutlineItem extends AbstractOutline {
       return false;
     }
     OutlineItem outlineItem = (OutlineItem) o;
-    return Objects.equals(this.itemReference, outlineItem.itemReference) &&
-        Objects.equals(this.hasChildren, outlineItem.hasChildren) &&
+    return Objects.equals(this.hasChildren, outlineItem.hasChildren) &&
+        Objects.equals(this.itemReference, outlineItem.itemReference) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(itemReference, hasChildren, super.hashCode());
+    return Objects.hash(hasChildren, itemReference, super.hashCode());
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OutlineItem {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    itemReference: ").append(toIndentedString(itemReference)).append("\n");
     sb.append("    hasChildren: ").append(toIndentedString(hasChildren)).append("\n");
+    sb.append("    itemReference: ").append(toIndentedString(itemReference)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -116,7 +118,7 @@ public class OutlineItem extends AbstractOutline {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

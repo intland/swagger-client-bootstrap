@@ -7,7 +7,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'org.openapitools', name: 'openapi-generator-gradle-plugin', version: '4.3.1'
+        classpath group: 'org.openapitools', name: 'openapi-generator-gradle-plugin', version: '5.2.1'
     }
 }
 
@@ -63,9 +63,12 @@ task generateSwaggerClient(type: GenerateTask){
     invokerPackage = "com.intland.swagger.client"
     packageName = "com.intland.swagger.client"
 
+    generateApiTests = false
+    generateModelTests = false
+
     outputDir = swaggerBuildDir
     configOptions = [
-            dateLibrary: "joda",
+            dateLibrary: "legacy",
             systemProperties: "-classpath=" + sourceSets.main.compileClasspath
     ]
 

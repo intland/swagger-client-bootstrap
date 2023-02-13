@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * One page of references.
  */
 @ApiModel(description = "One page of references.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ReferenceSearchResult {
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
@@ -36,13 +36,13 @@ public class ReferenceSearchResult {
   @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
   private Integer pageSize;
 
-  public static final String SERIALIZED_NAME_TOTAL = "total";
-  @SerializedName(SERIALIZED_NAME_TOTAL)
-  private Integer total;
-
   public static final String SERIALIZED_NAME_REFERENCES = "references";
   @SerializedName(SERIALIZED_NAME_REFERENCES)
   private List<AbstractReference> references = null;
+
+  public static final String SERIALIZED_NAME_TOTAL = "total";
+  @SerializedName(SERIALIZED_NAME_TOTAL)
+  private Integer total;
 
 
   public ReferenceSearchResult page(Integer page) {
@@ -91,29 +91,6 @@ public class ReferenceSearchResult {
   }
 
 
-  public ReferenceSearchResult total(Integer total) {
-    
-    this.total = total;
-    return this;
-  }
-
-   /**
-   * Number of matched tracker items by the search criteria
-   * @return total
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of matched tracker items by the search criteria")
-
-  public Integer getTotal() {
-    return total;
-  }
-
-
-  public void setTotal(Integer total) {
-    this.total = total;
-  }
-
-
   public ReferenceSearchResult references(List<AbstractReference> references) {
     
     this.references = references;
@@ -145,8 +122,31 @@ public class ReferenceSearchResult {
   }
 
 
+  public ReferenceSearchResult total(Integer total) {
+    
+    this.total = total;
+    return this;
+  }
+
+   /**
+   * Number of matched tracker items by the search criteria
+   * @return total
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of matched tracker items by the search criteria")
+
+  public Integer getTotal() {
+    return total;
+  }
+
+
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -156,15 +156,14 @@ public class ReferenceSearchResult {
     ReferenceSearchResult referenceSearchResult = (ReferenceSearchResult) o;
     return Objects.equals(this.page, referenceSearchResult.page) &&
         Objects.equals(this.pageSize, referenceSearchResult.pageSize) &&
-        Objects.equals(this.total, referenceSearchResult.total) &&
-        Objects.equals(this.references, referenceSearchResult.references);
+        Objects.equals(this.references, referenceSearchResult.references) &&
+        Objects.equals(this.total, referenceSearchResult.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, pageSize, total, references);
+    return Objects.hash(page, pageSize, references, total);
   }
-
 
   @Override
   public String toString() {
@@ -172,8 +171,8 @@ public class ReferenceSearchResult {
     sb.append("class ReferenceSearchResult {\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    references: ").append(toIndentedString(references)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -182,7 +181,7 @@ public class ReferenceSearchResult {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

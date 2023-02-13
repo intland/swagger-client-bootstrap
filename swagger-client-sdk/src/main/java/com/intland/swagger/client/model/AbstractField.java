@@ -26,110 +26,67 @@ import io.swagger.annotations.ApiModelProperty;
  * Abstract field
  */
 @ApiModel(description = "Abstract field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class AbstractField {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  protected String type;
-
-  public static final String SERIALIZED_NAME_HIDDEN = "hidden";
-  @SerializedName(SERIALIZED_NAME_HIDDEN)
-  private Boolean hidden;
-
-  public static final String SERIALIZED_NAME_VALUE_MODEL = "valueModel";
-  @SerializedName(SERIALIZED_NAME_VALUE_MODEL)
-  private String valueModel;
-
-  public static final String SERIALIZED_NAME_TITLE = "title";
-  @SerializedName(SERIALIZED_NAME_TITLE)
-  private String title;
-
-  public static final String SERIALIZED_NAME_LEGACY_REST_NAME = "legacyRestName";
-  @SerializedName(SERIALIZED_NAME_LEGACY_REST_NAME)
-  private String legacyRestName;
-
-  public static final String SERIALIZED_NAME_TRACKER_ITEM_FIELD = "trackerItemField";
-  @SerializedName(SERIALIZED_NAME_TRACKER_ITEM_FIELD)
-  private String trackerItemField;
-
-  public static final String SERIALIZED_NAME_MANDATORY_IN_STATUSES = "mandatoryInStatuses";
-  @SerializedName(SERIALIZED_NAME_MANDATORY_IN_STATUSES)
-  private List<ChoiceOptionReference> mandatoryInStatuses = null;
 
   public static final String SERIALIZED_NAME_FORMULA = "formula";
   @SerializedName(SERIALIZED_NAME_FORMULA)
   private String formula;
 
+  public static final String SERIALIZED_NAME_HIDDEN = "hidden";
+  @SerializedName(SERIALIZED_NAME_HIDDEN)
+  private Boolean hidden;
+
   public static final String SERIALIZED_NAME_HIDE_IF_DEPENDENCY_FORMULA = "hideIfDependencyFormula";
   @SerializedName(SERIALIZED_NAME_HIDE_IF_DEPENDENCY_FORMULA)
   private String hideIfDependencyFormula;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Integer id;
+
+  public static final String SERIALIZED_NAME_LEGACY_REST_NAME = "legacyRestName";
+  @SerializedName(SERIALIZED_NAME_LEGACY_REST_NAME)
+  private String legacyRestName;
 
   public static final String SERIALIZED_NAME_MANDATORY_IF_DEPENDENCY_FORMULA = "mandatoryIfDependencyFormula";
   @SerializedName(SERIALIZED_NAME_MANDATORY_IF_DEPENDENCY_FORMULA)
   private String mandatoryIfDependencyFormula;
 
+  public static final String SERIALIZED_NAME_MANDATORY_IN_STATUSES = "mandatoryInStatuses";
+  @SerializedName(SERIALIZED_NAME_MANDATORY_IN_STATUSES)
+  private List<ChoiceOptionReference> mandatoryInStatuses = null;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
+  public static final String SERIALIZED_NAME_SHARED_FIELDS = "sharedFields";
+  @SerializedName(SERIALIZED_NAME_SHARED_FIELDS)
+  private List<SharedFieldReference> sharedFields = null;
+
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  private String title;
+
+  public static final String SERIALIZED_NAME_TRACKER_ITEM_FIELD = "trackerItemField";
+  @SerializedName(SERIALIZED_NAME_TRACKER_ITEM_FIELD)
+  private String trackerItemField;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  protected String type;
+
+  public static final String SERIALIZED_NAME_VALUE_MODEL = "valueModel";
+  @SerializedName(SERIALIZED_NAME_VALUE_MODEL)
+  private String valueModel;
+
   public AbstractField() {
     this.type = this.getClass().getSimpleName();
   }
-
-  public AbstractField id(Integer id) {
-    
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Id of a field
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Id of a field")
-
-  public Integer getId() {
-    return id;
-  }
-
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-
-  public AbstractField name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of a field
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of a field")
-
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
 
   public AbstractField description(String description) {
     
@@ -154,26 +111,26 @@ public class AbstractField {
   }
 
 
-  public AbstractField type(String type) {
+  public AbstractField formula(String formula) {
     
-    this.type = type;
+    this.formula = formula;
     return this;
   }
 
    /**
-   * Type of a field
-   * @return type
+   * Formula value of a field
+   * @return formula
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of a field")
+  @ApiModelProperty(value = "Formula value of a field")
 
-  public String getType() {
-    return type;
+  public String getFormula() {
+    return formula;
   }
 
 
-  public void setType(String type) {
-    this.type = type;
+  public void setFormula(String formula) {
+    this.formula = formula;
   }
 
 
@@ -200,49 +157,49 @@ public class AbstractField {
   }
 
 
-  public AbstractField valueModel(String valueModel) {
+  public AbstractField hideIfDependencyFormula(String hideIfDependencyFormula) {
     
-    this.valueModel = valueModel;
+    this.hideIfDependencyFormula = hideIfDependencyFormula;
     return this;
   }
 
    /**
-   * Name of the updater/getter value model
-   * @return valueModel
+   * Hide If dependency formula value of a field
+   * @return hideIfDependencyFormula
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the updater/getter value model")
+  @ApiModelProperty(value = "Hide If dependency formula value of a field")
 
-  public String getValueModel() {
-    return valueModel;
+  public String getHideIfDependencyFormula() {
+    return hideIfDependencyFormula;
   }
 
 
-  public void setValueModel(String valueModel) {
-    this.valueModel = valueModel;
+  public void setHideIfDependencyFormula(String hideIfDependencyFormula) {
+    this.hideIfDependencyFormula = hideIfDependencyFormula;
   }
 
 
-  public AbstractField title(String title) {
+  public AbstractField id(Integer id) {
     
-    this.title = title;
+    this.id = id;
     return this;
   }
 
    /**
-   * Title of a field
-   * @return title
+   * Id of a field
+   * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of a field")
+  @ApiModelProperty(value = "Id of a field")
 
-  public String getTitle() {
-    return title;
+  public Integer getId() {
+    return id;
   }
 
 
-  public void setTitle(String title) {
-    this.title = title;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
 
@@ -269,26 +226,26 @@ public class AbstractField {
   }
 
 
-  public AbstractField trackerItemField(String trackerItemField) {
+  public AbstractField mandatoryIfDependencyFormula(String mandatoryIfDependencyFormula) {
     
-    this.trackerItemField = trackerItemField;
+    this.mandatoryIfDependencyFormula = mandatoryIfDependencyFormula;
     return this;
   }
 
    /**
-   * Tracker item&#39;s field name for this field
-   * @return trackerItemField
+   * Mandatory If dependency formula value of a field
+   * @return mandatoryIfDependencyFormula
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Tracker item's field name for this field")
+  @ApiModelProperty(value = "Mandatory If dependency formula value of a field")
 
-  public String getTrackerItemField() {
-    return trackerItemField;
+  public String getMandatoryIfDependencyFormula() {
+    return mandatoryIfDependencyFormula;
   }
 
 
-  public void setTrackerItemField(String trackerItemField) {
-    this.trackerItemField = trackerItemField;
+  public void setMandatoryIfDependencyFormula(String mandatoryIfDependencyFormula) {
+    this.mandatoryIfDependencyFormula = mandatoryIfDependencyFormula;
   }
 
 
@@ -323,77 +280,137 @@ public class AbstractField {
   }
 
 
-  public AbstractField formula(String formula) {
+  public AbstractField name(String name) {
     
-    this.formula = formula;
+    this.name = name;
     return this;
   }
 
    /**
-   * Formula value of a field
-   * @return formula
+   * Name of a field
+   * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Formula value of a field")
+  @ApiModelProperty(value = "Name of a field")
 
-  public String getFormula() {
-    return formula;
+  public String getName() {
+    return name;
   }
 
 
-  public void setFormula(String formula) {
-    this.formula = formula;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
-  public AbstractField hideIfDependencyFormula(String hideIfDependencyFormula) {
+   /**
+   * List of shared fields assigned to this field
+   * @return sharedFields
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of shared fields assigned to this field")
+
+  public List<SharedFieldReference> getSharedFields() {
+    return sharedFields;
+  }
+
+
+
+
+  public AbstractField title(String title) {
     
-    this.hideIfDependencyFormula = hideIfDependencyFormula;
+    this.title = title;
     return this;
   }
 
    /**
-   * Hide If dependency formula value of a field
-   * @return hideIfDependencyFormula
+   * Title of a field
+   * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Hide If dependency formula value of a field")
+  @ApiModelProperty(value = "Title of a field")
 
-  public String getHideIfDependencyFormula() {
-    return hideIfDependencyFormula;
+  public String getTitle() {
+    return title;
   }
 
 
-  public void setHideIfDependencyFormula(String hideIfDependencyFormula) {
-    this.hideIfDependencyFormula = hideIfDependencyFormula;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
-  public AbstractField mandatoryIfDependencyFormula(String mandatoryIfDependencyFormula) {
+  public AbstractField trackerItemField(String trackerItemField) {
     
-    this.mandatoryIfDependencyFormula = mandatoryIfDependencyFormula;
+    this.trackerItemField = trackerItemField;
     return this;
   }
 
    /**
-   * Mandatory If dependency formula value of a field
-   * @return mandatoryIfDependencyFormula
+   * Tracker item&#39;s field name for this field
+   * @return trackerItemField
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Mandatory If dependency formula value of a field")
+  @ApiModelProperty(value = "Tracker item's field name for this field")
 
-  public String getMandatoryIfDependencyFormula() {
-    return mandatoryIfDependencyFormula;
+  public String getTrackerItemField() {
+    return trackerItemField;
   }
 
 
-  public void setMandatoryIfDependencyFormula(String mandatoryIfDependencyFormula) {
-    this.mandatoryIfDependencyFormula = mandatoryIfDependencyFormula;
+  public void setTrackerItemField(String trackerItemField) {
+    this.trackerItemField = trackerItemField;
+  }
+
+
+  public AbstractField type(String type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Type of a field
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Type of a field")
+
+  public String getType() {
+    return type;
+  }
+
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+
+  public AbstractField valueModel(String valueModel) {
+    
+    this.valueModel = valueModel;
+    return this;
+  }
+
+   /**
+   * Name of the updater/getter value model
+   * @return valueModel
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the updater/getter value model")
+
+  public String getValueModel() {
+    return valueModel;
+  }
+
+
+  public void setValueModel(String valueModel) {
+    this.valueModel = valueModel;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -401,44 +418,45 @@ public class AbstractField {
       return false;
     }
     AbstractField abstractField = (AbstractField) o;
-    return Objects.equals(this.id, abstractField.id) &&
-        Objects.equals(this.name, abstractField.name) &&
-        Objects.equals(this.description, abstractField.description) &&
-        Objects.equals(this.type, abstractField.type) &&
-        Objects.equals(this.hidden, abstractField.hidden) &&
-        Objects.equals(this.valueModel, abstractField.valueModel) &&
-        Objects.equals(this.title, abstractField.title) &&
-        Objects.equals(this.legacyRestName, abstractField.legacyRestName) &&
-        Objects.equals(this.trackerItemField, abstractField.trackerItemField) &&
-        Objects.equals(this.mandatoryInStatuses, abstractField.mandatoryInStatuses) &&
+    return Objects.equals(this.description, abstractField.description) &&
         Objects.equals(this.formula, abstractField.formula) &&
+        Objects.equals(this.hidden, abstractField.hidden) &&
         Objects.equals(this.hideIfDependencyFormula, abstractField.hideIfDependencyFormula) &&
-        Objects.equals(this.mandatoryIfDependencyFormula, abstractField.mandatoryIfDependencyFormula);
+        Objects.equals(this.id, abstractField.id) &&
+        Objects.equals(this.legacyRestName, abstractField.legacyRestName) &&
+        Objects.equals(this.mandatoryIfDependencyFormula, abstractField.mandatoryIfDependencyFormula) &&
+        Objects.equals(this.mandatoryInStatuses, abstractField.mandatoryInStatuses) &&
+        Objects.equals(this.name, abstractField.name) &&
+        Objects.equals(this.sharedFields, abstractField.sharedFields) &&
+        Objects.equals(this.title, abstractField.title) &&
+        Objects.equals(this.trackerItemField, abstractField.trackerItemField) &&
+        Objects.equals(this.type, abstractField.type) &&
+        Objects.equals(this.valueModel, abstractField.valueModel);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, type, hidden, valueModel, title, legacyRestName, trackerItemField, mandatoryInStatuses, formula, hideIfDependencyFormula, mandatoryIfDependencyFormula);
+    return Objects.hash(description, formula, hidden, hideIfDependencyFormula, id, legacyRestName, mandatoryIfDependencyFormula, mandatoryInStatuses, name, sharedFields, title, trackerItemField, type, valueModel);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AbstractField {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    hidden: ").append(toIndentedString(hidden)).append("\n");
-    sb.append("    valueModel: ").append(toIndentedString(valueModel)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    legacyRestName: ").append(toIndentedString(legacyRestName)).append("\n");
-    sb.append("    trackerItemField: ").append(toIndentedString(trackerItemField)).append("\n");
-    sb.append("    mandatoryInStatuses: ").append(toIndentedString(mandatoryInStatuses)).append("\n");
     sb.append("    formula: ").append(toIndentedString(formula)).append("\n");
+    sb.append("    hidden: ").append(toIndentedString(hidden)).append("\n");
     sb.append("    hideIfDependencyFormula: ").append(toIndentedString(hideIfDependencyFormula)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    legacyRestName: ").append(toIndentedString(legacyRestName)).append("\n");
     sb.append("    mandatoryIfDependencyFormula: ").append(toIndentedString(mandatoryIfDependencyFormula)).append("\n");
+    sb.append("    mandatoryInStatuses: ").append(toIndentedString(mandatoryInStatuses)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    sharedFields: ").append(toIndentedString(sharedFields)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    trackerItemField: ").append(toIndentedString(trackerItemField)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    valueModel: ").append(toIndentedString(valueModel)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -447,7 +465,7 @@ public class AbstractField {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

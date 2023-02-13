@@ -47,18 +47,18 @@ public class MigrationApi {
 
     /**
      * Build call for migrateAttachments
-     * @param attachmentMigrationRequest  (optional)
+     * @param attachmentMigrationRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Attachments are migrated </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call migrateAttachmentsCall(AttachmentMigrationRequest attachmentMigrationRequest, final ApiCallback _callback) throws ApiException {
@@ -72,6 +72,7 @@ public class MigrationApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -93,6 +94,11 @@ public class MigrationApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call migrateAttachmentsValidateBeforeCall(AttachmentMigrationRequest attachmentMigrationRequest, final ApiCallback _callback) throws ApiException {
         
+        // verify the required parameter 'attachmentMigrationRequest' is set
+        if (attachmentMigrationRequest == null) {
+            throw new ApiException("Missing the required parameter 'attachmentMigrationRequest' when calling migrateAttachments(Async)");
+        }
+        
 
         okhttp3.Call localVarCall = migrateAttachmentsCall(attachmentMigrationRequest, _callback);
         return localVarCall;
@@ -102,16 +108,16 @@ public class MigrationApi {
     /**
      * Migrate attachments
      * An endpoint for migrating attachments from a preconfigured source directory.
-     * @param attachmentMigrationRequest  (optional)
+     * @param attachmentMigrationRequest  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Attachments are migrated </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public void migrateAttachments(AttachmentMigrationRequest attachmentMigrationRequest) throws ApiException {
@@ -121,17 +127,17 @@ public class MigrationApi {
     /**
      * Migrate attachments
      * An endpoint for migrating attachments from a preconfigured source directory.
-     * @param attachmentMigrationRequest  (optional)
+     * @param attachmentMigrationRequest  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Attachments are migrated </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> migrateAttachmentsWithHttpInfo(AttachmentMigrationRequest attachmentMigrationRequest) throws ApiException {
@@ -142,18 +148,18 @@ public class MigrationApi {
     /**
      * Migrate attachments (asynchronously)
      * An endpoint for migrating attachments from a preconfigured source directory.
-     * @param attachmentMigrationRequest  (optional)
+     * @param attachmentMigrationRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Attachments are migrated </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call migrateAttachmentsAsync(AttachmentMigrationRequest attachmentMigrationRequest, final ApiCallback<Void> _callback) throws ApiException {

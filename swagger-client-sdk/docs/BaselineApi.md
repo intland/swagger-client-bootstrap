@@ -63,7 +63,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createBaselineRequest** | [**CreateBaselineRequest**](CreateBaselineRequest.md)|  | [optional]
+ **createBaselineRequest** | [**CreateBaselineRequest**](CreateBaselineRequest.md)|  |
 
 ### Return type
 
@@ -81,10 +81,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad request |  -  |
 **200** | Baseline created successfully |  -  |
-**429** | Too many requests |  -  |
+**400** | Bad request |  -  |
 **401** | Authentication is required |  -  |
 **403** | Authentication is required or user has no permission |  -  |
 **404** | Project or tracker not found |  -  |
+**429** | Too many requests |  -  |
 

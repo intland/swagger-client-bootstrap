@@ -26,8 +26,12 @@ import io.swagger.annotations.ApiModelProperty;
  * Request model to create a test run from multiple test cases or 1 test set
  */
 @ApiModel(description = "Request model to create a test run from multiple test cases or 1 test set")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class CreateTestRunRequest {
+  public static final String SERIALIZED_NAME_RUN_ONLY_ACCEPTED_TEST_CASES = "runOnlyAcceptedTestCases";
+  @SerializedName(SERIALIZED_NAME_RUN_ONLY_ACCEPTED_TEST_CASES)
+  private Boolean runOnlyAcceptedTestCases = false;
+
   public static final String SERIALIZED_NAME_TEST_CASE_IDS = "testCaseIds";
   @SerializedName(SERIALIZED_NAME_TEST_CASE_IDS)
   private List<TrackerItemReference> testCaseIds = null;
@@ -47,6 +51,29 @@ public class CreateTestRunRequest {
   public static final String SERIALIZED_NAME_TEST_SET_REFS = "testSetRefs";
   @SerializedName(SERIALIZED_NAME_TEST_SET_REFS)
   private List<TrackerItemReference> testSetRefs = null;
+
+
+  public CreateTestRunRequest runOnlyAcceptedTestCases(Boolean runOnlyAcceptedTestCases) {
+    
+    this.runOnlyAcceptedTestCases = runOnlyAcceptedTestCases;
+    return this;
+  }
+
+   /**
+   * Generate Test Runs only from accepted Test Cases.
+   * @return runOnlyAcceptedTestCases
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Generate Test Runs only from accepted Test Cases.")
+
+  public Boolean getRunOnlyAcceptedTestCases() {
+    return runOnlyAcceptedTestCases;
+  }
+
+
+  public void setRunOnlyAcceptedTestCases(Boolean runOnlyAcceptedTestCases) {
+    this.runOnlyAcceptedTestCases = runOnlyAcceptedTestCases;
+  }
 
 
   public CreateTestRunRequest testCaseIds(List<TrackerItemReference> testCaseIds) {
@@ -205,7 +232,8 @@ public class CreateTestRunRequest {
       return false;
     }
     CreateTestRunRequest createTestRunRequest = (CreateTestRunRequest) o;
-    return Objects.equals(this.testCaseIds, createTestRunRequest.testCaseIds) &&
+    return Objects.equals(this.runOnlyAcceptedTestCases, createTestRunRequest.runOnlyAcceptedTestCases) &&
+        Objects.equals(this.testCaseIds, createTestRunRequest.testCaseIds) &&
         Objects.equals(this.testCaseRefs, createTestRunRequest.testCaseRefs) &&
         Objects.equals(this.testRunModel, createTestRunRequest.testRunModel) &&
         Objects.equals(this.testSetIds, createTestRunRequest.testSetIds) &&
@@ -214,13 +242,14 @@ public class CreateTestRunRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(testCaseIds, testCaseRefs, testRunModel, testSetIds, testSetRefs);
+    return Objects.hash(runOnlyAcceptedTestCases, testCaseIds, testCaseRefs, testRunModel, testSetIds, testSetRefs);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateTestRunRequest {\n");
+    sb.append("    runOnlyAcceptedTestCases: ").append(toIndentedString(runOnlyAcceptedTestCases)).append("\n");
     sb.append("    testCaseIds: ").append(toIndentedString(testCaseIds)).append("\n");
     sb.append("    testCaseRefs: ").append(toIndentedString(testCaseRefs)).append("\n");
     sb.append("    testRunModel: ").append(toIndentedString(testRunModel)).append("\n");

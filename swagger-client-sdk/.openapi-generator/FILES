@@ -66,6 +66,7 @@ docs/DecimalFieldAllOf.md
 docs/DecimalFieldValue.md
 docs/DecimalFieldValueAllOf.md
 docs/DefaultBackgroundJobStatusInfo.md
+docs/DependencyAttribute.md
 docs/DependencyEntityReference.md
 docs/DependencyEntityReferenceAllOf.md
 docs/DependencyFinderJobStatusInfo.md
@@ -105,6 +106,7 @@ docs/MemberField.md
 docs/MemberFieldAllOf.md
 docs/MemberReferenceSearchResult.md
 docs/MigrationApi.md
+docs/NotImplementedException.md
 docs/NotSupportedFieldValue.md
 docs/OptionChoiceField.md
 docs/OptionChoiceFieldAllOf.md
@@ -124,6 +126,7 @@ docs/ProjectChoiceFieldAllOf.md
 docs/ProjectFilteringRequest.md
 docs/ProjectMemberPermissions.md
 docs/ProjectReference.md
+docs/ProjectRoleReference.md
 docs/ProjectSearchResult.md
 docs/ReferenceField.md
 docs/ReferenceSearchResult.md
@@ -376,6 +379,7 @@ src/main/java/com/intland/swagger/client/model/DecimalFieldAllOf.java
 src/main/java/com/intland/swagger/client/model/DecimalFieldValue.java
 src/main/java/com/intland/swagger/client/model/DecimalFieldValueAllOf.java
 src/main/java/com/intland/swagger/client/model/DefaultBackgroundJobStatusInfo.java
+src/main/java/com/intland/swagger/client/model/DependencyAttribute.java
 src/main/java/com/intland/swagger/client/model/DependencyEntityReference.java
 src/main/java/com/intland/swagger/client/model/DependencyEntityReferenceAllOf.java
 src/main/java/com/intland/swagger/client/model/DependencyFinderJobStatusInfo.java
@@ -411,6 +415,7 @@ src/main/java/com/intland/swagger/client/model/MaintenanceModeProperties.java
 src/main/java/com/intland/swagger/client/model/MemberField.java
 src/main/java/com/intland/swagger/client/model/MemberFieldAllOf.java
 src/main/java/com/intland/swagger/client/model/MemberReferenceSearchResult.java
+src/main/java/com/intland/swagger/client/model/NotImplementedException.java
 src/main/java/com/intland/swagger/client/model/NotSupportedFieldValue.java
 src/main/java/com/intland/swagger/client/model/OptionChoiceField.java
 src/main/java/com/intland/swagger/client/model/OptionChoiceFieldAllOf.java
@@ -429,6 +434,7 @@ src/main/java/com/intland/swagger/client/model/ProjectChoiceFieldAllOf.java
 src/main/java/com/intland/swagger/client/model/ProjectFilteringRequest.java
 src/main/java/com/intland/swagger/client/model/ProjectMemberPermissions.java
 src/main/java/com/intland/swagger/client/model/ProjectReference.java
+src/main/java/com/intland/swagger/client/model/ProjectRoleReference.java
 src/main/java/com/intland/swagger/client/model/ProjectSearchResult.java
 src/main/java/com/intland/swagger/client/model/ReferenceField.java
 src/main/java/com/intland/swagger/client/model/ReferenceSearchResult.java

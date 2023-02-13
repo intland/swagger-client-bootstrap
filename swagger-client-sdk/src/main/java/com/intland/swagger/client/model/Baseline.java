@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 <<<<<<<< HEAD:swagger-client-sdk/src/main/java/com/intland/swagger/client/model/Baseline.java
 @ApiModel(description = "Properties of a baseline")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class Baseline {
 ========
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")

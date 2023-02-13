@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **outgoingAssociation** | **Boolean** | Show outgoing association |  [optional]
 **outgoingReference** | **Boolean** | Show outgoing references |  [optional]
 **previousLevelItems** | [**List&lt;TrackerItemRevision&gt;**](TrackerItemRevision.md) | Previous Level Items |  [optional]
+**showTestStepReferences** | **Boolean** |  |  [optional]
 
 
 

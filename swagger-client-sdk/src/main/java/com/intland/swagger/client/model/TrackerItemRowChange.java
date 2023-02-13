@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Change item for a tracker item field row.
  */
 @ApiModel(description = "Change item for a tracker item field row.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class TrackerItemRowChange extends TrackerItemChange {
   public static final String SERIALIZED_NAME_ROW_NUMBER = "rowNumber";
   @SerializedName(SERIALIZED_NAME_ROW_NUMBER)

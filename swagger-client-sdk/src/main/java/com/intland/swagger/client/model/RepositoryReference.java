@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiModel;
  * Reference to a Repository
  */
 @ApiModel(description = "Reference to a Repository")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class RepositoryReference extends AbstractReference {
   public RepositoryReference() {
     this.type = this.getClass().getSimpleName();

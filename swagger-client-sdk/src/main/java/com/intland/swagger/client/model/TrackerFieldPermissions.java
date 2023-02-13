@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Tracker field permissions
  */
 @ApiModel(description = "Tracker field permissions")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class TrackerFieldPermissions {
   public static final String SERIALIZED_NAME_FIELD_PERMISSIONS = "fieldPermissions";
   @SerializedName(SERIALIZED_NAME_FIELD_PERMISSIONS)

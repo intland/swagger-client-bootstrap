@@ -32,7 +32,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Information about a background job
  */
 @ApiModel(description = "Information about a background job")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class BackgroundJob {
   /**
    * Status of a background job

@@ -8,6 +8,7 @@ Request model to create a test run from test case
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**conclusion** | **String** | Optional Test Case Run conclusion |  [optional]
 **description** | **String** | Description of the Test Case |  [optional]
 **groupName** | **String** | Group name of the Test Case |  [optional]
 **name** | **String** | Name of the Test Case | 

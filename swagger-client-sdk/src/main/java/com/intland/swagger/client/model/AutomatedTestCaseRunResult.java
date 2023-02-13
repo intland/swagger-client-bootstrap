@@ -29,8 +29,12 @@ import io.swagger.annotations.ApiModelProperty;
  * Request model to create a test run from test case
  */
 @ApiModel(description = "Request model to create a test run from test case")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class AutomatedTestCaseRunResult {
+  public static final String SERIALIZED_NAME_CONCLUSION = "conclusion";
+  @SerializedName(SERIALIZED_NAME_CONCLUSION)
+  private String conclusion;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -101,6 +105,29 @@ public class AutomatedTestCaseRunResult {
   public static final String SERIALIZED_NAME_RUN_TIME = "runTime";
   @SerializedName(SERIALIZED_NAME_RUN_TIME)
   private Integer runTime;
+
+
+  public AutomatedTestCaseRunResult conclusion(String conclusion) {
+    
+    this.conclusion = conclusion;
+    return this;
+  }
+
+   /**
+   * Optional Test Case Run conclusion
+   * @return conclusion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Optional Test Case Run conclusion")
+
+  public String getConclusion() {
+    return conclusion;
+  }
+
+
+  public void setConclusion(String conclusion) {
+    this.conclusion = conclusion;
+  }
 
 
   public AutomatedTestCaseRunResult description(String description) {
@@ -227,7 +254,8 @@ public class AutomatedTestCaseRunResult {
       return false;
     }
     AutomatedTestCaseRunResult automatedTestCaseRunResult = (AutomatedTestCaseRunResult) o;
-    return Objects.equals(this.description, automatedTestCaseRunResult.description) &&
+    return Objects.equals(this.conclusion, automatedTestCaseRunResult.conclusion) &&
+        Objects.equals(this.description, automatedTestCaseRunResult.description) &&
         Objects.equals(this.groupName, automatedTestCaseRunResult.groupName) &&
         Objects.equals(this.name, automatedTestCaseRunResult.name) &&
         Objects.equals(this.result, automatedTestCaseRunResult.result) &&
@@ -236,13 +264,14 @@ public class AutomatedTestCaseRunResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, groupName, name, result, runTime);
+    return Objects.hash(conclusion, description, groupName, name, result, runTime);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AutomatedTestCaseRunResult {\n");
+    sb.append("    conclusion: ").append(toIndentedString(conclusion)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    groupName: ").append(toIndentedString(groupName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

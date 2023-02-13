@@ -24,11 +24,15 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * CountryFieldAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class CountryFieldAllOf {
   public static final String SERIALIZED_NAME_AVAILABLE_OPTIONS = "availableOptions";
   @SerializedName(SERIALIZED_NAME_AVAILABLE_OPTIONS)
   private List<String> availableOptions = null;
+
+  public static final String SERIALIZED_NAME_MULTIPLE_VALUES = "multipleValues";
+  @SerializedName(SERIALIZED_NAME_MULTIPLE_VALUES)
+  private Boolean multipleValues;
 
 
   public CountryFieldAllOf availableOptions(List<String> availableOptions) {
@@ -62,6 +66,29 @@ public class CountryFieldAllOf {
   }
 
 
+  public CountryFieldAllOf multipleValues(Boolean multipleValues) {
+    
+    this.multipleValues = multipleValues;
+    return this;
+  }
+
+   /**
+   * Multiple values state of a field
+   * @return multipleValues
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Multiple values state of a field")
+
+  public Boolean getMultipleValues() {
+    return multipleValues;
+  }
+
+
+  public void setMultipleValues(Boolean multipleValues) {
+    this.multipleValues = multipleValues;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -71,12 +98,13 @@ public class CountryFieldAllOf {
       return false;
     }
     CountryFieldAllOf countryFieldAllOf = (CountryFieldAllOf) o;
-    return Objects.equals(this.availableOptions, countryFieldAllOf.availableOptions);
+    return Objects.equals(this.availableOptions, countryFieldAllOf.availableOptions) &&
+        Objects.equals(this.multipleValues, countryFieldAllOf.multipleValues);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(availableOptions);
+    return Objects.hash(availableOptions, multipleValues);
   }
 
   @Override
@@ -84,6 +112,7 @@ public class CountryFieldAllOf {
     StringBuilder sb = new StringBuilder();
     sb.append("class CountryFieldAllOf {\n");
     sb.append("    availableOptions: ").append(toIndentedString(availableOptions)).append("\n");
+    sb.append("    multipleValues: ").append(toIndentedString(multipleValues)).append("\n");
     sb.append("}");
     return sb.toString();
   }

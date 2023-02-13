@@ -26,8 +26,12 @@ import io.swagger.annotations.ApiModelProperty;
  * Request model to create a test run from multiple test sets
  */
 @ApiModel(description = "Request model to create a test run from multiple test sets")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class CreateTestRunFromTestSetsRequest {
+  public static final String SERIALIZED_NAME_RUN_ONLY_ACCEPTED_TEST_CASES = "runOnlyAcceptedTestCases";
+  @SerializedName(SERIALIZED_NAME_RUN_ONLY_ACCEPTED_TEST_CASES)
+  private Boolean runOnlyAcceptedTestCases = false;
+
   public static final String SERIALIZED_NAME_TEST_RUN_MODEL = "testRunModel";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_MODEL)
   private TrackerItem testRunModel;
@@ -35,6 +39,29 @@ public class CreateTestRunFromTestSetsRequest {
   public static final String SERIALIZED_NAME_TEST_SET_REFS = "testSetRefs";
   @SerializedName(SERIALIZED_NAME_TEST_SET_REFS)
   private List<TrackerItemReference> testSetRefs = null;
+
+
+  public CreateTestRunFromTestSetsRequest runOnlyAcceptedTestCases(Boolean runOnlyAcceptedTestCases) {
+    
+    this.runOnlyAcceptedTestCases = runOnlyAcceptedTestCases;
+    return this;
+  }
+
+   /**
+   * Generate Test Runs only from accepted Test Cases.
+   * @return runOnlyAcceptedTestCases
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Generate Test Runs only from accepted Test Cases.")
+
+  public Boolean getRunOnlyAcceptedTestCases() {
+    return runOnlyAcceptedTestCases;
+  }
+
+
+  public void setRunOnlyAcceptedTestCases(Boolean runOnlyAcceptedTestCases) {
+    this.runOnlyAcceptedTestCases = runOnlyAcceptedTestCases;
+  }
 
 
   public CreateTestRunFromTestSetsRequest testRunModel(TrackerItem testRunModel) {
@@ -100,19 +127,21 @@ public class CreateTestRunFromTestSetsRequest {
       return false;
     }
     CreateTestRunFromTestSetsRequest createTestRunFromTestSetsRequest = (CreateTestRunFromTestSetsRequest) o;
-    return Objects.equals(this.testRunModel, createTestRunFromTestSetsRequest.testRunModel) &&
+    return Objects.equals(this.runOnlyAcceptedTestCases, createTestRunFromTestSetsRequest.runOnlyAcceptedTestCases) &&
+        Objects.equals(this.testRunModel, createTestRunFromTestSetsRequest.testRunModel) &&
         Objects.equals(this.testSetRefs, createTestRunFromTestSetsRequest.testSetRefs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(testRunModel, testSetRefs);
+    return Objects.hash(runOnlyAcceptedTestCases, testRunModel, testSetRefs);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateTestRunFromTestSetsRequest {\n");
+    sb.append("    runOnlyAcceptedTestCases: ").append(toIndentedString(runOnlyAcceptedTestCases)).append("\n");
     sb.append("    testRunModel: ").append(toIndentedString(testRunModel)).append("\n");
     sb.append("    testSetRefs: ").append(toIndentedString(testSetRefs)).append("\n");
     sb.append("}");

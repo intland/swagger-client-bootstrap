@@ -78,7 +78,7 @@ public class DeploymentApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json", "*/*"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -209,7 +209,7 @@ public class DeploymentApi {
         }
 
         final String[] localVarAccepts = {
-            "*/*", "application/json"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {

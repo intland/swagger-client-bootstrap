@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Paginated search result of outline items
  */
 @ApiModel(description = "Paginated search result of outline items")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class OutlineItemSearchResult {
   public static final String SERIALIZED_NAME_OUTLINE_ITEMS = "outlineItems";
   @SerializedName(SERIALIZED_NAME_OUTLINE_ITEMS)

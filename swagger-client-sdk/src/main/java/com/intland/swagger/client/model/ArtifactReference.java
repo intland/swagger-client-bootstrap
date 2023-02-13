@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiModel;
  * Reference to an artifact
  */
 @ApiModel(description = "Reference to an artifact")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ArtifactReference extends AbstractReference {
   public ArtifactReference() {
     this.type = this.getClass().getSimpleName();

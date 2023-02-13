@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OutlineWikiAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class OutlineWikiAllOf {
   public static final String SERIALIZED_NAME_WIKI_PAGE_REFERENCE_MODEL = "wikiPageReferenceModel";
   @SerializedName(SERIALIZED_NAME_WIKI_PAGE_REFERENCE_MODEL)

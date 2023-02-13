@@ -62,6 +62,7 @@ public class TrackerPermissionApi {
         <tr><td> 200 </td><td> Tracker permission. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource is not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
@@ -122,6 +123,7 @@ public class TrackerPermissionApi {
         <tr><td> 200 </td><td> Tracker permission. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource is not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
@@ -142,6 +144,7 @@ public class TrackerPermissionApi {
         <tr><td> 200 </td><td> Tracker permission. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource is not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
@@ -164,6 +167,7 @@ public class TrackerPermissionApi {
         <tr><td> 200 </td><td> Tracker permission. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource is not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
@@ -332,7 +336,7 @@ public class TrackerPermissionApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json", "*/*"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {

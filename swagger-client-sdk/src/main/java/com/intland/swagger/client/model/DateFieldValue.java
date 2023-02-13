@@ -13,9 +13,8 @@
 
 package com.intland.swagger.client.model;
 
+import java.util.Date;
 import java.util.Objects;
-
-import org.threeten.bp.OffsetDateTime;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -26,17 +25,17 @@ import io.swagger.annotations.ApiModelProperty;
  * Value container of a date field
  */
 @ApiModel(description = "Value container of a date field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class DateFieldValue extends AbstractFieldValue {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  private OffsetDateTime value;
+  private Date value;
 
   public DateFieldValue() {
     this.type = this.getClass().getSimpleName();
   }
 
-  public DateFieldValue value(OffsetDateTime value) {
+  public DateFieldValue value(Date value) {
     
     this.value = value;
     return this;
@@ -49,12 +48,12 @@ public class DateFieldValue extends AbstractFieldValue {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Date value")
 
-  public OffsetDateTime getValue() {
+  public Date getValue() {
     return value;
   }
 
 
-  public void setValue(OffsetDateTime value) {
+  public void setValue(Date value) {
     this.value = value;
   }
 

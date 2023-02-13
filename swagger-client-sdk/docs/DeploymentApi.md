@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json, */*
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -156,7 +156,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: */*, application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

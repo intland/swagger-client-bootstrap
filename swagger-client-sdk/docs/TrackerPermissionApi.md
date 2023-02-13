@@ -88,6 +88,7 @@ Name | Type | Description  | Notes
 **200** | Tracker permission. |  -  |
 **400** | Bad Request |  -  |
 **403** | Authentication is required. |  -  |
+**404** | Resource is not found |  -  |
 **429** | Too many requests |  -  |
 
 <a name="getTrackerPermissions"></a>
@@ -241,7 +242,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, */*
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

@@ -495,7 +495,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ArtifactRevisionSearchResult"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -505,7 +505,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ArtifactRevisionSearchResult"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -649,7 +649,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -659,7 +659,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -669,7 +669,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -856,7 +856,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -866,7 +866,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -876,7 +876,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -896,7 +896,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -1061,7 +1061,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -1071,7 +1071,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -1081,7 +1081,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -1101,7 +1101,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -1244,7 +1244,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -1254,7 +1254,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -1295,18 +1295,32 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
                         "description": "Bad request"
                     },
                     "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
+                                }
+                            }
+                        },
                         "description": "Authentication is required"
                     },
                     "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            }
+                        },
                         "description": "Authentication is required"
                     },
                     "429": {
@@ -1352,9 +1366,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -1364,7 +1378,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/BackgroundJobReference"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -1374,7 +1388,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/BackgroundJobReference"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -1450,10 +1464,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TrackerItem"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -1463,10 +1474,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TrackerItem"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -1518,9 +1526,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -1530,10 +1538,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TrackerItemWithTrackerItemReviewsExport"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -1543,10 +1548,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TrackerItemWithTrackerItemReviewsExport"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -1556,10 +1558,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TrackerItemWithTrackerItemReviewsExport"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -1609,18 +1608,47 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
+                                }
+                            },
+                            "application/zip": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
                         "description": "Bad request"
                     },
                     "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            },
+                            "application/zip": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            }
+                        },
                         "description": "Authentication is required"
                     },
                     "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                                }
+                            },
+                            "application/zip": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                                }
+                            }
+                        },
                         "description": "Tracker items not found"
                     },
                     "429": {
@@ -1690,9 +1718,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -1702,7 +1730,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/BulkOperationResponse"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -1712,7 +1740,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/BulkOperationResponse"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -1722,7 +1750,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/BulkOperationResponse"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -1742,7 +1770,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/BulkOperationResponse"
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -1818,9 +1846,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -1830,7 +1858,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItemSearchResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -1882,9 +1910,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -1894,7 +1922,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItemSearchResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -1970,10 +1998,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TrackerItemRelationsResult"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -1983,10 +2008,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TrackerItemRelationsResult"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -2048,7 +2070,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -2058,7 +2080,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -2088,7 +2110,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -2157,7 +2179,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -2167,7 +2189,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -2251,9 +2273,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -2263,7 +2285,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -2273,7 +2295,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -2303,7 +2325,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -2355,9 +2377,23 @@
                         "description": "Bad Request"
                     },
                     "403": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            }
+                        },
                         "description": "Authentication is required"
                     },
                     "404": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                                }
+                            }
+                        },
                         "description": "Tracker not found"
                     },
                     "423": {
@@ -2434,7 +2470,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/AttachmentSearchResult"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -2444,7 +2480,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/AttachmentSearchResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -2454,7 +2490,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/AttachmentSearchResult"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -2526,10 +2562,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Attachment"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -2539,10 +2572,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Attachment"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -2603,18 +2633,47 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
+                                }
+                            },
+                            "application/zip": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
                         "description": "Bad request"
                     },
                     "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            },
+                            "application/zip": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            }
+                        },
                         "description": "Authentication is required"
                     },
                     "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                                }
+                            },
+                            "application/zip": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                                }
+                            }
+                        },
                         "description": "Tracker item not found"
                     },
                     "429": {
@@ -2697,7 +2756,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -2707,7 +2766,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -2786,7 +2845,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -2796,7 +2855,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -2956,7 +3015,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -2966,7 +3025,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -2976,7 +3035,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -3006,7 +3065,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -3476,9 +3535,23 @@
                         "description": "Bad Request"
                     },
                     "403": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            }
+                        },
                         "description": "Authentication is required"
                     },
                     "404": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                                }
+                            }
+                        },
                         "description": "Tracker item not found"
                     },
                     "423": {
@@ -3549,10 +3622,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Comment"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -3562,10 +3632,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Comment"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -3634,7 +3701,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Comment"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -3644,7 +3711,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Comment"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -3725,7 +3792,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Comment"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -3735,7 +3802,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Comment"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -3814,7 +3881,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Comment"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -3824,7 +3891,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Comment"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -3902,7 +3969,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Comment"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -3912,7 +3979,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Comment"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -4000,7 +4067,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Comment"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -4010,7 +4077,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Comment"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -4040,7 +4107,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Comment"
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -4084,9 +4151,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -4096,7 +4163,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItemField"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -4106,7 +4173,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItemField"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -4126,7 +4193,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItemField"
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -4188,9 +4255,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -4200,7 +4267,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -4210,7 +4277,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -4220,7 +4287,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -4250,7 +4317,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -4312,7 +4379,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItemFieldAccessibilityList"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -4322,7 +4389,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItemFieldAccessibilityList"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -4391,9 +4458,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -4403,7 +4470,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -4413,7 +4480,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -4443,7 +4510,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -4526,7 +4593,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ReferenceSearchResult"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -4536,7 +4603,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ReferenceSearchResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -4546,7 +4613,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ReferenceSearchResult"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -4609,7 +4676,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItemHistory"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -4619,7 +4686,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItemHistory"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -4672,12 +4739,33 @@
                         "description": "Bad Request"
                     },
                     "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
+                                }
+                            }
+                        },
                         "description": "Authentication is required"
                     },
                     "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            }
+                        },
                         "description": "Could not unlock"
                     },
                     "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                                }
+                            }
+                        },
                         "description": "Wiki page not found"
                     },
                     "429": {
@@ -4735,7 +4823,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LockInfo"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -4745,7 +4833,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LockInfo"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -4797,21 +4885,42 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
                         "description": "Bad request, request validation error"
                     },
                     "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
+                                }
+                            }
+                        },
                         "description": "Authentication is required"
                     },
                     "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            }
+                        },
                         "description": "Could not acquire lock"
                     },
                     "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                                }
+                            }
+                        },
                         "description": "Wiki page not found"
                     },
                     "429": {
@@ -4880,7 +4989,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItemRelationsResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -4890,7 +4999,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItemRelationsResult"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -4943,9 +5052,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -4955,10 +5064,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TrackerItemReview"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -4968,10 +5074,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TrackerItemReview"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -4981,10 +5084,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TrackerItemReview"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -5050,10 +5150,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/WorkflowTransition"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -5063,10 +5160,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/WorkflowTransition"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -5076,10 +5170,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/WorkflowTransition"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -5099,10 +5190,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/WorkflowTransition"
-                                    }
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -5158,7 +5246,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/BackgroundJob"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -5168,7 +5256,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/BackgroundJob"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -5270,277 +5358,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "cause": {
-                                            "type": "object",
-                                            "properties": {
-                                                "localizedMessage": {
-                                                    "type": "string"
-                                                },
-                                                "message": {
-                                                    "type": "string"
-                                                },
-                                                "stackTrace": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "classLoaderName": {
-                                                                "type": "string"
-                                                            },
-                                                            "className": {
-                                                                "type": "string"
-                                                            },
-                                                            "fileName": {
-                                                                "type": "string"
-                                                            },
-                                                            "lineNumber": {
-                                                                "type": "integer",
-                                                                "format": "int32"
-                                                            },
-                                                            "methodName": {
-                                                                "type": "string"
-                                                            },
-                                                            "moduleName": {
-                                                                "type": "string"
-                                                            },
-                                                            "moduleVersion": {
-                                                                "type": "string"
-                                                            },
-                                                            "nativeMethod": {
-                                                                "type": "boolean"
-                                                            }
-                                                        }
-                                                    }
-                                                },
-                                                "suppressed": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "localizedMessage": {
-                                                                "type": "string"
-                                                            },
-                                                            "message": {
-                                                                "type": "string"
-                                                            },
-                                                            "stackTrace": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "classLoaderName": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "className": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "fileName": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "lineNumber": {
-                                                                            "type": "integer",
-                                                                            "format": "int32"
-                                                                        },
-                                                                        "methodName": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "moduleName": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "moduleVersion": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "nativeMethod": {
-                                                                            "type": "boolean"
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        "detail": {
-                                            "type": "object",
-                                            "properties": {
-                                                "localizedMessage": {
-                                                    "type": "string"
-                                                },
-                                                "message": {
-                                                    "type": "string"
-                                                },
-                                                "stackTrace": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "classLoaderName": {
-                                                                "type": "string"
-                                                            },
-                                                            "className": {
-                                                                "type": "string"
-                                                            },
-                                                            "fileName": {
-                                                                "type": "string"
-                                                            },
-                                                            "lineNumber": {
-                                                                "type": "integer",
-                                                                "format": "int32"
-                                                            },
-                                                            "methodName": {
-                                                                "type": "string"
-                                                            },
-                                                            "moduleName": {
-                                                                "type": "string"
-                                                            },
-                                                            "moduleVersion": {
-                                                                "type": "string"
-                                                            },
-                                                            "nativeMethod": {
-                                                                "type": "boolean"
-                                                            }
-                                                        }
-                                                    }
-                                                },
-                                                "suppressed": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "localizedMessage": {
-                                                                "type": "string"
-                                                            },
-                                                            "message": {
-                                                                "type": "string"
-                                                            },
-                                                            "stackTrace": {
-                                                                "type": "array",
-                                                                "items": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                        "classLoaderName": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "className": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "fileName": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "lineNumber": {
-                                                                            "type": "integer",
-                                                                            "format": "int32"
-                                                                        },
-                                                                        "methodName": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "moduleName": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "moduleVersion": {
-                                                                            "type": "string"
-                                                                        },
-                                                                        "nativeMethod": {
-                                                                            "type": "boolean"
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        "localizedMessage": {
-                                            "type": "string"
-                                        },
-                                        "message": {
-                                            "type": "string"
-                                        },
-                                        "stackTrace": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "classLoaderName": {
-                                                        "type": "string"
-                                                    },
-                                                    "className": {
-                                                        "type": "string"
-                                                    },
-                                                    "fileName": {
-                                                        "type": "string"
-                                                    },
-                                                    "lineNumber": {
-                                                        "type": "integer",
-                                                        "format": "int32"
-                                                    },
-                                                    "methodName": {
-                                                        "type": "string"
-                                                    },
-                                                    "moduleName": {
-                                                        "type": "string"
-                                                    },
-                                                    "moduleVersion": {
-                                                        "type": "string"
-                                                    },
-                                                    "nativeMethod": {
-                                                        "type": "boolean"
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        "suppressed": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "localizedMessage": {
-                                                        "type": "string"
-                                                    },
-                                                    "message": {
-                                                        "type": "string"
-                                                    },
-                                                    "stackTrace": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "classLoaderName": {
-                                                                    "type": "string"
-                                                                },
-                                                                "className": {
-                                                                    "type": "string"
-                                                                },
-                                                                "fileName": {
-                                                                    "type": "string"
-                                                                },
-                                                                "lineNumber": {
-                                                                    "type": "integer",
-                                                                    "format": "int32"
-                                                                },
-                                                                "methodName": {
-                                                                    "type": "string"
-                                                                },
-                                                                "moduleName": {
-                                                                    "type": "string"
-                                                                },
-                                                                "moduleVersion": {
-                                                                    "type": "string"
-                                                                },
-                                                                "nativeMethod": {
-                                                                    "type": "boolean"
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -5573,18 +5391,32 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
                         "description": "Bad request"
                     },
                     "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
+                                }
+                            }
+                        },
                         "description": "Authentication is required"
                     },
                     "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            }
+                        },
                         "description": "Access denied"
                     },
                     "429": {
@@ -5635,10 +5467,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/ProjectReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -5648,10 +5477,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/ProjectReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -5661,10 +5487,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/ProjectReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -5714,9 +5537,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -5726,7 +5549,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Project"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -5736,7 +5559,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Project"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -5756,7 +5579,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Project"
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -5795,9 +5618,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -5807,7 +5630,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ProjectSearchResult"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -5817,7 +5640,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ProjectSearchResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -5879,7 +5702,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Project"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -5889,7 +5712,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Project"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -5899,7 +5722,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Project"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -5960,18 +5783,47 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
+                                }
+                            },
+                            "application/zip": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
                         "description": "Bad request"
                     },
                     "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            },
+                            "application/zip": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            }
+                        },
                         "description": "Authentication is required"
                     },
                     "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                                }
+                            },
+                            "application/zip": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                                }
+                            }
+                        },
                         "description": "Project not found"
                     },
                     "429": {
@@ -5990,6 +5842,18 @@
                         "description": "Too many requests"
                     },
                     "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
+                                }
+                            },
+                            "application/zip": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
+                                }
+                            }
+                        },
                         "description": "Error during the project export"
                     }
                 },
@@ -6060,7 +5924,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/MemberReferenceSearchResult"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -6070,7 +5934,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/MemberReferenceSearchResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -6080,7 +5944,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/MemberReferenceSearchResult"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -6151,7 +6015,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ProjectMemberPermissions"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -6161,11 +6025,11 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ProjectMemberPermissions"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
-                        "description": "User is not a member of the project"
+                        "description": "Project or User is not found / User is not a member of the project"
                     },
                     "429": {
                         "content": {
@@ -6226,10 +6090,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TrackerReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -6239,10 +6100,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TrackerReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -6322,17 +6180,17 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Tracker"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
-                        "description": "Bad request: Tracker settings validation failed."
+                        "description": "Authentication is required / Bad request: Tracker settings validation failed."
                     },
                     "404": {
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Tracker"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -6404,7 +6262,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerSearchResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -6414,7 +6272,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerSearchResult"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -6479,9 +6337,14 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -6491,12 +6354,12 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "string"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             },
                             "text/html": {
                                 "schema": {
-                                    "type": "string"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -6506,12 +6369,12 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "string"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             },
                             "text/html": {
                                 "schema": {
-                                    "type": "string"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -6521,12 +6384,12 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "string"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             },
                             "text/html": {
                                 "schema": {
-                                    "type": "string"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -6663,9 +6526,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -6675,7 +6538,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/SimpleReportSettings"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -6736,9 +6599,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -6748,7 +6611,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/SimpleReportSettings"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -6833,7 +6696,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ReportItemResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -6843,7 +6706,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ReportItemResult"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -6928,7 +6791,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ReportResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -6938,7 +6801,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ReportResult"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -6992,10 +6855,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/RoleReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -7005,10 +6865,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/RoleReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -7070,7 +6927,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Role"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -7080,7 +6937,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Role"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -7288,7 +7145,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -7481,10 +7338,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TraceabilityItem"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -7494,10 +7348,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TraceabilityItem"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -7581,7 +7432,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TraceabilityResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -7635,10 +7486,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TrackerPermissionReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -7648,10 +7496,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TrackerPermissionReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -7713,11 +7558,21 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerPermission"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
                         "description": "Authentication is required."
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                                }
+                            }
+                        },
+                        "description": "Resource is not found"
                     },
                     "429": {
                         "content": {
@@ -7784,10 +7639,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TrackerTypeReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -7849,7 +7701,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerType"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -7859,7 +7711,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerType"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -7922,7 +7774,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -7932,11 +7784,11 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/BadRequestException"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
-                        "description": "Authentication is required"
+                        "description": "Authorization is required"
                     },
                     "403": {
                         "content": {
@@ -7946,7 +7798,7 @@
                                 }
                             }
                         },
-                        "description": "Authorization is required"
+                        "description": "Authentication is required"
                     },
                     "429": {
                         "content": {
@@ -8019,7 +7871,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -8029,7 +7881,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/BadRequestException"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -8125,7 +7977,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -8135,7 +7987,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/BadRequestException"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -8217,9 +8069,23 @@
                         "description": "Bad Request"
                     },
                     "403": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            }
+                        },
                         "description": "Authentication is required"
                     },
                     "404": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                                }
+                            }
+                        },
                         "description": "Tracker is not found"
                     },
                     "429": {
@@ -8276,7 +8142,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Tracker"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -8286,7 +8152,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Tracker"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -8356,7 +8222,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Tracker"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -8366,7 +8232,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Tracker"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -8428,7 +8294,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ReferenceSearchResult"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -8438,7 +8304,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ReferenceSearchResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -8448,7 +8314,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ReferenceSearchResult"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -8468,7 +8334,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ReferenceSearchResult"
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -8950,10 +8816,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/FieldReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -8963,10 +8826,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/FieldReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -8976,10 +8836,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/FieldReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -9038,9 +8895,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -9050,7 +8907,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerFieldsStatusPermissions"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -9060,7 +8917,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerFieldsStatusPermissions"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -9070,7 +8927,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerFieldsStatusPermissions"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -9141,7 +8998,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/AbstractField"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -9151,7 +9008,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/AbstractField"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -9161,7 +9018,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/AbstractField"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -9241,7 +9098,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ChoiceOptionReference"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -9251,7 +9108,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ChoiceOptionReference"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -9261,7 +9118,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ChoiceOptionReference"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -9332,9 +9189,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -9344,10 +9201,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TrackerFieldStatusPermissions"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -9357,10 +9211,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TrackerFieldStatusPermissions"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -9370,10 +9221,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TrackerFieldStatusPermissions"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -9438,19 +9286,40 @@
                         "content": {
                             "*/*": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
                         "description": "Could not read image from the request, or it's the wrong format"
                     },
                     "401": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
+                                }
+                            }
+                        },
                         "description": "Authentication is required"
                     },
                     "403": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            }
+                        },
                         "description": "The tracker could not be accessed"
                     },
                     "404": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                                }
+                            }
+                        },
                         "description": "Tracker not found"
                     },
                     "429": {
@@ -9519,9 +9388,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -9531,7 +9400,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItemReferenceSearchResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -9541,7 +9410,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItemReferenceSearchResult"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -9634,9 +9503,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -9646,7 +9515,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -9656,7 +9525,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -9676,7 +9545,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerItem"
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -9736,9 +9605,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -9748,7 +9617,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/OutlineItemSearchResult"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -9758,7 +9627,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/OutlineItemSearchResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -9768,7 +9637,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/OutlineItemSearchResult"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -9788,7 +9657,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/OutlineItemSearchResult"
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -9850,9 +9719,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -9862,10 +9731,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/RoleWithPermissions"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -9875,10 +9741,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/RoleWithPermissions"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -9943,10 +9806,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/ReportReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -9956,10 +9816,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/ReportReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -9979,10 +9836,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/ReportReference"
-                                    }
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -10042,7 +9896,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerReportSettings"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -10052,7 +9906,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerReportSettings"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -10113,9 +9967,23 @@
                         "description": "Bad Request"
                     },
                     "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            }
+                        },
                         "description": "Authentication is required"
                     },
                     "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                                }
+                            }
+                        },
                         "description": "Tracker / Report not found"
                     },
                     "429": {
@@ -10191,7 +10059,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerReportSettings"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -10201,7 +10069,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TrackerReportSettings"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -10294,7 +10162,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ReportItemResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -10304,7 +10172,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ReportItemResult"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -10397,7 +10265,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ReportResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -10407,7 +10275,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ReportResult"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -10468,9 +10336,23 @@
                         "description": "Bad Request"
                     },
                     "403": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            }
+                        },
                         "description": "Authentication is required"
                     },
                     "404": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                                }
+                            }
+                        },
                         "description": "Tracker/role is not found"
                     },
                     "429": {
@@ -10549,10 +10431,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/RoleWithPermissions"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -10562,10 +10441,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/RoleWithPermissions"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -10630,10 +10506,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AbstractField"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -10643,10 +10516,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AbstractField"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -10656,10 +10526,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AbstractField"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -10734,10 +10601,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/WorkflowTransition"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -10747,10 +10611,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/WorkflowTransition"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -10770,10 +10631,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/WorkflowTransition"
-                                    }
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -10856,7 +10714,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UserReferenceSearchResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -10917,7 +10775,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/User"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -10927,7 +10785,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/User"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -10988,7 +10846,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/User"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -10998,7 +10856,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/User"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -11052,10 +10910,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/UserGroupReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -11117,7 +10972,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UserGroup"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -11127,11 +10982,11 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UserGroup"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
-                        "description": "User Group not found"
+                        "description": "User Group is not found"
                     },
                     "429": {
                         "content": {
@@ -11211,7 +11066,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UserReferenceSearchResult"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -11221,7 +11076,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UserReferenceSearchResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -11231,7 +11086,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UserReferenceSearchResult"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -11304,9 +11159,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -11316,7 +11171,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UserSearchResult"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -11326,7 +11181,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UserSearchResult"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -11388,7 +11243,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/User"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -11398,7 +11253,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/User"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -11447,9 +11302,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -11459,7 +11314,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/WikiPage"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -11469,7 +11324,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/WikiPage"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -11530,9 +11385,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -11542,7 +11397,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/WikiPage"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -11552,7 +11407,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/WikiPage"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -11562,7 +11417,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/WikiPage"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -11608,19 +11463,40 @@
                         "content": {
                             "*/*": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
                         "description": "Request cannot be processed"
                     },
                     "401": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
+                                }
+                            }
+                        },
                         "description": "Authentication is required"
                     },
                     "403": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            }
+                        },
                         "description": "Access denied"
                     },
                     "404": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                                }
+                            }
+                        },
                         "description": "The wiki page does not exist, or the artifact is not a wiki page"
                     },
                     "429": {
@@ -11688,7 +11564,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/WikiPage"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -11698,7 +11574,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/WikiPage"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -11708,7 +11584,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/WikiPage"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -11778,7 +11654,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -11788,7 +11664,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -11798,7 +11674,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Attachment"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -11872,10 +11748,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AttachmentReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -11885,10 +11758,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AttachmentReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -11898,10 +11768,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AttachmentReference"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -11921,10 +11788,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AttachmentReference"
-                                    }
+                                    "$ref": "#/components/schemas/InternalServerErrorException"
                                 }
                             }
                         },
@@ -11998,7 +11862,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ArtifactRevisionSearchResult"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -12008,7 +11872,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ArtifactRevisionSearchResult"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -12074,9 +11938,14 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -12086,12 +11955,12 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "string"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             },
                             "text/html": {
                                 "schema": {
-                                    "type": "string"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -12101,12 +11970,12 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "string"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             },
                             "text/html": {
                                 "schema": {
-                                    "type": "string"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -12116,12 +11985,12 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "string"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             },
                             "text/html": {
                                 "schema": {
-                                    "type": "string"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -12179,12 +12048,33 @@
                         "description": "Bad Request"
                     },
                     "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
+                                }
+                            }
+                        },
                         "description": "Authentication is required"
                     },
                     "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            }
+                        },
                         "description": "Could not unlock"
                     },
                     "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                                }
+                            }
+                        },
                         "description": "Wiki page not found"
                     },
                     "429": {
@@ -12242,7 +12132,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LockInfo"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -12252,7 +12142,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LockInfo"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -12304,21 +12194,42 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
                         "description": "Bad request, request validation error"
                     },
                     "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
+                                }
+                            }
+                        },
                         "description": "Authentication is required"
                     },
                     "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
+                                }
+                            }
+                        },
                         "description": "Could not acquire lock"
                     },
                     "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
+                                }
+                            }
+                        },
                         "description": "Wiki page not found"
                     },
                     "429": {
@@ -12381,10 +12292,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AccessPermission"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -12394,10 +12302,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AccessPermission"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -12407,10 +12312,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AccessPermission"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -12482,9 +12384,9 @@
                     },
                     "400": {
                         "content": {
-                            "*/*": {
+                            "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RestException"
+                                    "$ref": "#/components/schemas/BadRequestException"
                                 }
                             }
                         },
@@ -12494,10 +12396,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AccessPermission"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -12507,10 +12406,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AccessPermission"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -12520,10 +12416,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AccessPermission"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },
@@ -12596,7 +12489,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/WikiPage"
+                                    "$ref": "#/components/schemas/ResourceUnauthorizedException"
                                 }
                             }
                         },
@@ -12606,7 +12499,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/WikiPage"
+                                    "$ref": "#/components/schemas/ResourceForbiddenException"
                                 }
                             }
                         },
@@ -12616,7 +12509,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/WikiPage"
+                                    "$ref": "#/components/schemas/ResourceNotFoundException"
                                 }
                             }
                         },

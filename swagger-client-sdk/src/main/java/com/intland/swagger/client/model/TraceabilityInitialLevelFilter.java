@@ -13,9 +13,8 @@
 
 package com.intland.swagger.client.model;
 
+import java.util.Date;
 import java.util.Objects;
-
-import org.threeten.bp.OffsetDateTime;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -26,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Settings to filter items
  */
 @ApiModel(description = "Settings to filter items")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TraceabilityInitialLevelFilter {
   public static final String SERIALIZED_NAME_CB_Q_L = "cbQL";
   @SerializedName(SERIALIZED_NAME_CB_Q_L)
@@ -38,7 +37,7 @@ public class TraceabilityInitialLevelFilter {
 
   public static final String SERIALIZED_NAME_HISTORY_DATE = "historyDate";
   @SerializedName(SERIALIZED_NAME_HISTORY_DATE)
-  private OffsetDateTime historyDate;
+  private Date historyDate;
 
   public static final String SERIALIZED_NAME_SHOW_ANCESTOR_ITEMS = "showAncestorItems";
   @SerializedName(SERIALIZED_NAME_SHOW_ANCESTOR_ITEMS)
@@ -95,7 +94,7 @@ public class TraceabilityInitialLevelFilter {
   }
 
 
-  public TraceabilityInitialLevelFilter historyDate(OffsetDateTime historyDate) {
+  public TraceabilityInitialLevelFilter historyDate(Date historyDate) {
     
     this.historyDate = historyDate;
     return this;
@@ -108,12 +107,12 @@ public class TraceabilityInitialLevelFilter {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Snapshot view of given date")
 
-  public OffsetDateTime getHistoryDate() {
+  public Date getHistoryDate() {
     return historyDate;
   }
 
 
-  public void setHistoryDate(OffsetDateTime historyDate) {
+  public void setHistoryDate(Date historyDate) {
     this.historyDate = historyDate;
   }
 

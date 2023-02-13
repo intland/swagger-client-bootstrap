@@ -8,7 +8,7 @@ Label that is used for entities like tags.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**createdAt** | **OffsetDateTime** | The date when the entity was created |  [optional]
+**createdAt** | **Date** | The date when the entity was created |  [optional]
 **createdBy** | [**UserReference**](UserReference.md) |  |  [optional]
 **hidden** | **Boolean** | Whether the label is hidden or not |  [optional]
 **id** | **Integer** | Id of the entity |  [optional]

@@ -344,8 +344,8 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | The newly created test run |  -  |
 **400** | Bad request |  -  |
-**401** | Authentication is required |  -  |
-**403** | Authorization is required |  -  |
+**401** | Authorization is required |  -  |
+**403** | Authentication is required |  -  |
 **429** | Too many requests |  -  |
 **500** | Internal server error |  -  |
 

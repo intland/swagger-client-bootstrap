@@ -13,9 +13,8 @@
 
 package com.intland.swagger.client.model;
 
+import java.util.Date;
 import java.util.Objects;
-
-import org.threeten.bp.OffsetDateTime;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -26,11 +25,11 @@ import io.swagger.annotations.ApiModelProperty;
  * Label that is used for entities like tags.
  */
 @ApiModel(description = "Label that is used for entities like tags.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class Label {
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
+  private Date createdAt;
 
   public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
   @SerializedName(SERIALIZED_NAME_CREATED_BY)
@@ -53,7 +52,7 @@ public class Label {
   private Boolean privateLabel;
 
 
-  public Label createdAt(OffsetDateTime createdAt) {
+  public Label createdAt(Date createdAt) {
     
     this.createdAt = createdAt;
     return this;
@@ -66,12 +65,12 @@ public class Label {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was created")
 
-  public OffsetDateTime getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
 
-  public void setCreatedAt(OffsetDateTime createdAt) {
+  public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
 

@@ -15,10 +15,9 @@ package com.intland.swagger.client.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-
-import org.threeten.bp.OffsetDateTime;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -33,7 +32,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Basic properties of a codebeamer tracker item
  */
 @ApiModel(description = "Basic properties of a codebeamer tracker item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerItem {
   public static final String SERIALIZED_NAME_ACCRUED_MILLIS = "accruedMillis";
   @SerializedName(SERIALIZED_NAME_ACCRUED_MILLIS)
@@ -45,7 +44,7 @@ public class TrackerItem {
 
   public static final String SERIALIZED_NAME_ASSIGNED_AT = "assignedAt";
   @SerializedName(SERIALIZED_NAME_ASSIGNED_AT)
-  private OffsetDateTime assignedAt;
+  private Date assignedAt;
 
   public static final String SERIALIZED_NAME_ASSIGNED_TO = "assignedTo";
   @SerializedName(SERIALIZED_NAME_ASSIGNED_TO)
@@ -61,7 +60,7 @@ public class TrackerItem {
 
   public static final String SERIALIZED_NAME_CLOSED_AT = "closedAt";
   @SerializedName(SERIALIZED_NAME_CLOSED_AT)
-  private OffsetDateTime closedAt;
+  private Date closedAt;
 
   public static final String SERIALIZED_NAME_COMMENTS = "comments";
   @SerializedName(SERIALIZED_NAME_COMMENTS)
@@ -69,7 +68,7 @@ public class TrackerItem {
 
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
+  private Date createdAt;
 
   public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
   @SerializedName(SERIALIZED_NAME_CREATED_BY)
@@ -138,7 +137,7 @@ public class TrackerItem {
 
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
   @SerializedName(SERIALIZED_NAME_END_DATE)
-  private OffsetDateTime endDate;
+  private Date endDate;
 
   public static final String SERIALIZED_NAME_ESTIMATED_MILLIS = "estimatedMillis";
   @SerializedName(SERIALIZED_NAME_ESTIMATED_MILLIS)
@@ -154,7 +153,7 @@ public class TrackerItem {
 
   public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
   @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
-  private OffsetDateTime modifiedAt;
+  private Date modifiedAt;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
@@ -202,7 +201,7 @@ public class TrackerItem {
 
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
-  private OffsetDateTime startDate;
+  private Date startDate;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -293,7 +292,7 @@ public class TrackerItem {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Assignee date of a tracker item")
 
-  public OffsetDateTime getAssignedAt() {
+  public Date getAssignedAt() {
     return assignedAt;
   }
 
@@ -376,7 +375,7 @@ public class TrackerItem {
 
 
 
-  public TrackerItem closedAt(OffsetDateTime closedAt) {
+  public TrackerItem closedAt(Date closedAt) {
     
     this.closedAt = closedAt;
     return this;
@@ -389,12 +388,12 @@ public class TrackerItem {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Close date of a tracker item")
 
-  public OffsetDateTime getClosedAt() {
+  public Date getClosedAt() {
     return closedAt;
   }
 
 
-  public void setClosedAt(OffsetDateTime closedAt) {
+  public void setClosedAt(Date closedAt) {
     this.closedAt = closedAt;
   }
 
@@ -413,7 +412,7 @@ public class TrackerItem {
 
 
 
-  public TrackerItem createdAt(OffsetDateTime createdAt) {
+  public TrackerItem createdAt(Date createdAt) {
     
     this.createdAt = createdAt;
     return this;
@@ -426,12 +425,12 @@ public class TrackerItem {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was created")
 
-  public OffsetDateTime getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
 
-  public void setCreatedAt(OffsetDateTime createdAt) {
+  public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -536,7 +535,7 @@ public class TrackerItem {
   }
 
 
-  public TrackerItem endDate(OffsetDateTime endDate) {
+  public TrackerItem endDate(Date endDate) {
     
     this.endDate = endDate;
     return this;
@@ -549,12 +548,12 @@ public class TrackerItem {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "End date of a tracker item")
 
-  public OffsetDateTime getEndDate() {
+  public Date getEndDate() {
     return endDate;
   }
 
 
-  public void setEndDate(OffsetDateTime endDate) {
+  public void setEndDate(Date endDate) {
     this.endDate = endDate;
   }
 
@@ -629,7 +628,7 @@ public class TrackerItem {
   }
 
 
-  public TrackerItem modifiedAt(OffsetDateTime modifiedAt) {
+  public TrackerItem modifiedAt(Date modifiedAt) {
     
     this.modifiedAt = modifiedAt;
     return this;
@@ -642,12 +641,12 @@ public class TrackerItem {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
 
-  public OffsetDateTime getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
 
-  public void setModifiedAt(OffsetDateTime modifiedAt) {
+  public void setModifiedAt(Date modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 
@@ -937,7 +936,7 @@ public class TrackerItem {
   }
 
 
-  public TrackerItem startDate(OffsetDateTime startDate) {
+  public TrackerItem startDate(Date startDate) {
     
     this.startDate = startDate;
     return this;
@@ -950,12 +949,12 @@ public class TrackerItem {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Start date of a tracker item")
 
-  public OffsetDateTime getStartDate() {
+  public Date getStartDate() {
     return startDate;
   }
 
 
-  public void setStartDate(OffsetDateTime startDate) {
+  public void setStartDate(Date startDate) {
     this.startDate = startDate;
   }
 

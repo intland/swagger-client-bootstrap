@@ -50,10 +50,6 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.format.DateTimeFormatter;
-
 import com.intland.swagger.client.auth.ApiKeyAuth;
 import com.intland.swagger.client.auth.Authentication;
 import com.intland.swagger.client.auth.HttpBasicAuth;
@@ -290,16 +286,6 @@ public class ApiClient {
 
     public ApiClient setSqlDateFormat(DateFormat dateFormat) {
         this.json.setSqlDateFormat(dateFormat);
-        return this;
-    }
-
-    public ApiClient setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
-        this.json.setOffsetDateTimeFormat(dateFormat);
-        return this;
-    }
-
-    public ApiClient setLocalDateFormat(DateTimeFormatter dateFormat) {
-        this.json.setLocalDateFormat(dateFormat);
         return this;
     }
 
@@ -576,7 +562,7 @@ public class ApiClient {
     public String parameterToString(Object param) {
         if (param == null) {
             return "";
-        } else if (param instanceof Date || param instanceof OffsetDateTime || param instanceof LocalDate) {
+        } else if (param instanceof Date ) {
             //Serialize to json string and remove the " enclosing characters
             String jsonStr = json.serialize(param);
             return jsonStr.substring(1, jsonStr.length() - 1);

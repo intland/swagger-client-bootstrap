@@ -326,13 +326,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArtifactRevisionSearchResult'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArtifactRevisionSearchResult'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Association not found
         "429":
           content:
@@ -429,19 +429,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authorization is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker / Attachment not found
         "429":
           content:
@@ -564,19 +564,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authorization is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Attachment not found
         "429":
           content:
@@ -588,7 +588,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Unexpected error
       summary: Update attachment
       tags:
@@ -705,19 +705,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authorization is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Attachment not found
         "429":
           content:
@@ -729,7 +729,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Unexpected error
       summary: Restore attachment to previous version
       tags:
@@ -824,13 +824,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker item not found
         "429":
           content:
@@ -855,13 +855,21 @@ paths:
           description: Deployment is executed
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Bad request
         "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "429":
           content:
@@ -892,21 +900,21 @@ paths:
           description: Export job has been scheduled successfully
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Bad request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BackgroundJobReference'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BackgroundJobReference'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authorization is required
         "429":
           content:
@@ -957,17 +965,13 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TrackerItem'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TrackerItem'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker not found
         "429":
           content:
@@ -1000,33 +1004,27 @@ paths:
           description: List of tracker item reviews for each tracker item
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "401":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TrackerItemWithTrackerItemReviewsExport'
-                type: array
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TrackerItemWithTrackerItemReviewsExport'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: "Tracker item reviews are disabled, or access to them is denied"
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TrackerItemWithTrackerItemReviewsExport'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: There is no baseline accessible with the supplied ID
         "429":
           content:
@@ -1060,13 +1058,30 @@ paths:
             \ files prefixed with the attachment id like [attachment-id]_[filename]."
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
+            application/zip:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
           description: Bad request
         "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
+            application/zip:
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+            application/zip:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker items not found
         "429":
           content:
@@ -1116,27 +1131,27 @@ paths:
           description: Bulk update response
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BulkOperationResponse'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BulkOperationResponse'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BulkOperationResponse'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker / Field not found
         "429":
           content:
@@ -1148,7 +1163,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BulkOperationResponse'
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Unexpected error
       summary: Bulk update fields of a tracker item
       tags:
@@ -1208,15 +1223,15 @@ paths:
           description: List tracker items by cbQL
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItemSearchResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "429":
           content:
@@ -1249,15 +1264,15 @@ paths:
           description: List tracker items by cbQL
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItemSearchResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "429":
           content:
@@ -1309,17 +1324,13 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TrackerItemRelationsResult'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TrackerItemRelationsResult'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker not found
         "429":
           content:
@@ -1361,13 +1372,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker not found
         "423":
           content:
@@ -1385,7 +1396,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Unexpected error
       summary: Move tracker item to trash
       tags:
@@ -1436,13 +1447,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker item not found
         "429":
           content:
@@ -1502,21 +1513,21 @@ paths:
           description: Basic tracker item by id
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker / Field not found
         "423":
           content:
@@ -1534,7 +1545,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Unexpected error
       summary: Update tracker item
       tags:
@@ -1573,8 +1584,16 @@ paths:
                 $ref: '#/components/schemas/RestException'
           description: Bad Request
         "403":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker not found
         "423":
           content:
@@ -1629,19 +1648,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AttachmentSearchResult'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Access denied
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AttachmentSearchResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AttachmentSearchResult'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker item not found
         "429":
           content:
@@ -1688,17 +1707,13 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/Attachment'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/Attachment'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker not found
         "423":
           content:
@@ -1740,13 +1755,30 @@ paths:
             \ prefixed with the attachment id like [attachment-id]_[filename]."
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
+            application/zip:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
           description: Bad request
         "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
+            application/zip:
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+            application/zip:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker item not found
         "429":
           content:
@@ -1808,13 +1840,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker not found
         "423":
           content:
@@ -1868,13 +1900,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker / Attachment not found
         "429":
           content:
@@ -1983,19 +2015,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authorization is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker item or attachment not found
         "423":
           content:
@@ -2013,7 +2045,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Unexpected error
       summary: Update content of attachment of tracker item
       tags:
@@ -2331,8 +2363,16 @@ paths:
                 $ref: '#/components/schemas/RestException'
           description: Bad Request
         "403":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker item not found
         "423":
           content:
@@ -2381,17 +2421,13 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/Comment'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/Comment'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker item not found
         "429":
           content:
@@ -2436,13 +2472,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Comment'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Comment'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker item not found
         "423":
           content:
@@ -2498,13 +2534,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Comment'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Comment'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker item not found
         "423":
           content:
@@ -2558,13 +2594,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Comment'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Comment'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker item not found
         "429":
           content:
@@ -2617,13 +2653,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Comment'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Comment'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker not found
         "423":
           content:
@@ -2683,13 +2719,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Comment'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Comment'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker not found
         "423":
           content:
@@ -2707,7 +2743,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Comment'
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Unexpected error
       summary: Edit comment on a tracker item
       tags:
@@ -2738,21 +2774,21 @@ paths:
           description: Fields of tracker item by id
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItemField'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItemField'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker / Item not found
         "429":
           content:
@@ -2764,7 +2800,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItemField'
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Unexpected error
       summary: Get fields of a tracker item
       tags:
@@ -2809,27 +2845,27 @@ paths:
           description: Basic tracker item by id
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker / Field not found
         "423":
           content:
@@ -2847,7 +2883,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Unexpected error
       summary: Update fields of a tracker item
       tags:
@@ -2892,13 +2928,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItemFieldAccessibilityList'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItemFieldAccessibilityList'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker item not found
         "429":
           content:
@@ -2945,21 +2981,21 @@ paths:
           description: Basic tracker item by id
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker / Field not found
         "423":
           content:
@@ -2977,7 +3013,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Unexpected error
       summary: Update table field of tracker item
       tags:
@@ -3041,19 +3077,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReferenceSearchResult'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReferenceSearchResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReferenceSearchResult'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: No option found
         "429":
           content:
@@ -3095,13 +3131,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItemHistory'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItemHistory'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker not found
         "429":
           content:
@@ -3136,10 +3172,22 @@ paths:
                 $ref: '#/components/schemas/RestException'
           description: Bad Request
         "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Could not unlock
         "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Wiki page not found
         "429":
           content:
@@ -3180,13 +3228,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LockInfo'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LockInfo'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Wiki page not found
         "429":
           content:
@@ -3222,15 +3270,27 @@ paths:
           description: Lock acquired successfully
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: "Bad request, request validation error"
         "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Could not acquire lock
         "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Wiki page not found
         "429":
           content:
@@ -3282,13 +3342,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItemRelationsResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItemRelationsResult'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker not found
         "429":
           content:
@@ -3323,33 +3383,27 @@ paths:
           description: List of tracker item reviews for the particular item
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "401":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TrackerItemReview'
-                type: array
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TrackerItemReview'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: "Tracker item reviews are disabled, or access to them is denied"
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TrackerItemReview'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker item not found
         "429":
           content:
@@ -3394,25 +3448,19 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/WorkflowTransition'
-                type: array
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/WorkflowTransition'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Missing user permissions
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/WorkflowTransition'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker item not found
         "429":
           content:
@@ -3424,9 +3472,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/WorkflowTransition'
-                type: array
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Internal server error
       summary: Get available transitions for a tracker item
       tags:
@@ -3465,13 +3511,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BackgroundJob'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BackgroundJob'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Job not found
         "429":
           content:
@@ -3536,7 +3582,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_500'
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Unexpected error
       summary: Create background job to update working-set
       tags:
@@ -3559,13 +3605,21 @@ paths:
           description: Attachments are migrated
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Bad request
         "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Access denied
         "429":
           content:
@@ -3600,25 +3654,19 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/ProjectReference'
-                type: array
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/ProjectReference'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/ProjectReference'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Project not found
         "429":
           content:
@@ -3649,21 +3697,21 @@ paths:
           description: Project configuration deployed
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Project'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Project'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Project or configuration file not found
         "429":
           content:
@@ -3675,7 +3723,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Project'
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Error when deploying the project configuration.
       summary: Deploy a project configuration to a Project
       tags:
@@ -3700,21 +3748,21 @@ paths:
           description: One page of projects
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Bad request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProjectSearchResult'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProjectSearchResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Access denied
         "429":
           content:
@@ -3756,19 +3804,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Project'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Project'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Project'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Project not found
         "429":
           content:
@@ -3808,13 +3856,30 @@ paths:
           description: The exported project contents in a zip file.
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
+            application/zip:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
           description: Bad request
         "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
+            application/zip:
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+            application/zip:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Project not found
         "429":
           content:
@@ -3826,6 +3891,13 @@ paths:
                 $ref: '#/components/schemas/TooManyRequestsException'
           description: Too many requests
         "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorException'
+            application/zip:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Error during the project export
       summary: Exports the specified project to a zip file
       tags:
@@ -3881,19 +3953,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MemberReferenceSearchResult'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MemberReferenceSearchResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MemberReferenceSearchResult'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Project is not found
         "429":
           content:
@@ -3942,14 +4014,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProjectMemberPermissions'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProjectMemberPermissions'
-          description: User is not a member of the project
+                $ref: '#/components/schemas/ResourceNotFoundException'
+          description: Project or User is not found / User is not a member of the
+            project
         "429":
           content:
             application/json:
@@ -3991,17 +4064,13 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TrackerReference'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TrackerReference'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Project / Tracker not found
         "429":
           content:
@@ -4056,13 +4125,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Tracker'
-          description: "Bad request: Tracker settings validation failed."
+                $ref: '#/components/schemas/ResourceForbiddenException'
+          description: "Authentication is required / Bad request: Tracker settings\
+            \ validation failed."
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Tracker'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker not found
         "429":
           content:
@@ -4110,13 +4180,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerSearchResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerSearchResult'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Project / Tracker not found
         "429":
           content:
@@ -4159,36 +4229,39 @@ paths:
           description: The wiki content rendered as HTML
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "401":
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
             text/html:
               schema:
-                type: string
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/ResourceForbiddenException'
             text/html:
               schema:
-                type: string
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Access denied
         "404":
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/ResourceNotFoundException'
             text/html:
               schema:
-                type: string
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: "The wiki page does not exist, or the artifact is not a wiki\
             \ page"
         "429":
@@ -4277,15 +4350,15 @@ paths:
           description: Report settings
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Bad request
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SimpleReportSettings'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "429":
           content:
@@ -4326,15 +4399,15 @@ paths:
           description: Updated report settings
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Bad request
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SimpleReportSettings'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "429":
           content:
@@ -4397,13 +4470,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReportItemResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReportItemResult'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Report not found
         "429":
           content:
@@ -4465,13 +4538,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReportResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReportResult'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Report not found
         "429":
           content:
@@ -4505,17 +4578,13 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/RoleReference'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/RoleReference'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Role not found
         "429":
           content:
@@ -4556,13 +4625,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Role'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Role'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Role not found
         "429":
           content:
@@ -4695,7 +4764,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResourceUnauthorizedException'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "429":
           content:
@@ -4826,17 +4895,13 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TraceabilityItem'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TraceabilityItem'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker not found
         "429":
           content:
@@ -4895,7 +4960,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TraceabilityResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "429":
           content:
@@ -4930,17 +4995,13 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TrackerPermissionReference'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required.
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TrackerPermissionReference'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker permission is not found.
         "429":
           content:
@@ -4981,8 +5042,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerPermission'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+          description: Resource is not found
         "429":
           content:
             application/json:
@@ -5029,9 +5096,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TrackerTypeReference'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "429":
           content:
@@ -5072,13 +5137,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerType'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerType'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker type is not found
         "429":
           content:
@@ -5122,20 +5187,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResourceUnauthorizedException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Bad request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestException'
-          description: Authentication is required
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
+          description: Authorization is required
         "403":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResourceForbiddenException'
-          description: Authorization is required
+          description: Authentication is required
         "429":
           content:
             application/json:
@@ -5187,13 +5252,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResourceUnauthorizedException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Bad request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestException'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
@@ -5256,13 +5321,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResourceUnauthorizedException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Bad request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestException'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
@@ -5315,8 +5380,16 @@ paths:
                 $ref: '#/components/schemas/RestException'
           description: Bad Request
         "403":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker is not found
         "429":
           content:
@@ -5356,13 +5429,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Tracker'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Tracker'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Project / Tracker not found
         "429":
           content:
@@ -5408,13 +5481,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Tracker'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Tracker'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker not found
         "429":
           content:
@@ -5456,19 +5529,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReferenceSearchResult'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Not authorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReferenceSearchResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReferenceSearchResult'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker is not found
         "429":
           content:
@@ -5480,7 +5553,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReferenceSearchResult'
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Internal server error
       summary: Get baselines of a specific tracker
       tags:
@@ -5805,25 +5878,19 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/FieldReference'
-                type: array
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/FieldReference'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/FieldReference'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Field not found
         "429":
           content:
@@ -5864,27 +5931,27 @@ paths:
           description: Permissions by status and role
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Status id is invalid
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerFieldsStatusPermissions'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerFieldsStatusPermissions'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authorization is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerFieldsStatusPermissions'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker not found
         "429":
           content:
@@ -5933,19 +6000,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AbstractField'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AbstractField'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AbstractField'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Field not found
         "429":
           content:
@@ -6002,19 +6069,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ChoiceOptionReference'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ChoiceOptionReference'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ChoiceOptionReference'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Option not found
         "429":
           content:
@@ -6065,33 +6132,27 @@ paths:
           description: Permissions by status and role
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Status id is invalid
         "401":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TrackerFieldStatusPermissions'
-                type: array
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TrackerFieldStatusPermissions'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authorization is required
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/TrackerFieldStatusPermissions'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker or field not found
         "429":
           content:
@@ -6136,13 +6197,25 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: "Could not read image from the request, or it's the wrong format"
         "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: The tracker could not be accessed
         "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker not found
         "429":
           content:
@@ -6196,21 +6269,21 @@ paths:
           description: List of tracker items
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItemReferenceSearchResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItemReferenceSearchResult'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker is not found
         "429":
           content:
@@ -6278,21 +6351,21 @@ paths:
           description: Basic tracker item by id
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker / Field not found
         "429":
           content:
@@ -6304,7 +6377,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerItem'
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Unexpected error
       summary: Create a tracker item
       tags:
@@ -6350,27 +6423,27 @@ paths:
           description: Outline of the tracker
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OutlineItemSearchResult'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Not authorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OutlineItemSearchResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OutlineItemSearchResult'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker is not found
         "429":
           content:
@@ -6382,7 +6455,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OutlineItemSearchResult'
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Internal server error
       summary: Get outline of a specific tracker
       tags:
@@ -6429,25 +6502,21 @@ paths:
           description: Tracker permissions by role.
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: No access permission for this resource
         "403":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/RoleWithPermissions'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required.
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/RoleWithPermissions'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker is not found.
         "429":
           content:
@@ -6490,17 +6559,13 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/ReportReference'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/ReportReference'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker not found
         "429":
           content:
@@ -6512,9 +6577,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/ReportReference'
-                type: array
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Internal server error
       summary: Get all reports of a specific tracker
       tags:
@@ -6554,13 +6617,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerReportSettings'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerReportSettings'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker not found
         "429":
           content:
@@ -6603,8 +6666,16 @@ paths:
                 $ref: '#/components/schemas/RestException'
           description: Bad Request
         "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker / Report not found
         "429":
           content:
@@ -6658,13 +6729,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerReportSettings'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrackerReportSettings'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker / Report not found
         "429":
           content:
@@ -6734,13 +6805,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReportItemResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReportItemResult'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker / Report not found
         "429":
           content:
@@ -6809,13 +6880,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReportResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReportResult'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker / Report not found
         "429":
           content:
@@ -6857,8 +6928,16 @@ paths:
                 $ref: '#/components/schemas/RestException'
           description: Bad Request
         "403":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker/role is not found
         "429":
           content:
@@ -6914,17 +6993,13 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/RoleWithPermissions'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/RoleWithPermissions'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker / permission / roles not found
         "429":
           content:
@@ -6968,25 +7043,19 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/AbstractField'
-                type: array
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/AbstractField'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/AbstractField'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Field not found
         "429":
           content:
@@ -7038,17 +7107,13 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/WorkflowTransition'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/WorkflowTransition'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Tracker not found
         "429":
           content:
@@ -7060,9 +7125,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/WorkflowTransition'
-                type: array
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Internal server error
       summary: Get all transitions of a specific tracker
       tags:
@@ -7125,7 +7188,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserReferenceSearchResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "429":
           content:
@@ -7165,13 +7228,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: User not found
         "429":
           content:
@@ -7211,13 +7274,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: User not found
         "429":
           content:
@@ -7251,9 +7314,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/UserGroupReference'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "429":
           content:
@@ -7294,14 +7355,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserGroup'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserGroup'
-          description: User Group not found
+                $ref: '#/components/schemas/ResourceNotFoundException'
+          description: User Group is not found
         "429":
           content:
             application/json:
@@ -7361,19 +7422,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserReferenceSearchResult'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserReferenceSearchResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserReferenceSearchResult'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: User group is not found
         "429":
           content:
@@ -7424,21 +7485,21 @@ paths:
           description: Users
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Bad request
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserSearchResult'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserSearchResult'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Project is not found
         "429":
           content:
@@ -7480,13 +7541,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: User not found
         "429":
           content:
@@ -7516,21 +7577,21 @@ paths:
           description: Properties of the created wikipage
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WikiPage'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WikiPage'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Access denied
         "429":
           content:
@@ -7571,27 +7632,27 @@ paths:
           description: Properties of the updated wikipage
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WikiPage'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WikiPage'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Access denied
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WikiPage'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Wikipage not found
         "429":
           content:
@@ -7624,13 +7685,25 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Access denied
         "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: "The wiki page does not exist, or the artifact is not a wiki\
             \ page"
         "429":
@@ -7681,19 +7754,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WikiPage'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WikiPage'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Access denied
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WikiPage'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: "The wiki page does not exist, or the artifact is not a wiki\
             \ page"
         "429":
@@ -7742,19 +7815,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authorization is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Attachment'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Wiki page / Attachment not found
         "429":
           content:
@@ -7802,25 +7875,19 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/AttachmentReference'
-                type: array
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/AttachmentReference'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authorization is required
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/AttachmentReference'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Wiki page not found
         "429":
           content:
@@ -7832,9 +7899,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/AttachmentReference'
-                type: array
+                $ref: '#/components/schemas/InternalServerErrorException'
           description: Unexpected error
       summary: Comment on a wiki page
       tags:
@@ -7890,13 +7955,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArtifactRevisionSearchResult'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArtifactRevisionSearchResult'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Wiki page not found
         "429":
           content:
@@ -7942,36 +8007,39 @@ paths:
           description: The wiki content rendered as HTML
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "401":
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
             text/html:
               schema:
-                type: string
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/ResourceForbiddenException'
             text/html:
               schema:
-                type: string
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Access denied
         "404":
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/ResourceNotFoundException'
             text/html:
               schema:
-                type: string
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: "The wiki page does not exist, or the artifact is not a wiki\
             \ page"
         "429":
@@ -8010,10 +8078,22 @@ paths:
                 $ref: '#/components/schemas/RestException'
           description: Bad Request
         "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Could not unlock
         "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Wiki page not found
         "429":
           content:
@@ -8054,13 +8134,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LockInfo'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LockInfo'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Wiki page not found
         "429":
           content:
@@ -8096,15 +8176,27 @@ paths:
           description: Lock acquired successfully
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: "Bad request, request validation error"
         "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Could not acquire lock
         "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Wiki page not found
         "429":
           content:
@@ -8149,25 +8241,19 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/AccessPermission'
-                type: array
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/AccessPermission'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authorization is required
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/AccessPermission'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Wiki page not found
         "429":
           content:
@@ -8217,33 +8303,27 @@ paths:
           description: Permissions of the wiki page
         "400":
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/RestException'
+                $ref: '#/components/schemas/BadRequestException'
           description: Request cannot be processed
         "401":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/AccessPermission'
-                type: array
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/AccessPermission'
-                type: array
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Authorization is required
         "404":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/AccessPermission'
-                type: array
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Wiki page not found
         "429":
           content:
@@ -8295,19 +8375,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WikiPage'
+                $ref: '#/components/schemas/ResourceUnauthorizedException'
           description: Authentication is required
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WikiPage'
+                $ref: '#/components/schemas/ResourceForbiddenException'
           description: Access denied
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WikiPage'
+                $ref: '#/components/schemas/ResourceNotFoundException'
           description: Wiki page or version not found
         "429":
           content:
@@ -15004,71 +15084,6 @@ components:
       required:
       - source
       - target
-      type: object
-    inline_response_500_cause_stackTrace:
-      properties:
-        classLoaderName:
-          type: string
-        className:
-          type: string
-        fileName:
-          type: string
-        lineNumber:
-          format: int32
-          type: integer
-        methodName:
-          type: string
-        moduleName:
-          type: string
-        moduleVersion:
-          type: string
-        nativeMethod:
-          type: boolean
-      type: object
-    inline_response_500_cause_suppressed:
-      properties:
-        localizedMessage:
-          type: string
-        message:
-          type: string
-        stackTrace:
-          items:
-            $ref: '#/components/schemas/inline_response_500_cause_stackTrace'
-          type: array
-      type: object
-    inline_response_500_cause:
-      properties:
-        localizedMessage:
-          type: string
-        message:
-          type: string
-        stackTrace:
-          items:
-            $ref: '#/components/schemas/inline_response_500_cause_stackTrace'
-          type: array
-        suppressed:
-          items:
-            $ref: '#/components/schemas/inline_response_500_cause_suppressed'
-          type: array
-      type: object
-    inline_response_500:
-      properties:
-        cause:
-          $ref: '#/components/schemas/inline_response_500_cause'
-        detail:
-          $ref: '#/components/schemas/inline_response_500_cause'
-        localizedMessage:
-          type: string
-        message:
-          type: string
-        stackTrace:
-          items:
-            $ref: '#/components/schemas/inline_response_500_cause_stackTrace'
-          type: array
-        suppressed:
-          items:
-            $ref: '#/components/schemas/inline_response_500_cause_suppressed'
-          type: array
       type: object
     inline_object:
       properties:

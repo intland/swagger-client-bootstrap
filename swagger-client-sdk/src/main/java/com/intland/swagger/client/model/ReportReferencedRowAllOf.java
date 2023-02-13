@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ReportReferencedRowAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ReportReferencedRowAllOf {
   public static final String SERIALIZED_NAME_CELLS = "cells";
   @SerializedName(SERIALIZED_NAME_CELLS)

@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json, */*
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/zip, */*, application/json
+ - **Accept**: application/zip, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

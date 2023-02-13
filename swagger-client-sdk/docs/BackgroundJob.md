@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **backgroundJobStatus** | [**BackgroundJobStatusEnum**](#BackgroundJobStatusEnum) | Status of a background job |  [optional]
 **backgroundJobType** | [**BackgroundJobTypeEnum**](#BackgroundJobTypeEnum) | Type of a background job |  [optional]
-**createdAt** | **OffsetDateTime** | Creation time of job |  [optional]
+**createdAt** | **Date** | Creation time of job |  [optional]
 **description** | **String** | Description of job |  [optional]
-**finishedAt** | **OffsetDateTime** | Completion time of job |  [optional]
+**finishedAt** | **Date** | Completion time of job |  [optional]
 **id** | **Integer** | ID of job |  [optional]
 **statusInfo** | [**AbstractBackgroundJobStatusInfo**](AbstractBackgroundJobStatusInfo.md) |  |  [optional]
 **steps** | [**List&lt;BackgroundJobStep&gt;**](BackgroundJobStep.md) | Sub-steps of a job |  [optional]

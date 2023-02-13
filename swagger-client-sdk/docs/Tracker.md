@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **availableAsTemplate** | **Boolean** | Indicator if the tracker can be used as a template |  [optional]
 **color** | **String** | Color of the tracker |  [optional]
-**createdAt** | **OffsetDateTime** | The date when the entity was created |  [optional]
+**createdAt** | **Date** | The date when the entity was created |  [optional]
 **createdBy** | [**UserReference**](UserReference.md) |  |  [optional]
 **defaultShowAncestorItems** | **Boolean** | Default Outline should show Ancestor Items or not | 
 **defaultShowDescendantItems** | **Boolean** | Default Outline should show Descendant Items or not | 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **hidden** | **Boolean** | Indicator if the tracker is hidden | 
 **id** | **Integer** | Id of the entity |  [optional]
 **keyName** | **String** | Keyname of a tracker |  [optional]
-**modifiedAt** | **OffsetDateTime** | The date when the entity was modified |  [optional]
+**modifiedAt** | **Date** | The date when the entity was modified |  [optional]
 **modifiedBy** | [**UserReference**](UserReference.md) |  |  [optional]
 **name** | **String** | Name of the entity |  [optional]
 **onlyWorkflowCanCreateNewReferringItem** | **Boolean** | If true, then the only way to create new referring items is through workflow actions | 

@@ -71,7 +71,7 @@ public class ProjectApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Tracker settings </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Bad request: Tracker settings validation failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required / Bad request: Tracker settings validation failed. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -143,7 +143,7 @@ public class ProjectApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Tracker settings </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Bad request: Tracker settings validation failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required / Bad request: Tracker settings validation failed. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -166,7 +166,7 @@ public class ProjectApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Tracker settings </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Bad request: Tracker settings validation failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required / Bad request: Tracker settings validation failed. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -191,7 +191,7 @@ public class ProjectApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Tracker settings </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Bad request: Tracker settings validation failed. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required / Bad request: Tracker settings validation failed. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
@@ -233,7 +233,7 @@ public class ProjectApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json", "*/*"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -627,7 +627,7 @@ public class ProjectApi {
         <tr><td> 200 </td><td> Roles </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User is not a member of the project </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project or User is not found / User is not a member of the project </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
@@ -695,7 +695,7 @@ public class ProjectApi {
         <tr><td> 200 </td><td> Roles </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User is not a member of the project </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project or User is not found / User is not a member of the project </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
@@ -717,7 +717,7 @@ public class ProjectApi {
         <tr><td> 200 </td><td> Roles </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User is not a member of the project </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project or User is not found / User is not a member of the project </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
@@ -741,7 +741,7 @@ public class ProjectApi {
         <tr><td> 200 </td><td> Roles </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User is not a member of the project </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Project or User is not found / User is not a member of the project </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
@@ -1300,7 +1300,7 @@ public class ProjectApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json", "*/*"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {

@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * One page of tracker item references.
  */
 @ApiModel(description = "One page of tracker item references.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerItemReferenceSearchResult {
   public static final String SERIALIZED_NAME_ITEM_REFS = "itemRefs";
   @SerializedName(SERIALIZED_NAME_ITEM_REFS)

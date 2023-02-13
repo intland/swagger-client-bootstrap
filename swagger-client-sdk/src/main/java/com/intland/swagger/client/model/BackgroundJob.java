@@ -15,10 +15,9 @@ package com.intland.swagger.client.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-
-import org.threeten.bp.OffsetDateTime;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -33,7 +32,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Information about a background job
  */
 @ApiModel(description = "Information about a background job")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class BackgroundJob {
   /**
    * Status of a background job
@@ -151,7 +150,7 @@ public class BackgroundJob {
 
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
+  private Date createdAt;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -159,7 +158,7 @@ public class BackgroundJob {
 
   public static final String SERIALIZED_NAME_FINISHED_AT = "finishedAt";
   @SerializedName(SERIALIZED_NAME_FINISHED_AT)
-  private OffsetDateTime finishedAt;
+  private Date finishedAt;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -224,7 +223,7 @@ public class BackgroundJob {
   }
 
 
-  public BackgroundJob createdAt(OffsetDateTime createdAt) {
+  public BackgroundJob createdAt(Date createdAt) {
     
     this.createdAt = createdAt;
     return this;
@@ -237,12 +236,12 @@ public class BackgroundJob {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Creation time of job")
 
-  public OffsetDateTime getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
 
-  public void setCreatedAt(OffsetDateTime createdAt) {
+  public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -270,7 +269,7 @@ public class BackgroundJob {
   }
 
 
-  public BackgroundJob finishedAt(OffsetDateTime finishedAt) {
+  public BackgroundJob finishedAt(Date finishedAt) {
     
     this.finishedAt = finishedAt;
     return this;
@@ -283,12 +282,12 @@ public class BackgroundJob {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Completion time of job")
 
-  public OffsetDateTime getFinishedAt() {
+  public Date getFinishedAt() {
     return finishedAt;
   }
 
 
-  public void setFinishedAt(OffsetDateTime finishedAt) {
+  public void setFinishedAt(Date finishedAt) {
     this.finishedAt = finishedAt;
   }
 

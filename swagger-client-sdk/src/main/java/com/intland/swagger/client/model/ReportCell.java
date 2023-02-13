@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Cell value for a column.
  */
 @ApiModel(description = "Cell value for a column.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ReportCell {
   public static final String SERIALIZED_NAME_COLUMN_REF = "columnRef";
   @SerializedName(SERIALIZED_NAME_COLUMN_REF)

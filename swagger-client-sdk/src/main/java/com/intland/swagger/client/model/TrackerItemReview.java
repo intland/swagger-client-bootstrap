@@ -31,7 +31,7 @@ import io.swagger.annotations.ApiModelProperty;
  * A tracker item review instance including its reviewers and their decisions
  */
 @ApiModel(description = "A tracker item review instance including its reviewers and their decisions")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerItemReview {
   public static final String SERIALIZED_NAME_CONFIG = "config";
   @SerializedName(SERIALIZED_NAME_CONFIG)

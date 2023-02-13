@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **asRole** | [**RoleReference**](RoleReference.md) |  |  [optional]
 **decision** | [**DecisionEnum**](#DecisionEnum) | The result of this particular vote |  [optional]
-**reviewedAt** | **OffsetDateTime** | Date and time of the vote |  [optional]
+**reviewedAt** | **Date** | Date and time of the vote |  [optional]
 **user** | [**UserReference**](UserReference.md) |  |  [optional]
 
 

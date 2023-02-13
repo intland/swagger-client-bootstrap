@@ -14,9 +14,8 @@
 package com.intland.swagger.client.model;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Objects;
-
-import org.threeten.bp.OffsetDateTime;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -31,7 +30,7 @@ import io.swagger.annotations.ApiModelProperty;
  * A tracker item review instance including its reviewers and their decisions
  */
 @ApiModel(description = "A tracker item review instance including its reviewers and their decisions")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerItemReviewVote {
   public static final String SERIALIZED_NAME_AS_ROLE = "asRole";
   @SerializedName(SERIALIZED_NAME_AS_ROLE)
@@ -92,7 +91,7 @@ public class TrackerItemReviewVote {
 
   public static final String SERIALIZED_NAME_REVIEWED_AT = "reviewedAt";
   @SerializedName(SERIALIZED_NAME_REVIEWED_AT)
-  private OffsetDateTime reviewedAt;
+  private Date reviewedAt;
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
@@ -145,7 +144,7 @@ public class TrackerItemReviewVote {
   }
 
 
-  public TrackerItemReviewVote reviewedAt(OffsetDateTime reviewedAt) {
+  public TrackerItemReviewVote reviewedAt(Date reviewedAt) {
     
     this.reviewedAt = reviewedAt;
     return this;
@@ -158,12 +157,12 @@ public class TrackerItemReviewVote {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Date and time of the vote")
 
-  public OffsetDateTime getReviewedAt() {
+  public Date getReviewedAt() {
     return reviewedAt;
   }
 
 
-  public void setReviewedAt(OffsetDateTime reviewedAt) {
+  public void setReviewedAt(Date reviewedAt) {
     this.reviewedAt = reviewedAt;
   }
 

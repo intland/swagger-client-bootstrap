@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Request model to render a wiki page in a specific context
  */
 @ApiModel(description = "Request model to render a wiki page in a specific context")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class WikiRenderRequest {
   public static final String SERIALIZED_NAME_CONTEXT_ID = "contextId";
   @SerializedName(SERIALIZED_NAME_CONTEXT_ID)

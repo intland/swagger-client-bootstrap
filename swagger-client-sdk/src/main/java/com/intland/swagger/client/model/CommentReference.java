@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiModel;
  * Reference to a comment of a tracker item
  */
 @ApiModel(description = "Reference to a comment of a tracker item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class CommentReference extends AbstractReference {
   public CommentReference() {
     this.type = this.getClass().getSimpleName();

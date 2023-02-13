@@ -14,9 +14,8 @@
 package com.intland.swagger.client.model;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Objects;
-
-import org.threeten.bp.OffsetDateTime;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -31,7 +30,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Basic properties of a codebeamer association
  */
 @ApiModel(description = "Basic properties of a codebeamer association")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class Association {
   public static final String SERIALIZED_NAME_BASELINE_ID = "baselineId";
   @SerializedName(SERIALIZED_NAME_BASELINE_ID)
@@ -43,7 +42,7 @@ public class Association {
 
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
+  private Date createdAt;
 
   public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
   @SerializedName(SERIALIZED_NAME_CREATED_BY)
@@ -189,7 +188,7 @@ public class Association {
   }
 
 
-  public Association createdAt(OffsetDateTime createdAt) {
+  public Association createdAt(Date createdAt) {
     
     this.createdAt = createdAt;
     return this;
@@ -202,12 +201,12 @@ public class Association {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was created")
 
-  public OffsetDateTime getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
 
-  public void setCreatedAt(OffsetDateTime createdAt) {
+  public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
 

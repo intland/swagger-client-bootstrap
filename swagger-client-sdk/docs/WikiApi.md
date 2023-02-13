@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json, */*
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -577,7 +577,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: */*, application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -660,7 +660,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json, text/html, */*
+ - **Accept**: application/json, text/html
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -743,7 +743,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, text/html, */*
+ - **Accept**: application/json, text/html
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -911,7 +911,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json, */*
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1074,7 +1074,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json, */*
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

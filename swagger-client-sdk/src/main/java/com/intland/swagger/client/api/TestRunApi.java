@@ -523,8 +523,8 @@ public class TestRunApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The newly created test run </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
@@ -591,8 +591,8 @@ public class TestRunApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The newly created test run </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
@@ -614,8 +614,8 @@ public class TestRunApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The newly created test run </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
@@ -639,8 +639,8 @@ public class TestRunApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The newly created test run </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>

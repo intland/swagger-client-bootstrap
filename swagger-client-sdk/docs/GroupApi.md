@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 **200** | User Group |  -  |
 **400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
-**404** | User Group not found |  -  |
+**404** | User Group is not found |  -  |
 **429** | Too many requests |  -  |
 
 <a name="getGroupMembers"></a>

@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **OffsetDateTime** | Date value |  [optional]
+**value** | **Date** | Date value |  [optional]
 
 
 

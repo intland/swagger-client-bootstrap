@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Tracker settings |  -  |
 **400** | Bad Request |  -  |
-**403** | Bad request: Tracker settings validation failed. |  -  |
+**403** | Authentication is required / Bad request: Tracker settings validation failed. |  -  |
 **404** | Tracker not found |  -  |
 **429** | Too many requests |  -  |
 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json, */*
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -428,7 +428,7 @@ Name | Type | Description  | Notes
 **200** | Roles |  -  |
 **400** | Bad Request |  -  |
 **401** | Authentication is required |  -  |
-**404** | User is not a member of the project |  -  |
+**404** | Project or User is not found / User is not a member of the project |  -  |
 **429** | Too many requests |  -  |
 
 <a name="getProjects"></a>
@@ -820,7 +820,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json, */*
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

@@ -61,7 +61,7 @@ public class GroupApi {
         <tr><td> 200 </td><td> User Group </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User Group not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> User Group is not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
@@ -122,7 +122,7 @@ public class GroupApi {
         <tr><td> 200 </td><td> User Group </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User Group not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> User Group is not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
@@ -143,7 +143,7 @@ public class GroupApi {
         <tr><td> 200 </td><td> User Group </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User Group not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> User Group is not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
@@ -166,7 +166,7 @@ public class GroupApi {
         <tr><td> 200 </td><td> User Group </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User Group not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> User Group is not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */

@@ -15,10 +15,9 @@ package com.intland.swagger.client.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-
-import org.threeten.bp.OffsetDateTime;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -33,11 +32,11 @@ import io.swagger.annotations.ApiModelProperty;
  * Request for migrating attachments
  */
 @ApiModel(description = "Request for migrating attachments")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class AttachmentMigrationRequest {
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
+  private Date createdAt;
 
   public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
   @SerializedName(SERIALIZED_NAME_CREATED_BY)
@@ -157,7 +156,7 @@ public class AttachmentMigrationRequest {
 
   public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
   @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
-  private OffsetDateTime modifiedAt;
+  private Date modifiedAt;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
@@ -168,7 +167,7 @@ public class AttachmentMigrationRequest {
   private TrackerItemReference targetItem;
 
 
-  public AttachmentMigrationRequest createdAt(OffsetDateTime createdAt) {
+  public AttachmentMigrationRequest createdAt(Date createdAt) {
     
     this.createdAt = createdAt;
     return this;
@@ -181,12 +180,12 @@ public class AttachmentMigrationRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was created")
 
-  public OffsetDateTime getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
 
-  public void setCreatedAt(OffsetDateTime createdAt) {
+  public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -314,7 +313,7 @@ public class AttachmentMigrationRequest {
   }
 
 
-  public AttachmentMigrationRequest modifiedAt(OffsetDateTime modifiedAt) {
+  public AttachmentMigrationRequest modifiedAt(Date modifiedAt) {
     
     this.modifiedAt = modifiedAt;
     return this;
@@ -327,12 +326,12 @@ public class AttachmentMigrationRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
 
-  public OffsetDateTime getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
 
-  public void setModifiedAt(OffsetDateTime modifiedAt) {
+  public void setModifiedAt(Date modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 

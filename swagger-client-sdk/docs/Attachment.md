@@ -8,12 +8,12 @@ Attachments of a comment
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**createdAt** | **OffsetDateTime** | The date when the entity was created |  [optional]
+**createdAt** | **Date** | The date when the entity was created |  [optional]
 **createdBy** | [**UserReference**](UserReference.md) |  |  [optional]
 **description** | **String** | Description of the entity |  [optional]
 **descriptionFormat** | [**DescriptionFormatEnum**](#DescriptionFormatEnum) | Description format of the entity |  [optional]
 **id** | **Integer** | Id of the entity |  [optional]
-**modifiedAt** | **OffsetDateTime** | The date when the entity was modified |  [optional]
+**modifiedAt** | **Date** | The date when the entity was modified |  [optional]
 **modifiedBy** | [**UserReference**](UserReference.md) |  |  [optional]
 **name** | **String** | Name of the entity |  [optional]
 **sha512** | **String** | Hash of a attachment |  [optional]

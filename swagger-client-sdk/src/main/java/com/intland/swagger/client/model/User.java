@@ -14,9 +14,8 @@
 package com.intland.swagger.client.model;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Objects;
-
-import org.threeten.bp.OffsetDateTime;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -31,7 +30,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Properties of a codebeamer user
  */
 @ApiModel(description = "Properties of a codebeamer user")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class User {
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
@@ -71,7 +70,7 @@ public class User {
 
   public static final String SERIALIZED_NAME_LAST_LOGIN_DATE = "lastLoginDate";
   @SerializedName(SERIALIZED_NAME_LAST_LOGIN_DATE)
-  private OffsetDateTime lastLoginDate;
+  private Date lastLoginDate;
 
   public static final String SERIALIZED_NAME_LAST_NAME = "lastName";
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
@@ -87,7 +86,7 @@ public class User {
 
   public static final String SERIALIZED_NAME_REGISTRY_DATE = "registryDate";
   @SerializedName(SERIALIZED_NAME_REGISTRY_DATE)
-  private OffsetDateTime registryDate;
+  private Date registryDate;
 
   public static final String SERIALIZED_NAME_SKILLS = "skills";
   @SerializedName(SERIALIZED_NAME_SKILLS)
@@ -371,7 +370,7 @@ public class User {
   }
 
 
-  public User lastLoginDate(OffsetDateTime lastLoginDate) {
+  public User lastLoginDate(Date lastLoginDate) {
     
     this.lastLoginDate = lastLoginDate;
     return this;
@@ -384,12 +383,12 @@ public class User {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Last login date of a user")
 
-  public OffsetDateTime getLastLoginDate() {
+  public Date getLastLoginDate() {
     return lastLoginDate;
   }
 
 
-  public void setLastLoginDate(OffsetDateTime lastLoginDate) {
+  public void setLastLoginDate(Date lastLoginDate) {
     this.lastLoginDate = lastLoginDate;
   }
 
@@ -463,7 +462,7 @@ public class User {
   }
 
 
-  public User registryDate(OffsetDateTime registryDate) {
+  public User registryDate(Date registryDate) {
     
     this.registryDate = registryDate;
     return this;
@@ -476,12 +475,12 @@ public class User {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Registration date of a user")
 
-  public OffsetDateTime getRegistryDate() {
+  public Date getRegistryDate() {
     return registryDate;
   }
 
 
-  public void setRegistryDate(OffsetDateTime registryDate) {
+  public void setRegistryDate(Date registryDate) {
     this.registryDate = registryDate;
   }
 

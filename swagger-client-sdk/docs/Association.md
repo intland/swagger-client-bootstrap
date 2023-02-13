@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **baselineId** | **Integer** | Baseline ID |  [optional]
 **biDirectionalPropagation** | **Boolean** | Bi-directional reference |  [optional]
-**createdAt** | **OffsetDateTime** | The date when the entity was created |  [optional]
+**createdAt** | **Date** | The date when the entity was created |  [optional]
 **createdBy** | [**UserReference**](UserReference.md) |  |  [optional]
 **description** | **String** | Description of the entity |  [optional]
 **descriptionFormat** | [**DescriptionFormatEnum**](#DescriptionFormatEnum) | Description format of the entity |  [optional]

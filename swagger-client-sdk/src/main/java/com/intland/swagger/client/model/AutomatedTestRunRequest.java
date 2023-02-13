@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Request model to create a test run from test case runs
  */
 @ApiModel(description = "Request model to create a test run from test case runs")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class AutomatedTestRunRequest {
   public static final String SERIALIZED_NAME_CREATE_NON_EXISTENT_TEST_CASES = "createNonExistentTestCases";
   @SerializedName(SERIALIZED_NAME_CREATE_NON_EXISTENT_TEST_CASES)

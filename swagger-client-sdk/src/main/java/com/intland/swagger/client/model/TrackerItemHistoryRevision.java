@@ -14,10 +14,9 @@
 package com.intland.swagger.client.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-
-import org.threeten.bp.OffsetDateTime;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -28,7 +27,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Revision history entry.
  */
 @ApiModel(description = "Revision history entry.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-25T12:12:17.856+02:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerItemHistoryRevision {
   public static final String SERIALIZED_NAME_CHANGES = "changes";
   @SerializedName(SERIALIZED_NAME_CHANGES)
@@ -40,7 +39,7 @@ public class TrackerItemHistoryRevision {
 
   public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
   @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
-  private OffsetDateTime modifiedAt;
+  private Date modifiedAt;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
@@ -101,7 +100,7 @@ public class TrackerItemHistoryRevision {
   }
 
 
-  public TrackerItemHistoryRevision modifiedAt(OffsetDateTime modifiedAt) {
+  public TrackerItemHistoryRevision modifiedAt(Date modifiedAt) {
     
     this.modifiedAt = modifiedAt;
     return this;
@@ -114,12 +113,12 @@ public class TrackerItemHistoryRevision {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
 
-  public OffsetDateTime getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
 
-  public void setModifiedAt(OffsetDateTime modifiedAt) {
+  public void setModifiedAt(Date modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 

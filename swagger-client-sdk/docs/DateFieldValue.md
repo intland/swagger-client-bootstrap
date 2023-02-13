@@ -8,7 +8,7 @@ Value container of a date field
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **OffsetDateTime** | Date value | 
+**value** | **Date** | Date value | 
 
 
 

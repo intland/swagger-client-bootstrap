@@ -84,6 +84,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
 **404** | Role not found |  -  |
+**429** | Too many requests |  -  |
 **200** | Roles |  -  |
 
 <a name="getRoles"></a>
@@ -158,5 +159,6 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
 **404** | Role not found |  -  |
+**429** | Too many requests |  -  |
 **200** | Roles |  -  |
 

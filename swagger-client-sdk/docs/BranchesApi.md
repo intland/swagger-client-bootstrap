@@ -88,4 +88,5 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
 **200** | Basic tracker item by id and branch id |  -  |
+**429** | Too many requests |  -  |
 

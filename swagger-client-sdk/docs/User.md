@@ -2,7 +2,7 @@
 
 # User
 
-Properties of a codeBeamer user
+Properties of a codebeamer user
 ## Properties
 
 Name | Type | Description | Notes

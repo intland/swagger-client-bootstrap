@@ -2,7 +2,7 @@
 
 # Tracker
 
-Basic properties of a codeBeamer tracker
+Basic properties of a codebeamer tracker
 ## Properties
 
 Name | Type | Description | Notes
@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **project** | [**ProjectReference**](ProjectReference.md) |  |  [optional]
 **templateTracker** | [**TrackerReference**](TrackerReference.md) |  |  [optional]
 **availableAsTemplate** | **Boolean** | Indicator if the tracker can be used as a template |  [optional]
+**sharedInWorkingSet** | **Boolean** | If the tracker is shared in a WorkingSet |  [optional]
 
 
 

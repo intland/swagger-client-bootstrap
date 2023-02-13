@@ -53,8 +53,8 @@ public class WikisCommentApi {
      * Build call for commentOnWiki
      * @param wikiId  (required)
      * @param comment Text of a comment (required)
-     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @param attachments Attachments of a comment (optional)
+     * @param commentFormat Format of a comment (optional, default to CommentFormatEnum.PLAINTEXT)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -62,14 +62,15 @@ public class WikisCommentApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Comment created successfully </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call commentOnWikiCall(Integer wikiId, String comment, String commentFormat, File attachments, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call commentOnWikiCall(Integer wikiId, String comment, File attachments, String commentFormat, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -81,6 +82,11 @@ public class WikisCommentApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (attachments != null) {
+            localVarFormParams.put("attachments", attachments);
+        }
+
         if (comment != null) {
             localVarFormParams.put("comment", comment);
         }
@@ -89,12 +95,8 @@ public class WikisCommentApi {
             localVarFormParams.put("commentFormat", commentFormat);
         }
 
-        if (attachments != null) {
-            localVarFormParams.put("attachments", attachments);
-        }
-
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -112,7 +114,7 @@ public class WikisCommentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call commentOnWikiValidateBeforeCall(Integer wikiId, String comment, String commentFormat, File attachments, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call commentOnWikiValidateBeforeCall(Integer wikiId, String comment, File attachments, String commentFormat, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'wikiId' is set
         if (wikiId == null) {
@@ -125,7 +127,7 @@ public class WikisCommentApi {
         }
         
 
-        okhttp3.Call localVarCall = commentOnWikiCall(wikiId, comment, commentFormat, attachments, _callback);
+        okhttp3.Call localVarCall = commentOnWikiCall(wikiId, comment, attachments, commentFormat, _callback);
         return localVarCall;
 
     }
@@ -135,23 +137,24 @@ public class WikisCommentApi {
      * 
      * @param wikiId  (required)
      * @param comment Text of a comment (required)
-     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @param attachments Attachments of a comment (optional)
+     * @param commentFormat Format of a comment (optional, default to CommentFormatEnum.PLAINTEXT)
      * @return List&lt;AttachmentReference&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Comment created successfully </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public List<AttachmentReference> commentOnWiki(Integer wikiId, String comment, String commentFormat, File attachments) throws ApiException {
-        ApiResponse<List<AttachmentReference>> localVarResp = commentOnWikiWithHttpInfo(wikiId, comment, commentFormat, attachments);
+    public List<AttachmentReference> commentOnWiki(Integer wikiId, String comment, File attachments, String commentFormat) throws ApiException {
+        ApiResponse<List<AttachmentReference>> localVarResp = commentOnWikiWithHttpInfo(wikiId, comment, attachments, commentFormat);
         return localVarResp.getData();
     }
 
@@ -160,23 +163,24 @@ public class WikisCommentApi {
      * 
      * @param wikiId  (required)
      * @param comment Text of a comment (required)
-     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @param attachments Attachments of a comment (optional)
+     * @param commentFormat Format of a comment (optional, default to CommentFormatEnum.PLAINTEXT)
      * @return ApiResponse&lt;List&lt;AttachmentReference&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Comment created successfully </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AttachmentReference>> commentOnWikiWithHttpInfo(Integer wikiId, String comment, String commentFormat, File attachments) throws ApiException {
-        okhttp3.Call localVarCall = commentOnWikiValidateBeforeCall(wikiId, comment, commentFormat, attachments, null);
+    public ApiResponse<List<AttachmentReference>> commentOnWikiWithHttpInfo(Integer wikiId, String comment, File attachments, String commentFormat) throws ApiException {
+        okhttp3.Call localVarCall = commentOnWikiValidateBeforeCall(wikiId, comment, attachments, commentFormat, null);
         Type localVarReturnType = new TypeToken<List<AttachmentReference>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -186,8 +190,8 @@ public class WikisCommentApi {
      * 
      * @param wikiId  (required)
      * @param comment Text of a comment (required)
-     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @param attachments Attachments of a comment (optional)
+     * @param commentFormat Format of a comment (optional, default to CommentFormatEnum.PLAINTEXT)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -195,16 +199,17 @@ public class WikisCommentApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Comment created successfully </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Wiki page not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call commentOnWikiAsync(Integer wikiId, String comment, String commentFormat, File attachments, final ApiCallback<List<AttachmentReference>> _callback) throws ApiException {
+    public okhttp3.Call commentOnWikiAsync(Integer wikiId, String comment, File attachments, String commentFormat, final ApiCallback<List<AttachmentReference>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = commentOnWikiValidateBeforeCall(wikiId, comment, commentFormat, attachments, _callback);
+        okhttp3.Call localVarCall = commentOnWikiValidateBeforeCall(wikiId, comment, attachments, commentFormat, _callback);
         Type localVarReturnType = new TypeToken<List<AttachmentReference>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -220,10 +225,11 @@ public class WikisCommentApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Attachment of wiki page </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Wiki page / Attachment not found </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page / Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAttachmentByNameCall(Integer wikiId, String fileName, final ApiCallback _callback) throws ApiException {
@@ -235,15 +241,16 @@ public class WikisCommentApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (fileName != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fileName", fileName));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -290,10 +297,11 @@ public class WikisCommentApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Attachment of wiki page </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Wiki page / Attachment not found </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page / Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public Attachment getAttachmentByName(Integer wikiId, String fileName) throws ApiException {
@@ -312,10 +320,11 @@ public class WikisCommentApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Attachment of wiki page </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Wiki page / Attachment not found </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page / Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Attachment> getAttachmentByNameWithHttpInfo(Integer wikiId, String fileName) throws ApiException {
@@ -336,10 +345,11 @@ public class WikisCommentApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Attachment of wiki page </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Wiki page / Attachment not found </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Wiki page / Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAttachmentByNameAsync(Integer wikiId, String fileName, final ApiCallback<Attachment> _callback) throws ApiException {

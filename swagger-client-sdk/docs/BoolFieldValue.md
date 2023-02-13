@@ -3,6 +3,7 @@
 # BoolFieldValue
 
 Value container of a bool field
+
 ## Properties
 
 Name | Type | Description | Notes

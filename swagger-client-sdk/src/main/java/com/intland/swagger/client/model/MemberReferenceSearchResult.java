@@ -26,8 +26,12 @@ import io.swagger.annotations.ApiModelProperty;
  * Paginated search result of members
  */
 @ApiModel(description = "Paginated search result of members")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class MemberReferenceSearchResult {
+  public static final String SERIALIZED_NAME_MEMBERS = "members";
+  @SerializedName(SERIALIZED_NAME_MEMBERS)
+  private List<AbstractReference> members = null;
+
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
   private Integer page;
@@ -40,9 +44,36 @@ public class MemberReferenceSearchResult {
   @SerializedName(SERIALIZED_NAME_TOTAL)
   private Integer total;
 
-  public static final String SERIALIZED_NAME_MEMBERS = "members";
-  @SerializedName(SERIALIZED_NAME_MEMBERS)
-  private List<AbstractReference> members = null;
+
+  public MemberReferenceSearchResult members(List<AbstractReference> members) {
+    
+    this.members = members;
+    return this;
+  }
+
+  public MemberReferenceSearchResult addMembersItem(AbstractReference membersItem) {
+    if (this.members == null) {
+      this.members = new ArrayList<AbstractReference>();
+    }
+    this.members.add(membersItem);
+    return this;
+  }
+
+   /**
+   * Found members
+   * @return members
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Found members")
+
+  public List<AbstractReference> getMembers() {
+    return members;
+  }
+
+
+  public void setMembers(List<AbstractReference> members) {
+    this.members = members;
+  }
 
 
   public MemberReferenceSearchResult page(Integer page) {
@@ -114,39 +145,8 @@ public class MemberReferenceSearchResult {
   }
 
 
-  public MemberReferenceSearchResult members(List<AbstractReference> members) {
-    
-    this.members = members;
-    return this;
-  }
-
-  public MemberReferenceSearchResult addMembersItem(AbstractReference membersItem) {
-    if (this.members == null) {
-      this.members = new ArrayList<AbstractReference>();
-    }
-    this.members.add(membersItem);
-    return this;
-  }
-
-   /**
-   * Found members
-   * @return members
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Found members")
-
-  public List<AbstractReference> getMembers() {
-    return members;
-  }
-
-
-  public void setMembers(List<AbstractReference> members) {
-    this.members = members;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -154,26 +154,25 @@ public class MemberReferenceSearchResult {
       return false;
     }
     MemberReferenceSearchResult memberReferenceSearchResult = (MemberReferenceSearchResult) o;
-    return Objects.equals(this.page, memberReferenceSearchResult.page) &&
+    return Objects.equals(this.members, memberReferenceSearchResult.members) &&
+        Objects.equals(this.page, memberReferenceSearchResult.page) &&
         Objects.equals(this.pageSize, memberReferenceSearchResult.pageSize) &&
-        Objects.equals(this.total, memberReferenceSearchResult.total) &&
-        Objects.equals(this.members, memberReferenceSearchResult.members);
+        Objects.equals(this.total, memberReferenceSearchResult.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, pageSize, total, members);
+    return Objects.hash(members, page, pageSize, total);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MemberReferenceSearchResult {\n");
+    sb.append("    members: ").append(toIndentedString(members)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
-    sb.append("    members: ").append(toIndentedString(members)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -182,7 +181,7 @@ public class MemberReferenceSearchResult {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

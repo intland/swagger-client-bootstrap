@@ -24,65 +24,19 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * DependencyFinderJobStatusInfoAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class DependencyFinderJobStatusInfoAllOf {
-  public static final String SERIALIZED_NAME_PROJECTS_SCHEDULED = "projectsScheduled";
-  @SerializedName(SERIALIZED_NAME_PROJECTS_SCHEDULED)
-  private Integer projectsScheduled;
+  public static final String SERIALIZED_NAME_DEPENDENCIES = "dependencies";
+  @SerializedName(SERIALIZED_NAME_DEPENDENCIES)
+  private List<CrossProjectDependency> dependencies = null;
 
   public static final String SERIALIZED_NAME_PROJECTS_CHECKED = "projectsChecked";
   @SerializedName(SERIALIZED_NAME_PROJECTS_CHECKED)
   private Integer projectsChecked;
 
-  public static final String SERIALIZED_NAME_DEPENDENCIES = "dependencies";
-  @SerializedName(SERIALIZED_NAME_DEPENDENCIES)
-  private List<CrossProjectDependency> dependencies = null;
-
-
-  public DependencyFinderJobStatusInfoAllOf projectsScheduled(Integer projectsScheduled) {
-    
-    this.projectsScheduled = projectsScheduled;
-    return this;
-  }
-
-   /**
-   * Number of projects scheduled for dependency collection
-   * @return projectsScheduled
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of projects scheduled for dependency collection")
-
-  public Integer getProjectsScheduled() {
-    return projectsScheduled;
-  }
-
-
-  public void setProjectsScheduled(Integer projectsScheduled) {
-    this.projectsScheduled = projectsScheduled;
-  }
-
-
-  public DependencyFinderJobStatusInfoAllOf projectsChecked(Integer projectsChecked) {
-    
-    this.projectsChecked = projectsChecked;
-    return this;
-  }
-
-   /**
-   * Number of projects already checked for dependencies
-   * @return projectsChecked
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of projects already checked for dependencies")
-
-  public Integer getProjectsChecked() {
-    return projectsChecked;
-  }
-
-
-  public void setProjectsChecked(Integer projectsChecked) {
-    this.projectsChecked = projectsChecked;
-  }
+  public static final String SERIALIZED_NAME_PROJECTS_SCHEDULED = "projectsScheduled";
+  @SerializedName(SERIALIZED_NAME_PROJECTS_SCHEDULED)
+  private Integer projectsScheduled;
 
 
   public DependencyFinderJobStatusInfoAllOf dependencies(List<CrossProjectDependency> dependencies) {
@@ -116,8 +70,54 @@ public class DependencyFinderJobStatusInfoAllOf {
   }
 
 
+  public DependencyFinderJobStatusInfoAllOf projectsChecked(Integer projectsChecked) {
+    
+    this.projectsChecked = projectsChecked;
+    return this;
+  }
+
+   /**
+   * Number of projects already checked for dependencies
+   * @return projectsChecked
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of projects already checked for dependencies")
+
+  public Integer getProjectsChecked() {
+    return projectsChecked;
+  }
+
+
+  public void setProjectsChecked(Integer projectsChecked) {
+    this.projectsChecked = projectsChecked;
+  }
+
+
+  public DependencyFinderJobStatusInfoAllOf projectsScheduled(Integer projectsScheduled) {
+    
+    this.projectsScheduled = projectsScheduled;
+    return this;
+  }
+
+   /**
+   * Number of projects scheduled for dependency collection
+   * @return projectsScheduled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of projects scheduled for dependency collection")
+
+  public Integer getProjectsScheduled() {
+    return projectsScheduled;
+  }
+
+
+  public void setProjectsScheduled(Integer projectsScheduled) {
+    this.projectsScheduled = projectsScheduled;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -125,24 +125,23 @@ public class DependencyFinderJobStatusInfoAllOf {
       return false;
     }
     DependencyFinderJobStatusInfoAllOf dependencyFinderJobStatusInfoAllOf = (DependencyFinderJobStatusInfoAllOf) o;
-    return Objects.equals(this.projectsScheduled, dependencyFinderJobStatusInfoAllOf.projectsScheduled) &&
+    return Objects.equals(this.dependencies, dependencyFinderJobStatusInfoAllOf.dependencies) &&
         Objects.equals(this.projectsChecked, dependencyFinderJobStatusInfoAllOf.projectsChecked) &&
-        Objects.equals(this.dependencies, dependencyFinderJobStatusInfoAllOf.dependencies);
+        Objects.equals(this.projectsScheduled, dependencyFinderJobStatusInfoAllOf.projectsScheduled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectsScheduled, projectsChecked, dependencies);
+    return Objects.hash(dependencies, projectsChecked, projectsScheduled);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DependencyFinderJobStatusInfoAllOf {\n");
-    sb.append("    projectsScheduled: ").append(toIndentedString(projectsScheduled)).append("\n");
-    sb.append("    projectsChecked: ").append(toIndentedString(projectsChecked)).append("\n");
     sb.append("    dependencies: ").append(toIndentedString(dependencies)).append("\n");
+    sb.append("    projectsChecked: ").append(toIndentedString(projectsChecked)).append("\n");
+    sb.append("    projectsScheduled: ").append(toIndentedString(projectsScheduled)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -151,7 +150,7 @@ public class DependencyFinderJobStatusInfoAllOf {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

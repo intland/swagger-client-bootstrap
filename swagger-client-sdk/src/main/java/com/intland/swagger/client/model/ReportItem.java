@@ -24,8 +24,12 @@ import io.swagger.annotations.ApiModelProperty;
  * An item of the report.
  */
 @ApiModel(description = "An item of the report.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ReportItem {
+  public static final String SERIALIZED_NAME_IS_REAL_RESULT = "isRealResult";
+  @SerializedName(SERIALIZED_NAME_IS_REAL_RESULT)
+  private Boolean isRealResult;
+
   public static final String SERIALIZED_NAME_ITEM = "item";
   @SerializedName(SERIALIZED_NAME_ITEM)
   private TrackerItem item;
@@ -34,9 +38,28 @@ public class ReportItem {
   @SerializedName(SERIALIZED_NAME_OUTLINE_LEVEL)
   private Integer outlineLevel;
 
-  public static final String SERIALIZED_NAME_IS_REAL_RESULT = "isRealResult";
-  @SerializedName(SERIALIZED_NAME_IS_REAL_RESULT)
-  private Boolean isRealResult;
+
+  public ReportItem isRealResult(Boolean isRealResult) {
+    
+    this.isRealResult = isRealResult;
+    return this;
+  }
+
+   /**
+   * Indicator if the item is a real query result (e.g. not an ancestor item).
+   * @return isRealResult
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicator if the item is a real query result (e.g. not an ancestor item).")
+
+  public Boolean getIsRealResult() {
+    return isRealResult;
+  }
+
+
+  public void setIsRealResult(Boolean isRealResult) {
+    this.isRealResult = isRealResult;
+  }
 
 
   public ReportItem item(TrackerItem item) {
@@ -85,31 +108,8 @@ public class ReportItem {
   }
 
 
-  public ReportItem isRealResult(Boolean isRealResult) {
-    
-    this.isRealResult = isRealResult;
-    return this;
-  }
-
-   /**
-   * Indicator if the item is a real query result (e.g. not an ancestor item).
-   * @return isRealResult
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicator if the item is a real query result (e.g. not an ancestor item).")
-
-  public Boolean getIsRealResult() {
-    return isRealResult;
-  }
-
-
-  public void setIsRealResult(Boolean isRealResult) {
-    this.isRealResult = isRealResult;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -117,24 +117,23 @@ public class ReportItem {
       return false;
     }
     ReportItem reportItem = (ReportItem) o;
-    return Objects.equals(this.item, reportItem.item) &&
-        Objects.equals(this.outlineLevel, reportItem.outlineLevel) &&
-        Objects.equals(this.isRealResult, reportItem.isRealResult);
+    return Objects.equals(this.isRealResult, reportItem.isRealResult) &&
+        Objects.equals(this.item, reportItem.item) &&
+        Objects.equals(this.outlineLevel, reportItem.outlineLevel);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(item, outlineLevel, isRealResult);
+    return Objects.hash(isRealResult, item, outlineLevel);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReportItem {\n");
+    sb.append("    isRealResult: ").append(toIndentedString(isRealResult)).append("\n");
     sb.append("    item: ").append(toIndentedString(item)).append("\n");
     sb.append("    outlineLevel: ").append(toIndentedString(outlineLevel)).append("\n");
-    sb.append("    isRealResult: ").append(toIndentedString(isRealResult)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -143,7 +142,7 @@ public class ReportItem {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -64,7 +64,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exportForDeploymentRequest** | [**ExportForDeploymentRequest**](ExportForDeploymentRequest.md)|  | [optional]
+ **exportForDeploymentRequest** | [**ExportForDeploymentRequest**](ExportForDeploymentRequest.md)|  |
 
 ### Return type
 
@@ -84,9 +84,9 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Export job has been scheduled successfully |  -  |
 **400** | Bad request |  -  |
-**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
 **403** | Authorization is required |  -  |
+**429** | Too many requests |  -  |
 
 <a name="uploadDeployment"></a>
 # **uploadDeployment**
@@ -161,9 +161,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
-**400** | Bad request |  -  |
-**429** | Too many requests |  -  |
-**401** | Authentication is required |  -  |
 **200** | Deployment is executed |  -  |
+**400** | Bad request |  -  |
+**401** | Authentication is required |  -  |
+**403** | Authentication is required |  -  |
+**429** | Too many requests |  -  |
 

@@ -22,39 +22,15 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * TrackerType
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerType {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
-  public static final String SERIALIZED_NAME_VAR_NAME = "varName";
-  @SerializedName(SERIALIZED_NAME_VAR_NAME)
-  private String varName;
-
-  public static final String SERIALIZED_NAME_TRACKER_ICON_URL = "trackerIconUrl";
-  @SerializedName(SERIALIZED_NAME_TRACKER_ICON_URL)
-  private String trackerIconUrl;
-
-  public static final String SERIALIZED_NAME_ITEM_ICON_URL = "itemIconUrl";
-  @SerializedName(SERIALIZED_NAME_ITEM_ICON_URL)
-  private String itemIconUrl;
+  public static final String SERIALIZED_NAME_BRANCHABLE = "branchable";
+  @SerializedName(SERIALIZED_NAME_BRANCHABLE)
+  private Boolean branchable;
 
   public static final String SERIALIZED_NAME_COLOR = "color";
   @SerializedName(SERIALIZED_NAME_COLOR)
   private String color;
-
-  public static final String SERIALIZED_NAME_OUTLINE = "outline";
-  @SerializedName(SERIALIZED_NAME_OUTLINE)
-  private Boolean outline;
-
-  public static final String SERIALIZED_NAME_BRANCHABLE = "branchable";
-  @SerializedName(SERIALIZED_NAME_BRANCHABLE)
-  private Boolean branchable;
 
   public static final String SERIALIZED_NAME_DOC_EDIT_VIEW = "docEditView";
   @SerializedName(SERIALIZED_NAME_DOC_EDIT_VIEW)
@@ -64,124 +40,55 @@ public class TrackerType {
   @SerializedName(SERIALIZED_NAME_EDITOR_URL)
   private String editorUrl;
 
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Integer id;
+
+  public static final String SERIALIZED_NAME_ITEM_ICON_URL = "itemIconUrl";
+  @SerializedName(SERIALIZED_NAME_ITEM_ICON_URL)
+  private String itemIconUrl;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
+  public static final String SERIALIZED_NAME_OUTLINE = "outline";
+  @SerializedName(SERIALIZED_NAME_OUTLINE)
+  private Boolean outline;
+
+  public static final String SERIALIZED_NAME_TRACKER_ICON_URL = "trackerIconUrl";
+  @SerializedName(SERIALIZED_NAME_TRACKER_ICON_URL)
+  private String trackerIconUrl;
+
   public static final String SERIALIZED_NAME_URL_LINK_FORMAT = "urlLinkFormat";
   @SerializedName(SERIALIZED_NAME_URL_LINK_FORMAT)
   private String urlLinkFormat;
 
+  public static final String SERIALIZED_NAME_VAR_NAME = "varName";
+  @SerializedName(SERIALIZED_NAME_VAR_NAME)
+  private String varName;
 
-  public TrackerType id(Integer id) {
+
+  public TrackerType branchable(Boolean branchable) {
     
-    this.id = id;
+    this.branchable = branchable;
     return this;
   }
 
    /**
-   * Id of the entity
-   * minimum: 0
-   * @return id
+   * True if tracker type is branchable
+   * @return branchable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Id of the entity")
+  @ApiModelProperty(value = "True if tracker type is branchable")
 
-  public Integer getId() {
-    return id;
+  public Boolean getBranchable() {
+    return branchable;
   }
 
 
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-
-  public TrackerType name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the entity
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the entity")
-
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public TrackerType varName(String varName) {
-    
-    this.varName = varName;
-    return this;
-  }
-
-   /**
-   * Internal/variable name of a tracker type
-   * @return varName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Internal/variable name of a tracker type")
-
-  public String getVarName() {
-    return varName;
-  }
-
-
-  public void setVarName(String varName) {
-    this.varName = varName;
-  }
-
-
-  public TrackerType trackerIconUrl(String trackerIconUrl) {
-    
-    this.trackerIconUrl = trackerIconUrl;
-    return this;
-  }
-
-   /**
-   * Tracker icon URL of a tracker type
-   * @return trackerIconUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Tracker icon URL of a tracker type")
-
-  public String getTrackerIconUrl() {
-    return trackerIconUrl;
-  }
-
-
-  public void setTrackerIconUrl(String trackerIconUrl) {
-    this.trackerIconUrl = trackerIconUrl;
-  }
-
-
-  public TrackerType itemIconUrl(String itemIconUrl) {
-    
-    this.itemIconUrl = itemIconUrl;
-    return this;
-  }
-
-   /**
-   * Item icon URL of a tracker type
-   * @return itemIconUrl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Item icon URL of a tracker type")
-
-  public String getItemIconUrl() {
-    return itemIconUrl;
-  }
-
-
-  public void setItemIconUrl(String itemIconUrl) {
-    this.itemIconUrl = itemIconUrl;
+  public void setBranchable(Boolean branchable) {
+    this.branchable = branchable;
   }
 
 
@@ -205,52 +112,6 @@ public class TrackerType {
 
   public void setColor(String color) {
     this.color = color;
-  }
-
-
-  public TrackerType outline(Boolean outline) {
-    
-    this.outline = outline;
-    return this;
-  }
-
-   /**
-   * True if outline is enabled
-   * @return outline
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "True if outline is enabled")
-
-  public Boolean getOutline() {
-    return outline;
-  }
-
-
-  public void setOutline(Boolean outline) {
-    this.outline = outline;
-  }
-
-
-  public TrackerType branchable(Boolean branchable) {
-    
-    this.branchable = branchable;
-    return this;
-  }
-
-   /**
-   * True if tracker type is branchable
-   * @return branchable
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "True if tracker type is branchable")
-
-  public Boolean getBranchable() {
-    return branchable;
-  }
-
-
-  public void setBranchable(Boolean branchable) {
-    this.branchable = branchable;
   }
 
 
@@ -300,6 +161,122 @@ public class TrackerType {
   }
 
 
+  public TrackerType id(Integer id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Id of the entity
+   * minimum: 0
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Id of the entity")
+
+  public Integer getId() {
+    return id;
+  }
+
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+
+  public TrackerType itemIconUrl(String itemIconUrl) {
+    
+    this.itemIconUrl = itemIconUrl;
+    return this;
+  }
+
+   /**
+   * Item icon URL of a tracker type
+   * @return itemIconUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Item icon URL of a tracker type")
+
+  public String getItemIconUrl() {
+    return itemIconUrl;
+  }
+
+
+  public void setItemIconUrl(String itemIconUrl) {
+    this.itemIconUrl = itemIconUrl;
+  }
+
+
+  public TrackerType name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the entity
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the entity")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public TrackerType outline(Boolean outline) {
+    
+    this.outline = outline;
+    return this;
+  }
+
+   /**
+   * True if outline is enabled
+   * @return outline
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True if outline is enabled")
+
+  public Boolean getOutline() {
+    return outline;
+  }
+
+
+  public void setOutline(Boolean outline) {
+    this.outline = outline;
+  }
+
+
+  public TrackerType trackerIconUrl(String trackerIconUrl) {
+    
+    this.trackerIconUrl = trackerIconUrl;
+    return this;
+  }
+
+   /**
+   * Tracker icon URL of a tracker type
+   * @return trackerIconUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Tracker icon URL of a tracker type")
+
+  public String getTrackerIconUrl() {
+    return trackerIconUrl;
+  }
+
+
+  public void setTrackerIconUrl(String trackerIconUrl) {
+    this.trackerIconUrl = trackerIconUrl;
+  }
+
+
   public TrackerType urlLinkFormat(String urlLinkFormat) {
     
     this.urlLinkFormat = urlLinkFormat;
@@ -323,8 +300,31 @@ public class TrackerType {
   }
 
 
+  public TrackerType varName(String varName) {
+    
+    this.varName = varName;
+    return this;
+  }
+
+   /**
+   * Internal/variable name of a tracker type
+   * @return varName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Internal/variable name of a tracker type")
+
+  public String getVarName() {
+    return varName;
+  }
+
+
+  public void setVarName(String varName) {
+    this.varName = varName;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -332,40 +332,39 @@ public class TrackerType {
       return false;
     }
     TrackerType trackerType = (TrackerType) o;
-    return Objects.equals(this.id, trackerType.id) &&
-        Objects.equals(this.name, trackerType.name) &&
-        Objects.equals(this.varName, trackerType.varName) &&
-        Objects.equals(this.trackerIconUrl, trackerType.trackerIconUrl) &&
-        Objects.equals(this.itemIconUrl, trackerType.itemIconUrl) &&
+    return Objects.equals(this.branchable, trackerType.branchable) &&
         Objects.equals(this.color, trackerType.color) &&
-        Objects.equals(this.outline, trackerType.outline) &&
-        Objects.equals(this.branchable, trackerType.branchable) &&
         Objects.equals(this.docEditView, trackerType.docEditView) &&
         Objects.equals(this.editorUrl, trackerType.editorUrl) &&
-        Objects.equals(this.urlLinkFormat, trackerType.urlLinkFormat);
+        Objects.equals(this.id, trackerType.id) &&
+        Objects.equals(this.itemIconUrl, trackerType.itemIconUrl) &&
+        Objects.equals(this.name, trackerType.name) &&
+        Objects.equals(this.outline, trackerType.outline) &&
+        Objects.equals(this.trackerIconUrl, trackerType.trackerIconUrl) &&
+        Objects.equals(this.urlLinkFormat, trackerType.urlLinkFormat) &&
+        Objects.equals(this.varName, trackerType.varName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, varName, trackerIconUrl, itemIconUrl, color, outline, branchable, docEditView, editorUrl, urlLinkFormat);
+    return Objects.hash(branchable, color, docEditView, editorUrl, id, itemIconUrl, name, outline, trackerIconUrl, urlLinkFormat, varName);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TrackerType {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    varName: ").append(toIndentedString(varName)).append("\n");
-    sb.append("    trackerIconUrl: ").append(toIndentedString(trackerIconUrl)).append("\n");
-    sb.append("    itemIconUrl: ").append(toIndentedString(itemIconUrl)).append("\n");
-    sb.append("    color: ").append(toIndentedString(color)).append("\n");
-    sb.append("    outline: ").append(toIndentedString(outline)).append("\n");
     sb.append("    branchable: ").append(toIndentedString(branchable)).append("\n");
+    sb.append("    color: ").append(toIndentedString(color)).append("\n");
     sb.append("    docEditView: ").append(toIndentedString(docEditView)).append("\n");
     sb.append("    editorUrl: ").append(toIndentedString(editorUrl)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    itemIconUrl: ").append(toIndentedString(itemIconUrl)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    outline: ").append(toIndentedString(outline)).append("\n");
+    sb.append("    trackerIconUrl: ").append(toIndentedString(trackerIconUrl)).append("\n");
     sb.append("    urlLinkFormat: ").append(toIndentedString(urlLinkFormat)).append("\n");
+    sb.append("    varName: ").append(toIndentedString(varName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -374,7 +373,7 @@ public class TrackerType {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

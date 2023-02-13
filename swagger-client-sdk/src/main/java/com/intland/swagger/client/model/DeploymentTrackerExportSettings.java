@@ -24,37 +24,15 @@ import io.swagger.annotations.ApiModelProperty;
  * Tracker export settings for deployment
  */
 @ApiModel(description = "Tracker export settings for deployment")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class DeploymentTrackerExportSettings {
-  public static final String SERIALIZED_NAME_TRACKER_ID = "trackerId";
-  @SerializedName(SERIALIZED_NAME_TRACKER_ID)
-  private Integer trackerId;
-
   public static final String SERIALIZED_NAME_ITEMS_INCLUDED = "itemsIncluded";
   @SerializedName(SERIALIZED_NAME_ITEMS_INCLUDED)
   private Boolean itemsIncluded;
 
-
-  public DeploymentTrackerExportSettings trackerId(Integer trackerId) {
-    
-    this.trackerId = trackerId;
-    return this;
-  }
-
-   /**
-   * Project id
-   * @return trackerId
-  **/
-  @ApiModelProperty(required = true, value = "Project id")
-
-  public Integer getTrackerId() {
-    return trackerId;
-  }
-
-
-  public void setTrackerId(Integer trackerId) {
-    this.trackerId = trackerId;
-  }
+  public static final String SERIALIZED_NAME_TRACKER_ID = "trackerId";
+  @SerializedName(SERIALIZED_NAME_TRACKER_ID)
+  private Integer trackerId;
 
 
   public DeploymentTrackerExportSettings itemsIncluded(Boolean itemsIncluded) {
@@ -80,8 +58,31 @@ public class DeploymentTrackerExportSettings {
   }
 
 
+  public DeploymentTrackerExportSettings trackerId(Integer trackerId) {
+    
+    this.trackerId = trackerId;
+    return this;
+  }
+
+   /**
+   * Project id
+   * @return trackerId
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Project id")
+
+  public Integer getTrackerId() {
+    return trackerId;
+  }
+
+
+  public void setTrackerId(Integer trackerId) {
+    this.trackerId = trackerId;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -89,22 +90,21 @@ public class DeploymentTrackerExportSettings {
       return false;
     }
     DeploymentTrackerExportSettings deploymentTrackerExportSettings = (DeploymentTrackerExportSettings) o;
-    return Objects.equals(this.trackerId, deploymentTrackerExportSettings.trackerId) &&
-        Objects.equals(this.itemsIncluded, deploymentTrackerExportSettings.itemsIncluded);
+    return Objects.equals(this.itemsIncluded, deploymentTrackerExportSettings.itemsIncluded) &&
+        Objects.equals(this.trackerId, deploymentTrackerExportSettings.trackerId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(trackerId, itemsIncluded);
+    return Objects.hash(itemsIncluded, trackerId);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeploymentTrackerExportSettings {\n");
-    sb.append("    trackerId: ").append(toIndentedString(trackerId)).append("\n");
     sb.append("    itemsIncluded: ").append(toIndentedString(itemsIncluded)).append("\n");
+    sb.append("    trackerId: ").append(toIndentedString(trackerId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -113,7 +113,7 @@ public class DeploymentTrackerExportSettings {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

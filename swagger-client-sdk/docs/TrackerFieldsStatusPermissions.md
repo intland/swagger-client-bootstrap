@@ -3,6 +3,7 @@
 # TrackerFieldsStatusPermissions
 
 All field permissions by role for specific status
+
 ## Properties
 
 Name | Type | Description | Notes

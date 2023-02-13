@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Reference data of an underlying item of a row.
  */
 @ApiModel(description = "Reference data of an underlying item of a row.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ReportItemReference {
   public static final String SERIALIZED_NAME_ITEM_ID = "itemId";
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
@@ -82,7 +82,7 @@ public class ReportItemReference {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -99,7 +99,6 @@ public class ReportItemReference {
     return Objects.hash(itemId, trackerId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -114,7 +113,7 @@ public class ReportItemReference {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

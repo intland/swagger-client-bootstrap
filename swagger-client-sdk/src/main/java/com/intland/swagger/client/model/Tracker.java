@@ -14,9 +14,8 @@
 package com.intland.swagger.client.model;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Objects;
-
-import org.joda.time.DateTime;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -31,15 +30,35 @@ import io.swagger.annotations.ApiModelProperty;
  * Basic properties of a codebeamer tracker
  */
 @ApiModel(description = "Basic properties of a codebeamer tracker")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class Tracker {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
+  public static final String SERIALIZED_NAME_AVAILABLE_AS_TEMPLATE = "availableAsTemplate";
+  @SerializedName(SERIALIZED_NAME_AVAILABLE_AS_TEMPLATE)
+  private Boolean availableAsTemplate;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String SERIALIZED_NAME_COLOR = "color";
+  @SerializedName(SERIALIZED_NAME_COLOR)
+  private String color;
+
+  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private Date createdAt;
+
+  public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
+  @SerializedName(SERIALIZED_NAME_CREATED_BY)
+  private UserReference createdBy;
+
+  public static final String SERIALIZED_NAME_DEFAULT_SHOW_ANCESTOR_ITEMS = "defaultShowAncestorItems";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_SHOW_ANCESTOR_ITEMS)
+  private Boolean defaultShowAncestorItems;
+
+  public static final String SERIALIZED_NAME_DEFAULT_SHOW_DESCENDANT_ITEMS = "defaultShowDescendantItems";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_SHOW_DESCENDANT_ITEMS)
+  private Boolean defaultShowDescendantItems;
+
+  public static final String SERIALIZED_NAME_DELETED = "deleted";
+  @SerializedName(SERIALIZED_NAME_DELETED)
+  private Boolean deleted;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -98,127 +117,221 @@ public class Tracker {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION_FORMAT)
   private DescriptionFormatEnum descriptionFormat;
 
+  public static final String SERIALIZED_NAME_HIDDEN = "hidden";
+  @SerializedName(SERIALIZED_NAME_HIDDEN)
+  private Boolean hidden;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Integer id;
+
   public static final String SERIALIZED_NAME_KEY_NAME = "keyName";
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
 
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
-  private Integer version;
-
-  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private DateTime createdAt;
-
-  public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY)
-  private UserReference createdBy;
-
   public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
   @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
-  private DateTime modifiedAt;
+  private Date modifiedAt;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
   private UserReference modifiedBy;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private TrackerTypeReference type;
-
-  public static final String SERIALIZED_NAME_DELETED = "deleted";
-  @SerializedName(SERIALIZED_NAME_DELETED)
-  private Boolean deleted;
-
-  public static final String SERIALIZED_NAME_HIDDEN = "hidden";
-  @SerializedName(SERIALIZED_NAME_HIDDEN)
-  private Boolean hidden;
-
-  public static final String SERIALIZED_NAME_COLOR = "color";
-  @SerializedName(SERIALIZED_NAME_COLOR)
-  private String color;
-
-  public static final String SERIALIZED_NAME_USING_WORKFLOW = "usingWorkflow";
-  @SerializedName(SERIALIZED_NAME_USING_WORKFLOW)
-  private Boolean usingWorkflow;
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
   public static final String SERIALIZED_NAME_ONLY_WORKFLOW_CAN_CREATE_NEW_REFERRING_ITEM = "onlyWorkflowCanCreateNewReferringItem";
   @SerializedName(SERIALIZED_NAME_ONLY_WORKFLOW_CAN_CREATE_NEW_REFERRING_ITEM)
   private Boolean onlyWorkflowCanCreateNewReferringItem;
 
-  public static final String SERIALIZED_NAME_USING_QUICK_TRANSITIONS = "usingQuickTransitions";
-  @SerializedName(SERIALIZED_NAME_USING_QUICK_TRANSITIONS)
-  private Boolean usingQuickTransitions;
-
-  public static final String SERIALIZED_NAME_DEFAULT_SHOW_ANCESTOR_ITEMS = "defaultShowAncestorItems";
-  @SerializedName(SERIALIZED_NAME_DEFAULT_SHOW_ANCESTOR_ITEMS)
-  private Boolean defaultShowAncestorItems;
-
-  public static final String SERIALIZED_NAME_DEFAULT_SHOW_DESCENDANT_ITEMS = "defaultShowDescendantItems";
-  @SerializedName(SERIALIZED_NAME_DEFAULT_SHOW_DESCENDANT_ITEMS)
-  private Boolean defaultShowDescendantItems;
-
   public static final String SERIALIZED_NAME_PROJECT = "project";
   @SerializedName(SERIALIZED_NAME_PROJECT)
   private ProjectReference project;
-
-  public static final String SERIALIZED_NAME_TEMPLATE_TRACKER = "templateTracker";
-  @SerializedName(SERIALIZED_NAME_TEMPLATE_TRACKER)
-  private TrackerReference templateTracker;
-
-  public static final String SERIALIZED_NAME_AVAILABLE_AS_TEMPLATE = "availableAsTemplate";
-  @SerializedName(SERIALIZED_NAME_AVAILABLE_AS_TEMPLATE)
-  private Boolean availableAsTemplate;
 
   public static final String SERIALIZED_NAME_SHARED_IN_WORKING_SET = "sharedInWorkingSet";
   @SerializedName(SERIALIZED_NAME_SHARED_IN_WORKING_SET)
   private Boolean sharedInWorkingSet;
 
+  public static final String SERIALIZED_NAME_TEMPLATE_TRACKER = "templateTracker";
+  @SerializedName(SERIALIZED_NAME_TEMPLATE_TRACKER)
+  private TrackerReference templateTracker;
 
-  public Tracker id(Integer id) {
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private TrackerTypeReference type;
+
+  public static final String SERIALIZED_NAME_USING_QUICK_TRANSITIONS = "usingQuickTransitions";
+  @SerializedName(SERIALIZED_NAME_USING_QUICK_TRANSITIONS)
+  private Boolean usingQuickTransitions;
+
+  public static final String SERIALIZED_NAME_USING_WORKFLOW = "usingWorkflow";
+  @SerializedName(SERIALIZED_NAME_USING_WORKFLOW)
+  private Boolean usingWorkflow;
+
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private Integer version;
+
+
+  public Tracker availableAsTemplate(Boolean availableAsTemplate) {
     
-    this.id = id;
+    this.availableAsTemplate = availableAsTemplate;
     return this;
   }
 
    /**
-   * Id of the entity
-   * minimum: 0
-   * @return id
+   * Indicator if the tracker can be used as a template
+   * @return availableAsTemplate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Id of the entity")
+  @ApiModelProperty(value = "Indicator if the tracker can be used as a template")
 
-  public Integer getId() {
-    return id;
+  public Boolean getAvailableAsTemplate() {
+    return availableAsTemplate;
   }
 
 
-  public void setId(Integer id) {
-    this.id = id;
+  public void setAvailableAsTemplate(Boolean availableAsTemplate) {
+    this.availableAsTemplate = availableAsTemplate;
   }
 
 
-  public Tracker name(String name) {
+  public Tracker color(String color) {
     
-    this.name = name;
+    this.color = color;
     return this;
   }
 
    /**
-   * Name of the entity
-   * @return name
+   * Color of the tracker
+   * @return color
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the entity")
+  @ApiModelProperty(value = "Color of the tracker")
 
-  public String getName() {
-    return name;
+  public String getColor() {
+    return color;
   }
 
 
-  public void setName(String name) {
-    this.name = name;
+  public void setColor(String color) {
+    this.color = color;
+  }
+
+
+  public Tracker createdAt(Date createdAt) {
+    
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * The date when the entity was created
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date when the entity was created")
+
+  public Date getCreatedAt() {
+    return createdAt;
+  }
+
+
+  public void setCreatedAt(Date createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public Tracker createdBy(UserReference createdBy) {
+    
+    this.createdBy = createdBy;
+    return this;
+  }
+
+   /**
+   * Get createdBy
+   * @return createdBy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public UserReference getCreatedBy() {
+    return createdBy;
+  }
+
+
+  public void setCreatedBy(UserReference createdBy) {
+    this.createdBy = createdBy;
+  }
+
+
+  public Tracker defaultShowAncestorItems(Boolean defaultShowAncestorItems) {
+    
+    this.defaultShowAncestorItems = defaultShowAncestorItems;
+    return this;
+  }
+
+   /**
+   * Default Outline should show Ancestor Items or not
+   * @return defaultShowAncestorItems
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Default Outline should show Ancestor Items or not")
+
+  public Boolean getDefaultShowAncestorItems() {
+    return defaultShowAncestorItems;
+  }
+
+
+  public void setDefaultShowAncestorItems(Boolean defaultShowAncestorItems) {
+    this.defaultShowAncestorItems = defaultShowAncestorItems;
+  }
+
+
+  public Tracker defaultShowDescendantItems(Boolean defaultShowDescendantItems) {
+    
+    this.defaultShowDescendantItems = defaultShowDescendantItems;
+    return this;
+  }
+
+   /**
+   * Default Outline should show Descendant Items or not
+   * @return defaultShowDescendantItems
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Default Outline should show Descendant Items or not")
+
+  public Boolean getDefaultShowDescendantItems() {
+    return defaultShowDescendantItems;
+  }
+
+
+  public void setDefaultShowDescendantItems(Boolean defaultShowDescendantItems) {
+    this.defaultShowDescendantItems = defaultShowDescendantItems;
+  }
+
+
+  public Tracker deleted(Boolean deleted) {
+    
+    this.deleted = deleted;
+    return this;
+  }
+
+   /**
+   * Indicator if the tracker is deleted
+   * @return deleted
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Indicator if the tracker is deleted")
+
+  public Boolean getDeleted() {
+    return deleted;
+  }
+
+
+  public void setDeleted(Boolean deleted) {
+    this.deleted = deleted;
   }
 
 
@@ -268,6 +381,53 @@ public class Tracker {
   }
 
 
+  public Tracker hidden(Boolean hidden) {
+    
+    this.hidden = hidden;
+    return this;
+  }
+
+   /**
+   * Indicator if the tracker is hidden
+   * @return hidden
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Indicator if the tracker is hidden")
+
+  public Boolean getHidden() {
+    return hidden;
+  }
+
+
+  public void setHidden(Boolean hidden) {
+    this.hidden = hidden;
+  }
+
+
+  public Tracker id(Integer id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Id of the entity
+   * minimum: 0
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Id of the entity")
+
+  public Integer getId() {
+    return id;
+  }
+
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+
   public Tracker keyName(String keyName) {
     
     this.keyName = keyName;
@@ -291,76 +451,7 @@ public class Tracker {
   }
 
 
-  public Tracker version(Integer version) {
-    
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * Version of a tracker
-   * @return version
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Version of a tracker")
-
-  public Integer getVersion() {
-    return version;
-  }
-
-
-  public void setVersion(Integer version) {
-    this.version = version;
-  }
-
-
-  public Tracker createdAt(DateTime createdAt) {
-    
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * The date when the entity was created
-   * @return createdAt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The date when the entity was created")
-
-  public DateTime getCreatedAt() {
-    return createdAt;
-  }
-
-
-  public void setCreatedAt(DateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
-  public Tracker createdBy(UserReference createdBy) {
-    
-    this.createdBy = createdBy;
-    return this;
-  }
-
-   /**
-   * Get createdBy
-   * @return createdBy
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public UserReference getCreatedBy() {
-    return createdBy;
-  }
-
-
-  public void setCreatedBy(UserReference createdBy) {
-    this.createdBy = createdBy;
-  }
-
-
-  public Tracker modifiedAt(DateTime modifiedAt) {
+  public Tracker modifiedAt(Date modifiedAt) {
     
     this.modifiedAt = modifiedAt;
     return this;
@@ -373,12 +464,12 @@ public class Tracker {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
 
-  public DateTime getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
 
-  public void setModifiedAt(DateTime modifiedAt) {
+  public void setModifiedAt(Date modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 
@@ -406,115 +497,26 @@ public class Tracker {
   }
 
 
-  public Tracker type(TrackerTypeReference type) {
+  public Tracker name(String name) {
     
-    this.type = type;
+    this.name = name;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * Name of the entity
+   * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the entity")
 
-  public TrackerTypeReference getType() {
-    return type;
+  public String getName() {
+    return name;
   }
 
 
-  public void setType(TrackerTypeReference type) {
-    this.type = type;
-  }
-
-
-  public Tracker deleted(Boolean deleted) {
-    
-    this.deleted = deleted;
-    return this;
-  }
-
-   /**
-   * Indicator if the tracker is deleted
-   * @return deleted
-  **/
-  @ApiModelProperty(required = true, value = "Indicator if the tracker is deleted")
-
-  public Boolean getDeleted() {
-    return deleted;
-  }
-
-
-  public void setDeleted(Boolean deleted) {
-    this.deleted = deleted;
-  }
-
-
-  public Tracker hidden(Boolean hidden) {
-    
-    this.hidden = hidden;
-    return this;
-  }
-
-   /**
-   * Indicator if the tracker is hidden
-   * @return hidden
-  **/
-  @ApiModelProperty(required = true, value = "Indicator if the tracker is hidden")
-
-  public Boolean getHidden() {
-    return hidden;
-  }
-
-
-  public void setHidden(Boolean hidden) {
-    this.hidden = hidden;
-  }
-
-
-  public Tracker color(String color) {
-    
-    this.color = color;
-    return this;
-  }
-
-   /**
-   * Color of the tracker
-   * @return color
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Color of the tracker")
-
-  public String getColor() {
-    return color;
-  }
-
-
-  public void setColor(String color) {
-    this.color = color;
-  }
-
-
-  public Tracker usingWorkflow(Boolean usingWorkflow) {
-    
-    this.usingWorkflow = usingWorkflow;
-    return this;
-  }
-
-   /**
-   * Should transitions and workflow actions be available in the tracker or not
-   * @return usingWorkflow
-  **/
-  @ApiModelProperty(required = true, value = "Should transitions and workflow actions be available in the tracker or not")
-
-  public Boolean getUsingWorkflow() {
-    return usingWorkflow;
-  }
-
-
-  public void setUsingWorkflow(Boolean usingWorkflow) {
-    this.usingWorkflow = usingWorkflow;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -528,6 +530,7 @@ public class Tracker {
    * If true, then the only way to create new referring items is through workflow actions
    * @return onlyWorkflowCanCreateNewReferringItem
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "If true, then the only way to create new referring items is through workflow actions")
 
   public Boolean getOnlyWorkflowCanCreateNewReferringItem() {
@@ -537,72 +540,6 @@ public class Tracker {
 
   public void setOnlyWorkflowCanCreateNewReferringItem(Boolean onlyWorkflowCanCreateNewReferringItem) {
     this.onlyWorkflowCanCreateNewReferringItem = onlyWorkflowCanCreateNewReferringItem;
-  }
-
-
-  public Tracker usingQuickTransitions(Boolean usingQuickTransitions) {
-    
-    this.usingQuickTransitions = usingQuickTransitions;
-    return this;
-  }
-
-   /**
-   * If true, then every transition will be executed immediately (if possible) without opening an editor for the item
-   * @return usingQuickTransitions
-  **/
-  @ApiModelProperty(required = true, value = "If true, then every transition will be executed immediately (if possible) without opening an editor for the item")
-
-  public Boolean getUsingQuickTransitions() {
-    return usingQuickTransitions;
-  }
-
-
-  public void setUsingQuickTransitions(Boolean usingQuickTransitions) {
-    this.usingQuickTransitions = usingQuickTransitions;
-  }
-
-
-  public Tracker defaultShowAncestorItems(Boolean defaultShowAncestorItems) {
-    
-    this.defaultShowAncestorItems = defaultShowAncestorItems;
-    return this;
-  }
-
-   /**
-   * Default Outline should show Ancestor Items or not
-   * @return defaultShowAncestorItems
-  **/
-  @ApiModelProperty(required = true, value = "Default Outline should show Ancestor Items or not")
-
-  public Boolean getDefaultShowAncestorItems() {
-    return defaultShowAncestorItems;
-  }
-
-
-  public void setDefaultShowAncestorItems(Boolean defaultShowAncestorItems) {
-    this.defaultShowAncestorItems = defaultShowAncestorItems;
-  }
-
-
-  public Tracker defaultShowDescendantItems(Boolean defaultShowDescendantItems) {
-    
-    this.defaultShowDescendantItems = defaultShowDescendantItems;
-    return this;
-  }
-
-   /**
-   * Default Outline should show Descendant Items or not
-   * @return defaultShowDescendantItems
-  **/
-  @ApiModelProperty(required = true, value = "Default Outline should show Descendant Items or not")
-
-  public Boolean getDefaultShowDescendantItems() {
-    return defaultShowDescendantItems;
-  }
-
-
-  public void setDefaultShowDescendantItems(Boolean defaultShowDescendantItems) {
-    this.defaultShowDescendantItems = defaultShowDescendantItems;
   }
 
 
@@ -629,52 +566,6 @@ public class Tracker {
   }
 
 
-  public Tracker templateTracker(TrackerReference templateTracker) {
-    
-    this.templateTracker = templateTracker;
-    return this;
-  }
-
-   /**
-   * Get templateTracker
-   * @return templateTracker
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public TrackerReference getTemplateTracker() {
-    return templateTracker;
-  }
-
-
-  public void setTemplateTracker(TrackerReference templateTracker) {
-    this.templateTracker = templateTracker;
-  }
-
-
-  public Tracker availableAsTemplate(Boolean availableAsTemplate) {
-    
-    this.availableAsTemplate = availableAsTemplate;
-    return this;
-  }
-
-   /**
-   * Indicator if the tracker can be used as a template
-   * @return availableAsTemplate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicator if the tracker can be used as a template")
-
-  public Boolean getAvailableAsTemplate() {
-    return availableAsTemplate;
-  }
-
-
-  public void setAvailableAsTemplate(Boolean availableAsTemplate) {
-    this.availableAsTemplate = availableAsTemplate;
-  }
-
-
   public Tracker sharedInWorkingSet(Boolean sharedInWorkingSet) {
     
     this.sharedInWorkingSet = sharedInWorkingSet;
@@ -698,8 +589,123 @@ public class Tracker {
   }
 
 
+  public Tracker templateTracker(TrackerReference templateTracker) {
+    
+    this.templateTracker = templateTracker;
+    return this;
+  }
+
+   /**
+   * Get templateTracker
+   * @return templateTracker
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public TrackerReference getTemplateTracker() {
+    return templateTracker;
+  }
+
+
+  public void setTemplateTracker(TrackerReference templateTracker) {
+    this.templateTracker = templateTracker;
+  }
+
+
+  public Tracker type(TrackerTypeReference type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public TrackerTypeReference getType() {
+    return type;
+  }
+
+
+  public void setType(TrackerTypeReference type) {
+    this.type = type;
+  }
+
+
+  public Tracker usingQuickTransitions(Boolean usingQuickTransitions) {
+    
+    this.usingQuickTransitions = usingQuickTransitions;
+    return this;
+  }
+
+   /**
+   * If true, then every transition will be executed immediately (if possible) without opening an editor for the item
+   * @return usingQuickTransitions
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "If true, then every transition will be executed immediately (if possible) without opening an editor for the item")
+
+  public Boolean getUsingQuickTransitions() {
+    return usingQuickTransitions;
+  }
+
+
+  public void setUsingQuickTransitions(Boolean usingQuickTransitions) {
+    this.usingQuickTransitions = usingQuickTransitions;
+  }
+
+
+  public Tracker usingWorkflow(Boolean usingWorkflow) {
+    
+    this.usingWorkflow = usingWorkflow;
+    return this;
+  }
+
+   /**
+   * Should transitions and workflow actions be available in the tracker or not
+   * @return usingWorkflow
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Should transitions and workflow actions be available in the tracker or not")
+
+  public Boolean getUsingWorkflow() {
+    return usingWorkflow;
+  }
+
+
+  public void setUsingWorkflow(Boolean usingWorkflow) {
+    this.usingWorkflow = usingWorkflow;
+  }
+
+
+  public Tracker version(Integer version) {
+    
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Version of a tracker
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Version of a tracker")
+
+  public Integer getVersion() {
+    return version;
+  }
+
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -707,64 +713,63 @@ public class Tracker {
       return false;
     }
     Tracker tracker = (Tracker) o;
-    return Objects.equals(this.id, tracker.id) &&
-        Objects.equals(this.name, tracker.name) &&
-        Objects.equals(this.description, tracker.description) &&
-        Objects.equals(this.descriptionFormat, tracker.descriptionFormat) &&
-        Objects.equals(this.keyName, tracker.keyName) &&
-        Objects.equals(this.version, tracker.version) &&
+    return Objects.equals(this.availableAsTemplate, tracker.availableAsTemplate) &&
+        Objects.equals(this.color, tracker.color) &&
         Objects.equals(this.createdAt, tracker.createdAt) &&
         Objects.equals(this.createdBy, tracker.createdBy) &&
-        Objects.equals(this.modifiedAt, tracker.modifiedAt) &&
-        Objects.equals(this.modifiedBy, tracker.modifiedBy) &&
-        Objects.equals(this.type, tracker.type) &&
-        Objects.equals(this.deleted, tracker.deleted) &&
-        Objects.equals(this.hidden, tracker.hidden) &&
-        Objects.equals(this.color, tracker.color) &&
-        Objects.equals(this.usingWorkflow, tracker.usingWorkflow) &&
-        Objects.equals(this.onlyWorkflowCanCreateNewReferringItem, tracker.onlyWorkflowCanCreateNewReferringItem) &&
-        Objects.equals(this.usingQuickTransitions, tracker.usingQuickTransitions) &&
         Objects.equals(this.defaultShowAncestorItems, tracker.defaultShowAncestorItems) &&
         Objects.equals(this.defaultShowDescendantItems, tracker.defaultShowDescendantItems) &&
+        Objects.equals(this.deleted, tracker.deleted) &&
+        Objects.equals(this.description, tracker.description) &&
+        Objects.equals(this.descriptionFormat, tracker.descriptionFormat) &&
+        Objects.equals(this.hidden, tracker.hidden) &&
+        Objects.equals(this.id, tracker.id) &&
+        Objects.equals(this.keyName, tracker.keyName) &&
+        Objects.equals(this.modifiedAt, tracker.modifiedAt) &&
+        Objects.equals(this.modifiedBy, tracker.modifiedBy) &&
+        Objects.equals(this.name, tracker.name) &&
+        Objects.equals(this.onlyWorkflowCanCreateNewReferringItem, tracker.onlyWorkflowCanCreateNewReferringItem) &&
         Objects.equals(this.project, tracker.project) &&
+        Objects.equals(this.sharedInWorkingSet, tracker.sharedInWorkingSet) &&
         Objects.equals(this.templateTracker, tracker.templateTracker) &&
-        Objects.equals(this.availableAsTemplate, tracker.availableAsTemplate) &&
-        Objects.equals(this.sharedInWorkingSet, tracker.sharedInWorkingSet);
+        Objects.equals(this.type, tracker.type) &&
+        Objects.equals(this.usingQuickTransitions, tracker.usingQuickTransitions) &&
+        Objects.equals(this.usingWorkflow, tracker.usingWorkflow) &&
+        Objects.equals(this.version, tracker.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, descriptionFormat, keyName, version, createdAt, createdBy, modifiedAt, modifiedBy, type, deleted, hidden, color, usingWorkflow, onlyWorkflowCanCreateNewReferringItem, usingQuickTransitions, defaultShowAncestorItems, defaultShowDescendantItems, project, templateTracker, availableAsTemplate, sharedInWorkingSet);
+    return Objects.hash(availableAsTemplate, color, createdAt, createdBy, defaultShowAncestorItems, defaultShowDescendantItems, deleted, description, descriptionFormat, hidden, id, keyName, modifiedAt, modifiedBy, name, onlyWorkflowCanCreateNewReferringItem, project, sharedInWorkingSet, templateTracker, type, usingQuickTransitions, usingWorkflow, version);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Tracker {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    descriptionFormat: ").append(toIndentedString(descriptionFormat)).append("\n");
-    sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    availableAsTemplate: ").append(toIndentedString(availableAsTemplate)).append("\n");
+    sb.append("    color: ").append(toIndentedString(color)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
-    sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
-    sb.append("    hidden: ").append(toIndentedString(hidden)).append("\n");
-    sb.append("    color: ").append(toIndentedString(color)).append("\n");
-    sb.append("    usingWorkflow: ").append(toIndentedString(usingWorkflow)).append("\n");
-    sb.append("    onlyWorkflowCanCreateNewReferringItem: ").append(toIndentedString(onlyWorkflowCanCreateNewReferringItem)).append("\n");
-    sb.append("    usingQuickTransitions: ").append(toIndentedString(usingQuickTransitions)).append("\n");
     sb.append("    defaultShowAncestorItems: ").append(toIndentedString(defaultShowAncestorItems)).append("\n");
     sb.append("    defaultShowDescendantItems: ").append(toIndentedString(defaultShowDescendantItems)).append("\n");
+    sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    descriptionFormat: ").append(toIndentedString(descriptionFormat)).append("\n");
+    sb.append("    hidden: ").append(toIndentedString(hidden)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
+    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    onlyWorkflowCanCreateNewReferringItem: ").append(toIndentedString(onlyWorkflowCanCreateNewReferringItem)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
-    sb.append("    templateTracker: ").append(toIndentedString(templateTracker)).append("\n");
-    sb.append("    availableAsTemplate: ").append(toIndentedString(availableAsTemplate)).append("\n");
     sb.append("    sharedInWorkingSet: ").append(toIndentedString(sharedInWorkingSet)).append("\n");
+    sb.append("    templateTracker: ").append(toIndentedString(templateTracker)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    usingQuickTransitions: ").append(toIndentedString(usingQuickTransitions)).append("\n");
+    sb.append("    usingWorkflow: ").append(toIndentedString(usingWorkflow)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -773,7 +778,7 @@ public class Tracker {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

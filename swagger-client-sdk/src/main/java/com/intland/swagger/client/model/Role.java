@@ -27,16 +27,8 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Role
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class Role {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -94,52 +86,13 @@ public class Role {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION_FORMAT)
   private DescriptionFormatEnum descriptionFormat;
 
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Integer id;
 
-  public Role id(Integer id) {
-    
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Id of the entity
-   * minimum: 0
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Id of the entity")
-
-  public Integer getId() {
-    return id;
-  }
-
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-
-  public Role name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the entity
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the entity")
-
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
-  }
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
 
   public Role description(String description) {
@@ -188,8 +141,55 @@ public class Role {
   }
 
 
+  public Role id(Integer id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Id of the entity
+   * minimum: 0
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Id of the entity")
+
+  public Integer getId() {
+    return id;
+  }
+
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+
+  public Role name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the entity
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the entity")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -197,26 +197,25 @@ public class Role {
       return false;
     }
     Role role = (Role) o;
-    return Objects.equals(this.id, role.id) &&
-        Objects.equals(this.name, role.name) &&
-        Objects.equals(this.description, role.description) &&
-        Objects.equals(this.descriptionFormat, role.descriptionFormat);
+    return Objects.equals(this.description, role.description) &&
+        Objects.equals(this.descriptionFormat, role.descriptionFormat) &&
+        Objects.equals(this.id, role.id) &&
+        Objects.equals(this.name, role.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, descriptionFormat);
+    return Objects.hash(description, descriptionFormat, id, name);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Role {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    descriptionFormat: ").append(toIndentedString(descriptionFormat)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -225,7 +224,7 @@ public class Role {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

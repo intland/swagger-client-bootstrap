@@ -52,21 +52,23 @@ public class TrackerItemsCommentApi {
      * Build call for commentOnTrackerItem
      * @param itemId  (required)
      * @param comment Text of a comment (required)
-     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @param attachments Attachments of a comment (optional)
+     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call commentOnTrackerItemCall(Integer itemId, String comment, String commentFormat, File attachments, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call commentOnTrackerItemCall(Integer itemId, String comment, File attachments, String commentFormat, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -78,6 +80,11 @@ public class TrackerItemsCommentApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (attachments != null) {
+            localVarFormParams.put("attachments", attachments);
+        }
+
         if (comment != null) {
             localVarFormParams.put("comment", comment);
         }
@@ -86,12 +93,8 @@ public class TrackerItemsCommentApi {
             localVarFormParams.put("commentFormat", commentFormat);
         }
 
-        if (attachments != null) {
-            localVarFormParams.put("attachments", attachments);
-        }
-
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -109,7 +112,7 @@ public class TrackerItemsCommentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call commentOnTrackerItemValidateBeforeCall(Integer itemId, String comment, String commentFormat, File attachments, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call commentOnTrackerItemValidateBeforeCall(Integer itemId, String comment, File attachments, String commentFormat, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'itemId' is set
         if (itemId == null) {
@@ -122,7 +125,7 @@ public class TrackerItemsCommentApi {
         }
         
 
-        okhttp3.Call localVarCall = commentOnTrackerItemCall(itemId, comment, commentFormat, attachments, _callback);
+        okhttp3.Call localVarCall = commentOnTrackerItemCall(itemId, comment, attachments, commentFormat, _callback);
         return localVarCall;
 
     }
@@ -132,21 +135,23 @@ public class TrackerItemsCommentApi {
      * 
      * @param itemId  (required)
      * @param comment Text of a comment (required)
-     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @param attachments Attachments of a comment (optional)
+     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @return Comment
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
-    public Comment commentOnTrackerItem(Integer itemId, String comment, String commentFormat, File attachments) throws ApiException {
-        ApiResponse<Comment> localVarResp = commentOnTrackerItemWithHttpInfo(itemId, comment, commentFormat, attachments);
+    public Comment commentOnTrackerItem(Integer itemId, String comment, File attachments, String commentFormat) throws ApiException {
+        ApiResponse<Comment> localVarResp = commentOnTrackerItemWithHttpInfo(itemId, comment, attachments, commentFormat);
         return localVarResp.getData();
     }
 
@@ -155,21 +160,23 @@ public class TrackerItemsCommentApi {
      * 
      * @param itemId  (required)
      * @param comment Text of a comment (required)
-     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @param attachments Attachments of a comment (optional)
+     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @return ApiResponse&lt;Comment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Comment> commentOnTrackerItemWithHttpInfo(Integer itemId, String comment, String commentFormat, File attachments) throws ApiException {
-        okhttp3.Call localVarCall = commentOnTrackerItemValidateBeforeCall(itemId, comment, commentFormat, attachments, null);
+    public ApiResponse<Comment> commentOnTrackerItemWithHttpInfo(Integer itemId, String comment, File attachments, String commentFormat) throws ApiException {
+        okhttp3.Call localVarCall = commentOnTrackerItemValidateBeforeCall(itemId, comment, attachments, commentFormat, null);
         Type localVarReturnType = new TypeToken<Comment>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -179,23 +186,25 @@ public class TrackerItemsCommentApi {
      * 
      * @param itemId  (required)
      * @param comment Text of a comment (required)
-     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @param attachments Attachments of a comment (optional)
+     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call commentOnTrackerItemAsync(Integer itemId, String comment, String commentFormat, File attachments, final ApiCallback<Comment> _callback) throws ApiException {
+    public okhttp3.Call commentOnTrackerItemAsync(Integer itemId, String comment, File attachments, String commentFormat, final ApiCallback<Comment> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = commentOnTrackerItemValidateBeforeCall(itemId, comment, commentFormat, attachments, _callback);
+        okhttp3.Call localVarCall = commentOnTrackerItemValidateBeforeCall(itemId, comment, attachments, commentFormat, _callback);
         Type localVarReturnType = new TypeToken<Comment>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -210,10 +219,12 @@ public class TrackerItemsCommentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteTrackerItemCommentCall(Integer itemId, Integer commentId, final ApiCallback _callback) throws ApiException {
@@ -229,8 +240,9 @@ public class TrackerItemsCommentApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -276,10 +288,12 @@ public class TrackerItemsCommentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
     public Comment deleteTrackerItemComment(Integer itemId, Integer commentId) throws ApiException {
@@ -297,10 +311,12 @@ public class TrackerItemsCommentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Comment> deleteTrackerItemCommentWithHttpInfo(Integer itemId, Integer commentId) throws ApiException {
@@ -320,10 +336,12 @@ public class TrackerItemsCommentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteTrackerItemCommentAsync(Integer itemId, Integer commentId, final ApiCallback<Comment> _callback) throws ApiException {
@@ -342,9 +360,11 @@ public class TrackerItemsCommentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comments deleted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comments deleted </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
@@ -360,6 +380,7 @@ public class TrackerItemsCommentApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
             "*/*"
         };
@@ -400,9 +421,11 @@ public class TrackerItemsCommentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comments deleted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comments deleted </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
@@ -419,9 +442,11 @@ public class TrackerItemsCommentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comments deleted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comments deleted </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
@@ -440,9 +465,11 @@ public class TrackerItemsCommentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comments deleted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comments deleted </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
@@ -457,22 +484,24 @@ public class TrackerItemsCommentApi {
      * @param itemId  (required)
      * @param commentId  (required)
      * @param comment Text of a comment (required)
-     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @param attachments Attachments of a comment (optional)
+     * @param commentFormat Format of a comment (optional, default to CommentFormatEnum.PLAINTEXT)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Edited comment </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editCommentOnTrackerItemCall(Integer itemId, Integer commentId, String comment, String commentFormat, File attachments, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call editCommentOnTrackerItemCall(Integer itemId, Integer commentId, String comment, File attachments, String commentFormat, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -485,6 +514,11 @@ public class TrackerItemsCommentApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (attachments != null) {
+            localVarFormParams.put("attachments", attachments);
+        }
+
         if (comment != null) {
             localVarFormParams.put("comment", comment);
         }
@@ -493,12 +527,8 @@ public class TrackerItemsCommentApi {
             localVarFormParams.put("commentFormat", commentFormat);
         }
 
-        if (attachments != null) {
-            localVarFormParams.put("attachments", attachments);
-        }
-
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -516,7 +546,7 @@ public class TrackerItemsCommentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call editCommentOnTrackerItemValidateBeforeCall(Integer itemId, Integer commentId, String comment, String commentFormat, File attachments, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call editCommentOnTrackerItemValidateBeforeCall(Integer itemId, Integer commentId, String comment, File attachments, String commentFormat, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'itemId' is set
         if (itemId == null) {
@@ -534,7 +564,7 @@ public class TrackerItemsCommentApi {
         }
         
 
-        okhttp3.Call localVarCall = editCommentOnTrackerItemCall(itemId, commentId, comment, commentFormat, attachments, _callback);
+        okhttp3.Call localVarCall = editCommentOnTrackerItemCall(itemId, commentId, comment, attachments, commentFormat, _callback);
         return localVarCall;
 
     }
@@ -545,22 +575,24 @@ public class TrackerItemsCommentApi {
      * @param itemId  (required)
      * @param commentId  (required)
      * @param comment Text of a comment (required)
-     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @param attachments Attachments of a comment (optional)
+     * @param commentFormat Format of a comment (optional, default to CommentFormatEnum.PLAINTEXT)
      * @return Comment
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Edited comment </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public Comment editCommentOnTrackerItem(Integer itemId, Integer commentId, String comment, String commentFormat, File attachments) throws ApiException {
-        ApiResponse<Comment> localVarResp = editCommentOnTrackerItemWithHttpInfo(itemId, commentId, comment, commentFormat, attachments);
+    public Comment editCommentOnTrackerItem(Integer itemId, Integer commentId, String comment, File attachments, String commentFormat) throws ApiException {
+        ApiResponse<Comment> localVarResp = editCommentOnTrackerItemWithHttpInfo(itemId, commentId, comment, attachments, commentFormat);
         return localVarResp.getData();
     }
 
@@ -570,22 +602,24 @@ public class TrackerItemsCommentApi {
      * @param itemId  (required)
      * @param commentId  (required)
      * @param comment Text of a comment (required)
-     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @param attachments Attachments of a comment (optional)
+     * @param commentFormat Format of a comment (optional, default to CommentFormatEnum.PLAINTEXT)
      * @return ApiResponse&lt;Comment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Edited comment </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Comment> editCommentOnTrackerItemWithHttpInfo(Integer itemId, Integer commentId, String comment, String commentFormat, File attachments) throws ApiException {
-        okhttp3.Call localVarCall = editCommentOnTrackerItemValidateBeforeCall(itemId, commentId, comment, commentFormat, attachments, null);
+    public ApiResponse<Comment> editCommentOnTrackerItemWithHttpInfo(Integer itemId, Integer commentId, String comment, File attachments, String commentFormat) throws ApiException {
+        okhttp3.Call localVarCall = editCommentOnTrackerItemValidateBeforeCall(itemId, commentId, comment, attachments, commentFormat, null);
         Type localVarReturnType = new TypeToken<Comment>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -596,24 +630,26 @@ public class TrackerItemsCommentApi {
      * @param itemId  (required)
      * @param commentId  (required)
      * @param comment Text of a comment (required)
-     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @param attachments Attachments of a comment (optional)
+     * @param commentFormat Format of a comment (optional, default to CommentFormatEnum.PLAINTEXT)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Edited comment </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editCommentOnTrackerItemAsync(Integer itemId, Integer commentId, String comment, String commentFormat, File attachments, final ApiCallback<Comment> _callback) throws ApiException {
+    public okhttp3.Call editCommentOnTrackerItemAsync(Integer itemId, Integer commentId, String comment, File attachments, String commentFormat, final ApiCallback<Comment> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = editCommentOnTrackerItemValidateBeforeCall(itemId, commentId, comment, commentFormat, attachments, _callback);
+        okhttp3.Call localVarCall = editCommentOnTrackerItemValidateBeforeCall(itemId, commentId, comment, attachments, commentFormat, _callback);
         Type localVarReturnType = new TypeToken<Comment>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -628,10 +664,11 @@ public class TrackerItemsCommentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTrackerItemCommentCall(Integer itemId, Integer commentId, final ApiCallback _callback) throws ApiException {
@@ -647,8 +684,9 @@ public class TrackerItemsCommentApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -694,10 +732,11 @@ public class TrackerItemsCommentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
     public Comment getTrackerItemComment(Integer itemId, Integer commentId) throws ApiException {
@@ -715,10 +754,11 @@ public class TrackerItemsCommentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Comment> getTrackerItemCommentWithHttpInfo(Integer itemId, Integer commentId) throws ApiException {
@@ -738,10 +778,11 @@ public class TrackerItemsCommentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTrackerItemCommentAsync(Integer itemId, Integer commentId, final ApiCallback<Comment> _callback) throws ApiException {
@@ -760,10 +801,11 @@ public class TrackerItemsCommentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comments of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comments of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTrackerItemCommentsCall(Integer itemId, final ApiCallback _callback) throws ApiException {
@@ -778,8 +820,9 @@ public class TrackerItemsCommentApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -819,10 +862,11 @@ public class TrackerItemsCommentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comments of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comments of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
     public List<Comment> getTrackerItemComments(Integer itemId) throws ApiException {
@@ -839,10 +883,11 @@ public class TrackerItemsCommentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comments of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comments of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<Comment>> getTrackerItemCommentsWithHttpInfo(Integer itemId) throws ApiException {
@@ -861,10 +906,11 @@ public class TrackerItemsCommentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comments of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker item not found </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comments of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getTrackerItemCommentsAsync(Integer itemId, final ApiCallback<List<Comment>> _callback) throws ApiException {
@@ -879,21 +925,23 @@ public class TrackerItemsCommentApi {
      * @param itemId  (required)
      * @param commentId  (required)
      * @param comment Text of a comment (required)
-     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @param attachments Attachments of a comment (optional)
+     * @param commentFormat Format of a comment (optional, default to CommentFormatEnum.PLAINTEXT)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call replyOnCommentOfTrackerItemCall(Integer itemId, Integer commentId, String comment, String commentFormat, File attachments, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call replyOnCommentOfTrackerItemCall(Integer itemId, Integer commentId, String comment, File attachments, String commentFormat, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -906,6 +954,11 @@ public class TrackerItemsCommentApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (attachments != null) {
+            localVarFormParams.put("attachments", attachments);
+        }
+
         if (comment != null) {
             localVarFormParams.put("comment", comment);
         }
@@ -914,12 +967,8 @@ public class TrackerItemsCommentApi {
             localVarFormParams.put("commentFormat", commentFormat);
         }
 
-        if (attachments != null) {
-            localVarFormParams.put("attachments", attachments);
-        }
-
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -937,7 +986,7 @@ public class TrackerItemsCommentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replyOnCommentOfTrackerItemValidateBeforeCall(Integer itemId, Integer commentId, String comment, String commentFormat, File attachments, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replyOnCommentOfTrackerItemValidateBeforeCall(Integer itemId, Integer commentId, String comment, File attachments, String commentFormat, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'itemId' is set
         if (itemId == null) {
@@ -955,7 +1004,7 @@ public class TrackerItemsCommentApi {
         }
         
 
-        okhttp3.Call localVarCall = replyOnCommentOfTrackerItemCall(itemId, commentId, comment, commentFormat, attachments, _callback);
+        okhttp3.Call localVarCall = replyOnCommentOfTrackerItemCall(itemId, commentId, comment, attachments, commentFormat, _callback);
         return localVarCall;
 
     }
@@ -966,21 +1015,23 @@ public class TrackerItemsCommentApi {
      * @param itemId  (required)
      * @param commentId  (required)
      * @param comment Text of a comment (required)
-     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @param attachments Attachments of a comment (optional)
+     * @param commentFormat Format of a comment (optional, default to CommentFormatEnum.PLAINTEXT)
      * @return Comment
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
-    public Comment replyOnCommentOfTrackerItem(Integer itemId, Integer commentId, String comment, String commentFormat, File attachments) throws ApiException {
-        ApiResponse<Comment> localVarResp = replyOnCommentOfTrackerItemWithHttpInfo(itemId, commentId, comment, commentFormat, attachments);
+    public Comment replyOnCommentOfTrackerItem(Integer itemId, Integer commentId, String comment, File attachments, String commentFormat) throws ApiException {
+        ApiResponse<Comment> localVarResp = replyOnCommentOfTrackerItemWithHttpInfo(itemId, commentId, comment, attachments, commentFormat);
         return localVarResp.getData();
     }
 
@@ -990,21 +1041,23 @@ public class TrackerItemsCommentApi {
      * @param itemId  (required)
      * @param commentId  (required)
      * @param comment Text of a comment (required)
-     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @param attachments Attachments of a comment (optional)
+     * @param commentFormat Format of a comment (optional, default to CommentFormatEnum.PLAINTEXT)
      * @return ApiResponse&lt;Comment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Comment> replyOnCommentOfTrackerItemWithHttpInfo(Integer itemId, Integer commentId, String comment, String commentFormat, File attachments) throws ApiException {
-        okhttp3.Call localVarCall = replyOnCommentOfTrackerItemValidateBeforeCall(itemId, commentId, comment, commentFormat, attachments, null);
+    public ApiResponse<Comment> replyOnCommentOfTrackerItemWithHttpInfo(Integer itemId, Integer commentId, String comment, File attachments, String commentFormat) throws ApiException {
+        okhttp3.Call localVarCall = replyOnCommentOfTrackerItemValidateBeforeCall(itemId, commentId, comment, attachments, commentFormat, null);
         Type localVarReturnType = new TypeToken<Comment>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1015,23 +1068,25 @@ public class TrackerItemsCommentApi {
      * @param itemId  (required)
      * @param commentId  (required)
      * @param comment Text of a comment (required)
-     * @param commentFormat Format of a comment (optional, default to PlainText)
      * @param attachments Attachments of a comment (optional)
+     * @param commentFormat Format of a comment (optional, default to CommentFormatEnum.PLAINTEXT)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Tracker not found </td><td>  -  </td></tr>
+        <tr><td> 423 </td><td> Tracker item is locked </td><td>  -  </td></tr>
         <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Comment of tracker item by id </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call replyOnCommentOfTrackerItemAsync(Integer itemId, Integer commentId, String comment, String commentFormat, File attachments, final ApiCallback<Comment> _callback) throws ApiException {
+    public okhttp3.Call replyOnCommentOfTrackerItemAsync(Integer itemId, Integer commentId, String comment, File attachments, String commentFormat, final ApiCallback<Comment> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = replyOnCommentOfTrackerItemValidateBeforeCall(itemId, commentId, comment, commentFormat, attachments, _callback);
+        okhttp3.Call localVarCall = replyOnCommentOfTrackerItemValidateBeforeCall(itemId, commentId, comment, attachments, commentFormat, _callback);
         Type localVarReturnType = new TypeToken<Comment>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

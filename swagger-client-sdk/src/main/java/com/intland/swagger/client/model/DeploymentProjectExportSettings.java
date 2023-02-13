@@ -26,48 +26,49 @@ import io.swagger.annotations.ApiModelProperty;
  * Project export settings for deployment
  */
 @ApiModel(description = "Project export settings for deployment")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class DeploymentProjectExportSettings {
-  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
-  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  private Integer projectId;
+  public static final String SERIALIZED_NAME_INCLUDE_QUERIES = "includeQueries";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_QUERIES)
+  private Boolean includeQueries;
 
   public static final String SERIALIZED_NAME_INCLUDE_TRACKER_ITEMS = "includeTrackerItems";
   @SerializedName(SERIALIZED_NAME_INCLUDE_TRACKER_ITEMS)
   private Boolean includeTrackerItems;
 
-  public static final String SERIALIZED_NAME_INCLUDE_QUERIES = "includeQueries";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_QUERIES)
-  private Boolean includeQueries;
-
   public static final String SERIALIZED_NAME_INCLUDE_TRACKERS = "includeTrackers";
   @SerializedName(SERIALIZED_NAME_INCLUDE_TRACKERS)
   private Boolean includeTrackers;
+
+  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
+  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  private Integer projectId;
 
   public static final String SERIALIZED_NAME_TRACKERS = "trackers";
   @SerializedName(SERIALIZED_NAME_TRACKERS)
   private List<DeploymentTrackerExportSettings> trackers = null;
 
 
-  public DeploymentProjectExportSettings projectId(Integer projectId) {
+  public DeploymentProjectExportSettings includeQueries(Boolean includeQueries) {
     
-    this.projectId = projectId;
+    this.includeQueries = includeQueries;
     return this;
   }
 
    /**
-   * Project id
-   * @return projectId
+   * Flag if queries are included.
+   * @return includeQueries
   **/
-  @ApiModelProperty(required = true, value = "Project id")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Flag if queries are included.")
 
-  public Integer getProjectId() {
-    return projectId;
+  public Boolean getIncludeQueries() {
+    return includeQueries;
   }
 
 
-  public void setProjectId(Integer projectId) {
-    this.projectId = projectId;
+  public void setIncludeQueries(Boolean includeQueries) {
+    this.includeQueries = includeQueries;
   }
 
 
@@ -94,29 +95,6 @@ public class DeploymentProjectExportSettings {
   }
 
 
-  public DeploymentProjectExportSettings includeQueries(Boolean includeQueries) {
-    
-    this.includeQueries = includeQueries;
-    return this;
-  }
-
-   /**
-   * Flag if queries are included.
-   * @return includeQueries
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Flag if queries are included.")
-
-  public Boolean getIncludeQueries() {
-    return includeQueries;
-  }
-
-
-  public void setIncludeQueries(Boolean includeQueries) {
-    this.includeQueries = includeQueries;
-  }
-
-
   public DeploymentProjectExportSettings includeTrackers(Boolean includeTrackers) {
     
     this.includeTrackers = includeTrackers;
@@ -137,6 +115,29 @@ public class DeploymentProjectExportSettings {
 
   public void setIncludeTrackers(Boolean includeTrackers) {
     this.includeTrackers = includeTrackers;
+  }
+
+
+  public DeploymentProjectExportSettings projectId(Integer projectId) {
+    
+    this.projectId = projectId;
+    return this;
+  }
+
+   /**
+   * Project id
+   * @return projectId
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Project id")
+
+  public Integer getProjectId() {
+    return projectId;
+  }
+
+
+  public void setProjectId(Integer projectId) {
+    this.projectId = projectId;
   }
 
 
@@ -172,7 +173,7 @@ public class DeploymentProjectExportSettings {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -180,27 +181,26 @@ public class DeploymentProjectExportSettings {
       return false;
     }
     DeploymentProjectExportSettings deploymentProjectExportSettings = (DeploymentProjectExportSettings) o;
-    return Objects.equals(this.projectId, deploymentProjectExportSettings.projectId) &&
+    return Objects.equals(this.includeQueries, deploymentProjectExportSettings.includeQueries) &&
         Objects.equals(this.includeTrackerItems, deploymentProjectExportSettings.includeTrackerItems) &&
-        Objects.equals(this.includeQueries, deploymentProjectExportSettings.includeQueries) &&
         Objects.equals(this.includeTrackers, deploymentProjectExportSettings.includeTrackers) &&
+        Objects.equals(this.projectId, deploymentProjectExportSettings.projectId) &&
         Objects.equals(this.trackers, deploymentProjectExportSettings.trackers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, includeTrackerItems, includeQueries, includeTrackers, trackers);
+    return Objects.hash(includeQueries, includeTrackerItems, includeTrackers, projectId, trackers);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeploymentProjectExportSettings {\n");
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
-    sb.append("    includeTrackerItems: ").append(toIndentedString(includeTrackerItems)).append("\n");
     sb.append("    includeQueries: ").append(toIndentedString(includeQueries)).append("\n");
+    sb.append("    includeTrackerItems: ").append(toIndentedString(includeTrackerItems)).append("\n");
     sb.append("    includeTrackers: ").append(toIndentedString(includeTrackers)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    trackers: ").append(toIndentedString(trackers)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -210,7 +210,7 @@ public class DeploymentProjectExportSettings {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

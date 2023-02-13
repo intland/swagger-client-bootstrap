@@ -13,9 +13,9 @@
 
 package com.intland.swagger.client.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -26,14 +26,17 @@ import io.swagger.annotations.ApiModelProperty;
  * Value container of a country field
  */
 @ApiModel(description = "Value container of a country field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class CountryFieldValue extends AbstractFieldValue {
   public static final String SERIALIZED_NAME_VALUES = "values";
   @SerializedName(SERIALIZED_NAME_VALUES)
-  private List<String> values = new ArrayList<String>();
+  private Set<String> values = new LinkedHashSet<String>();
 
+  public CountryFieldValue() {
+    this.type = this.getClass().getSimpleName();
+  }
 
-  public CountryFieldValue values(List<String> values) {
+  public CountryFieldValue values(Set<String> values) {
     
     this.values = values;
     return this;
@@ -48,20 +51,21 @@ public class CountryFieldValue extends AbstractFieldValue {
    * Country codes
    * @return values
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Country codes")
 
-  public List<String> getValues() {
+  public Set<String> getValues() {
     return values;
   }
 
 
-  public void setValues(List<String> values) {
+  public void setValues(Set<String> values) {
     this.values = values;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -78,7 +82,6 @@ public class CountryFieldValue extends AbstractFieldValue {
     return Objects.hash(values, super.hashCode());
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -93,7 +96,7 @@ public class CountryFieldValue extends AbstractFieldValue {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

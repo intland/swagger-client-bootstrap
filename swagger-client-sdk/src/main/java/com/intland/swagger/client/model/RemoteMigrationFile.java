@@ -24,68 +24,45 @@ import io.swagger.annotations.ApiModelProperty;
  * A file to migrate from a remote directory.
  */
 @ApiModel(description = "A file to migrate from a remote directory.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class RemoteMigrationFile {
-  public static final String SERIALIZED_NAME_SHA512SUM = "sha512sum";
-  @SerializedName(SERIALIZED_NAME_SHA512SUM)
-  private String sha512sum;
-
-  public static final String SERIALIZED_NAME_MD5SUM = "md5sum";
-  @SerializedName(SERIALIZED_NAME_MD5SUM)
-  private String md5sum;
+  public static final String SERIALIZED_NAME_FILE_NAME = "fileName";
+  @SerializedName(SERIALIZED_NAME_FILE_NAME)
+  private String fileName;
 
   public static final String SERIALIZED_NAME_FILE_PATH = "filePath";
   @SerializedName(SERIALIZED_NAME_FILE_PATH)
   private String filePath;
 
-  public static final String SERIALIZED_NAME_FILE_NAME = "fileName";
-  @SerializedName(SERIALIZED_NAME_FILE_NAME)
-  private String fileName;
+  public static final String SERIALIZED_NAME_MD5SUM = "md5sum";
+  @SerializedName(SERIALIZED_NAME_MD5SUM)
+  private String md5sum;
+
+  public static final String SERIALIZED_NAME_SHA512SUM = "sha512sum";
+  @SerializedName(SERIALIZED_NAME_SHA512SUM)
+  private String sha512sum;
 
 
-  public RemoteMigrationFile sha512sum(String sha512sum) {
+  public RemoteMigrationFile fileName(String fileName) {
     
-    this.sha512sum = sha512sum;
+    this.fileName = fileName;
     return this;
   }
 
    /**
-   * Precomputed SHA512 checksum of the file.
-   * @return sha512sum
+   * File name of the newly created attachment.
+   * @return fileName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2e74ed4b0741e1fbe22d61e165c7c0dc4383a1aa5aa708291e32fff4cb189b9a5dfea7ffca2a22dcca258751cf4ad947c1c34abdf3fa2994219be394fbe40370", value = "Precomputed SHA512 checksum of the file.")
+  @ApiModelProperty(example = "newFile.txt", value = "File name of the newly created attachment.")
 
-  public String getSha512sum() {
-    return sha512sum;
+  public String getFileName() {
+    return fileName;
   }
 
 
-  public void setSha512sum(String sha512sum) {
-    this.sha512sum = sha512sum;
-  }
-
-
-  public RemoteMigrationFile md5sum(String md5sum) {
-    
-    this.md5sum = md5sum;
-    return this;
-  }
-
-   /**
-   * Precomputed MD5 checksum of the file.
-   * @return md5sum
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "f6967f92c24a8f3c4849d30c9f17e321", value = "Precomputed MD5 checksum of the file.")
-
-  public String getMd5sum() {
-    return md5sum;
-  }
-
-
-  public void setMd5sum(String md5sum) {
-    this.md5sum = md5sum;
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
   }
 
 
@@ -112,31 +89,54 @@ public class RemoteMigrationFile {
   }
 
 
-  public RemoteMigrationFile fileName(String fileName) {
+  public RemoteMigrationFile md5sum(String md5sum) {
     
-    this.fileName = fileName;
+    this.md5sum = md5sum;
     return this;
   }
 
    /**
-   * File name of the newly created attachment.
-   * @return fileName
+   * Precomputed MD5 checksum of the file.
+   * @return md5sum
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "newFile.txt", value = "File name of the newly created attachment.")
+  @ApiModelProperty(example = "f6967f92c24a8f3c4849d30c9f17e321", value = "Precomputed MD5 checksum of the file.")
 
-  public String getFileName() {
-    return fileName;
+  public String getMd5sum() {
+    return md5sum;
   }
 
 
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
+  public void setMd5sum(String md5sum) {
+    this.md5sum = md5sum;
+  }
+
+
+  public RemoteMigrationFile sha512sum(String sha512sum) {
+    
+    this.sha512sum = sha512sum;
+    return this;
+  }
+
+   /**
+   * Precomputed SHA512 checksum of the file.
+   * @return sha512sum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "2e74ed4b0741e1fbe22d61e165c7c0dc4383a1aa5aa708291e32fff4cb189b9a5dfea7ffca2a22dcca258751cf4ad947c1c34abdf3fa2994219be394fbe40370", value = "Precomputed SHA512 checksum of the file.")
+
+  public String getSha512sum() {
+    return sha512sum;
+  }
+
+
+  public void setSha512sum(String sha512sum) {
+    this.sha512sum = sha512sum;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -144,26 +144,25 @@ public class RemoteMigrationFile {
       return false;
     }
     RemoteMigrationFile remoteMigrationFile = (RemoteMigrationFile) o;
-    return Objects.equals(this.sha512sum, remoteMigrationFile.sha512sum) &&
-        Objects.equals(this.md5sum, remoteMigrationFile.md5sum) &&
+    return Objects.equals(this.fileName, remoteMigrationFile.fileName) &&
         Objects.equals(this.filePath, remoteMigrationFile.filePath) &&
-        Objects.equals(this.fileName, remoteMigrationFile.fileName);
+        Objects.equals(this.md5sum, remoteMigrationFile.md5sum) &&
+        Objects.equals(this.sha512sum, remoteMigrationFile.sha512sum);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sha512sum, md5sum, filePath, fileName);
+    return Objects.hash(fileName, filePath, md5sum, sha512sum);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RemoteMigrationFile {\n");
-    sb.append("    sha512sum: ").append(toIndentedString(sha512sum)).append("\n");
-    sb.append("    md5sum: ").append(toIndentedString(md5sum)).append("\n");
-    sb.append("    filePath: ").append(toIndentedString(filePath)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
+    sb.append("    filePath: ").append(toIndentedString(filePath)).append("\n");
+    sb.append("    md5sum: ").append(toIndentedString(md5sum)).append("\n");
+    sb.append("    sha512sum: ").append(toIndentedString(sha512sum)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -172,7 +171,7 @@ public class RemoteMigrationFile {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

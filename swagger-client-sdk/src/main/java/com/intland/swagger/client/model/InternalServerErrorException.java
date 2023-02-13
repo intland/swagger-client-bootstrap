@@ -22,38 +22,15 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * InternalServerErrorException
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class InternalServerErrorException {
-  public static final String SERIALIZED_NAME_RESOURCE_URI = "resourceUri";
-  @SerializedName(SERIALIZED_NAME_RESOURCE_URI)
-  private String resourceUri;
-
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
 
-
-  public InternalServerErrorException resourceUri(String resourceUri) {
-    
-    this.resourceUri = resourceUri;
-    return this;
-  }
-
-   /**
-   * Get resourceUri
-   * @return resourceUri
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getResourceUri() {
-    return resourceUri;
-  }
-
-
-  public void setResourceUri(String resourceUri) {
-    this.resourceUri = resourceUri;
-  }
+  public static final String SERIALIZED_NAME_RESOURCE_URI = "resourceUri";
+  @SerializedName(SERIALIZED_NAME_RESOURCE_URI)
+  private String resourceUri;
 
 
   public InternalServerErrorException message(String message) {
@@ -79,8 +56,31 @@ public class InternalServerErrorException {
   }
 
 
+  public InternalServerErrorException resourceUri(String resourceUri) {
+    
+    this.resourceUri = resourceUri;
+    return this;
+  }
+
+   /**
+   * Get resourceUri
+   * @return resourceUri
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getResourceUri() {
+    return resourceUri;
+  }
+
+
+  public void setResourceUri(String resourceUri) {
+    this.resourceUri = resourceUri;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -88,22 +88,21 @@ public class InternalServerErrorException {
       return false;
     }
     InternalServerErrorException internalServerErrorException = (InternalServerErrorException) o;
-    return Objects.equals(this.resourceUri, internalServerErrorException.resourceUri) &&
-        Objects.equals(this.message, internalServerErrorException.message);
+    return Objects.equals(this.message, internalServerErrorException.message) &&
+        Objects.equals(this.resourceUri, internalServerErrorException.resourceUri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(resourceUri, message);
+    return Objects.hash(message, resourceUri);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InternalServerErrorException {\n");
-    sb.append("    resourceUri: ").append(toIndentedString(resourceUri)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    resourceUri: ").append(toIndentedString(resourceUri)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -112,7 +111,7 @@ public class InternalServerErrorException {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

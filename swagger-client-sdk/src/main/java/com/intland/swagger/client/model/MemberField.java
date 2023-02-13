@@ -31,12 +31,8 @@ import io.swagger.annotations.ApiModelProperty;
  * Member field
  */
 @ApiModel(description = "Member field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class MemberField extends AbstractField {
-  public static final String SERIALIZED_NAME_MULTIPLE_VALUES = "multipleValues";
-  @SerializedName(SERIALIZED_NAME_MULTIPLE_VALUES)
-  private Boolean multipleValues;
-
   /**
    * Supported member type of a member field
    */
@@ -90,29 +86,13 @@ public class MemberField extends AbstractField {
   @SerializedName(SERIALIZED_NAME_MEMBER_TYPES)
   private List<MemberTypesEnum> memberTypes = null;
 
+  public static final String SERIALIZED_NAME_MULTIPLE_VALUES = "multipleValues";
+  @SerializedName(SERIALIZED_NAME_MULTIPLE_VALUES)
+  private Boolean multipleValues;
 
-  public MemberField multipleValues(Boolean multipleValues) {
-    
-    this.multipleValues = multipleValues;
-    return this;
+  public MemberField() {
+    this.type = this.getClass().getSimpleName();
   }
-
-   /**
-   * Multiple values state of a field
-   * @return multipleValues
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Multiple values state of a field")
-
-  public Boolean getMultipleValues() {
-    return multipleValues;
-  }
-
-
-  public void setMultipleValues(Boolean multipleValues) {
-    this.multipleValues = multipleValues;
-  }
-
 
   public MemberField memberTypes(List<MemberTypesEnum> memberTypes) {
     
@@ -145,8 +125,31 @@ public class MemberField extends AbstractField {
   }
 
 
+  public MemberField multipleValues(Boolean multipleValues) {
+    
+    this.multipleValues = multipleValues;
+    return this;
+  }
+
+   /**
+   * Multiple values state of a field
+   * @return multipleValues
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Multiple values state of a field")
+
+  public Boolean getMultipleValues() {
+    return multipleValues;
+  }
+
+
+  public void setMultipleValues(Boolean multipleValues) {
+    this.multipleValues = multipleValues;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -154,24 +157,23 @@ public class MemberField extends AbstractField {
       return false;
     }
     MemberField memberField = (MemberField) o;
-    return Objects.equals(this.multipleValues, memberField.multipleValues) &&
-        Objects.equals(this.memberTypes, memberField.memberTypes) &&
+    return Objects.equals(this.memberTypes, memberField.memberTypes) &&
+        Objects.equals(this.multipleValues, memberField.multipleValues) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(multipleValues, memberTypes, super.hashCode());
+    return Objects.hash(memberTypes, multipleValues, super.hashCode());
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MemberField {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    multipleValues: ").append(toIndentedString(multipleValues)).append("\n");
     sb.append("    memberTypes: ").append(toIndentedString(memberTypes)).append("\n");
+    sb.append("    multipleValues: ").append(toIndentedString(multipleValues)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -180,7 +182,7 @@ public class MemberField extends AbstractField {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

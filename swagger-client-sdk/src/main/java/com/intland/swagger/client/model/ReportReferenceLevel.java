@@ -26,15 +26,11 @@ import io.swagger.annotations.ApiModelProperty;
  * Reference results for an item.
  */
 @ApiModel(description = "Reference results for an item.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ReportReferenceLevel {
   public static final String SERIALIZED_NAME_COLUMNS = "columns";
   @SerializedName(SERIALIZED_NAME_COLUMNS)
   private List<ReportColumn> columns = null;
-
-  public static final String SERIALIZED_NAME_UPSTREAM_REFERENCE_ROWS = "upstreamReferenceRows";
-  @SerializedName(SERIALIZED_NAME_UPSTREAM_REFERENCE_ROWS)
-  private List<ReportReferencedRow> upstreamReferenceRows = null;
 
   public static final String SERIALIZED_NAME_DOWNSTREAM_REFERENCE_ROWS = "downstreamReferenceRows";
   @SerializedName(SERIALIZED_NAME_DOWNSTREAM_REFERENCE_ROWS)
@@ -43,6 +39,10 @@ public class ReportReferenceLevel {
   public static final String SERIALIZED_NAME_REFERENCE_LEVEL = "referenceLevel";
   @SerializedName(SERIALIZED_NAME_REFERENCE_LEVEL)
   private Integer referenceLevel;
+
+  public static final String SERIALIZED_NAME_UPSTREAM_REFERENCE_ROWS = "upstreamReferenceRows";
+  @SerializedName(SERIALIZED_NAME_UPSTREAM_REFERENCE_ROWS)
+  private List<ReportReferencedRow> upstreamReferenceRows = null;
 
 
   public ReportReferenceLevel columns(List<ReportColumn> columns) {
@@ -73,37 +73,6 @@ public class ReportReferenceLevel {
 
   public void setColumns(List<ReportColumn> columns) {
     this.columns = columns;
-  }
-
-
-  public ReportReferenceLevel upstreamReferenceRows(List<ReportReferencedRow> upstreamReferenceRows) {
-    
-    this.upstreamReferenceRows = upstreamReferenceRows;
-    return this;
-  }
-
-  public ReportReferenceLevel addUpstreamReferenceRowsItem(ReportReferencedRow upstreamReferenceRowsItem) {
-    if (this.upstreamReferenceRows == null) {
-      this.upstreamReferenceRows = new ArrayList<ReportReferencedRow>();
-    }
-    this.upstreamReferenceRows.add(upstreamReferenceRowsItem);
-    return this;
-  }
-
-   /**
-   * Upstream reference results.
-   * @return upstreamReferenceRows
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Upstream reference results.")
-
-  public List<ReportReferencedRow> getUpstreamReferenceRows() {
-    return upstreamReferenceRows;
-  }
-
-
-  public void setUpstreamReferenceRows(List<ReportReferencedRow> upstreamReferenceRows) {
-    this.upstreamReferenceRows = upstreamReferenceRows;
   }
 
 
@@ -161,8 +130,39 @@ public class ReportReferenceLevel {
   }
 
 
+  public ReportReferenceLevel upstreamReferenceRows(List<ReportReferencedRow> upstreamReferenceRows) {
+    
+    this.upstreamReferenceRows = upstreamReferenceRows;
+    return this;
+  }
+
+  public ReportReferenceLevel addUpstreamReferenceRowsItem(ReportReferencedRow upstreamReferenceRowsItem) {
+    if (this.upstreamReferenceRows == null) {
+      this.upstreamReferenceRows = new ArrayList<ReportReferencedRow>();
+    }
+    this.upstreamReferenceRows.add(upstreamReferenceRowsItem);
+    return this;
+  }
+
+   /**
+   * Upstream reference results.
+   * @return upstreamReferenceRows
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Upstream reference results.")
+
+  public List<ReportReferencedRow> getUpstreamReferenceRows() {
+    return upstreamReferenceRows;
+  }
+
+
+  public void setUpstreamReferenceRows(List<ReportReferencedRow> upstreamReferenceRows) {
+    this.upstreamReferenceRows = upstreamReferenceRows;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -171,25 +171,24 @@ public class ReportReferenceLevel {
     }
     ReportReferenceLevel reportReferenceLevel = (ReportReferenceLevel) o;
     return Objects.equals(this.columns, reportReferenceLevel.columns) &&
-        Objects.equals(this.upstreamReferenceRows, reportReferenceLevel.upstreamReferenceRows) &&
         Objects.equals(this.downstreamReferenceRows, reportReferenceLevel.downstreamReferenceRows) &&
-        Objects.equals(this.referenceLevel, reportReferenceLevel.referenceLevel);
+        Objects.equals(this.referenceLevel, reportReferenceLevel.referenceLevel) &&
+        Objects.equals(this.upstreamReferenceRows, reportReferenceLevel.upstreamReferenceRows);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(columns, upstreamReferenceRows, downstreamReferenceRows, referenceLevel);
+    return Objects.hash(columns, downstreamReferenceRows, referenceLevel, upstreamReferenceRows);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReportReferenceLevel {\n");
     sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
-    sb.append("    upstreamReferenceRows: ").append(toIndentedString(upstreamReferenceRows)).append("\n");
     sb.append("    downstreamReferenceRows: ").append(toIndentedString(downstreamReferenceRows)).append("\n");
     sb.append("    referenceLevel: ").append(toIndentedString(referenceLevel)).append("\n");
+    sb.append("    upstreamReferenceRows: ").append(toIndentedString(upstreamReferenceRows)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -198,7 +197,7 @@ public class ReportReferenceLevel {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

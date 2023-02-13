@@ -3,6 +3,7 @@
 # TrackerItemReferenceData
 
 Properties of a tracker item reference
+
 ## Properties
 
 Name | Type | Description | Notes

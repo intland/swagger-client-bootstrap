@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Basic properties of system status
  */
 @ApiModel(description = "Basic properties of system status")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class SystemStatus {
   /**
    * System mode
@@ -107,7 +107,7 @@ public class SystemStatus {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -123,7 +123,6 @@ public class SystemStatus {
     return Objects.hash(systemMode);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -137,7 +136,7 @@ public class SystemStatus {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

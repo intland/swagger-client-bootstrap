@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Request model to render a wiki page in a specific context
  */
 @ApiModel(description = "Request model to render a wiki page in a specific context")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class WikiRenderRequest {
   public static final String SERIALIZED_NAME_CONTEXT_ID = "contextId";
   @SerializedName(SERIALIZED_NAME_CONTEXT_ID)
@@ -38,6 +38,10 @@ public class WikiRenderRequest {
   public static final String SERIALIZED_NAME_CONTEXT_VERSION = "contextVersion";
   @SerializedName(SERIALIZED_NAME_CONTEXT_VERSION)
   private Integer contextVersion;
+
+  public static final String SERIALIZED_NAME_MARKUP = "markup";
+  @SerializedName(SERIALIZED_NAME_MARKUP)
+  private String markup;
 
   /**
    * Type of the entity used as rendering context
@@ -90,10 +94,6 @@ public class WikiRenderRequest {
   @SerializedName(SERIALIZED_NAME_RENDERING_CONTEXT_TYPE)
   private RenderingContextTypeEnum renderingContextType;
 
-  public static final String SERIALIZED_NAME_MARKUP = "markup";
-  @SerializedName(SERIALIZED_NAME_MARKUP)
-  private String markup;
-
 
   public WikiRenderRequest contextId(Integer contextId) {
     
@@ -141,6 +141,29 @@ public class WikiRenderRequest {
   }
 
 
+  public WikiRenderRequest markup(String markup) {
+    
+    this.markup = markup;
+    return this;
+  }
+
+   /**
+   * Wiki markup to render as HTML
+   * @return markup
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "Hello __World__!", required = true, value = "Wiki markup to render as HTML")
+
+  public String getMarkup() {
+    return markup;
+  }
+
+
+  public void setMarkup(String markup) {
+    this.markup = markup;
+  }
+
+
   public WikiRenderRequest renderingContextType(RenderingContextTypeEnum renderingContextType) {
     
     this.renderingContextType = renderingContextType;
@@ -164,30 +187,8 @@ public class WikiRenderRequest {
   }
 
 
-  public WikiRenderRequest markup(String markup) {
-    
-    this.markup = markup;
-    return this;
-  }
-
-   /**
-   * Wiki markup to render as HTML
-   * @return markup
-  **/
-  @ApiModelProperty(example = "Hello __World__!", required = true, value = "Wiki markup to render as HTML")
-
-  public String getMarkup() {
-    return markup;
-  }
-
-
-  public void setMarkup(String markup) {
-    this.markup = markup;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -197,15 +198,14 @@ public class WikiRenderRequest {
     WikiRenderRequest wikiRenderRequest = (WikiRenderRequest) o;
     return Objects.equals(this.contextId, wikiRenderRequest.contextId) &&
         Objects.equals(this.contextVersion, wikiRenderRequest.contextVersion) &&
-        Objects.equals(this.renderingContextType, wikiRenderRequest.renderingContextType) &&
-        Objects.equals(this.markup, wikiRenderRequest.markup);
+        Objects.equals(this.markup, wikiRenderRequest.markup) &&
+        Objects.equals(this.renderingContextType, wikiRenderRequest.renderingContextType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contextId, contextVersion, renderingContextType, markup);
+    return Objects.hash(contextId, contextVersion, markup, renderingContextType);
   }
-
 
   @Override
   public String toString() {
@@ -213,8 +213,8 @@ public class WikiRenderRequest {
     sb.append("class WikiRenderRequest {\n");
     sb.append("    contextId: ").append(toIndentedString(contextId)).append("\n");
     sb.append("    contextVersion: ").append(toIndentedString(contextVersion)).append("\n");
-    sb.append("    renderingContextType: ").append(toIndentedString(renderingContextType)).append("\n");
     sb.append("    markup: ").append(toIndentedString(markup)).append("\n");
+    sb.append("    renderingContextType: ").append(toIndentedString(renderingContextType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -223,7 +223,7 @@ public class WikiRenderRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

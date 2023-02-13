@@ -24,12 +24,15 @@ import io.swagger.annotations.ApiModelProperty;
  * Reference to a user
  */
 @ApiModel(description = "Reference to a user")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class UserReference extends AbstractReference {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
 
+  public UserReference() {
+    this.type = this.getClass().getSimpleName();
+  }
 
   public UserReference email(String email) {
     
@@ -55,7 +58,7 @@ public class UserReference extends AbstractReference {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -72,7 +75,6 @@ public class UserReference extends AbstractReference {
     return Objects.hash(email, super.hashCode());
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -87,7 +89,7 @@ public class UserReference extends AbstractReference {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

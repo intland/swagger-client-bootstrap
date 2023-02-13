@@ -26,8 +26,12 @@ import io.swagger.annotations.ApiModelProperty;
  * One page of attachments.
  */
 @ApiModel(description = "One page of attachments.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class AttachmentSearchResult {
+  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  private List<Attachment> attachments = null;
+
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
   private Integer page;
@@ -40,9 +44,36 @@ public class AttachmentSearchResult {
   @SerializedName(SERIALIZED_NAME_TOTAL)
   private Integer total;
 
-  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
-  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<Attachment> attachments = null;
+
+  public AttachmentSearchResult attachments(List<Attachment> attachments) {
+    
+    this.attachments = attachments;
+    return this;
+  }
+
+  public AttachmentSearchResult addAttachmentsItem(Attachment attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<Attachment>();
+    }
+    this.attachments.add(attachmentsItem);
+    return this;
+  }
+
+   /**
+   * Found attachments
+   * @return attachments
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Found attachments")
+
+  public List<Attachment> getAttachments() {
+    return attachments;
+  }
+
+
+  public void setAttachments(List<Attachment> attachments) {
+    this.attachments = attachments;
+  }
 
 
   public AttachmentSearchResult page(Integer page) {
@@ -114,39 +145,8 @@ public class AttachmentSearchResult {
   }
 
 
-  public AttachmentSearchResult attachments(List<Attachment> attachments) {
-    
-    this.attachments = attachments;
-    return this;
-  }
-
-  public AttachmentSearchResult addAttachmentsItem(Attachment attachmentsItem) {
-    if (this.attachments == null) {
-      this.attachments = new ArrayList<Attachment>();
-    }
-    this.attachments.add(attachmentsItem);
-    return this;
-  }
-
-   /**
-   * Found attachments
-   * @return attachments
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Found attachments")
-
-  public List<Attachment> getAttachments() {
-    return attachments;
-  }
-
-
-  public void setAttachments(List<Attachment> attachments) {
-    this.attachments = attachments;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -154,26 +154,25 @@ public class AttachmentSearchResult {
       return false;
     }
     AttachmentSearchResult attachmentSearchResult = (AttachmentSearchResult) o;
-    return Objects.equals(this.page, attachmentSearchResult.page) &&
+    return Objects.equals(this.attachments, attachmentSearchResult.attachments) &&
+        Objects.equals(this.page, attachmentSearchResult.page) &&
         Objects.equals(this.pageSize, attachmentSearchResult.pageSize) &&
-        Objects.equals(this.total, attachmentSearchResult.total) &&
-        Objects.equals(this.attachments, attachmentSearchResult.attachments);
+        Objects.equals(this.total, attachmentSearchResult.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, pageSize, total, attachments);
+    return Objects.hash(attachments, page, pageSize, total);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AttachmentSearchResult {\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
-    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -182,7 +181,7 @@ public class AttachmentSearchResult {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -15,10 +15,9 @@ package com.intland.swagger.client.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-
-import org.joda.time.DateTime;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -33,36 +32,8 @@ import io.swagger.annotations.ApiModelProperty;
  * Comment of a tracker item
  */
 @ApiModel(description = "Comment of a tracker item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class Comment {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
-  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private DateTime createdAt;
-
-  public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY)
-  private UserReference createdBy;
-
-  public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
-  private DateTime modifiedAt;
-
-  public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
-  private UserReference modifiedBy;
-
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
-  private Integer version;
-
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
   private List<Attachment> attachments = null;
@@ -124,171 +95,37 @@ public class Comment {
   @SerializedName(SERIALIZED_NAME_COMMENT_FORMAT)
   private CommentFormatEnum commentFormat;
 
+  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private Date createdAt;
+
+  public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
+  @SerializedName(SERIALIZED_NAME_CREATED_BY)
+  private UserReference createdBy;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Integer id;
+
+  public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
+  private Date modifiedAt;
+
+  public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
+  private UserReference modifiedBy;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
   public static final String SERIALIZED_NAME_PARENT = "parent";
   @SerializedName(SERIALIZED_NAME_PARENT)
   private CommentReference parent;
 
-
-  public Comment id(Integer id) {
-    
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Id of the entity
-   * minimum: 0
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Id of the entity")
-
-  public Integer getId() {
-    return id;
-  }
-
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-
-  public Comment name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the entity
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the entity")
-
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public Comment createdAt(DateTime createdAt) {
-    
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * The date when the entity was created
-   * @return createdAt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The date when the entity was created")
-
-  public DateTime getCreatedAt() {
-    return createdAt;
-  }
-
-
-  public void setCreatedAt(DateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
-  public Comment createdBy(UserReference createdBy) {
-    
-    this.createdBy = createdBy;
-    return this;
-  }
-
-   /**
-   * Get createdBy
-   * @return createdBy
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public UserReference getCreatedBy() {
-    return createdBy;
-  }
-
-
-  public void setCreatedBy(UserReference createdBy) {
-    this.createdBy = createdBy;
-  }
-
-
-  public Comment modifiedAt(DateTime modifiedAt) {
-    
-    this.modifiedAt = modifiedAt;
-    return this;
-  }
-
-   /**
-   * The date when the entity was modified
-   * @return modifiedAt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The date when the entity was modified")
-
-  public DateTime getModifiedAt() {
-    return modifiedAt;
-  }
-
-
-  public void setModifiedAt(DateTime modifiedAt) {
-    this.modifiedAt = modifiedAt;
-  }
-
-
-  public Comment modifiedBy(UserReference modifiedBy) {
-    
-    this.modifiedBy = modifiedBy;
-    return this;
-  }
-
-   /**
-   * Get modifiedBy
-   * @return modifiedBy
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public UserReference getModifiedBy() {
-    return modifiedBy;
-  }
-
-
-  public void setModifiedBy(UserReference modifiedBy) {
-    this.modifiedBy = modifiedBy;
-  }
-
-
-  public Comment version(Integer version) {
-    
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * Version of a comment
-   * @return version
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Version of a comment")
-
-  public Integer getVersion() {
-    return version;
-  }
-
-
-  public void setVersion(Integer version) {
-    this.version = version;
-  }
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private Integer version;
 
 
   public Comment attachments(List<Attachment> attachments) {
@@ -368,6 +205,145 @@ public class Comment {
   }
 
 
+  public Comment createdAt(Date createdAt) {
+    
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * The date when the entity was created
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date when the entity was created")
+
+  public Date getCreatedAt() {
+    return createdAt;
+  }
+
+
+  public void setCreatedAt(Date createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public Comment createdBy(UserReference createdBy) {
+    
+    this.createdBy = createdBy;
+    return this;
+  }
+
+   /**
+   * Get createdBy
+   * @return createdBy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public UserReference getCreatedBy() {
+    return createdBy;
+  }
+
+
+  public void setCreatedBy(UserReference createdBy) {
+    this.createdBy = createdBy;
+  }
+
+
+  public Comment id(Integer id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Id of the entity
+   * minimum: 0
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Id of the entity")
+
+  public Integer getId() {
+    return id;
+  }
+
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+
+  public Comment modifiedAt(Date modifiedAt) {
+    
+    this.modifiedAt = modifiedAt;
+    return this;
+  }
+
+   /**
+   * The date when the entity was modified
+   * @return modifiedAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date when the entity was modified")
+
+  public Date getModifiedAt() {
+    return modifiedAt;
+  }
+
+
+  public void setModifiedAt(Date modifiedAt) {
+    this.modifiedAt = modifiedAt;
+  }
+
+
+  public Comment modifiedBy(UserReference modifiedBy) {
+    
+    this.modifiedBy = modifiedBy;
+    return this;
+  }
+
+   /**
+   * Get modifiedBy
+   * @return modifiedBy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public UserReference getModifiedBy() {
+    return modifiedBy;
+  }
+
+
+  public void setModifiedBy(UserReference modifiedBy) {
+    this.modifiedBy = modifiedBy;
+  }
+
+
+  public Comment name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the entity
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the entity")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
   public Comment parent(CommentReference parent) {
     
     this.parent = parent;
@@ -391,8 +367,31 @@ public class Comment {
   }
 
 
+  public Comment version(Integer version) {
+    
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Version of a comment
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Version of a comment")
+
+  public Integer getVersion() {
+    return version;
+  }
+
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -400,40 +399,39 @@ public class Comment {
       return false;
     }
     Comment comment = (Comment) o;
-    return Objects.equals(this.id, comment.id) &&
-        Objects.equals(this.name, comment.name) &&
-        Objects.equals(this.createdAt, comment.createdAt) &&
-        Objects.equals(this.createdBy, comment.createdBy) &&
-        Objects.equals(this.modifiedAt, comment.modifiedAt) &&
-        Objects.equals(this.modifiedBy, comment.modifiedBy) &&
-        Objects.equals(this.version, comment.version) &&
-        Objects.equals(this.attachments, comment.attachments) &&
+    return Objects.equals(this.attachments, comment.attachments) &&
         Objects.equals(this.comment, comment.comment) &&
         Objects.equals(this.commentFormat, comment.commentFormat) &&
-        Objects.equals(this.parent, comment.parent);
+        Objects.equals(this.createdAt, comment.createdAt) &&
+        Objects.equals(this.createdBy, comment.createdBy) &&
+        Objects.equals(this.id, comment.id) &&
+        Objects.equals(this.modifiedAt, comment.modifiedAt) &&
+        Objects.equals(this.modifiedBy, comment.modifiedBy) &&
+        Objects.equals(this.name, comment.name) &&
+        Objects.equals(this.parent, comment.parent) &&
+        Objects.equals(this.version, comment.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, createdAt, createdBy, modifiedAt, modifiedBy, version, attachments, comment, commentFormat, parent);
+    return Objects.hash(attachments, comment, commentFormat, createdAt, createdBy, id, modifiedAt, modifiedBy, name, parent, version);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Comment {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
-    sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    commentFormat: ").append(toIndentedString(commentFormat)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -442,7 +440,7 @@ public class Comment {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

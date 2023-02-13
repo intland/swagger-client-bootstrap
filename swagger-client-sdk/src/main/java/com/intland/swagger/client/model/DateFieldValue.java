@@ -13,9 +13,8 @@
 
 package com.intland.swagger.client.model;
 
+import java.util.Date;
 import java.util.Objects;
-
-import org.joda.time.DateTime;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -26,14 +25,17 @@ import io.swagger.annotations.ApiModelProperty;
  * Value container of a date field
  */
 @ApiModel(description = "Value container of a date field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class DateFieldValue extends AbstractFieldValue {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  private DateTime value;
+  private Date value;
 
+  public DateFieldValue() {
+    this.type = this.getClass().getSimpleName();
+  }
 
-  public DateFieldValue value(DateTime value) {
+  public DateFieldValue value(Date value) {
     
     this.value = value;
     return this;
@@ -43,20 +45,21 @@ public class DateFieldValue extends AbstractFieldValue {
    * Date value
    * @return value
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Date value")
 
-  public DateTime getValue() {
+  public Date getValue() {
     return value;
   }
 
 
-  public void setValue(DateTime value) {
+  public void setValue(Date value) {
     this.value = value;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -73,7 +76,6 @@ public class DateFieldValue extends AbstractFieldValue {
     return Objects.hash(value, super.hashCode());
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -88,7 +90,7 @@ public class DateFieldValue extends AbstractFieldValue {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

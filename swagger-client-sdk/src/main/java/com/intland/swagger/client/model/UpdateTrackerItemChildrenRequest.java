@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Tracker item child update request
  */
 @ApiModel(description = "Tracker item child update request")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class UpdateTrackerItemChildrenRequest {
   public static final String SERIALIZED_NAME_CHILDREN = "children";
   @SerializedName(SERIALIZED_NAME_CHILDREN)
@@ -65,7 +65,7 @@ public class UpdateTrackerItemChildrenRequest {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -81,7 +81,6 @@ public class UpdateTrackerItemChildrenRequest {
     return Objects.hash(children);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -95,7 +94,7 @@ public class UpdateTrackerItemChildrenRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

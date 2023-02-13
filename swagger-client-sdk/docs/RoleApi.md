@@ -77,15 +77,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Roles |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
 **404** | Role not found |  -  |
 **429** | Too many requests |  -  |
-**200** | Roles |  -  |
 
 <a name="getRoles"></a>
 # **getRoles**
@@ -152,13 +153,14 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Roles |  -  |
+**400** | Bad Request |  -  |
 **403** | Authentication is required |  -  |
 **404** | Role not found |  -  |
 **429** | Too many requests |  -  |
-**200** | Roles |  -  |
 

@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ProjectFilteringRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ProjectFilteringRequest {
   public static final String SERIALIZED_NAME_KEY_NAME = "keyName";
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
@@ -39,6 +39,7 @@ public class ProjectFilteringRequest {
    * Key name of the project
    * @return keyName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Key name of the project")
 
   public String getKeyName() {
@@ -52,7 +53,7 @@ public class ProjectFilteringRequest {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -68,7 +69,6 @@ public class ProjectFilteringRequest {
     return Objects.hash(keyName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -82,7 +82,7 @@ public class ProjectFilteringRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

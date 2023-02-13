@@ -3,6 +3,7 @@
 # ReportGroupWithRows
 
 ReportGroup having rows.
+
 ## Properties
 
 Name | Type | Description | Notes

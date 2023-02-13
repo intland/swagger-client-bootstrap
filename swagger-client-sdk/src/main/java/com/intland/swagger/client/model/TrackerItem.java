@@ -15,10 +15,9 @@ package com.intland.swagger.client.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-
-import org.joda.time.DateTime;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -33,15 +32,51 @@ import io.swagger.annotations.ApiModelProperty;
  * Basic properties of a codebeamer tracker item
  */
 @ApiModel(description = "Basic properties of a codebeamer tracker item")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerItem {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
+  public static final String SERIALIZED_NAME_ACCRUED_MILLIS = "accruedMillis";
+  @SerializedName(SERIALIZED_NAME_ACCRUED_MILLIS)
+  private Long accruedMillis;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String SERIALIZED_NAME_AREAS = "areas";
+  @SerializedName(SERIALIZED_NAME_AREAS)
+  private List<AbstractReference> areas = null;
+
+  public static final String SERIALIZED_NAME_ASSIGNED_AT = "assignedAt";
+  @SerializedName(SERIALIZED_NAME_ASSIGNED_AT)
+  private Date assignedAt;
+
+  public static final String SERIALIZED_NAME_ASSIGNED_TO = "assignedTo";
+  @SerializedName(SERIALIZED_NAME_ASSIGNED_TO)
+  private List<AbstractReference> assignedTo = null;
+
+  public static final String SERIALIZED_NAME_CATEGORIES = "categories";
+  @SerializedName(SERIALIZED_NAME_CATEGORIES)
+  private List<AbstractReference> categories = null;
+
+  public static final String SERIALIZED_NAME_CHILDREN = "children";
+  @SerializedName(SERIALIZED_NAME_CHILDREN)
+  private List<TrackerItemReference> children = null;
+
+  public static final String SERIALIZED_NAME_CLOSED_AT = "closedAt";
+  @SerializedName(SERIALIZED_NAME_CLOSED_AT)
+  private Date closedAt;
+
+  public static final String SERIALIZED_NAME_COMMENTS = "comments";
+  @SerializedName(SERIALIZED_NAME_COMMENTS)
+  private List<CommentReference> comments = null;
+
+  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private Date createdAt;
+
+  public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
+  @SerializedName(SERIALIZED_NAME_CREATED_BY)
+  private UserReference createdBy;
+
+  public static final String SERIALIZED_NAME_CUSTOM_FIELDS = "customFields";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_FIELDS)
+  private List<AbstractFieldValue> customFields = null;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -100,101 +135,57 @@ public class TrackerItem {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION_FORMAT)
   private DescriptionFormatEnum descriptionFormat;
 
-  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private DateTime createdAt;
-
-  public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY)
-  private UserReference createdBy;
-
-  public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
-  private DateTime modifiedAt;
-
-  public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
-  private UserReference modifiedBy;
-
-  public static final String SERIALIZED_NAME_PARENT = "parent";
-  @SerializedName(SERIALIZED_NAME_PARENT)
-  private TrackerItemReference parent;
-
-  public static final String SERIALIZED_NAME_OWNERS = "owners";
-  @SerializedName(SERIALIZED_NAME_OWNERS)
-  private List<AbstractReference> owners = null;
-
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
-  private Integer version;
-
-  public static final String SERIALIZED_NAME_ASSIGNED_AT = "assignedAt";
-  @SerializedName(SERIALIZED_NAME_ASSIGNED_AT)
-  private DateTime assignedAt;
-
-  public static final String SERIALIZED_NAME_ASSIGNED_TO = "assignedTo";
-  @SerializedName(SERIALIZED_NAME_ASSIGNED_TO)
-  private List<AbstractReference> assignedTo = null;
-
-  public static final String SERIALIZED_NAME_START_DATE = "startDate";
-  @SerializedName(SERIALIZED_NAME_START_DATE)
-  private DateTime startDate;
-
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
   @SerializedName(SERIALIZED_NAME_END_DATE)
-  private DateTime endDate;
-
-  public static final String SERIALIZED_NAME_CLOSED_AT = "closedAt";
-  @SerializedName(SERIALIZED_NAME_CLOSED_AT)
-  private DateTime closedAt;
-
-  public static final String SERIALIZED_NAME_STORY_POINTS = "storyPoints";
-  @SerializedName(SERIALIZED_NAME_STORY_POINTS)
-  private Integer storyPoints;
-
-  public static final String SERIALIZED_NAME_TRACKER = "tracker";
-  @SerializedName(SERIALIZED_NAME_TRACKER)
-  private TrackerReference tracker;
-
-  public static final String SERIALIZED_NAME_CHILDREN = "children";
-  @SerializedName(SERIALIZED_NAME_CHILDREN)
-  private List<TrackerItemReference> children = null;
-
-  public static final String SERIALIZED_NAME_CUSTOM_FIELDS = "customFields";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_FIELDS)
-  private List<AbstractFieldValue> customFields = null;
-
-  public static final String SERIALIZED_NAME_PRIORITY = "priority";
-  @SerializedName(SERIALIZED_NAME_PRIORITY)
-  private AbstractReference priority;
-
-  public static final String SERIALIZED_NAME_ACCRUED_MILLIS = "accruedMillis";
-  @SerializedName(SERIALIZED_NAME_ACCRUED_MILLIS)
-  private Long accruedMillis;
+  private Date endDate;
 
   public static final String SERIALIZED_NAME_ESTIMATED_MILLIS = "estimatedMillis";
   @SerializedName(SERIALIZED_NAME_ESTIMATED_MILLIS)
   private Long estimatedMillis;
 
-  public static final String SERIALIZED_NAME_SPENT_MILLIS = "spentMillis";
-  @SerializedName(SERIALIZED_NAME_SPENT_MILLIS)
-  private Long spentMillis;
+  public static final String SERIALIZED_NAME_FORMALITY = "formality";
+  @SerializedName(SERIALIZED_NAME_FORMALITY)
+  private AbstractReference formality;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  private AbstractReference status;
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Integer id;
+
+  public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
+  private Date modifiedAt;
+
+  public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
+  @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
+  private UserReference modifiedBy;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
+  public static final String SERIALIZED_NAME_ORDINAL = "ordinal";
+  @SerializedName(SERIALIZED_NAME_ORDINAL)
+  private Integer ordinal;
+
+  public static final String SERIALIZED_NAME_OWNERS = "owners";
+  @SerializedName(SERIALIZED_NAME_OWNERS)
+  private List<AbstractReference> owners = null;
+
+  public static final String SERIALIZED_NAME_PARENT = "parent";
+  @SerializedName(SERIALIZED_NAME_PARENT)
+  private TrackerItemReference parent;
 
   public static final String SERIALIZED_NAME_PLATFORMS = "platforms";
   @SerializedName(SERIALIZED_NAME_PLATFORMS)
   private List<AbstractReference> platforms = null;
 
-  public static final String SERIALIZED_NAME_CATEGORIES = "categories";
-  @SerializedName(SERIALIZED_NAME_CATEGORIES)
-  private List<AbstractReference> categories = null;
+  public static final String SERIALIZED_NAME_PRIORITY = "priority";
+  @SerializedName(SERIALIZED_NAME_PRIORITY)
+  private AbstractReference priority;
 
-  public static final String SERIALIZED_NAME_SUBJECTS = "subjects";
-  @SerializedName(SERIALIZED_NAME_SUBJECTS)
-  private List<AbstractReference> subjects = null;
+  public static final String SERIALIZED_NAME_RELEASE_METHOD = "releaseMethod";
+  @SerializedName(SERIALIZED_NAME_RELEASE_METHOD)
+  private AbstractReference releaseMethod;
 
   public static final String SERIALIZED_NAME_RESOLUTIONS = "resolutions";
   @SerializedName(SERIALIZED_NAME_RESOLUTIONS)
@@ -204,87 +195,297 @@ public class TrackerItem {
   @SerializedName(SERIALIZED_NAME_SEVERITIES)
   private List<AbstractReference> severities = null;
 
-  public static final String SERIALIZED_NAME_RELEASE_METHOD = "releaseMethod";
-  @SerializedName(SERIALIZED_NAME_RELEASE_METHOD)
-  private AbstractReference releaseMethod;
+  public static final String SERIALIZED_NAME_SPENT_MILLIS = "spentMillis";
+  @SerializedName(SERIALIZED_NAME_SPENT_MILLIS)
+  private Long spentMillis;
 
-  public static final String SERIALIZED_NAME_FORMALITY = "formality";
-  @SerializedName(SERIALIZED_NAME_FORMALITY)
-  private AbstractReference formality;
+  public static final String SERIALIZED_NAME_START_DATE = "startDate";
+  @SerializedName(SERIALIZED_NAME_START_DATE)
+  private Date startDate;
 
-  public static final String SERIALIZED_NAME_TEAMS = "teams";
-  @SerializedName(SERIALIZED_NAME_TEAMS)
-  private List<AbstractReference> teams = null;
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private AbstractReference status;
 
-  public static final String SERIALIZED_NAME_AREAS = "areas";
-  @SerializedName(SERIALIZED_NAME_AREAS)
-  private List<AbstractReference> areas = null;
+  public static final String SERIALIZED_NAME_STORY_POINTS = "storyPoints";
+  @SerializedName(SERIALIZED_NAME_STORY_POINTS)
+  private Integer storyPoints;
 
-  public static final String SERIALIZED_NAME_VERSIONS = "versions";
-  @SerializedName(SERIALIZED_NAME_VERSIONS)
-  private List<AbstractReference> versions = null;
-
-  public static final String SERIALIZED_NAME_ORDINAL = "ordinal";
-  @SerializedName(SERIALIZED_NAME_ORDINAL)
-  private Integer ordinal;
-
-  public static final String SERIALIZED_NAME_TYPE_NAME = "typeName";
-  @SerializedName(SERIALIZED_NAME_TYPE_NAME)
-  private String typeName;
-
-  public static final String SERIALIZED_NAME_COMMENTS = "comments";
-  @SerializedName(SERIALIZED_NAME_COMMENTS)
-  private List<CommentReference> comments = null;
+  public static final String SERIALIZED_NAME_SUBJECTS = "subjects";
+  @SerializedName(SERIALIZED_NAME_SUBJECTS)
+  private List<AbstractReference> subjects = null;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<Label> tags = null;
 
+  public static final String SERIALIZED_NAME_TEAMS = "teams";
+  @SerializedName(SERIALIZED_NAME_TEAMS)
+  private List<AbstractReference> teams = null;
 
-  public TrackerItem id(Integer id) {
+  public static final String SERIALIZED_NAME_TRACKER = "tracker";
+  @SerializedName(SERIALIZED_NAME_TRACKER)
+  private TrackerReference tracker;
+
+  public static final String SERIALIZED_NAME_TYPE_NAME = "typeName";
+  @SerializedName(SERIALIZED_NAME_TYPE_NAME)
+  private String typeName;
+
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private Integer version;
+
+  public static final String SERIALIZED_NAME_VERSIONS = "versions";
+  @SerializedName(SERIALIZED_NAME_VERSIONS)
+  private List<AbstractReference> versions = null;
+
+
+   /**
+   * Accrued work time of a tracker item in milliseconds
+   * @return accruedMillis
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Accrued work time of a tracker item in milliseconds")
+
+  public Long getAccruedMillis() {
+    return accruedMillis;
+  }
+
+
+
+
+  public TrackerItem areas(List<AbstractReference> areas) {
     
-    this.id = id;
+    this.areas = areas;
+    return this;
+  }
+
+  public TrackerItem addAreasItem(AbstractReference areasItem) {
+    if (this.areas == null) {
+      this.areas = new ArrayList<AbstractReference>();
+    }
+    this.areas.add(areasItem);
     return this;
   }
 
    /**
-   * Id of the entity
-   * minimum: 0
-   * @return id
+   * Areas of a tracker item
+   * @return areas
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Id of the entity")
+  @ApiModelProperty(value = "Areas of a tracker item")
 
-  public Integer getId() {
-    return id;
+  public List<AbstractReference> getAreas() {
+    return areas;
   }
 
 
-  public void setId(Integer id) {
-    this.id = id;
+  public void setAreas(List<AbstractReference> areas) {
+    this.areas = areas;
   }
 
 
-  public TrackerItem name(String name) {
+   /**
+   * Assignee date of a tracker item
+   * @return assignedAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Assignee date of a tracker item")
+
+  public Date getAssignedAt() {
+    return assignedAt;
+  }
+
+
+
+
+  public TrackerItem assignedTo(List<AbstractReference> assignedTo) {
     
-    this.name = name;
+    this.assignedTo = assignedTo;
+    return this;
+  }
+
+  public TrackerItem addAssignedToItem(AbstractReference assignedToItem) {
+    if (this.assignedTo == null) {
+      this.assignedTo = new ArrayList<AbstractReference>();
+    }
+    this.assignedTo.add(assignedToItem);
     return this;
   }
 
    /**
-   * Name of the entity
-   * @return name
+   * Assignees of a tracker item
+   * @return assignedTo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the entity")
+  @ApiModelProperty(value = "Assignees of a tracker item")
 
-  public String getName() {
-    return name;
+  public List<AbstractReference> getAssignedTo() {
+    return assignedTo;
   }
 
 
-  public void setName(String name) {
-    this.name = name;
+  public void setAssignedTo(List<AbstractReference> assignedTo) {
+    this.assignedTo = assignedTo;
+  }
+
+
+  public TrackerItem categories(List<AbstractReference> categories) {
+    
+    this.categories = categories;
+    return this;
+  }
+
+  public TrackerItem addCategoriesItem(AbstractReference categoriesItem) {
+    if (this.categories == null) {
+      this.categories = new ArrayList<AbstractReference>();
+    }
+    this.categories.add(categoriesItem);
+    return this;
+  }
+
+   /**
+   * Categories of a tracker item
+   * @return categories
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Categories of a tracker item")
+
+  public List<AbstractReference> getCategories() {
+    return categories;
+  }
+
+
+  public void setCategories(List<AbstractReference> categories) {
+    this.categories = categories;
+  }
+
+
+   /**
+   * Children of a tracker item
+   * @return children
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Children of a tracker item")
+
+  public List<TrackerItemReference> getChildren() {
+    return children;
+  }
+
+
+
+
+  public TrackerItem closedAt(Date closedAt) {
+    
+    this.closedAt = closedAt;
+    return this;
+  }
+
+   /**
+   * Close date of a tracker item
+   * @return closedAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Close date of a tracker item")
+
+  public Date getClosedAt() {
+    return closedAt;
+  }
+
+
+  public void setClosedAt(Date closedAt) {
+    this.closedAt = closedAt;
+  }
+
+
+   /**
+   * Comment in the tracker item
+   * @return comments
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Comment in the tracker item")
+
+  public List<CommentReference> getComments() {
+    return comments;
+  }
+
+
+
+
+  public TrackerItem createdAt(Date createdAt) {
+    
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * The date when the entity was created
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date when the entity was created")
+
+  public Date getCreatedAt() {
+    return createdAt;
+  }
+
+
+  public void setCreatedAt(Date createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public TrackerItem createdBy(UserReference createdBy) {
+    
+    this.createdBy = createdBy;
+    return this;
+  }
+
+   /**
+   * Get createdBy
+   * @return createdBy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public UserReference getCreatedBy() {
+    return createdBy;
+  }
+
+
+  public void setCreatedBy(UserReference createdBy) {
+    this.createdBy = createdBy;
+  }
+
+
+  public TrackerItem customFields(List<AbstractFieldValue> customFields) {
+    
+    this.customFields = customFields;
+    return this;
+  }
+
+  public TrackerItem addCustomFieldsItem(AbstractFieldValue customFieldsItem) {
+    if (this.customFields == null) {
+      this.customFields = new ArrayList<AbstractFieldValue>();
+    }
+    this.customFields.add(customFieldsItem);
+    return this;
+  }
+
+   /**
+   * Custom field of a tracker item
+   * @return customFields
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Custom field of a tracker item")
+
+  public List<AbstractFieldValue> getCustomFields() {
+    return customFields;
+  }
+
+
+  public void setCustomFields(List<AbstractFieldValue> customFields) {
+    this.customFields = customFields;
   }
 
 
@@ -334,53 +535,100 @@ public class TrackerItem {
   }
 
 
-  public TrackerItem createdAt(DateTime createdAt) {
+  public TrackerItem endDate(Date endDate) {
     
-    this.createdAt = createdAt;
+    this.endDate = endDate;
     return this;
   }
 
    /**
-   * The date when the entity was created
-   * @return createdAt
+   * End date of a tracker item
+   * @return endDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The date when the entity was created")
+  @ApiModelProperty(value = "End date of a tracker item")
 
-  public DateTime getCreatedAt() {
-    return createdAt;
+  public Date getEndDate() {
+    return endDate;
   }
 
 
-  public void setCreatedAt(DateTime createdAt) {
-    this.createdAt = createdAt;
+  public void setEndDate(Date endDate) {
+    this.endDate = endDate;
   }
 
 
-  public TrackerItem createdBy(UserReference createdBy) {
+  public TrackerItem estimatedMillis(Long estimatedMillis) {
     
-    this.createdBy = createdBy;
+    this.estimatedMillis = estimatedMillis;
     return this;
   }
 
    /**
-   * Get createdBy
-   * @return createdBy
+   * Estimated work time of a tracker item in milliseconds
+   * @return estimatedMillis
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Estimated work time of a tracker item in milliseconds")
+
+  public Long getEstimatedMillis() {
+    return estimatedMillis;
+  }
+
+
+  public void setEstimatedMillis(Long estimatedMillis) {
+    this.estimatedMillis = estimatedMillis;
+  }
+
+
+  public TrackerItem formality(AbstractReference formality) {
+    
+    this.formality = formality;
+    return this;
+  }
+
+   /**
+   * Get formality
+   * @return formality
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public UserReference getCreatedBy() {
-    return createdBy;
+  public AbstractReference getFormality() {
+    return formality;
   }
 
 
-  public void setCreatedBy(UserReference createdBy) {
-    this.createdBy = createdBy;
+  public void setFormality(AbstractReference formality) {
+    this.formality = formality;
   }
 
 
-  public TrackerItem modifiedAt(DateTime modifiedAt) {
+  public TrackerItem id(Integer id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Id of the entity
+   * minimum: 0
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Id of the entity")
+
+  public Integer getId() {
+    return id;
+  }
+
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+
+  public TrackerItem modifiedAt(Date modifiedAt) {
     
     this.modifiedAt = modifiedAt;
     return this;
@@ -393,12 +641,12 @@ public class TrackerItem {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
 
-  public DateTime getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
 
-  public void setModifiedAt(DateTime modifiedAt) {
+  public void setModifiedAt(Date modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 
@@ -426,26 +674,49 @@ public class TrackerItem {
   }
 
 
-  public TrackerItem parent(TrackerItemReference parent) {
+  public TrackerItem name(String name) {
     
-    this.parent = parent;
+    this.name = name;
     return this;
   }
 
    /**
-   * Get parent
-   * @return parent
+   * Name of the entity
+   * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the entity")
 
-  public TrackerItemReference getParent() {
-    return parent;
+  public String getName() {
+    return name;
   }
 
 
-  public void setParent(TrackerItemReference parent) {
-    this.parent = parent;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public TrackerItem ordinal(Integer ordinal) {
+    
+    this.ordinal = ordinal;
+    return this;
+  }
+
+   /**
+   * Ordinal of a tracker item
+   * @return ordinal
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Ordinal of a tracker item")
+
+  public Integer getOrdinal() {
+    return ordinal;
+  }
+
+
+  public void setOrdinal(Integer ordinal) {
+    this.ordinal = ordinal;
   }
 
 
@@ -480,319 +751,26 @@ public class TrackerItem {
   }
 
 
-   /**
-   * Version of a tracker item
-   * @return version
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Version of a tracker item")
-
-  public Integer getVersion() {
-    return version;
-  }
-
-
-
-
-   /**
-   * Assignee date of a tracker item
-   * @return assignedAt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Assignee date of a tracker item")
-
-  public DateTime getAssignedAt() {
-    return assignedAt;
-  }
-
-
-
-
-  public TrackerItem assignedTo(List<AbstractReference> assignedTo) {
+  public TrackerItem parent(TrackerItemReference parent) {
     
-    this.assignedTo = assignedTo;
-    return this;
-  }
-
-  public TrackerItem addAssignedToItem(AbstractReference assignedToItem) {
-    if (this.assignedTo == null) {
-      this.assignedTo = new ArrayList<AbstractReference>();
-    }
-    this.assignedTo.add(assignedToItem);
+    this.parent = parent;
     return this;
   }
 
    /**
-   * Assignees of a tracker item
-   * @return assignedTo
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Assignees of a tracker item")
-
-  public List<AbstractReference> getAssignedTo() {
-    return assignedTo;
-  }
-
-
-  public void setAssignedTo(List<AbstractReference> assignedTo) {
-    this.assignedTo = assignedTo;
-  }
-
-
-  public TrackerItem startDate(DateTime startDate) {
-    
-    this.startDate = startDate;
-    return this;
-  }
-
-   /**
-   * Start date of a tracker item
-   * @return startDate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Start date of a tracker item")
-
-  public DateTime getStartDate() {
-    return startDate;
-  }
-
-
-  public void setStartDate(DateTime startDate) {
-    this.startDate = startDate;
-  }
-
-
-  public TrackerItem endDate(DateTime endDate) {
-    
-    this.endDate = endDate;
-    return this;
-  }
-
-   /**
-   * End date of a tracker item
-   * @return endDate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "End date of a tracker item")
-
-  public DateTime getEndDate() {
-    return endDate;
-  }
-
-
-  public void setEndDate(DateTime endDate) {
-    this.endDate = endDate;
-  }
-
-
-  public TrackerItem closedAt(DateTime closedAt) {
-    
-    this.closedAt = closedAt;
-    return this;
-  }
-
-   /**
-   * Close date of a tracker item
-   * @return closedAt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Close date of a tracker item")
-
-  public DateTime getClosedAt() {
-    return closedAt;
-  }
-
-
-  public void setClosedAt(DateTime closedAt) {
-    this.closedAt = closedAt;
-  }
-
-
-  public TrackerItem storyPoints(Integer storyPoints) {
-    
-    this.storyPoints = storyPoints;
-    return this;
-  }
-
-   /**
-   * Story points of a tracker item
-   * @return storyPoints
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Story points of a tracker item")
-
-  public Integer getStoryPoints() {
-    return storyPoints;
-  }
-
-
-  public void setStoryPoints(Integer storyPoints) {
-    this.storyPoints = storyPoints;
-  }
-
-
-  public TrackerItem tracker(TrackerReference tracker) {
-    
-    this.tracker = tracker;
-    return this;
-  }
-
-   /**
-   * Get tracker
-   * @return tracker
+   * Get parent
+   * @return parent
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public TrackerReference getTracker() {
-    return tracker;
+  public TrackerItemReference getParent() {
+    return parent;
   }
 
 
-  public void setTracker(TrackerReference tracker) {
-    this.tracker = tracker;
-  }
-
-
-   /**
-   * Children of a tracker item
-   * @return children
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Children of a tracker item")
-
-  public List<TrackerItemReference> getChildren() {
-    return children;
-  }
-
-
-
-
-  public TrackerItem customFields(List<AbstractFieldValue> customFields) {
-    
-    this.customFields = customFields;
-    return this;
-  }
-
-  public TrackerItem addCustomFieldsItem(AbstractFieldValue customFieldsItem) {
-    if (this.customFields == null) {
-      this.customFields = new ArrayList<AbstractFieldValue>();
-    }
-    this.customFields.add(customFieldsItem);
-    return this;
-  }
-
-   /**
-   * Custom field of a tracker item
-   * @return customFields
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Custom field of a tracker item")
-
-  public List<AbstractFieldValue> getCustomFields() {
-    return customFields;
-  }
-
-
-  public void setCustomFields(List<AbstractFieldValue> customFields) {
-    this.customFields = customFields;
-  }
-
-
-  public TrackerItem priority(AbstractReference priority) {
-    
-    this.priority = priority;
-    return this;
-  }
-
-   /**
-   * Get priority
-   * @return priority
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public AbstractReference getPriority() {
-    return priority;
-  }
-
-
-  public void setPriority(AbstractReference priority) {
-    this.priority = priority;
-  }
-
-
-   /**
-   * Accrued work time of a tracker item in milliseconds
-   * @return accruedMillis
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Accrued work time of a tracker item in milliseconds")
-
-  public Long getAccruedMillis() {
-    return accruedMillis;
-  }
-
-
-
-
-  public TrackerItem estimatedMillis(Long estimatedMillis) {
-    
-    this.estimatedMillis = estimatedMillis;
-    return this;
-  }
-
-   /**
-   * Estimated work time of a tracker item in milliseconds
-   * @return estimatedMillis
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Estimated work time of a tracker item in milliseconds")
-
-  public Long getEstimatedMillis() {
-    return estimatedMillis;
-  }
-
-
-  public void setEstimatedMillis(Long estimatedMillis) {
-    this.estimatedMillis = estimatedMillis;
-  }
-
-
-   /**
-   * Spent work time of a tracker item in milliseconds
-   * @return spentMillis
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Spent work time of a tracker item in milliseconds")
-
-  public Long getSpentMillis() {
-    return spentMillis;
-  }
-
-
-
-
-  public TrackerItem status(AbstractReference status) {
-    
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public AbstractReference getStatus() {
-    return status;
-  }
-
-
-  public void setStatus(AbstractReference status) {
-    this.status = status;
+  public void setParent(TrackerItemReference parent) {
+    this.parent = parent;
   }
 
 
@@ -827,65 +805,49 @@ public class TrackerItem {
   }
 
 
-  public TrackerItem categories(List<AbstractReference> categories) {
+  public TrackerItem priority(AbstractReference priority) {
     
-    this.categories = categories;
-    return this;
-  }
-
-  public TrackerItem addCategoriesItem(AbstractReference categoriesItem) {
-    if (this.categories == null) {
-      this.categories = new ArrayList<AbstractReference>();
-    }
-    this.categories.add(categoriesItem);
+    this.priority = priority;
     return this;
   }
 
    /**
-   * Categories of a tracker item
-   * @return categories
+   * Get priority
+   * @return priority
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Categories of a tracker item")
+  @ApiModelProperty(value = "")
 
-  public List<AbstractReference> getCategories() {
-    return categories;
+  public AbstractReference getPriority() {
+    return priority;
   }
 
 
-  public void setCategories(List<AbstractReference> categories) {
-    this.categories = categories;
+  public void setPriority(AbstractReference priority) {
+    this.priority = priority;
   }
 
 
-  public TrackerItem subjects(List<AbstractReference> subjects) {
+  public TrackerItem releaseMethod(AbstractReference releaseMethod) {
     
-    this.subjects = subjects;
-    return this;
-  }
-
-  public TrackerItem addSubjectsItem(AbstractReference subjectsItem) {
-    if (this.subjects == null) {
-      this.subjects = new ArrayList<AbstractReference>();
-    }
-    this.subjects.add(subjectsItem);
+    this.releaseMethod = releaseMethod;
     return this;
   }
 
    /**
-   * Subjects of a tracker item
-   * @return subjects
+   * Get releaseMethod
+   * @return releaseMethod
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Subjects of a tracker item")
+  @ApiModelProperty(value = "")
 
-  public List<AbstractReference> getSubjects() {
-    return subjects;
+  public AbstractReference getReleaseMethod() {
+    return releaseMethod;
   }
 
 
-  public void setSubjects(List<AbstractReference> subjects) {
-    this.subjects = subjects;
+  public void setReleaseMethod(AbstractReference releaseMethod) {
+    this.releaseMethod = releaseMethod;
   }
 
 
@@ -951,50 +913,141 @@ public class TrackerItem {
   }
 
 
-  public TrackerItem releaseMethod(AbstractReference releaseMethod) {
+  public TrackerItem spentMillis(Long spentMillis) {
     
-    this.releaseMethod = releaseMethod;
+    this.spentMillis = spentMillis;
     return this;
   }
 
    /**
-   * Get releaseMethod
-   * @return releaseMethod
+   * Spent work time of a tracker item in milliseconds
+   * @return spentMillis
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Spent work time of a tracker item in milliseconds")
 
-  public AbstractReference getReleaseMethod() {
-    return releaseMethod;
+  public Long getSpentMillis() {
+    return spentMillis;
   }
 
 
-  public void setReleaseMethod(AbstractReference releaseMethod) {
-    this.releaseMethod = releaseMethod;
+  public void setSpentMillis(Long spentMillis) {
+    this.spentMillis = spentMillis;
   }
 
 
-  public TrackerItem formality(AbstractReference formality) {
+  public TrackerItem startDate(Date startDate) {
     
-    this.formality = formality;
+    this.startDate = startDate;
     return this;
   }
 
    /**
-   * Get formality
-   * @return formality
+   * Start date of a tracker item
+   * @return startDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Start date of a tracker item")
+
+  public Date getStartDate() {
+    return startDate;
+  }
+
+
+  public void setStartDate(Date startDate) {
+    this.startDate = startDate;
+  }
+
+
+  public TrackerItem status(AbstractReference status) {
+    
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public AbstractReference getFormality() {
-    return formality;
+  public AbstractReference getStatus() {
+    return status;
   }
 
 
-  public void setFormality(AbstractReference formality) {
-    this.formality = formality;
+  public void setStatus(AbstractReference status) {
+    this.status = status;
   }
+
+
+  public TrackerItem storyPoints(Integer storyPoints) {
+    
+    this.storyPoints = storyPoints;
+    return this;
+  }
+
+   /**
+   * Story points of a tracker item
+   * @return storyPoints
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Story points of a tracker item")
+
+  public Integer getStoryPoints() {
+    return storyPoints;
+  }
+
+
+  public void setStoryPoints(Integer storyPoints) {
+    this.storyPoints = storyPoints;
+  }
+
+
+  public TrackerItem subjects(List<AbstractReference> subjects) {
+    
+    this.subjects = subjects;
+    return this;
+  }
+
+  public TrackerItem addSubjectsItem(AbstractReference subjectsItem) {
+    if (this.subjects == null) {
+      this.subjects = new ArrayList<AbstractReference>();
+    }
+    this.subjects.add(subjectsItem);
+    return this;
+  }
+
+   /**
+   * Subjects of a tracker item
+   * @return subjects
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Subjects of a tracker item")
+
+  public List<AbstractReference> getSubjects() {
+    return subjects;
+  }
+
+
+  public void setSubjects(List<AbstractReference> subjects) {
+    this.subjects = subjects;
+  }
+
+
+   /**
+   * Tags of the tracker item
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Tags of the tracker item")
+
+  public List<Label> getTags() {
+    return tags;
+  }
+
+
 
 
   public TrackerItem teams(List<AbstractReference> teams) {
@@ -1028,35 +1081,64 @@ public class TrackerItem {
   }
 
 
-  public TrackerItem areas(List<AbstractReference> areas) {
+  public TrackerItem tracker(TrackerReference tracker) {
     
-    this.areas = areas;
-    return this;
-  }
-
-  public TrackerItem addAreasItem(AbstractReference areasItem) {
-    if (this.areas == null) {
-      this.areas = new ArrayList<AbstractReference>();
-    }
-    this.areas.add(areasItem);
+    this.tracker = tracker;
     return this;
   }
 
    /**
-   * Areas of a tracker item
-   * @return areas
+   * Get tracker
+   * @return tracker
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Areas of a tracker item")
+  @ApiModelProperty(value = "")
 
-  public List<AbstractReference> getAreas() {
-    return areas;
+  public TrackerReference getTracker() {
+    return tracker;
   }
 
 
-  public void setAreas(List<AbstractReference> areas) {
-    this.areas = areas;
+  public void setTracker(TrackerReference tracker) {
+    this.tracker = tracker;
   }
+
+
+  public TrackerItem typeName(String typeName) {
+    
+    this.typeName = typeName;
+    return this;
+  }
+
+   /**
+   * Type name of a tracker item
+   * @return typeName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Type name of a tracker item")
+
+  public String getTypeName() {
+    return typeName;
+  }
+
+
+  public void setTypeName(String typeName) {
+    this.typeName = typeName;
+  }
+
+
+   /**
+   * Version of a tracker item
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Version of a tracker item")
+
+  public Integer getVersion() {
+    return version;
+  }
+
+
 
 
   public TrackerItem versions(List<AbstractReference> versions) {
@@ -1090,82 +1172,8 @@ public class TrackerItem {
   }
 
 
-  public TrackerItem ordinal(Integer ordinal) {
-    
-    this.ordinal = ordinal;
-    return this;
-  }
-
-   /**
-   * Ordinal of a tracker item
-   * @return ordinal
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Ordinal of a tracker item")
-
-  public Integer getOrdinal() {
-    return ordinal;
-  }
-
-
-  public void setOrdinal(Integer ordinal) {
-    this.ordinal = ordinal;
-  }
-
-
-  public TrackerItem typeName(String typeName) {
-    
-    this.typeName = typeName;
-    return this;
-  }
-
-   /**
-   * Type name of a tracker item
-   * @return typeName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type name of a tracker item")
-
-  public String getTypeName() {
-    return typeName;
-  }
-
-
-  public void setTypeName(String typeName) {
-    this.typeName = typeName;
-  }
-
-
-   /**
-   * Comment in the tracker item
-   * @return comments
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Comment in the tracker item")
-
-  public List<CommentReference> getComments() {
-    return comments;
-  }
-
-
-
-
-   /**
-   * Tags of the tracker item
-   * @return tags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Tags of the tracker item")
-
-  public List<Label> getTags() {
-    return tags;
-  }
-
-
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -1173,96 +1181,95 @@ public class TrackerItem {
       return false;
     }
     TrackerItem trackerItem = (TrackerItem) o;
-    return Objects.equals(this.id, trackerItem.id) &&
-        Objects.equals(this.name, trackerItem.name) &&
-        Objects.equals(this.description, trackerItem.description) &&
-        Objects.equals(this.descriptionFormat, trackerItem.descriptionFormat) &&
-        Objects.equals(this.createdAt, trackerItem.createdAt) &&
-        Objects.equals(this.createdBy, trackerItem.createdBy) &&
-        Objects.equals(this.modifiedAt, trackerItem.modifiedAt) &&
-        Objects.equals(this.modifiedBy, trackerItem.modifiedBy) &&
-        Objects.equals(this.parent, trackerItem.parent) &&
-        Objects.equals(this.owners, trackerItem.owners) &&
-        Objects.equals(this.version, trackerItem.version) &&
+    return Objects.equals(this.accruedMillis, trackerItem.accruedMillis) &&
+        Objects.equals(this.areas, trackerItem.areas) &&
         Objects.equals(this.assignedAt, trackerItem.assignedAt) &&
         Objects.equals(this.assignedTo, trackerItem.assignedTo) &&
-        Objects.equals(this.startDate, trackerItem.startDate) &&
-        Objects.equals(this.endDate, trackerItem.endDate) &&
-        Objects.equals(this.closedAt, trackerItem.closedAt) &&
-        Objects.equals(this.storyPoints, trackerItem.storyPoints) &&
-        Objects.equals(this.tracker, trackerItem.tracker) &&
-        Objects.equals(this.children, trackerItem.children) &&
-        Objects.equals(this.customFields, trackerItem.customFields) &&
-        Objects.equals(this.priority, trackerItem.priority) &&
-        Objects.equals(this.accruedMillis, trackerItem.accruedMillis) &&
-        Objects.equals(this.estimatedMillis, trackerItem.estimatedMillis) &&
-        Objects.equals(this.spentMillis, trackerItem.spentMillis) &&
-        Objects.equals(this.status, trackerItem.status) &&
-        Objects.equals(this.platforms, trackerItem.platforms) &&
         Objects.equals(this.categories, trackerItem.categories) &&
-        Objects.equals(this.subjects, trackerItem.subjects) &&
+        Objects.equals(this.children, trackerItem.children) &&
+        Objects.equals(this.closedAt, trackerItem.closedAt) &&
+        Objects.equals(this.comments, trackerItem.comments) &&
+        Objects.equals(this.createdAt, trackerItem.createdAt) &&
+        Objects.equals(this.createdBy, trackerItem.createdBy) &&
+        Objects.equals(this.customFields, trackerItem.customFields) &&
+        Objects.equals(this.description, trackerItem.description) &&
+        Objects.equals(this.descriptionFormat, trackerItem.descriptionFormat) &&
+        Objects.equals(this.endDate, trackerItem.endDate) &&
+        Objects.equals(this.estimatedMillis, trackerItem.estimatedMillis) &&
+        Objects.equals(this.formality, trackerItem.formality) &&
+        Objects.equals(this.id, trackerItem.id) &&
+        Objects.equals(this.modifiedAt, trackerItem.modifiedAt) &&
+        Objects.equals(this.modifiedBy, trackerItem.modifiedBy) &&
+        Objects.equals(this.name, trackerItem.name) &&
+        Objects.equals(this.ordinal, trackerItem.ordinal) &&
+        Objects.equals(this.owners, trackerItem.owners) &&
+        Objects.equals(this.parent, trackerItem.parent) &&
+        Objects.equals(this.platforms, trackerItem.platforms) &&
+        Objects.equals(this.priority, trackerItem.priority) &&
+        Objects.equals(this.releaseMethod, trackerItem.releaseMethod) &&
         Objects.equals(this.resolutions, trackerItem.resolutions) &&
         Objects.equals(this.severities, trackerItem.severities) &&
-        Objects.equals(this.releaseMethod, trackerItem.releaseMethod) &&
-        Objects.equals(this.formality, trackerItem.formality) &&
+        Objects.equals(this.spentMillis, trackerItem.spentMillis) &&
+        Objects.equals(this.startDate, trackerItem.startDate) &&
+        Objects.equals(this.status, trackerItem.status) &&
+        Objects.equals(this.storyPoints, trackerItem.storyPoints) &&
+        Objects.equals(this.subjects, trackerItem.subjects) &&
+        Objects.equals(this.tags, trackerItem.tags) &&
         Objects.equals(this.teams, trackerItem.teams) &&
-        Objects.equals(this.areas, trackerItem.areas) &&
-        Objects.equals(this.versions, trackerItem.versions) &&
-        Objects.equals(this.ordinal, trackerItem.ordinal) &&
+        Objects.equals(this.tracker, trackerItem.tracker) &&
         Objects.equals(this.typeName, trackerItem.typeName) &&
-        Objects.equals(this.comments, trackerItem.comments) &&
-        Objects.equals(this.tags, trackerItem.tags);
+        Objects.equals(this.version, trackerItem.version) &&
+        Objects.equals(this.versions, trackerItem.versions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, descriptionFormat, createdAt, createdBy, modifiedAt, modifiedBy, parent, owners, version, assignedAt, assignedTo, startDate, endDate, closedAt, storyPoints, tracker, children, customFields, priority, accruedMillis, estimatedMillis, spentMillis, status, platforms, categories, subjects, resolutions, severities, releaseMethod, formality, teams, areas, versions, ordinal, typeName, comments, tags);
+    return Objects.hash(accruedMillis, areas, assignedAt, assignedTo, categories, children, closedAt, comments, createdAt, createdBy, customFields, description, descriptionFormat, endDate, estimatedMillis, formality, id, modifiedAt, modifiedBy, name, ordinal, owners, parent, platforms, priority, releaseMethod, resolutions, severities, spentMillis, startDate, status, storyPoints, subjects, tags, teams, tracker, typeName, version, versions);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TrackerItem {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    descriptionFormat: ").append(toIndentedString(descriptionFormat)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
-    sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
-    sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
-    sb.append("    owners: ").append(toIndentedString(owners)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    accruedMillis: ").append(toIndentedString(accruedMillis)).append("\n");
+    sb.append("    areas: ").append(toIndentedString(areas)).append("\n");
     sb.append("    assignedAt: ").append(toIndentedString(assignedAt)).append("\n");
     sb.append("    assignedTo: ").append(toIndentedString(assignedTo)).append("\n");
-    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
-    sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
-    sb.append("    closedAt: ").append(toIndentedString(closedAt)).append("\n");
-    sb.append("    storyPoints: ").append(toIndentedString(storyPoints)).append("\n");
-    sb.append("    tracker: ").append(toIndentedString(tracker)).append("\n");
-    sb.append("    children: ").append(toIndentedString(children)).append("\n");
-    sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
-    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
-    sb.append("    accruedMillis: ").append(toIndentedString(accruedMillis)).append("\n");
-    sb.append("    estimatedMillis: ").append(toIndentedString(estimatedMillis)).append("\n");
-    sb.append("    spentMillis: ").append(toIndentedString(spentMillis)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    platforms: ").append(toIndentedString(platforms)).append("\n");
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
-    sb.append("    subjects: ").append(toIndentedString(subjects)).append("\n");
+    sb.append("    children: ").append(toIndentedString(children)).append("\n");
+    sb.append("    closedAt: ").append(toIndentedString(closedAt)).append("\n");
+    sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    descriptionFormat: ").append(toIndentedString(descriptionFormat)).append("\n");
+    sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
+    sb.append("    estimatedMillis: ").append(toIndentedString(estimatedMillis)).append("\n");
+    sb.append("    formality: ").append(toIndentedString(formality)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    ordinal: ").append(toIndentedString(ordinal)).append("\n");
+    sb.append("    owners: ").append(toIndentedString(owners)).append("\n");
+    sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
+    sb.append("    platforms: ").append(toIndentedString(platforms)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    releaseMethod: ").append(toIndentedString(releaseMethod)).append("\n");
     sb.append("    resolutions: ").append(toIndentedString(resolutions)).append("\n");
     sb.append("    severities: ").append(toIndentedString(severities)).append("\n");
-    sb.append("    releaseMethod: ").append(toIndentedString(releaseMethod)).append("\n");
-    sb.append("    formality: ").append(toIndentedString(formality)).append("\n");
-    sb.append("    teams: ").append(toIndentedString(teams)).append("\n");
-    sb.append("    areas: ").append(toIndentedString(areas)).append("\n");
-    sb.append("    versions: ").append(toIndentedString(versions)).append("\n");
-    sb.append("    ordinal: ").append(toIndentedString(ordinal)).append("\n");
-    sb.append("    typeName: ").append(toIndentedString(typeName)).append("\n");
-    sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+    sb.append("    spentMillis: ").append(toIndentedString(spentMillis)).append("\n");
+    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    storyPoints: ").append(toIndentedString(storyPoints)).append("\n");
+    sb.append("    subjects: ").append(toIndentedString(subjects)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    teams: ").append(toIndentedString(teams)).append("\n");
+    sb.append("    tracker: ").append(toIndentedString(tracker)).append("\n");
+    sb.append("    typeName: ").append(toIndentedString(typeName)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    versions: ").append(toIndentedString(versions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1271,7 +1278,7 @@ public class TrackerItem {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

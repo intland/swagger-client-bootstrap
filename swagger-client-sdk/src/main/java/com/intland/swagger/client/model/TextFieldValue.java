@@ -24,12 +24,15 @@ import io.swagger.annotations.ApiModelProperty;
  * Value container of a text field
  */
 @ApiModel(description = "Value container of a text field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TextFieldValue extends AbstractFieldValue {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
+  public TextFieldValue() {
+    this.type = this.getClass().getSimpleName();
+  }
 
   public TextFieldValue value(String value) {
     
@@ -41,6 +44,7 @@ public class TextFieldValue extends AbstractFieldValue {
    * Text value
    * @return value
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Text value")
 
   public String getValue() {
@@ -54,7 +58,7 @@ public class TextFieldValue extends AbstractFieldValue {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -71,7 +75,6 @@ public class TextFieldValue extends AbstractFieldValue {
     return Objects.hash(value, super.hashCode());
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -86,7 +89,7 @@ public class TextFieldValue extends AbstractFieldValue {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

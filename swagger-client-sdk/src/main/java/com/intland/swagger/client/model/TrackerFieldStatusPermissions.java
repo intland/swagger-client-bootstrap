@@ -26,38 +26,15 @@ import io.swagger.annotations.ApiModelProperty;
  * Field permissions by role for specific status
  */
 @ApiModel(description = "Field permissions by role for specific status")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class TrackerFieldStatusPermissions {
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  private ChoiceOptionReference status;
-
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
   private List<AccessPermission> permissions = null;
 
-
-  public TrackerFieldStatusPermissions status(ChoiceOptionReference status) {
-    
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ChoiceOptionReference getStatus() {
-    return status;
-  }
-
-
-  public void setStatus(ChoiceOptionReference status) {
-    this.status = status;
-  }
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private ChoiceOptionReference status;
 
 
   public TrackerFieldStatusPermissions permissions(List<AccessPermission> permissions) {
@@ -91,8 +68,31 @@ public class TrackerFieldStatusPermissions {
   }
 
 
+  public TrackerFieldStatusPermissions status(ChoiceOptionReference status) {
+    
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ChoiceOptionReference getStatus() {
+    return status;
+  }
+
+
+  public void setStatus(ChoiceOptionReference status) {
+    this.status = status;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -100,22 +100,21 @@ public class TrackerFieldStatusPermissions {
       return false;
     }
     TrackerFieldStatusPermissions trackerFieldStatusPermissions = (TrackerFieldStatusPermissions) o;
-    return Objects.equals(this.status, trackerFieldStatusPermissions.status) &&
-        Objects.equals(this.permissions, trackerFieldStatusPermissions.permissions);
+    return Objects.equals(this.permissions, trackerFieldStatusPermissions.permissions) &&
+        Objects.equals(this.status, trackerFieldStatusPermissions.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, permissions);
+    return Objects.hash(permissions, status);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TrackerFieldStatusPermissions {\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -124,7 +123,7 @@ public class TrackerFieldStatusPermissions {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

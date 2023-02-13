@@ -51,7 +51,7 @@ public class DeploymentApi {
 
     /**
      * Build call for exportForDeployment
-     * @param exportForDeploymentRequest  (optional)
+     * @param exportForDeploymentRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -60,9 +60,9 @@ public class DeploymentApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Export job has been scheduled successfully </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call exportForDeploymentCall(ExportForDeploymentRequest exportForDeploymentRequest, final ApiCallback _callback) throws ApiException {
@@ -76,6 +76,7 @@ public class DeploymentApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -97,6 +98,11 @@ public class DeploymentApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call exportForDeploymentValidateBeforeCall(ExportForDeploymentRequest exportForDeploymentRequest, final ApiCallback _callback) throws ApiException {
         
+        // verify the required parameter 'exportForDeploymentRequest' is set
+        if (exportForDeploymentRequest == null) {
+            throw new ApiException("Missing the required parameter 'exportForDeploymentRequest' when calling exportForDeployment(Async)");
+        }
+        
 
         okhttp3.Call localVarCall = exportForDeploymentCall(exportForDeploymentRequest, _callback);
         return localVarCall;
@@ -106,7 +112,7 @@ public class DeploymentApi {
     /**
      * Export projects for deployment
      * 
-     * @param exportForDeploymentRequest  (optional)
+     * @param exportForDeploymentRequest  (required)
      * @return BackgroundJobReference
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -114,9 +120,9 @@ public class DeploymentApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Export job has been scheduled successfully </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public BackgroundJobReference exportForDeployment(ExportForDeploymentRequest exportForDeploymentRequest) throws ApiException {
@@ -127,7 +133,7 @@ public class DeploymentApi {
     /**
      * Export projects for deployment
      * 
-     * @param exportForDeploymentRequest  (optional)
+     * @param exportForDeploymentRequest  (required)
      * @return ApiResponse&lt;BackgroundJobReference&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -135,9 +141,9 @@ public class DeploymentApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Export job has been scheduled successfully </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BackgroundJobReference> exportForDeploymentWithHttpInfo(ExportForDeploymentRequest exportForDeploymentRequest) throws ApiException {
@@ -149,7 +155,7 @@ public class DeploymentApi {
     /**
      * Export projects for deployment (asynchronously)
      * 
-     * @param exportForDeploymentRequest  (optional)
+     * @param exportForDeploymentRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -158,9 +164,9 @@ public class DeploymentApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Export job has been scheduled successfully </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Authorization is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call exportForDeploymentAsync(ExportForDeploymentRequest exportForDeploymentRequest, final ApiCallback<BackgroundJobReference> _callback) throws ApiException {
@@ -179,11 +185,11 @@ public class DeploymentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Deployment is executed </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call uploadDeploymentCall(File imports, final ApiCallback _callback) throws ApiException {
@@ -197,6 +203,7 @@ public class DeploymentApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (imports != null) {
             localVarFormParams.put("imports", imports);
         }
@@ -241,11 +248,11 @@ public class DeploymentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Deployment is executed </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public void uploadDeployment(File imports) throws ApiException {
@@ -261,11 +268,11 @@ public class DeploymentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Deployment is executed </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> uploadDeploymentWithHttpInfo(File imports) throws ApiException {
@@ -283,11 +290,11 @@ public class DeploymentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Deployment is executed </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call uploadDeploymentAsync(File imports, final ApiCallback<Void> _callback) throws ApiException {

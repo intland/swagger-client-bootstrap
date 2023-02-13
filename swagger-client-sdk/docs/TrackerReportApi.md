@@ -70,7 +70,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **trackerId** | **Integer**|  |
- **trackerReportSettings** | [**TrackerReportSettings**](TrackerReportSettings.md)|  | [optional]
+ **trackerReportSettings** | [**TrackerReportSettings**](TrackerReportSettings.md)|  |
 
 ### Return type
 
@@ -83,13 +83,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker report settings |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
 **429** | Too many requests |  -  |
 
@@ -163,13 +164,14 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: */*, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker report deleted. |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker / Report not found |  -  |
 **429** | Too many requests |  -  |
 
@@ -248,13 +250,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker report |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker / Report not found |  -  |
 **429** | Too many requests |  -  |
 
@@ -333,13 +336,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker report items |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker / Report not found |  -  |
 **429** | Too many requests |  -  |
 
@@ -412,13 +416,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker report reference list |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
 **429** | Too many requests |  -  |
 **500** | Internal server error |  -  |
@@ -483,7 +488,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **trackerId** | **Integer**|  |
  **reportId** | **Integer**|  |
- **trackerReportSettings** | [**TrackerReportSettings**](TrackerReportSettings.md)|  | [optional]
+ **trackerReportSettings** | [**TrackerReportSettings**](TrackerReportSettings.md)|  |
 
 ### Return type
 
@@ -496,13 +501,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Authentication is required |  -  |
 **200** | Tracker report settings |  -  |
+**400** | Bad Request |  -  |
+**403** | Authentication is required |  -  |
 **404** | Tracker / Report not found |  -  |
 **429** | Too many requests |  -  |
 

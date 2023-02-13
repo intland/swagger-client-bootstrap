@@ -26,8 +26,12 @@ import io.swagger.annotations.ApiModelProperty;
  * Paginated search result of outline wiki pages
  */
 @ApiModel(description = "Paginated search result of outline wiki pages")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class WikiOutlineSearchResult {
+  public static final String SERIALIZED_NAME_OUTLINE_WIKI_PAGES = "outlineWikiPages";
+  @SerializedName(SERIALIZED_NAME_OUTLINE_WIKI_PAGES)
+  private List<OutlineWiki> outlineWikiPages = null;
+
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
   private Integer page;
@@ -40,9 +44,36 @@ public class WikiOutlineSearchResult {
   @SerializedName(SERIALIZED_NAME_TOTAL)
   private Integer total;
 
-  public static final String SERIALIZED_NAME_OUTLINE_WIKI_PAGES = "outlineWikiPages";
-  @SerializedName(SERIALIZED_NAME_OUTLINE_WIKI_PAGES)
-  private List<OutlineWiki> outlineWikiPages = null;
+
+  public WikiOutlineSearchResult outlineWikiPages(List<OutlineWiki> outlineWikiPages) {
+    
+    this.outlineWikiPages = outlineWikiPages;
+    return this;
+  }
+
+  public WikiOutlineSearchResult addOutlineWikiPagesItem(OutlineWiki outlineWikiPagesItem) {
+    if (this.outlineWikiPages == null) {
+      this.outlineWikiPages = new ArrayList<OutlineWiki>();
+    }
+    this.outlineWikiPages.add(outlineWikiPagesItem);
+    return this;
+  }
+
+   /**
+   * Found outline wiki pages
+   * @return outlineWikiPages
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Found outline wiki pages")
+
+  public List<OutlineWiki> getOutlineWikiPages() {
+    return outlineWikiPages;
+  }
+
+
+  public void setOutlineWikiPages(List<OutlineWiki> outlineWikiPages) {
+    this.outlineWikiPages = outlineWikiPages;
+  }
 
 
   public WikiOutlineSearchResult page(Integer page) {
@@ -114,39 +145,8 @@ public class WikiOutlineSearchResult {
   }
 
 
-  public WikiOutlineSearchResult outlineWikiPages(List<OutlineWiki> outlineWikiPages) {
-    
-    this.outlineWikiPages = outlineWikiPages;
-    return this;
-  }
-
-  public WikiOutlineSearchResult addOutlineWikiPagesItem(OutlineWiki outlineWikiPagesItem) {
-    if (this.outlineWikiPages == null) {
-      this.outlineWikiPages = new ArrayList<OutlineWiki>();
-    }
-    this.outlineWikiPages.add(outlineWikiPagesItem);
-    return this;
-  }
-
-   /**
-   * Found outline wiki pages
-   * @return outlineWikiPages
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Found outline wiki pages")
-
-  public List<OutlineWiki> getOutlineWikiPages() {
-    return outlineWikiPages;
-  }
-
-
-  public void setOutlineWikiPages(List<OutlineWiki> outlineWikiPages) {
-    this.outlineWikiPages = outlineWikiPages;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -154,26 +154,25 @@ public class WikiOutlineSearchResult {
       return false;
     }
     WikiOutlineSearchResult wikiOutlineSearchResult = (WikiOutlineSearchResult) o;
-    return Objects.equals(this.page, wikiOutlineSearchResult.page) &&
+    return Objects.equals(this.outlineWikiPages, wikiOutlineSearchResult.outlineWikiPages) &&
+        Objects.equals(this.page, wikiOutlineSearchResult.page) &&
         Objects.equals(this.pageSize, wikiOutlineSearchResult.pageSize) &&
-        Objects.equals(this.total, wikiOutlineSearchResult.total) &&
-        Objects.equals(this.outlineWikiPages, wikiOutlineSearchResult.outlineWikiPages);
+        Objects.equals(this.total, wikiOutlineSearchResult.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, pageSize, total, outlineWikiPages);
+    return Objects.hash(outlineWikiPages, page, pageSize, total);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WikiOutlineSearchResult {\n");
+    sb.append("    outlineWikiPages: ").append(toIndentedString(outlineWikiPages)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
-    sb.append("    outlineWikiPages: ").append(toIndentedString(outlineWikiPages)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -182,7 +181,7 @@ public class WikiOutlineSearchResult {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

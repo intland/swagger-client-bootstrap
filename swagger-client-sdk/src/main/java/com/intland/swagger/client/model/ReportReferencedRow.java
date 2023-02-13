@@ -26,50 +26,27 @@ import io.swagger.annotations.ApiModelProperty;
  * Result row having references.
  */
 @ApiModel(description = "Result row having references.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class ReportReferencedRow {
-  public static final String SERIALIZED_NAME_ITEM_REF = "itemRef";
-  @SerializedName(SERIALIZED_NAME_ITEM_REF)
-  private ReportItemReference itemRef;
-
   public static final String SERIALIZED_NAME_CELLS = "cells";
   @SerializedName(SERIALIZED_NAME_CELLS)
   private List<ReportCell> cells = null;
-
-  public static final String SERIALIZED_NAME_OUTLINE_LEVEL = "outlineLevel";
-  @SerializedName(SERIALIZED_NAME_OUTLINE_LEVEL)
-  private Integer outlineLevel;
 
   public static final String SERIALIZED_NAME_IS_REAL_RESULT = "isRealResult";
   @SerializedName(SERIALIZED_NAME_IS_REAL_RESULT)
   private Boolean isRealResult;
 
+  public static final String SERIALIZED_NAME_ITEM_REF = "itemRef";
+  @SerializedName(SERIALIZED_NAME_ITEM_REF)
+  private ReportItemReference itemRef;
+
+  public static final String SERIALIZED_NAME_OUTLINE_LEVEL = "outlineLevel";
+  @SerializedName(SERIALIZED_NAME_OUTLINE_LEVEL)
+  private Integer outlineLevel;
+
   public static final String SERIALIZED_NAME_REFERENCES = "references";
   @SerializedName(SERIALIZED_NAME_REFERENCES)
   private ReportReferenceLevel references;
-
-
-  public ReportReferencedRow itemRef(ReportItemReference itemRef) {
-    
-    this.itemRef = itemRef;
-    return this;
-  }
-
-   /**
-   * Get itemRef
-   * @return itemRef
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ReportItemReference getItemRef() {
-    return itemRef;
-  }
-
-
-  public void setItemRef(ReportItemReference itemRef) {
-    this.itemRef = itemRef;
-  }
 
 
   public ReportReferencedRow cells(List<ReportCell> cells) {
@@ -103,29 +80,6 @@ public class ReportReferencedRow {
   }
 
 
-  public ReportReferencedRow outlineLevel(Integer outlineLevel) {
-    
-    this.outlineLevel = outlineLevel;
-    return this;
-  }
-
-   /**
-   * Item&#39;s level in the tracker outline.
-   * @return outlineLevel
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Item's level in the tracker outline.")
-
-  public Integer getOutlineLevel() {
-    return outlineLevel;
-  }
-
-
-  public void setOutlineLevel(Integer outlineLevel) {
-    this.outlineLevel = outlineLevel;
-  }
-
-
   public ReportReferencedRow isRealResult(Boolean isRealResult) {
     
     this.isRealResult = isRealResult;
@@ -146,6 +100,52 @@ public class ReportReferencedRow {
 
   public void setIsRealResult(Boolean isRealResult) {
     this.isRealResult = isRealResult;
+  }
+
+
+  public ReportReferencedRow itemRef(ReportItemReference itemRef) {
+    
+    this.itemRef = itemRef;
+    return this;
+  }
+
+   /**
+   * Get itemRef
+   * @return itemRef
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ReportItemReference getItemRef() {
+    return itemRef;
+  }
+
+
+  public void setItemRef(ReportItemReference itemRef) {
+    this.itemRef = itemRef;
+  }
+
+
+  public ReportReferencedRow outlineLevel(Integer outlineLevel) {
+    
+    this.outlineLevel = outlineLevel;
+    return this;
+  }
+
+   /**
+   * Item&#39;s level in the tracker outline.
+   * @return outlineLevel
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Item's level in the tracker outline.")
+
+  public Integer getOutlineLevel() {
+    return outlineLevel;
+  }
+
+
+  public void setOutlineLevel(Integer outlineLevel) {
+    this.outlineLevel = outlineLevel;
   }
 
 
@@ -173,7 +173,7 @@ public class ReportReferencedRow {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -181,27 +181,26 @@ public class ReportReferencedRow {
       return false;
     }
     ReportReferencedRow reportReferencedRow = (ReportReferencedRow) o;
-    return Objects.equals(this.itemRef, reportReferencedRow.itemRef) &&
-        Objects.equals(this.cells, reportReferencedRow.cells) &&
-        Objects.equals(this.outlineLevel, reportReferencedRow.outlineLevel) &&
+    return Objects.equals(this.cells, reportReferencedRow.cells) &&
         Objects.equals(this.isRealResult, reportReferencedRow.isRealResult) &&
+        Objects.equals(this.itemRef, reportReferencedRow.itemRef) &&
+        Objects.equals(this.outlineLevel, reportReferencedRow.outlineLevel) &&
         Objects.equals(this.references, reportReferencedRow.references);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(itemRef, cells, outlineLevel, isRealResult, references);
+    return Objects.hash(cells, isRealResult, itemRef, outlineLevel, references);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReportReferencedRow {\n");
-    sb.append("    itemRef: ").append(toIndentedString(itemRef)).append("\n");
     sb.append("    cells: ").append(toIndentedString(cells)).append("\n");
-    sb.append("    outlineLevel: ").append(toIndentedString(outlineLevel)).append("\n");
     sb.append("    isRealResult: ").append(toIndentedString(isRealResult)).append("\n");
+    sb.append("    itemRef: ").append(toIndentedString(itemRef)).append("\n");
+    sb.append("    outlineLevel: ").append(toIndentedString(outlineLevel)).append("\n");
     sb.append("    references: ").append(toIndentedString(references)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -211,7 +210,7 @@ public class ReportReferencedRow {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

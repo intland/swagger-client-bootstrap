@@ -14,9 +14,8 @@
 package com.intland.swagger.client.model;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Objects;
-
-import org.joda.time.DateTime;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -31,15 +30,27 @@ import io.swagger.annotations.ApiModelProperty;
  * Basic properties of a codebeamer project
  */
 @ApiModel(description = "Basic properties of a codebeamer project")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:40:39.450514+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
 public class Project {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
+  public static final String SERIALIZED_NAME_CATEGORY = "category";
+  @SerializedName(SERIALIZED_NAME_CATEGORY)
+  private String category;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String SERIALIZED_NAME_CLOSED = "closed";
+  @SerializedName(SERIALIZED_NAME_CLOSED)
+  private Boolean closed;
+
+  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private Date createdAt;
+
+  public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
+  @SerializedName(SERIALIZED_NAME_CREATED_BY)
+  private UserReference createdBy;
+
+  public static final String SERIALIZED_NAME_DELETED = "deleted";
+  @SerializedName(SERIALIZED_NAME_DELETED)
+  private Boolean deleted;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -98,91 +109,147 @@ public class Project {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION_FORMAT)
   private DescriptionFormatEnum descriptionFormat;
 
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
-  private Integer version;
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Integer id;
 
   public static final String SERIALIZED_NAME_KEY_NAME = "keyName";
   @SerializedName(SERIALIZED_NAME_KEY_NAME)
   private String keyName;
 
-  public static final String SERIALIZED_NAME_CATEGORY = "category";
-  @SerializedName(SERIALIZED_NAME_CATEGORY)
-  private String category;
-
-  public static final String SERIALIZED_NAME_CLOSED = "closed";
-  @SerializedName(SERIALIZED_NAME_CLOSED)
-  private Boolean closed;
-
-  public static final String SERIALIZED_NAME_DELETED = "deleted";
-  @SerializedName(SERIALIZED_NAME_DELETED)
-  private Boolean deleted;
-
-  public static final String SERIALIZED_NAME_TEMPLATE = "template";
-  @SerializedName(SERIALIZED_NAME_TEMPLATE)
-  private Boolean template;
-
-  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private DateTime createdAt;
-
-  public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY)
-  private UserReference createdBy;
-
   public static final String SERIALIZED_NAME_MODIFIED_AT = "modifiedAt";
   @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
-  private DateTime modifiedAt;
+  private Date modifiedAt;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY = "modifiedBy";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY)
   private UserReference modifiedBy;
 
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public Project id(Integer id) {
+  public static final String SERIALIZED_NAME_TEMPLATE = "template";
+  @SerializedName(SERIALIZED_NAME_TEMPLATE)
+  private Boolean template;
+
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private Integer version;
+
+
+  public Project category(String category) {
     
-    this.id = id;
+    this.category = category;
     return this;
   }
 
    /**
-   * Id of the entity
-   * minimum: 0
-   * @return id
+   * Category of a project
+   * @return category
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Id of the entity")
+  @ApiModelProperty(value = "Category of a project")
 
-  public Integer getId() {
-    return id;
+  public String getCategory() {
+    return category;
   }
 
 
-  public void setId(Integer id) {
-    this.id = id;
+  public void setCategory(String category) {
+    this.category = category;
   }
 
 
-  public Project name(String name) {
+  public Project closed(Boolean closed) {
     
-    this.name = name;
+    this.closed = closed;
     return this;
   }
 
    /**
-   * Name of the entity
-   * @return name
+   * Closed status of a project
+   * @return closed
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the entity")
+  @ApiModelProperty(value = "Closed status of a project")
 
-  public String getName() {
-    return name;
+  public Boolean getClosed() {
+    return closed;
   }
 
 
-  public void setName(String name) {
-    this.name = name;
+  public void setClosed(Boolean closed) {
+    this.closed = closed;
+  }
+
+
+  public Project createdAt(Date createdAt) {
+    
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * The date when the entity was created
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date when the entity was created")
+
+  public Date getCreatedAt() {
+    return createdAt;
+  }
+
+
+  public void setCreatedAt(Date createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public Project createdBy(UserReference createdBy) {
+    
+    this.createdBy = createdBy;
+    return this;
+  }
+
+   /**
+   * Get createdBy
+   * @return createdBy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public UserReference getCreatedBy() {
+    return createdBy;
+  }
+
+
+  public void setCreatedBy(UserReference createdBy) {
+    this.createdBy = createdBy;
+  }
+
+
+  public Project deleted(Boolean deleted) {
+    
+    this.deleted = deleted;
+    return this;
+  }
+
+   /**
+   * Delete status of a project
+   * @return deleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Delete status of a project")
+
+  public Boolean getDeleted() {
+    return deleted;
+  }
+
+
+  public void setDeleted(Boolean deleted) {
+    this.deleted = deleted;
   }
 
 
@@ -232,26 +299,27 @@ public class Project {
   }
 
 
-  public Project version(Integer version) {
+  public Project id(Integer id) {
     
-    this.version = version;
+    this.id = id;
     return this;
   }
 
    /**
-   * Version of a project
-   * @return version
+   * Id of the entity
+   * minimum: 0
+   * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Version of a project")
+  @ApiModelProperty(value = "Id of the entity")
 
-  public Integer getVersion() {
-    return version;
+  public Integer getId() {
+    return id;
   }
 
 
-  public void setVersion(Integer version) {
-    this.version = version;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
 
@@ -278,145 +346,7 @@ public class Project {
   }
 
 
-  public Project category(String category) {
-    
-    this.category = category;
-    return this;
-  }
-
-   /**
-   * Category of a project
-   * @return category
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Category of a project")
-
-  public String getCategory() {
-    return category;
-  }
-
-
-  public void setCategory(String category) {
-    this.category = category;
-  }
-
-
-  public Project closed(Boolean closed) {
-    
-    this.closed = closed;
-    return this;
-  }
-
-   /**
-   * Closed status of a project
-   * @return closed
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Closed status of a project")
-
-  public Boolean getClosed() {
-    return closed;
-  }
-
-
-  public void setClosed(Boolean closed) {
-    this.closed = closed;
-  }
-
-
-  public Project deleted(Boolean deleted) {
-    
-    this.deleted = deleted;
-    return this;
-  }
-
-   /**
-   * Delete status of a project
-   * @return deleted
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Delete status of a project")
-
-  public Boolean getDeleted() {
-    return deleted;
-  }
-
-
-  public void setDeleted(Boolean deleted) {
-    this.deleted = deleted;
-  }
-
-
-  public Project template(Boolean template) {
-    
-    this.template = template;
-    return this;
-  }
-
-   /**
-   * Template status of a project
-   * @return template
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Template status of a project")
-
-  public Boolean getTemplate() {
-    return template;
-  }
-
-
-  public void setTemplate(Boolean template) {
-    this.template = template;
-  }
-
-
-  public Project createdAt(DateTime createdAt) {
-    
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * The date when the entity was created
-   * @return createdAt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The date when the entity was created")
-
-  public DateTime getCreatedAt() {
-    return createdAt;
-  }
-
-
-  public void setCreatedAt(DateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
-  public Project createdBy(UserReference createdBy) {
-    
-    this.createdBy = createdBy;
-    return this;
-  }
-
-   /**
-   * Get createdBy
-   * @return createdBy
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public UserReference getCreatedBy() {
-    return createdBy;
-  }
-
-
-  public void setCreatedBy(UserReference createdBy) {
-    this.createdBy = createdBy;
-  }
-
-
-  public Project modifiedAt(DateTime modifiedAt) {
+  public Project modifiedAt(Date modifiedAt) {
     
     this.modifiedAt = modifiedAt;
     return this;
@@ -429,12 +359,12 @@ public class Project {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the entity was modified")
 
-  public DateTime getModifiedAt() {
+  public Date getModifiedAt() {
     return modifiedAt;
   }
 
 
-  public void setModifiedAt(DateTime modifiedAt) {
+  public void setModifiedAt(Date modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 
@@ -462,8 +392,77 @@ public class Project {
   }
 
 
+  public Project name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the entity
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the entity")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public Project template(Boolean template) {
+    
+    this.template = template;
+    return this;
+  }
+
+   /**
+   * Template status of a project
+   * @return template
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Template status of a project")
+
+  public Boolean getTemplate() {
+    return template;
+  }
+
+
+  public void setTemplate(Boolean template) {
+    this.template = template;
+  }
+
+
+  public Project version(Integer version) {
+    
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Version of a project
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Version of a project")
+
+  public Integer getVersion() {
+    return version;
+  }
+
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -471,46 +470,45 @@ public class Project {
       return false;
     }
     Project project = (Project) o;
-    return Objects.equals(this.id, project.id) &&
-        Objects.equals(this.name, project.name) &&
-        Objects.equals(this.description, project.description) &&
-        Objects.equals(this.descriptionFormat, project.descriptionFormat) &&
-        Objects.equals(this.version, project.version) &&
-        Objects.equals(this.keyName, project.keyName) &&
-        Objects.equals(this.category, project.category) &&
+    return Objects.equals(this.category, project.category) &&
         Objects.equals(this.closed, project.closed) &&
-        Objects.equals(this.deleted, project.deleted) &&
-        Objects.equals(this.template, project.template) &&
         Objects.equals(this.createdAt, project.createdAt) &&
         Objects.equals(this.createdBy, project.createdBy) &&
+        Objects.equals(this.deleted, project.deleted) &&
+        Objects.equals(this.description, project.description) &&
+        Objects.equals(this.descriptionFormat, project.descriptionFormat) &&
+        Objects.equals(this.id, project.id) &&
+        Objects.equals(this.keyName, project.keyName) &&
         Objects.equals(this.modifiedAt, project.modifiedAt) &&
-        Objects.equals(this.modifiedBy, project.modifiedBy);
+        Objects.equals(this.modifiedBy, project.modifiedBy) &&
+        Objects.equals(this.name, project.name) &&
+        Objects.equals(this.template, project.template) &&
+        Objects.equals(this.version, project.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, descriptionFormat, version, keyName, category, closed, deleted, template, createdAt, createdBy, modifiedAt, modifiedBy);
+    return Objects.hash(category, closed, createdAt, createdBy, deleted, description, descriptionFormat, id, keyName, modifiedAt, modifiedBy, name, template, version);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Project {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    descriptionFormat: ").append(toIndentedString(descriptionFormat)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    closed: ").append(toIndentedString(closed)).append("\n");
-    sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
-    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    descriptionFormat: ").append(toIndentedString(descriptionFormat)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -519,7 +517,7 @@ public class Project {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -1332,6 +1332,16 @@
                             }
                         },
                         "description": "Too many requests"
+                    },
+                    "501": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotImplementedException"
+                                }
+                            }
+                        },
+                        "description": "Project Configuration Deployment is disabled"
                     }
                 },
                 "summary": "Start a deployment process",
@@ -1947,7 +1957,7 @@
         },
         "/v3/items/relations": {
             "post": {
-                "description": "API can be used for fetching basic information of tracker items at a specific baseline version",
+                "description": "Use this endpoint to fetch tracker items related to some specified tracker items. The relations include downstream references, upstream references, incoming associations and outgoing associations of the given items. Relations with entities that are not tracker items (e.g., trackers, projects, URLs, etc.) will not be included in the result.",
                 "operationId": "getBaselineTrackerItemsRelations",
                 "parameters": [
                     {
@@ -2025,7 +2035,7 @@
                         "description": "Too many requests"
                     }
                 },
-                "summary": "Get tracker items for a baseline version",
+                "summary": "Get tracker items related to some tracker items",
                 "tags": [
                     "Tracker item"
                 ]
@@ -4942,7 +4952,7 @@
         },
         "/v3/items/{itemId}/relations": {
             "get": {
-                "description": "API can be used for fetching basic information of tracker items at a specific baseline version",
+                "description": "Use this endpoint to fetch tracker items related to a specified tracker item. The relations include downstream references, upstream references, incoming associations and outgoing associations of the given item. Relations with entities that are not tracker items (e.g., trackers, projects, URLs, etc.) will not be included in the result.",
                 "operationId": "getBaselineTrackerItemRelations",
                 "parameters": [
                     {
@@ -4961,6 +4971,28 @@
                         "schema": {
                             "type": "integer",
                             "format": "int32"
+                        }
+                    },
+                    {
+                        "description": "Index of page, starting from 1.",
+                        "in": "query",
+                        "name": "page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "description": "Number of items per page. Max value: 500",
+                        "in": "query",
+                        "name": "pageSize",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 500
                         }
                     }
                 ],
@@ -5016,7 +5048,7 @@
                         "description": "Too many requests"
                     }
                 },
-                "summary": "Get tracker items for a baseline version",
+                "summary": "Get tracker items related to a tracker item",
                 "tags": [
                     "Tracker item"
                 ]
@@ -9434,7 +9466,7 @@
             },
             "post": {
                 "externalDocs": {
-                    "description": "Tracker item operations",
+                    "description": "(If the summary of the new item is longer than 255 characters the value will be truncated.) Tracker item operations",
                     "url": "https://codebeamer.com/cb/wiki/11375769"
                 },
                 "operationId": "createTrackerItem",
@@ -12650,6 +12682,16 @@
                         "description": "The name of a shared field assigned to the field. This can be specified as an alternative to fieldId.",
                         "writeOnly": true
                     },
+                    "sharedFieldNames": {
+                        "type": "array",
+                        "description": "The names of a shared fields assigned to the field.",
+                        "readOnly": true,
+                        "items": {
+                            "type": "string",
+                            "description": "The names of a shared fields assigned to the field.",
+                            "readOnly": true
+                        }
+                    },
                     "type": {
                         "type": "string",
                         "description": "Type of the field"
@@ -13128,6 +13170,10 @@
                 ],
                 "type": "object",
                 "properties": {
+                    "conclusion": {
+                        "type": "string",
+                        "description": "Optional Test Case Run conclusion"
+                    },
                     "description": {
                         "type": "string",
                         "description": "Description of the Test Case"
@@ -13573,6 +13619,10 @@
                                 "items": {
                                     "type": "string"
                                 }
+                            },
+                            "multipleValues": {
+                                "type": "boolean",
+                                "description": "Multiple values state of a field"
                             }
                         }
                     }
@@ -13631,6 +13681,11 @@
             "CreateTestRunFromTestSetsRequest": {
                 "type": "object",
                 "properties": {
+                    "runOnlyAcceptedTestCases": {
+                        "type": "boolean",
+                        "description": "Generate Test Runs only from accepted Test Cases.",
+                        "default": false
+                    },
                     "testRunModel": {
                         "$ref": "#/components/schemas/TrackerItem"
                     },
@@ -13647,6 +13702,11 @@
             "CreateTestRunRequest": {
                 "type": "object",
                 "properties": {
+                    "runOnlyAcceptedTestCases": {
+                        "type": "boolean",
+                        "description": "Generate Test Runs only from accepted Test Cases.",
+                        "default": false
+                    },
                     "testCaseIds": {
                         "type": "array",
                         "writeOnly": true,
@@ -13684,15 +13744,11 @@
             "CrossProjectDependency": {
                 "type": "object",
                 "properties": {
-                    "paths": {
+                    "referredFrom": {
                         "type": "array",
-                        "description": "Paths in source project where references were found to target project.",
+                        "description": "Information on where references were found in source project.",
                         "items": {
-                            "type": "array",
-                            "description": "Paths in source project where references were found to target project.",
-                            "items": {
-                                "$ref": "#/components/schemas/DependencyEntityReference"
-                            }
+                            "$ref": "#/components/schemas/DependencyAttribute"
                         }
                     },
                     "sourceProject": {
@@ -13791,6 +13847,27 @@
                         "$ref": "#/components/schemas/AbstractBackgroundJobStatusInfo"
                     }
                 ]
+            },
+            "DependencyAttribute": {
+                "type": "object",
+                "properties": {
+                    "lookupDirection": {
+                        "type": "string",
+                        "description": "Direction in which dependency finder discovered the reference.",
+                        "enum": [
+                            "Forward",
+                            "Bidirectional"
+                        ]
+                    },
+                    "path": {
+                        "type": "array",
+                        "description": "Trace in source project model where the reference was found.",
+                        "items": {
+                            "$ref": "#/components/schemas/DependencyEntityReference"
+                        }
+                    }
+                },
+                "description": "Information on how and where references were found in source project."
             },
             "DependencyEntityReference": {
                 "type": "object",
@@ -14106,6 +14183,16 @@
                     {
                         "type": "object",
                         "properties": {
+                            "sharedFieldNames": {
+                                "type": "array",
+                                "description": "The names of a shared fields assigned to the field.",
+                                "readOnly": true,
+                                "items": {
+                                    "type": "string",
+                                    "description": "The names of a shared fields assigned to the field.",
+                                    "readOnly": true
+                                }
+                            },
                             "trackerId": {
                                 "type": "integer",
                                 "description": "Id of the tracker",
@@ -14258,6 +14345,10 @@
                                 "items": {
                                     "type": "string"
                                 }
+                            },
+                            "multipleValues": {
+                                "type": "boolean",
+                                "description": "Multiple values state of a field"
                             }
                         }
                     }
@@ -14427,6 +14518,17 @@
                     }
                 },
                 "description": "Paginated search result of members"
+            },
+            "NotImplementedException": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "resourceUri": {
+                        "type": "string"
+                    }
+                }
             },
             "NotSupportedFieldValue": {
                 "required": [
@@ -14734,6 +14836,15 @@
             "ProjectReference": {
                 "type": "object",
                 "description": "Reference to a project",
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/AbstractReference"
+                    }
+                ]
+            },
+            "ProjectRoleReference": {
+                "type": "object",
+                "description": "Reference to a project role",
                 "allOf": [
                     {
                         "$ref": "#/components/schemas/AbstractReference"
@@ -15909,6 +16020,10 @@
                         "items": {
                             "$ref": "#/components/schemas/TrackerItemRevision"
                         }
+                    },
+                    "showTestStepReferences": {
+                        "type": "boolean",
+                        "writeOnly": true
                     }
                 },
                 "description": "Traceability level filter"
@@ -16599,6 +16714,9 @@
                         "properties": {
                             "referenceData": {
                                 "$ref": "#/components/schemas/TrackerItemReferenceData"
+                            },
+                            "testStepReuse": {
+                                "type": "boolean"
                             }
                         }
                     }
@@ -16665,6 +16783,15 @@
                             "$ref": "#/components/schemas/IncomingTrackerItemAssociation"
                         }
                     },
+                    "isLastPage": {
+                        "type": "boolean",
+                        "description": "Set to true if it is the last page"
+                    },
+                    "itemCount": {
+                        "type": "integer",
+                        "description": "Number of items on page",
+                        "format": "int32"
+                    },
                     "itemId": {
                         "$ref": "#/components/schemas/TrackerItemRevision"
                     },
@@ -16674,6 +16801,16 @@
                         "items": {
                             "$ref": "#/components/schemas/OutgoingTrackerItemAssociation"
                         }
+                    },
+                    "page": {
+                        "type": "integer",
+                        "description": "Page no.",
+                        "format": "int32"
+                    },
+                    "pageSize": {
+                        "type": "integer",
+                        "description": "Page size",
+                        "format": "int32"
                     },
                     "upstreamReferences": {
                         "type": "array",

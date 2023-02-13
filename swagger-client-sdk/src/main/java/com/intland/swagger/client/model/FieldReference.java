@@ -13,6 +13,7 @@
 
 package com.intland.swagger.client.model;
 
+import java.util.List;
 import java.util.Objects;
 
 import com.google.gson.annotations.SerializedName;
@@ -24,8 +25,12 @@ import io.swagger.annotations.ApiModelProperty;
  * Reference to a field of a specific tracker
  */
 @ApiModel(description = "Reference to a field of a specific tracker")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class FieldReference extends AbstractReference {
+  public static final String SERIALIZED_NAME_SHARED_FIELD_NAMES = "sharedFieldNames";
+  @SerializedName(SERIALIZED_NAME_SHARED_FIELD_NAMES)
+  private List<String> sharedFieldNames = null;
+
   public static final String SERIALIZED_NAME_TRACKER_ID = "trackerId";
   @SerializedName(SERIALIZED_NAME_TRACKER_ID)
   private Integer trackerId;
@@ -33,6 +38,20 @@ public class FieldReference extends AbstractReference {
   public FieldReference() {
     this.type = this.getClass().getSimpleName();
   }
+
+   /**
+   * The names of a shared fields assigned to the field.
+   * @return sharedFieldNames
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The names of a shared fields assigned to the field.")
+
+  public List<String> getSharedFieldNames() {
+    return sharedFieldNames;
+  }
+
+
+
 
   public FieldReference trackerId(Integer trackerId) {
     
@@ -66,13 +85,14 @@ public class FieldReference extends AbstractReference {
       return false;
     }
     FieldReference fieldReference = (FieldReference) o;
-    return Objects.equals(this.trackerId, fieldReference.trackerId) &&
+    return Objects.equals(this.sharedFieldNames, fieldReference.sharedFieldNames) &&
+        Objects.equals(this.trackerId, fieldReference.trackerId) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(trackerId, super.hashCode());
+    return Objects.hash(sharedFieldNames, trackerId, super.hashCode());
   }
 
   @Override
@@ -80,6 +100,7 @@ public class FieldReference extends AbstractReference {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldReference {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    sharedFieldNames: ").append(toIndentedString(sharedFieldNames)).append("\n");
     sb.append("    trackerId: ").append(toIndentedString(trackerId)).append("\n");
     sb.append("}");
     return sb.toString();

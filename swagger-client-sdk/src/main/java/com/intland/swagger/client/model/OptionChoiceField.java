@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Option type choice field
  */
 @ApiModel(description = "Option type choice field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class OptionChoiceField extends AbstractField {
   public static final String SERIALIZED_NAME_MULTIPLE_VALUES = "multipleValues";
   @SerializedName(SERIALIZED_NAME_MULTIPLE_VALUES)

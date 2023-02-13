@@ -8,6 +8,7 @@ Request model to create a test run from multiple test cases or 1 test set
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**runOnlyAcceptedTestCases** | **Boolean** | Generate Test Runs only from accepted Test Cases. |  [optional]
 **testCaseIds** | [**List&lt;TrackerItemReference&gt;**](TrackerItemReference.md) |  |  [optional]
 **testCaseRefs** | [**List&lt;TrackerItemReference&gt;**](TrackerItemReference.md) | Test case ids to include into the test run |  [optional]
 **testRunModel** | [**TrackerItem**](TrackerItem.md) |  |  [optional]

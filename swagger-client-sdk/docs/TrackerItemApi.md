@@ -14,8 +14,8 @@ Method | HTTP request | Description
 [**findTrackerItemChildren**](TrackerItemApi.md#findTrackerItemChildren) | **GET** /v3/items/{itemId}/children | Get child items of a tracker item
 [**findTrackerItems**](TrackerItemApi.md#findTrackerItems) | **GET** /v3/items/query | Get tracker items by cbQL query string
 [**findTrackerItemsByCbQL**](TrackerItemApi.md#findTrackerItemsByCbQL) | **POST** /v3/items/query | Get tracker items by cbQL query string
-[**getBaselineTrackerItemRelations**](TrackerItemApi.md#getBaselineTrackerItemRelations) | **GET** /v3/items/{itemId}/relations | Get tracker items for a baseline version
-[**getBaselineTrackerItemsRelations**](TrackerItemApi.md#getBaselineTrackerItemsRelations) | **POST** /v3/items/relations | Get tracker items for a baseline version
+[**getBaselineTrackerItemRelations**](TrackerItemApi.md#getBaselineTrackerItemRelations) | **GET** /v3/items/{itemId}/relations | Get tracker items related to a tracker item
+[**getBaselineTrackerItemsRelations**](TrackerItemApi.md#getBaselineTrackerItemsRelations) | **POST** /v3/items/relations | Get tracker items related to some tracker items
 [**getChoiceOptions**](TrackerItemApi.md#getChoiceOptions) | **GET** /v3/items/{itemId}/fields/{fieldId}/options | Get the options of a choice field of tracker
 [**getItemAccessibility**](TrackerItemApi.md#getItemAccessibility) | **GET** /v3/items/{itemId}/fields/accessibility | Get a tracker item fields accessibility
 [**getTrackerItem**](TrackerItemApi.md#getTrackerItem) | **GET** /v3/items/{itemId} | Get basic tracker item
@@ -875,11 +875,11 @@ Name | Type | Description  | Notes
 
 <a name="getBaselineTrackerItemRelations"></a>
 # **getBaselineTrackerItemRelations**
-> TrackerItemRelationsResult getBaselineTrackerItemRelations(itemId, baselineId)
+> TrackerItemRelationsResult getBaselineTrackerItemRelations(itemId, baselineId, page, pageSize)
 
-Get tracker items for a baseline version
+Get tracker items related to a tracker item
 
-API can be used for fetching basic information of tracker items at a specific baseline version
+Use this endpoint to fetch tracker items related to a specified tracker item. The relations include downstream references, upstream references, incoming associations and outgoing associations of the given item. Relations with entities that are not tracker items (e.g., trackers, projects, URLs, etc.) will not be included in the result.
 
 ### Example
 ```java
@@ -914,8 +914,10 @@ public class Example {
     TrackerItemApi apiInstance = new TrackerItemApi(defaultClient);
     Integer itemId = 56; // Integer | 
     Integer baselineId = 56; // Integer | 
+    Integer page = 1; // Integer | Index of page, starting from 1.
+    Integer pageSize = 500; // Integer | Number of items per page. Max value: 500
     try {
-      TrackerItemRelationsResult result = apiInstance.getBaselineTrackerItemRelations(itemId, baselineId);
+      TrackerItemRelationsResult result = apiInstance.getBaselineTrackerItemRelations(itemId, baselineId, page, pageSize);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TrackerItemApi#getBaselineTrackerItemRelations");
@@ -934,6 +936,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **Integer**|  |
  **baselineId** | **Integer**|  | [optional]
+ **page** | **Integer**| Index of page, starting from 1. | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of items per page. Max value: 500 | [optional] [default to 500]
 
 ### Return type
 
@@ -961,9 +965,9 @@ Name | Type | Description  | Notes
 # **getBaselineTrackerItemsRelations**
 > List&lt;TrackerItemRelationsResult&gt; getBaselineTrackerItemsRelations(trackerItemsRequest, baselineId)
 
-Get tracker items for a baseline version
+Get tracker items related to some tracker items
 
-API can be used for fetching basic information of tracker items at a specific baseline version
+Use this endpoint to fetch tracker items related to some specified tracker items. The relations include downstream references, upstream references, incoming associations and outgoing associations of the given items. Relations with entities that are not tracker items (e.g., trackers, projects, URLs, etc.) will not be included in the result.
 
 ### Example
 ```java

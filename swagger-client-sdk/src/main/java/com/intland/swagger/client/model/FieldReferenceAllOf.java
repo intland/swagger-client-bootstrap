@@ -13,6 +13,7 @@
 
 package com.intland.swagger.client.model;
 
+import java.util.List;
 import java.util.Objects;
 
 import com.google.gson.annotations.SerializedName;
@@ -22,11 +23,29 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * FieldReferenceAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class FieldReferenceAllOf {
+  public static final String SERIALIZED_NAME_SHARED_FIELD_NAMES = "sharedFieldNames";
+  @SerializedName(SERIALIZED_NAME_SHARED_FIELD_NAMES)
+  private List<String> sharedFieldNames = null;
+
   public static final String SERIALIZED_NAME_TRACKER_ID = "trackerId";
   @SerializedName(SERIALIZED_NAME_TRACKER_ID)
   private Integer trackerId;
+
+
+   /**
+   * The names of a shared fields assigned to the field.
+   * @return sharedFieldNames
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The names of a shared fields assigned to the field.")
+
+  public List<String> getSharedFieldNames() {
+    return sharedFieldNames;
+  }
+
+
 
 
   public FieldReferenceAllOf trackerId(Integer trackerId) {
@@ -61,18 +80,20 @@ public class FieldReferenceAllOf {
       return false;
     }
     FieldReferenceAllOf fieldReferenceAllOf = (FieldReferenceAllOf) o;
-    return Objects.equals(this.trackerId, fieldReferenceAllOf.trackerId);
+    return Objects.equals(this.sharedFieldNames, fieldReferenceAllOf.sharedFieldNames) &&
+        Objects.equals(this.trackerId, fieldReferenceAllOf.trackerId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(trackerId);
+    return Objects.hash(sharedFieldNames, trackerId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldReferenceAllOf {\n");
+    sb.append("    sharedFieldNames: ").append(toIndentedString(sharedFieldNames)).append("\n");
     sb.append("    trackerId: ").append(toIndentedString(trackerId)).append("\n");
     sb.append("}");
     return sb.toString();

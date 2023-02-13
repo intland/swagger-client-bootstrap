@@ -26,11 +26,11 @@ import io.swagger.annotations.ApiModelProperty;
  * Dependency information between two projects.
  */
 @ApiModel(description = "Dependency information between two projects.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class CrossProjectDependency {
-  public static final String SERIALIZED_NAME_PATHS = "paths";
-  @SerializedName(SERIALIZED_NAME_PATHS)
-  private List<List<DependencyEntityReference>> paths = null;
+  public static final String SERIALIZED_NAME_REFERRED_FROM = "referredFrom";
+  @SerializedName(SERIALIZED_NAME_REFERRED_FROM)
+  private List<DependencyAttribute> referredFrom = null;
 
   public static final String SERIALIZED_NAME_SOURCE_PROJECT = "sourceProject";
   @SerializedName(SERIALIZED_NAME_SOURCE_PROJECT)
@@ -41,34 +41,34 @@ public class CrossProjectDependency {
   private ProjectReference targetProject;
 
 
-  public CrossProjectDependency paths(List<List<DependencyEntityReference>> paths) {
+  public CrossProjectDependency referredFrom(List<DependencyAttribute> referredFrom) {
     
-    this.paths = paths;
+    this.referredFrom = referredFrom;
     return this;
   }
 
-  public CrossProjectDependency addPathsItem(List<DependencyEntityReference> pathsItem) {
-    if (this.paths == null) {
-      this.paths = new ArrayList<List<DependencyEntityReference>>();
+  public CrossProjectDependency addReferredFromItem(DependencyAttribute referredFromItem) {
+    if (this.referredFrom == null) {
+      this.referredFrom = new ArrayList<DependencyAttribute>();
     }
-    this.paths.add(pathsItem);
+    this.referredFrom.add(referredFromItem);
     return this;
   }
 
    /**
-   * Paths in source project where references were found to target project.
-   * @return paths
+   * Information on where references were found in source project.
+   * @return referredFrom
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Paths in source project where references were found to target project.")
+  @ApiModelProperty(value = "Information on where references were found in source project.")
 
-  public List<List<DependencyEntityReference>> getPaths() {
-    return paths;
+  public List<DependencyAttribute> getReferredFrom() {
+    return referredFrom;
   }
 
 
-  public void setPaths(List<List<DependencyEntityReference>> paths) {
-    this.paths = paths;
+  public void setReferredFrom(List<DependencyAttribute> referredFrom) {
+    this.referredFrom = referredFrom;
   }
 
 
@@ -127,21 +127,21 @@ public class CrossProjectDependency {
       return false;
     }
     CrossProjectDependency crossProjectDependency = (CrossProjectDependency) o;
-    return Objects.equals(this.paths, crossProjectDependency.paths) &&
+    return Objects.equals(this.referredFrom, crossProjectDependency.referredFrom) &&
         Objects.equals(this.sourceProject, crossProjectDependency.sourceProject) &&
         Objects.equals(this.targetProject, crossProjectDependency.targetProject);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paths, sourceProject, targetProject);
+    return Objects.hash(referredFrom, sourceProject, targetProject);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CrossProjectDependency {\n");
-    sb.append("    paths: ").append(toIndentedString(paths)).append("\n");
+    sb.append("    referredFrom: ").append(toIndentedString(referredFrom)).append("\n");
     sb.append("    sourceProject: ").append(toIndentedString(sourceProject)).append("\n");
     sb.append("    targetProject: ").append(toIndentedString(targetProject)).append("\n");
     sb.append("}");

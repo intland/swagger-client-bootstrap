@@ -31,7 +31,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Request model to update Test Run&#39;s result for a Test Case
  */
 @ApiModel(description = "Request model to update Test Run's result for a Test Case")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T13:51:27.016473+01:00[Europe/Budapest]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-13T14:02:21.403654+01:00[Europe/Budapest]")
 public class UpdateTestCaseRunRequest {
   public static final String SERIALIZED_NAME_CONCLUSION = "conclusion";
   @SerializedName(SERIALIZED_NAME_CONCLUSION)

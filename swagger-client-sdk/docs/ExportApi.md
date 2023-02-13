@@ -83,11 +83,12 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | There is no baseline accessible with the supplied ID |  -  |
-**200** | List of tracker item reviews for each tracker item |  -  |
 **400** | Request cannot be processed |  -  |
-**403** | Tracker item reviews are disabled, or access to them is denied |  -  |
+**404** | There is no baseline accessible with the supplied ID |  -  |
+**429** | Too many requests |  -  |
 **401** | Authentication is required |  -  |
+**200** | List of tracker item reviews for each tracker item |  -  |
+**403** | Tracker item reviews are disabled, or access to them is denied |  -  |
 
 <a name="export"></a>
 # **export**
@@ -160,16 +161,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/zip
+ - **Accept**: application/zip, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The exported project contents in a zip file. |  -  |
 **403** | Authentication is required |  -  |
-**500** | Error during the project export |  -  |
-**404** | Project not found |  -  |
+**200** | The exported project contents in a zip file. |  -  |
 **400** | Bad request |  -  |
+**404** | Project not found |  -  |
+**500** | Error during the project export |  -  |
+**429** | Too many requests |  -  |
 
 <a name="getTrackerItems"></a>
 # **getTrackerItems**
@@ -252,4 +254,5 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **200** | Tracker item list |  -  |
 **404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 

@@ -7,6 +7,7 @@ Reference to a user
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**email** | **String** | Email of a referenced user |  [optional]
 
 
 

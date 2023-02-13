@@ -95,6 +95,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
 **200** | Comment of tracker item by id |  -  |
 
 <a name="deleteTrackerItemComment"></a>
@@ -175,6 +176,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
 **200** | Comment of tracker item by id |  -  |
 
 <a name="deleteTrackerItemComments"></a>
@@ -245,7 +247,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -253,6 +255,7 @@ null (empty response body)
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
 **200** | Comments deleted |  -  |
+**429** | Too many requests |  -  |
 
 <a name="editCommentOnTrackerItem"></a>
 # **editCommentOnTrackerItem**
@@ -339,6 +342,7 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **200** | Edited comment |  -  |
 **404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 **500** | Unexpected error |  -  |
 
 <a name="getTrackerItemComment"></a>
@@ -419,6 +423,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
 **200** | Comment of tracker item by id |  -  |
 
 <a name="getTrackerItemComments"></a>
@@ -497,6 +502,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
 **404** | Tracker item not found |  -  |
+**429** | Too many requests |  -  |
 **200** | Comments of tracker item by id |  -  |
 
 <a name="replyOnCommentOfTrackerItem"></a>
@@ -583,5 +589,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
 **404** | Tracker not found |  -  |
+**429** | Too many requests |  -  |
 **200** | Comment of tracker item by id |  -  |
 

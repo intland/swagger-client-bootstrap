@@ -81,7 +81,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Authentication is required |  -  |
-**200** | The item-references of the modified tracker-items where duplicate Test Steps was found and converted to Reuses |  -  |
 **403** | Authentication is required |  -  |
+**200** | The item-references of the modified tracker-items where duplicate Test Steps was found and converted to Reuses |  -  |
+**429** | Too many requests |  -  |
+**401** | Authentication is required |  -  |
 

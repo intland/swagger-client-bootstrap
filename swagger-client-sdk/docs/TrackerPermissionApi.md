@@ -86,7 +86,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required. |  -  |
+**429** | Too many requests |  -  |
 **200** | Tracker permission. |  -  |
+**404** | Resource is not found |  -  |
 
 <a name="getTrackerPermissions"></a>
 # **getTrackerPermissions**
@@ -159,8 +161,9 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required. |  -  |
-**200** | Tracker permissions. |  -  |
 **404** | Tracker permission is not found. |  -  |
+**429** | Too many requests |  -  |
+**200** | Tracker permissions. |  -  |
 
 <a name="getTrackerPermissionsWithRoles"></a>
 # **getTrackerPermissionsWithRoles**
@@ -243,6 +246,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required. |  -  |
+**429** | Too many requests |  -  |
 **404** | Tracker is not found. |  -  |
 **200** | Tracker permissions by role. |  -  |
 **400** | No access permission for this resource |  -  |
@@ -317,14 +321,15 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: */*
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Authentication is required |  -  |
-**404** | Tracker/role is not found |  -  |
+**429** | Too many requests |  -  |
 **200** | Tracker permissions were removed. |  -  |
+**404** | Tracker/role is not found |  -  |
 
 <a name="updatePermission"></a>
 # **updatePermission**
@@ -407,4 +412,5 @@ Name | Type | Description  | Notes
 **403** | Authentication is required |  -  |
 **200** | Tracker permissions are set |  -  |
 **404** | Tracker / permission / roles not found |  -  |
+**429** | Too many requests |  -  |
 

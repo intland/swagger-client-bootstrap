@@ -2,7 +2,7 @@
 
 # Project
 
-Basic properties of a codeBeamer project
+Basic properties of a codebeamer project
 ## Properties
 
 Name | Type | Description | Notes

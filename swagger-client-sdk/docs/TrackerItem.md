@@ -2,7 +2,7 @@
 
 # TrackerItem
 
-Basic properties of a codeBeamer tracker item
+Basic properties of a codebeamer tracker item
 ## Properties
 
 Name | Type | Description | Notes
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **parent** | [**TrackerItemReference**](TrackerItemReference.md) |  |  [optional]
 **owners** | [**List&lt;AbstractReference&gt;**](AbstractReference.md) | Owners of a tracker item |  [optional]
 **version** | **Integer** | Version of a tracker item |  [optional] [readonly]
-**assignedAt** | [**DateTime**](DateTime.md) | Assigne date of a tracker item |  [optional] [readonly]
+**assignedAt** | [**DateTime**](DateTime.md) | Assignee date of a tracker item |  [optional] [readonly]
 **assignedTo** | [**List&lt;AbstractReference&gt;**](AbstractReference.md) | Assignees of a tracker item |  [optional]
 **startDate** | [**DateTime**](DateTime.md) | Start date of a tracker item |  [optional]
 **endDate** | [**DateTime**](DateTime.md) | End date of a tracker item |  [optional]
@@ -45,6 +45,7 @@ Name | Type | Description | Notes
 **ordinal** | **Integer** | Ordinal of a tracker item |  [optional]
 **typeName** | **String** | Type name of a tracker item |  [optional]
 **comments** | [**List&lt;CommentReference&gt;**](CommentReference.md) | Comment in the tracker item |  [optional] [readonly]
+**tags** | [**List&lt;Label&gt;**](Label.md) | Tags of the tracker item |  [optional] [readonly]
 
 
 

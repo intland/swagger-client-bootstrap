@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **conclusion** | **String** | Optional conclusion text |  [optional]
 **runTime** | **Integer** | Optional runtime in seconds |  [optional]
 **reportedBugReferences** | [**List&lt;TrackerItemReference&gt;**](TrackerItemReference.md) | Optional reference list of Bugs attached to the Test result |  [optional]
+**customFields** | [**List&lt;AbstractFieldValue&gt;**](AbstractFieldValue.md) | Optional field values to set on the Test Run |  [optional]
 
 
 
